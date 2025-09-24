@@ -574,8 +574,7 @@ exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
     >
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger demo-colorpicker-root css-var-test-id ant-color-picker-css-var"
-        style="border-width:2px;border-style:dashed"
+        class="ant-color-picker-trigger acss-pbemrr css-var-test-id ant-color-picker-css-var"
       >
         <div
           class="ant-color-picker-color-block"
@@ -596,8 +595,7 @@ exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
     >
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger ant-color-picker-lg demo-colorpicker-root--enabled css-var-test-id ant-color-picker-css-var"
-        style="background-color:#fafafa;border-color:#d9d9d9"
+        class="ant-color-picker-trigger ant-color-picker-lg acss-pbemrr css-var-test-id ant-color-picker-css-var"
       >
         <div
           class="ant-color-picker-color-block"

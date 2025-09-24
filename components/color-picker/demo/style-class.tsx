@@ -1,49 +1,52 @@
 import React from 'react';
 import { ColorPicker, Flex, Space } from 'antd';
 import type { ColorPickerProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: ColorPickerProps['classNames'] = {
-  root: 'demo-colorpicker-root',
-  popup: {
-    root: 'demo-colorpicker-popup',
+const useStyles = createStyles(({ token }) => ({
+  root: {
+    borderRadius: token.borderRadius,
   },
-};
+}));
 
-const classNamesFn: ColorPickerProps['classNames'] = (info) => {
-  if (info.props.disabled) {
-    return { root: 'demo-colorpicker-root--disabled' };
-  }
-  return { root: 'demo-colorpicker-root--enabled' };
-};
+const App: React.FC = () => {
+  const { styles: classNames } = useStyles();
 
-const stylesObject: ColorPickerProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  popup: {
-    root: { borderRadius: 8 },
-  },
-};
+  const stylesObject: ColorPickerProps['styles'] = {
+    popup: {
+      root: {
+        border: '1px solid #fff',
+      },
+    },
+  };
+  const stylesFn: ColorPickerProps['styles'] = (info) => {
+    if (info.props.size === 'large') {
+      return {
+        popup: {
+          root: {
+            border: '1px solid #722ed1',
+          },
+        },
+      };
+    }
+    return {};
+  };
 
-const stylesFn: ColorPickerProps['styles'] = (info) => {
-  if (info.props.size === 'large') {
-    return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
-  }
-  return { root: { backgroundColor: '#fffbe6', borderColor: '#ffe58f' } };
+  return (
+    <Space size={[8, 16]} wrap>
+      <Flex gap="small">
+        <ColorPicker defaultValue="#1677ff" styles={stylesObject} classNames={classNames} />
+      </Flex>
+      <Flex gap="small">
+        <ColorPicker
+          defaultValue="#722ed1"
+          size="large"
+          styles={stylesFn}
+          classNames={classNames}
+        />
+      </Flex>
+    </Space>
+  );
 };
-
-const App: React.FC = () => (
-  <Space size={[8, 16]} wrap>
-    <Flex gap="small">
-      <ColorPicker defaultValue="#1677ff" styles={stylesObject} classNames={classNamesObject} />
-    </Flex>
-    <Flex gap="small">
-      <ColorPicker
-        defaultValue="#722ed1"
-        size="large"
-        styles={stylesFn}
-        classNames={classNamesFn}
-      />
-    </Flex>
-  </Space>
-);
 
 export default App;
