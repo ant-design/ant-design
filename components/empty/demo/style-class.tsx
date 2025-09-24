@@ -1,84 +1,84 @@
 import React from 'react';
-import { Button, Empty } from 'antd';
-
+import { Button, Empty, Flex } from 'antd';
 import type { EmptyProps } from '..';
+import { createStyles } from 'antd-style';
+
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+    border: 1px dashed #ccc;
+    padding: 16px;
+  `,
+}));
 
 // Object-based classNames
-const objectClassNames = {
+const classNamesObject = {
   root: 'custom-empty-root',
   image: 'custom-empty-image',
   description: 'custom-empty-description',
   footer: 'custom-empty-footer',
 };
 
-// Object-based styles
-const objectStyles = {
-  root: { backgroundColor: '#f5f5f5', padding: '20px', borderRadius: '8px' },
-  image: { filter: 'grayscale(100%)' },
-  description: { color: '#1890ff', fontWeight: 'bold' },
-  footer: { marginTop: '16px' },
-};
-
-// Function-based classNames
-const functionClassNames: EmptyProps['classNames'] = (info) => ({
-  root: `dynamic-empty-root ${info.props.description ? 'with-desc' : 'no-desc'}`,
+// Function-based classNames - dynamic based on props
+const classNamesFn: EmptyProps['classNames'] = ({ props }) => ({
+  root: `dynamic-empty-root ${props.description ? 'with-desc' : 'no-desc'}`,
   image: 'dynamic-empty-image',
   description: 'dynamic-empty-description',
   footer: 'dynamic-empty-footer',
 });
 
-// Function-based styles
-const functionStyles: EmptyProps['styles'] = (info) => ({
-  root: {
-    backgroundColor: info.props.description ? '#e6f7ff' : '#f6ffed',
-    padding: '20px',
-    borderRadius: '8px',
-    border: info.props.description ? '1px solid #91d5ff' : '1px solid #b7eb8f',
-  },
-  image: {
-    filter: info.props.description ? 'hue-rotate(180deg)' : 'sepia(100%)',
-  },
-  description: {
-    color: info.props.description ? '#1890ff' : '#52c41a',
-    fontWeight: 'bold',
-  },
+// Object-based styles
+const stylesObject = {
+  root: { backgroundColor: '#f5f5f5', borderRadius: '8px' },
+  image: { filter: 'grayscale(100%)' },
+  description: { color: '#1890ff', fontWeight: 'bold' },
   footer: { marginTop: '16px' },
-});
+};
 
-const App: React.FC = () => (
-  <div>
-    <h4>1. Object-based classNames:</h4>
-    <Empty
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-      description="Custom classNames"
-      classNames={objectClassNames}
-    >
-      <Button type="primary">Create Now</Button>
-    </Empty>
+// Function-based styles - differentiate by props
+const stylesFn: EmptyProps['styles'] = ({ props: { description } }) => {
+  if (description) {
+    return {
+      root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },
+      description: { color: '#1890ff', fontWeight: 'bold' },
+      image: { filter: 'hue-rotate(180deg)' },
+    };
+  }
+  return {};
+};
 
-    <h4 style={{ marginTop: 32 }}>2. Object-based styles:</h4>
-    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Custom styles" styles={objectStyles}>
-      <Button type="primary">Create Now</Button>
-    </Empty>
+const App: React.FC = () => {
+  const { styles } = useStyle();
 
-    <h4 style={{ marginTop: 32 }}>3. Function-based classNames:</h4>
-    <Empty
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-      description="Dynamic classNames"
-      classNames={functionClassNames}
-    >
-      <Button type="primary">Create Now</Button>
-    </Empty>
+  const emptySharedProps: EmptyProps = {
+    image: Empty.PRESENTED_IMAGE_SIMPLE,
+    children: <Button type="primary">Create Now</Button>,
+  };
 
-    <h4 style={{ marginTop: 32 }}>4. Function-based styles:</h4>
-    <Empty
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-      description="Dynamic styles"
-      styles={functionStyles}
-    >
-      <Button type="primary">Create Now</Button>
-    </Empty>
-  </div>
-);
+  // Use same classNames across examples
+  const sharedClassNames = { root: styles.root };
+
+  return (
+    <Flex vertical gap="middle">
+      <Empty
+        {...emptySharedProps}
+        description="Object classNames"
+        classNames={{ ...sharedClassNames, ...classNamesObject }}
+      />
+      <Empty
+        {...emptySharedProps}
+        description="Object styles"
+        classNames={sharedClassNames}
+        styles={stylesObject}
+      />
+      <Empty {...emptySharedProps} description="Function classNames" classNames={classNamesFn} />
+      <Empty
+        {...emptySharedProps}
+        description="Function styles"
+        classNames={sharedClassNames}
+        styles={stylesFn}
+      />
+    </Flex>
+  );
+};
 
 export default App;

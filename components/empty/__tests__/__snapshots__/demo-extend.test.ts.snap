@@ -1204,12 +1204,11 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
 exports[`renders components/empty/demo/simple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/empty/demo/style-class.tsx extend context correctly 1`] = `
-<div>
-  <h4>
-    1. Object-based classNames:
-  </h4>
+<div
+  class="ant-flex css-var-test-id ant-flex-vertical ant-flex-gap-middle"
+>
   <div
-    class="css-var-test-id ant-empty ant-empty-normal custom-empty-root"
+    class="css-var-test-id ant-empty ant-empty-normal acss-1drlqy5 custom-empty-root custom-empty-image custom-empty-description custom-empty-footer"
   >
     <div
       class="ant-empty-image custom-empty-image"
@@ -1253,7 +1252,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     <div
       class="ant-empty-description custom-empty-description"
     >
-      Custom classNames
+      Object classNames
     </div>
     <div
       class="ant-empty-footer custom-empty-footer"
@@ -1268,14 +1267,9 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
       </button>
     </div>
   </div>
-  <h4
-    style="margin-top: 32px;"
-  >
-    2. Object-based styles:
-  </h4>
   <div
-    class="css-var-test-id ant-empty ant-empty-normal"
-    style="background-color: rgb(245, 245, 245); padding: 20px; border-radius: 8px;"
+    class="css-var-test-id ant-empty ant-empty-normal acss-1drlqy5"
+    style="background-color: rgb(245, 245, 245); border-radius: 8px;"
   >
     <div
       class="ant-empty-image"
@@ -1321,7 +1315,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
       class="ant-empty-description"
       style="color: rgb(24, 144, 255); font-weight: bold;"
     >
-      Custom styles
+      Object styles
     </div>
     <div
       class="ant-empty-footer"
@@ -1337,11 +1331,6 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
       </button>
     </div>
   </div>
-  <h4
-    style="margin-top: 32px;"
-  >
-    3. Function-based classNames:
-  </h4>
   <div
     class="css-var-test-id ant-empty ant-empty-normal dynamic-empty-root with-desc"
   >
@@ -1387,7 +1376,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     <div
       class="ant-empty-description dynamic-empty-description"
     >
-      Dynamic classNames
+      Function classNames
     </div>
     <div
       class="ant-empty-footer dynamic-empty-footer"
@@ -1402,14 +1391,9 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
       </button>
     </div>
   </div>
-  <h4
-    style="margin-top: 32px;"
-  >
-    4. Function-based styles:
-  </h4>
   <div
-    class="css-var-test-id ant-empty ant-empty-normal"
-    style="background-color: rgb(230, 247, 255); padding: 20px; border-radius: 8px; border: 1px solid rgb(145, 213, 255);"
+    class="css-var-test-id ant-empty ant-empty-normal acss-1drlqy5"
+    style="background-color: rgb(230, 247, 255); border: 1px solid rgb(145, 213, 255);"
   >
     <div
       class="ant-empty-image"
@@ -1455,11 +1439,10 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
       class="ant-empty-description"
       style="color: rgb(24, 144, 255); font-weight: bold;"
     >
-      Dynamic styles
+      Function styles
     </div>
     <div
       class="ant-empty-footer"
-      style="margin-top: 16px;"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
