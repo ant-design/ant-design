@@ -104,7 +104,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | label | Title of the panel | ReactNode | - | - |
 | showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true |  |
-| styles | Semantic DOM style | [`Record<header \| body, CSSProperties>`](#semantic-dom) | - | 5.21.0 |
 
 ### Collapse.Panel
 
