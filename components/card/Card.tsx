@@ -127,14 +127,17 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const mergedSize = useSize(customizeSize);
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
+  const mergedProps: CardProps = React.useMemo(
+    () => ({
       ...props,
       size: mergedSize,
       variant,
       loading,
-    } as CardProps;
-  }, [props, mergedSize, variant, loading]);
+      hoverable,
+      type,
+    }),
+    [props, mergedSize, variant, loading, hoverable, type],
+  );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CardClassNamesType,
