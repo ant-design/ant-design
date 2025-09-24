@@ -70,7 +70,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/vertical.tsx">垂直</code>
 <code src="./demo/vertical-border.tsx">垂直带边框的</code>
 <code src="./demo/style.tsx" debug>自定义 label & wrapper 样式</code>
-<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/jsx.tsx" debug>JSX demo</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/block.tsx">整行</code>
