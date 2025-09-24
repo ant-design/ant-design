@@ -105,7 +105,6 @@ const items: CollapseProps['items'] = [
 | key | 对应 activeKey | string \| number | - |  |
 | label | 面板标题 | ReactNode | - | - |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能设为 icon） | boolean | true |  |
-| styles | 语义化结构 style | [`Record<header \| body, CSSProperties>`](#semantic-dom) | - | 5.21.0 |
 
 ### Collapse.Panel
 
