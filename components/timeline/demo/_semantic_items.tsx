@@ -2,9 +2,8 @@ import React from 'react';
 import { Timeline } from 'antd';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
-import SemanticPreview, {
-  SemanticPreviewInjectionProps,
-} from '../../../.dumi/theme/common/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
+import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {

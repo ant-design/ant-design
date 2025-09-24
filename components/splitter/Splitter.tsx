@@ -14,7 +14,12 @@ import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
-import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
+import type {
+  SplitterProps,
+  SplitterSemanticDraggerClassNames,
+  SplitterClassNamesType,
+  SplitterStylesType,
+} from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
@@ -137,8 +142,19 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeEnd?.(nextSizes);
   });
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: SplitterProps = {
+    ...props,
+    vertical: isVertical,
+    orientation: mergedOrientation,
+  };
+
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SplitterClassNamesType,
+    SplitterStylesType,
+    SplitterProps
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -148,6 +164,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         _default: 'default',
       },
     },
+    { props: mergedProps },
   );
 
   const containerClassName = cls(

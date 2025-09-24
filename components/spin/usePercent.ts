@@ -38,7 +38,10 @@ export default function usePercent(
     }
 
     return () => {
-      clearInterval(mockIntervalRef.current!);
+      if (mockIntervalRef.current) {
+        clearInterval(mockIntervalRef.current);
+        mockIntervalRef.current = null;
+      }
     };
   }, [isAuto, spinning]);
 

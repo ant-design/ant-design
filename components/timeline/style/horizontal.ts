@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { TimelineToken } from '.';
+import type { TimelineToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
