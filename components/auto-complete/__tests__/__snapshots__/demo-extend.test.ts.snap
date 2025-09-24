@@ -2875,7 +2875,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 exports[`renders components/auto-complete/demo/style-class.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical css-var-test-id"
-  style="column-gap: 8px; row-gap: 24px; width: 100%;"
+  style="column-gap: 8px; row-gap: 24px;"
 >
   <div
     class="ant-space-item"
@@ -2884,7 +2884,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-auto-complete demo-autocomplete-root css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-auto-complete acss-1rj0z6b css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
         style="width: 200px;"
       >
         <div
@@ -2903,10 +2903,9 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
                 autocomplete="off"
-                class="ant-select-selection-search-input demo-autocomplete-input"
+                class="ant-select-selection-search-input"
                 id="test-id"
                 role="combobox"
-                style="font-weight: bold; color: rgb(24, 144, 255);"
                 type="search"
                 value=""
               />
@@ -2914,13 +2913,13 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
             <span
               class="ant-select-selection-placeholder"
             >
-              input here
+              object styles
             </span>
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up demo-autocomplete-popup css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 3px; border-color: rgb(24, 144, 255);"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(24, 144, 255);"
         >
           <div>
             <div
@@ -2937,7 +2936,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
             </div>
             <div
-              class="rc-virtual-list demo-autocomplete-list"
+              class="rc-virtual-list"
               style="background-color: rgb(249, 249, 249); position: relative;"
             >
               <div
@@ -3013,8 +3012,8 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-select ant-select-filled ant-select-auto-complete demo-autocomplete-root css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-        style="font-weight: bold; border: 1px solid rgb(24, 144, 255); width: 200px;"
+        class="ant-select ant-select-filled ant-select-auto-complete acss-1rj0z6b css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+        style="width: 200px;"
       >
         <div
           class="ant-select-selector"
@@ -3032,7 +3031,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
                 autocomplete="off"
-                class="ant-select-selection-search-input demo-autocomplete-input"
+                class="ant-select-selection-search-input"
                 id="test-id"
                 role="combobox"
                 type="search"
@@ -3042,13 +3041,13 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
             <span
               class="ant-select-selection-placeholder"
             >
-              input here
+              function styles
             </span>
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up demo-autocomplete-popup-fn css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background-color: rgb(204, 204, 204);"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(204, 204, 204);"
         >
           <div>
             <div
@@ -3066,7 +3065,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
             </div>
             <div
               class="rc-virtual-list"
-              style="position: relative;"
+              style="background-color: rgb(240, 240, 240); position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
