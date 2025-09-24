@@ -222,28 +222,6 @@ exports[`renders components/switch/demo/style-class.tsx extend context correctly
     >
       <button
         aria-checked="false"
-        class="ant-switch demo-switch-root css-var-test-id"
-        role="switch"
-        type="button"
-      >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        >
-          <span
-            class="ant-switch-inner-checked demo-switch-content"
-          >
-            开启
-          </span>
-          <span
-            class="ant-switch-inner-unchecked demo-switch-content"
-          />
-        </span>
-      </button>
-      <button
-        aria-checked="false"
         class="ant-switch demo-switch-root--unCheckedChildren css-var-test-id"
         role="switch"
         type="button"
@@ -293,33 +271,6 @@ exports[`renders components/switch/demo/style-class.tsx extend context correctly
           <span
             class="ant-switch-inner-unchecked"
           />
-        </span>
-      </button>
-      <button
-        aria-checked="false"
-        class="ant-switch css-var-test-id"
-        role="switch"
-        style="background: green;"
-        type="button"
-      >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        >
-          <span
-            class="ant-switch-inner-checked"
-            style="color: black;"
-          >
-            1
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-            style="color: black;"
-          >
-            0
-          </span>
         </span>
       </button>
     </div>
