@@ -1,71 +1,51 @@
 import React from 'react';
-import { Pagination } from 'antd';
+import { Flex, Pagination } from 'antd';
 import type { PaginationProps } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+    border: 2px dashed #ccc;
+    padding: 8px;
+  `,
+}));
+
+const styleFn: PaginationProps['styles'] = ({ props: { size } }) => {
+  if (size === 'small') {
+    return {
+      item: {
+        background: `rgba(200,200,200,0.3)`,
+        marginInlineEnd: 4,
+      },
+    };
+  }
+
+  return {};
+};
 
 const App: React.FC = () => {
-  const [current, setCurrent] = React.useState(1);
-  const [pageSize, setPageSize] = React.useState(10);
+  const { styles } = useStyle();
 
-  const handleChange = (page: number, size: number) => {
-    setCurrent(page);
-    setPageSize(size);
-  };
-
-  const objectClassNames: PaginationProps['classNames'] = {
-    root: 'custom-pagination-root',
-    item: 'custom-pagination-item',
-  };
-
-  const objectStyles: PaginationProps['styles'] = {
-    root: { backgroundColor: '#f0f0f0', padding: '8px', marginBottom: 10 },
-    item: { color: '#1890ff', fontWeight: 'bold' },
-  };
-
-  const functionClassNames: PaginationProps['classNames'] = (info) => {
-    const { props } = info;
-    return {
-      root: `dynamic-pagination-root-${props.size || 'default'}`,
-      item: props.disabled ? 'disabled-pagination-item' : 'enabled-pagination-item',
-    };
-  };
-
-  const functionStyles: PaginationProps['styles'] = (info) => {
-    const { props } = info;
-    return {
-      root: {
-        backgroundColor: props.size === 'small' ? '#e6f7ff' : '#f6ffed',
-        borderRadius: '4px',
-      },
-      item: {
-        color: props.disabled ? '#d9d9d9' : '#52c41a',
-        transition: 'all 0.3s',
-      },
-    };
+  const paginationSharedProps: PaginationProps = {
+    total: 500,
+    classNames: {
+      root: styles.root,
+    },
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <Flex vertical gap="middle">
       <Pagination
-        current={current}
-        pageSize={pageSize}
-        total={100}
-        onChange={handleChange}
-        classNames={objectClassNames}
-        styles={objectStyles}
-        showSizeChanger
+        {...paginationSharedProps}
+        styles={{
+          item: {
+            borderRadius: 999,
+          },
+        }}
       />
 
-      <Pagination
-        current={current}
-        pageSize={pageSize}
-        total={100}
-        onChange={handleChange}
-        classNames={functionClassNames}
-        styles={functionStyles}
-        showSizeChanger
-        size="small"
-      />
-    </div>
+      <Pagination {...paginationSharedProps} size="small" styles={styleFn} />
+    </Flex>
   );
 };
 

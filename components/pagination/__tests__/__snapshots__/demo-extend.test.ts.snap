@@ -4895,16 +4895,15 @@ exports[`renders components/pagination/demo/simple.tsx extend context correctly 
 
 exports[`renders components/pagination/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  style="padding: 20px;"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-pagination custom-pagination-root css-var-test-id"
-    style="background-color: rgb(240, 240, 240); padding: 8px; margin-bottom: 10px;"
+    class="ant-pagination acss-8de2dl css-var-test-id"
   >
     <li
       aria-disabled="true"
-      class="ant-pagination-prev custom-pagination-item ant-pagination-disabled"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-prev ant-pagination-disabled"
+      style="border-radius: 999px;"
       title="Previous Page"
     >
       <button
@@ -4935,8 +4934,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </button>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      style="border-radius: 999px;"
       tabindex="0"
       title="1"
     >
@@ -4947,8 +4946,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-2 custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-item ant-pagination-item-2"
+      style="border-radius: 999px;"
       tabindex="0"
       title="2"
     >
@@ -4959,8 +4958,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-3 custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-item ant-pagination-item-3"
+      style="border-radius: 999px;"
       tabindex="0"
       title="3"
     >
@@ -4971,8 +4970,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-4 custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-item ant-pagination-item-4"
+      style="border-radius: 999px;"
       tabindex="0"
       title="4"
     >
@@ -4983,8 +4982,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+      style="border-radius: 999px;"
       tabindex="0"
       title="5"
     >
@@ -5033,21 +5032,21 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-10 custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-item ant-pagination-item-50"
+      style="border-radius: 999px;"
       tabindex="0"
-      title="10"
+      title="50"
     >
       <a
         rel="nofollow"
       >
-        10
+        50
       </a>
     </li>
     <li
       aria-disabled="false"
-      class="ant-pagination-next custom-pagination-item"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      class="ant-pagination-next"
+      style="border-radius: 999px;"
       tabindex="0"
       title="Next Page"
     >
@@ -5248,13 +5247,12 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
   </ul>
   <ul
-    class="ant-pagination ant-pagination-mini dynamic-pagination-root-small css-var-test-id"
-    style="background-color: rgb(230, 247, 255); border-radius: 4px;"
+    class="ant-pagination ant-pagination-mini acss-8de2dl css-var-test-id"
   >
     <li
       aria-disabled="true"
-      class="ant-pagination-prev enabled-pagination-item ant-pagination-disabled"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-prev ant-pagination-disabled"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       title="Previous Page"
     >
       <button
@@ -5285,8 +5283,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </button>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="1"
     >
@@ -5297,8 +5295,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-2 enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-item ant-pagination-item-2"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="2"
     >
@@ -5309,8 +5307,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-3 enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-item ant-pagination-item-3"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="3"
     >
@@ -5321,8 +5319,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-4 enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-item ant-pagination-item-4"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="4"
     >
@@ -5333,8 +5331,8 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="5"
     >
@@ -5383,21 +5381,21 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-10 enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-item ant-pagination-item-50"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
-      title="10"
+      title="50"
     >
       <a
         rel="nofollow"
       >
-        10
+        50
       </a>
     </li>
     <li
       aria-disabled="false"
-      class="ant-pagination-next enabled-pagination-item"
-      style="color: rgb(82, 196, 26); transition: all 0.3s;"
+      class="ant-pagination-next"
+      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="Next Page"
     >
