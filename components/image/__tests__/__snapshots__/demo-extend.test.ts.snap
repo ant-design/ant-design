@@ -734,7 +734,7 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
   >
     <div>
       <h4>
-        classNames and styles object
+        styles object
       </h4>
       <div
         class="ant-image css-var-test-id ant-image-css-var custom-image-root"
@@ -759,7 +759,7 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
   >
     <div>
       <h4>
-        classNames and styles function
+        styles function
       </h4>
       <div
         class="ant-image css-var-test-id ant-image-css-var image-with-preview"

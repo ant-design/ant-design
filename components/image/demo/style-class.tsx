@@ -97,10 +97,10 @@ const App: React.FC = () => {
   return (
     <Space size="large">
       <div>
-        <h4>classNames and styles object</h4>
+        <h4>styles object</h4>
         <Image
-          width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          width={200}
           alt="示例图片"
           classNames={classNamesObject}
           styles={stylesObject}
@@ -108,10 +108,10 @@ const App: React.FC = () => {
       </div>
 
       <div>
-        <h4>classNames and styles function</h4>
+        <h4>styles function</h4>
         <Image
-          width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          width={200}
           alt="示例图片"
           preview={{ open: false }}
           classNames={classNamesFunction}
