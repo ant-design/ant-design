@@ -7315,8 +7315,8 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
         </div>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var demo-dropdown-root ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background-color: rgb(240, 248, 255); border: 1px solid rgb(24, 144, 255);"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var acss-13vo22o ant-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background-color: rgb(255, 255, 255); border: 1px solid rgb(217, 217, 217); border-radius: 4px;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -7325,89 +7325,51 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
           tabindex="0"
         >
           <li
-            class="ant-dropdown-menu-item-group"
-            role="presentation"
+            aria-describedby="test-id"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+            data-menu-id="rc-menu-uuid-1"
+            role="menuitem"
+            style="padding: 8px 12px; font-size: 14px;"
+            tabindex="-1"
           >
-            <div
-              class="ant-dropdown-menu-item-group-title demo-dropdown-item-title"
-              role="presentation"
-              style="font-weight: bold; color: red;"
-              title="Profile"
+            <span
+              class="ant-dropdown-menu-title-content"
+              style="background-color: transparent;"
             >
               Profile
-            </div>
-            <ul
-              class="ant-dropdown-menu-item-group-list"
-              role="group"
-            >
-              <li
-                aria-describedby="test-id"
-                class="ant-dropdown-menu-item demo-dropdown-item"
-                data-menu-id="rc-menu-uuid-1-1"
-                role="menuitem"
-                style="padding: 8px 16px; font-size: 14px;"
-                tabindex="-1"
-              >
-                <span
-                  aria-label="user"
-                  class="anticon anticon-user ant-dropdown-menu-item-icon demo-dropdown-item-icon"
-                  role="img"
-                  style="color: rgb(82, 196, 26); margin-right: 8px;"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="user"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="ant-dropdown-menu-title-content demo-dropdown-item-content"
-                  style="background-color: rgb(246, 255, 237);"
-                >
-                  Profile
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </ul>
+            </span>
           </li>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+          </div>
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item demo-dropdown-item"
+            class="ant-dropdown-menu-item"
             data-menu-id="rc-menu-uuid-2"
             role="menuitem"
-            style="padding: 8px 16px; font-size: 14px;"
+            style="padding: 8px 12px; font-size: 14px;"
             tabindex="-1"
           >
             <span
               aria-label="setting"
-              class="anticon anticon-setting ant-dropdown-menu-item-icon demo-dropdown-item-icon"
+              class="anticon anticon-setting ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(82, 196, 26); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-right: 8px;"
             >
               <svg
                 aria-hidden="true"
@@ -7424,8 +7386,8 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               </svg>
             </span>
             <span
-              class="ant-dropdown-menu-title-content demo-dropdown-item-content"
-              style="background-color: rgb(246, 255, 237);"
+              class="ant-dropdown-menu-title-content"
+              style="background-color: transparent;"
             >
               Settings
             </span>
@@ -7454,17 +7416,17 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
           />
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item demo-dropdown-item ant-dropdown-menu-item-danger"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-danger"
             data-menu-id="rc-menu-uuid-3"
             role="menuitem"
-            style="padding: 8px 16px; font-size: 14px;"
+            style="padding: 8px 12px; font-size: 14px;"
             tabindex="-1"
           >
             <span
               aria-label="logout"
-              class="anticon anticon-logout ant-dropdown-menu-item-icon demo-dropdown-item-icon"
+              class="anticon anticon-logout ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(82, 196, 26); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-right: 8px;"
             >
               <svg
                 aria-hidden="true"
@@ -7481,8 +7443,8 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               </svg>
             </span>
             <span
-              class="ant-dropdown-menu-title-content demo-dropdown-item-content"
-              style="background-color: rgb(246, 255, 237);"
+              class="ant-dropdown-menu-title-content"
+              style="background-color: transparent;"
             >
               Logout
             </span>
@@ -7525,7 +7487,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
           <div
             class="ant-space-item"
           >
-            Function Style (Click)
+            Function Style
           </div>
           <div
             class="ant-space-item"
@@ -7553,8 +7515,8 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
         </div>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var demo-dropdown-click ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background-color: rgb(230, 247, 255); border: 2px solid rgb(24, 144, 255); border-radius: 6px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var acss-13vo22o ant-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-color: rgb(24, 144, 255); border-radius: 8px;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -7563,89 +7525,47 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
           tabindex="0"
         >
           <li
-            class="ant-dropdown-menu-item-group"
-            role="presentation"
+            aria-describedby="test-id"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+            data-menu-id="rc-menu-uuid-1"
+            role="menuitem"
+            tabindex="-1"
           >
-            <div
-              class="ant-dropdown-menu-item-group-title demo-dropdown-title-dynamic"
-              role="presentation"
-              style="color: rgb(24, 144, 255); font-weight: 600;"
-              title="Profile"
+            <span
+              class="ant-dropdown-menu-title-content"
             >
               Profile
-            </div>
-            <ul
-              class="ant-dropdown-menu-item-group-list"
-              role="group"
-            >
-              <li
-                aria-describedby="test-id"
-                class="ant-dropdown-menu-item demo-dropdown-item-dynamic"
-                data-menu-id="rc-menu-uuid-1-1"
-                role="menuitem"
-                style="padding: 10px 16px; transition: all 0.3s;"
-                tabindex="-1"
-              >
-                <span
-                  aria-label="user"
-                  class="anticon anticon-user ant-dropdown-menu-item-icon demo-dropdown-icon-dynamic"
-                  role="img"
-                  style="color: rgb(82, 196, 26);"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="user"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="ant-dropdown-menu-title-content demo-dropdown-content-dynamic"
-                  style="background-color: rgb(240, 248, 255); border-radius: 4px;"
-                >
-                  Profile
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </ul>
+            </span>
           </li>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+          </div>
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item demo-dropdown-item-dynamic"
+            class="ant-dropdown-menu-item"
             data-menu-id="rc-menu-uuid-2"
             role="menuitem"
-            style="padding: 10px 16px; transition: all 0.3s;"
             tabindex="-1"
           >
             <span
               aria-label="setting"
-              class="anticon anticon-setting ant-dropdown-menu-item-icon demo-dropdown-icon-dynamic"
+              class="anticon anticon-setting ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(82, 196, 26);"
             >
               <svg
                 aria-hidden="true"
@@ -7662,8 +7582,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               </svg>
             </span>
             <span
-              class="ant-dropdown-menu-title-content demo-dropdown-content-dynamic"
-              style="background-color: rgb(240, 248, 255); border-radius: 4px;"
+              class="ant-dropdown-menu-title-content"
             >
               Settings
             </span>
@@ -7692,17 +7611,15 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
           />
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item demo-dropdown-item-dynamic ant-dropdown-menu-item-danger"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-danger"
             data-menu-id="rc-menu-uuid-3"
             role="menuitem"
-            style="padding: 10px 16px; transition: all 0.3s;"
             tabindex="-1"
           >
             <span
               aria-label="logout"
-              class="anticon anticon-logout ant-dropdown-menu-item-icon demo-dropdown-icon-dynamic"
+              class="anticon anticon-logout ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(82, 196, 26);"
             >
               <svg
                 aria-hidden="true"
@@ -7719,8 +7636,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               </svg>
             </span>
             <span
-              class="ant-dropdown-menu-title-content demo-dropdown-content-dynamic"
-              style="background-color: rgb(240, 248, 255); border-radius: 4px;"
+              class="ant-dropdown-menu-title-content"
             >
               Logout
             </span>
@@ -7754,11 +7670,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/dropdown/demo/style-class.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/dropdown/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/sub-menu.tsx extend context correctly 1`] = `
 Array [
