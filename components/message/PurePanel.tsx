@@ -41,14 +41,12 @@ export const PureContent: React.FC<PureContentProps> = ({
   styles,
 }) => {
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode: React.ReactNode = iconElement
-    ? cloneElement(iconElement, (currentProps) => ({
-        className: classNames(currentProps?.className, pureContentClassNames?.icon),
-        style: { ...currentProps?.style, ...styles?.icon },
-      }))
-    : null;
+  const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
+    className: classNames(currentProps.className, pureContentClassNames?.icon),
+    style: { ...currentProps.style, ...styles?.icon },
+  }));
   return (
-    <div className={classNames(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
+    <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
       {iconNode}
       <span className={pureContentClassNames?.content} style={styles?.content}>
         {children}
