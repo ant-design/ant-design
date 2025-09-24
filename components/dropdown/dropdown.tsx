@@ -10,6 +10,7 @@ import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
@@ -47,9 +48,11 @@ export type DropdownArrowOptions = {
 
 type SemanticName = 'root' | 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
 
+export type DropdownClassNamesType = SemanticClassNamesType<DropdownProps, SemanticName>;
+export type DropdownStylesType = SemanticStylesType<DropdownProps, SemanticName>;
 export interface DropdownProps {
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: DropdownClassNamesType;
+  styles?: DropdownStylesType;
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -126,10 +129,19 @@ const Dropdown: CompoundedComponent = (props) => {
     styles: contextStyles,
   } = useComponentConfig('dropdown');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, dropdownClassNames],
-    [contextStyles, styles],
-  );
+  const mergedProps: DropdownProps = {
+    ...props,
+    mouseEnterDelay,
+    mouseLeaveDelay,
+    autoAdjustOverflow,
+  };
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DropdownClassNamesType,
+    DropdownStylesType,
+    DropdownProps
+  >([contextClassNames, dropdownClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const mergedRootStyles = {
     ...contextStyle,
