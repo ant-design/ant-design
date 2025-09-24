@@ -1,6 +1,16 @@
 import React from 'react';
-import { Cascader } from 'antd';
+import { Cascader, Flex } from 'antd';
 import type { CascaderProps } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles(({ token }) => {
+  return {
+    root: {
+      border: `1px solid ${token.colorPrimary}`,
+      borderRadius: token.borderRadiusLG,
+    },
+  };
+});
 
 interface Option {
   value: string;
@@ -43,92 +53,62 @@ const options: Option[] = [
   },
 ];
 
-const classNamesObject: CascaderProps['classNames'] = {
-  root: 'custom-cascader-root',
-  prefix: 'custom-cascader-prefix',
-  suffix: 'custom-cascader-suffix',
-  popup: {
-    root: 'custom-cascader-popup',
-    list: 'custom-cascader-list',
-    listItem: 'custom-cascader-list-item',
-  },
-};
-
 const stylesObject: CascaderProps['styles'] = {
-  root: {
-    border: '2px solid #1890ff',
-    borderRadius: '8px',
-  },
   prefix: {
-    color: '#1890ff',
+    color: '#ccc',
   },
   suffix: {
-    color: '#1890ff',
+    color: '#ccc',
   },
-  popup: {
-    root: {
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-      borderRadius: '8px',
-    },
-    list: {
-      backgroundColor: '#f0f2f5',
-    },
-    listItem: {
-      color: '#1890ff',
-      fontWeight: 'bold',
-    },
-  },
-};
-
-const classNamesFn: CascaderProps['classNames'] = (info) => {
-  const { props } = info;
-  return {
-    root: props.disabled ? 'disabled-cascader' : 'enabled-cascader',
-    prefix: 'dynamic-prefix',
-    suffix: 'dynamic-suffix',
-  };
 };
 
 const stylesFn: CascaderProps['styles'] = (info) => {
-  const { props } = info;
-  return {
-    root: {
-      backgroundColor: props.disabled ? '#f5f5f5' : '#ffffff',
-      opacity: props.disabled ? 0.6 : 1,
-    },
-    prefix: {
-      color: props.disabled ? '#d9d9d9' : '#52c41a',
-    },
-    suffix: {
-      color: props.disabled ? '#d9d9d9' : '#52c41a',
-    },
-  };
+  if (info.props.variant === 'filled') {
+    return {
+      prefix: {
+        color: '#1890ff',
+      },
+      suffix: {
+        color: '#1890ff',
+      },
+      popup: {
+        listItem: {
+          color: '#1890ff',
+        },
+      },
+    };
+  }
+  return {};
 };
 
 const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-    <Cascader
-      options={options}
-      onChange={onChange}
-      placeholder="Please select"
-      classNames={classNamesObject}
-      styles={stylesObject}
-      prefix="🏠"
-    />
+const App: React.FC = () => {
+  const { styles: classNames } = useStyles();
+  return (
+    <Flex vertical gap="middle">
+      <Cascader
+        options={options}
+        onChange={onChange}
+        placeholder="Object styles"
+        classNames={classNames}
+        styles={stylesObject}
+        prefix="🏠"
+      />
 
-    <Cascader
-      options={options}
-      onChange={onChange}
-      placeholder="Function-based styles"
-      classNames={classNamesFn}
-      styles={stylesFn}
-      prefix="✅"
-    />
-  </div>
-);
+      <Cascader
+        options={options}
+        onChange={onChange}
+        placeholder="Function  styles"
+        variant="filled"
+        classNames={classNames}
+        styles={stylesFn}
+        prefix="✅"
+      />
+    </Flex>
+  );
+};
 
 export default App;
