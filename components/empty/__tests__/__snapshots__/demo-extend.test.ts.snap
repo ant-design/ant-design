@@ -1205,10 +1205,10 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 2`] =
 
 exports[`renders components/empty/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-vertical ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="css-var-test-id ant-empty ant-empty-normal acss-1drlqy5 custom-empty-root custom-empty-image custom-empty-description custom-empty-footer"
+    class="css-var-test-id ant-empty ant-empty-normal custom-empty-root"
   >
     <div
       class="ant-empty-image custom-empty-image"
@@ -1268,7 +1268,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="css-var-test-id ant-empty ant-empty-normal acss-1drlqy5"
+    class="css-var-test-id ant-empty ant-empty-normal acss-8yzyy9"
     style="background-color: rgb(245, 245, 245); border-radius: 8px;"
   >
     <div
@@ -1392,7 +1392,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="css-var-test-id ant-empty ant-empty-normal acss-1drlqy5"
+    class="css-var-test-id ant-empty ant-empty-normal acss-8yzyy9"
     style="background-color: rgb(230, 247, 255); border: 1px solid rgb(145, 213, 255);"
   >
     <div
