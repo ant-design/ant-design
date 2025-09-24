@@ -1,40 +1,31 @@
 import React from 'react';
 import { AutoComplete, Flex, Space } from 'antd';
 import type { AutoCompleteProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: AutoCompleteProps['classNames'] = {
-  root: 'demo-autocomplete-root',
-  prefix: 'demo-autocomplete-prefix',
-  input: 'demo-autocomplete-input',
-  popup: {
-    root: 'demo-autocomplete-popup',
-    list: 'demo-autocomplete-list',
-  },
-};
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+    border-radius: 4px;
+  `,
+}));
 
 const stylesObject: AutoCompleteProps['styles'] = {
-  prefix: { backgroundColor: '#f5f5f5', padding: '4px 8px' },
-  input: { fontWeight: 'bold', color: '#1890ff' },
   popup: {
-    root: { borderWidth: 3, borderColor: '#1890ff' },
+    root: { borderWidth: 1, borderColor: '#1890ff' },
     list: { backgroundColor: '#f9f9f9' },
   },
 };
 
-const classNamesFn: AutoCompleteProps['classNames'] = ({ props }) => ({
-  root: props?.disabled ? 'demo-autocomplete-root is-disabled' : 'demo-autocomplete-root',
-  input: 'demo-autocomplete-input',
-  popup: {
-    root: 'demo-autocomplete-popup-fn',
-  },
-});
-
-const stylesFn: AutoCompleteProps['styles'] = ({ props }) => ({
-  root: { fontWeight: 'bold', border: props?.variant === 'filled' ? '1px solid #1890ff' : '' },
-  popup: {
-    root: { backgroundColor: props?.variant === 'filled' ? '#ccc' : '#52c41a' },
-  },
-});
+const stylesFn: AutoCompleteProps['styles'] = ({ props }) => {
+  if (props.variant === 'filled') {
+    return {
+      popup: {
+        root: { borderWidth: 1, borderColor: '#ccc' },
+        list: { backgroundColor: '#f0f0f0' },
+      },
+    };
+  }
+};
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
@@ -43,25 +34,26 @@ const mockVal = (str: string, repeat = 1) => ({
 const options = [mockVal('Burns Bay Road'), mockVal('Downing Street'), mockVal('Wall Street')];
 
 const App: React.FC = () => {
+  const { styles: classNames } = useStyle();
+  const sharedProps: AutoCompleteProps = {
+    options,
+    classNames: {
+      root: classNames.root,
+    },
+    style: { width: 200 },
+  };
+
   return (
-    <Space orientation="vertical" size={[8, 24]} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={[8, 24]}>
       <Flex vertical gap="middle">
-        <AutoComplete
-          options={options}
-          placeholder="input here"
-          classNames={classNamesObject}
-          styles={stylesObject}
-          style={{ width: 200 }}
-        />
+        <AutoComplete {...sharedProps} placeholder="object styles" styles={stylesObject} />
       </Flex>
       <Flex vertical gap="middle">
         <AutoComplete
+          {...sharedProps}
           variant="filled"
-          options={options}
-          placeholder="input here"
+          placeholder="function styles"
           styles={stylesFn}
-          classNames={classNamesFn}
-          style={{ width: 200 }}
         />
       </Flex>
     </Space>
