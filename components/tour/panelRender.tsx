@@ -9,7 +9,7 @@ import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { SemanticName, TourStepProps } from './interface';
+import type { TourSemanticName, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -18,8 +18,8 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<TourSemanticName, string>>;
+  styles?: Partial<Record<TourSemanticName, React.CSSProperties>>;
   actionsRender?: TourStepProps['actionsRender'];
 }
 
