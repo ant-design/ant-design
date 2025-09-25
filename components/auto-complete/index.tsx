@@ -1,4 +1,4 @@
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 
 import genPurePanel from '../_util/PurePanel';
 import Select from '../select';

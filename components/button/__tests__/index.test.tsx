@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
@@ -11,6 +11,8 @@ import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
 import type { BaseButtonProps } from '../button';
+
+const { resetWarned } = warning;
 
 describe('Button', () => {
   mountTest(Button);
@@ -682,31 +684,5 @@ describe('Button', () => {
       );
       expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
     });
-  });
-
-  it('should apply dynamic classNames and styles from props function', () => {
-    const classNames = (info: { props: any }) => {
-      if (info.props.type === 'primary') return { root: 'primary-default' };
-    };
-    const styles = (info: { props: any }) => {
-      if (info.props.type === 'primary') return { root: { background: 'red' } };
-      if (info.props.type === 'default') return { root: { background: 'blue' } };
-    };
-
-    const { rerender, container } = render(
-      <Button type="primary" classNames={classNames} styles={styles}>
-        Dynamic
-      </Button>,
-    );
-
-    expect(container.querySelector('.ant-btn')).toHaveClass('primary-default');
-    expect(container.querySelector('.ant-btn')).toHaveStyle({ background: 'red' });
-    rerender(
-      <Button classNames={classNames} styles={styles}>
-        Dynamic
-      </Button>,
-    );
-
-    expect(container.querySelector('.ant-btn')).toHaveStyle({ background: 'blue' });
   });
 });

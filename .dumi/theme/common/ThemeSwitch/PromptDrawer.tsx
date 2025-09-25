@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
 import { Bubble, Sender } from '@ant-design/x';
-import { Drawer, Flex, GetProp, Typography } from 'antd';
+import { Drawer, Flex, Typography } from 'antd';
+import type { GetProp } from 'antd';
 
 import useLocale from '../../../hooks/useLocale';
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';

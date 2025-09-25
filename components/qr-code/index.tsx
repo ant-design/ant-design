@@ -1,6 +1,6 @@
 import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import cls from 'classnames';
 
@@ -36,6 +36,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     statusRender,
     classNames: qrcodeClassNames,
     styles,
+    boostLevel /* 👈 5.28.0+ */,
     ...rest
   } = props;
 
@@ -81,6 +82,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    boostLevel,
     ...a11yProps,
   };
 

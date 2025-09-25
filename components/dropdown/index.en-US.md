@@ -32,6 +32,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/context-menu.tsx">Context Menu</code>
 <code src="./demo/loading.tsx">Loading</code>
 <code src="./demo/selectable.tsx">Selectable Menu</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom styles and classes for various semantic structures</code>
 <code src="./demo/menu-full.tsx" debug>Menu full styles</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/icon-debug.tsx" debug>Icon debug</code>
@@ -47,6 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | arrow | Whether the dropdown arrow should be visible | boolean \| { pointAtCenter: boolean } | false |  |
 | autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean | true | 5.2.0 |
 | autoFocus | Focus element in `overlay` when opened | boolean | false |  |
+| classNames | Customize class for each semantic structure inside the Dropdown component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | ~~destroyPopupOnHide~~ | Whether destroy dropdown when hidden, use `destroyOnHidden` instead | boolean | false |  |
 | destroyOnHidden | Whether destroy dropdown when hidden | boolean | false | 5.25.0 |
@@ -57,6 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~overlayClassName~~ | The class name of the dropdown root element, please use `classNames.root` instead | string | - |  |
 | ~~overlayStyle~~ | The style of the dropdown root element, please use `styles.root` instead | CSSProperties | - |  |
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
+| styles | Customize inline style for each semantic structure inside the Dropdown component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | Whether the dropdown menu is currently open | boolean | - |  |
 | onOpenChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
