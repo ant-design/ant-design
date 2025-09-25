@@ -4,10 +4,11 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Circle from './Circle';
@@ -17,6 +18,10 @@ import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 export type SemanticName = 'root' | 'body' | 'rail' | 'track' | 'indicator';
+
+export type ProgressClassNamesType = SemanticClassNamesType<ProgressProps, SemanticName>;
+
+export type ProgressStylesType = SemanticStylesType<ProgressProps, SemanticName>;
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -44,8 +49,8 @@ export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: ProgressClassNamesType;
+  styles?: ProgressStylesType;
 
   type?: ProgressType;
   percent?: number;
@@ -137,11 +142,21 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const mergedProps: ProgressProps = {
+    ...props,
+    percent,
+    type,
+    size,
+    showInfo,
+    percentPosition,
+  };
+
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ProgressClassNamesType,
+    ProgressStylesType,
+    ProgressProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
   // ========================= Info =========================
   const isLineType = type === 'line';
@@ -215,8 +230,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   // ======================== Render ========================
   const sharedProps = {
     ...props,
-    classNames: mergedClassNames,
-    styles: mergedStyles,
+    classNames: mergedClassNames as Record<SemanticName, string>,
+    styles: mergedStyles as Record<SemanticName, React.CSSProperties>,
   };
 
   let progress: React.ReactNode;

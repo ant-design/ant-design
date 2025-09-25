@@ -2,8 +2,8 @@ import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RcSwitch from '@rc-component/switch';
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-component/switch';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import cls from 'classnames';
+import { useControlledState } from '@rc-component/util';
+import classNames from 'classnames';
 
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -71,10 +71,10 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     ...restProps
   } = props;
 
-  const [checked, setChecked] = useMergedState<boolean>(false, {
-    value: checkedProp ?? value,
-    defaultValue: defaultCheckedProp ?? defaultValue,
-  });
+  const [checked, setChecked] = useControlledState<boolean>(
+    defaultCheckedProp ?? defaultValue ?? false,
+    checkedProp ?? value,
+  );
 
   const {
     getPrefixCls,

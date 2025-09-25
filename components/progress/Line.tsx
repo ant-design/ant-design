@@ -8,18 +8,19 @@ import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
+  SemanticName,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-interface LineProps extends ProgressProps {
+interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   prefixCls: string;
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: Required<ProgressProps>['classNames'];
-  styles: Required<ProgressProps>['styles'];
+  classNames: Record<SemanticName, string>;
+  styles: Record<SemanticName, React.CSSProperties>;
 }
 
 /**
