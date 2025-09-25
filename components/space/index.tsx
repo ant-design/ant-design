@@ -1,5 +1,5 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import classNames from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
@@ -97,7 +97,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps : SpaceProps = {
+  const mergedProps: SpaceProps = {
     ...props,
     size,
     orientation: mergedOrientation,
