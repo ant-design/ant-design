@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { BaseSelectRef } from '@rc-component/select';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import omit from '@rc-component/util/lib/omit';
+import { omit, toArray } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
