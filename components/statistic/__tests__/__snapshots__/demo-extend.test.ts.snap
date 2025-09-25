@@ -456,285 +456,129 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
 
 exports[`renders components/statistic/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-large"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+    class="ant-statistic acss-1347agw css-var-test-id"
   >
     <div
-      class="ant-space-item"
+      class="ant-statistic-header"
     >
       <div
-        class="ant-card css-var-test-id"
+        class="ant-statistic-title"
+        style="color: rgb(24, 144, 255); font-weight: 600;"
       >
-        <div
-          class="ant-card-head"
-        >
-          <div
-            class="ant-card-head-wrapper"
-          >
-            <div
-              class="ant-card-head-title"
-            >
-              Object ClassNames & Styles
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-card-body"
-        >
-          <div
-            class="ant-statistic demo-statistic-root css-var-test-id"
-            style="border: 1px solid rgb(24, 144, 255); border-radius: 8px; padding: 16px; background-color: rgb(240, 248, 255);"
-          >
-            <div
-              class="ant-statistic-header demo-statistic-header"
-              style="margin-bottom: 8px;"
-            >
-              <div
-                class="ant-statistic-title demo-statistic-title"
-                style="color: rgb(24, 144, 255); font-weight: 600;"
-              >
-                Monthly Active Users
-              </div>
-            </div>
-            <div
-              class="ant-statistic-content demo-statistic-content"
-              style="display: flex; gap: 8px; align-items: baseline;"
-            >
-              <span
-                class="ant-statistic-content-prefix demo-statistic-prefix"
-                style="color: rgb(250, 140, 22);"
-              >
-                <span
-                  aria-label="arrow-up"
-                  class="anticon anticon-arrow-up"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="arrow-up"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M868 545.5L536.1 163a31.96 31.96 0 00-48.3 0L156 545.5a7.97 7.97 0 006 13.2h81c4.6 0 9-2 12.1-5.5L474 300.9V864c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V300.9l218.9 252.3c3 3.5 7.4 5.5 12.1 5.5h81c6.8 0 10.5-8 6-13.2z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="ant-statistic-content-value"
-              >
-                <span
-                  class="ant-statistic-content-value-int"
-                >
-                  93,241
-                </span>
-              </span>
-              <span
-                class="ant-statistic-content-suffix demo-statistic-suffix"
-                style="color: rgb(82, 196, 26);"
-              >
-                users
-              </span>
-            </div>
-          </div>
-        </div>
+        Monthly Active Users
       </div>
     </div>
     <div
-      class="ant-space-item"
+      class="ant-statistic-content"
+      style="font-size: 24px;"
+    >
+      <span
+        class="ant-statistic-content-prefix"
+      >
+        <span
+          aria-label="arrow-up"
+          class="anticon anticon-arrow-up"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="arrow-up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M868 545.5L536.1 163a31.96 31.96 0 00-48.3 0L156 545.5a7.97 7.97 0 006 13.2h81c4.6 0 9-2 12.1-5.5L474 300.9V864c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V300.9l218.9 252.3c3 3.5 7.4 5.5 12.1 5.5h81c6.8 0 10.5-8 6-13.2z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        class="ant-statistic-content-value"
+      >
+        <span
+          class="ant-statistic-content-value-int"
+        >
+          93,241
+        </span>
+      </span>
+      <span
+        class="ant-statistic-content-suffix"
+      >
+        users
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-statistic acss-1347agw css-var-test-id"
+  >
+    <div
+      class="ant-statistic-header"
     >
       <div
-        class="ant-card css-var-test-id"
+        class="ant-statistic-title"
+        style="color: rgb(255, 77, 79);"
       >
-        <div
-          class="ant-card-head"
-        >
-          <div
-            class="ant-card-head-wrapper"
-          >
-            <div
-              class="ant-card-head-title"
-            >
-              Function ClassNames & Styles (Positive)
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-card-body"
-        >
-          <div
-            class="ant-statistic demo-statistic-growth css-var-test-id"
-            style="border-radius: 8px; padding: 16px; background-color: rgb(246, 255, 237); border: 1px solid rgb(82, 196, 26);"
-          >
-            <div
-              class="ant-statistic-header demo-statistic-dynamic-header"
-              style="color: rgb(82, 196, 26); margin-bottom: 8px;"
-            >
-              <div
-                class="ant-statistic-title demo-statistic-dynamic-title"
-                style="font-weight: 600;"
-              >
-                Yearly Growth
-              </div>
-            </div>
-            <div
-              class="ant-statistic-content demo-statistic-dynamic-content"
-              style="display: flex; gap: 8px; align-items: baseline;"
-            >
-              <span
-                class="ant-statistic-content-prefix demo-statistic-dynamic-prefix"
-                style="color: rgb(82, 196, 26); display: flex; align-items: center; gap: 4px;"
-              >
-                <span
-                  aria-label="arrow-up"
-                  class="anticon anticon-arrow-up"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="arrow-up"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M868 545.5L536.1 163a31.96 31.96 0 00-48.3 0L156 545.5a7.97 7.97 0 006 13.2h81c4.6 0 9-2 12.1-5.5L474 300.9V864c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V300.9l218.9 252.3c3 3.5 7.4 5.5 12.1 5.5h81c6.8 0 10.5-8 6-13.2z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="ant-statistic-content-value"
-              >
-                <span
-                  class="ant-statistic-content-value-int"
-                >
-                  18
-                </span>
-                <span
-                  class="ant-statistic-content-value-decimal"
-                >
-                  .7
-                </span>
-              </span>
-              <span
-                class="ant-statistic-content-suffix demo-statistic-dynamic-suffix"
-                style="color: rgb(56, 158, 13);"
-              >
-                %
-              </span>
-            </div>
-          </div>
-        </div>
+        Yearly Loss
       </div>
     </div>
     <div
-      class="ant-space-item"
+      class="ant-statistic-content"
+      style="color: rgb(255, 120, 117);"
     >
-      <div
-        class="ant-card css-var-test-id"
+      <span
+        class="ant-statistic-content-prefix"
       >
-        <div
-          class="ant-card-head"
+        <span
+          aria-label="arrow-up"
+          class="anticon anticon-arrow-up"
+          role="img"
         >
-          <div
-            class="ant-card-head-wrapper"
+          <svg
+            aria-hidden="true"
+            data-icon="arrow-up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <div
-              class="ant-card-head-title"
-            >
-              Function ClassNames & Styles (Negative)
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-card-body"
+            <path
+              d="M868 545.5L536.1 163a31.96 31.96 0 00-48.3 0L156 545.5a7.97 7.97 0 006 13.2h81c4.6 0 9-2 12.1-5.5L474 300.9V864c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V300.9l218.9 252.3c3 3.5 7.4 5.5 12.1 5.5h81c6.8 0 10.5-8 6-13.2z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        class="ant-statistic-content-value"
+      >
+        <span
+          class="ant-statistic-content-value-int"
         >
-          <div
-            class="ant-statistic demo-statistic-loss css-var-test-id"
-            style="border-radius: 8px; padding: 16px; background-color: rgb(255, 241, 240); border: 1px solid rgb(255, 77, 79);"
-          >
-            <div
-              class="ant-statistic-header demo-statistic-dynamic-header"
-              style="color: rgb(255, 77, 79); margin-bottom: 8px;"
-            >
-              <div
-                class="ant-statistic-title demo-statistic-dynamic-title"
-                style="font-weight: 600;"
-              >
-                Revenue Change
-              </div>
-            </div>
-            <div
-              class="ant-statistic-content demo-statistic-dynamic-content"
-              style="display: flex; gap: 8px; align-items: baseline;"
-            >
-              <span
-                class="ant-statistic-content-prefix demo-statistic-dynamic-prefix"
-                style="color: rgb(255, 77, 79); display: flex; align-items: center; gap: 4px;"
-              >
-                <span
-                  aria-label="arrow-down"
-                  class="anticon anticon-arrow-down"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="arrow-down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M862 465.3h-81c-4.6 0-9 2-12.1 5.5L550 723.1V160c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v563.1L255.1 470.8c-3-3.5-7.4-5.5-12.1-5.5h-81c-6.8 0-10.5 8.1-6 13.2L487.9 861a31.96 31.96 0 0048.3 0L868 478.5c4.5-5.2.8-13.2-6-13.2z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="ant-statistic-content-value"
-              >
-                <span
-                  class="ant-statistic-content-value-int"
-                >
-                  -5
-                </span>
-                <span
-                  class="ant-statistic-content-value-decimal"
-                >
-                  .2
-                </span>
-              </span>
-              <span
-                class="ant-statistic-content-suffix demo-statistic-dynamic-suffix"
-                style="color: rgb(255, 120, 117);"
-              >
-                %
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+          -18
+        </span>
+        <span
+          class="ant-statistic-content-value-decimal"
+        >
+          .7
+        </span>
+      </span>
+      <span
+        class="ant-statistic-content-suffix"
+      >
+        %
+      </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders components/statistic/demo/style-class.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Card] \`bordered\` is deprecated. Please use \`variant\` instead.",
-]
-`;
+exports[`renders components/statistic/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`] = `
 <div
