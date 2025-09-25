@@ -11,7 +11,7 @@ import { ConfigContext } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
-import { FormItemInputContext } from '../form/context';
+import { FormItemPopupContext, FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import { useCompactItemContext } from '../space/Compact';
@@ -66,6 +66,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   } = props;
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { popupOpen: popupOpenContext, setPopupOpen: setPopupOpenContext } =
+    useContext(FormItemPopupContext);
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
@@ -79,6 +81,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     defaultValue: defaultFormat,
     onChange: onFormatChange,
   });
+
+  const mergedOpen = popupOpen || popupOpenContext;
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -205,7 +209,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   }
 
   const popoverProps: PopoverProps = {
-    open: popupOpen,
+    open: mergedOpen,
     trigger,
     placement,
     arrow,
@@ -226,6 +230,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
+          !visible && setPopupOpenContext(false);
         }
       }}
       content={
@@ -259,8 +264,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     >
       {children || (
         <ColorTrigger
-          activeIndex={popupOpen ? activeIndex : -1}
-          open={popupOpen}
+          activeIndex={mergedOpen ? activeIndex : -1}
+          open={mergedOpen}
           className={mergedCls}
           style={mergedStyle}
           prefixCls={prefixCls}
