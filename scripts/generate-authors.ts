@@ -15,19 +15,20 @@ const excludes = [
   'alipay.com',
   'taobao.com',
   'ant-design-bot',
+  'github-actions',
+  'copilot',
+  'renovate',
+  'renovate[bot]',
+  'dependabot',
+  'dependabot[bot]',
 ];
 
 async function execute() {
   const logResult = await git.log();
-  let all = logResult.all.filter(({ author_email: email }) => {
-    for (let i = 0; i < excludes.length; i++) {
-      const item = excludes[i];
-      if (email.includes(item)) {
-        return false;
-      }
-    }
-    return true;
-  });
+
+  let all = logResult.all.filter(
+    ({ author_email }) => !excludes.some((item) => author_email.toLowerCase().includes(item)),
+  );
 
   all = sortBy(unionBy(all, 'author_email'), 'author_name');
 
