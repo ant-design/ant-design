@@ -2,6 +2,9 @@ import React from 'react';
 import type { AvatarListItem } from '@qixian.cs/github-contributors-list/dist/AvatarList';
 import { Avatar, Tooltip } from 'antd';
 
+// 这些机器人账号不需要展示
+const blockList = ['github-actions', 'copilot', 'renovate', 'dependabot'];
+
 interface ContributorAvatarProps {
   loading?: boolean;
   item?: AvatarListItem;
@@ -9,7 +12,10 @@ interface ContributorAvatarProps {
 
 const ContributorAvatar: React.FC<ContributorAvatarProps> = (props) => {
   const { item: { username, url } = {} } = props;
-  if (username === 'github-actions' || username === 'Copilot') {
+  if (!username) {
+    return null;
+  }
+  if (blockList.some((name) => username.toLowerCase() === name)) {
     return null;
   }
   return (
