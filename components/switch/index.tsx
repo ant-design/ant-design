@@ -55,7 +55,7 @@ export interface SwitchProps {
 const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
-    size: customizeSize,
+    size: customizeSize = 'default',
     disabled: customDisabled,
     loading,
     className,

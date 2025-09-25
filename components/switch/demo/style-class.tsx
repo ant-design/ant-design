@@ -1,49 +1,41 @@
 import React from 'react';
-import { Switch, Space, Flex } from 'antd';
+import { Flex, Switch } from 'antd';
 import type { SwitchProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
-  root: css`
-    border-color: red;
-  `,
-  content: css`
-    color: black;
-  `,
+const useStyle = createStyles(({ token }) => ({
+  root: {
+    width: 40,
+    backgroundColor: token.colorPrimary,
+  },
 }));
 
-const stylesObject: SwitchProps['styles'] = {
-  root: { background: 'red' },
-};
-
 const App: React.FC = () => {
-  const { styles } = useStyle();
+  const { styles: classNames } = useStyle();
 
-  const classNamesFn: SwitchProps['classNames'] = (info) => {
-    if (info.props.size === 'small') {
+  const stylesObject: SwitchProps['styles'] = {
+    root: { background: '#F5D2D2' },
+  };
+  const stylesFn: SwitchProps['styles'] = (info) => {
+    if (info.props.size === 'default') {
       return {
-        root: styles.root,
-        content: styles.content,
+        root: { backgroundColor: '#BDE3C3' },
       };
     }
-
     return {};
   };
 
   return (
-    <Space size={[8, 16]} wrap>
-      <Flex gap="small">
-        <Switch
-          size="small"
-          checkedChildren="on"
-          unCheckedChildren="off"
-          classNames={classNamesFn}
-        />
-      </Flex>
-      <Flex gap="small">
-        <Switch styles={stylesObject} />
-      </Flex>
-    </Space>
+    <Flex vertical gap="middle">
+      <Switch
+        size="small"
+        checkedChildren="on"
+        unCheckedChildren="off"
+        classNames={classNames}
+        styles={stylesObject}
+      />
+      <Switch classNames={classNames} styles={stylesFn} />
+    </Flex>
   );
 };
 
