@@ -74329,8 +74329,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
       class="ant-flex css-var-test-id ant-flex-gap-small"
     >
       <div
-        class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var demo-datepicker-root"
-        style="border-width: 2px; border-style: dashed;"
+        class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var acss-1915ko3"
       >
         <div
           class="ant-picker-input"
@@ -74338,14 +74337,13 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
           <input
             aria-invalid="false"
             autocomplete="off"
-            class="demo-datepicker-input"
             placeholder="Object"
             size="12"
             style="font-style: italic;"
             value=""
           />
           <span
-            class="ant-picker-suffix demo-datepicker-suffix"
+            class="ant-picker-suffix"
             style="opacity: 0.85;"
           >
             <span
@@ -74372,7 +74370,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
       </div>
       <div
         class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(255, 251, 230);"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -74391,7 +74389,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
                   class="ant-picker-date-panel"
                 >
                   <div
-                    class="ant-picker-header demo-datepicker-popup-header"
+                    class="ant-picker-header"
                   >
                     <button
                       aria-label="Last year (Control + left)"
@@ -74954,8 +74952,8 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
       class="ant-flex css-var-test-id ant-flex-gap-small"
     >
       <div
-        class="ant-picker ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var demo-datepicker-root--large"
-        style="background-color: rgb(255, 251, 230); border-color: rgb(255, 229, 143);"
+        class="ant-picker ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var acss-1915ko3"
+        style="border-color: rgb(255, 229, 143);"
       >
         <div
           class="ant-picker-input"
