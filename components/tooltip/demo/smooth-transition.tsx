@@ -1,44 +1,31 @@
-import React, { useState } from 'react';
-import { Button, ConfigProvider, Space, Switch, Tooltip } from 'antd';
+import React from 'react';
+import { Button, ConfigProvider, Flex, Space, Tooltip } from 'antd';
 
-const { UniqueProvider } = Tooltip;
+const SharedButton = ({ placement = 'top' }: { placement?: 'top' | 'bottom' }) => (
+  <Tooltip title="Hello, Ant Design!" placement={placement}>
+    <Button type="primary">Button</Button>
+  </Tooltip>
+);
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(true);
-
   return (
     <div style={{ margin: 100 }}>
       <ConfigProvider
-        theme={{
-          token: {
-            // motionBase: 60,
-            // motionBase: 600,
-          },
+        tooltip={{
+          unique: true,
         }}
       >
-        <UniqueProvider>
+        <Flex vertical gap="small">
           <Space>
-            <Tooltip
-              title="First tooltip"
-              mouseLeaveDelay={0.2}
-              // Open
-              open={open}
-            >
-              <Button>Move to Next</Button>
-            </Tooltip>
-            <Tooltip title="Second tooltip" mouseLeaveDelay={0.2} placement="bottom" open={!open}>
-              <Button>Move to Prev</Button>
-            </Tooltip>
+            <SharedButton />
+            <SharedButton />
           </Space>
-        </UniqueProvider>
+          <Space>
+            <SharedButton placement="bottom" />
+            <SharedButton placement="bottom" />
+          </Space>
+        </Flex>
       </ConfigProvider>
-
-      {/* <Tooltip title="First tooltip" mouseLeaveDelay={0.2} open>
-        <Button>Test</Button>
-      </Tooltip> */}
-
-      <br />
-      <Switch checked={open} onChange={() => setOpen((i) => !i)} />
     </div>
   );
 };

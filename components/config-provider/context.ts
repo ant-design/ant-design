@@ -304,7 +304,14 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 export type TooltipConfig = Pick<
   TooltipProps,
   'className' | 'style' | 'styles' | 'classNames' | 'arrow'
->;
+> & {
+  /**
+   * @descCN 是否开启 Tooltip 流畅过渡动画
+   * @descEN Whether to enable smooth transition for tooltips
+   * @default false
+   */
+  unique?: boolean;
+};
 
 export type PopoverConfig = Pick<
   PopoverProps,
