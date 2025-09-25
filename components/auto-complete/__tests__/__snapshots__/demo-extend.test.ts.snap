@@ -3130,7 +3130,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
       </div>
     </div>
   </div>
-   <div
+  <div
     class="ant-select ant-select-underlined ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
