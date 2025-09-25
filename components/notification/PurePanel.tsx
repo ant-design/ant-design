@@ -129,7 +129,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     description,
     btn,
     actions,
-    closeIcon,
+    closeIcon: _closeIcon,
     className: notificationClassName,
     style,
     styles,

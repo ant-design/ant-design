@@ -70,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | The size of the input box | `large` \| `middle` \| `small` | - |  |
 | value | Selected option | string | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| variant | Variants of input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when selecting an option or changing an input value | function(value) | - |  |

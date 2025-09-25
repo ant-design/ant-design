@@ -142,7 +142,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
-    dropdownStyle,
+    dropdownStyle: _dropdownStyle,
     dropdownRender,
     popupRender,
     onDropdownVisibleChange,
