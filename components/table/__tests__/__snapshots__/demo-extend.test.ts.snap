@@ -12145,35 +12145,35 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Address
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -13876,13 +13876,13 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -14056,12 +14056,12 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         aria-describedby="test-id"
@@ -14141,61 +14141,61 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Street
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Building
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Door No.
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Company Address
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Company Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Gender
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -17304,13 +17304,13 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -17444,12 +17444,12 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -17671,12 +17671,12 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -17886,7 +17886,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         </div>
                       </div>
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"

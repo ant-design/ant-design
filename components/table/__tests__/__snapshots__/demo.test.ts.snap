@@ -10223,22 +10223,22 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Full Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         aria-describedby="test-id"
@@ -10298,196 +10298,196 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                         </span>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 1
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 2
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 3
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 4
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 5
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 6
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 7
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 8
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 9
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 10
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 11
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 12
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 13
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 14
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 15
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 16
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 17
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 18
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 19
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 20
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Action
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -11024,215 +11024,215 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Full Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 1
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 2
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 3
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 4
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 5
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 6
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 7
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 8
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 9
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 10
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 11
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 12
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 13
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 14
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 15
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 16
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 17
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 18
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 19
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 20
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Action
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -12958,233 +12958,233 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Full Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 1
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 2
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 3
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 4
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 5
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 6
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 7
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 8
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 9
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 10
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 11
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 12
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 13
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 14
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 15
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 16
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 17
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 18
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 19
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 20
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Action 1
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Action 2
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Action 3
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -13554,35 +13554,35 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Address
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -15023,13 +15023,13 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -15066,12 +15066,12 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                         </span>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         aria-describedby="test-id"
@@ -15131,61 +15131,61 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                         </span>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Street
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Building
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Door No.
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Company Address
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Company Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Gender
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -28498,107 +28498,107 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Full Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 1
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 2
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 3
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 4
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 5
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 6
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 7
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 8
                     </div>
-                  </td>
-                  <td
-                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height:0;overflow:hidden;font-weight:bold"
+                      class="ant-table-measure-cell-content"
                     >
                       Action
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -29840,26 +29840,26 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height:0"
+                    tabindex="-1"
                   >
-                    <td
-                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                    <th
+                      class="ant-table-measure-cell"
                     >
                       <div
-                        style="height:0;overflow:hidden;font-weight:bold"
+                        class="ant-table-measure-cell-content"
                       >
                         Name
                       </div>
-                    </td>
-                    <td
-                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                    </th>
+                    <th
+                      class="ant-table-measure-cell"
                     >
                       <div
-                        style="height:0;overflow:hidden;font-weight:bold"
+                        class="ant-table-measure-cell-content"
                       >
                         Description
                       </div>
-                    </td>
+                    </th>
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"

@@ -153,7 +153,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     builtinPlacements,
     arrowPointAtCenter = false,
     autoAdjustOverflow = true,
-    motion,
+    motion: _motion,
     getPopupContainer,
     placement = 'top',
     mouseEnterDelay = 0.1,

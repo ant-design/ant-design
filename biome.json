@@ -40,7 +40,6 @@
   "linter": {
     "rules": {
       "style": {
-        "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off"
       },
@@ -51,9 +50,7 @@
       },
       "correctness": {
         "useUniqueElementIds": "off",
-        "useExhaustiveDependencies": "off",
-        "noUnusedFunctionParameters": "off",
-        "noUnusedVariables": "off"
+        "useExhaustiveDependencies": "off"
       },
       "suspicious": {
         "noTsIgnore": "off",
@@ -90,11 +87,7 @@
       "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
-          "style": {
-            "noParameterAssign": "off"
-          },
           "suspicious": {
-            "noThenProperty": "off",
             "noImplicitAnyLet": "off"
           },
           "complexity": {
@@ -102,8 +95,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
@@ -117,8 +109,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
