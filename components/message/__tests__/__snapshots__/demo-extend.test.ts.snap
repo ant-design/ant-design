@@ -228,34 +228,34 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/message/demo/style-class.tsx extend context correctly 1`] = `
-Array [
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    style="margin-right: 8px;"
-    type="button"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Object Style
-    </span>
-  </button>,
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    style="margin-right: 8px;"
-    type="button"
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Object style
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Function Style
-    </span>
-  </button>,
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    type="button"
-  >
-    <span>
-      Error Style
-    </span>
-  </button>,
-]
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Function style
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders components/message/demo/style-class.tsx extend context correctly 2`] = `[]`;
