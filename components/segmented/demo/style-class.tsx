@@ -1,69 +1,31 @@
 import React from 'react';
-import { ThunderboltOutlined, CloudOutlined, RocketOutlined } from '@ant-design/icons';
-import { Card, Flex, Segmented, Space } from 'antd';
+import { CloudOutlined, RocketOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import { Flex, Segmented } from 'antd';
 import type { SegmentedProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const objectClassNames: SegmentedProps['classNames'] = {
-  root: 'demo-segmented-root',
-  item: 'demo-segmented-item',
-  label: 'demo-segmented-label',
-  icon: 'demo-segmented-icon',
-};
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+    border: 2px dashed #ccc;
+    padding: 12px;
+    border-radius: 16px;
+  `,
+}));
 
-const objectStyles: SegmentedProps['styles'] = {
-  root: {
-    padding: 12,
-    borderRadius: 16,
-    backgroundColor: '#f5f5f5',
-  },
-  item: {
-    borderRadius: 12,
-    paddingInline: 20,
-  },
-  label: {
-    fontWeight: 500,
-  },
-  icon: {
-    color: '#faad14',
-  },
-};
-
-const functionClassNames: SegmentedProps['classNames'] = (info) => {
-  const { props } = info;
-  const { value, options = [] } = props;
-  const lastOption = options[options.length - 1] as { value: React.Key };
-  const isLast = lastOption.value === value;
+const styleFn: SegmentedProps['styles'] = ({ props }) => {
+  const isDisabled = props?.disabled;
 
   return {
-    root: 'demo-segmented-dynamic-root',
-    item: isLast ? 'demo-segmented-last-item' : 'demo-segmented-regular-item',
-    label: 'demo-segmented-dynamic-label',
-    icon: 'demo-segmented-dynamic-icon',
-  };
-};
-
-const functionStyles: SegmentedProps['styles'] = (info) => {
-  const { props } = info;
-  const { value } = props;
-  const isCloudy = value === 'cloud';
-
-  return {
-    root: {
-      padding: 12,
-      borderRadius: 16,
-      backgroundColor: isCloudy ? '#e6f7ff' : '#fff1f0',
-      border: `1px solid ${isCloudy ? '#91d5ff' : '#ffccc7'}`,
-    },
     item: {
-      borderRadius: 12,
-      paddingInline: 20,
+      background: isDisabled ? '#f5f5f5' : 'rgba(250, 173, 20, 0.08)',
+      borderRadius: 999,
     },
     label: {
       fontWeight: 600,
-      color: isCloudy ? '#1890ff' : '#fa541c',
+      color: isDisabled ? '#999' : '#fa8c16',
     },
     icon: {
-      color: isCloudy ? '#1890ff' : '#fa541c',
+      color: isDisabled ? '#999' : '#fa8c16',
     },
   };
 };
@@ -86,28 +48,37 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
-  <Flex gap="large" wrap="wrap">
-    <Space orientation="vertical" size="large">
-      <Card variant="borderless" title="Object ClassNames & Styles">
-        <Segmented
-          options={options}
-          value="boost"
-          classNames={objectClassNames}
-          styles={objectStyles}
-        />
-      </Card>
+const App: React.FC = () => {
+  const { styles } = useStyle();
 
-      <Card variant="borderless" title="Function ClassNames & Styles">
-        <Segmented
-          options={options}
-          value="cloud"
-          classNames={functionClassNames}
-          styles={functionStyles}
-        />
-      </Card>
-    </Space>
-  </Flex>
-);
+  const segmentedSharedProps: SegmentedProps = {
+    options,
+    classNames: {
+      root: styles.root,
+    },
+  };
+
+  return (
+    <Flex vertical gap="middle">
+      <Segmented
+        {...segmentedSharedProps}
+        styles={{
+          item: {
+            borderRadius: 999,
+            paddingInline: 20,
+          },
+          label: {
+            fontWeight: 500,
+          },
+          icon: {
+            color: '#faad14',
+          },
+        }}
+      />
+
+      <Segmented {...segmentedSharedProps} styles={styleFn} disabled />
+    </Flex>
+  );
+};
 
 export default App;
