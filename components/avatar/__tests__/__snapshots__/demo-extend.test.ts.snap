@@ -1480,6 +1480,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     >
       <img
         alt="avatar"
+        draggable="false"
         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       />
     </span>

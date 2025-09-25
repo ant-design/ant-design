@@ -276,7 +276,9 @@ describe('List Item Layout', () => {
         <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: rgb(255, 192, 203)');
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle(
+      'color: rgb(255, 192, 203)',
+    );
     expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: rgb(0, 128, 0)');
 
     expect(container.querySelector('.ant-list-item-extra')!).toHaveClass(

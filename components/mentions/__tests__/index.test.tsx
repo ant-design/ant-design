@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConfigProvider, Form } from 'antd';
 
 import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -132,5 +133,24 @@ describe('Mentions', () => {
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
+  });
+  describe('form disabled', () => {
+    it('set Input enabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="textarea1" label="启用">
+              <Mentions />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="textarea" label="禁用">
+            <Mentions />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('#textarea1[disabled]')).toBeFalsy();
+      expect(container.querySelector('#textarea[disabled]')).toBeTruthy();
+    });
   });
 });

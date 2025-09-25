@@ -13,14 +13,5 @@ export function isValidWaveColor(color: string) {
 
 export function getTargetWaveColor(node: HTMLElement) {
   const { borderTopColor, borderColor, backgroundColor } = getComputedStyle(node);
-  if (isValidWaveColor(borderTopColor)) {
-    return borderTopColor;
-  }
-  if (isValidWaveColor(borderColor)) {
-    return borderColor;
-  }
-  if (isValidWaveColor(backgroundColor)) {
-    return backgroundColor;
-  }
-  return null;
+  return [borderTopColor, borderColor, backgroundColor].find(isValidWaveColor) ?? null;
 }

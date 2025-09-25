@@ -209,7 +209,7 @@ When enable `layer`, icon style may deprioritize `@layer antd` and cause all com
 This problem can be resolved by two steps below:
 
 1. use `@ant-design/icons^5` instead of the latest version.
-2. stop to use static methods of `message`, `Modal` 和 `notification`. use hooks version or `App` provided instance.
+2. stop to use static methods of `message`, `Modal` and `notification`. use hooks version or `App` provided instance.
 
 If you must use static methods, you can put any of icon components just under `App`, what helps to avoid style impact caused by static methods.
 

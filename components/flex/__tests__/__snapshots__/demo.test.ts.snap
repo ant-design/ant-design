@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/flex/demo/align.tsx correctly 1`] = `
 <div
@@ -304,6 +304,7 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
     >
       <img
         alt="avatar"
+        draggable="false"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style="display:block;width:273px"
       />
@@ -317,6 +318,7 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
           “antd is an enterprise-class UI design language and React UI library.”
         </h3>
         <a
+          aria-disabled="false"
           class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           href="https://ant.design"
           tabindex="0"

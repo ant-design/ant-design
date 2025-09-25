@@ -80,7 +80,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>紧凑型</code>
 <code src="./demo/bordered.tsx">带边框</code>
 <code src="./demo/expand.tsx">可展开</code>
-<code src="./demo/expand-sticky.tsx">可自定义展开位置</code>
+<code src="./demo/expand-sticky.tsx" debug>可自定义展开位置</code>
 <code src="./demo/order-column.tsx">特殊列排序</code>
 <code src="./demo/colspan-rowspan.tsx">表格行/列合并</code>
 <code src="./demo/tree-data.tsx">树形数据展示</code>
@@ -112,6 +112,7 @@ const columns = [
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
 
 ## API
 
@@ -261,7 +262,7 @@ const columns = [
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
-| expandedRowOffset | 展开行的偏移列数，设置会后强制将其前面的列设置为固定列 | number | - | 5.26.0 |
+| ~~expandedRowOffset~~ | 废弃：展开行的偏移列数，设置后会强制将其前面的列设为固定列。请改用 `Table.EXPAND_COLUMN` 并通过列顺序控制位置 | number | - | 5.26.0 |
 
 ### rowSelection
 

@@ -4,7 +4,8 @@ import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -236,6 +237,32 @@ describe('Carousel', () => {
           '--dot-duration',
         ),
       ).toBe('5000ms');
+    });
+  });
+  describe('RTL Direction', () => {
+    it('should trigger correct slide change when clicking arrows in RTL', async () => {
+      const { container } = render(
+        <ConfigProvider direction="rtl">
+          <Carousel rtl arrows initialSlide={1}>
+            <div>Slide 1</div>
+            <div>Slide 2</div>
+            <div>Slide 3</div>
+          </Carousel>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-carousel-rtl')).toBeTruthy();
+
+      const prevArrow = container.querySelector('.slick-prev') as HTMLElement;
+      const nextArrow = container.querySelector('.slick-next') as HTMLElement;
+      expect(prevArrow).toHaveAttribute('aria-label', 'next');
+      expect(nextArrow).toHaveAttribute('aria-label', 'prev');
+
+      expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
+      fireEvent.click(prevArrow);
+      expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 3');
+      fireEvent.click(nextArrow);
+      expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
     });
   });
 });

@@ -457,4 +457,54 @@ describe('Dropdown', () => {
       ),
     ).toHaveClass('anticon-left');
   });
+
+  it('closure item click', () => {
+    let latestCnt = -1;
+
+    const Demo = () => {
+      const [cnt, setCnt] = React.useState(0);
+
+      const onOpenChange = () => {
+        latestCnt = cnt;
+      };
+
+      return (
+        <Dropdown
+          onOpenChange={onOpenChange}
+          menu={{
+            items: [
+              {
+                label: (
+                  <span
+                    className="bamboo"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCnt((v) => v + 1);
+                    }}
+                  />
+                ),
+                key: '1',
+              },
+              {
+                label: <span className="little" />,
+                key: '2',
+              },
+            ],
+          }}
+          open
+        >
+          <span />
+        </Dropdown>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    // Change
+    fireEvent.click(container.querySelector('.bamboo')!);
+
+    // Close
+    fireEvent.click(container.querySelector('.little')!);
+    expect(latestCnt).toBe(1);
+  });
 });

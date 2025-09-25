@@ -1,7 +1,8 @@
 import React from 'react';
 import type { FormRef } from 'rc-field-form/lib/interface';
 
-import Form, { FormInstance } from '..';
+import Form from '..';
+import type { FormInstance } from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';

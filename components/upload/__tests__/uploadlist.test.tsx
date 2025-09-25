@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
@@ -161,7 +162,6 @@ describe('Upload List', () => {
 
   it('should be uploading when upload a file', async () => {
     const done = jest.fn();
-    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let latestFileList: UploadFile<any>[] | null = null;
     const onChange: UploadProps['onChange'] = async ({ file, fileList: eventFileList }) => {
@@ -1201,7 +1201,6 @@ describe('Upload List', () => {
     it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
-      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1258,7 +1257,6 @@ describe('Upload List', () => {
     it('should not render <img /> when upload non-image file without thumbUrl in onChange', async () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
-      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1302,7 +1300,6 @@ describe('Upload List', () => {
 
   it('[deprecated] should support transformFile', (done) => {
     jest.useRealTimers();
-    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let lastFile: UploadFile;
 
@@ -1728,6 +1725,35 @@ describe('Upload List', () => {
       const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
       expect(removeButton).toBeTruthy();
       expect(removeButton).not.toBeDisabled();
+    });
+  });
+
+  describe('Customize token', () => {
+    it('pictureCardSize', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            components: { Upload: { pictureCardSize: 142 } },
+          }}
+        >
+          <Upload
+            listType="picture-card"
+            fileList={[
+              {
+                uid: '-1',
+                name: 'image.png',
+                status: 'done',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+              },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-upload-list-item-container')).toHaveStyle({
+        width: '142px',
+        height: '142px',
+      });
     });
   });
 });

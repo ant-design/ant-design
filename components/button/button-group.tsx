@@ -57,6 +57,6 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       <div {...others} className={classes} />
     </GroupSizeContext.Provider>
   );
-}
+};
 
 export default ButtonGroup;

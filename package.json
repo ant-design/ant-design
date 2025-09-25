@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.27.0",
+  "version": "5.27.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -118,7 +118,7 @@
     "@babel/runtime": "^7.26.0",
     "@rc-component/color-picker": "~2.0.1",
     "@rc-component/mutate-observer": "^1.1.0",
-    "@rc-component/qrcode": "~1.0.0",
+    "@rc-component/qrcode": "~1.1.0",
     "@rc-component/tour": "~1.15.1",
     "@rc-component/trigger": "^2.3.0",
     "classnames": "^2.5.1",
@@ -145,10 +145,10 @@
     "rc-resize-observer": "^1.4.3",
     "rc-segmented": "~2.7.0",
     "rc-select": "~14.16.8",
-    "rc-slider": "~11.1.8",
+    "rc-slider": "~11.1.9",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
-    "rc-table": "~7.51.1",
+    "rc-table": "~7.53.1",
     "rc-tabs": "~15.7.0",
     "rc-textarea": "~1.10.2",
     "rc-tooltip": "~6.4.0",
@@ -166,7 +166,8 @@
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
     "@antfu/eslint-config": "^5.0.0",
     "@antv/g6": "^4.8.24",
-    "@biomejs/biome": "^2.0.4",
+    "@biomejs/biome": "^2.2.0",
+    "@blazediff/core": "^1.0.0",
     "@codecov/webpack-plugin": "^1.4.0",
     "@codesandbox/sandpack-react": "^2.19.10",
     "@dnd-kit/core": "^6.2.0",
@@ -181,7 +182,7 @@
     "@inquirer/prompts": "^7.1.0",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.1",
-    "@npmcli/run-script": "^9.0.1",
+    "@npmcli/run-script": "^10.0.0",
     "@octokit/rest": "^22.0.0",
     "@prettier/sync": "^0.6.1",
     "@qixian.cs/github-contributors-list": "^2.0.2",
@@ -209,7 +210,6 @@
     "@types/minimist": "^1.2.5",
     "@types/node": "^24.0.0",
     "@types/nprogress": "^0.2.3",
-    "@types/pixelmatch": "^5.2.6",
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.4",
     "@types/progress": "^2.0.7",
@@ -262,15 +262,15 @@
     "immer": "^10.1.1",
     "is-ci": "^4.0.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "^30.0.0",
+    "jest": "^30.1.0",
     "jest-axe": "^10.0.0",
     "jest-canvas-mock": "^2.5.2",
-    "jest-environment-jsdom": "^30.0.5",
-    "jest-environment-node": "^30.0.5",
+    "jest-environment-jsdom": "^30.1.0",
+    "jest-environment-node": "^30.1.0",
     "jest-image-snapshot": "^6.4.0",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^3.7.1",
-    "jsdom": "^26.0.0",
+    "jsdom": "^27.0.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^16.0.0",
@@ -282,10 +282,9 @@
     "node-fetch": "^3.3.2",
     "node-notifier": "^10.0.1",
     "open": "^10.1.0",
-    "ora": "^8.1.0",
+    "ora": "^9.0.0",
     "p-all": "^5.0.0",
     "package-manager-detector": "^1.0.0",
-    "pixelmatch": "^7.1.0",
     "pngjs": "^7.0.0",
     "portfinder": "^1.0.37",
     "prettier": "^3.4.1",
@@ -307,7 +306,6 @@
     "react-intersection-observer": "^9.13.1",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^7.0.1",
-    "react-scan": "^0.4.2",
     "react-sticky-box": "^2.0.5",
     "regenerator-runtime": "^0.14.1",
     "rehype-stringify": "^10.0.1",
@@ -353,16 +351,5 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
-  },
-  "pnpm": {
-    "overrides": {
-      "nwsapi": "2.2.21"
-    }
-  },
-  "overrides": {
-    "nwsapi": "2.2.21"
-  },
-  "resolutions": {
-    "nwsapi": "2.2.21"
   }
 }

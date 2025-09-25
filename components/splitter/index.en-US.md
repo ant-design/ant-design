@@ -29,6 +29,7 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/size-mix.tsx" debug>Size Mix</code>
 
 ## API
 

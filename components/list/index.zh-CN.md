@@ -24,6 +24,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 <code src="./demo/grid-test.tsx" debug>测试栅格列表</code>
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
 <code src="./demo/infinite-load.tsx">滚动加载</code>
+<code src="./demo/drag-sorting.tsx">拖拽排序</code>
+<code src="./demo/drag-sorting-handler.tsx">拖拽排序（拖拽手柄）</code>
+<code src="./demo/grid-drag-sorting.tsx">栅格拖拽排序</code>
+<code src="./demo/grid-drag-sorting-handler.tsx">栅格拖拽排序（拖拽手柄）</code>
 <code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 token</code>
 

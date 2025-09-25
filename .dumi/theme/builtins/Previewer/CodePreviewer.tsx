@@ -142,7 +142,12 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle} ref={demoContainer}>
+      <section
+        className="code-box-demo notranslate"
+        translate="no"
+        style={codeBoxDemoStyle}
+        ref={demoContainer}
+      >
         {liveDemoNode || <React.StrictMode>{previewDemo.current}</React.StrictMode>}
       </section>
       {!simplify && (

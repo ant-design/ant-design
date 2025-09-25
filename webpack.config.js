@@ -62,7 +62,7 @@ function addPluginsForProduction(config) {
       enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
       bundleName: 'antd.min',
       uploadToken: process.env.CODECOV_TOKEN,
-      gitService: "github",
+      gitService: 'github',
     }),
     new CircularDependencyPlugin({
       failOnError: true,

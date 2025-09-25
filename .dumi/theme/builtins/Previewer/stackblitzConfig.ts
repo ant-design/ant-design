@@ -1,4 +1,4 @@
-import { Project, ProjectFiles } from '@stackblitz/sdk';
+import type { Project, ProjectFiles } from '@stackblitz/sdk';
 
 const getStackblitzConfig = ({
   title = '',
@@ -6,12 +6,14 @@ const getStackblitzConfig = ({
   indexCssContent = '',
   demoJsContent = '',
   suffix = '',
+  isZhCN = false,
 }: {
   title?: string;
   dependencies: Record<string, string>;
   indexCssContent?: string;
   demoJsContent?: string;
   suffix?: string;
+  isZhCN?: boolean;
 }) => {
   const _suffix = suffix === 'tsx' ? suffix : 'jsx';
   const packageJSON = {
@@ -145,7 +147,7 @@ export default defineConfig({
   }
 }`,
     // .gitignore
-    [`.gitignore`]: `# Logs
+    '.gitignore': `# Logs
 logs
 *.log
 npm-debug.log*
@@ -159,7 +161,7 @@ dist
 dist-ssr
 *.local`,
     // eslint.config.js
-    [`eslint.config.js`]: `import js from '@eslint/js'
+    'eslint.config.js': `import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
@@ -195,6 +197,9 @@ export default tseslint.config([
   }
   if (indexCssContent) {
     files = { ...files, 'src/index.css': indexCssContent };
+  }
+  if (isZhCN) {
+    files = { ...files, '.npmrc': `registry=https://registry.npmmirror.com/` };
   }
 
   const project: Project = { title, description: '', template: 'node', files };

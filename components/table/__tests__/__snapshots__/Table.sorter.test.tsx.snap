@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table.sorter renders custom sort icon correctly 1`] = `
 <span
@@ -119,7 +119,6 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >

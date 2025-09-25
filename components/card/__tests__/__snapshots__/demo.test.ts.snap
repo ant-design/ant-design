@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/card/demo/basic.tsx correctly 1`] = `
 <div
@@ -394,6 +394,7 @@ exports[`renders components/card/demo/flexible-content.tsx correctly 1`] = `
   >
     <img
       alt="example"
+      draggable="false"
       src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
     />
   </div>
@@ -913,6 +914,7 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
   >
     <img
       alt="example"
+      draggable="false"
       src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
     />
   </div>

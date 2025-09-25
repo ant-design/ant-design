@@ -189,6 +189,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
           <RefLinks refs={refs} contributors={contributors} />
           <br />
           <img
+            draggable={false}
             src={imgElement?.getAttribute('src') || ''}
             alt={imgElement?.getAttribute('alt') || ''}
             width={imgElement?.getAttribute('width') || ''}

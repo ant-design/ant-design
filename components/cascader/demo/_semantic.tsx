@@ -1,8 +1,9 @@
 import React from 'react';
 import { Cascader } from 'antd';
+import type { CascaderProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -14,6 +15,7 @@ const locales = {
     'popup.root': 'Popup element',
   },
 };
+
 const options = [
   {
     value: 'contributors',
@@ -31,7 +33,7 @@ const options = [
   },
 ];
 
-const Block = (props: any) => {
+const Block: React.FC<CascaderProps<any, any, any>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [value, setValue] = React.useState<string[]>(['contributors', 'aojunhao123']);
   const onChange = (newValue: string[]) => {
@@ -42,15 +44,8 @@ const Block = (props: any) => {
       <Cascader
         {...props}
         open
-        styles={{
-          popup: {
-            root: {
-              zIndex: 1,
-              height: 70,
-            },
-          },
-        }}
-        getPopupContainer={() => divRef.current}
+        styles={{ popup: { root: { zIndex: 1, height: 70 } } }}
+        getPopupContainer={() => divRef.current!}
         value={value}
         onChange={onChange}
         options={options}
@@ -59,9 +54,9 @@ const Block = (props: any) => {
     </div>
   );
 };
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
       componentName="Cascader"

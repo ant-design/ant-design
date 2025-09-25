@@ -118,7 +118,6 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -223,7 +222,6 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -334,7 +332,6 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -462,7 +459,6 @@ exports[`Table.filter renders filter correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
