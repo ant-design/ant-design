@@ -1,54 +1,42 @@
 import React from 'react';
-import { Checkbox, Divider } from 'antd';
+import { Checkbox, Flex } from 'antd';
 import type { CheckboxProps } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles(({ token }) => ({
+  root: {
+    borderRadius: token.borderRadius,
+    borderWidth: 1,
+    width: 300,
+  },
+}));
 
 const App: React.FC = () => {
-  const onChange: CheckboxProps['onChange'] = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
-
-  const classNames: CheckboxProps['classNames'] = {
-    root: 'custom-checkbox-root',
-    icon: 'custom-checkbox-icon',
-    label: 'custom-checkbox-label',
-  };
+  const { styles: classNames } = useStyles();
 
   const styles: CheckboxProps['styles'] = {
-    root: { backgroundColor: '#fff', padding: '8px', borderRadius: '4px' },
-    icon: { color: '#1890ff' },
-    label: { fontWeight: 'bold', color: '#333' },
-  };
-
-  const classNamesFn: CheckboxProps['classNames'] = (info) => {
-    return {
-      root: 'custom-checkbox-root',
-      icon: info?.props?.checked ? 'check-checkbox-icon' : 'custom-checkbox-icon',
-      label: 'custom-checkbox-label',
-    };
+    root: { padding: 8, borderRadius: 4, borderColor: '#ccc' },
   };
 
   const stylesFn: CheckboxProps['styles'] = (info) => {
-    return {
-      root: {
-        backgroundColor: info?.props?.checked ? '#f0f0f0' : '#fff',
-        padding: '8px',
-        borderRadius: '4px',
-      },
-      icon: { color: '#1890ff' },
-      label: { fontWeight: 'bold', color: '#333' },
-    };
+    if (info.props.checked) {
+      return {
+        root: { padding: 8, borderRadius: 4, borderColor: '#1890ff' },
+        label: { fontWeight: 'bold', color: '#333' },
+      };
+    }
+    return {};
   };
 
   return (
-    <>
-      <Checkbox onChange={onChange} classNames={classNames} styles={styles}>
-        Styles and classNames Object
+    <Flex vertical gap="middle">
+      <Checkbox classNames={classNames} styles={styles}>
+        Object
       </Checkbox>
-      <Divider />
-      <Checkbox checked onChange={onChange} classNames={classNamesFn} styles={stylesFn}>
-        Styles and classNames Function
+      <Checkbox checked classNames={classNames} styles={stylesFn}>
+        Function
       </Checkbox>
-    </>
+    </Flex>
   );
 };
 

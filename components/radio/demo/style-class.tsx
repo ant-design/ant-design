@@ -1,48 +1,41 @@
 import React from 'react';
-import { Radio } from 'antd';
+import { Flex, Radio } from 'antd';
 import type { RadioProps } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles(({ token }) => ({
+  root: {
+    borderRadius: token.borderRadius,
+    borderWidth: 1,
+    width: 300,
+  },
+}));
 
 const App: React.FC = () => {
-  const classNames: RadioProps['classNames'] = {
-    root: 'custom-radio-wrapper',
-    icon: 'custom-radio-icon',
-    label: 'custom-radio-label',
-  };
+  const { styles: classNames } = useStyles();
 
   const styles: RadioProps['styles'] = {
-    root: { border: '1px solid #1890ff', padding: '8px', borderRadius: '4px' },
-    icon: { transform: 'scale(0.8)' },
-  };
-
-  const classNamesFn: RadioProps['classNames'] = (info) => {
-    return {
-      root: 'custom-radio-wrapper',
-      icon: info?.props?.checked ? 'check-radio-icon' : 'custom-radio-icon',
-      label: 'custom-radio-label',
-    };
+    root: { padding: 8, borderRadius: 4, borderColor: '#ccc' },
   };
 
   const stylesFn: RadioProps['styles'] = (info) => {
-    return {
-      root: { border: '1px solid #1890ff', padding: '8px', borderRadius: '4px' },
-      icon: info?.props?.checked ? { transform: 'scale(1.2)' } : {},
-      label: { color: '#1890ff', fontWeight: 'bold' },
-    };
+    if (info.props.checked) {
+      return {
+        root: { padding: 8, borderRadius: 4, borderColor: '#1890ff' },
+        label: { fontWeight: 'bold', color: '#333' },
+      };
+    }
+    return {};
   };
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <div>
-        <Radio classNames={classNames} styles={styles}>
-          Styles and classNames Object
-        </Radio>
-      </div>
-
-      <div>
-        <Radio classNames={classNamesFn} styles={stylesFn} checked>
-          Styles and classNames Function
-        </Radio>
-      </div>
-    </div>
+    <Flex vertical gap="middle">
+      <Radio classNames={classNames} styles={styles}>
+        Object
+      </Radio>
+      <Radio classNames={classNames} styles={stylesFn} checked>
+        Function
+      </Radio>
+    </Flex>
   );
 };
 

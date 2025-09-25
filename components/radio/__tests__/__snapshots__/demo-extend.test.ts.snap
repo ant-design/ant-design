@@ -2326,58 +2326,52 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 2`] = `
 
 exports[`renders components/radio/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  style="display: flex; flex-direction: column; gap: 16px;"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
-  <div>
-    <label
-      class="ant-radio-wrapper custom-radio-wrapper css-var-test-id ant-radio-css-var"
-      style="border: 1px solid rgb(24, 144, 255); padding: 8px; border-radius: 4px;"
+  <label
+    class="ant-radio-wrapper acss-1308e5j css-var-test-id ant-radio-css-var"
+    style="padding: 8px; border-radius: 4px; border-color: rgb(204, 204, 204);"
+  >
+    <span
+      class="ant-radio ant-wave-target"
     >
+      <input
+        class="ant-radio-input"
+        type="radio"
+      />
       <span
-        class="ant-radio custom-radio-icon ant-wave-target"
-        style="transform: scale(0.8);"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span
-        class="ant-radio-label custom-radio-label"
-      >
-        Styles and classNames Object
-      </span>
-    </label>
-  </div>
-  <div>
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked custom-radio-wrapper css-var-test-id ant-radio-css-var"
-      style="border: 1px solid rgb(24, 144, 255); padding: 8px; border-radius: 4px;"
+        class="ant-radio-inner"
+      />
+    </span>
+    <span
+      class="ant-radio-label"
     >
+      Object
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper ant-radio-wrapper-checked acss-1308e5j css-var-test-id ant-radio-css-var"
+    style="padding: 8px; border-radius: 4px; border-color: rgb(24, 144, 255);"
+  >
+    <span
+      class="ant-radio ant-wave-target ant-radio-checked"
+    >
+      <input
+        checked=""
+        class="ant-radio-input"
+        type="radio"
+      />
       <span
-        class="ant-radio check-radio-icon ant-wave-target ant-radio-checked"
-        style="transform: scale(1.2);"
-      >
-        <input
-          checked=""
-          class="ant-radio-input"
-          type="radio"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span
-        class="ant-radio-label custom-radio-label"
-        style="color: rgb(24, 144, 255); font-weight: bold;"
-      >
-        Styles and classNames Function
-      </span>
-    </label>
-  </div>
+        class="ant-radio-inner"
+      />
+    </span>
+    <span
+      class="ant-radio-label"
+      style="font-weight: bold; color: rgb(51, 51, 51);"
+    >
+      Function
+    </span>
+  </label>
 </div>
 `;
 
