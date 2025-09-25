@@ -7,7 +7,7 @@ import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interfac
 import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
 import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
 import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
@@ -117,11 +117,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   // ========================= Keys =========================
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
-    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
-    {
-      value: selectedRowKeys,
-    },
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
+    defaultSelectedRowKeys || EMPTY_LIST,
+    selectedRowKeys,
   );
   // const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
   //   selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
