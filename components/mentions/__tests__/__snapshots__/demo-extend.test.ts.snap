@@ -505,38 +505,27 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 2`
 
 exports[`renders components/mentions/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
-  style="width: 100%;"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-space-item"
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var acss-3jrxlv"
   >
-    <div
-      class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var custom-mentions-root"
-      style="border: 2px solid rgb(24, 144, 255); border-radius: 8px;"
-    >
-      <textarea
-        class="rc-textarea custom-mentions-textarea"
-        placeholder="classNames and styles object"
-        rows="1"
-        style="background-color: rgb(246, 255, 237); font-size: 16px;"
-      />
-    </div>
+    <textarea
+      class="rc-textarea"
+      placeholder="Object"
+      rows="1"
+      style="font-size: 14px;"
+    />
   </div>
   <div
-    class="ant-space-item"
+    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var acss-3jrxlv"
+    style="border: 1px solid rgb(114, 46, 209);"
   >
-    <div
-      class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var enabled-mentions-root"
-      style="border: 2px solid rgb(82, 196, 26); border-radius: 6px; opacity: 1;"
-    >
-      <textarea
-        class="rc-textarea dynamic-textarea-normal"
-        placeholder="classNames and styles function"
-        rows="1"
-        style="background-color: rgb(246, 255, 237); color: rgb(0, 0, 0);"
-      />
-    </div>
+    <textarea
+      class="rc-textarea"
+      placeholder="Function"
+      rows="1"
+    />
   </div>
 </div>
 `;
