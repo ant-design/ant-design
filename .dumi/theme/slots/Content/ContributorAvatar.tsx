@@ -9,7 +9,7 @@ interface ContributorAvatarProps {
 
 const ContributorAvatar: React.FC<ContributorAvatarProps> = (props) => {
   const { item: { username, url } = {} } = props;
-  if (username?.includes('github-actions')) {
+  if (username === 'github-actions' || username === 'Copilot') {
     return null;
   }
   return (
