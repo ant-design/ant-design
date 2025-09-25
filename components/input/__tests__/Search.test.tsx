@@ -6,7 +6,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 import type { InputRef } from '../Input';
-import Search, { SearchProps } from '../Search';
+import Search from '../Search';
+import type { SearchProps } from '../Search';
 import { EditOutlined, UserOutlined } from '@ant-design/icons';
 
 describe('Input.Search', () => {
