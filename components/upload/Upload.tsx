@@ -99,6 +99,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       '`value` is not a valid prop, do you mean `fileList`?',
     );
 
+    warning(
+      !('directory' in props),
+      'breaking',
+      'directory will be deprecated, please use folder instead. folder will not filter files other than accept, just like the native method.',
+    );
+
     warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
   }
 
