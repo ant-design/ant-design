@@ -3,42 +3,36 @@ import { Flex, InputNumber } from 'antd';
 import type { InputNumberProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
-  root: css`
-   backgroundColor: '#f21505'
-  `,
+const useStyle = createStyles(({ token }) => ({
+  root: {
+    border: `1px solid ${token.colorPrimary}`,
+    borderRadius: 8,
+    width: 200,
+  },
 }));
+
+const stylesObject: InputNumberProps['styles'] = {
+  input: {
+    fontSize: 14,
+  },
+};
 
 const stylesFn: InputNumberProps['styles'] = ({ props: { size } }) => {
   if (size === 'large') {
-    return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
+    return { root: { backgroundColor: '#fafafa', borderColor: '#722ed1' } };
   }
-  return { root: { backgroundColor: '#fffbe6', borderColor: '#ffe58f' } };
+  return {};
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-  const inputNumberSharedProps: InputNumberProps = {
-    classNames: {
-      root: styles.root,
-    },
-    placeholder: 'styles Function',
-    style: {
-      width: 120,
-    },
+  const { styles: classNames } = useStyle();
+  const sharedProps: InputNumberProps = {
+    classNames,
   };
   return (
     <Flex vertical gap="middle">
-      <InputNumber
-        {...inputNumberSharedProps}
-        size="large"
-        styles={{
-          root: {
-            backgroundColor: '#1677FF',
-          },
-        }}
-      />
-      <InputNumber {...inputNumberSharedProps} size="middle" styles={stylesFn} />
+      <InputNumber {...sharedProps} styles={stylesObject} placeholder="Object" />
+      <InputNumber {...sharedProps} placeholder="Function" size="large" styles={stylesFn} />
     </Flex>
   );
 };

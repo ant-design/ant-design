@@ -4454,8 +4454,8 @@ exports[`renders components/input-number/demo/style-class.tsx extend context cor
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-input-number ant-input-number-lg ant-input-number-outlined css-var-test-id ant-input-number-css-var acss-1g7diia"
-    style="background-color: rgb(22, 119, 255); width: 120px;"
+    class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var acss-1tkizl6"
+    style="font-size: 14px;"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -4521,7 +4521,7 @@ exports[`renders components/input-number/demo/style-class.tsx extend context cor
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="styles Function"
+        placeholder="Object"
         role="spinbutton"
         step="1"
         value=""
@@ -4529,8 +4529,8 @@ exports[`renders components/input-number/demo/style-class.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var acss-1g7diia"
-    style="background-color: rgb(255, 251, 230); border-color: rgb(255, 229, 143); width: 120px;"
+    class="ant-input-number ant-input-number-lg ant-input-number-outlined css-var-test-id ant-input-number-css-var acss-1tkizl6"
+    style="background-color: rgb(250, 250, 250); border-color: rgb(114, 46, 209);"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -4596,7 +4596,7 @@ exports[`renders components/input-number/demo/style-class.tsx extend context cor
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="styles Function"
+        placeholder="Function"
         role="spinbutton"
         step="1"
         value=""
