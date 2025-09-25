@@ -9,7 +9,7 @@ import RcTreeSelect, {
   TreeNode,
 } from '@rc-component/tree-select';
 import type { DataNode } from '@rc-component/tree-select/lib/interface';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -142,7 +142,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
-    dropdownStyle,
+    dropdownStyle: _dropdownStyle,
     dropdownRender,
     popupRender,
     onDropdownVisibleChange,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import { useEvent } from '@rc-component/util';
 import classNames from 'classnames';
 
 import toList from '../_util/toList';
