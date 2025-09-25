@@ -392,4 +392,26 @@ describe('Radio Group', () => {
       expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeTruthy();
     });
   });
+
+  it('should support custom classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-radio-group-root',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'blue', padding: '10px' },
+    };
+
+    const { container } = render(
+      <Radio.Group classNames={customClassNames} styles={customStyles}>
+        <Radio value="A">A</Radio>
+        <Radio value="B">B</Radio>
+      </Radio.Group>,
+    );
+
+    const rootElement = container.querySelector('.ant-radio-group') as HTMLElement;
+    expect(rootElement.classList).toContain('custom-radio-group-root');
+    expect(rootElement.style.backgroundColor).toBe('blue');
+    expect(rootElement.style.padding).toBe('10px');
+  });
 });

@@ -5,12 +5,16 @@ import Button from './radioButton';
 export type {
   RadioChangeEvent,
   RadioChangeEventTarget,
+  RadioClassNamesType,
   RadioGroupButtonStyle,
+  RadioGroupClassNamesType,
   RadioGroupContextProps,
   RadioGroupOptionType,
   RadioGroupProps,
+  RadioGroupStylesType,
   RadioProps,
   RadioRef,
+  RadioStylesType,
 } from './interface';
 export { Button, Group };
 
