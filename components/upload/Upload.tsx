@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
@@ -81,11 +81,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const customRequest = props.customRequest || config.customRequest;
 
-  const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
-    value: fileList,
-    postState: (list) => list ?? [],
-  });
-
+  const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
+  const mergedFileList = internalFileList || [];
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const upload = React.useRef<RcUpload>(null);
