@@ -3,7 +3,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RcSwitch from '@rc-component/switch';
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-component/switch';
 import { useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
