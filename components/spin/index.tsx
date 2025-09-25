@@ -16,7 +16,13 @@ export type SpinIndicator = React.ReactElement<HTMLElement>;
 type SemanticName = 'root' | 'wrapper' | 'mask' | 'indicator' | 'tip';
 
 export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SemanticName>;
-export type SpinStylesType = SemanticStylesType<SpinProps, SemanticName>;
+export type SpinStylesType = SemanticStylesType<
+  SpinProps,
+  SemanticName,
+  {
+    wrapper?: React.CSSProperties;
+  }
+>;
 
 export interface SpinProps {
   /** Customize prefix class name */
@@ -171,14 +177,12 @@ const Spin: SpinType = (props) => {
 
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
-  const rootStyle: React.CSSProperties = { ...mergedStyles.root };
-  const wrapStyle: React.CSSProperties = { ...mergedStyles.wrapper };
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const spinElement: React.ReactNode = (
     <div
       {...restProps}
-      style={fullscreen ? mergedStyle : { ...rootStyle, ...mergedStyle }}
+      style={fullscreen ? mergedStyle : { ...mergedStyles.root, ...mergedStyle }}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}
@@ -212,7 +216,7 @@ const Spin: SpinType = (props) => {
           hashId,
           cssVarCls,
         )}
-        style={wrapStyle}
+        style={mergedStyles.wrapper}
       >
         {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key="container">
