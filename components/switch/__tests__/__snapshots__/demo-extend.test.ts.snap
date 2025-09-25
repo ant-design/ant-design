@@ -222,7 +222,7 @@ exports[`renders components/switch/demo/style-class.tsx extend context correctly
     >
       <button
         aria-checked="false"
-        class="ant-switch demo-switch-root--unCheckedChildren css-var-test-id"
+        class="ant-switch ant-switch-small acss-nm9cs2 css-var-test-id"
         role="switch"
         type="button"
       >
@@ -233,14 +233,14 @@ exports[`renders components/switch/demo/style-class.tsx extend context correctly
           class="ant-switch-inner"
         >
           <span
-            class="ant-switch-inner-checked demo-switch-content--unCheckedChildren"
+            class="ant-switch-inner-checked acss-1spdndv"
           >
-            1
+            on
           </span>
           <span
-            class="ant-switch-inner-unchecked demo-switch-content--unCheckedChildren"
+            class="ant-switch-inner-unchecked acss-1spdndv"
           >
-            0
+            off
           </span>
         </span>
       </button>
