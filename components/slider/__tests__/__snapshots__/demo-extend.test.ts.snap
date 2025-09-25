@@ -1620,292 +1620,97 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
 
 exports[`renders components/slider/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
-  style="flex-wrap: wrap; column-gap: 16px; row-gap: 32px;"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-space-item"
+    class="ant-slider acss-1pw5qi4 css-var-test-id ant-slider-horizontal"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
-      style="width: 300px;"
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%; background: linear-gradient(180deg, #91caff, #1677ff);"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-describedby="test-id"
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%); border-color: rgb(22, 119, 255); box-shadow: 0 2px 8px #1677ff;"
+      tabindex="0"
+    />
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
-      <div>
-        <p>
-          classNames Object
-        </p>
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
         <div
-          class="ant-slider demo-slider-root css-var-test-id ant-slider-horizontal"
+          class="ant-tooltip-inner"
+          id="test-id"
+          role="tooltip"
         >
-          <div
-            class="ant-slider-rail"
-          />
-          <div
-            class="ant-slider-track demo-slider-track"
-            style="left: 0%; width: 30%;"
-          />
-          <div
-            class="ant-slider-step"
-          />
-          <div
-            aria-describedby="test-id"
-            aria-disabled="false"
-            aria-orientation="horizontal"
-            aria-valuemax="100"
-            aria-valuemin="0"
-            aria-valuenow="30"
-            class="ant-slider-handle demo-slider-handle"
-            role="slider"
-            style="left: 30%; transform: translateX(-50%);"
-            tabindex="0"
-          />
-          <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
-            >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                30
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <p>
-          classNames Function (disabled)
-        </p>
-        <div
-          class="ant-slider demo-slider-root--disabled css-var-test-id ant-slider-disabled ant-slider-horizontal"
-        >
-          <div
-            class="ant-slider-rail"
-          />
-          <div
-            class="ant-slider-track"
-            style="left: 0%; width: 30%;"
-          />
-          <div
-            class="ant-slider-step"
-          />
-          <div
-            aria-describedby="test-id"
-            aria-disabled="true"
-            aria-orientation="horizontal"
-            aria-valuemax="100"
-            aria-valuemin="0"
-            aria-valuenow="30"
-            class="ant-slider-handle"
-            role="slider"
-            style="left: 30%; transform: translateX(-50%);"
-          />
-          <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
-            >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                30
-              </div>
-            </div>
-          </div>
+          30
         </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-space-item"
+    class="ant-slider acss-1pw5qi4 css-var-test-id ant-slider-vertical"
+    style="height: 300px;"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
-      style="width: 300px;"
-    >
-      <div>
-        <p>
-          styles Object
-        </p>
-        <div
-          class="ant-slider css-var-test-id ant-slider-horizontal"
-          style="padding: 16px 8px;"
-        >
-          <div
-            class="ant-slider-rail"
-          />
-          <div
-            class="ant-slider-track"
-            style="left: 0%; width: 30%; background: linear-gradient(90deg, #ffd666, #ffc53d);"
-          />
-          <div
-            class="ant-slider-step"
-          />
-          <div
-            aria-describedby="test-id"
-            aria-disabled="false"
-            aria-orientation="horizontal"
-            aria-valuemax="100"
-            aria-valuemin="0"
-            aria-valuenow="30"
-            class="ant-slider-handle"
-            role="slider"
-            style="left: 30%; transform: translateX(-50%); border-color: rgb(255, 197, 61); box-shadow: 0 2px 8px rgba(255, 197, 61, 0.6);"
-            tabindex="0"
-          />
-          <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
-            >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                30
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <p>
-          styles Function (horizontal)
-        </p>
-        <div
-          class="ant-slider css-var-test-id ant-slider-horizontal"
-          style="background-color: rgb(255, 242, 232); padding: 12px;"
-        >
-          <div
-            class="ant-slider-rail"
-          />
-          <div
-            class="ant-slider-track"
-            style="left: 0%; width: 30%; background: linear-gradient(90deg, #ff9c6e, #ff7a45);"
-          />
-          <div
-            class="ant-slider-step"
-          />
-          <div
-            aria-describedby="test-id"
-            aria-disabled="false"
-            aria-orientation="horizontal"
-            aria-valuemax="100"
-            aria-valuemin="0"
-            aria-valuenow="30"
-            class="ant-slider-handle"
-            role="slider"
-            style="left: 30%; transform: translateX(-50%);"
-            tabindex="0"
-          />
-          <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
-            >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                30
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
+      class="ant-slider-rail"
+    />
     <div
-      class="ant-flex css-var-test-id ant-flex-gap-large"
+      class="ant-slider-track"
+      style="top: 0%; height: 30%; background: linear-gradient(180deg, #722cc0, #722ed1);"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-describedby="test-id"
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle acss-1mqvsgv"
+      role="slider"
+      style="top: 30%; transform: translateY(-50%); border-color: rgb(114, 46, 209); box-shadow: 0 2px 8px #722ed1;"
+      tabindex="0"
+    />
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
-      <div>
-        <p>
-          styles Function (vertical)
-        </p>
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
         <div
-          style="height: 200px;"
+          class="ant-tooltip-inner"
+          id="test-id"
+          role="tooltip"
         >
-          <div
-            class="ant-slider css-var-test-id ant-slider-vertical"
-            style="background-color: rgb(240, 240, 240); padding: 8px 16px;"
-          >
-            <div
-              class="ant-slider-rail"
-            />
-            <div
-              class="ant-slider-track"
-              style="bottom: 0%; height: 30%; background: linear-gradient(180deg, #91caff, #1677ff);"
-            />
-            <div
-              class="ant-slider-step"
-            />
-            <div
-              aria-describedby="test-id"
-              aria-disabled="false"
-              aria-orientation="vertical"
-              aria-valuemax="100"
-              aria-valuemin="0"
-              aria-valuenow="30"
-              class="ant-slider-handle"
-              role="slider"
-              style="bottom: 30%; transform: translateY(50%);"
-              tabindex="0"
-            />
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  30
-                </div>
-              </div>
-            </div>
-          </div>
+          30
         </div>
       </div>
     </div>

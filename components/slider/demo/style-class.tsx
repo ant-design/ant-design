@@ -1,70 +1,58 @@
 import React from 'react';
-import { Flex, Slider, Space } from 'antd';
+import { Flex, Slider } from 'antd';
 import type { SliderSingleProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: SliderSingleProps['classNames'] = {
-  root: 'demo-slider-root',
-  handle: 'demo-slider-handle',
-  track: 'demo-slider-track',
-};
-
-const classNamesFn: SliderSingleProps['classNames'] = (info) => {
-  if (info.props.disabled) {
-    return { root: 'demo-slider-root--disabled' };
-  }
-  return { root: 'demo-slider-root--enabled' };
-};
+const useStyles = createStyles(({ css, cssVar }) => ({
+  root: css`
+    width: 300px;
+  `,
+  handle: css`
+    &::after {
+      box-shadow: 0 0 0 ${cssVar.lineWidthBold} #722ed1;
+    }
+  `,
+}));
 
 const stylesObject: SliderSingleProps['styles'] = {
-  root: { padding: '16px 8px' },
-  track: { background: 'linear-gradient(90deg, #ffd666, #ffc53d)' },
-  handle: { borderColor: '#ffc53d', boxShadow: '0 2px 8px rgba(255, 197, 61, 0.6)' },
+  track: { background: 'linear-gradient(180deg, #91caff, #1677ff)' },
+  handle: { borderColor: '#1677ff', boxShadow: '0 2px 8px #1677ff' },
 };
 
 const stylesFn: SliderSingleProps['styles'] = (info) => {
-  if (info.props.vertical) {
+  if (info.props.orientation === 'vertical') {
     return {
-      root: { backgroundColor: '#f0f0f0', padding: '8px 16px' },
-      track: { background: 'linear-gradient(180deg, #91caff, #1677ff)' },
+      root: { height: 300 },
+      track: { background: 'linear-gradient(180deg, #722cc0, #722ed1)' },
+      handle: { borderColor: '#722ed1', boxShadow: '0 2px 8px #722ed1' },
     };
   }
-  return {
-    root: { backgroundColor: '#fff2e8', padding: '12px' },
-    track: { background: 'linear-gradient(90deg, #ff9c6e, #ff7a45)' },
-  };
+  return {};
 };
 
-const App: React.FC = () => (
-  <Space size={[16, 32]} wrap>
-    <Flex vertical gap="large" style={{ width: 300 }}>
-      <div>
-        <p>classNames Object</p>
-        <Slider classNames={classNamesObject} defaultValue={30} />
-      </div>
-      <div>
-        <p>classNames Function (disabled)</p>
-        <Slider disabled classNames={classNamesFn} defaultValue={30} />
-      </div>
+const App: React.FC = () => {
+  const { styles } = useStyles();
+  const sharedProps: SliderSingleProps = {
+    classNames: {
+      root: styles.root,
+    },
+    defaultValue: 30,
+  };
+  return (
+    <Flex vertical gap="middle">
+      <Slider {...sharedProps} styles={stylesObject} />
+      <Slider
+        {...sharedProps}
+        classNames={{
+          root: styles.root,
+          handle: styles.handle,
+        }}
+        orientation="vertical"
+        reverse
+        styles={stylesFn}
+      />
     </Flex>
-    <Flex vertical gap="large" style={{ width: 300 }}>
-      <div>
-        <p>styles Object</p>
-        <Slider styles={stylesObject} defaultValue={30} />
-      </div>
-      <div>
-        <p>styles Function (horizontal)</p>
-        <Slider styles={stylesFn} defaultValue={30} />
-      </div>
-    </Flex>
-    <Flex gap="large">
-      <div>
-        <p>styles Function (vertical)</p>
-        <div style={{ height: 200 }}>
-          <Slider vertical styles={stylesFn} defaultValue={30} />
-        </div>
-      </div>
-    </Flex>
-  </Space>
-);
+  );
+};
 
 export default App;

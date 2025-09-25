@@ -23,8 +23,8 @@ export type SliderMarks = RcSliderProps['marks'];
 
 export type SemanticName = 'root' | 'tracks' | 'track' | 'rail' | 'handle';
 
-export type SliderClassNamesType = SemanticClassNamesType<SliderProps, SemanticName>;
-export type SliderStylesType = SemanticStylesType<SliderProps, SemanticName>;
+export type SliderClassNamesType = SemanticClassNamesType<SliderBaseProps, SemanticName>;
+export type SliderStylesType = SemanticStylesType<SliderBaseProps, SemanticName>;
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
   classNames?: SliderClassNamesType;
   styles?: SliderStylesType;
