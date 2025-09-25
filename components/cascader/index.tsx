@@ -8,7 +8,7 @@ import type {
 } from '@rc-component/cascader';
 import RcCascader from '@rc-component/cascader';
 import type { Placement } from '@rc-component/select/lib/BaseSelect';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';

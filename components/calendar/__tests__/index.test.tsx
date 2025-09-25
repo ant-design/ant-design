@@ -6,7 +6,7 @@ import React from 'react';
 import type { PickerPanelProps } from '@rc-component/picker';
 import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
 import type { Locale } from '@rc-component/picker/lib/interface';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 import MockDate from 'mockdate';
 
 import Calendar from '..';
@@ -19,6 +19,8 @@ import Button from '../../radio/radioButton';
 import Select from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
+
+const { resetWarned } = warning;
 
 const ref: {
   calendarProps?: PickerPanelProps;

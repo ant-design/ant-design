@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 
 import Select from '../../select';
 import type { DefaultOptionType } from '../../select';
@@ -30,15 +30,13 @@ const selectOptions = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB].map<DefaultOptionType
 const ColorInput: FC<ColorInputProps> = (props) => {
   const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
     props;
-  const [colorFormat, setColorFormat] = useMergedState(FORMAT_HEX, {
-    value: format,
-    onChange: onFormatChange,
-  });
+  const [colorFormat, setColorFormat] = useControlledState<ColorFormatType>(FORMAT_HEX, format);
 
   const colorInputPrefixCls = `${prefixCls}-input`;
 
-  const handleFormatChange = (newFormat: ColorFormatType) => {
+  const triggerFormatChange = (newFormat: ColorFormatType) => {
     setColorFormat(newFormat);
+    onFormatChange?.(newFormat);
   };
 
   const steppersNode = useMemo<React.ReactNode>(() => {
@@ -63,7 +61,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
           getPopupContainer={(current) => current}
           popupMatchSelectWidth={68}
           placement="bottomRight"
-          onChange={handleFormatChange}
+          onChange={triggerFormatChange}
           className={`${prefixCls}-format-select`}
           size="small"
           options={selectOptions}

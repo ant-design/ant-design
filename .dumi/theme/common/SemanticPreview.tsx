@@ -1,7 +1,6 @@
 import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
-import get from '@rc-component/util/lib/utils/get';
-import set from '@rc-component/util/lib/utils/set';
+import { get, set } from '@rc-component/util';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';

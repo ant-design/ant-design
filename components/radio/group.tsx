@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { useControlledState } from '@rc-component/util';
 import useId from '@rc-component/util/lib/hooks/useId';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
 
@@ -51,9 +51,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     vertical,
   } = props;
 
-  const [value, setValue] = useMergedState(defaultValue, {
-    value: customizedValue,
-  });
+  const [value, setValue] = useControlledState(defaultValue, customizedValue);
 
   const onRadioChange = React.useCallback(
     (event: RadioChangeEvent) => {

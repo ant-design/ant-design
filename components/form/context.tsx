@@ -3,18 +3,18 @@ import * as React from 'react';
 import { FormProvider as RcFormProvider } from '@rc-component/form';
 import type { FormProviderProps as RcFormProviderProps } from '@rc-component/form/lib/FormContext';
 import type { Meta } from '@rc-component/form/lib/interface';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
-import type { FormInstance, RequiredMark, SemanticName, FormLayout } from './Form';
+import type { FormInstance, RequiredMark, FormSemanticName, FormLayout } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { FormLabelAlign, NamePath } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<FormSemanticName, string>>;
+  styles?: Partial<Record<FormSemanticName, React.CSSProperties>>;
   layout: FormLayout;
   name?: string;
   colon?: boolean;

@@ -1,7 +1,6 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { omit, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import omit from '@rc-component/util/lib/omit';
-import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';

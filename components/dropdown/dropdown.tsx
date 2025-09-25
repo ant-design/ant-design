@@ -4,9 +4,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import omit from '@rc-component/util/lib/omit';
+import { omit, useControlledState, useEvent } from '@rc-component/util';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -225,9 +223,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const alignPoint = !!triggerActions?.includes('contextMenu');
 
   // =========================== Open ============================
-  const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open,
-  });
+  const [mergedOpen, setOpen] = useControlledState(false, open);
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
     onOpenChange?.(nextOpen, { source: 'trigger' });

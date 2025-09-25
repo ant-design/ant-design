@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import type { AnchorDirection } from '../Anchor';
+
+const { resetWarned } = warning;
 
 const { Link } = Anchor;
 
