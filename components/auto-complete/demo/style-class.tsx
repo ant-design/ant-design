@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoComplete, Flex, Space } from 'antd';
+import { AutoComplete, Flex } from 'antd';
 import type { AutoCompleteProps } from 'antd';
 import { createStyles } from 'antd-style';
 
@@ -27,11 +27,23 @@ const stylesFn: AutoCompleteProps['styles'] = ({ props }) => {
   }
 };
 
-const mockVal = (str: string, repeat = 1) => ({
-  value: str.repeat(repeat),
-});
-
-const options = [mockVal('Burns Bay Road'), mockVal('Downing Street'), mockVal('Wall Street')];
+const options: AutoCompleteProps['options'] = [
+  {
+    value: 'Burnaby',
+  },
+  {
+    value: 'Seattle',
+  },
+  {
+    value: 'Los Angeles',
+  },
+  {
+    value: 'San Francisco',
+  },
+  {
+    value: 'Meet student',
+  },
+];
 
 const App: React.FC = () => {
   const { styles: classNames } = useStyle();
@@ -44,19 +56,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space orientation="vertical" size={[8, 24]}>
-      <Flex vertical gap="middle">
-        <AutoComplete {...sharedProps} placeholder="object styles" styles={stylesObject} />
-      </Flex>
-      <Flex vertical gap="middle">
-        <AutoComplete
-          {...sharedProps}
-          variant="filled"
-          placeholder="function styles"
-          styles={stylesFn}
-        />
-      </Flex>
-    </Space>
+    <Flex vertical gap="middle">
+      <AutoComplete {...sharedProps} placeholder="object styles" styles={stylesObject} />
+      <AutoComplete
+        {...sharedProps}
+        variant="filled"
+        placeholder="function styles"
+        styles={stylesFn}
+      />
+    </Flex>
   );
 };
 

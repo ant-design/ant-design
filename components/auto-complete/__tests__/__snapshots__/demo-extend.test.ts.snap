@@ -2874,129 +2874,152 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 
 exports[`renders components/auto-complete/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical css-var-test-id"
-  style="column-gap: 8px; row-gap: 24px;"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-space-item"
+    class="ant-select ant-select-outlined ant-select-auto-complete acss-1rj0z6b css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+    style="width: 200px;"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+      class="ant-select-selector"
     >
-      <div
-        class="ant-select ant-select-outlined ant-select-auto-complete acss-1rj0z6b css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-        style="width: 200px;"
+      <span
+        class="ant-select-selection-wrap"
       >
-        <div
-          class="ant-select-selector"
+        <span
+          class="ant-select-selection-search"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          object styles
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(24, 144, 255);"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
+          <div
+            aria-selected="false"
+            id="test-id_list_0"
+            role="option"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-placeholder"
-            >
-              object styles
-            </span>
-          </span>
+            Burnaby
+          </div>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(24, 144, 255);"
+          class="rc-virtual-list"
+          style="background-color: rgb(249, 249, 249); position: relative;"
         >
-          <div>
-            <div
-              id="test-id_list"
-              role="listbox"
-              style="height: 0px; width: 0px; overflow: hidden;"
-            >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
               <div
-                aria-selected="false"
-                id="test-id_list_0"
-                role="option"
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
               >
-                Burns Bay Road
-              </div>
-            </div>
-            <div
-              class="rc-virtual-list"
-              style="background-color: rgb(249, 249, 249); position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Burnaby"
+                >
                   <div
-                    class="rc-virtual-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item ant-select-item-option"
-                      title="Burns Bay Road"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Burns Bay Road
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      class="ant-select-item ant-select-item-option"
-                      title="Downing Street"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Downing Street
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      class="ant-select-item ant-select-item-option"
-                      title="Wall Street"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Wall Street
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
+                    Burnaby
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Seattle"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Seattle
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Los Angeles"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Los Angeles
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="San Francisco"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    San Francisco
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Meet student"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Meet student
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
                 </div>
               </div>
             </div>
@@ -3006,125 +3029,149 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     </div>
   </div>
   <div
-    class="ant-space-item"
+    class="ant-select ant-select-filled ant-select-auto-complete acss-1rj0z6b css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+    style="width: 200px;"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+      class="ant-select-selector"
     >
-      <div
-        class="ant-select ant-select-filled ant-select-auto-complete acss-1rj0z6b css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-        style="width: 200px;"
+      <span
+        class="ant-select-selection-wrap"
       >
-        <div
-          class="ant-select-selector"
+        <span
+          class="ant-select-selection-search"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          function styles
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(204, 204, 204);"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
+          <div
+            aria-selected="false"
+            id="test-id_list_0"
+            role="option"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-placeholder"
-            >
-              function styles
-            </span>
-          </span>
+            Burnaby
+          </div>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(204, 204, 204);"
+          class="rc-virtual-list"
+          style="background-color: rgb(240, 240, 240); position: relative;"
         >
-          <div>
-            <div
-              id="test-id_list"
-              role="listbox"
-              style="height: 0px; width: 0px; overflow: hidden;"
-            >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
               <div
-                aria-selected="false"
-                id="test-id_list_0"
-                role="option"
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
               >
-                Burns Bay Road
-              </div>
-            </div>
-            <div
-              class="rc-virtual-list"
-              style="background-color: rgb(240, 240, 240); position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Burnaby"
+                >
                   <div
-                    class="rc-virtual-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item ant-select-item-option"
-                      title="Burns Bay Road"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Burns Bay Road
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      class="ant-select-item ant-select-item-option"
-                      title="Downing Street"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Downing Street
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      class="ant-select-item ant-select-item-option"
-                      title="Wall Street"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Wall Street
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
+                    Burnaby
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Seattle"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Seattle
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Los Angeles"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Los Angeles
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="San Francisco"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    San Francisco
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Meet student"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Meet student
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
                 </div>
               </div>
             </div>
