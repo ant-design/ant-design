@@ -25,19 +25,19 @@ const locales = {
   },
 };
 
-const BlockCollapse: React.FC<NonNullable<CollapseProps['items']>[number]> = (props) => {
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This is panel header',
+    children: <p>This is panel body</p>,
+  },
+];
+
+const BlockCollapse: React.FC<CollapseProps> = (props) => {
   const [, token] = useToken();
-  const items: CollapseProps['items'] = [
-    {
-      key: '1',
-      label: 'This is panel header',
-      children: <p>This is panel body</p>,
-      ...props,
-    },
-  ];
   return (
     <div style={{ position: 'absolute', inset: 0, margin: token.marginXL }}>
-      <Collapse items={items} defaultActiveKey={['1']} />
+      <Collapse {...props} items={items} defaultActiveKey={['1']} />
     </div>
   );
 };
