@@ -1,11 +1,10 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
