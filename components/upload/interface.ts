@@ -120,7 +120,12 @@ export interface UploadProps<T = any>
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (options: RcCustomRequestOptions<T>) => void;
+  customRequest?: (
+    options: RcCustomRequestOptions<T>,
+    info: {
+      defaultRequest: (option: RcCustomRequestOptions) => void;
+    },
+  ) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
