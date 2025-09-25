@@ -3422,6 +3422,53 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
       </div>
     </div>
   </div>
+  <div
+    class="ant-select ant-select-underlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+    style="width: 200px;"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Underlined
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
