@@ -1,68 +1,46 @@
 import React from 'react';
-import { Flex, InputNumber, Space } from 'antd';
+import { Flex, InputNumber } from 'antd';
 import type { InputNumberProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: InputNumberProps['classNames'] = {
-  root: 'demo-input-number-root',
-  input: 'demo-input-number-element',
-  prefix: 'demo-input-number-prefix',
-  suffix: 'demo-input-number-suffix',
-  actions: 'demo-input-number-actions',
-};
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+   backgroundColor: '#f21505'
+  `,
+}));
 
-const classNamesFn: InputNumberProps['classNames'] = (info) => {
-  if (info.props.disabled) {
-    return { root: 'demo-input-number-root--disabled' };
-  }
-  return { root: 'demo-input-number-root--enabled' };
-};
-
-const stylesObject: InputNumberProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  input: { fontStyle: 'italic' },
-  prefix: { color: '#52c41a' },
-  suffix: { color: '#faad14' },
-  actions: { backgroundColor: '#f0f0f0' },
-};
-
-const stylesFn: InputNumberProps['styles'] = (info) => {
-  if (info.props.size === 'large') {
+const stylesFn: InputNumberProps['styles'] = ({ props: { size } }) => {
+  if (size === 'large') {
     return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
   }
   return { root: { backgroundColor: '#fffbe6', borderColor: '#ffe58f' } };
 };
 
-const App: React.FC = () => (
-  <Space size={[8, 16]} wrap>
-    <Flex gap="small">
+const App: React.FC = () => {
+  const { styles } = useStyle();
+  const inputNumberSharedProps: InputNumberProps = {
+    classNames: {
+      root: styles.root,
+    },
+    placeholder: 'styles Function',
+    style: {
+      width: 120,
+    },
+  };
+  return (
+    <Flex vertical gap="middle">
       <InputNumber
-        classNames={classNamesObject}
-        placeholder="classNames Object"
-        style={{ width: 120 }}
-      />
-      <InputNumber
-        disabled
-        classNames={classNamesFn}
-        placeholder="classNames Function"
-        style={{ width: 120 }}
-      />
-    </Flex>
-    <Flex gap="small">
-      <InputNumber
-        styles={stylesObject}
-        placeholder="styles Object"
-        prefix="$"
-        suffix="USD"
-        style={{ width: 150 }}
-      />
-      <InputNumber
+        {...inputNumberSharedProps}
         size="large"
-        styles={stylesFn}
-        placeholder="styles Function"
-        style={{ width: 120 }}
+        styles={{
+          root: {
+            backgroundColor: '#1677FF',
+          },
+        }}
       />
+      <InputNumber {...inputNumberSharedProps} size="middle" styles={stylesFn} />
     </Flex>
-  </Space>
-);
+  );
+};
 
 export default App;
