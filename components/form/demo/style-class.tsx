@@ -53,7 +53,7 @@ const App: React.FC = () => {
     classNames,
   };
 
-  const FormContent = (
+  const sharedFormContent = (
     <>
       <Form.Item
         label="Username"
@@ -85,11 +85,11 @@ const App: React.FC = () => {
   return (
     <>
       <Form {...sharedProps} styles={stylesObject}>
-        {FormContent}
+        {sharedFormContent}
       </Form>
 
       <Form {...sharedProps} variant="filled" styles={stylesFunction}>
-        {FormContent}
+        {sharedFormContent}
       </Form>
     </>
   );
