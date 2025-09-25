@@ -1184,8 +1184,8 @@ exports[`renders components/time-picker/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var acss-16zrciz"
-    style="border:2px solid #d9d9d9"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var acss-syjkhv"
+    style="border-color:#d9d9d9"
   >
     <div
       class="ant-picker-input"
@@ -1226,8 +1226,8 @@ exports[`renders components/time-picker/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-picker ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var acss-16zrciz"
-    style="border:2px solid #faad14"
+    class="ant-picker ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var acss-syjkhv"
+    style="border-color:#722ed1"
   >
     <div
       class="ant-picker-input"
@@ -1241,7 +1241,7 @@ exports[`renders components/time-picker/demo/style-class.tsx correctly 1`] = `
       />
       <span
         class="ant-picker-suffix"
-        style="color:#faad14"
+        style="color:#722ed1"
       >
         <span
           aria-label="clock-circle"

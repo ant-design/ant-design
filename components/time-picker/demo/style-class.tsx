@@ -5,8 +5,8 @@ import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
   root: {
-    border: `1px dashed ${token.colorPrimary}`,
-    width: 300,
+    border: `1px solid ${token.colorPrimary}`,
+    width: 150,
   },
 }));
 
@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   const stylesObject: TimePickerProps['styles'] = {
     root: {
-      border: '2px solid #d9d9d9',
+      borderColor: '#d9d9d9',
     },
   };
 
@@ -22,10 +22,13 @@ const App: React.FC = () => {
     if (info.props.size === 'large') {
       return {
         root: {
-          border: '2px solid #faad14',
+          borderColor: '#722ed1',
         },
         suffix: {
-          color: '#faad14',
+          color: '#722ed1',
+        },
+        popup: {
+          root: { border: '1px solid #722ed1', borderRadius: 8 },
         },
       };
     }
@@ -35,7 +38,6 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="middle">
       <TimePicker placeholder="Object" classNames={classNames} styles={stylesObject} />
-
       <TimePicker size="large" placeholder="Function" classNames={classNames} styles={stylesFn} />
     </Flex>
   );
