@@ -1,8 +1,7 @@
 import * as React from 'react';
 import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
 import { Item } from '@rc-component/menu';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import omit from '@rc-component/util/lib/omit';
+import { omit, toArray } from '@rc-component/util';
 import cls from 'classnames';
 
 import { cloneElement } from '../_util/reactNode';
