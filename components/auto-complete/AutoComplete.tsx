@@ -207,27 +207,33 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     },
   );
 
-  const finalClassNames = {
-    root: cls(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames?.root),
-    prefix: mergedClassNames?.prefix,
-    input: mergedClassNames?.input,
-    popup: {
-      root: cls(popupClassName, dropdownClassName, mergedClassNames?.popup?.root),
-      list: mergedClassNames?.popup?.list,
-      listItem: mergedClassNames?.popup?.listItem,
-    },
-  };
+  const finalClassNames = React.useMemo(
+    () => ({
+      root: cls(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
+      prefix: mergedClassNames.prefix,
+      input: mergedClassNames.input,
+      popup: {
+        root: cls(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
+        list: mergedClassNames.popup?.list,
+        listItem: mergedClassNames.popup?.listItem,
+      },
+    }),
+    [prefixCls, className, rootClassName, mergedClassNames, popupClassName, dropdownClassName],
+  );
 
-  const finalStyles = {
-    root: { ...mergedStyles?.root, ...style },
-    input: mergedStyles.input,
-    prefix: mergedStyles.prefix,
-    popup: {
-      root: { ...dropdownStyle, ...mergedStyles.popup?.root },
-      list: mergedStyles.popup?.list,
-      listItem: mergedStyles.popup?.listItem,
-    },
-  };
+  const finalStyles = React.useMemo(
+    () => ({
+      root: { ...mergedStyles.root, ...style },
+      input: mergedStyles.input,
+      prefix: mergedStyles.prefix,
+      popup: {
+        root: { ...dropdownStyle, ...mergedStyles.popup?.root },
+        list: mergedStyles.popup?.list,
+        listItem: mergedStyles.popup?.listItem,
+      },
+    }),
+    [mergedStyles, style, dropdownStyle],
+  );
 
   return (
     <Select
