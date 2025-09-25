@@ -1,70 +1,73 @@
 import React from 'react';
-import { Alert, Button } from 'antd';
+import { Alert, Button, Flex } from 'antd';
 import type { AlertProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: AlertProps['classNames'] = {
-  root: 'demo-alert-root',
-  icon: 'demo-alert-icon',
-  section: 'demo-alert-section',
-  title: 'demo-alert-title',
-  description: 'demo-alert-description',
-  actions: 'demo-alert-actions',
-};
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 12px;
+  `,
+}));
 
-const classNamesFn: AlertProps['classNames'] = (info) => {
-  if (info.props.type === 'error') {
-    return { root: 'demo-alert-root--error' };
-  }
-  return { root: 'demo-alert-root--default' };
-};
-
-const stylesObject: AlertProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  icon: { fontSize: 18 },
-  section: { padding: '8px 12px' },
-  title: { fontWeight: 'bold' },
-  description: { fontStyle: 'italic' },
-  actions: { marginTop: 8 },
-};
-
-const stylesFn: AlertProps['styles'] = (info) => {
-  if (info.props.type === 'success') {
+const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
+  if (type === 'success') {
     return {
-      root: { backgroundColor: '#f6ffed', borderColor: '#b7eb8f' },
-      icon: { color: '#52c41a' },
+      root: {
+        backgroundColor: 'rgba(82, 196, 26, 0.1)',
+        borderColor: '#b7eb8f',
+      },
+      icon: {
+        color: '#52c41a',
+      },
     };
   }
-  return {
-    root: { backgroundColor: '#fff7e6', borderColor: '#ffd591' },
-    icon: { color: '#fa8c16' },
-  };
+
+  if (type === 'warning') {
+    return {
+      root: {
+        backgroundColor: 'rgba(250, 173, 20, 0.1)',
+        borderColor: '#ffe58f',
+      },
+      icon: {
+        color: '#faad14',
+      },
+    };
+  }
+
+  return {};
 };
 
 const App: React.FC = () => {
+  const { styles } = useStyle();
+
+  const alertSharedProps: AlertProps = {
+    showIcon: true,
+    classNames: {
+      root: styles.root,
+    },
+  };
+
   return (
-    <>
+    <Flex vertical gap="middle">
       <Alert
-        title="classNames Object"
-        description="This alert uses classNames object to customize styles"
+        {...alertSharedProps}
+        message="Object styles"
         type="info"
-        showIcon
-        styles={stylesObject}
-        classNames={classNamesObject}
-        action={
-          <Button size="small" type="text">
-            Action
-          </Button>
-        }
+        styles={{
+          icon: {
+            fontSize: 18,
+          },
+          section: {
+            fontWeight: 500,
+          },
+        }}
+        action={<Button size="small">Action</Button>}
       />
-      <Alert
-        title="classNames Function"
-        description="This alert uses classNames function based on props"
-        type="error"
-        showIcon
-        styles={stylesFn}
-        classNames={classNamesFn}
-      />
-    </>
+
+      <Alert {...alertSharedProps} message="Function styles" type="success" styles={styleFn} />
+    </Flex>
   );
 };
 
