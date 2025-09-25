@@ -53,16 +53,14 @@ describe('Spin.Semantic', () => {
     };
     const stylesFn: SpinProps['styles'] = () => ({ indicator: { color: 'rgb(255, 0, 0)' } });
 
-    const { container: c1 } = render(
+    const { container, rerender } = render(
       <Spin spinning size="small" classNames={classNamesFn} styles={stylesFn} />,
     );
-    expect(c1.querySelector('.fn-root')).toBeTruthy();
-    expect(c1.querySelector('.ant-spin-dot')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(container.querySelector('.fn-root')).toBeTruthy();
+    expect(container.querySelector('.ant-spin-dot')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
 
-    const { container: c2 } = render(
-      <Spin spinning fullscreen classNames={classNamesFn} styles={stylesFn} />,
-    );
-    expect(c2.querySelector('.fn-mask')).toBeTruthy();
-    expect(c2.querySelector('.ant-spin-dot')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    rerender(<Spin spinning fullscreen classNames={classNamesFn} styles={stylesFn} />);
+    expect(container.querySelector('.fn-mask')).toBeTruthy();
+    expect(container.querySelector('.ant-spin-dot')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
   });
 });
