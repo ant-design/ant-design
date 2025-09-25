@@ -33,6 +33,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/inline-variant.tsx">内联样式组合</code>
 <code src="./demo/variant-debug.tsx" debug>变体 Debug</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 
 ## API
 
@@ -44,7 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |  |
 | ~~direction~~ | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | `horizontal` |  |
 | iconRender | 自定义渲染图标，请优先使用 `items.icon` | (oriNode, info: { index, active, item }) => ReactNode | - |  |
@@ -56,7 +57,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | responsive | 当屏幕宽度小于 `532px` 时自动变为垂直模式 | boolean | true |  |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`） | string | `default` |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | titlePlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  |
 | type | 步骤条类型，可选 `default` `dot` `inline` `navigation` `panel` | string | `default` |  |
 | variant | 设置样式变体 | `filled` \| `outlined` | `filled` |  |
