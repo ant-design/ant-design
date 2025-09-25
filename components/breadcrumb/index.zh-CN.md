@@ -42,6 +42,8 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
 <code src="./demo/separator-component.tsx">独立的分隔符</code>
 <code src="./demo/debug-routes.tsx">Debug Routes</code>
+<code src="./demo/style-class.tsx">自定义语义结构样式</code>
+
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -52,10 +54,12 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 为组件内部各语义结构自定义类名，支持对象或函数 | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
 | items | 路由栈信息 | [items\[\]](#itemtype) | - | 5.3.0 |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
+| styles | 为组件内部各语义结构自定义内联样式，支持对象或函数 | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 
 ### ItemType
 

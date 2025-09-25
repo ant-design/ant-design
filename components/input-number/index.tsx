@@ -147,13 +147,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      size: mergedSize,
-      disabled: mergedDisabled,
-    } as InputNumberProps;
-  }, [props, mergedSize, mergedDisabled]);
+const mergedProps : InputNumberProps = {
+    ...props,
+    size: mergedSize,
+    disabled: mergedDisabled,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     InputNumberClassNamesType,
