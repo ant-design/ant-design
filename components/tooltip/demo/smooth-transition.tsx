@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ConfigProvider, Flex, Space, Tooltip } from 'antd';
+import { Button, ConfigProvider, Flex, Tooltip } from 'antd';
 
 const SharedButton = ({ placement = 'top' }: { placement?: 'top' | 'bottom' }) => (
   <Tooltip title="Hello, Ant Design!" placement={placement}>
@@ -9,24 +9,22 @@ const SharedButton = ({ placement = 'top' }: { placement?: 'top' | 'bottom' }) =
 
 const App: React.FC = () => {
   return (
-    <div style={{ margin: 100 }}>
-      <ConfigProvider
-        tooltip={{
-          unique: true,
-        }}
-      >
-        <Flex vertical gap="small">
-          <Space>
-            <SharedButton />
-            <SharedButton />
-          </Space>
-          <Space>
-            <SharedButton placement="bottom" />
-            <SharedButton placement="bottom" />
-          </Space>
+    <ConfigProvider
+      tooltip={{
+        unique: true,
+      }}
+    >
+      <Flex vertical gap="small">
+        <Flex gap="small" justify="center">
+          <SharedButton />
+          <SharedButton />
         </Flex>
-      </ConfigProvider>
-    </div>
+        <Flex gap="small" justify="center">
+          <SharedButton placement="bottom" />
+          <SharedButton placement="bottom" />
+        </Flex>
+      </Flex>
+    </ConfigProvider>
   );
 };
 
