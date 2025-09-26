@@ -1,5 +1,5 @@
 import React from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
 
 import Alert from '..';
@@ -10,6 +10,8 @@ import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
 import type { AlertRef } from '../Alert';
+
+const { resetWarned } = warning;
 
 const { ErrorBoundary } = Alert;
 

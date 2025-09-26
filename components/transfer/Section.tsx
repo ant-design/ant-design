@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import classnames from 'classnames';
 
 import { groupKeysMap } from '../_util/transKeys';
