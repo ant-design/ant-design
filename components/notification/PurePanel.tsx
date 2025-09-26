@@ -20,8 +20,8 @@ import type { IconType, SemanticName } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
 
-export type PurePanelClassNamesType = SemanticClassNamesType<BasePurePanelProps, SemanticName>;
-export type PurePanelStylesType = SemanticStylesType<BasePurePanelProps, SemanticName>;
+export type PurePanelClassNamesType = SemanticClassNamesType<PurePanelProps, SemanticName>;
+export type PurePanelStylesType = SemanticStylesType<PurePanelProps, SemanticName>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -36,23 +36,6 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
     return null;
   }
   return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
-}
-
-export interface BasePurePanelProps {
-  prefixCls?: string;
-  icon?: React.ReactNode;
-  /** @deprecated Please use `title` instead */
-  message?: React.ReactNode;
-  title?: React.ReactNode;
-  description?: React.ReactNode;
-  /** @deprecated Please use `actions` instead */
-  btn?: React.ReactNode;
-  actions?: React.ReactNode;
-  type?: IconType;
-  role?: 'alert' | 'status';
-  classNames?: SemanticClassNamesType<BasePurePanelProps, SemanticName>;
-  styles?: SemanticStylesType<BasePurePanelProps, SemanticName>;
-  closeIcon?: React.ReactNode;
 }
 
 export interface PureContentProps {
@@ -132,8 +115,12 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 
 export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
-    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'>,
-    BasePurePanelProps {}
+    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
+  prefixCls?: string;
+  classNames?: PurePanelClassNamesType;
+  styles?: PurePanelStylesType;
+  closeIcon?: React.ReactNode;
+}
 
 /** @private Internal Component. Do not use in your production. */
 const PurePanel: React.FC<PurePanelProps> = (props) => {
@@ -166,8 +153,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     PurePanelClassNamesType,
     PurePanelStylesType,
-    BasePurePanelProps
-  >([contextClassNames as any, notificationClassNames], [contextStyles as any, styles], undefined, {
+    PurePanelProps
+  >([contextClassNames, notificationClassNames], [contextStyles, styles], undefined, {
     props,
   });
 
