@@ -140,7 +140,6 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       groupPassedStyles,
       styles,
     ],
-    undefined,
     { props: mergedProps },
   );
 

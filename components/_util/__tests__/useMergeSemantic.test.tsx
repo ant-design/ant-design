@@ -1,8 +1,8 @@
-import useMergeSemantic, { mergeClassNames } from '../hooks/useMergeSemantic';
 import { renderHook } from '@testing-library/react';
 
-// Mock schema
-const schema = {
+import useMergeSemantic, { mergeClassNames } from '../hooks/useMergeSemantic';
+
+const mockSchema = {
   _default: 'root',
   container: {
     _default: 'container-root',
@@ -47,7 +47,7 @@ describe('useMergeSemantic', () => {
 
   it('should merge without schema', () => {
     const { result } = renderHook(() =>
-      useMergeSemantic([{ a: 'foo' }, { a: 'bar' }], [{ a: { color: 'blue' } }]),
+      useMergeSemantic([{ a: 'foo' }, { a: 'bar' }], [{ a: { color: 'blue' } }], { props: {} }),
     );
 
     const [classNames, styles] = result.current;
@@ -60,7 +60,8 @@ describe('useMergeSemantic', () => {
       useMergeSemantic(
         [{ container: { header: 'foo' } }],
         [{ container: { header: { color: 'red' } } }],
-        schema,
+        { props: {} },
+        mockSchema,
       ),
     );
 

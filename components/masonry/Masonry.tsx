@@ -148,7 +148,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     MasonryClassNamesType,
     MasonryStylesType,
     MasonryProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);

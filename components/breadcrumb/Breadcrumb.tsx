@@ -143,7 +143,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     BreadcrumbClassNamesType<T>,
     BreadcrumbStylesType<T>,
     BreadcrumbProps<T>
-  >([contextClassNames, breadcrumbClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, breadcrumbClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

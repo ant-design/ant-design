@@ -82,26 +82,26 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
 }
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
+
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
+
 /**
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<
+const useMergeSemantic = <
   ClassNamesType extends AnyObject,
   StylesType extends AnyObject,
   Props extends AnyObject,
 >(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
   stylesList: MaybeFn<StylesType, Props>[],
+  info: { props: Props },
   schema?: SemanticSchema,
-  info?: {
-    props: Props;
-  },
-) {
+) => {
   const resolveCallBack = <T extends object>(val?: MaybeFn<T, Props>) => {
     if (typeof val === 'function') {
-      return val(info as { props: Props });
+      return val(info);
     }
     return val;
   };
@@ -120,28 +120,28 @@ export default function useMergeSemantic<
     if (!schema) {
       return [mergedClassNames, mergedStyles] as const;
     }
-
     return [
       fillObjectBySchema<ObjectOnly<ClassNamesType>>(mergedClassNames, schema),
       fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles]);
-}
+};
+
+export default useMergeSemantic;
 
 export type SemanticClassNamesType<
-  Props,
+  P,
   SemanticName extends string,
-  NestedStructure extends AnyObject = object,
+  NestedStructure extends AnyObject = AnyObject,
 > =
   | (Partial<Record<SemanticName, string>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined) &
-      NestedStructure);
+  | (((info: { props: P }) => Partial<Record<SemanticName, string>>) & NestedStructure);
 
 export type SemanticStylesType<
-  Props,
+  P,
   SemanticName extends string,
-  NestedStructure extends AnyObject = object,
+  NestedStructure extends AnyObject = AnyObject,
 > =
   | (Partial<Record<SemanticName, React.CSSProperties>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined) &
+  | (((info: { props: P }) => Partial<Record<SemanticName, React.CSSProperties>>) &
       NestedStructure);

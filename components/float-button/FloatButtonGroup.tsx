@@ -182,7 +182,9 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     FloatButtonGroupClassNamesType,
     FloatButtonGroupStylesType,
     FloatButtonGroupProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const listContext = React.useMemo<GroupContextProps>(
     () => ({

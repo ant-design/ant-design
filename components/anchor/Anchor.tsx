@@ -290,18 +290,16 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   );
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo<AnchorProps>(() => {
-    return {
-      ...props,
-      direction: anchorDirection,
-    };
-  }, [props, anchorDirection]);
+  const mergedProps: AnchorProps = {
+    ...props,
+    direction: anchorDirection,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     AnchorClassNamesType,
     AnchorStylesType,
     AnchorProps
-  >([contextClassNames, anchorClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, anchorClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

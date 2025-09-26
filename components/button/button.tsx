@@ -347,7 +347,6 @@ const InternalCompoundedButton = React.forwardRef<
   >(
     [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
     [_skipSemantic ? undefined : contextStyles, styles],
-    undefined,
     {
       props: mergedProps,
     },
