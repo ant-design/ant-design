@@ -92,8 +92,6 @@ export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, Semanti
 export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: TooltipStylesType;
-  classNames?: TooltipClassNamesType;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -123,7 +121,10 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
   overlay?: React.ReactNode | RenderFunction;
 }
 
-export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
+export declare type TooltipProps = (TooltipPropsWithTitle | TooltipPropsWithOverlay) & {
+  classNames?: TooltipClassNamesType;
+  styles?: TooltipStylesType;
+};
 
 const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
