@@ -40,46 +40,32 @@
   "linter": {
     "rules": {
       "style": {
-        "useImportType": "off",
-        "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
-        "noNonNullAssertion": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noNonNullAssertion": "off"
       },
       "complexity": {
-        "noUselessTypeConstraint": "off",
-        "noForEach": "off",
         "useDateNow": "off",
         "noImportantStyles": "off",
-        "useIndexOf": "off",
         "useOptionalChain": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off",
-        "useExhaustiveDependencies": "off",
-        "useHookAtTopLevel": "off",
-        "noUnusedFunctionParameters": "off",
-        "noUnusedVariables": "off"
+        "useExhaustiveDependencies": "off"
       },
       "suspicious": {
         "noTsIgnore": "off",
-        "noGlobalIsNan": "off",
-        "noGlobalIsFinite": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
         "noThenProperty": "off",
         "noTemplateCurlyInString": "off",
-        "useIterableCallbackReturn": "off",
-        "noUnknownAtRules": "off"
+        "useIterableCallbackReturn": "off"
       },
       "performance": {
-        "noDelete": "off",
         "noAccumulatingSpread": "off",
         "noDynamicNamespaceImportAccess": "off"
       },
       "a11y": {
-        "noAriaHiddenOnFocusable": "off",
         "noLabelWithoutControl": "off",
         "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
@@ -100,11 +86,7 @@
       "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
-          "style": {
-            "noParameterAssign": "off"
-          },
           "suspicious": {
-            "noThenProperty": "off",
             "noImplicitAnyLet": "off"
           },
           "complexity": {
@@ -112,8 +94,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
@@ -127,8 +108,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }

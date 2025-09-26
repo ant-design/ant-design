@@ -88,8 +88,7 @@ describe('Mentions', () => {
   });
 
   it('allowClear', () => {
-    const wrapper = render(<Mentions allowClear />);
-    simulateInput(wrapper, '111');
+    const wrapper = render(<Mentions allowClear defaultValue="111" />);
     const textareaInstance = wrapper.container.querySelector('textarea')!;
     expect(textareaInstance.value).toEqual('111');
     fireEvent.click(wrapper.container.querySelector('.ant-mentions-clear-icon')!);

@@ -3,8 +3,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
 import RcCollapse from '@rc-component/collapse';
 import type { CSSMotionProps } from '@rc-component/motion';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import omit from '@rc-component/util/lib/omit';
+import { omit, toArray } from '@rc-component/util';
 import classNames from 'classnames';
 
 import initCollapseMotion from '../_util/motion';

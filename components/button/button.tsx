@@ -1,7 +1,6 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { omit, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import omit from '@rc-component/util/lib/omit';
-import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -327,37 +326,24 @@ const InternalCompoundedButton = React.forwardRef<
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps = React.useMemo<BaseButtonProps>(() => {
-    return {
-      ...props,
-      type: mergedType,
-      color: mergedColor,
-      variant: mergedVariant,
-      danger: isDanger,
-      shape,
-      size: sizeFullName,
-      disabled: mergedDisabled,
-      loading: innerLoading,
-      iconPlacement: mergedIconPlacement,
-    };
-  }, [
-    props,
-    mergedType,
-    mergedColor,
-    mergedVariant,
-    isDanger,
+  const mergedProps: ButtonProps = {
+    ...props,
+    type: mergedType,
+    color: mergedColor,
+    variant: mergedVariant,
+    danger: isDanger,
     shape,
-    sizeFullName,
-    mergedDisabled,
-    innerLoading,
-    mergedIconPlacement,
-  ]);
+    size: sizeFullName,
+    disabled: mergedDisabled,
+    loading: innerLoading,
+    iconPlacement: mergedIconPlacement,
+  };
 
   // ========================= Style ==========================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ButtonClassNamesType,
     ButtonStylesType,
-    BaseButtonProps
+    ButtonProps
   >(
     [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
     [_skipSemantic ? undefined : contextStyles, styles],
