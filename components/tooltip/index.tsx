@@ -243,7 +243,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   );
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps = React.useMemo<BaseTooltipProps>(() => {
+  const mergedProps = React.useMemo<TooltipProps>(() => {
     return {
       color,
       placement,
