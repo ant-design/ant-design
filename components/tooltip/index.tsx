@@ -272,7 +272,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TooltipClassNamesType,
     TooltipStylesType,
-    BaseTooltipProps
+    TooltipProps
   >([contextClassNames, tooltipClassNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
