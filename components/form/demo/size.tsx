@@ -11,13 +11,14 @@ import {
   Switch,
   TreeSelect,
 } from 'antd';
+import type { FormProps } from 'antd';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 
 const App: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType | 'default'>('default');
 
-  const onFormLayoutChange = ({ size }: { size: SizeType }) => {
+  const onFormLayoutChange: FormProps<any>['onValuesChange'] = ({ size }) => {
     setComponentSize(size);
   };
 

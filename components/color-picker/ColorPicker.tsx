@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 import cls from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -20,7 +20,7 @@ import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useModeColor from './hooks/useModeColor';
-import type { ColorPickerProps, ModeType, TriggerPlacement } from './interface';
+import type { ColorFormatType, ColorPickerProps, ModeType, TriggerPlacement } from './interface';
 import useStyle from './style';
 import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
@@ -88,16 +88,24 @@ const ColorPicker: CompoundedComponent = (props) => {
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
-  const [popupOpen, setPopupOpen] = useMergedState(false, {
-    value: open,
-    postState: (openData) => !mergedDisabled && openData,
-    onChange: onOpenChange,
-  });
-  const [formatValue, setFormatValue] = useMergedState(format, {
-    value: format,
-    defaultValue: defaultFormat,
-    onChange: onFormatChange,
-  });
+  const [internalPopupOpen, setPopupOpen] = useControlledState(false, open);
+
+  const popupOpen = !mergedDisabled && internalPopupOpen;
+  const [formatValue, setFormatValue] = useControlledState(defaultFormat, format);
+
+  const triggerFormatChange = (newFormat?: ColorFormatType) => {
+    setFormatValue(newFormat);
+    if (formatValue !== newFormat) {
+      onFormatChange?.(newFormat);
+    }
+  };
+
+  const triggerOpenChange = (visible: boolean) => {
+    if (!visible || !mergedDisabled) {
+      setPopupOpen(visible);
+      onOpenChange?.(visible);
+    }
+  };
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -242,11 +250,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     <Popover
       classNames={{ root: mergedPopupCls }}
       styles={{ root: mergedStyles.popup?.root, body: styles?.popupOverlayInner }}
-      onOpenChange={(visible) => {
-        if (!visible || !mergedDisabled) {
-          setPopupOpen(visible);
-        }
-      }}
+      onOpenChange={triggerOpenChange}
       content={
         <ContextIsolator form>
           <ColorPickerPanel
@@ -261,7 +265,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             presets={presets}
             panelRender={panelRender}
             format={formatValue}
-            onFormatChange={setFormatValue}
+            onFormatChange={triggerFormatChange}
             onChange={onInternalChange}
             onChangeComplete={onInternalChangeComplete}
             onClear={onClear}

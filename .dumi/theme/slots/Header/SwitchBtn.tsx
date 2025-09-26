@@ -1,5 +1,5 @@
 import React from 'react';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import { Button, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';

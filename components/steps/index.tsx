@@ -6,6 +6,7 @@ import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -25,6 +26,21 @@ export type IconRenderType = (
   oriNode: React.ReactNode,
   info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
 ) => React.ReactNode;
+
+export type StepsSemanticName =
+  | 'root'
+  | 'item'
+  | 'itemWrapper'
+  | 'itemIcon'
+  | 'itemSection'
+  | 'itemHeader'
+  | 'itemTitle'
+  | 'itemSubtitle'
+  | 'itemContent'
+  | 'itemRail';
+
+export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticName>;
+export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticName>;
 
 interface StepItem {
   className?: string;
@@ -55,14 +71,12 @@ export type ProgressDotRender = (
   },
 ) => React.ReactNode;
 
-export interface StepsProps {
+export interface BaseStepsProps {
   // Style
-  prefixCls?: string;
   className?: string;
-  style?: React.CSSProperties;
   rootClassName?: string;
-  classNames?: RcStepsProps['classNames'];
-  styles?: RcStepsProps['styles'];
+  classNames?: StepsClassNamesType;
+  styles?: StepsStylesType;
   variant?: 'filled' | 'outlined';
   size?: 'default' | 'small';
 
@@ -95,6 +109,11 @@ export interface StepsProps {
 
   // Events
   onChange?: (current: number) => void;
+}
+
+export interface StepsProps extends BaseStepsProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 const waveEffectClassNames: StepsProps['classNames'] = {
@@ -171,12 +190,6 @@ const Steps = (props: StepsProps) => {
   // ============================= Item =============================
   const mergedItems = React.useMemo(() => (items || []).filter(Boolean), [items]);
 
-  // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [waveEffectClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
-  );
-
   // ============================ Layout ============================
   const { xs } = useBreakpoint(responsive);
 
@@ -224,6 +237,29 @@ const Steps = (props: StepsProps) => {
 
   // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: StepsProps = {
+    ...props,
+    variant,
+    size: mergedSize,
+    type: mergedType,
+    orientation: mergedOrientation,
+    titlePlacement: mergedTitlePlacement,
+    current,
+    percent: mergedPercent,
+    responsive,
+    offset,
+  };
+
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    StepsClassNamesType,
+    StepsStylesType,
+    StepsProps
+  >([waveEffectClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   // ============================= Icon =============================
   const internalIconRender: RcStepsProps['iconRender'] = (_, info) => {

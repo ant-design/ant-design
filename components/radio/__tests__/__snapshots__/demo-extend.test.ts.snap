@@ -2324,6 +2324,59 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
 
 exports[`renders components/radio/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/radio/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <label
+    class="ant-radio-wrapper acss-1308e5j css-var-test-id ant-radio-css-var"
+    style="padding: 8px; border-radius: 4px; border-color: rgb(204, 204, 204);"
+  >
+    <span
+      class="ant-radio ant-wave-target"
+    >
+      <input
+        class="ant-radio-input"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span
+      class="ant-radio-label"
+    >
+      Object
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper ant-radio-wrapper-checked acss-1308e5j css-var-test-id ant-radio-css-var"
+    style="padding: 8px; border-radius: 4px; border-color: rgb(24, 144, 255);"
+  >
+    <span
+      class="ant-radio ant-wave-target ant-radio-checked"
+    >
+      <input
+        checked=""
+        class="ant-radio-input"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span
+      class="ant-radio-label"
+      style="font-weight: bold; color: rgb(51, 51, 51);"
+    >
+      Function
+    </span>
+  </label>
+</div>
+`;
+
+exports[`renders components/radio/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/radio/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div

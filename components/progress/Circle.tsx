@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ProgressProps as RcProgressProps } from '@rc-component/progress';
 import { Circle as RCCircle } from '@rc-component/progress';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
