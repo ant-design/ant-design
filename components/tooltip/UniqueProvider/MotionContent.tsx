@@ -26,7 +26,9 @@ const MotionContent: React.FC<MotionContentProps> = ({ children }) => {
       removeOnLeave={false}
     >
       {({ style: motionStyle, className: motionClassName }) => {
-        const { className, style } = children.props as any;
+        const { className, style } = (
+          children as React.ReactElement<{ className?: string; style?: React.CSSProperties }>
+        ).props;
 
         const mergedClassName = classNames(className, motionClassName);
         const mergedStyles = {
