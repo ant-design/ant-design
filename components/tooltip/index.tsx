@@ -121,7 +121,7 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
   overlay?: React.ReactNode | RenderFunction;
 }
 
-export declare type TooltipProps = (TooltipPropsWithTitle | TooltipPropsWithOverlay) & {
+export type TooltipProps = (TooltipPropsWithTitle | TooltipPropsWithOverlay) & {
   classNames?: TooltipClassNamesType;
   styles?: TooltipStylesType;
 };

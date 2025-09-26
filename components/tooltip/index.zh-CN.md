@@ -41,8 +41,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | title | 提示文字 | ReactNode \| () => ReactNode | - | - |
 | color | 设置背景颜色，使用该属性后内部文字颜色将自适应 | string | - | 5.27.0 |
-| classNames | 语义化结构 class | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
-| styles | 语义化结构 style | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 
 ### 共同的 API
 
