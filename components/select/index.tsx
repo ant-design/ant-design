@@ -8,6 +8,7 @@ import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -78,6 +79,22 @@ export interface InternalSelectProps<
 type SemanticName = 'root' | 'prefix' | 'suffix';
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
+export type SelectClassNamesType = SemanticClassNamesType<
+  SelectProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  }
+>;
+
+export type SelectStylesType = SemanticStylesType<
+  SelectProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  }
+>;
+
 export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
@@ -107,12 +124,8 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
+  styles?: SelectStylesType;
+  classNames?: SelectClassNamesType;
   onOpenChange?: (visible: boolean) => void;
 }
 
@@ -254,13 +267,35 @@ const InternalSelect = <
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
+  // ========== Merged Props for Semantic ==================
+  const mergedProps: SelectProps<any, OptionType> = {
+    ...props,
+    variant,
+    status: mergedStatus,
+    disabled: mergedDisabled,
+    size: mergedSize,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SelectClassNamesType,
+    SelectStylesType,
+    SelectProps<any, OptionType>
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
       popup: {
         _default: 'root',
       },
+    },
+    {
+      props: mergedProps,
     },
   );
 
@@ -277,13 +312,10 @@ const InternalSelect = <
     hashId,
   );
 
-  const mergedPopupStyle = popupStyle ?? dropdownStyle;
-
-  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
+  const mergedPopupStyle: React.CSSProperties = {
+    ...mergedStyles.popup?.root,
+    ...(popupStyle ?? dropdownStyle),
+  };
 
   const mergedClassName = cls(
     {
@@ -297,8 +329,7 @@ const InternalSelect = <
     compactItemClassnames,
     contextClassName,
     className,
-    contextClassNames.root,
-    classNames?.root,
+    mergedClassNames.root,
     rootClassName,
     cssVarCls,
     rootCls,
@@ -359,7 +390,7 @@ const InternalSelect = <
       styles={mergedStyles}
       showSearch={showSearch}
       {...selectProps}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
