@@ -2,7 +2,7 @@ import * as React from 'react';
 import { INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
 import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';

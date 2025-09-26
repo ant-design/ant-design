@@ -4,7 +4,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
