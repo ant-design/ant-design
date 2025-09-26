@@ -44,8 +44,6 @@ const locales = {
       'Preview actions group element, sets flex layout, background color, border radius and action button styles',
   },
 };
-// Omit<RcImageProps, 'preview' | 'classNames' | 'styles'>
-
 interface ImagePropsBlock extends Omit<ImageProps, 'classNames'> {
   classNames?: RcImageProps['classNames'];
 }
