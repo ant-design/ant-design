@@ -34,17 +34,18 @@ const App: React.FC = () => {
   const { styles } = useStyle();
 
   const statisticSharedProps: StatisticProps = {
-    title: 'Monthly Active Users',
-    value: 93241,
     classNames: {
       root: styles.root,
     },
+    prefix: <ArrowUpOutlined />,
   };
 
   return (
     <Flex vertical gap="middle">
       <Statistic
         {...statisticSharedProps}
+        title="Monthly Active Users"
+        value={93241}
         styles={{
           title: {
             color: '#1890ff',
@@ -54,7 +55,6 @@ const App: React.FC = () => {
             fontSize: '24px',
           },
         }}
-        prefix={<ArrowUpOutlined />}
         suffix="users"
       />
 
@@ -63,9 +63,8 @@ const App: React.FC = () => {
         title="Yearly Loss"
         value={-18.7}
         precision={1}
-        suffix="%"
         styles={styleFn}
-        prefix={<ArrowUpOutlined />}
+        suffix="%"
       />
     </Flex>
   );
