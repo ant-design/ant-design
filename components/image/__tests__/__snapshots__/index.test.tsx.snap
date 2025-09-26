@@ -229,7 +229,7 @@ exports[`Image Default Group preview props 1`] = `
 
 exports[`Image Image.PreviewGroup mergedProps behavior should render with classNames and styles when passed as functions to PreviewGroup 1`] = `"<div class="ant-image css-var-root ant-image-css-var" style="width: 100px;"><img class="ant-image-img" width="100" src="https://example.com/image.png"><div class="ant-image-cover ant-image-cover-center"></div></div>"`;
 
-exports[`Image Image.PreviewGroup mergedProps behavior should render with custom classNames and styles when passed to PreviewGroup 1`] = `"<div class="ant-image css-var-root ant-image-css-var" style="width: 100px;"><img class="ant-image-img" width="100" src="https://example.com/image.png"><div class="ant-image-cover ant-image-cover-center"></div></div>"`;
+exports[`Image Image.PreviewGroup mergedProps behavior should render with custom classNames and styles when passed to PreviewGroup 1`] = `"<div class="ant-image css-var-root ant-image-css-var"><img class="ant-image-img" src="https://example.com/image.png"><div class="ant-image-cover ant-image-cover-center"></div></div>"`;
 
 exports[`Image rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
