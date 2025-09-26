@@ -123,6 +123,9 @@ export interface UploadProps<T = any>
   customRequest?: (
     options: RcCustomRequestOptions<T>,
     info: {
+      /**
+       * @since 5.28.0
+       */
       defaultRequest: (option: RcCustomRequestOptions<T>) => void;
     },
   ) => void;
