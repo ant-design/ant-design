@@ -3,6 +3,7 @@ import React from 'react';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { CollapseProps } from '..';
 
 describe('Collapse', () => {
   const Collapse = require('..').default;
@@ -335,7 +336,7 @@ describe('Collapse', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const fnClassNames = ({ props }) => ({
+    const fnClassNames: CollapseProps['classNames'] = ({ props }) => ({
       root: `size-${props.size}`,
       header: props.ghost ? 'ghost-header' : 'normal-header',
       title: 'dynamic-title',
@@ -343,7 +344,7 @@ describe('Collapse', () => {
       icon: props.expandIconPlacement === 'end' ? 'end-icon' : 'start-icon',
     });
 
-    const fnStyles = ({ props }) => ({
+    const fnStyles: CollapseProps['styles'] = ({ props }) => ({
       root: { borderWidth: props.ghost ? '0px' : '1px' },
       header: { fontSize: props.size === 'large' ? '18px' : '14px' },
       title: { fontWeight: props.size === 'large' ? 'bold' : 'normal' },
