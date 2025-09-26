@@ -2,7 +2,7 @@ import type * as React from 'react';
 import classNames from 'classnames';
 
 import { isPresetColor } from '../_util/colors';
-import { ColorGenInput } from '../color-picker/interface';
+import type { ColorGenInput } from '../color-picker/interface';
 import { generateColor } from '../color-picker/util';
 
 export function parseColor(prefixCls: string, color?: string) {

@@ -43,8 +43,8 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
       rootClassName,
       maskClassName,
       mask,
-      forceRender,
-      destroyOnClose,
+      forceRender: _forceRender,
+      destroyOnClose: _destroyOnClose,
       toolbarRender,
 
       ...restPreviewConfig

@@ -5804,7 +5804,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <ul
-                class="ant-rate css-var-test-id ant-rate-disabled"
+                class="ant-rate ant-rate-middle css-var-test-id ant-rate-disabled"
                 tabindex="-1"
               >
                 <li
@@ -14528,6 +14528,286 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
 `;
 
 exports[`renders components/form/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/form/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var acss-1u5ihmq"
+  >
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="username"
+            style="text-align: right; color: rgb(51, 51, 51); font-weight: 500;"
+            title="Username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left: 12px;"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="username"
+                placeholder="Please enter username"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="email"
+            style="text-align: right; color: rgb(51, 51, 51); font-weight: 500;"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left: 12px;"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="email"
+                placeholder="Please enter email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-20 ant-col-offset-4 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left: 12px;"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+              >
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                    type="submit"
+                  >
+                    <span>
+                      Submit
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    type="reset"
+                  >
+                    <span>
+                      reset
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var acss-1u5ihmq"
+    style="border: 1px solid rgb(22, 119, 255);"
+  >
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="username"
+            style="text-align: right; color: rgb(22, 119, 255);"
+            title="Username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left: 12px;"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
+                id="username"
+                placeholder="Please enter username"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="email"
+            style="text-align: right; color: rgb(22, 119, 255);"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left: 12px;"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
+                id="email"
+                placeholder="Please enter email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-20 ant-col-offset-4 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left: 12px;"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+              >
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                    type="submit"
+                  >
+                    <span>
+                      Submit
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    type="reset"
+                  >
+                    <span>
+                      reset
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+]
+`;
+
+exports[`renders components/form/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 1`] = `
 <form
@@ -24058,7 +24338,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <ul
-              class="ant-rate css-var-test-id"
+              class="ant-rate ant-rate-middle css-var-test-id"
               id="validate_other_rate"
               tabindex="0"
             >

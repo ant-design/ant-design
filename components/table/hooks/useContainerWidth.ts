@@ -7,9 +7,8 @@ export default function useContainerWidth(prefixCls: string) {
 
     if (container) {
       const style = getComputedStyle(container);
-      const borderLeft = parseInt(style.borderLeftWidth, 10);
-      const borderRight = parseInt(style.borderRightWidth, 10);
-
+      const borderLeft = Number.parseInt(style.borderLeftWidth, 10);
+      const borderRight = Number.parseInt(style.borderRightWidth, 10);
       returnWidth = width - borderLeft - borderRight;
     }
 

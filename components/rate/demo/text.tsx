@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Flex, Rate, RateProps } from 'antd';
+import { Flex, Rate } from 'antd';
+import type { RateProps } from 'antd';
 
 const desc: RateProps['tooltips'] = [
   'terrible',

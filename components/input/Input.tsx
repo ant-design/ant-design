@@ -1,7 +1,8 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { InputFocusOptions, triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
+import { triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
+import type { InputFocusOptions } from '@rc-component/input/lib/utils/commonUtils';
 import { composeRef } from '@rc-component/util/lib/ref';
 import cls from 'classnames';
 
@@ -142,6 +143,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
+    // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useEffect(() => {
       if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
         warning(

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { Meta } from '@rc-component/form/lib/interface';
+import { omit } from '@rc-component/util';
 import isVisible from '@rc-component/util/lib/Dom/isVisible';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import type { FormItemProps } from '.';
@@ -72,7 +72,7 @@ export default function ItemHolder(props: ItemHolderProps) {
       // The element must be part of the DOMTree to use getComputedStyle
       // https://stackoverflow.com/questions/35360711/getcomputedstyle-returns-a-cssstyledeclaration-but-all-properties-are-empty-on-a
       const itemStyle = getComputedStyle(itemRef.current);
-      setMarginBottom(parseInt(itemStyle.marginBottom, 10));
+      setMarginBottom(Number.parseInt(itemStyle.marginBottom, 10));
     }
   }, [hasError, isOnScreen]);
 

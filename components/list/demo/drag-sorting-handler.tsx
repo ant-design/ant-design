@@ -11,7 +11,8 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Button, GetProps, List } from 'antd';
+import { Button, List } from 'antd';
+import type { GetProps } from 'antd';
 
 interface SortableListItemContextProps {
   setActivatorNodeRef?: (element: HTMLElement | null) => void;

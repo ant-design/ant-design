@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';
@@ -33,9 +33,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
     const holderRef = React.useRef<HTMLDivElement>(null);
     const [popupHeight, setPopupHeight] = React.useState(0);
     const [popupWidth, setPopupWidth] = React.useState(0);
-    const [open, setOpen] = useMergedState(false, {
-      value: props.open,
-    });
+    const [open, setOpen] = useControlledState(false, props.open);
 
     const { getPrefixCls } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls(defaultPrefixCls || 'select', customizePrefixCls);

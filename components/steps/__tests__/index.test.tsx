@@ -2,7 +2,7 @@ import React from 'react';
 
 import Steps from '..';
 import type { StepsProps } from '..';
-import { GetProp } from '../../_util/type';
+import type { GetProp } from '../../_util/type';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

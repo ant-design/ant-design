@@ -1,17 +1,17 @@
 import * as React from 'react';
 import cls from 'classnames';
 
-import type { ProgressProps } from './progress';
+import type { ProgressProps, SemanticName } from './progress';
 import { getSize } from './utils';
 
-interface ProgressStepsProps extends ProgressProps {
+interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   steps: number;
   strokeColor?: string | string[];
   railColor?: string;
   /** @deprecated Please use `railColor` instead */
   trailColor?: string;
-  classNames: Required<ProgressProps>['classNames'];
-  styles: Required<ProgressProps>['styles'];
+  classNames: Record<SemanticName, string>;
+  styles: Record<SemanticName, React.CSSProperties>;
 }
 
 const Steps: React.FC<ProgressStepsProps> = (props) => {

@@ -1,6 +1,6 @@
 import React, { useImperativeHandle, useMemo } from 'react';
 import type { ReactNode } from 'react';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classnames from 'classnames';
 
@@ -103,9 +103,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   );
 
   // =============================== Values ===============================
-  const [mergedValue, setMergedValue] = useMergedState(defaultValue, {
-    value,
-  });
+  const [mergedValue, setMergedValue] = useControlledState(defaultValue, value);
 
   const handleChange = (checked: boolean, option: CheckableTagOption<CheckableTagValue>) => {
     let newValue: CheckableTagValue | CheckableTagValue[] | null = null;

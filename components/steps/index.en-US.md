@@ -30,6 +30,7 @@ When a given task is complicated or has a certain sequence in the series of subt
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
 <code src="./demo/inline-variant.tsx">Inline Style Combination</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/variant-debug.tsx" debug>Variant Debug</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -43,7 +44,7 @@ The whole of the step bar.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 |  |
 | ~~direction~~ | To specify the direction of the step bar, `horizontal` or `vertical` | string | `horizontal` |  |
 | iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: { index, active, item }) => ReactNode | - |  |
@@ -55,7 +56,7 @@ The whole of the step bar.
 | responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true |  |
 | size | To specify the size of the step bar, `default` and `small` are currently supported | string | `default` |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | titlePlacement | Place title and content with `horizontal` or `vertical` direction | string | `horizontal` |  |
 | type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | string | `default` |  |
 | variant | Config style variant | `filled` \| `outlined` | `filled` |  |

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import cls from 'classnames';
 
