@@ -10,10 +10,8 @@ import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import classNames from 'classnames';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import useMergeSemantic, {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
