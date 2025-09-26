@@ -87,7 +87,7 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-type SemanticName = 'root' | 'body' | 'arrow';
+type SemanticName = 'root' | 'container' | 'arrow';
 
 export type TooltipClassNamesType = SemanticClassNamesType<AbstractTooltipProps, SemanticName>;
 export type TooltipStylesType = SemanticStylesType<AbstractTooltipProps, SemanticName>;
@@ -118,7 +118,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
 
   /** @deprecated Please use `styles.root` instead */
   overlayStyle?: React.CSSProperties;
-  /** @deprecated Please use `styles.body` instead */
+  /** @deprecated Please use `styles.container` instead */
   overlayInnerStyle?: React.CSSProperties;
   /** @deprecated Please use `classNames.root` instead */
   overlayClassName?: string;
@@ -213,7 +213,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   if (process.env.NODE_ENV !== 'production') {
     [
       ['overlayStyle', 'styles.root'],
-      ['overlayInnerStyle', 'styles.body'],
+      ['overlayInnerStyle', 'styles.container'],
       ['overlayClassName', 'classNames.root'],
       ['destroyTooltipOnHide', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
@@ -309,8 +309,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
-  const bodyStyle = {
-    ...mergedStyles.body,
+  const containerStyle = {
+    ...mergedStyles.container,
     ...overlayInnerStyle,
     ...colorInfo.overlayStyle,
   };
@@ -327,9 +327,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       prefixCls={prefixCls}
       classNames={{
         root: rootClassNames,
-        body: mergedClassNames.body,
+        container: mergedClassNames.container,
         arrow: mergedClassNames.arrow,
-        uniqueBody: cls(themeCls, mergedClassNames.body),
+        uniqueContainer: cls(themeCls, mergedClassNames.container),
       }}
       styles={{
         root: {
@@ -338,8 +338,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
           ...contextStyle,
           ...overlayStyle,
         },
-        body: bodyStyle,
-        uniqueBody: bodyStyle,
+        container: containerStyle,
+        uniqueContainer: containerStyle,
         arrow: mergedStyles.arrow,
       }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}

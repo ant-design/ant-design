@@ -106,14 +106,14 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       mouseLeaveDelay={mouseLeaveDelay}
       {...restProps}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, body: mergedClassNames.body }}
+      classNames={{ root: rootClassNames, container: mergedClassNames.container }}
       styles={{
         root: {
           ...mergedStyles.root,
           ...contextStyle,
           ...overlayStyle,
         },
-        body: mergedStyles.body,
+        container: mergedStyles.container,
       }}
       ref={ref}
       open={open}

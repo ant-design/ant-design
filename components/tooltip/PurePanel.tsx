@@ -37,7 +37,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const innerStyles = React.useMemo(
     () => ({
-      body: {
+      container: {
         ...overlayInnerStyle,
         ...colorInfo.overlayStyle,
       },

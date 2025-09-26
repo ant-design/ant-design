@@ -95,10 +95,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         '--antd-arrow-background-color': tooltipBg,
 
         // Wrapper for the tooltip content
-        [`${componentCls}-body`]: [sharedBodyStyle, initFadeMotion(token, true)],
+        [`${componentCls}-container`]: [sharedBodyStyle, initFadeMotion(token, true)],
 
-        [`&:has(~ ${componentCls}-unique-body)`]: {
-          [`${componentCls}-body`]: {
+        [`&:has(~ ${componentCls}-unique-container)`]: {
+          [`${componentCls}-container`]: {
             border: 'none',
             background: 'transparent',
             boxShadow: 'none',
@@ -136,7 +136,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         // generator for preset color
         ...genPresetColor(token, (colorKey, { darkColor }) => ({
           [`&${componentCls}-${colorKey}`]: {
-            [`${componentCls}-body`]: {
+            [`${componentCls}-container`]: {
               backgroundColor: darkColor,
             },
             [`${componentCls}-arrow`]: {
@@ -166,7 +166,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
     // Unique Body
     {
-      [`${componentCls}-unique-body`]: {
+      [`${componentCls}-unique-container`]: {
         ...sharedBodyStyle,
         ...sharedTransformOrigin,
         position: 'absolute',
