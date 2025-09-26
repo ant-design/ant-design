@@ -157,7 +157,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | Show week info when in DatePicker | boolean | false | 5.14.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | onOk | Callback when click ok button | function() | - |  |
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 
@@ -170,7 +170,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
 ### DatePicker\[picker=quarter]
 
@@ -183,7 +183,7 @@ Added in `4.1.0`.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
 ### DatePicker\[picker=month]
 
@@ -194,7 +194,7 @@ Added in `4.1.0`.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
 ### DatePicker\[picker=week]
 
@@ -205,7 +205,7 @@ Added in `4.1.0`.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | showWeek | Show week info when in DatePicker | boolean | true | 5.14.0 |
 
 ### RangePicker
@@ -230,7 +230,7 @@ Added in `4.1.0`.
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs] \| null, dateStrings: \[string, string] \| null) | - |  |
 | onFocus | Trigger when get focus | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.14.0 |
 | onBlur | Trigger when lose focus | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.14.0 |
 
