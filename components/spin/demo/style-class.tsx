@@ -5,14 +5,13 @@ import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ css }) => ({
   root: css`
-    border: 2px dashed #ccc;
     padding: 8px;
   `,
 }));
 
 const stylesObject: SpinProps['styles'] = {
   indicator: {
-    color: '#1677ff',
+    color: '#00d4ff',
   },
 };
 
@@ -20,7 +19,7 @@ const stylesFn: SpinProps['styles'] = ({ props: { size } }) => {
   if (size === 'small') {
     return {
       indicator: {
-        color: 'rgba(200, 200, 200, 0.8)',
+        color: '#722ed1',
       },
     };
   }
