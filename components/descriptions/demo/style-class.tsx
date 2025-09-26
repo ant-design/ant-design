@@ -1,44 +1,20 @@
 import React from 'react';
 import { Descriptions, Divider } from 'antd';
 import type { DescriptionsProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-// Object-based classNames
-const classNamesObject: DescriptionsProps['classNames'] = {
-  root: 'demo-descriptions-root',
-  header: 'demo-descriptions-header',
-  title: 'demo-descriptions-title',
-  extra: 'demo-descriptions-extra',
-  label: 'demo-descriptions-label',
-  content: 'demo-descriptions-content',
-};
-
-// Function-based classNames
-const classNamesFn: DescriptionsProps['classNames'] = (info) => {
-  if (info.props.bordered) {
-    return {
-      root: 'demo-descriptions-root-fn',
-      header: 'demo-descriptions-header-fn',
-      title: 'demo-descriptions-title-fn',
-      extra: 'demo-descriptions-extra-fn',
-      label: 'demo-descriptions-label-fn',
-      content: 'demo-descriptions-content-fn',
-    };
-  }
-  return {};
-};
-
-// Object-based styles
-const stylesObject: DescriptionsProps['styles'] = {
-  label: { color: 'blue' },
-  content: { color: 'red' },
-};
+const useStyle = createStyles(({ css }) => ({
+  label: css`
+    background-color: red;
+  `,
+}));
 
 // Function-based styles
 const stylesFn: DescriptionsProps['styles'] = (info) => {
-  if (info.props.bordered) {
+  if (info.props.size === 'small') {
     return {
-      label: { background: 'green' },
-      content: { background: 'red' },
+      label: { color: 'green' },
+      content: { color: 'red' },
     };
   }
   return {};
@@ -63,22 +39,22 @@ const rootStyleItems: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => {
+  const { styles } = useStyle();
+
+  const descriptionsProps: DescriptionsProps = {
+    title: 'User Info',
+    items: rootStyleItems,
+    bordered: true,
+    classNames: {
+      label: styles.label,
+    },
+  };
+
   return (
     <>
-      <Descriptions
-        title="User Info"
-        styles={stylesFn}
-        classNames={classNamesFn}
-        bordered
-        items={rootStyleItems}
-      />
+      <Descriptions {...descriptionsProps} styles={{ label: { color: 'green' } }} />
       <Divider />
-      <Descriptions
-        title="User Info"
-        styles={stylesObject}
-        classNames={classNamesObject}
-        items={rootStyleItems}
-      />
+      <Descriptions {...descriptionsProps} styles={stylesFn} size="small" />
     </>
   );
 };

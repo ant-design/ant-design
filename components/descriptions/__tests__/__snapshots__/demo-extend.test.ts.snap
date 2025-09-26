@@ -2301,13 +2301,13 @@ exports[`renders components/descriptions/demo/style.tsx extend context correctly
 exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-descriptions demo-descriptions-root-fn ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions ant-descriptions-bordered css-var-test-id"
   >
     <div
-      class="ant-descriptions-header demo-descriptions-header-fn"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-descriptions-title demo-descriptions-title-fn"
+        class="ant-descriptions-title"
       >
         User Info
       </div>
@@ -2321,18 +2321,17 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label demo-descriptions-label-fn"
+              class="ant-descriptions-item-label acss-rbc7hf"
               colspan="1"
-              style="background: green;"
+              style="color: green;"
             >
               <span>
                 Product
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content demo-descriptions-content-fn"
+              class="ant-descriptions-item-content"
               colspan="1"
-              style="background: red;"
             >
               <span>
                 Cloud Database
@@ -2343,18 +2342,17 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label demo-descriptions-label-fn"
+              class="ant-descriptions-item-label acss-rbc7hf"
               colspan="1"
-              style="background: green;"
+              style="color: green;"
             >
               <span>
                 Billing Mode
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content demo-descriptions-content-fn"
+              class="ant-descriptions-item-content"
               colspan="1"
-              style="background: red;"
             >
               <span>
                 Prepaid
@@ -2365,18 +2363,17 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label demo-descriptions-label-fn"
+              class="ant-descriptions-item-label acss-rbc7hf"
               colspan="1"
-              style="background: green;"
+              style="color: green;"
             >
               <span>
                 Automatic Renewal
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content demo-descriptions-content-fn"
+              class="ant-descriptions-item-content"
               colspan="1"
-              style="background: red;"
             >
               <span>
                 YES
@@ -2392,13 +2389,13 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-descriptions demo-descriptions-root css-var-test-id"
+    class="ant-descriptions ant-descriptions-small ant-descriptions-bordered css-var-test-id"
   >
     <div
-      class="ant-descriptions-header demo-descriptions-header"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-descriptions-title demo-descriptions-title"
+        class="ant-descriptions-title"
       >
         User Info
       </div>
@@ -2411,76 +2408,67 @@ Array [
           <tr
             class="ant-descriptions-row"
           >
-            <td
-              class="ant-descriptions-item"
+            <th
+              class="ant-descriptions-item-label acss-rbc7hf"
               colspan="1"
+              style="color: green;"
             >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label demo-descriptions-label"
-                  style="color: blue;"
-                >
-                  Product
-                </span>
-                <span
-                  class="ant-descriptions-item-content demo-descriptions-content"
-                  style="color: red;"
-                >
-                  Cloud Database
-                </span>
-              </div>
+              <span>
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="color: red;"
+            >
+              <span>
+                Cloud Database
+              </span>
             </td>
           </tr>
           <tr
             class="ant-descriptions-row"
           >
-            <td
-              class="ant-descriptions-item"
+            <th
+              class="ant-descriptions-item-label acss-rbc7hf"
               colspan="1"
+              style="color: green;"
             >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label demo-descriptions-label"
-                  style="color: blue;"
-                >
-                  Billing Mode
-                </span>
-                <span
-                  class="ant-descriptions-item-content demo-descriptions-content"
-                  style="color: red;"
-                >
-                  Prepaid
-                </span>
-              </div>
+              <span>
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="color: red;"
+            >
+              <span>
+                Prepaid
+              </span>
             </td>
           </tr>
           <tr
             class="ant-descriptions-row"
           >
-            <td
-              class="ant-descriptions-item"
+            <th
+              class="ant-descriptions-item-label acss-rbc7hf"
               colspan="1"
+              style="color: green;"
             >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label demo-descriptions-label"
-                  style="color: blue;"
-                >
-                  Automatic Renewal
-                </span>
-                <span
-                  class="ant-descriptions-item-content demo-descriptions-content"
-                  style="color: red;"
-                >
-                  YES
-                </span>
-              </div>
+              <span>
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="color: red;"
+            >
+              <span>
+                YES
+              </span>
             </td>
           </tr>
         </tbody>
