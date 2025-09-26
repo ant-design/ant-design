@@ -94,6 +94,21 @@ Extends File with additional props.
 | uid | unique id. Will auto-generate when not provided | string | - | - |
 | url | Download url | string | - | - |
 
+### RequestOptions
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| action | Uploading URL | string | - | - |
+| data | Uploading extra params or function which can return uploading extra params | Record<string, unknown> | - | 4.20.0 |
+| filename | file name | string | - | - |
+| file | File object containing upload information | [UploadFile](#uploadfile) | - | - |
+| withCredentials | The ajax upload with cookie sent | boolean | - | - |
+| headers | Set request headers, valid above IE10 | Record<string, string> | - | - |
+| method | The http method of upload request | string | - | - |
+| onProgress | Progress event callback | (event: object, file:UploadFile ) => void | - | - |
+| onError | Error callback when upload fails | (event: object, body?: object) => void | - | - |
+| onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) | - | - |
+
 ### onChange
 
 > 💡 The function will be called when uploading is in progress, completed, or failed.

@@ -123,7 +123,7 @@ export interface UploadProps<T = any>
   customRequest?: (
     options: RcCustomRequestOptions<T>,
     info: {
-      defaultRequest: (option: RcCustomRequestOptions) => void;
+      defaultRequest: (option: RcCustomRequestOptions<T>) => void;
     },
   ) => void;
   withCredentials?: boolean;
