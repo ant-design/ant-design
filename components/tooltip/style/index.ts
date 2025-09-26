@@ -1,4 +1,5 @@
-import { CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
@@ -135,7 +136,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         // generator for preset color
         ...genPresetColor(token, (colorKey, { darkColor }) => ({
           [`&${componentCls}-${colorKey}`]: {
-            [`${componentCls}-inner`]: {
+            [`${componentCls}-body`]: {
               backgroundColor: darkColor,
             },
             [`${componentCls}-arrow`]: {
