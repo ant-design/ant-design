@@ -1,5 +1,5 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';

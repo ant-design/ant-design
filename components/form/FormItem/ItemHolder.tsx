@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { Meta } from '@rc-component/form/lib/interface';
+import { omit } from '@rc-component/util';
 import isVisible from '@rc-component/util/lib/Dom/isVisible';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import type { FormItemProps } from '.';
