@@ -592,59 +592,7 @@ exports[`renders components/spin/demo/style-class.tsx extend context correctly 1
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning demo-spin-root css-var-test-id"
-  >
-    <span
-      class="ant-spin-dot-holder demo-spin-indicator"
-    >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
-    </span>
-  </div>
-  <div
-    aria-busy="true"
-    aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning demo-spin-root--sm css-var-test-id"
-  >
-    <span
-      class="ant-spin-dot-holder"
-    >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
-    </span>
-  </div>
-  <div
-    aria-busy="true"
-    aria-live="polite"
-    class="ant-spin ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-spinning acss-8de2dl css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -671,11 +619,11 @@ exports[`renders components/spin/demo/style-class.tsx extend context correctly 1
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-sm ant-spin-spinning acss-8de2dl css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
-      style="color: rgb(250, 84, 28);"
+      style="color: rgba(200, 200, 200, 0.8);"
     >
       <span
         class="ant-spin-dot ant-spin-dot-spin"
