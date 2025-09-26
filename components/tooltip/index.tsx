@@ -359,8 +359,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
           'zoom-big-fast',
           typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
         ),
-        // motionDeadline: 1000,
-        motionDeadline: 999991000,
+        motionDeadline: 1000,
       }}
       destroyOnHidden={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
