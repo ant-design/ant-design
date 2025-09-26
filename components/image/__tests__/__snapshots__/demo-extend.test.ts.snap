@@ -727,57 +727,37 @@ exports[`renders components/image/demo/previewSrc.tsx extend context correctly 2
 
 exports[`renders components/image/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-space-item"
+    class="ant-image css-var-test-id ant-image-css-var acss-1wmcwy7"
+    style="width: 160px;"
   >
-    <div>
-      <h4>
-        styles object
-      </h4>
-      <div
-        class="ant-image css-var-test-id ant-image-css-var custom-image-root"
-        style="width: 200px; border: 2px solid rgb(24, 144, 255); border-radius: 8px; padding: 4px;"
-      >
-        <img
-          alt="示例图片"
-          class="ant-image-img custom-image-img"
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          style="border-radius: 4px;"
-          width="200"
-        />
-        <div
-          class="ant-image-cover custom-image-cover ant-image-cover-center"
-          style="background-color: rgba(0, 0, 0, 0.6); border-radius: 4px;"
-        />
-      </div>
-    </div>
+    <img
+      alt="示例图片"
+      class="ant-image-img"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      style="border-radius: 4px;"
+      width="160"
+    />
+    <div
+      class="ant-image-cover ant-image-cover-center"
+    />
   </div>
   <div
-    class="ant-space-item"
+    class="ant-image css-var-test-id ant-image-css-var acss-1wmcwy7"
+    style="width: 160px; border: 2px solid rgb(165, 148, 249); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
   >
-    <div>
-      <h4>
-        styles function
-      </h4>
-      <div
-        class="ant-image css-var-test-id ant-image-css-var image-with-preview"
-        style="width: 200px; border: 2px solid rgb(82, 196, 26); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
-      >
-        <img
-          alt="示例图片"
-          class="ant-image-img dynamic-image"
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          style="border-radius: 4px; filter: none;"
-          width="200"
-        />
-        <div
-          class="ant-image-cover dynamic-cover ant-image-cover-center"
-          style="background-color: rgba(82, 196, 26, 0.1);"
-        />
-      </div>
-    </div>
+    <img
+      alt="示例图片"
+      class="ant-image-img"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      style="border-radius: 4px; filter: grayscale(50%);"
+      width="160"
+    />
+    <div
+      class="ant-image-cover ant-image-cover-center"
+    />
   </div>
 </div>
 `;
