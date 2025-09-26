@@ -1,47 +1,48 @@
 import React from 'react';
 import { Flex, Spin } from 'antd';
 import type { SpinProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-// 1) classNames as object
-const classNamesObject: SpinProps['classNames'] = {
-  root: 'demo-spin-root',
-  indicator: 'demo-spin-indicator',
-};
+const useStyle = createStyles(({ css }) => ({
+  root: css`
+    border: 2px dashed #ccc;
+    padding: 8px;
+  `,
+}));
 
-// 2) classNames as function (based on props)
-const classNamesFn: SpinProps['classNames'] = (info) => {
-  const { size } = info.props;
-  return size === 'small' ? { root: 'demo-spin-root--sm' } : { root: 'demo-spin-root--md' };
-};
-
-// 3) styles as object
 const stylesObject: SpinProps['styles'] = {
-  indicator: { color: '#1677ff' },
+  indicator: {
+    color: '#1677ff',
+  },
 };
 
-// 4) styles as function
-const stylesFn: SpinProps['styles'] = (info) => {
-  const { size } = info.props;
+const stylesFn: SpinProps['styles'] = ({ props: { size } }) => {
   if (size === 'small') {
-    return { indicator: { color: '#fa541c' } };
+    return {
+      indicator: {
+        color: 'rgba(200, 200, 200, 0.8)',
+      },
+    };
   }
-  return { indicator: { color: '#52c41a' } };
+  return {};
 };
 
 const App: React.FC = () => {
+  const { styles } = useStyle();
+
+  const sharedProps: SpinProps = {
+    spinning: true,
+    percent: 0,
+    classNames: {
+      root: styles.root,
+    },
+  };
+
   return (
     <Flex align="center" gap="middle">
-      {/* 1. classNames as object */}
-      <Spin spinning percent={0} classNames={classNamesObject} />
+      <Spin {...sharedProps} styles={stylesObject} />
 
-      {/* 2. classNames as function */}
-      <Spin spinning percent={0} size="small" classNames={classNamesFn} />
-
-      {/* 3. styles as object */}
-      <Spin spinning percent={0} styles={stylesObject} />
-
-      {/* 4. styles as function */}
-      <Spin spinning percent={0} size="small" styles={stylesFn} />
+      <Spin {...sharedProps} size="small" styles={stylesFn} />
     </Flex>
   );
 };
