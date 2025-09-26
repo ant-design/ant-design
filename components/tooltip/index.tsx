@@ -262,32 +262,20 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
-  // =========== Merged Props for Semantic ===========
-  const mergedProps = React.useMemo<TooltipProps>(() => {
-    return {
-      color,
-      placement,
-      builtinPlacements,
-      openClassName,
-      arrow: tooltipArrow,
-      autoAdjustOverflow,
-      getPopupContainer,
-      children,
-      destroyTooltipOnHide,
-      destroyOnHidden,
-    };
-  }, [
+  // =========== Merged Props ===========
+  const mergedProps: TooltipProps = {
+    ...props,
     color,
     placement,
     builtinPlacements,
     openClassName,
-    tooltipArrow,
+    arrow: tooltipArrow,
     autoAdjustOverflow,
     getPopupContainer,
     children,
     destroyTooltipOnHide,
     destroyOnHidden,
-  ]);
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TooltipClassNamesType,
