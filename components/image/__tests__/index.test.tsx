@@ -303,7 +303,7 @@ describe('Image', () => {
           classNames={classNamesObject}
           styles={stylesObject}
         >
-          <Image width={100} src="https://example.com/image.png" />
+          <Image src="https://example.com/image.png" />
         </Image.PreviewGroup>,
       );
 
