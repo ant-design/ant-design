@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
@@ -11,6 +11,8 @@ import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
 import type { BaseButtonProps } from '../button';
+
+const { resetWarned } = warning;
 
 describe('Button', () => {
   mountTest(Button);
