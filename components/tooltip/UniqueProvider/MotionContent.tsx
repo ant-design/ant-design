@@ -4,11 +4,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../../config-provider/context';
 
-export interface MotionContentProps {
-  children?: React.ReactNode;
-}
-
-const MotionContent: React.FC<MotionContentProps> = ({ children }) => {
+const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
 
