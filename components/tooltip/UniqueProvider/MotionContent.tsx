@@ -2,7 +2,7 @@ import React from 'react';
 import CSSMotion from '@rc-component/motion';
 import classNames from 'classnames';
 
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 
 export interface MotionContentProps {
   children?: React.ReactNode;
