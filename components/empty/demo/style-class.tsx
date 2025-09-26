@@ -10,22 +10,6 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-// Object-based classNames
-const classNamesObject = {
-  root: 'custom-empty-root',
-  image: 'custom-empty-image',
-  description: 'custom-empty-description',
-  footer: 'custom-empty-footer',
-};
-
-// Function-based classNames - dynamic based on props
-const classNamesFn: EmptyProps['classNames'] = ({ props }) => ({
-  root: `dynamic-empty-root ${props.description ? 'with-desc' : 'no-desc'}`,
-  image: 'dynamic-empty-image',
-  description: 'dynamic-empty-description',
-  footer: 'dynamic-empty-footer',
-});
-
 // Object-based styles
 const stylesObject = {
   root: { backgroundColor: '#f5f5f5', borderRadius: '8px' },
@@ -61,16 +45,10 @@ const App: React.FC = () => {
     <Flex vertical gap="middle">
       <Empty
         {...emptySharedProps}
-        description="Object classNames"
-        classNames={{ ...sharedClassNames, ...classNamesObject }}
-      />
-      <Empty
-        {...emptySharedProps}
         description="Object styles"
         classNames={sharedClassNames}
         styles={stylesObject}
       />
-      <Empty {...emptySharedProps} description="Function classNames" classNames={classNamesFn} />
       <Empty
         {...emptySharedProps}
         description="Function styles"
