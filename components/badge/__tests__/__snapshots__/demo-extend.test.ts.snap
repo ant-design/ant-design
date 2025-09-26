@@ -3062,135 +3062,167 @@ exports[`renders components/badge/demo/status.tsx extend context correctly 2`] =
 
 exports[`renders components/badge/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
-  style="width: 100%;"
+  class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+      class="ant-flex css-var-test-id ant-flex-gap-middle"
     >
-      <div
-        class="ant-space-item"
+      <span
+        class="ant-badge acss-1cmb4yg css-var-test-id"
+        style="background-color: rgb(240, 240, 240);"
       >
         <span
-          class="ant-badge custom-badge-root css-var-test-id"
-          style="background-color: rgb(240, 240, 240); padding: 4px; border-radius: 4px;"
+          class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
-          >
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          />
+        </span>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+          data-show="true"
+          style="font-size: 12px;"
+          title="5"
+        >
+          <bdi>
             <span
-              class="ant-avatar-string"
-              style="-webkit-transform: scale(1); transform: scale(1);"
-            />
-          </span>
-          <sup
-            class="ant-scroll-number custom-badge-indicator ant-badge-count"
-            data-show="true"
-            style="font-size: 12px; font-weight: bold;"
-            title="5"
-          >
-            <bdi>
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
               <span
-                class="ant-scroll-number-only"
-                style="transition: none;"
+                class="ant-scroll-number-only-unit current"
               >
-                <span
-                  class="ant-scroll-number-only-unit current"
-                >
-                  5
-                </span>
+                5
               </span>
-            </bdi>
-          </sup>
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
+            </span>
+          </bdi>
+        </sup>
+      </span>
+      <span
+        class="ant-badge acss-1cmb4yg css-var-test-id"
+        style="border: 1px solid rgb(105, 111, 199);"
       >
         <span
-          class="ant-badge custom-badge-root css-var-test-id"
-          style="background-color: rgb(240, 240, 240); padding: 4px; border-radius: 4px;"
+          class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
-          >
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          />
+        </span>
+        <sup
+          class="ant-scroll-number ant-badge-count"
+          data-show="true"
+          style="background-color: rgb(105, 111, 199);"
+          title="5"
+        >
+          <bdi>
             <span
-              class="ant-avatar-string"
-              style="-webkit-transform: scale(1); transform: scale(1);"
-            />
-          </span>
-          <sup
-            class="ant-scroll-number custom-badge-indicator ant-badge-dot"
-            data-show="true"
-            style="font-size: 12px; font-weight: bold;"
-          />
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
-      >
-        <span
-          class="ant-badge ant-badge-status ant-badge-not-a-wrapper custom-badge-root css-var-test-id"
-          style="background-color: rgb(240, 240, 240); padding: 4px; border-radius: 4px;"
-        >
-          <span
-            class="custom-badge-indicator ant-badge-status-dot ant-badge-status-success"
-            style="font-size: 12px; font-weight: bold;"
-          />
-          <span
-            class="ant-badge-status-text"
-          >
-            Success
-          </span>
-        </span>
-      </div>
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
     </div>
   </div>
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper css-var-test-id custom-ribbon-root"
-      style="border: 2px solid rgb(217, 217, 217); border-radius: 8px;"
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
+        class="ant-ribbon-wrapper css-var-test-id acss-py2id6"
       >
         <div
-          class="ant-card-head"
+          class="ant-card ant-card-bordered ant-card-small css-var-test-id"
         >
           <div
-            class="ant-card-head-wrapper"
+            class="ant-card-head"
           >
             <div
-              class="ant-card-head-title"
+              class="ant-card-head-wrapper"
             >
-              Card with custom ribbon
+              <div
+                class="ant-card-head-title"
+              >
+                Card with custom ribbon
+              </div>
             </div>
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            This card has a customized ribbon with semantic classNames and styles.
           </div>
         </div>
         <div
-          class="ant-card-body"
+          class="ant-ribbon ant-ribbon-placement-end"
+          style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
         >
-          This card has a customized ribbon with semantic classNames and styles.
+          <span
+            class="ant-ribbon-content"
+            style="font-weight: bold;"
+          >
+            Custom Ribbon
+          </span>
+          <div
+            class="ant-ribbon-corner"
+          />
         </div>
       </div>
       <div
-        class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple custom-ribbon-indicator"
-        style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+        class="ant-ribbon-wrapper css-var-test-id acss-py2id6"
+        style="border: 1px solid rgb(105, 111, 199); border-radius: 8px;"
       >
-        <span
-          class="ant-ribbon-content custom-ribbon-content"
-          style="font-weight: bold;"
-        >
-          Custom Ribbon
-        </span>
         <div
-          class="ant-ribbon-corner"
-        />
+          class="ant-card ant-card-bordered ant-card-small css-var-test-id"
+        >
+          <div
+            class="ant-card-head"
+          >
+            <div
+              class="ant-card-head-wrapper"
+            >
+              <div
+                class="ant-card-head-title"
+              >
+                Card with custom ribbon
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            This card has a customized ribbon with semantic classNames and styles.
+          </div>
+        </div>
+        <div
+          class="ant-ribbon ant-ribbon-placement-end"
+          style="background: rgb(105, 111, 199); box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+        >
+          <span
+            class="ant-ribbon-content"
+            style="font-weight: bold;"
+          >
+            Custom Ribbon
+          </span>
+          <div
+            class="ant-ribbon-corner"
+            style="color: rgb(105, 111, 199);"
+          />
+        </div>
       </div>
     </div>
   </div>
