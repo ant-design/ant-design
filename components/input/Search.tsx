@@ -3,10 +3,9 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { composeRef } from '@rc-component/util/lib/ref';
 import cls from 'classnames';
 
-import useMergeSemantic, {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import type { ButtonSemanticName } from '../button/button';
