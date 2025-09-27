@@ -271,15 +271,16 @@ describe('message', () => {
         // Test classNames function
         api.info({
           content: 'Info message with function classNames',
-          classNames: (origin) => ({
-            ...origin,
-            content: `${origin.content} custom-function-content`,
-            icon: `${origin.icon} custom-function-icon`,
+          classNames: ({ props: { type } }) => ({
+            root: `${type}-function-root`,
+            content: `${type}-function-content`,
+            icon: `${type}-function-icon`,
           }),
-          styles: (origin) => ({
-            ...origin,
-            content: { ...origin.content, fontWeight: 'bold' },
-            icon: { ...origin.icon, transform: 'rotate(45deg)' },
+          styles: ({ props: { type } }) => ({
+            root: {
+              background: type === 'info' ? 'blue' : 'red',
+              color: type === 'info' ? 'blue' : 'red',
+            },
           }),
         });
 
@@ -321,13 +322,14 @@ describe('message', () => {
     expect(successRoot).toHaveStyle({ border: '2px solid rgb(0, 255, 0)' });
 
     // Test info message with function classNames and styles
-    const infoContent = document.querySelector('.custom-function-content');
-    const infoIcon = document.querySelector('.custom-function-icon');
+    const infoRoot = document.querySelector('.info-function-root');
+    const infoContent = document.querySelector('.info-function-content');
+    const infoIcon = document.querySelector('.info-function-icon');
 
+    expect(infoRoot).toBeTruthy();
     expect(infoContent).toBeTruthy();
     expect(infoIcon).toBeTruthy();
-    expect(infoContent).toHaveStyle({ fontWeight: 'bold' });
-    expect(infoIcon).toHaveStyle({ transform: 'rotate(45deg)' });
+    expect(infoRoot).toHaveStyle({ background: 'rgb(0, 0, 255)', color: 'rgb(0, 0, 255)' });
 
     // Test other message types
     expect(document.querySelector('.warning-content')).toBeTruthy();
@@ -378,13 +380,14 @@ describe('message', () => {
         // Test function form in config
         api.warning({
           content: 'Message with function config',
-          classNames: (origin) => ({
-            ...origin,
-            content: `${origin.content || ''} function-override`,
+          classNames: ({ props: { type } }) => ({
+            content: `${type || ''}-function-override`,
           }),
-          styles: (origin) => ({
-            ...origin,
-            content: { ...origin.content, textDecoration: 'underline' },
+          styles: ({ props: { type } }) => ({
+            content: {
+              background: type === 'warning' ? 'red' : 'orange',
+              color: type === 'warning' ? 'red' : 'orange',
+            },
           }),
         });
       }, []);
@@ -415,9 +418,10 @@ describe('message', () => {
     });
 
     // Test function override
-    expect(document.querySelector('.function-override')).toBeTruthy();
-    expect(document.querySelector('.function-override')).toHaveStyle({
-      textDecoration: 'underline',
+    expect(document.querySelector('.warning-function-override')).toBeTruthy();
+    expect(document.querySelector('.warning-function-override')).toHaveStyle({
+      background: 'rgb(255, 0, 0)',
+      color: 'rgb(255, 0, 0)',
     });
 
     // Clean up
