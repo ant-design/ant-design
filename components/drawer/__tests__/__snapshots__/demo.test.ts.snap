@@ -845,6 +845,17 @@ exports[`renders components/drawer/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/style-class.tsx correctly 1`] = `
+<button
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  type="button"
+>
+  <span>
+    Open Drawer
+  </span>
+</button>
+`;
+
 exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-bordered css-var-test-id"

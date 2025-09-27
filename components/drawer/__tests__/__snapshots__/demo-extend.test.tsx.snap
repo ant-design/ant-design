@@ -4560,6 +4560,131 @@ Array [
 
 exports[`renders components/drawer/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/drawer/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Drawer
+    </span>
+  </button>,
+  <div
+    class="ant-drawer ant-drawer-right css-var-test-id demo-drawer-root ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask demo-drawer-mask ant-drawer-mask-blur"
+      style="background-image: linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%);"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper demo-drawer-wrapper"
+      style="width: 736px;"
+    >
+      <div
+        aria-modal="true"
+        class="ant-drawer-section demo-drawer-section"
+        role="dialog"
+      >
+        <div
+          class="ant-drawer-header demo-drawer-header"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-drawer-title demo-drawer-title"
+            >
+              Custom Drawer
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body demo-drawer-body"
+        >
+          <div
+            style="margin: 16px 0px; line-height: 28px;"
+          >
+            Following the Ant Design specification, we developed a React UI library antd that contains a set of high quality components and demos for building rich, interactive user interfaces.
+          </div>
+          <div
+            style="line-height: 28px;"
+          >
+            🌈 Enterprise-class UI designed for web applications.
+          </div>
+          <div
+            style="line-height: 28px;"
+          >
+            📦 A set of high-quality React components out of the box.
+          </div>
+          <div
+            style="line-height: 28px;"
+          >
+            🛡 Written in TypeScript with predictable static types.
+          </div>
+          <div
+            style="line-height: 28px;"
+          >
+            ⚙️ Whole package of design resources and development tools.
+          </div>
+          <div
+            style="line-height: 28px;"
+          >
+            🌍 Internationalization support for dozens of languages.
+          </div>
+          <div
+            style="margin-bottom: 8px; line-height: 28px;"
+          >
+            🎨 Powerful theme customization in every detail.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/drawer/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 1`] = `
 Array [
   <div
