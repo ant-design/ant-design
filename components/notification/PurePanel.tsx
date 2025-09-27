@@ -11,6 +11,7 @@ import classNames from 'classnames';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -18,6 +19,9 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, SemanticName } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
+
+export type PurePanelClassNamesType = SemanticClassNamesType<PurePanelProps, SemanticName>;
+export type PurePanelStylesType = SemanticStylesType<PurePanelProps, SemanticName>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -113,8 +117,8 @@ export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: Record<SemanticName, string>;
-  styles?: Record<SemanticName, React.CSSProperties>;
+  classNames?: PurePanelClassNamesType;
+  styles?: PurePanelStylesType;
   closeIcon?: React.ReactNode;
 }
 
@@ -146,10 +150,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('notification');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, notificationClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PurePanelClassNamesType,
+    PurePanelStylesType,
+    PurePanelProps
+  >([contextClassNames, notificationClassNames], [contextStyles, styles], undefined, {
+    props,
+  });
 
   const { notification: notificationContext } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
