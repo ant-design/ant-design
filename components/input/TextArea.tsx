@@ -24,10 +24,8 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
-import useMergeSemantic, {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'textarea' | 'count';
 export type TextAreaClassNamesType = SemanticClassNamesType<TextAreaProps, SemanticName>;
