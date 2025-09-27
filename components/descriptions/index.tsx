@@ -151,8 +151,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         label: mergedStyles.label,
       },
       classNames: {
-        label: classNames(mergedClassNames.label),
-        content: classNames(mergedClassNames.content),
+        label: mergedClassNames.label,
+        content: mergedClassNames.content,
       },
     }),
     [labelStyle, contentStyle, mergedStyles, mergedClassNames],
