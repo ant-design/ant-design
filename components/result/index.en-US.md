@@ -22,19 +22,22 @@ Use when important operations need to inform the user to process the results and
 <code src="./demo/500.tsx">500</code>
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">Custom icon</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| extra | Operating area | ReactNode | - |
-| icon | Custom back icon | ReactNode | - |
-| status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
-| subTitle | The subTitle | ReactNode | - |
-| title | The title | ReactNode | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| extra | Operating area | ReactNode | - |  |
+| icon | Custom back icon | ReactNode | - |  |
+| status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| subTitle | The subTitle | ReactNode | - |  |
+| title | The title | ReactNode | - |  |
 
 ## Semantic DOM
 

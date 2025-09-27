@@ -1258,6 +1258,126 @@ exports[`renders components/result/demo/info.tsx extend context correctly 1`] = 
 
 exports[`renders components/result/demo/info.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/result/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-result ant-result-info css-var-test-id demo-result-root"
+    style="border-width: 2px; border-style: dashed; padding: 16px;"
+  >
+    <div
+      class="ant-result-icon demo-result-icon"
+      style="opacity: 0.8;"
+    >
+      <span
+        aria-label="exclamation-circle"
+        class="anticon anticon-exclamation-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="exclamation-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-result-title demo-result-title"
+      style="font-style: italic; color: rgb(24, 144, 255);"
+    >
+      classNames Object
+    </div>
+    <div
+      class="ant-result-subtitle demo-result-subtitle"
+      style="font-weight: bold;"
+    >
+      This is a subtitle
+    </div>
+    <div
+      class="ant-result-extra demo-result-extra"
+      style="background-color: rgb(240, 240, 240); padding: 8px;"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Action
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-result-body demo-result-body"
+      style="background-color: rgb(250, 250, 250); padding: 12px;"
+    >
+      <div>
+        Content area
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-result ant-result-success css-var-test-id demo-result-root--success"
+    style="background-color: rgb(246, 255, 237); border-color: rgb(82, 196, 26);"
+  >
+    <div
+      class="ant-result-icon"
+    >
+      <span
+        aria-label="check-circle"
+        class="anticon anticon-check-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-result-title"
+      style="color: rgb(82, 196, 26);"
+    >
+      classNames Function
+    </div>
+    <div
+      class="ant-result-subtitle"
+    >
+      Dynamic class names
+    </div>
+    <div
+      class="ant-result-extra"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Action
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/result/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/success.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-success css-var-test-id"
