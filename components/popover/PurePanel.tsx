@@ -1,9 +1,10 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Popup } from '@rc-component/tooltip';
+import cls from 'classnames';
 
 import type { PopoverProps } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -20,7 +21,7 @@ export const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) =
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      {content && <div className={`${prefixCls}-inner-content`}>{content}</div>}
+      {content && <div className={`${prefixCls}-content`}>{content}</div>}
     </>
   );
 };
@@ -43,12 +44,16 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
     title,
     content,
     children,
+    classNames,
+    styles,
   } = props;
 
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  const cls = classNames(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles]);
+
+  const rootClassName = cls(
     hashId,
     prefixCls,
     `${prefixCls}-pure`,
@@ -57,9 +62,15 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   );
 
   return (
-    <div className={cls} style={style}>
+    <div className={rootClassName} style={style}>
       <div className={`${prefixCls}-arrow`} />
-      <Popup {...props} className={hashId} prefixCls={prefixCls}>
+      <Popup
+        {...props}
+        className={hashId}
+        prefixCls={prefixCls}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
+      >
         {children || <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />}
       </Popup>
     </div>
@@ -78,7 +89,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       {...restProps}
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(className, cssVarCls)}
+      className={cls(className, cssVarCls)}
     />
   );
 };

@@ -7,11 +7,13 @@ import type {
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
@@ -21,10 +23,12 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
 import useStyle from './style';
+import UniqueProvider from './UniqueProvider';
 import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
@@ -73,6 +77,8 @@ interface LegacyTooltipProps
       | 'onVisibleChange'
       | 'afterVisibleChange'
       | 'destroyTooltipOnHide'
+      | 'classNames'
+      | 'styles'
     >
   > {
   open?: RcTooltipProps['visible'];
@@ -81,11 +87,14 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-type SemanticName = 'root' | 'body';
+type SemanticName = 'root' | 'container' | 'arrow';
+
+export type TooltipClassNamesType = SemanticClassNamesType<AbstractTooltipProps, SemanticName>;
+export type TooltipStylesType = SemanticStylesType<AbstractTooltipProps, SemanticName>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: TooltipStylesType;
+  classNames?: TooltipClassNamesType;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -97,12 +106,22 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
-  /** @deprecated Please use `destroyOnHidden` instead */
-  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+
   /**
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+
+  // ===================== Legacy ==============================
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+
+  /** @deprecated Please use `styles.root` instead */
+  overlayStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.container` instead */
+  overlayInnerStyle?: React.CSSProperties;
+  /** @deprecated Please use `classNames.root` instead */
+  overlayClassName?: string;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -123,7 +142,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     openClassName,
     getTooltipContainer,
     color,
-    overlayInnerStyle,
+
     children,
     afterOpenChange,
     arrow: tooltipArrow,
@@ -138,12 +157,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     placement = 'top',
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
-    overlayStyle,
+
     rootClassName,
-    overlayClassName,
+
     styles,
-    classNames: tooltipClassNames,
+    classNames,
     onOpenChange,
+
+    // Legacy
+    overlayInnerStyle,
+    overlayStyle,
+    overlayClassName,
+
     ...restProps
   } = props;
 
@@ -177,11 +202,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     popupElement: tooltipRef.current?.popupElement!,
   }));
 
+  // ============================= Styles =============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TooltipClassNamesType,
+    TooltipStylesType,
+    AbstractTooltipProps
+  >([contextClassNames, classNames], [contextStyles, styles]);
+
   // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
     [
       ['overlayStyle', 'styles.root'],
-      ['overlayInnerStyle', 'styles.body'],
+      ['overlayInnerStyle', 'styles.container'],
       ['overlayClassName', 'classNames.root'],
       ['destroyTooltipOnHide', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
@@ -251,35 +283,41 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
-      ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
+      ? cls(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
   // Style
-  const [hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
-  const rootClassNames = classNames(
+  const themeCls = cls(rootCls, hashId, cssVarCls);
+
+  const rootClassNames = cls(
     overlayClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     colorInfo.className,
     rootClassName,
-    hashId,
-    cssVarCls,
+    themeCls,
     contextClassName,
-    contextClassNames.root,
-    tooltipClassNames?.root,
+    mergedClassNames.root,
   );
-
-  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
+  const containerStyle = {
+    ...mergedStyles.container,
+    ...overlayInnerStyle,
+    ...colorInfo.overlayStyle,
+  };
+
   const content = (
     <RcTooltip
+      unique
       {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
@@ -287,21 +325,22 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      classNames={{
+        root: rootClassNames,
+        container: mergedClassNames.container,
+        arrow: mergedClassNames.arrow,
+        uniqueContainer: cls(themeCls, mergedClassNames.container),
+      }}
       styles={{
         root: {
           ...arrowContentStyle,
-          ...contextStyles.root,
+          ...mergedStyles.root,
           ...contextStyle,
           ...overlayStyle,
-          ...styles?.root,
         },
-        body: {
-          ...contextStyles.body,
-          ...overlayInnerStyle,
-          ...styles?.body,
-          ...colorInfo.overlayStyle,
-        },
+        container: containerStyle,
+        uniqueContainer: containerStyle,
+        arrow: mergedStyles.arrow,
       }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
@@ -330,6 +369,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
 type CompoundedComponent = typeof InternalTooltip & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  UniqueProvider: typeof UniqueProvider;
 };
 
 const Tooltip = InternalTooltip as CompoundedComponent;
@@ -339,5 +379,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+Tooltip.UniqueProvider = UniqueProvider;
 
 export default Tooltip;

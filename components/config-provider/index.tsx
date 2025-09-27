@@ -14,6 +14,7 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
+import UniqueProvider from '../tooltip/UniqueProvider';
 import type {
   AlertConfig,
   BadgeConfig,
@@ -634,6 +635,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // =================================== Motion ===================================
   childNode = <MotionWrapper>{childNode}</MotionWrapper>;
+
+  // ================================ Tooltip Unique ===============================
+  if (tooltip?.unique) {
+    childNode = <UniqueProvider>{childNode}</UniqueProvider>;
+  }
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {

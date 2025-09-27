@@ -20,6 +20,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/smooth-transition.tsx">平滑过渡</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow.tsx">箭头展示</code>
 <code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
@@ -45,6 +46,33 @@ demo:
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
 
+### ConfigProvider - tooltip.unique {#config-provider-tooltip-unique}
+
+可以通过 ConfigProvider 全局配置 Tooltip 的唯一性显示。当 `unique` 设置为 `true` 时，同一时间 ConfigProvider 下的 Tooltip 只会显示一个，提供更好的用户体验和平滑的过渡效果。
+
+注意：配置后 `getContainer`、`arrow` 等属性将会失效。
+
+```tsx
+import { Button, ConfigProvider, Space, Tooltip } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    tooltip={{
+      unique: true,
+    }}
+  >
+    <Space>
+      <Tooltip title="第一个提示">
+        <Button>按钮 1</Button>
+      </Tooltip>
+      <Tooltip title="第二个提示">
+        <Button>按钮 2</Button>
+      </Tooltip>
+    </Space>
+  </ConfigProvider>
+);
+```
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
@@ -60,14 +88,6 @@ demo:
 请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
 
 请查看 https://github.com/ant-design/ant-design/issues/15909
-
-### placement 的行为逻辑是什么？
-
-当屏幕空间足够时，会按照 `placement` 的设置进行弹层。当空间不足时则会取反向位置进行弹层（例如 `top` 不够时，会改为 `bottom`，`topLeft` 不够时会改为 `bottomLeft`）。单一方向如 `top` `bottom` `left` `right` 当贴边时进行自动位移：
-
-<img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
-
-当设置为边缘对齐方向如 `topLeft` `bottomRight` 等，则会仅做翻转而不做位移。
 
 ### 为何 Tooltip 的内容在关闭时不会更新？
 

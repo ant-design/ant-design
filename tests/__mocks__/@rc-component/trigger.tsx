@@ -24,4 +24,6 @@ const ForwardTrigger = React.forwardRef<TriggerRef, TriggerProps>((props, ref) =
   return <MockTrigger ref={ref} {...mergedProps} />;
 });
 
+export * from '@rc-component/trigger/lib/mock';
+
 export default ForwardTrigger;
