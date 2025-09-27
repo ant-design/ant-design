@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEvent, useMergedState } from '@rc-component/util';
+import { useControlledState, useEvent } from '@rc-component/util';
 
 import type { TransferKey } from '../interface';
 
@@ -34,9 +34,10 @@ function useSelection<T extends { key: TransferKey }>(
   );
 
   // Selected Keys
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState<React.Key[]>(EMPTY_KEYS, {
-    value: selectedKeys,
-  });
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState<React.Key[]>(
+    EMPTY_KEYS,
+    selectedKeys,
+  );
 
   const sourceSelectedKeys = React.useMemo(
     () => filterKeys(mergedSelectedKeys, leftKeys),

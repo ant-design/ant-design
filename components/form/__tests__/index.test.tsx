@@ -2588,6 +2588,77 @@ describe('Form', () => {
     expect(content).toHaveStyle(customStyles.content);
   });
 
+  it('should support useMergeSemantic with mergedProps', () => {
+    const semanticClassNames = {
+      root: 'semantic-form-root',
+      label: 'semantic-form-label',
+      content: 'semantic-form-content',
+    };
+
+    const semanticStyles = {
+      root: { backgroundColor: '#f0f0f0' },
+      label: { color: '#333333', fontWeight: 600 },
+      content: { padding: '16px' },
+    };
+
+    const { container } = render(
+      <Form
+        layout="vertical"
+        size="large"
+        disabled={false}
+        classNames={semanticClassNames}
+        styles={semanticStyles}
+      >
+        <Form.Item label="Username" name="username" required>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const root = container.querySelector('.ant-form');
+    const label = container.querySelector('.ant-form-item-label label');
+    const content = container.querySelector('.ant-form-item-control-input-content');
+
+    // Check semantic class names
+    expect(root).toHaveClass('semantic-form-root');
+    expect(label).toHaveClass('semantic-form-label');
+    expect(content).toHaveClass('semantic-form-content');
+
+    // Check semantic styles
+    expect(root).toHaveStyle('background-color: rgb(240, 240, 240)');
+    expect(label).toHaveStyle('color: rgb(51, 51, 51)');
+    expect(label).toHaveStyle('font-weight: 600');
+    expect(content).toHaveStyle('padding: 16px');
+  });
+
+  it('should support function-based semantic classNames and styles', () => {
+    const dynamicClassNames = () => ({
+      root: 'dynamic-form-root',
+      label: 'dynamic-form-label',
+    });
+
+    const dynamicStyles = () => ({
+      root: { borderRadius: '8px' },
+      label: { fontSize: '14px' },
+    });
+
+    const { container } = render(
+      <Form classNames={dynamicClassNames} styles={dynamicStyles}>
+        <Form.Item label="Email" name="email">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const root = container.querySelector('.ant-form');
+    const label = container.querySelector('.ant-form-item-label label');
+
+    expect(root).toHaveClass('dynamic-form-root');
+    expect(label).toHaveClass('dynamic-form-label');
+    expect(root).toHaveStyle('border-radius: 8px');
+    expect(label).toHaveStyle('font-size: 14px');
+  });
+
   it('Nest Form.Item should not pass style to child Form', async () => {
     const formRef = React.createRef<FormInstance<any>>();
     const subFormRef = React.createRef<FormInstance<any>>();
