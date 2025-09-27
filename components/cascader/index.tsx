@@ -382,7 +382,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // =================== Dropdown ====================
-  const mergedPopupStyle = { ...mergedStyles.popup?.root, ...dropdownStyle };
+  const mergedPopupStyle: React.CSSProperties = { ...mergedStyles.popup?.root, ...dropdownStyle };
 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
