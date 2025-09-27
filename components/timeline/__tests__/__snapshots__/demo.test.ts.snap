@@ -1866,24 +1866,22 @@ exports[`renders components/timeline/demo/semantic.tsx correctly 1`] = `
 `;
 
 exports[`renders components/timeline/demo/style-class.tsx correctly 1`] = `
-Array [
-  <h4>
-    classNames and styles object
-  </h4>,
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <ol
-    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id custom-timeline-root"
-    style="--steps-items-offset:0;background-color:#f5f5f5;padding:16px;border-radius:8px"
+    class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-lz3q7n"
+    style="--steps-items-offset:0"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item custom-timeline-item"
-      style="background-color:#fff;padding:8px;margin:4px 0;border-radius:4px"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon custom-timeline-item-icon"
-          style="background-color:#1890ff;border-color:#1890ff"
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color:#1890ff"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -1892,19 +1890,16 @@ Array [
             class="ant-steps-item-header ant-timeline-item-header"
           >
             <div
-              class="ant-steps-item-title ant-timeline-item-title custom-timeline-item-title"
-              style="color:#1890ff;font-weight:bold"
+              class="ant-steps-item-title ant-timeline-item-title"
             >
               2015-09-01
             </div>
             <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail custom-timeline-item-rail"
-              style="border-color:#1890ff;border-width:2px"
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
             />
           </div>
           <div
-            class="ant-steps-item-content ant-timeline-item-content custom-timeline-item-content"
-            style="color:#666;font-style:italic"
+            class="ant-steps-item-content ant-timeline-item-content"
           >
             Create a services site
           </div>
@@ -1912,15 +1907,14 @@ Array [
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item custom-timeline-item"
-      style="background-color:#fff;padding:8px;margin:4px 0;border-radius:4px"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon custom-timeline-item-icon"
-          style="background-color:#1890ff;border-color:#1890ff"
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color:#1890ff"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -1929,19 +1923,16 @@ Array [
             class="ant-steps-item-header ant-timeline-item-header"
           >
             <div
-              class="ant-steps-item-title ant-timeline-item-title custom-timeline-item-title"
-              style="color:#1890ff;font-weight:bold"
+              class="ant-steps-item-title ant-timeline-item-title"
             >
               2015-09-01 09:12:11
             </div>
             <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail custom-timeline-item-rail"
-              style="border-color:#1890ff;border-width:2px"
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
             />
           </div>
           <div
-            class="ant-steps-item-content ant-timeline-item-content custom-timeline-item-content"
-            style="color:#666;font-style:italic"
+            class="ant-steps-item-content ant-timeline-item-content"
           >
             Solve initial network problems
           </div>
@@ -1949,15 +1940,14 @@ Array [
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item custom-timeline-item"
-      style="background-color:#fff;padding:8px;margin:4px 0;border-radius:4px"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon custom-timeline-item-icon"
-          style="background-color:#1890ff;border-color:#1890ff"
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color:#1890ff"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -1966,92 +1956,27 @@ Array [
             class="ant-steps-item-header ant-timeline-item-header"
           />
           <div
-            class="ant-steps-item-content ant-timeline-item-content custom-timeline-item-content"
-            style="color:#666;font-style:italic"
+            class="ant-steps-item-content ant-timeline-item-content"
           >
             Technical testing
           </div>
         </div>
       </div>
     </li>
-  </ol>,
-  <h4>
-    classNames and styles function
-  </h4>,
+  </ol>
   <ol
-    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id filled-timeline"
-    style="--steps-items-offset:0;background-color:#e6f7ff;border:2px solid #1890ff;border-radius:12px;padding:20px"
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-lz3q7n"
+    style="--steps-items-offset:0;padding:10px 6px;border:1px solid #A294F9"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
-      style="background-color:#fff;padding:12px;border-radius:6px;margin-bottom:8px"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
-          style="background-color:#52c41a;border-color:#52c41a;transform:scale(1.2)"
-        >
-          <span
-            aria-label="clock-circle"
-            class="anticon anticon-clock-circle"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="clock-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-              />
-              <path
-                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="ant-steps-item-section ant-timeline-item-section"
-        >
-          <div
-            class="ant-steps-item-header ant-timeline-item-header"
-          >
-            <div
-              class="ant-steps-item-title ant-timeline-item-title title-vertical"
-              style="color:#52c41a;font-size:16px;font-weight:bold"
-            >
-              项目启动
-            </div>
-            <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail rail-vertical-filled"
-              style="border-color:#52c41a;border-width:3px;border-style:solid"
-            />
-          </div>
-          <div
-            class="ant-steps-item-content ant-timeline-item-content content-filled"
-            style="color:#333;font-size:14px;line-height:1.6"
-          >
-            开始新项目的规划和设计
-          </div>
-        </div>
-      </div>
-    </li>
-    <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
-      style="background-color:#fff;padding:12px;border-radius:6px;margin-bottom:8px"
-    >
-      <div
-        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
-      >
-        <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
-          style="background-color:#52c41a;border-color:#52c41a;transform:scale(1.2)"
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color:#A294F9"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -2060,35 +1985,31 @@ Array [
             class="ant-steps-item-header ant-timeline-item-header"
           >
             <div
-              class="ant-steps-item-title ant-timeline-item-title title-vertical"
-              style="color:#52c41a;font-size:16px;font-weight:bold"
+              class="ant-steps-item-title ant-timeline-item-title"
             >
-              开发阶段
+              2015-09-01
             </div>
             <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail rail-vertical-filled"
-              style="border-color:#52c41a;border-width:3px;border-style:solid"
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
             />
           </div>
           <div
-            class="ant-steps-item-content ant-timeline-item-content content-filled"
-            style="color:#333;font-size:14px;line-height:1.6"
+            class="ant-steps-item-content ant-timeline-item-content"
           >
-            进行核心功能的开发工作
+            Create a services site
           </div>
         </div>
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
-      style="background-color:#fff;padding:12px;border-radius:6px;margin-bottom:8px"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
-          style="background-color:#52c41a;border-color:#52c41a;transform:scale(1.2)"
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color:#A294F9"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -2097,60 +2018,48 @@ Array [
             class="ant-steps-item-header ant-timeline-item-header"
           >
             <div
-              class="ant-steps-item-title ant-timeline-item-title title-vertical"
-              style="color:#52c41a;font-size:16px;font-weight:bold"
+              class="ant-steps-item-title ant-timeline-item-title"
             >
-              测试阶段
+              2015-09-01 09:12:11
             </div>
             <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail rail-vertical-filled"
-              style="border-color:#52c41a;border-width:3px;border-style:solid"
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
             />
           </div>
           <div
-            class="ant-steps-item-content ant-timeline-item-content content-filled"
-            style="color:#333;font-size:14px;line-height:1.6"
+            class="ant-steps-item-content ant-timeline-item-content"
           >
-            全面测试系统功能
+            Solve initial network problems
           </div>
         </div>
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
-      style="background-color:#fff;padding:12px;border-radius:6px;margin-bottom:8px"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
-          style="background-color:#52c41a;border-color:#52c41a;transform:scale(1.2)"
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color:#A294F9"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
         >
           <div
             class="ant-steps-item-header ant-timeline-item-header"
-          >
-            <div
-              class="ant-steps-item-title ant-timeline-item-title title-vertical"
-              style="color:#52c41a;font-size:16px;font-weight:bold"
-            >
-              项目完成
-            </div>
-          </div>
+          />
           <div
-            class="ant-steps-item-content ant-timeline-item-content content-filled"
-            style="color:#333;font-size:14px;line-height:1.6"
+            class="ant-steps-item-content ant-timeline-item-content"
           >
-            项目成功上线运行
+            Technical testing
           </div>
         </div>
       </div>
     </li>
-  </ol>,
-]
+  </ol>
+</div>
 `;
 
 exports[`renders components/timeline/demo/title.tsx correctly 1`] = `
