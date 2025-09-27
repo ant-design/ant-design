@@ -25,10 +25,13 @@ import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'textarea' | 'count';
+export type TextAreaClassNamesType = SemanticClassNamesType<TextAreaProps, SemanticName>;
+export type TextAreaStylesType = SemanticStylesType<TextAreaProps, SemanticName>;
 
-export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
+export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNames' | 'styles'> {
   /** @deprecated Use `variant` instead */
   bordered?: boolean;
   size?: SizeType;
@@ -39,8 +42,8 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TextAreaClassNamesType;
+  styles?: TextAreaStylesType;
 }
 
 export interface TextAreaRef {
@@ -97,10 +100,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TextAreaClassNamesType,
+    TextAreaStylesType,
+    TextAreaProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props });
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);
