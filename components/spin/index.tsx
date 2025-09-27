@@ -2,6 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { debounce } from 'throttle-debounce';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';
@@ -11,7 +13,17 @@ import usePercent from './usePercent';
 const _SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
-type SemanticName = 'root' | 'wrapper' | 'mask' | 'indicator';
+type SemanticName = 'root' | 'wrapper' | 'mask' | 'indicator' | 'tip';
+
+export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SemanticName>;
+export type SpinStylesType = SemanticStylesType<
+  SpinProps,
+  SemanticName,
+  {
+    wrapper?: React.CSSProperties;
+  }
+>;
+
 export interface SpinProps {
   /** Customize prefix class name */
   prefixCls?: string;
@@ -38,8 +50,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: SpinClassNamesType;
+  styles?: SpinStylesType;
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -112,6 +124,26 @@ const Spin: SpinType = (props) => {
     [children, fullscreen],
   );
 
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: SpinProps = {
+    ...props,
+    size,
+    spinning,
+    tip,
+    fullscreen,
+    children,
+    percent: mergedPercent,
+  };
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SpinClassNamesType,
+    SpinStylesType,
+    SpinProps
+  >([contextClassNames, spinClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
@@ -134,8 +166,7 @@ const Spin: SpinType = (props) => {
     },
     className,
     !fullscreen && rootClassName,
-    !fullscreen && spinClassNames?.root,
-    !fullscreen && contextClassNames.root,
+    !fullscreen && mergedClassNames.root,
     hashId,
     cssVarCls,
   );
@@ -146,27 +177,30 @@ const Spin: SpinType = (props) => {
 
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
-  const rootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
-  const wrapStyle: React.CSSProperties = { ...contextStyles.wrapper, ...styles?.wrapper };
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const spinElement: React.ReactNode = (
     <div
       {...restProps}
-      style={fullscreen ? mergedStyle : { ...rootStyle, ...mergedStyle }}
+      style={fullscreen ? mergedStyle : { ...mergedStyles.root, ...mergedStyle }}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}
     >
       <Indicator
-        className={classNames(spinClassNames?.indicator, contextClassNames.indicator)}
-        style={{ ...contextStyles.indicator, ...styles?.indicator }}
+        className={mergedClassNames.indicator}
+        style={mergedStyles.indicator}
         prefixCls={prefixCls}
         indicator={mergedIndicator}
         percent={mergedPercent}
       />
       {tip && (isNestedPattern || fullscreen) ? (
-        <div className={`${prefixCls}-text`}>{tip}</div>
+        <div
+          className={classNames(`${prefixCls}-text`, mergedClassNames.tip)}
+          style={mergedStyles.tip}
+        >
+          {tip}
+        </div>
       ) : null}
     </div>
   );
@@ -175,8 +209,14 @@ const Spin: SpinType = (props) => {
     return (
       <div
         {...restProps}
-        className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
-        style={wrapStyle}
+        className={classNames(
+          `${prefixCls}-nested-loading`,
+          wrapperClassName,
+          mergedClassNames.wrapper,
+          hashId,
+          cssVarCls,
+        )}
+        style={mergedStyles.wrapper}
       >
         {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key="container">
@@ -197,10 +237,9 @@ const Spin: SpinType = (props) => {
           rootClassName,
           hashId,
           cssVarCls,
-          spinClassNames?.mask,
-          contextClassNames.mask,
+          mergedClassNames.mask,
         )}
-        style={{ ...contextStyles.mask, ...styles?.mask }}
+        style={mergedStyles.mask}
       >
         {spinElement}
       </div>

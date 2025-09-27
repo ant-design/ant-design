@@ -490,6 +490,67 @@ exports[`renders components/spin/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/spin/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning acss-11z55jn css-var-test-id"
+  >
+    <span
+      class="ant-spin-dot-holder"
+      style="color:#00d4ff"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </span>
+  </div>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-sm ant-spin-spinning acss-11z55jn css-var-test-id"
+  >
+    <span
+      class="ant-spin-dot-holder"
+      style="color:#722ed1"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
