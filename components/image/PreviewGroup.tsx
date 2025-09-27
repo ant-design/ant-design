@@ -10,7 +10,7 @@ import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from '@rc-component/image';
 import classnames from 'classnames';
 
-import type { DeprecatedPreviewConfig } from '.';
+import type { DeprecatedPreviewConfig, ImageClassNamesType, ImageStylesType } from '.';
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { GetProps } from '../_util/type';
@@ -45,6 +45,8 @@ export type GroupPreviewConfig = OriginPreviewConfig &
 
 export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
   preview?: boolean | GroupPreviewConfig;
+  classNames?: ImageClassNamesType;
+  styles?: ImageStylesType;
 }
 
 const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
@@ -102,8 +104,20 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     icons,
   );
   const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
-  const internalClassNames = React.useMemo(
-    () => [
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: PreviewGroupProps = {
+    ...otherProps,
+    classNames,
+    styles,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ImageClassNamesType,
+    ImageStylesType,
+    PreviewGroupProps
+  >(
+    [
       contextClassNames,
       classNames,
       {
@@ -114,25 +128,14 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
         },
       },
     ],
-    [
-      contextClassNames,
-      classNames,
-      contextPreviewMaskClassName,
-      previewMaskClassName,
-      contextPreviewRootClassName,
-      previewRootClassName,
-      mergedMask,
-      prefixCls,
-      blurClassName,
-    ],
-  );
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    internalClassNames,
     [contextStyles, styles],
     {
       popup: {
         _default: 'root',
       },
+    },
+    {
+      props: mergedProps,
     },
   );
   return (

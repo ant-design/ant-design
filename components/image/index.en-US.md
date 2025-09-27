@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
 <code src="./demo/imageRender.tsx">Custom preview render</code>
 <code src="./demo/mask.tsx">preview mask</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
 <code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
 <code src="./demo/nested.tsx">nested</code>
@@ -42,13 +43,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | alt | Image description | string | - |  |
-| classNames | Custom semantic structure class names | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | Fallback URL when load fails | string | - |  |
 | height | Image height | string \| number | - |  |
 | placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
 | preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
 | src | Image URL | string | - |  |
-| styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | width | Image width | string \| number | - |  |
 | onError | Callback when loading error occurs | (event: Event) => void | - |  |
 
