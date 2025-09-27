@@ -10,6 +10,7 @@ import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import DEFAULT_COLUMN_MAP from './constant';
 import DescriptionsContext from './DescriptionsContext';
+import type { DescriptionsContextProps } from './DescriptionsContext';
 import useItems from './hooks/useItems';
 import useRow from './hooks/useRow';
 import type { DescriptionsItemProps } from './Item';
@@ -122,7 +123,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ======================== Render ========================
-  const contextValue = React.useMemo(
+  const contextValue = React.useMemo<DescriptionsContextProps>(
     () => ({
       labelStyle,
       contentStyle,

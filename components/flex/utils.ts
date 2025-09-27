@@ -56,12 +56,12 @@ const genClsJustify = (prefixCls: string, props: FlexProps) => {
   return justifyCls;
 };
 
-function createFlexClassNames(prefixCls: string, props: FlexProps) {
+const createFlexClassNames = (prefixCls: string, props: FlexProps) => {
   return clsx({
     ...genClsWrap(prefixCls, props),
     ...genClsAlign(prefixCls, props),
     ...genClsJustify(prefixCls, props),
   });
-}
+};
 
 export default createFlexClassNames;

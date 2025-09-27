@@ -172,22 +172,19 @@ describe('Table', () => {
       'pagination.item': 4,
     };
 
-    const flattenClassNames = (obj: any, parentKey = ''): Record<string, string> => {
-      return Object.entries(obj).reduce(
-        (acc, [key, value]) => {
-          const newKey = parentKey ? `${parentKey}.${key}` : key;
-          if (typeof value === 'object') {
-            Object.assign(acc, flattenClassNames(value, newKey));
-          } else if (typeof value === 'string') {
-            acc[newKey] = value;
-          }
-          return acc;
-        },
-        {} as Record<string, string>,
-      );
+    const toFlatObject = (obj: any, parentKey = '') => {
+      return Object.entries(obj).reduce<Record<PropertyKey, string>>((acc, [key, value]) => {
+        const newKey = parentKey ? `${parentKey}.${key}` : key;
+        if (typeof value === 'object') {
+          Object.assign(acc, toFlatObject(value, newKey));
+        } else if (typeof value === 'string') {
+          acc[newKey] = value;
+        }
+        return acc;
+      }, {});
     };
 
-    const flatTestClassNames = flattenClassNames(testClassNames);
+    const flatTestClassNames = toFlatObject(testClassNames);
 
     Object.entries(classNameCounts).forEach(([className, expectedCount]) => {
       const elements = container.getElementsByClassName(flatTestClassNames[className]);
