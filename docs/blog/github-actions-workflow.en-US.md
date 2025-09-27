@@ -176,10 +176,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          node-version: 16
+      - name: Setup utoo
+        uses: utooland/setup-utoo@v1
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
