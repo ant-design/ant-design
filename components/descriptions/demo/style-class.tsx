@@ -1,26 +1,15 @@
 import React from 'react';
-import { Descriptions, Divider } from 'antd';
+import { Descriptions, Flex } from 'antd';
 import type { DescriptionsProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
-  label: css`
-    background-color: red;
-  `,
+const useStyle = createStyles(() => ({
+  root: {
+    padding: 10,
+  },
 }));
 
-// Function-based styles
-const stylesFn: DescriptionsProps['styles'] = (info) => {
-  if (info.props.size === 'small') {
-    return {
-      label: { color: 'green' },
-      content: { color: 'red' },
-    };
-  }
-  return {};
-};
-
-const rootStyleItems: DescriptionsProps['items'] = [
+const items: DescriptionsProps['items'] = [
   {
     key: '1',
     label: 'Product',
@@ -39,23 +28,35 @@ const rootStyleItems: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
+  const { styles: classNames } = useStyle();
 
   const descriptionsProps: DescriptionsProps = {
     title: 'User Info',
-    items: rootStyleItems,
+    items,
     bordered: true,
-    classNames: {
-      label: styles.label,
-    },
+    classNames,
+  };
+
+  const styles = { label: { color: '#000' } };
+
+  const stylesFn: DescriptionsProps['styles'] = (info) => {
+    if (info.props.size === 'default') {
+      return {
+        root: {
+          borderRadius: 8,
+          border: '1px solid #CDC1FF',
+        },
+        label: { color: '#A294F9' },
+      };
+    }
+    return {};
   };
 
   return (
-    <>
-      <Descriptions {...descriptionsProps} styles={{ label: { color: 'green' } }} />
-      <Divider />
-      <Descriptions {...descriptionsProps} styles={stylesFn} size="small" />
-    </>
+    <Flex vertical gap="middle">
+      <Descriptions {...descriptionsProps} styles={styles} size="small" />
+      <Descriptions {...descriptionsProps} styles={stylesFn} size="default" />
+    </Flex>
   );
 };
 

@@ -171,7 +171,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -191,7 +191,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -211,7 +211,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -231,7 +231,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -277,7 +277,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -297,7 +297,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -317,7 +317,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -337,7 +337,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -357,7 +357,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -377,7 +377,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -408,7 +408,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -428,7 +428,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -448,7 +448,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -468,7 +468,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -610,7 +610,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -630,7 +630,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -650,7 +650,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -670,7 +670,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -690,7 +690,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -710,7 +710,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -730,7 +730,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1433,7 +1433,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1453,7 +1453,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1473,7 +1473,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1493,7 +1493,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1513,7 +1513,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1533,7 +1533,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1553,7 +1553,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1577,7 +1577,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -1715,7 +1715,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1735,7 +1735,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1755,7 +1755,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1775,7 +1775,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1795,7 +1795,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1815,7 +1815,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -1835,7 +1835,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -2149,7 +2149,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
               style="background: green;"
             >
@@ -2170,7 +2170,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -2190,7 +2190,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -2236,7 +2236,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
               style="background: green;"
             >
@@ -2258,7 +2258,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
               style="background: green;"
             >
@@ -2280,7 +2280,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
               style="background: green; color: blue;"
             >
@@ -2299,9 +2299,11 @@ Array [
 exports[`renders components/descriptions/demo/style.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    class="ant-descriptions ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions acss-nk32ej ant-descriptions-small ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -2321,16 +2323,16 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label acss-rbc7hf"
+              class="ant-descriptions-item-label"
               colspan="1"
-              style="color: green;"
+              style="color: rgb(0, 0, 0);"
             >
               <span>
                 Product
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -2342,16 +2344,16 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label acss-rbc7hf"
+              class="ant-descriptions-item-label"
               colspan="1"
-              style="color: green;"
+              style="color: rgb(0, 0, 0);"
             >
               <span>
                 Billing Mode
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -2363,16 +2365,16 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label acss-rbc7hf"
+              class="ant-descriptions-item-label"
               colspan="1"
-              style="color: green;"
+              style="color: rgb(0, 0, 0);"
             >
               <span>
                 Automatic Renewal
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
             >
               <span>
@@ -2383,13 +2385,10 @@ Array [
         </tbody>
       </table>
     </div>
-  </div>,
+  </div>
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
-    role="separator"
-  />,
-  <div
-    class="ant-descriptions ant-descriptions-small ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions acss-nk32ej ant-descriptions-bordered css-var-test-id"
+    style="border-radius: 8px; border: 1px solid rgb(205, 193, 255);"
   >
     <div
       class="ant-descriptions-header"
@@ -2409,18 +2408,17 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label acss-rbc7hf"
+              class="ant-descriptions-item-label"
               colspan="1"
-              style="color: green;"
+              style="color: rgb(162, 148, 249);"
             >
               <span>
                 Product
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
-              style="color: red;"
             >
               <span>
                 Cloud Database
@@ -2431,18 +2429,17 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label acss-rbc7hf"
+              class="ant-descriptions-item-label"
               colspan="1"
-              style="color: green;"
+              style="color: rgb(162, 148, 249);"
             >
               <span>
                 Billing Mode
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
-              style="color: red;"
             >
               <span>
                 Prepaid
@@ -2453,18 +2450,17 @@ Array [
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label acss-rbc7hf"
+              class="ant-descriptions-item-label"
               colspan="1"
-              style="color: green;"
+              style="color: rgb(162, 148, 249);"
             >
               <span>
                 Automatic Renewal
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content undefined"
               colspan="1"
-              style="color: red;"
             >
               <span>
                 YES
@@ -2474,8 +2470,8 @@ Array [
         </tbody>
       </table>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 2`] = `[]`;
@@ -3131,7 +3127,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3155,7 +3151,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3179,7 +3175,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3203,7 +3199,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3227,7 +3223,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3251,7 +3247,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3286,7 +3282,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3310,7 +3306,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3334,7 +3330,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
@@ -3358,7 +3354,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content"
+            class="ant-descriptions-item-content undefined"
             colspan="1"
           >
             <span>
