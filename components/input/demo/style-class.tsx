@@ -49,7 +49,7 @@ const stylesFnPassword: PasswordProps['styles'] = (info) => {
 const stylesFnOTP: OTPProps['styles'] = (info) => {
   if (info.props.size === 'middle') {
     return {
-      input: { borderColor: '#6E8CFB' },
+      input: { borderColor: '#6E8CFB', width: 32 },
       prefix: { color: '#6E8CFB' },
     };
   }
@@ -60,11 +60,12 @@ const stylesFnSearch: SearchProps['styles'] = (info) => {
   if (info.props.size === 'large') {
     return {
       root: { color: '#4DA8DA' },
-      input: { color: '#4DA8DA' },
+      input: { color: '#4DA8DA', borderColor: '#4DA8DA' },
       prefix: { color: '#4DA8DA' },
       suffix: { color: '#4DA8DA' },
       count: { color: '#4DA8DA' },
       button: {
+        root: { color: '#4DA8DA', borderColor: '#4DA8DA' },
         icon: { color: '#4DA8DA' },
       },
     };

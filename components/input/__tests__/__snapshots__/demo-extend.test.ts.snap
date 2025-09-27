@@ -12268,7 +12268,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 1"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: rgb(110, 140, 251);"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12286,7 +12286,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 2"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: rgb(110, 140, 251);"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12304,7 +12304,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 3"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: rgb(110, 140, 251);"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12322,7 +12322,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 4"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: rgb(110, 140, 251);"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12340,7 +12340,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 5"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: rgb(110, 140, 251);"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12358,7 +12358,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: rgb(110, 140, 251);"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12374,7 +12374,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="Search"
-        style="color: rgb(77, 168, 218);"
+        style="color: rgb(77, 168, 218); border-color: rgb(77, 168, 218);"
         type="search"
         value=""
       />
@@ -12383,6 +12383,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
       >
         <button
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
+          style="color: rgb(77, 168, 218); border-color: rgb(77, 168, 218);"
           type="button"
         >
           <span
