@@ -23,6 +23,7 @@ demo:
 <code src="./demo/animated.tsx">动画效果</code>
 <code src="./demo/card.tsx" background="grey">在卡片中使用</code>
 <code src="./demo/timer.tsx" version="5.25.0">计时器</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -31,18 +32,20 @@ demo:
 
 #### Statistic
 
-| 参数             | 说明               | 类型                 | 默认值 | 版本  |
-| ---------------- | ------------------ | -------------------- | ------ | ----- |
-| decimalSeparator | 设置小数点         | string               | `.`    |       |
-| formatter        | 自定义数值展示     | (value) => ReactNode | -      |       |
-| groupSeparator   | 设置千分位标识符   | string               | `,`    |       |
-| loading          | 数值是否加载中     | boolean              | false  | 4.8.0 |
-| precision        | 数值精度           | number               | -      |       |
-| prefix           | 设置数值的前缀     | ReactNode            | -      |       |
-| suffix           | 设置数值的后缀     | ReactNode            | -      |       |
-| title            | 数值的标题         | ReactNode            | -      |       |
-| value            | 数值内容           | string \| number     | -      |       |
-| valueStyle       | 设置数值区域的样式 | CSSProperties        | -      |       |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| decimalSeparator | 设置小数点 | string | `.` |  |
+| formatter | 自定义数值展示 | (value) => ReactNode | - |  |
+| groupSeparator | 设置千分位标识符 | string | `,` |  |
+| loading | 数值是否加载中 | boolean | false | 4.8.0 |
+| precision | 数值精度 | number | - |  |
+| prefix | 设置数值的前缀 | ReactNode | - |  |
+| styles | 用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties> | - |  |
+| suffix | 设置数值的后缀 | ReactNode | - |  |
+| title | 数值的标题 | ReactNode | - |  |
+| value | 数值内容 | string \| number | - |  |
+| valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 

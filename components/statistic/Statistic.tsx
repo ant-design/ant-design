@@ -2,6 +2,8 @@ import * as React from 'react';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -11,6 +13,8 @@ import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
 export type SemanticName = 'root' | 'content' | 'title' | 'header' | 'prefix' | 'suffix';
+export type StatisticClassNamesType = SemanticClassNamesType<StatisticProps, SemanticName>;
+export type StatisticStylesType = SemanticStylesType<StatisticProps, SemanticName>;
 export interface StatisticRef {
   nativeElement: HTMLDivElement;
 }
@@ -18,8 +22,8 @@ export interface StatisticRef {
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: StatisticClassNamesType;
+  styles?: StatisticStylesType;
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
@@ -75,6 +79,21 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const mergedProps: StatisticProps = {
+    ...props,
+    decimalSeparator,
+    groupSeparator,
+    loading,
+    value,
+  };
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    StatisticClassNamesType,
+    StatisticStylesType,
+    StatisticProps
+  >([contextClassNames, statisticClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Statistic');
@@ -103,41 +122,20 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     contextClassName,
     className,
     rootClassName,
-    contextClassNames.root,
-    statisticClassNames?.root,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
   );
 
-  const headerClassNames = classNames(
-    `${prefixCls}-header`,
-    contextClassNames.header,
-    statisticClassNames?.header,
-  );
+  const headerClassNames = classNames(`${prefixCls}-header`, mergedClassNames.header);
 
-  const titleClassNames = classNames(
-    `${prefixCls}-title`,
-    contextClassNames.title,
-    statisticClassNames?.title,
-  );
+  const titleClassNames = classNames(`${prefixCls}-title`, mergedClassNames.title);
 
-  const contentClassNames = classNames(
-    `${prefixCls}-content`,
-    contextClassNames.content,
-    statisticClassNames?.content,
-  );
+  const contentClassNames = classNames(`${prefixCls}-content`, mergedClassNames.content);
 
-  const prefixClassNames = classNames(
-    `${prefixCls}-content-prefix`,
-    contextClassNames.prefix,
-    statisticClassNames?.prefix,
-  );
+  const prefixClassNames = classNames(`${prefixCls}-content-prefix`, mergedClassNames.prefix);
 
-  const suffixClassNames = classNames(
-    `${prefixCls}-content-suffix`,
-    contextClassNames.suffix,
-    statisticClassNames?.suffix,
-  );
+  const suffixClassNames = classNames(`${prefixCls}-content-suffix`, mergedClassNames.suffix);
   const internalRef = React.useRef<HTMLDivElement>(null);
 
   React.useImperativeHandle(ref, () => ({
@@ -150,37 +148,28 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     <div
       {...restProps}
       className={rootClassNames}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       ref={internalRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       {title && (
-        <div className={headerClassNames} style={{ ...contextStyles.header, ...styles?.header }}>
-          <div className={titleClassNames} style={{ ...contextStyles.title, ...styles?.title }}>
+        <div className={headerClassNames} style={mergedStyles.header}>
+          <div className={titleClassNames} style={mergedStyles.title}>
             {title}
           </div>
         </div>
       )}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
-        <div
-          className={contentClassNames}
-          style={{ ...valueStyle, ...contextStyles.content, ...styles?.content }}
-        >
+        <div className={contentClassNames} style={{ ...valueStyle, ...mergedStyles.content }}>
           {prefix && (
-            <span
-              className={prefixClassNames}
-              style={{ ...contextStyles.prefix, ...styles?.prefix }}
-            >
+            <span className={prefixClassNames} style={mergedStyles.prefix}>
               {prefix}
             </span>
           )}
           {valueRender ? valueRender(valueNode) : valueNode}
           {suffix && (
-            <span
-              className={suffixClassNames}
-              style={{ ...contextStyles.suffix, ...styles?.suffix }}
-            >
+            <span className={suffixClassNames} style={mergedStyles.suffix}>
               {suffix}
             </span>
           )}
