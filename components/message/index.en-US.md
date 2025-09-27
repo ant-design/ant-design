@@ -24,6 +24,7 @@ demo:
 <code src="./demo/loading.tsx">Message with loading indicator</code>
 <code src="./demo/thenable.tsx">Promise interface</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
+<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/info.tsx">Static method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -68,12 +69,14 @@ The properties of config are as follows:
 | Property | Description | Type | Default |
 | --- | --- | --- | --- | --- |
 | className | Customized CSS class | string | - |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | [Record<SemanticDOM, string> \| (info: { props })=> Record<SemanticDOM, string>](#semantic-dom) | - |
 | content | The content of the message | ReactNode | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
 | icon | Customized Icon | ReactNode | - |
 | pauseOnHover | keep the timer running or not on hover | boolean | true | - |
 | key | The unique identifier of the Message | string \| number | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | [Record<SemanticDOM, CSSProperties> \| (info: { props })=> Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
 | onClick | Specify a function that will be called when the message is clicked | function | - |
 | onClose | Specify a function that will be called when the message is closed | function | - |
 
