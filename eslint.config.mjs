@@ -33,7 +33,6 @@ export default antfu(
       'ts/explicit-function-return-type': 'off',
       'ts/ban-ts-comment': 'off', // TODO: remove this
       'ts/consistent-type-definitions': 'off',
-      'ts/consistent-type-imports': 'off', // TODO: remove this
       'ts/method-signature-style': 'off', // TODO: remove this
       'ts/no-non-null-asserted-optional-chain': 'off',
       'unicorn/prefer-number-properties': 'off',
