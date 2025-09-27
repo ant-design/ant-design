@@ -2,7 +2,7 @@ import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import { omit } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
@@ -104,7 +104,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const rootClassNames = cls(
+  const rootClassNames = clsx(
     prefixCls,
     className,
     rootClassName,
@@ -130,7 +130,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     <div {...restProps} className={rootClassNames} style={rootStyle}>
       {status !== 'active' && (
         <div
-          className={cls(`${prefixCls}-cover`, mergedClassNames.cover)}
+          className={clsx(`${prefixCls}-cover`, mergedClassNames.cover)}
           style={mergedStyles.cover}
         >
           <QRcodeStatus

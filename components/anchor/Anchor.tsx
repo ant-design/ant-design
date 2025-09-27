@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEvent } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
@@ -305,7 +305,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     props: mergedProps,
   });
 
-  const wrapperClass = cls(
+  const wrapperClass = clsx(
     hashId,
     cssVarCls,
     rootCls,
@@ -320,11 +320,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     mergedClassNames.root,
   );
 
-  const anchorClass = cls(prefixCls, {
+  const anchorClass = clsx(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = cls(`${prefixCls}-ink`, mergedClassNames.indicator, {
+  const inkClass = clsx(`${prefixCls}-ink`, mergedClassNames.indicator, {
     [`${prefixCls}-ink-visible`]: activeLink,
   });
 

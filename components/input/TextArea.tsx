@@ -5,9 +5,10 @@ import type {
   TextAreaRef as RcTextAreaRef,
 } from '@rc-component/textarea';
 import RcTextArea from '@rc-component/textarea';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -24,7 +25,6 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'textarea' | 'count';
 
@@ -171,7 +171,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       styles={mergedStyles}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={cls(
+      className={clsx(
         cssVarCls,
         rootCls,
         className,
@@ -184,7 +184,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       )}
       classNames={{
         ...mergedClassNames,
-        textarea: cls(
+        textarea: clsx(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -193,13 +193,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           mergedClassNames.textarea,
           isMouseDown && `${prefixCls}-mouse-active`,
         ),
-        variant: cls(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
         ),
-        affixWrapper: cls(
+        affixWrapper: clsx(
           `${prefixCls}-textarea-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',

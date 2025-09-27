@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { UnstableContext } from '@rc-component/steps';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
@@ -247,7 +247,7 @@ const Timeline: CompoundedComponent = (props) => {
         <Steps
           {...restProps}
           // Style
-          className={cls(prefixCls, contextClassName, className, hashId, cssVarCls, {
+          className={clsx(prefixCls, contextClassName, className, hashId, cssVarCls, {
             [`${prefixCls}-${orientation}`]: orientation === 'horizontal',
             [`${prefixCls}-layout-alternate`]: layoutAlternate,
             [`${prefixCls}-rtl`]: direction === 'rtl',

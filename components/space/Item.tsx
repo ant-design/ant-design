@@ -1,5 +1,5 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
@@ -38,7 +38,7 @@ const Item: React.FC<ItemProps> = ({
       </div>
       {index < latestIndex && separator && (
         <span
-          className={cls(`${prefix}-item-separator`, classNames.separator)}
+          className={clsx(`${prefix}-item-separator`, classNames.separator)}
           style={styles.separator}
         >
           {separator}

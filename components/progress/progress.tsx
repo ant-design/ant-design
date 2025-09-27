@@ -5,7 +5,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -183,7 +183,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
     return (
       <span
-        className={cls(
+        className={clsx(
           `${prefixCls}-indicator`,
           {
             [`${prefixCls}-indicator-bright`]: isBrightInnerColor,
@@ -273,7 +273,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     );
   }
 
-  const classString = cls(
+  const classString = clsx(
     prefixCls,
     `${prefixCls}-status-${progressStatus}`,
     {

@@ -9,7 +9,7 @@ import type {
 import RcCascader from '@rc-component/cascader';
 import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -295,7 +295,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // =================== Dropdown ====================
-  const mergedPopupClassName = cls(
+  const mergedPopupClassName = clsx(
     popupClassName || dropdownClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
@@ -378,7 +378,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   return (
     <RcCascader
       prefixCls={prefixCls}
-      className={cls(
+      className={clsx(
         !customizePrefixCls && cascaderPrefixCls,
         {
           [`${prefixCls}-lg`]: mergedSize === 'large',

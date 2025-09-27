@@ -3,7 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from '@rc-component/input-number';
 import RcInputNumber from '@rc-component/input-number';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -165,7 +165,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={cls(
+      className={clsx(
         cssVarCls,
         rootCls,
         className,
@@ -198,7 +198,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }
       classNames={{
         ...mergedClassNames,
-        input: cls(
+        input: clsx(
           {
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -208,13 +208,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           hashId,
           mergedClassNames.input,
         ),
-        variant: cls(
-          {
-            [`${prefixCls}-${variant}`]: enableVariantCls,
-          },
+        variant: clsx(
+          { [`${prefixCls}-${variant}`]: enableVariantCls },
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
-        affixWrapper: cls(
+        affixWrapper: clsx(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -224,13 +222,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           },
           hashId,
         ),
-        wrapper: cls(
-          {
-            [`${wrapperClassName}-rtl`]: direction === 'rtl',
-          },
-          hashId,
-        ),
-        groupWrapper: cls(
+        wrapper: clsx({ [`${wrapperClassName}-rtl`]: direction === 'rtl' }, hashId),
+        groupWrapper: clsx(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',

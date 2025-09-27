@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
 import { useControlledState } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -205,8 +205,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergedRootCls = cls(mergedClassNames.root, rootClassName, cssVarCls, rootCls, rtlCls);
-  const mergedCls = cls(
+  const mergedRootCls = clsx(mergedClassNames.root, rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedCls = clsx(
     getStatusClassNames(prefixCls, contextStatus),
     {
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -218,7 +218,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergedPopupCls = cls(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
+  const mergedPopupCls = clsx(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
