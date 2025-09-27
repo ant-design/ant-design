@@ -56,6 +56,9 @@ export default antfu(
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
+      'react/no-comment-textnodes': 'off',
+      'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
+      'react-dom/no-missing-button-type': 'off',
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-exports': 'off',
       'perfectionist/sort-named-imports': 'off',
