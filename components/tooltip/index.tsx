@@ -12,6 +12,8 @@ import classNames from 'classnames';
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
@@ -73,6 +75,8 @@ interface LegacyTooltipProps
       | 'onVisibleChange'
       | 'afterVisibleChange'
       | 'destroyTooltipOnHide'
+      | 'classNames'
+      | 'styles'
     >
   > {
   open?: RcTooltipProps['visible'];
@@ -81,11 +85,13 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-type SemanticName = 'root' | 'body';
+export type SemanticName = 'root' | 'body';
+
+export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, SemanticName>;
+
+export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -115,7 +121,10 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
   overlay?: React.ReactNode | RenderFunction;
 }
 
-export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
+export type TooltipProps = (TooltipPropsWithTitle | TooltipPropsWithOverlay) & {
+  classNames?: TooltipClassNamesType;
+  styles?: TooltipStylesType;
+};
 
 const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
@@ -254,6 +263,29 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
+  // =========== Merged Props ===========
+  const mergedProps: TooltipProps = {
+    ...props,
+    color,
+    placement,
+    builtinPlacements,
+    openClassName,
+    arrow: tooltipArrow,
+    autoAdjustOverflow,
+    getPopupContainer,
+    children,
+    destroyTooltipOnHide,
+    destroyOnHidden,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TooltipClassNamesType,
+    TooltipStylesType,
+    TooltipProps
+  >([contextClassNames, tooltipClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
@@ -269,11 +301,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     hashId,
     cssVarCls,
     contextClassName,
-    contextClassNames.root,
-    tooltipClassNames?.root,
+    mergedClassNames.root,
   );
-
-  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
@@ -287,19 +316,17 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      classNames={{ root: rootClassNames, body: mergedClassNames.body }}
       styles={{
         root: {
           ...arrowContentStyle,
-          ...contextStyles.root,
           ...contextStyle,
           ...overlayStyle,
-          ...styles?.root,
+          ...mergedStyles.root,
         },
         body: {
-          ...contextStyles.body,
           ...overlayInnerStyle,
-          ...styles?.body,
+          ...mergedStyles.body,
           ...colorInfo.overlayStyle,
         },
       }}

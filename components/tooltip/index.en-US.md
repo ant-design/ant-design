@@ -29,6 +29,7 @@ demo:
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-children.tsx" debug>Disabled children</code>
 <code src="./demo/wrap-custom-component.tsx">Wrap custom component</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
