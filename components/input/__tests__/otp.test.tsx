@@ -5,7 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import { OTPProps } from '../OTP';
+import type { OTPProps } from '../OTP';
 
 const { OTP } = Input;
 
