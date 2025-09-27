@@ -52,15 +52,12 @@ const Cell: React.FC<CellProps> = (props) => {
   if (bordered) {
     return (
       <Component
-        className={clsx(
-          {
-            [`${itemPrefixCls}-item-label`]: type === 'label',
-            [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
-          },
-          className,
-        )}
+        className={clsx(className, {
+          [`${itemPrefixCls}-item-label`]: type === 'label',
+          [`${itemPrefixCls}-item-content`]: type === 'content',
+          [`${descriptionsClassNames?.label}`]: type === 'label',
+          [`${descriptionsClassNames?.content}`]: type === 'content',
+        })}
         style={style}
         colSpan={span}
       >
@@ -85,7 +82,7 @@ const Cell: React.FC<CellProps> = (props) => {
         )}
         {(content || content === 0) && (
           <span
-            className={clsx(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
+            className={clsx(descriptionsClassNames?.content, `${itemPrefixCls}-item-content`)}
             style={{ ...contentStyle, ...styles?.content }}
           >
             {content}
