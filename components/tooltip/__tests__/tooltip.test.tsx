@@ -268,7 +268,7 @@ describe('Tooltip', () => {
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip-inner')?.innerHTML).toBe('0');
+    expect(container.querySelector('.ant-tooltip-container')?.innerHTML).toBe('0');
   });
 
   it('autoAdjustOverflow should be object or undefined', () => {
@@ -368,13 +368,15 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
-  it('should pass styles.body through to the inner component', () => {
+  it('should pass styles.container through to the inner component', () => {
     const { container } = render(
-      <Tooltip styles={{ body: { color: 'red' } }} title="xxxxx" open>
+      <Tooltip styles={{ container: { color: 'red' } }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector<HTMLDivElement>('.ant-tooltip-inner')?.style?.color).toBe('red');
+    expect(container.querySelector<HTMLDivElement>('.ant-tooltip-container')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
   });
 
   it('should work with loading switch', () => {
@@ -500,12 +502,12 @@ describe('Tooltip', () => {
 
   it('should apply custom styles to Tooltip', () => {
     const customClassNames = {
-      body: 'custom-body',
+      container: 'custom-container',
       root: 'custom-root',
     };
 
     const customStyles = {
-      body: { color: 'red' },
+      container: { color: 'red' },
       root: { backgroundColor: 'blue' },
     };
 
@@ -516,15 +518,17 @@ describe('Tooltip', () => {
     );
 
     const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
-    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+    const tooltipContainerElement = container.querySelector(
+      '.ant-tooltip-container',
+    ) as HTMLElement;
 
     // 验证 classNames
     expect(tooltipElement.classList).toContain('custom-root');
-    expect(tooltipBodyElement.classList).toContain('custom-body');
+    expect(tooltipContainerElement.classList).toContain('custom-container');
 
     // 验证 styles
     expect(tooltipElement.style.backgroundColor).toBe('blue');
-    expect(tooltipBodyElement.style.color).toBe('red');
+    expect(tooltipContainerElement.style.color).toBe('red');
   });
 
   it('ConfigProvider support arrow props', () => {
@@ -606,26 +610,33 @@ describe('Tooltip', () => {
       expect(overlayStyle.background).toBe(lightColor);
       expect(overlayStyle['--ant-tooltip-color']).toBe('#000');
     });
-    it('actual tooltip color rendering(defult)', () => {
+    it('actual tooltip color rendering (default)', () => {
       const { container } = render(
         <Tooltip title="Test" color="#003366" open>
           <span>Hover me</span>
         </Tooltip>,
       );
 
-      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+      const tooltipContainer = container.querySelector('.ant-tooltip-container');
 
-      expect(tooltipInner).toHaveStyle('--ant-tooltip-color: #FFF');
+      expect(tooltipContainer).toHaveStyle('--ant-tooltip-color: #FFF');
     });
     it('actual tooltip color rendering (styles)', () => {
       const { container } = render(
-        <Tooltip title="Test" open color="#003366" styles={{ body: { color: 'rgb(0, 255, 255)' } }}>
+        <Tooltip
+          title="Test"
+          open
+          color="#003366"
+          styles={{ container: { color: 'rgb(0, 255, 255)' } }}
+        >
           <span>Hover me</span>
         </Tooltip>,
       );
 
-      const tooltipInner = container.querySelector('.ant-tooltip-inner');
-      expect(getComputedStyle(tooltipInner!).color).toBe('rgb(0, 255, 255)');
+      const tooltipContainer = container.querySelector('.ant-tooltip-container');
+      expect(tooltipContainer!).toHaveStyle({
+        color: 'rgb(0, 255, 255)',
+      });
     });
   });
 });

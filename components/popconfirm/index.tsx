@@ -108,14 +108,14 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      classNames={{ root: rootClassNames, body: mergedClassNames.body }}
+      classNames={{ root: rootClassNames, container: mergedClassNames.container }}
       styles={{
         root: {
           ...ctxStyle,
           ...mergedStyles.root,
           ...overlayStyle,
         },
-        body: mergedStyles.body,
+        container: mergedStyles.container,
       }}
       content={
         <Overlay
