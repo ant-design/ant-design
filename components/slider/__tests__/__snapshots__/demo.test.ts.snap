@@ -1307,6 +1307,66 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-slider acss-1pw5qi4 css-var-test-id ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left:0%;width:30%;background:linear-gradient(180deg, #91caff, #1677ff)"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-describedby="test-id"
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      role="slider"
+      style="left:30%;transform:translateX(-50%);border-color:#1677ff;box-shadow:0 2px 8px #1677ff"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="ant-slider acss-1pw5qi4 css-var-test-id ant-slider-vertical"
+    style="height:300px"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="top:0%;height:30%;background:linear-gradient(180deg, #722cc0, #722ed1)"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-describedby="test-id"
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle acss-1mqvsgv"
+      role="slider"
+      style="top:30%;transform:translateY(-50%);border-color:#722ed1;box-shadow:0 2px 8px #722ed1"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/slider/demo/tip-formatter.tsx correctly 1`] = `
 Array [
   <div
