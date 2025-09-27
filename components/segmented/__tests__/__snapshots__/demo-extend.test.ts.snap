@@ -1933,8 +1933,9 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented acss-11yzflc css-var-test-id"
+    class="ant-segmented acss-1o3848f css-var-test-id"
     role="radiogroup"
+    style="padding: 4px; width: 260px;"
     tabindex="0"
   >
     <div
@@ -1942,7 +1943,6 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        style="border-radius: 999px; padding-inline: 20px;"
       >
         <input
           checked=""
@@ -1954,11 +1954,9 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
           aria-checked="true"
           class="ant-segmented-item-label"
           role="radio"
-          style="font-weight: 500;"
         >
           <span
             class="ant-segmented-item-icon"
-            style="color: rgb(250, 173, 20);"
           >
             <span
               aria-label="rocket"
@@ -1987,7 +1985,6 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
       </label>
       <label
         class="ant-segmented-item"
-        style="border-radius: 999px; padding-inline: 20px;"
       >
         <input
           class="ant-segmented-item-input"
@@ -1998,11 +1995,9 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
           aria-checked="false"
           class="ant-segmented-item-label"
           role="radio"
-          style="font-weight: 500;"
         >
           <span
             class="ant-segmented-item-icon"
-            style="color: rgb(250, 173, 20);"
           >
             <span
               aria-label="thunderbolt"
@@ -2031,7 +2026,6 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
       </label>
       <label
         class="ant-segmented-item"
-        style="border-radius: 999px; padding-inline: 20px;"
       >
         <input
           class="ant-segmented-item-input"
@@ -2042,11 +2036,9 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
           aria-checked="false"
           class="ant-segmented-item-label"
           role="radio"
-          style="font-weight: 500;"
         >
           <span
             class="ant-segmented-item-icon"
-            style="color: rgb(250, 173, 20);"
           >
             <span
               aria-label="cloud"
@@ -2077,20 +2069,20 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-disabled acss-11yzflc css-var-test-id"
+    class="ant-segmented ant-segmented-vertical acss-1o3848f ant-segmented-vertical css-var-test-id"
     role="radiogroup"
+    style="border: 1px solid rgb(119, 190, 240); padding: 4px; width: 80px;"
+    tabindex="0"
   >
     <div
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
-        style="background: rgb(245, 245, 245); border-radius: 999px;"
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
           class="ant-segmented-item-input"
-          disabled=""
           name="test-id"
           type="radio"
         />
@@ -2098,11 +2090,10 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
           aria-checked="true"
           class="ant-segmented-item-label"
           role="radio"
-          style="font-weight: 600; color: rgb(153, 153, 153);"
         >
           <span
             class="ant-segmented-item-icon"
-            style="color: rgb(153, 153, 153);"
+            style="color: rgb(119, 190, 240);"
           >
             <span
               aria-label="rocket"
@@ -2130,12 +2121,10 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-disabled"
-        style="background: rgb(245, 245, 245); border-radius: 999px;"
+        class="ant-segmented-item"
       >
         <input
           class="ant-segmented-item-input"
-          disabled=""
           name="test-id"
           type="radio"
         />
@@ -2143,11 +2132,10 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
           aria-checked="false"
           class="ant-segmented-item-label"
           role="radio"
-          style="font-weight: 600; color: rgb(153, 153, 153);"
         >
           <span
             class="ant-segmented-item-icon"
-            style="color: rgb(153, 153, 153);"
+            style="color: rgb(119, 190, 240);"
           >
             <span
               aria-label="thunderbolt"
@@ -2175,12 +2163,10 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-disabled"
-        style="background: rgb(245, 245, 245); border-radius: 999px;"
+        class="ant-segmented-item"
       >
         <input
           class="ant-segmented-item-input"
-          disabled=""
           name="test-id"
           type="radio"
         />
@@ -2188,11 +2174,10 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
           aria-checked="false"
           class="ant-segmented-item-label"
           role="radio"
-          style="font-weight: 600; color: rgb(153, 153, 153);"
         >
           <span
             class="ant-segmented-item-icon"
-            style="color: rgb(153, 153, 153);"
+            style="color: rgb(119, 190, 240);"
           >
             <span
               aria-label="cloud"

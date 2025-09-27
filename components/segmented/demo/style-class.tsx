@@ -4,33 +4,13 @@ import { Flex, Segmented } from 'antd';
 import type { SegmentedProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
-  root: css`
-    border: 2px dashed #ccc;
-    padding: 12px;
-    border-radius: 16px;
-  `,
+const useStyle = createStyles(() => ({
+  root: {
+    padding: 2,
+  },
 }));
 
-const styleFn: SegmentedProps['styles'] = ({ props }) => {
-  const isDisabled = props?.disabled;
-
-  return {
-    item: {
-      background: isDisabled ? '#f5f5f5' : 'rgba(250, 173, 20, 0.08)',
-      borderRadius: 999,
-    },
-    label: {
-      fontWeight: 600,
-      color: isDisabled ? '#999' : '#fa8c16',
-    },
-    icon: {
-      color: isDisabled ? '#999' : '#fa8c16',
-    },
-  };
-};
-
-const options = [
+const options: SegmentedProps['options'] = [
   {
     label: 'Boost',
     value: 'boost',
@@ -49,34 +29,40 @@ const options = [
 ];
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
+  const { styles: classNames } = useStyle();
 
   const segmentedSharedProps: SegmentedProps = {
     options,
-    classNames: {
-      root: styles.root,
+    classNames,
+  };
+
+  const styleFn: SegmentedProps['styles'] = (info) => {
+    if (info.props.vertical) {
+      return {
+        root: {
+          border: '1px solid #77BEF0',
+          padding: 4,
+          width: 80,
+        },
+        icon: {
+          color: '#77BEF0',
+        },
+      };
+    }
+    return {};
+  };
+
+  const styles: SegmentedProps['styles'] = {
+    root: {
+      padding: 4,
+      width: 260,
     },
   };
 
   return (
     <Flex vertical gap="middle">
-      <Segmented
-        {...segmentedSharedProps}
-        styles={{
-          item: {
-            borderRadius: 999,
-            paddingInline: 20,
-          },
-          label: {
-            fontWeight: 500,
-          },
-          icon: {
-            color: '#faad14',
-          },
-        }}
-      />
-
-      <Segmented {...segmentedSharedProps} styles={styleFn} disabled />
+      <Segmented {...segmentedSharedProps} styles={styles} />
+      <Segmented {...segmentedSharedProps} styles={styleFn} vertical />
     </Flex>
   );
 };
