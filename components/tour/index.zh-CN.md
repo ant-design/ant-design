@@ -25,6 +25,7 @@ tag: 5.0.0
 <code src="./demo/indicator.tsx">自定义指示器</code>
 <code src="./demo/actions-render.tsx" version="5.25.0">自定义操作按钮</code>
 <code src="./demo/gap.tsx">自定义高亮区域的样式</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -36,6 +37,7 @@ tag: 5.0.0
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | 自定义关闭按钮 | `React.ReactNode` | `true` | 5.9.0 |
 | disabledInteraction | 禁用高亮区域交互 | `boolean` | `false` | 5.13.0 |
 | gap | 控制高亮区域的圆角边框和显示间距 | `{ offset?: number \| [number, number]; radius?: number }` | `{ offset?: 6 ; radius?: 2 }` | 5.0.0 (数组类型的 `offset`: 5.9.0 ) |
@@ -48,6 +50,7 @@ tag: 5.0.0
 | onChange | 步骤改变时的回调，current 为当前的步骤 | `(current: number) => void` | - |  |
 | current | 当前处于哪一步 | `number` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
 | actionsRender | 自定义操作按钮 | `(originNode: ReactNode, info: { current: number, total: number }) => ReactNode` | - | 5.25.0 |
 | zIndex | Tour 的层级 | number | 1001 | 5.3.0 |
