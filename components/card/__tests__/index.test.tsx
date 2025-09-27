@@ -338,4 +338,76 @@ describe('Card', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('should support classNames and styles props', () => {
+    const classNames = {
+      body: 'custom-card-body',
+      extra: 'custom-card-extra',
+      header: 'custom-card-header',
+      root: 'custom-card-root',
+      title: 'custom-card-title',
+    };
+
+    const styles = {
+      body: { padding: '16px' },
+      extra: { color: 'red' },
+      header: { background: '#f0f0f0' },
+      root: { border: '1px solid #d9d9d9' },
+      title: { fontSize: '18px' },
+    };
+
+    const { container } = render(
+      <Card title="Card title" extra={<span>Extra</span>} classNames={classNames} styles={styles}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    const card = container.querySelector('.ant-card');
+    expect(card).toHaveClass('custom-card-root');
+
+    const header = container.querySelector('.ant-card-head');
+    expect(header).toHaveClass('custom-card-header');
+
+    const body = container.querySelector('.ant-card-body');
+    expect(body).toHaveClass('custom-card-body');
+
+    const title = container.querySelector('.ant-card-head-title');
+    expect(title).toHaveClass('custom-card-title');
+
+    const extra = container.querySelector('.ant-card-extra');
+    expect(extra).toHaveClass('custom-card-extra');
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support function-based classNames and styles configuration', () => {
+    const getClassNames = () => ({
+      body: 'function-card-body',
+      header: 'function-card-header',
+      root: 'function-card-root',
+    });
+
+    const getStyles = () => ({
+      body: { paddingTop: '0' },
+      header: { borderBottom: 'none' },
+      root: { borderRadius: '8px' },
+    });
+
+    const { container } = render(
+      <Card title="Card title" classNames={getClassNames()} styles={getStyles()}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    const card = container.querySelector('.ant-card');
+    expect(card).toHaveClass('function-card-root');
+
+    const header = container.querySelector('.ant-card-head');
+    expect(header).toHaveClass('function-card-header');
+
+    const body = container.querySelector('.ant-card-body');
+    expect(body).toHaveClass('function-card-body');
+
+    expect(container).toMatchSnapshot();
+  });
 });
