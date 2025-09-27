@@ -93,14 +93,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         });
       }
 
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-        pickerType,
-        classNames,
-        styles,
-        popupClassName || dropdownClassName,
-        popupStyle,
-      );
-
       const {
         getPrefixCls,
         direction,
@@ -110,7 +102,35 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       } = useContext(ConfigContext);
 
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
+
+      // ===================== Size =====================
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+      // ===================== Disabled =====================
+      const disabled = React.useContext(DisabledContext);
+      const mergedDisabled = customDisabled ?? disabled;
+
+      // =========== Merged Props for Semantic ===========
+      const mergedProps = {
+        ...props,
+        size: mergedSize,
+        disabled: mergedDisabled,
+        status: customStatus,
+        variant: customVariant,
+      } as P;
+
+      // ========================= Style ==========================
+      // Use original useMergedPickerSemantic for proper popup handling
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<P>(
+        pickerType,
+        classNames,
+        styles,
+        popupClassName || dropdownClassName,
+        popupStyle,
+        mergedProps,
+      );
+
       const innerRef = React.useRef<PickerRef>(null);
 
       const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
@@ -147,13 +167,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ================== components ==================
       const mergedComponents = useComponents(components);
-
-      // ===================== Size =====================
-      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-      // ===================== Disabled =====================
-      const disabled = React.useContext(DisabledContext);
-      const mergedDisabled = customDisabled ?? disabled;
 
       // ===================== FormItemInput =====================
       const formItemContext = useContext(FormItemInputContext);
