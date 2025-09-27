@@ -176,7 +176,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
       let $title: React.ReactNode;
       if (hasTitle) {
         const titleProps: SkeletonTitleProps = {
-          className: classNames(mergedClassNames.title),
+          className: mergedClassNames.title,
           prefixCls: `${prefixCls}-title`,
           ...getTitleBasicProps(hasAvatar, hasParagraph),
           ...getComponentProps(title),
