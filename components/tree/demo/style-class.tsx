@@ -1,8 +1,21 @@
 import React from 'react';
-import { Tree } from 'antd';
+import { Flex, Tree } from 'antd';
 import type { TreeProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const treeData = [
+const useStyles = createStyles(() => ({
+  root: {
+    padding: 8,
+    borderRadius: 4,
+  },
+  item: {
+    borderRadius: 2,
+  },
+  itemTitle: {
+    fontSize: 14,
+  },
+}));
+const treeData: TreeProps['treeData'] = [
   {
     title: 'parent 1',
     key: '0-0',
@@ -35,106 +48,45 @@ const treeData = [
   },
 ];
 
-const staticClassNames: TreeProps['classNames'] = {
-  root: 'custom-tree-root',
-  item: 'custom-tree-item',
-  itemIcon: 'custom-tree-item-icon',
-  itemTitle: 'custom-tree-item-title',
+const styles: TreeProps['styles'] = {
+  root: { border: '2px solid #d9d9d9' },
+  item: { margin: '2px 0' },
+  itemTitle: { color: '#262626' },
 };
-
-const staticStyles: TreeProps['styles'] = {
-  root: { border: '2px solid #d9d9d9', borderRadius: 6, padding: 8 },
-  item: { backgroundColor: '#f0f0f0', margin: '2px 0' },
-  itemIcon: { color: '#1890ff' },
-  itemTitle: { fontWeight: 'bold', color: '#262626' },
+const stylesFn: TreeProps['styles'] = (info) => {
+  if (!info.props.checkable) {
+    return {
+      root: {
+        border: `2px solid #E5D9F2`,
+        borderRadius: 4,
+      },
+    };
+  }
+  return {};
 };
-
-const dynamicClassNames: TreeProps['classNames'] = ({ props }) => ({
-  root: `dynamic-tree-root ${props.showLine ? 'show-line' : ''}`,
-  item: props.checkable ? 'checkable-tree-item' : 'selectable-tree-item',
-  itemIcon: 'dynamic-tree-item-icon',
-  itemTitle: 'dynamic-tree-item-title',
-});
-
-const dynamicStyles: TreeProps['styles'] = ({ props }) => ({
-  root: {
-    backgroundColor: props.disabled ? '#f5f5f5' : '#ffffff',
-    border: `1px solid ${props.disabled ? '#d9d9d9' : '#40a9ff'}`,
-    borderRadius: 4,
-  },
-  item: {
-    padding: props.showIcon ? '4px 8px' : '2px 4px',
-    borderRadius: 2,
-  },
-  itemIcon: {
-    fontSize: props.showIcon ? 16 : 14,
-    color: props.disabled ? '#bfbfbf' : '#52c41a',
-  },
-  itemTitle: {
-    color: props.disabled ? '#bfbfbf' : '#1890ff',
-    fontSize: 14,
-  },
-});
 
 const App: React.FC = () => {
-  const [expandedKeys, setExpandedKeys] = React.useState<React.Key[]>(['0-0']);
-  const [selectedKeys, setSelectedKeys] = React.useState<React.Key[]>(['0-0-0']);
-  const [autoExpandParent, setAutoExpandParent] = React.useState<boolean>(true);
-
-  const onExpand: TreeProps['onExpand'] = (expandedKeysValue) => {
-    console.log('onExpand', expandedKeysValue);
-    setExpandedKeys(expandedKeysValue);
-    setAutoExpandParent(false);
-  };
-
-  const onSelect: TreeProps['onSelect'] = (selectedKeysValue, info) => {
-    console.log('onSelect', info);
-    setSelectedKeys(selectedKeysValue);
+  const { styles: classNames } = useStyles();
+  const sharedProps: TreeProps = {
+    treeData,
+    classNames,
+    autoExpandParent: true,
+    checkable: true,
   };
 
   return (
-    <div>
-      <h3>Static classNames and styles</h3>
+    <Flex vertical gap="middle">
+      <Tree {...sharedProps} treeData={treeData} styles={styles} />
       <Tree
-        checkable
-        onExpand={onExpand}
-        expandedKeys={expandedKeys}
-        autoExpandParent={autoExpandParent}
-        onSelect={onSelect}
-        selectedKeys={selectedKeys}
+        {...sharedProps}
+        checkable={false}
         treeData={treeData}
-        classNames={staticClassNames}
-        styles={staticStyles}
+        styles={stylesFn}
+        defaultExpandedKeys={['0-0-0', '0-0-1']}
+        defaultSelectedKeys={['0-0-1']}
+        defaultCheckedKeys={['0-0-0', '0-0-1']}
       />
-
-      <h3 style={{ marginTop: 32 }}>Function-based classNames and styles</h3>
-      <Tree
-        showLine
-        showIcon
-        onExpand={onExpand}
-        expandedKeys={expandedKeys}
-        autoExpandParent={autoExpandParent}
-        onSelect={onSelect}
-        selectedKeys={selectedKeys}
-        treeData={treeData}
-        classNames={dynamicClassNames}
-        styles={dynamicStyles}
-      />
-
-      <h3 style={{ marginTop: 32 }}>Disabled state with dynamic styles</h3>
-      <Tree
-        disabled
-        showIcon
-        onExpand={onExpand}
-        expandedKeys={expandedKeys}
-        autoExpandParent={autoExpandParent}
-        onSelect={onSelect}
-        selectedKeys={selectedKeys}
-        treeData={treeData}
-        classNames={dynamicClassNames}
-        styles={dynamicStyles}
-      />
-    </div>
+    </Flex>
   );
 };
 
