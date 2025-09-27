@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Divider, Flex, Segmented, Skeleton } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 interface PreviewContentProps {
   element: string;
@@ -18,31 +18,15 @@ const COMPONENT_MAP: Record<string, React.ElementType> = {
 };
 
 const OPTIONS = [
-  {
-    value: 'Avatar',
-    label: 'Avatar',
-  },
-  {
-    value: 'Button',
-    label: 'Button',
-  },
-  {
-    value: 'Input',
-    label: 'Input',
-  },
-  {
-    value: 'Image',
-    label: 'Image',
-  },
-  {
-    value: 'Node',
-    label: 'Node',
-  },
+  { value: 'Avatar', label: 'Avatar' },
+  { value: 'Button', label: 'Button' },
+  { value: 'Input', label: 'Input' },
+  { value: 'Image', label: 'Image' },
+  { value: 'Node', label: 'Node' },
 ];
 
 const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ...rest }) => {
   const Element = COMPONENT_MAP[element];
-
   return (
     <Flex vertical style={{ width: 'fit-content', marginRight: 'auto' }}>
       <Segmented
