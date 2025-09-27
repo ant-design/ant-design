@@ -196,7 +196,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
             {extra && (
               <div
                 className={classNames(`${prefixCls}-extra`, mergedClassNames.extra)}
-                style={{ ...mergedStyles.extra }}
+                style={mergedStyles.extra}
               >
                 {extra}
               </div>
