@@ -5,7 +5,7 @@ import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import type { OptionProps } from '@rc-component/select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -264,7 +264,7 @@ const InternalSelect = <
     },
   );
 
-  const mergedPopupClassName = cls(
+  const mergedPopupClassName = clsx(
     mergedClassNames.popup?.root,
     popupClassName,
     dropdownClassName,
@@ -285,7 +285,7 @@ const InternalSelect = <
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const mergedClassName = cls(
+  const mergedClassName = clsx(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',

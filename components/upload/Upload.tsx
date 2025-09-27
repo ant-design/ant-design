@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
 import { useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 
@@ -405,8 +405,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     return (
       <UploadList
         classNames={{
-          list: classNames(contextClassNames.list, uploadClassNames?.list),
-          item: classNames(contextClassNames.item, uploadClassNames?.item),
+          list: clsx(contextClassNames.list, uploadClassNames?.list),
+          item: clsx(contextClassNames.item, uploadClassNames?.item),
         }}
         styles={{
           list: { ...contextStyles.list, ...styles?.list },
@@ -438,7 +438,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const mergedRootCls = classNames(
+  const mergedRootCls = clsx(
     wrapperCls,
     className,
     rootClassName,
@@ -460,7 +460,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   // ======================== Render ========================
 
   if (type === 'drag') {
-    const dragCls = classNames(hashId, prefixCls, `${prefixCls}-drag`, {
+    const dragCls = clsx(hashId, prefixCls, `${prefixCls}-drag`, {
       [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
       [`${prefixCls}-drag-hover`]: dragState === 'dragover',
       [`${prefixCls}-disabled`]: mergedDisabled,
@@ -485,7 +485,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   }
 
-  const uploadBtnCls = classNames(prefixCls, `${prefixCls}-select`, {
+  const uploadBtnCls = clsx(prefixCls, `${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: mergedDisabled,
     [`${prefixCls}-hidden`]: !children,
   });

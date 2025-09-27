@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import SiteContext from '../../../theme/slots/SiteContext';
 import GroupMaskLayer from './GroupMaskLayer';
@@ -74,7 +74,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
             {description}
           </Typography.Paragraph>
         </div>
-        <div className={classNames({ [styles.marginStyle]: !collapse })}>
+        <div className={clsx({ [styles.marginStyle]: !collapse })}>
           {children ? <div>{children}</div> : <div className={styles.withoutChildren} />}
         </div>
       </GroupMaskLayer>

@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
@@ -338,10 +338,7 @@ describe('Wave component', () => {
     const { container } = render(
       <Wave>
         <div>
-          <div
-            className={classNames('bamboo', TARGET_CLS)}
-            style={{ borderColor: 'rgb(255, 0, 0)' }}
-          />
+          <div className={clsx('bamboo', TARGET_CLS)} style={{ borderColor: 'rgb(255, 0, 0)' }} />
         </div>
       </Wave>,
     );

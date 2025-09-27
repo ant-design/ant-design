@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -209,11 +209,11 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const finalClassNames = React.useMemo(
     () => ({
-      root: cls(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
+      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
       prefix: mergedClassNames.prefix,
       input: mergedClassNames.input,
       popup: {
-        root: cls(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
+        root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
         list: mergedClassNames.popup?.list,
         listItem: mergedClassNames.popup?.listItem,
       },

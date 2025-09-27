@@ -4,7 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import type { Meta, NamePath } from '@rc-component/form/lib/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { FeedbackIcons, ValidateStatus } from '.';
 import { FormContext, FormItemInputContext } from '../context';
@@ -73,7 +73,7 @@ function StatusProvider({
       feedbackIcon =
         customIconNode !== false && IconNode ? (
           <span
-            className={classNames(
+            className={clsx(
               `${itemPrefixCls}-feedback-icon`,
               `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
             )}

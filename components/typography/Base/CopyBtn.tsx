@@ -2,7 +2,7 @@ import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { CopyConfig } from '.';
 import type { Locale } from '../../locale';
@@ -40,7 +40,7 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
     <Tooltip title={copyTitle}>
       <button
         type="button"
-        className={classNames(`${prefixCls}-copy`, {
+        className={clsx(`${prefixCls}-copy`, {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}

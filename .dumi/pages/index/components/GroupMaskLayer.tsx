@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 const useStyle = createStyles(({ css }) => ({
   siteMask: css`
@@ -23,7 +23,7 @@ const GroupMaskLayer: React.FC<React.PropsWithChildren<GroupMaskLayerProps>> = (
   return (
     <div
       style={style}
-      className={classNames(className, styles.siteMask)}
+      className={clsx(className, styles.siteMask)}
       onMouseMove={onMouseMove}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

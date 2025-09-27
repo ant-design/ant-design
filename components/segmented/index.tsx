@@ -7,7 +7,7 @@ import type {
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import useOrientation from '../_util/hooks/useOrientation';
@@ -114,7 +114,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
             label: (
               <>
                 <span
-                  className={classNames(`${prefixCls}-item-icon`, mergedClassNames.icon)}
+                  className={clsx(`${prefixCls}-item-icon`, mergedClassNames.icon)}
                   style={mergedStyles.icon}
                 >
                   {icon}
@@ -131,7 +131,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
 
   const [, mergedVertical] = useOrientation(orientation, vertical);
 
-  const cls = classNames(
+  const cls = clsx(
     className,
     rootClassName,
     contextClassName,

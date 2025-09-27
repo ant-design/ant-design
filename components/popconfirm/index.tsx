@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import { omit, useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
@@ -89,14 +89,15 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     prefixCls,
     contextClassName,
     overlayClassName,
     contextClassNames.root,
     popconfirmClassNames?.root,
   );
-  const bodyClassNames = classNames(contextClassNames.body, popconfirmClassNames?.body);
+
+  const bodyClassNames = clsx(contextClassNames.body, popconfirmClassNames?.body);
 
   useStyle(prefixCls);
 

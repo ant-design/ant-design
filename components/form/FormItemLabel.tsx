@@ -1,6 +1,6 @@
 import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
 import type { ColProps } from '../grid/col';
@@ -66,7 +66,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const mergedLabelAlign: FormLabelAlign | undefined = labelAlign || contextLabelAlign;
 
   const labelClsBasic = `${prefixCls}-item-label`;
-  const labelColClassName = classNames(
+  const labelColClassName = clsx(
     labelClsBasic,
     mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
     mergedLabelCol.className,
@@ -140,7 +140,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     markType = 'optional';
   }
 
-  const labelClassName = classNames(contextClassNames?.label, {
+  const labelClassName = clsx(contextClassNames?.label, {
     [`${prefixCls}-item-required`]: required,
     [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,

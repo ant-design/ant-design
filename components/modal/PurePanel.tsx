@@ -1,7 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Panel } from '@rc-component/dialog';
 import type { PanelProps } from '@rc-component/dialog/lib/Dialog/Content/Panel';
+import { clsx } from 'clsx';
 
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
@@ -68,7 +68,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   return (
     <Panel
       prefixCls={prefixCls}
-      className={classNames(
+      className={clsx(
         hashId,
         `${prefixCls}-pure-panel`,
         type && confirmPrefixCls,

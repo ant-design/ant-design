@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { DirectionType } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -50,7 +50,7 @@ const Typography = React.forwardRef<
 
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls);
-  const componentClassName = classNames(
+  const componentClassName = clsx(
     prefixCls,
     contextClassName,
     {

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
+import type { AnyObject } from '../../_util/type';
 import { useComponentConfig } from '../../config-provider/context';
 import type { RequiredSemanticPicker } from '../generatePicker/interface';
-import type { AnyObject } from '../../_util/type';
 
 const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
   pickerType: 'timePicker' | 'datePicker',
@@ -33,20 +33,14 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
       ...mergedClassNames,
       popup: {
         ...mergedClassNames.popup,
-        root: cls(mergedClassNames.popup?.root, popupClassName),
+        root: clsx(mergedClassNames.popup?.root, popupClassName),
       },
     };
 
     // Styles
     const filledStyles = {
       ...mergedStyles,
-      popup: {
-        ...mergedStyles.popup,
-        root: {
-          ...mergedStyles.popup?.root,
-          ...popupStyle,
-        },
-      },
+      popup: { ...mergedStyles.popup, root: { ...mergedStyles.popup?.root, ...popupStyle } },
     };
 
     // Return

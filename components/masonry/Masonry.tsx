@@ -5,7 +5,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -219,7 +219,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     <ResizeObserver onResize={collectItemSize}>
       <div
         ref={containerRef}
-        className={cls(
+        className={clsx(
           prefixCls,
           contextClassName,
           mergedClassNames.root,
@@ -227,9 +227,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           className,
           hashId,
           cssVarCls,
-          {
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-          },
+          { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
         style={{
           height: totalHeight,
@@ -276,7 +274,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 key={key}
                 item={item}
                 style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
-                className={cls(mergedClassNames.item, motionClassName)}
+                className={clsx(mergedClassNames.item, motionClassName)}
                 ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
                 index={itemIndex}
                 itemRender={itemRender}

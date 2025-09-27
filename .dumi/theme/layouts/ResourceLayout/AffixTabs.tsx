@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Tabs } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import throttle from 'lodash/throttle';
 
 import scrollTo from '../../../../components/_util/scrollTo';
@@ -120,7 +120,7 @@ const AffixTabs: React.FC = () => {
   }, []);
 
   return (
-    <div className={classNames(affixTabs, fixedId && affixTabsFixed)} ref={containerRef}>
+    <div className={clsx(affixTabs, fixedId && affixTabsFixed)} ref={containerRef}>
       <Tabs
         activeKey={fixedId}
         centered

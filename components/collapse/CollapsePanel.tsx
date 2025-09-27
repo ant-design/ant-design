@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import RcCollapse from '@rc-component/collapse';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -31,12 +31,7 @@ const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((prop
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className, showArrow = true } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-  const collapsePanelClassName = classNames(
-    {
-      [`${prefixCls}-no-arrow`]: !showArrow,
-    },
-    className,
-  );
+  const collapsePanelClassName = clsx({ [`${prefixCls}-no-arrow`]: !showArrow }, className);
   return (
     <RcCollapse.Panel
       ref={ref}

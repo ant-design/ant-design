@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
@@ -129,7 +129,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     let avatarNode: React.ReactNode;
     if (hasAvatar) {
       const avatarProps: SkeletonAvatarProps = {
-        className: classNames(contextClassNames.avatar, skeletonClassNames?.avatar),
+        className: clsx(contextClassNames.avatar, skeletonClassNames?.avatar),
         prefixCls: `${prefixCls}-avatar`,
         ...getAvatarBasicProps(hasTitle, hasParagraph),
         ...getComponentProps(avatar),
@@ -138,7 +138,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       // We direct use SkeletonElement as avatar in skeleton internal.
       avatarNode = (
         <div
-          className={classNames(
+          className={clsx(
             contextClassNames.header,
             skeletonClassNames?.header,
             `${prefixCls}-header`,
@@ -156,7 +156,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       let $title: React.ReactNode;
       if (hasTitle) {
         const titleProps: SkeletonTitleProps = {
-          className: classNames(contextClassNames.title, skeletonClassNames?.title),
+          className: clsx(contextClassNames.title, skeletonClassNames?.title),
           prefixCls: `${prefixCls}-title`,
           ...getTitleBasicProps(hasAvatar, hasParagraph),
           ...getComponentProps(title),
@@ -170,7 +170,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       let paragraphNode: React.ReactNode;
       if (hasParagraph) {
         const paragraphProps: SkeletonParagraphProps = {
-          className: classNames(contextClassNames.paragraph, skeletonClassNames?.paragraph),
+          className: clsx(contextClassNames.paragraph, skeletonClassNames?.paragraph),
           prefixCls: `${prefixCls}-paragraph`,
           ...getParagraphBasicProps(hasAvatar, hasTitle),
           ...getComponentProps(paragraph),
@@ -182,7 +182,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
 
       contentNode = (
         <div
-          className={classNames(
+          className={clsx(
             contextClassNames.section,
             skeletonClassNames?.section,
             `${prefixCls}-section`,
@@ -195,7 +195,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       );
     }
 
-    const cls = classNames(
+    const cls = clsx(
       prefixCls,
       {
         [`${prefixCls}-with-avatar`]: hasAvatar,

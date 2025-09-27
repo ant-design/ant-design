@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../../hooks/useLocale';
 
@@ -88,9 +88,7 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
           <label
             onClick={() => onChange?.(theme)}
-            className={classNames(styles.themeCard, {
-              [styles.themeCardActive]: value === theme,
-            })}
+            className={clsx(styles.themeCard, { [styles.themeCardActive]: value === theme })}
           >
             <input type="radio" name="theme" id={index === 0 ? id : undefined} />
             <img draggable={false} src={THEMES[theme]} alt={theme} />

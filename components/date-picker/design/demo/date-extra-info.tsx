@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import React from 'react';
 import { DatePicker } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { Dayjs } from 'dayjs';
 
 import useLocale from '../../../../.dumi/hooks/useLocale';
@@ -84,7 +84,7 @@ const Demo: FC = () => {
   const [locale] = useLocale(locales);
   const dateRender = (current: Dayjs) => (
     <div
-      className={classNames('ant-picker-cell-inner', {
+      className={clsx('ant-picker-cell-inner', {
         [styles.weekendCell]: [6, 0].includes(current.day()),
       })}
     >
@@ -93,7 +93,7 @@ const Demo: FC = () => {
   );
 
   const saleDateRender = (current: Dayjs) => (
-    <div className={classNames('ant-picker-cell-inner', styles.detailedCell)}>
+    <div className={clsx('ant-picker-cell-inner', styles.detailedCell)}>
       {current.date()}
       <div className={styles.extraInfo}>{getSales(current)}</div>
     </div>
@@ -102,9 +102,9 @@ const Demo: FC = () => {
   const dataDateRender = (current: Dayjs) => {
     const data = getData(current);
     return (
-      <div className={classNames('ant-picker-cell-inner', styles.detailedCell)}>
+      <div className={clsx('ant-picker-cell-inner', styles.detailedCell)}>
         {current.date()}
-        <div className={classNames(styles.extraInfo, data > 0 ? styles.add : styles.minus)}>
+        <div className={clsx(styles.extraInfo, data > 0 ? styles.add : styles.minus)}>
           {data.toFixed(2)}%
         </div>
       </div>

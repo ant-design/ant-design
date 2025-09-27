@@ -4,7 +4,7 @@ import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil';
 import { ConfigContext } from '../config-provider';
@@ -152,7 +152,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span
         onClick={toggle}
-        className={classNames(
+        className={clsx(
           `${prefixCls}-zero-width-trigger`,
           `${prefixCls}-zero-width-trigger-${reverseArrow ? 'right' : 'left'}`,
         )}
@@ -188,7 +188,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     width: siderWidth,
   };
 
-  const siderCls = classNames(
+  const siderCls = clsx(
     prefixCls,
     `${prefixCls}-${theme}`,
     {

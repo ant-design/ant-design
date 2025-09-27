@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
@@ -76,7 +76,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
                 key={`preset-${index}-${presetColor.toHexString()}`}
                 color={colorInst.toCssString()}
                 prefixCls={prefixCls}
-                className={classNames(`${colorPresetsPrefixCls}-color`, {
+                className={clsx(`${colorPresetsPrefixCls}-color`, {
                   [`${colorPresetsPrefixCls}-color-checked`]:
                     presetColor.toCssString() === color?.toCssString(),
                   [`${colorPresetsPrefixCls}-color-bright`]: isBright(

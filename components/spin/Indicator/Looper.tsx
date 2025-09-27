@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import Progress from './Progress';
 
@@ -20,10 +20,10 @@ export default function Looper(props: IndicatorProps) {
   return (
     <>
       <span
-        className={classNames(holderClassName, className, percent > 0 && hideClassName)}
+        className={clsx(holderClassName, className, percent > 0 && hideClassName)}
         style={style}
       >
-        <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
+        <span className={clsx(dotClassName, `${prefixCls}-dot-spin`)}>
           {[1, 2, 3, 4].map((i) => (
             <i className={`${prefixCls}-dot-item`} key={i} />
           ))}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import extendsObject from '../_util/extendsObject';
 import { responsiveArray } from '../_util/responsiveObserver';
@@ -180,7 +180,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
       break;
   }
 
-  const classString = classNames(
+  const classString = clsx(
     prefixCls,
     {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
@@ -214,7 +214,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
   paginationProps.current = Math.min(paginationProps.current, largestPage);
 
   const paginationContent = pagination && (
-    <div className={classNames(`${prefixCls}-pagination`)}>
+    <div className={clsx(`${prefixCls}-pagination`)}>
       <Pagination
         align="end"
         {...paginationProps}

@@ -10,7 +10,7 @@ import RcTreeSelect, {
 } from '@rc-component/tree-select';
 import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -227,7 +227,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     },
   );
 
-  const mergedPopupClassName = cls(
+  const mergedPopupClassName = clsx(
     popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
@@ -316,9 +316,10 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
+
   const mergedDisabled = customDisabled ?? disabled;
 
-  const mergedClassName = cls(
+  const mergedClassName = clsx(
     !customizePrefixCls && treeSelectPrefixCls,
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',

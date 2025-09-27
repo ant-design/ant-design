@@ -1,7 +1,7 @@
 import React from 'react';
 import RCTour from '@rc-component/tour';
 import type { TourProps as RcTourProps } from '@rc-component/tour';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -55,7 +55,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     () =>
       steps?.map((step) => ({
         ...step,
-        className: classNames(step.className, {
+        className: clsx(step.className, {
           [`${prefixCls}-primary`]: (step.type ?? type) === 'primary',
         }),
       })),
@@ -71,10 +71,8 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       borderRadius: token.borderRadius,
     });
 
-  const customClassName = classNames(
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
+  const customClassName = clsx(
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
     rootClassName,

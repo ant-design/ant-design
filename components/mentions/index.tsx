@@ -6,7 +6,7 @@ import type {
   MentionsRef as RcMentionsRef,
 } from '@rc-component/mentions/lib/Mentions';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';
@@ -18,12 +18,12 @@ import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
 import useStyle from './style';
-import DisabledContext from '../config-provider/DisabledContext';
 
 export const { Option } = RcMentions;
 
@@ -179,7 +179,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
-  const mergedClassName = classNames(
+  const mergedClassName = clsx(
     contextClassName,
     className,
     rootClassName,
@@ -211,8 +211,8 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
         popup: { ...contextStyles.popup, ...styles?.popup },
       }}
       classNames={{
-        textarea: classNames(mentionsClassNames?.textarea, contextClassNames.textarea),
-        popup: classNames(
+        textarea: clsx(mentionsClassNames?.textarea, contextClassNames.textarea),
+        popup: clsx(
           mentionsClassNames?.popup,
           contextClassNames.popup,
           popupClassName,
@@ -221,7 +221,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
           cssVarCls,
           rootCls,
         ),
-        mentions: classNames(
+        mentions: clsx(
           {
             [`${prefixCls}-disabled`]: mergedDisabled,
             [`${prefixCls}-focused`]: focused,
@@ -229,7 +229,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
           },
           hashId,
         ),
-        variant: classNames(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },

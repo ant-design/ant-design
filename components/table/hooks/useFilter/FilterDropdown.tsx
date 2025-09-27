@@ -1,9 +1,9 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import type { FieldDataNode } from '@rc-component/tree';
 import isEqual from '@rc-component/util/lib/isEqual';
 import type { AnyObject } from 'antd/es/_util/type';
-import classNames from 'classnames';
-import type { FieldDataNode } from '@rc-component/tree';
+import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
 import extendsObject from '../../../_util/extendsObject';
@@ -322,7 +322,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
 
   // ======================== Style ========================
-  const dropdownMenuClass = classNames({
+  const dropdownMenuClass = clsx({
     [`${dropdownPrefixCls}-menu-without-submenu`]: !hasSubMenu(column.filters || []),
   });
 
@@ -539,9 +539,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       <span
         role="button"
         tabIndex={-1}
-        className={classNames(`${prefixCls}-trigger`, {
-          active: filtered,
-        })}
+        className={clsx(`${prefixCls}-trigger`, { active: filtered })}
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -560,7 +558,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     },
     {
       ...filterDropdownProps,
-      rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
+      rootClassName: clsx(rootClassName, filterDropdownProps.rootClassName),
       open: mergedVisible,
       onOpenChange: onVisibleChange,
       popupRender: () => {

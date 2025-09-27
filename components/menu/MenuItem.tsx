@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
 import { Item } from '@rc-component/menu';
 import { omit, toArray } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
@@ -49,7 +49,7 @@ const MenuItem: GenericComponent = (props) => {
     const label = (children as React.ReactNode[])?.[0];
     const wrapNode = (
       <span
-        className={cls(
+        className={clsx(
           `${prefixCls}-title-content`,
           firstLevel ? classNames.itemContent : classNames.subMenu.itemContent,
           {
@@ -95,7 +95,7 @@ const MenuItem: GenericComponent = (props) => {
   let returnNode = (
     <Item
       {...omit(props, ['title', 'icon', 'danger'])}
-      className={cls(
+      className={clsx(
         firstLevel ? classNames.item : classNames.subMenu.item,
         {
           [`${prefixCls}-item-danger`]: danger,
@@ -107,7 +107,7 @@ const MenuItem: GenericComponent = (props) => {
       title={typeof title === 'string' ? title : undefined}
     >
       {cloneElement(icon, (oriProps) => ({
-        className: cls(
+        className: clsx(
           oriProps.className,
           `${prefixCls}-item-icon`,
           firstLevel ? classNames.itemIcon : classNames.subMenu.itemIcon,

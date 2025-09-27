@@ -4,9 +4,9 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
 import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
@@ -41,11 +41,11 @@ export const PureContent: React.FC<PureContentProps> = ({
 }) => {
   const iconElement = icon || (type && TypeIcon[type]);
   const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
-    className: classNames(currentProps.className, pureContentClassNames?.icon),
+    className: clsx(currentProps.className, pureContentClassNames?.icon),
     style: { ...currentProps.style, ...styles?.icon },
   }));
   return (
-    <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
+    <div className={clsx(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
       {iconNode}
       <span className={pureContentClassNames?.content} style={styles?.content}>
         {children}
@@ -92,7 +92,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     <Notice
       {...restProps}
       prefixCls={prefixCls}
-      className={classNames(
+      className={clsx(
         contextClassName,
         contextClassNames.root,
         messageClassNames?.root,
@@ -111,8 +111,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           type={type}
           icon={icon}
           classNames={{
-            icon: classNames(messageClassNames?.icon, contextClassNames.icon),
-            content: classNames(messageClassNames?.content, contextClassNames.content),
+            icon: clsx(messageClassNames?.icon, contextClassNames.icon),
+            content: clsx(messageClassNames?.content, contextClassNames.content),
           }}
           styles={{
             icon: { ...contextStyles.icon, ...styles?.icon },

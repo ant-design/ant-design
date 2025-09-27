@@ -5,7 +5,7 @@ import type { FieldProps } from '@rc-component/form/lib/Field';
 import type { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
 import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
@@ -267,7 +267,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, cssVarCls, rootCls, hashId)}
+        className={clsx(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}

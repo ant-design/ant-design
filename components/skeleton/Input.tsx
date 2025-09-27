@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
@@ -28,7 +28,7 @@ const SkeletonInput: React.FC<SkeletonInputProps> = (props) => {
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-element`,
     {

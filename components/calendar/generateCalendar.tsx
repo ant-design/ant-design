@@ -4,7 +4,7 @@ import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate';
 import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
 import { useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../_util/type';
@@ -224,7 +224,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
         return (
           <div
-            className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
+            className={clsx(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
               [`${calendarPrefixCls}-date-today`]: isSameDate(today, date, generateConfig),
             })}
           >
@@ -254,7 +254,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
         return (
           <div
-            className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
+            className={clsx(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
               [`${calendarPrefixCls}-date-today`]: isSameMonth(today, date, generateConfig),
             })}
           >
@@ -289,7 +289,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
     return (
       <div
-        className={classNames(
+        className={clsx(
           calendarPrefixCls,
           {
             [`${calendarPrefixCls}-full`]: fullscreen,

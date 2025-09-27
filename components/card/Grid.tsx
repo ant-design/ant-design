@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -14,7 +14,7 @@ export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {
 const Grid: React.FC<CardGridProps> = ({ prefixCls, className, hoverable = true, ...props }) => {
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefix = getPrefixCls('card', prefixCls);
-  const classString = classNames(`${prefix}-grid`, className, {
+  const classString = clsx(`${prefix}-grid`, className, {
     [`${prefix}-grid-hoverable`]: hoverable,
   });
   return <div {...props} className={classString} />;

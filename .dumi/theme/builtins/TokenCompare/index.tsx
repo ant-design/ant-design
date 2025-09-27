@@ -4,7 +4,7 @@ import { FastColor } from '@ant-design/fast-color';
 import { Flex, theme } from 'antd';
 import { createStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 
@@ -106,7 +106,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
           <div className={styles.col}>
             <ColorCircle color={data.light} />
           </div>
-          <div className={classNames(styles.col, styles.colDark)}>
+          <div className={clsx(styles.col, styles.colDark)}>
             <ColorCircle color={data.dark} />
           </div>
         </div>

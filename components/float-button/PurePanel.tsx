@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import BackTop from './BackTop';
@@ -44,7 +44,7 @@ const PurePanel: React.FC<PurePanelProps> = ({
   if (items) {
     return (
       <FloatButtonGroup
-        className={classNames(className, pureCls)}
+        className={clsx(className, pureCls)}
         classNames={cls as FloatButtonGroupProps['classNames']}
         styles={styles as FloatButtonGroupProps['styles']}
         {...restProps}
@@ -58,7 +58,7 @@ const PurePanel: React.FC<PurePanelProps> = ({
 
   return (
     <PureFloatButton
-      className={classNames(className, pureCls)}
+      className={clsx(className, pureCls)}
       classNames={cls as FloatButtonProps['classNames']}
       styles={styles as FloatButtonProps['styles']}
       {...restProps}

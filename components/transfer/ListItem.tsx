@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem, SemanticName } from '.';
 import Checkbox from '../checkbox';
@@ -37,7 +37,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     showRemove,
   } = props;
 
-  const classes = cls(`${prefixCls}-content-item`, classNames.item, {
+  const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
   });
@@ -57,7 +57,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   const labelNode = (
     <span
-      className={cls(`${prefixCls}-content-item-text`, classNames.itemContent)}
+      className={clsx(`${prefixCls}-content-item-text`, classNames.itemContent)}
       style={styles.itemContent}
     >
       {renderedEl}
@@ -87,7 +87,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   return (
     <li {...liProps}>
       <Checkbox
-        className={cls(`${prefixCls}-checkbox`, classNames.itemIcon)}
+        className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
         style={styles.itemIcon}
         checked={checked}
         disabled={disabled || item.disabled}

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
 import { Panel } from '@rc-component/cascader';
 import type { PickType } from '@rc-component/cascader/lib/Panel';
+import { clsx } from 'clsx';
 
 import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -76,7 +76,7 @@ function CascaderPanel<
       {...(props as Pick<RcCascaderProps, PickType>)}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
-      className={classNames(className, hashId, rootClassName, cssVarCls, rootCls)}
+      className={clsx(className, hashId, rootClassName, cssVarCls, rootCls)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}

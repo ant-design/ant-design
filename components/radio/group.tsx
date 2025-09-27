@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useControlledState } from '@rc-component/util';
 import useId from '@rc-component/util/lib/hooks/useId';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useOrientation from '../_util/hooks/useOrientation';
 import { ConfigContext } from '../config-provider';
@@ -114,7 +114,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   const mergedSize = useSize(customizeSize);
   const [, mergedVertical] = useOrientation(orientation, vertical);
-  const classString = classNames(
+  const classString = clsx(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
     {
@@ -137,7 +137,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   return (
     <div
       {...pickAttrs(props, { aria: true, data: true })}
-      className={classNames(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
+      className={clsx(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
       style={style}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

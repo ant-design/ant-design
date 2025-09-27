@@ -1,11 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
-import useStyle from './style/ribbon';
 import { useComponentConfig } from '../config-provider/context';
+import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -51,7 +51,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, wrapperCls);
 
   const colorInPreset = isPresetColor(color, false);
-  const ribbonCls = classNames(
+  const ribbonCls = clsx(
     prefixCls,
     `${prefixCls}-placement-${placement}`,
     {
@@ -72,7 +72,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
   }
   return (
     <div
-      className={classNames(
+      className={clsx(
         wrapperCls,
         rootClassName,
         hashId,
@@ -84,7 +84,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     >
       {children}
       <div
-        className={classNames(ribbonCls, hashId)}
+        className={clsx(ribbonCls, hashId)}
         style={{
           ...colorStyle,
           ...contextStyles.indicator,
@@ -94,7 +94,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
         }}
       >
         <span
-          className={classNames(
+          className={clsx(
             `${prefixCls}-content`,
             ribbonClassNames?.content,
             contextClassNames.content,

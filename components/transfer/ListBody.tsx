@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useControlledState } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
@@ -118,7 +118,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
   return (
     <>
       <ul
-        className={cls(`${prefixCls}-content`, classNames.list, {
+        className={clsx(`${prefixCls}-content`, classNames.list, {
           [`${prefixCls}-content-show-remove`]: showRemove,
         })}
         style={styles.list}

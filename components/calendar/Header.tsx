@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate';
 import type { Locale } from '@rc-component/picker/lib/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
@@ -174,7 +174,7 @@ function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   };
 
   return (
-    <div className={classNames(`${prefixCls}-header`, className)} style={style} ref={divRef}>
+    <div className={clsx(`${prefixCls}-header`, className)} style={style} ref={divRef}>
       <FormItemInputContext.Provider value={mergedFormItemInputContext}>
         <YearSelect
           {...sharedProps}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
@@ -94,7 +94,7 @@ const Empty: CompoundedComponent = (props) => {
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         hashId,
         cssVarCls,
         prefixCls,
@@ -111,14 +111,14 @@ const Empty: CompoundedComponent = (props) => {
       {...restProps}
     >
       <div
-        className={classNames(`${prefixCls}-image`, mergedClassNames.image)}
+        className={clsx(`${prefixCls}-image`, mergedClassNames.image)}
         style={{ ...imageStyle, ...mergedStyles.image }}
       >
         {imageNode}
       </div>
       {des && (
         <div
-          className={classNames(`${prefixCls}-description`, mergedClassNames.description)}
+          className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
           style={mergedStyles.description}
         >
           {des}
@@ -126,7 +126,7 @@ const Empty: CompoundedComponent = (props) => {
       )}
       {children && (
         <div
-          className={classNames(`${prefixCls}-footer`, mergedClassNames.footer)}
+          className={clsx(`${prefixCls}-footer`, mergedClassNames.footer)}
           style={mergedStyles.footer}
         >
           {children}

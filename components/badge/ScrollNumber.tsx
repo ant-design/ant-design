@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
@@ -43,7 +43,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
     ...restProps,
     'data-show': show,
     style,
-    className: classNames(prefixCls, className, motionClassName),
+    className: clsx(prefixCls, className, motionClassName),
     title: title as string,
   };
 
@@ -78,7 +78,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
   }
   if (children) {
     return cloneElement(children, (oriProps) => ({
-      className: classNames(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
+      className: clsx(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
     }));
   }
 

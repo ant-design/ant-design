@@ -3,7 +3,7 @@ import * as AntdIcons from '@ant-design/icons';
 import { App, Badge } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/es/_util/copy';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 import type { ThemeType } from './IconSearch';
@@ -119,7 +119,7 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   };
   return (
     <li
-      className={classNames(theme, styles.iconItem, { copied: justCopied === name })}
+      className={clsx(theme, styles.iconItem, { copied: justCopied === name })}
       onClick={() => onCopy(`<${name} />`)}
       style={{ cursor: 'pointer' }}
     >

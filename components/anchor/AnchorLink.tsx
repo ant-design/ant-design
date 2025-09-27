@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -92,11 +92,11 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   const active = activeLink === href;
 
-  const wrapperClassName = classNames(`${prefixCls}-link`, className, mergedClassNames?.item, {
+  const wrapperClassName = clsx(`${prefixCls}-link`, className, mergedClassNames?.item, {
     [`${prefixCls}-link-active`]: active,
   });
 
-  const titleClassName = classNames(`${prefixCls}-link-title`, mergedClassNames?.title, {
+  const titleClassName = clsx(`${prefixCls}-link-title`, mergedClassNames?.title, {
     [`${prefixCls}-link-title-active`]: active,
   });
 

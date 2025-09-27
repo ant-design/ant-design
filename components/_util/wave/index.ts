@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import isVisible from '@rc-component/util/lib/Dom/isVisible';
 import { composeRef, getNodeRef, supportRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
@@ -28,7 +28,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component, colorSource);
+  const showWave = useWave(containerRef, clsx(prefixCls, hashId), component, colorSource);
 
   // ============================== Effect ==============================
   React.useEffect(() => {

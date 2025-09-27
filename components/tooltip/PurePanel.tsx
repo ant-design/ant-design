@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Popup } from '@rc-component/tooltip';
+import { clsx } from 'clsx';
 
 import type { TooltipProps } from '.';
 import { ConfigContext } from '../config-provider';
@@ -34,7 +34,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     ...colorInfo.overlayStyle,
   };
 
-  const cls = classNames(
+  const cls = clsx(
     hashId,
     cssVarCls,
     prefixCls,

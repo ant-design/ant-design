@@ -4,7 +4,7 @@ import RcInput from '@rc-component/input';
 import { triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
 import type { InputFocusOptions } from '@rc-component/input/lib/utils/commonUtils';
 import { composeRef } from '@rc-component/util/lib/ref';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
@@ -199,7 +199,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       styles={mergedStyles}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={cls(
+      className={clsx(
         className,
         rootClassName,
         cssVarCls,
@@ -225,7 +225,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       }
       classNames={{
         ...mergedClassNames,
-        input: cls(
+        input: clsx(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -234,13 +234,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           mergedClassNames.input,
           hashId,
         ),
-        variant: cls(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
         ),
-        affixWrapper: cls(
+        affixWrapper: clsx(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -248,13 +248,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           },
           hashId,
         ),
-        wrapper: cls(
+        wrapper: clsx(
           {
             [`${prefixCls}-group-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        groupWrapper: cls(
+        groupWrapper: clsx(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',

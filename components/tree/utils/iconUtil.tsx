@@ -4,7 +4,7 @@ import FileOutlined from '@ant-design/icons/FileOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../../_util/reactNode';
 import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
@@ -45,7 +45,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
       if (React.isValidElement<{ className?: string }>(leafIcon)) {
         return cloneElement(leafIcon, {
-          className: classNames(leafIcon.props?.className, leafCls),
+          className: clsx(leafIcon.props?.className, leafCls),
         });
       }
 
@@ -65,7 +65,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   if (React.isValidElement<{ className?: string }>(switcher)) {
     return cloneElement(switcher, {
-      className: classNames(switcher.props?.className, switcherCls),
+      className: clsx(switcher.props?.className, switcherCls),
     });
   }
 

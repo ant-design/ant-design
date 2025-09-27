@@ -6,7 +6,7 @@ import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import type { CSSMotionListProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import { omit } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import initCollapseMotion from '../../_util/motion';
@@ -163,7 +163,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const listClassNames = classNames(
+  const listClassNames = clsx(
     `${prefixCls}-list`,
     `${prefixCls}-list-${listType}`,
     uploadListClassNames?.list,
@@ -220,7 +220,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         <CSSMotion {...motionConfig} visible={appendActionVisible} forceRender>
           {({ className: motionClassName, style: motionStyle }) =>
             cloneElement(appendAction, (oriProps) => ({
-              className: classNames(oriProps.className, motionClassName),
+              className: clsx(oriProps.className, motionClassName),
               style: {
                 ...motionStyle,
                 // prevent the element has hover css pseudo-class that may cause animation to end prematurely.

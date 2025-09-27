@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Popup } from '@rc-component/tooltip';
+import { clsx } from 'clsx';
 
 import type { PopoverProps } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -48,7 +48,7 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  const cls = classNames(
+  const cls = clsx(
     hashId,
     prefixCls,
     `${prefixCls}-pure`,
@@ -78,7 +78,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       {...restProps}
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(className, cssVarCls)}
+      className={clsx(className, cssVarCls)}
     />
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 interface IconProps {
   className?: string;
@@ -21,7 +21,7 @@ const BunIcon: React.FC<IconProps> = (props) => {
   const { className, style } = props;
   const { styles } = useStyle();
   return (
-    <span className={classNames(styles.iconWrap, className)} style={style}>
+    <span className={clsx(styles.iconWrap, className)} style={style}>
       <svg id="Bun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 70" width="1em" height="1em">
         <title>Bun Logo</title>
         <path

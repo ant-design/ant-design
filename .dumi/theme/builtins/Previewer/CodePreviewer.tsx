@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo } from 'dumi';
 
 import type { AntdPreviewerProps } from '.';
@@ -121,13 +121,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     );
   }
 
-  const codeBoxClass = classNames('code-box', {
+  const codeBoxClass = clsx('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
     'code-box-simplify': simplify,
   });
 
-  const highlightClass = classNames('highlight-wrapper', {
+  const highlightClass = clsx('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
 

@@ -3,7 +3,7 @@ import StarFilled from '@ant-design/icons/StarFilled';
 import RcRate from '@rc-component/rate';
 import type { RateRef, RateProps as RcRateProps } from '@rc-component/rate/lib/Rate';
 import type { StarProps as RcStarProps } from '@rc-component/rate/lib/Star';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -73,7 +73,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       characterRender={characterRender}
       disabled={mergedDisabled}
       {...rest}
-      className={classNames(
+      className={clsx(
         `${ratePrefixCls}-${size}`,
         className,
         rootClassName,

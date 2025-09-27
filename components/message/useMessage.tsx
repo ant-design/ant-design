@@ -7,7 +7,7 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -48,7 +48,7 @@ const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>
   );
@@ -87,7 +87,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
@@ -190,8 +190,8 @@ export function useInternalMessage(
               type={type}
               icon={icon}
               classNames={{
-                icon: classNames(configClassNames?.icon, contextClassNames.icon),
-                content: classNames(configClassNames?.content, contextClassNames.content),
+                icon: clsx(configClassNames?.icon, contextClassNames.icon),
+                content: clsx(configClassNames?.content, contextClassNames.content),
               }}
               styles={{
                 icon: { ...contextStyles.icon, ...styles?.icon },
@@ -202,7 +202,7 @@ export function useInternalMessage(
             </PureContent>
           ),
           placement: 'top',
-          className: classNames(
+          className: clsx(
             type && `${noticePrefixCls}-${type}`,
             className,
             contextClassName,

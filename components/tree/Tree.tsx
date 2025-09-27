@@ -5,7 +5,7 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import type { BasicDataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
 import RcTree from '@rc-component/tree';
 import type { DataNode, Key } from '@rc-component/tree/lib/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
@@ -277,7 +277,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       {...newProps}
       // newProps may contain style so declare style below it
       prefixCls={prefixCls}
-      className={classNames(
+      className={clsx(
         {
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
@@ -291,7 +291,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         cssVarCls,
       )}
       style={{ ...contextStyle, ...style }}
-      rootClassName={classNames(mergedClassNames?.root, rootClassName)}
+      rootClassName={clsx(mergedClassNames?.root, rootClassName)}
       rootStyle={mergedStyles?.root}
       classNames={mergedClassNames}
       styles={mergedStyles}

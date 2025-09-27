@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React, { useState } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
@@ -32,7 +32,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
 
   return (
     <InputNumber
-      className={classNames(colorSteppersPrefixCls, className)}
+      className={clsx(colorSteppersPrefixCls, className)}
       min={min}
       max={max}
       value={stepValue}

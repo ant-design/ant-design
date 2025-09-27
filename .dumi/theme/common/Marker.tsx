@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 const useStyle = createStyles(({ cssVar, cx }) => {
   const duration = cssVar.motionDurationSlow;
@@ -73,7 +73,7 @@ const Marker = React.memo<MarkerProps>((props) => {
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         styles.marker,
         visible && styles.markerActive,
         primary && styles.markerPrimary,

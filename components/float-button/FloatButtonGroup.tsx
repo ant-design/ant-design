@@ -3,7 +3,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import CSSMotion from '@rc-component/motion';
 import { useControlledState, useEvent } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -229,7 +229,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     const vertical = mergedPlacement === 'top' || mergedPlacement === 'bottom';
 
     const sharedProps = {
-      className: cls(listCls, mergedClassNames.list, motionClassName),
+      className: clsx(listCls, mergedClassNames.list, motionClassName),
       style: mergedStyles.list,
     };
 
@@ -254,7 +254,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   return (
     <GroupContext.Provider value={listContext}>
       <div
-        className={cls(
+        className={clsx(
           groupPrefixCls,
           hashId,
           cssVarCls,

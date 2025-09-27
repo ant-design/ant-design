@@ -1,5 +1,5 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -126,7 +126,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     DividerProps
   >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
-  const classString = cls(
+  const classString = clsx(
     prefixCls,
     contextClassName,
     hashId,
@@ -198,17 +198,17 @@ const Divider: React.FC<DividerProps> = (props) => {
       {children && !mergedVertical && (
         <>
           <div
-            className={cls(railCls, `${railCls}-start`, mergedClassNames.rail)}
+            className={clsx(railCls, `${railCls}-start`, mergedClassNames.rail)}
             style={mergedStyles.rail}
           />
           <span
-            className={cls(`${prefixCls}-inner-text`, mergedClassNames.content)}
+            className={clsx(`${prefixCls}-inner-text`, mergedClassNames.content)}
             style={{ ...innerStyle, ...mergedStyles.content }}
           >
             {children}
           </span>
           <div
-            className={cls(railCls, `${railCls}-end`, mergedClassNames.rail)}
+            className={clsx(railCls, `${railCls}-end`, mergedClassNames.rail)}
             style={mergedStyles.rail}
           />
         </>

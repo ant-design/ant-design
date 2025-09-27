@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
@@ -10,6 +10,7 @@ import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import DEFAULT_COLUMN_MAP from './constant';
 import DescriptionsContext from './DescriptionsContext';
+import type { DescriptionsContextProps } from './DescriptionsContext';
 import useItems from './hooks/useItems';
 import useRow from './hooks/useRow';
 import type { DescriptionsItemProps } from './Item';
@@ -122,7 +123,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ======================== Render ========================
-  const contextValue = React.useMemo(
+  const contextValue = React.useMemo<DescriptionsContextProps>(
     () => ({
       labelStyle,
       contentStyle,
@@ -131,8 +132,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         label: { ...contextStyles.label, ...styles?.label },
       },
       classNames: {
-        label: classNames(contextClassNames.label, descriptionsClassNames?.label),
-        content: classNames(contextClassNames.content, descriptionsClassNames?.content),
+        label: clsx(contextClassNames.label, descriptionsClassNames?.label),
+        content: clsx(contextClassNames.content, descriptionsClassNames?.content),
       },
     }),
     [labelStyle, contentStyle, styles, descriptionsClassNames, contextClassNames, contextStyles],
@@ -141,7 +142,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   return (
     <DescriptionsContext.Provider value={contextValue}>
       <div
-        className={classNames(
+        className={clsx(
           prefixCls,
           contextClassName,
           contextClassNames.root,
@@ -161,7 +162,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       >
         {(title || extra) && (
           <div
-            className={classNames(
+            className={clsx(
               `${prefixCls}-header`,
               contextClassNames.header,
               descriptionsClassNames?.header,
@@ -170,7 +171,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           >
             {title && (
               <div
-                className={classNames(
+                className={clsx(
                   `${prefixCls}-title`,
                   contextClassNames.title,
                   descriptionsClassNames?.title,
@@ -185,7 +186,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
             )}
             {extra && (
               <div
-                className={classNames(
+                className={clsx(
                   `${prefixCls}-extra`,
                   contextClassNames.extra,
                   descriptionsClassNames?.extra,

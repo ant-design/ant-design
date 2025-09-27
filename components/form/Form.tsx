@@ -6,7 +6,7 @@ import type {
   InternalNamePath,
   ValidateErrorEntity,
 } from '@rc-component/form/lib/interface';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -151,7 +151,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     props: mergedProps,
   });
 
-  const formClassName = cls(
+  const formClassName = clsx(
     prefixCls,
     `${prefixCls}-${layout}`,
     {

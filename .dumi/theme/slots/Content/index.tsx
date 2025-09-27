@@ -1,6 +1,6 @@
 import React, { Suspense, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
@@ -57,7 +57,7 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
     <DemoContext value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24} className={className}>
         <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
-        <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
+        <article className={clsx(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Flex justify="space-between">
               <Typography.Title style={{ fontSize: 32, position: 'relative' }}>

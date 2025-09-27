@@ -2,7 +2,7 @@ import React, { useImperativeHandle, useMemo } from 'react';
 import type { ReactNode } from 'react';
 import { useControlledState } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -138,7 +138,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   return (
     <div
       {...ariaProps}
-      className={classnames(
+      className={clsx(
         groupPrefixCls,
         rootClassName,
         {
@@ -160,7 +160,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
       {parsedOptions.map((option) => (
         <CheckableTag
           key={option.value}
-          className={classnames(`${groupPrefixCls}-item`, mergedClassNames.item)}
+          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item)}
           style={mergedStyles.item}
           checked={
             multiple

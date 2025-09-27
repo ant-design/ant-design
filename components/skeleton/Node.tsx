@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
@@ -26,12 +26,10 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-element`,
-    {
-      [`${prefixCls}-active`]: active,
-    },
+    { [`${prefixCls}-active`]: active },
     hashId,
     skeletonNodeClassNames?.root,
     className,
@@ -42,10 +40,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   return (
     <div className={cls} style={styles?.root}>
       <div
-        className={classNames(
-          skeletonNodeClassNames?.content,
-          internalClassName || `${prefixCls}-node`,
-        )}
+        className={clsx(skeletonNodeClassNames?.content, internalClassName || `${prefixCls}-node`)}
         style={{ ...styles?.content, ...style }}
       >
         {children}

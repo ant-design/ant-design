@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
+
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
@@ -51,15 +52,12 @@ const Cell: React.FC<CellProps> = (props) => {
   if (bordered) {
     return (
       <Component
-        className={classNames(
-          {
-            [`${itemPrefixCls}-item-label`]: type === 'label',
-            [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
-          },
-          className,
-        )}
+        className={clsx(className, {
+          [`${itemPrefixCls}-item-label`]: type === 'label',
+          [`${itemPrefixCls}-item-content`]: type === 'content',
+          [`${descriptionsClassNames?.label}`]: type === 'label',
+          [`${descriptionsClassNames?.content}`]: type === 'content',
+        })}
         style={style}
         colSpan={span}
       >
@@ -70,15 +68,11 @@ const Cell: React.FC<CellProps> = (props) => {
   }
 
   return (
-    <Component
-      className={classNames(`${itemPrefixCls}-item`, className)}
-      style={style}
-      colSpan={span}
-    >
+    <Component className={clsx(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
         {(label || label === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
+            className={clsx(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
             style={{ ...labelStyle, ...styles?.label }}
@@ -88,7 +82,7 @@ const Cell: React.FC<CellProps> = (props) => {
         )}
         {(content || content === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
+            className={clsx(descriptionsClassNames?.content, `${itemPrefixCls}-item-content`)}
             style={{ ...contentStyle, ...styles?.content }}
           >
             {content}

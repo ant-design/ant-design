@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -123,7 +123,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
 
   const newProps = {
     vertical: mergedVertical,
-    className: classNames(customClassName, contextClassName),
+    className: clsx(customClassName, contextClassName),
     style: { ...contextStyle, ...style },
     autoplay: !!autoplay,
     ...otherProps,
@@ -136,7 +136,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
 
   const enableDots = !!dots;
-  const dsClass = classNames(
+  const dsClass = clsx(
     dotsClass,
     `${dotsClass}-${mergedDotPlacement}`,
     typeof dots === 'boolean' ? false : dots?.className,
@@ -144,7 +144,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const className = classNames(
+  const className = clsx(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: isRTL,

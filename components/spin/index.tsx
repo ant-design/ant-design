@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
 import { devUseWarning } from '../_util/warning';
@@ -122,7 +122,7 @@ const Spin: SpinType = (props) => {
     );
   }
 
-  const spinClassName = classNames(
+  const spinClassName = clsx(
     prefixCls,
     contextClassName,
     {
@@ -140,7 +140,7 @@ const Spin: SpinType = (props) => {
     cssVarCls,
   );
 
-  const containerClassName = classNames(`${prefixCls}-container`, {
+  const containerClassName = clsx(`${prefixCls}-container`, {
     [`${prefixCls}-blur`]: spinning,
   });
 
@@ -159,7 +159,7 @@ const Spin: SpinType = (props) => {
       aria-busy={spinning}
     >
       <Indicator
-        className={classNames(spinClassNames?.indicator, contextClassNames.indicator)}
+        className={clsx(spinClassNames?.indicator, contextClassNames.indicator)}
         style={{ ...contextStyles.indicator, ...styles?.indicator }}
         prefixCls={prefixCls}
         indicator={mergedIndicator}
@@ -175,7 +175,7 @@ const Spin: SpinType = (props) => {
     return (
       <div
         {...restProps}
-        className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
+        className={clsx(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
         style={wrapStyle}
       >
         {spinning && <div key="loading">{spinElement}</div>}
@@ -189,7 +189,7 @@ const Spin: SpinType = (props) => {
   if (fullscreen) {
     return (
       <div
-        className={classNames(
+        className={clsx(
           `${prefixCls}-fullscreen`,
           {
             [`${prefixCls}-fullscreen-show`]: spinning,

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
@@ -149,7 +149,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const sizeCls = classNames({
+  const sizeCls = clsx({
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-sm`]: size === 'small',
   });
@@ -158,7 +158,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
   const mergedShape = shape || avatarCtx?.shape || 'circle';
 
-  const classString = classNames(
+  const classString = clsx(
     prefixCls,
     sizeCls,
     contextClassName,

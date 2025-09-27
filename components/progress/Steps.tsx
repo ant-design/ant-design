@@ -1,5 +1,5 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ProgressProps, SemanticName } from './progress';
 import { getSize } from './utils';
@@ -43,7 +43,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     styledSteps[i] = (
       <div
         key={i}
-        className={cls(
+        className={clsx(
           `${prefixCls}-steps-item`,
           {
             [`${prefixCls}-steps-item-active`]: i <= current - 1,
@@ -60,7 +60,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     );
   }
   return (
-    <div className={cls(`${prefixCls}-steps-body`, classNames.body)} style={styles.body}>
+    <div className={clsx(`${prefixCls}-steps-body`, classNames.body)} style={styles.body}>
       {styledSteps}
       {children}
     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { omit } from '@rc-component/util';
 import { Button, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface SwitchBtnProps {
   label1: React.ReactNode;
@@ -80,10 +80,10 @@ const SwitchBtn: React.FC<SwitchBtnProps> = (props) => {
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (
           <div className={innerDiv}>
-            <span className={classNames(labelStyle, value === 1 ? label1Style : label2Style)}>
+            <span className={clsx(labelStyle, value === 1 ? label1Style : label2Style)}>
               {label1}
             </span>
-            <span className={classNames(labelStyle, value === 1 ? label2Style : label1Style)}>
+            <span className={clsx(labelStyle, value === 1 ? label2Style : label1Style)}>
               {label2}
             </span>
           </div>
