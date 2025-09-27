@@ -1348,6 +1348,24 @@ describe('Form', () => {
     });
   });
 
+  describe('global labelAlign should work', () => {
+    it('should work', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form role="form">
+            <Form.Item name="light" label="light" required>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-form-item-label')!).toHaveClass(
+        'ant-form-item-label-left',
+      );
+    });
+  });
+
   it('form should support disabled', () => {
     const App: React.FC = () => (
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
