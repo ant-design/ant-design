@@ -5,6 +5,7 @@ const modalConfig = {
   title: 'Title',
   content: 'Some contents...',
 };
+
 const App: React.FC = () => {
   const [modal, contextHolder] = Modal.useModal();
 
