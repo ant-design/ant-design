@@ -8,24 +8,32 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type {
-  PickerClassNames as DatePickerClassNames,
   GenericTimePickerProps,
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
+import type { SemanticName } from '@rc-component/picker/lib/interface';
+
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
-export type TimePickerClassNames = Omit<DatePickerClassNames, 'popup'> & {
-  popup?: string | Omit<DatePickerClassNames['popup'], 'header' | 'body'>;
-};
+export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer';
+export type TimePickerClassNames = SemanticClassNamesType<
+  TimePickerProps,
+  SemanticName,
+  {
+    popup?: string | Partial<Record<PanelSemanticName, string>>;
+  }
+>;
 
-export type TimePickerStyles = Partial<
-  Record<keyof Omit<TimePickerClassNames, 'popup'>, React.CSSProperties>
-> & {
-  popup?: Partial<
-    Record<keyof Exclude<TimePickerClassNames['popup'], string>, React.CSSProperties>
-  >;
-};
+export type TimePickerStyles = SemanticStylesType<
+  TimePickerProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PanelSemanticName, React.CSSProperties>>;
+  }
+>;
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -69,39 +77,64 @@ export interface TimePickerProps
   styles?: TimePickerStyles;
 }
 
-const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
-  ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
-    // ====================== Warning =======================
-    if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning('TimePicker');
+const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => {
+  const {
+    addon,
+    renderExtraFooter,
+    variant,
+    bordered,
+    classNames,
+    styles,
+    popupClassName,
+    popupStyle,
+    ...restProps
+  } = props;
+  // ====================== Warning =======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('TimePicker');
 
-      warning.deprecated(!addon, 'addon', 'renderExtraFooter');
+    warning.deprecated(!addon, 'addon', 'renderExtraFooter');
+  }
+
+  const [mergedVariant] = useVariant('timePicker', variant, bordered);
+
+  const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
+    if (renderExtraFooter) {
+      return renderExtraFooter;
     }
 
-    const [mergedVariant] = useVariant('timePicker', variant, bordered);
+    if (addon) {
+      return addon;
+    }
+    return undefined;
+  }, [addon, renderExtraFooter]);
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TimePickerProps = {
+    ...props,
+    variant: mergedVariant,
+  };
+  // =========== Merged Semantic ===========
+  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<TimePickerProps>(
+    'timePicker',
+    classNames,
+    styles,
+    popupClassName,
+    popupStyle,
+    mergedProps,
+  );
 
-    const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
-      if (renderExtraFooter) {
-        return renderExtraFooter;
-      }
-
-      if (addon) {
-        return addon;
-      }
-      return undefined;
-    }, [addon, renderExtraFooter]);
-
-    return (
-      <InternalTimePicker
-        {...restProps}
-        mode={undefined}
-        ref={ref}
-        renderExtraFooter={internalRenderExtraFooter}
-        variant={mergedVariant}
-      />
-    );
-  },
-);
+  return (
+    <InternalTimePicker
+      {...restProps}
+      mode={undefined}
+      ref={ref}
+      renderExtraFooter={internalRenderExtraFooter}
+      variant={mergedVariant}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
+    />
+  );
+});
 
 if (process.env.NODE_ENV !== 'production') {
   TimePicker.displayName = 'TimePicker';
