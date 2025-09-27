@@ -9,6 +9,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import getAllowClear from '../_util/getAllowClear';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -43,6 +45,9 @@ export interface OptionProps {
 
 type SemanticName = 'root' | 'textarea' | 'popup';
 
+export type MentionsClassNamesType = SemanticClassNamesType<MentionProps, SemanticName>;
+export type MentionsStylesType = SemanticStylesType<MentionProps, SemanticName>;
+
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;
   loading?: boolean;
@@ -54,8 +59,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNam
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: RcMentionsProps['classNames'] & Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: MentionsClassNamesType;
+  styles?: MentionsStylesType;
 }
 
 export interface MentionsProps extends MentionProps {}
@@ -122,6 +127,26 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? contextDisabled;
 
+  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps = {
+    ...props,
+    disabled: mergedDisabled,
+    status: mergedStatus,
+    loading,
+    options,
+    variant: customVariant,
+  } as MentionProps;
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MentionsClassNamesType,
+    MentionsStylesType,
+    MentionProps
+  >([contextClassNames, mentionsClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
       restProps.onFocus(...args);
@@ -167,8 +192,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
-  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
-
   const mergedAllowClear = getAllowClear(allowClear);
 
   // Style
@@ -185,8 +208,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     rootClassName,
     cssVarCls,
     rootCls,
-    contextClassNames.root,
-    mentionsClassNames?.root,
+    mergedClassNames.root,
   );
 
   return (
@@ -198,7 +220,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       direction={direction}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
@@ -207,14 +229,13 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       options={mergedOptions}
       suffix={suffixNode}
       styles={{
-        textarea: { ...contextStyles.textarea, ...styles?.textarea },
-        popup: { ...contextStyles.popup, ...styles?.popup },
+        textarea: mergedStyles.textarea,
+        popup: mergedStyles.popup,
       }}
       classNames={{
-        textarea: classNames(mentionsClassNames?.textarea, contextClassNames.textarea),
+        textarea: classNames(mergedClassNames.textarea),
         popup: classNames(
-          mentionsClassNames?.popup,
-          contextClassNames.popup,
+          mergedClassNames.popup,
           popupClassName,
           rootClassName,
           hashId,
