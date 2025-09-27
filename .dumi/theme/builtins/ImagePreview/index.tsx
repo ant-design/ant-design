@@ -1,7 +1,7 @@
 import React from 'react';
 import { toArray } from '@rc-component/util';
 import { Image } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface ImagePreviewProps {
   className?: string;
@@ -81,7 +81,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
 
   const hasCarousel = imgs.length > 1 && !comparable;
 
-  const previewClassName = classNames(rootClassName, 'clearfix', 'preview-image-boxes', {
+  const previewClassName = clsx(rootClassName, 'clearfix', 'preview-image-boxes', {
     'preview-image-boxes-compare': comparable,
     'preview-image-boxes-with-carousel': hasCarousel,
   });
@@ -105,7 +105,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
           return null;
         }
         const coverMeta = imgsMeta[index];
-        const imageWrapperClassName = classNames(imgWrapperCls, {
+        const imageWrapperClassName = clsx(imgWrapperCls, {
           good: coverMeta.isGood,
           bad: coverMeta.isBad,
         });

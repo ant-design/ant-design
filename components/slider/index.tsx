@@ -1,9 +1,9 @@
 import React from 'react';
-import raf from '@rc-component/util/lib/raf';
-import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from '@rc-component/slider';
 import RcSlider from '@rc-component/slider';
 import type { SliderRef } from '@rc-component/slider/lib/Slider';
+import raf from '@rc-component/util/lib/raf';
+import { clsx } from 'clsx';
 
 import useOrientation from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
@@ -208,7 +208,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     className,
     contextClassName,
     contextClassNames.root,
@@ -375,16 +375,16 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     ...styles?.tracks,
   };
 
-  const mergedTracksClassNames = classNames(contextClassNames.tracks, sliderClassNames?.tracks);
+  const mergedTracksClassNames = clsx(contextClassNames.tracks, sliderClassNames?.tracks);
 
   return (
     // @ts-ignore
     <RcSlider
       {...restProps}
       classNames={{
-        handle: classNames(contextClassNames.handle, sliderClassNames?.handle),
-        rail: classNames(contextClassNames.rail, sliderClassNames?.rail),
-        track: classNames(contextClassNames.track, sliderClassNames?.track),
+        handle: clsx(contextClassNames.handle, sliderClassNames?.handle),
+        rail: clsx(contextClassNames.rail, sliderClassNames?.rail),
+        track: clsx(contextClassNames.track, sliderClassNames?.track),
         ...(mergedTracksClassNames ? { tracks: mergedTracksClassNames } : {}),
       }}
       styles={{

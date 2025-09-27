@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { FlexProps } from './interface';
 
@@ -57,7 +57,7 @@ const genClsJustify = (prefixCls: string, props: FlexProps) => {
 };
 
 function createFlexClassNames(prefixCls: string, props: FlexProps) {
-  return classNames({
+  return clsx({
     ...genClsWrap(prefixCls, props),
     ...genClsAlign(prefixCls, props),
     ...genClsJustify(prefixCls, props),

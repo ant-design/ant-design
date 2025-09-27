@@ -7,7 +7,7 @@ import type {
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
@@ -251,7 +251,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
-      ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
+      ? clsx(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
   // Style
@@ -261,7 +261,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const colorInfo = parseColor(prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     overlayClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     colorInfo.className,
@@ -273,7 +273,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     tooltipClassNames?.root,
   );
 
-  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
+  const bodyClassNames = clsx(contextClassNames.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);

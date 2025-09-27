@@ -8,7 +8,7 @@ import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from '@rc-component/image';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { DeprecatedPreviewConfig } from '.';
 import type { MaskType } from '../_util/hooks/useMergedMask';
@@ -72,7 +72,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classnames(hashId, cssVarCls, rootCls);
+  const mergedRootClassName = clsx(hashId, cssVarCls, rootCls);
 
   // ============================= Preview ==============================
   const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
@@ -107,10 +107,10 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
       contextClassNames,
       classNames,
       {
-        cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
+        cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
         popup: {
-          root: classnames(contextPreviewRootClassName, previewRootClassName),
-          mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+          root: clsx(contextPreviewRootClassName, previewRootClassName),
+          mask: clsx(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
         },
       },
     ],

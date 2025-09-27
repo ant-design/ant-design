@@ -7,7 +7,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -73,25 +73,25 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
   let iconNode: React.ReactNode = null;
   if (icon) {
     iconNode = (
-      <span className={classNames(`${prefixCls}-icon`, pureContentCls.icon)} style={styles.icon}>
+      <span className={clsx(`${prefixCls}-icon`, pureContentCls.icon)} style={styles.icon}>
         {icon}
       </span>
     );
   } else if (type) {
     iconNode = React.createElement(typeToIcon[type] || null, {
-      className: classNames(`${prefixCls}-icon`, pureContentCls.icon, `${prefixCls}-icon-${type}`),
+      className: clsx(`${prefixCls}-icon`, pureContentCls.icon, `${prefixCls}-icon-${type}`),
       style: styles.icon,
     });
   }
   return (
-    <div className={classNames({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
+    <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
-      <div className={classNames(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
+      <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
         {title}
       </div>
       {description && (
         <div
-          className={classNames(`${prefixCls}-description`, pureContentCls.description)}
+          className={clsx(`${prefixCls}-description`, pureContentCls.description)}
           style={styles.description}
         >
           {description}
@@ -99,7 +99,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       )}
       {actions && (
         <div
-          className={classNames(`${prefixCls}-actions`, pureContentCls.actions)}
+          className={clsx(`${prefixCls}-actions`, pureContentCls.actions)}
           style={styles.actions}
         >
           {actions}
@@ -189,7 +189,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         `${noticePrefixCls}-pure-panel`,
         hashId,
         notificationClassName,
@@ -207,7 +207,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         eventKey="pure"
         duration={null}
         closable={mergedClosable}
-        className={classNames(notificationClassName, contextClassName)}
+        className={clsx(notificationClassName, contextClassName)}
         content={
           <PureContent
             classNames={mergedClassNames as PureContentProps['classNames']}

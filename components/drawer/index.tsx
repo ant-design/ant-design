@@ -4,7 +4,7 @@ import RcDrawer from '@rc-component/drawer';
 import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import type { MaskType } from '../_util/hooks/useMergedMask';
@@ -190,7 +190,7 @@ const Drawer: React.FC<DrawerProps> & {
     [contextStyles, propStyles],
   );
 
-  const drawerClassName = classNames(
+  const drawerClassName = clsx(
     {
       'no-mask': !mergedMask,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -211,7 +211,7 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            mask: classNames(mergedClassNames.mask, maskBlurClassName.mask),
+            mask: clsx(mergedClassNames.mask, maskBlurClassName.mask),
             section: mergedClassNames.section,
             wrapper: mergedClassNames.wrapper,
             dragger: mergedClassNames.dragger,
@@ -229,7 +229,7 @@ const Drawer: React.FC<DrawerProps> & {
           defaultSize={defaultSize}
           style={{ ...contextStyle, ...style }}
           rootStyle={{ ...rootStyle, ...mergedStyles.root }}
-          className={classNames(contextClassName, className)}
+          className={clsx(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange}
@@ -267,7 +267,7 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-pure`,
     `${prefixCls}-${placement}`,

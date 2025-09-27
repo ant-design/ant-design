@@ -1,6 +1,6 @@
 import * as React from 'react';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { devUseWarning } from '../_util/warning';
@@ -95,7 +95,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     />
   );
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -109,31 +109,31 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     cssVarCls,
   );
 
-  const headerClassNames = classNames(
+  const headerClassNames = clsx(
     `${prefixCls}-header`,
     contextClassNames.header,
     statisticClassNames?.header,
   );
 
-  const titleClassNames = classNames(
+  const titleClassNames = clsx(
     `${prefixCls}-title`,
     contextClassNames.title,
     statisticClassNames?.title,
   );
 
-  const contentClassNames = classNames(
+  const contentClassNames = clsx(
     `${prefixCls}-content`,
     contextClassNames.content,
     statisticClassNames?.content,
   );
 
-  const prefixClassNames = classNames(
+  const prefixClassNames = clsx(
     `${prefixCls}-content-prefix`,
     contextClassNames.prefix,
     statisticClassNames?.prefix,
   );
 
-  const suffixClassNames = classNames(
+  const suffixClassNames = clsx(
     `${prefixCls}-content-suffix`,
     contextClassNames.suffix,
     statisticClassNames?.suffix,

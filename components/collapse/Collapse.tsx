@@ -4,7 +4,7 @@ import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
 import RcCollapse from '@rc-component/collapse';
 import type { CSSMotionProps } from '@rc-component/motion';
 import { omit, toArray } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
@@ -123,7 +123,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
           />
         );
       return cloneElement(icon, () => ({
-        className: classNames(
+        className: clsx(
           (icon as React.ReactElement<{ className?: string }>)?.props?.className,
           contextClassNames.icon,
           collapseClassNames?.icon,
@@ -137,7 +137,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   const mergedPlacement = expandIconPlacement ?? expandIconPosition ?? 'start';
 
-  const collapseClassName = classNames(
+  const collapseClassName = clsx(
     `${prefixCls}-icon-placement-${mergedPlacement}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
@@ -181,10 +181,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       className={collapseClassName}
       style={{ ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
       classNames={{
-        header: classNames(contextClassNames.header, collapseClassNames?.header),
-        title: classNames(contextClassNames.title, collapseClassNames?.title),
-        body: classNames(contextClassNames.body, collapseClassNames?.body),
-        icon: classNames(contextClassNames.icon, collapseClassNames?.icon),
+        header: clsx(contextClassNames.header, collapseClassNames?.header),
+        title: clsx(contextClassNames.title, collapseClassNames?.title),
+        body: clsx(contextClassNames.body, collapseClassNames?.body),
+        icon: clsx(contextClassNames.icon, collapseClassNames?.icon),
       }}
       styles={{
         header: { ...contextStyles.header, ...styles?.header },

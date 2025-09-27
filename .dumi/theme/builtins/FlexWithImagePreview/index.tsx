@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from 'antd';
 import type { FlexProps } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import ImagePreview from '../ImagePreview';
 import type { ImagePreviewProps } from '../ImagePreview';
@@ -49,7 +49,7 @@ const FlexWithImagePreview: React.FC<
     return <ImagePreview {...imagePreviewProps}>{children}</ImagePreview>;
   }
   return (
-    <Flex className={classNames(styles.wrapper, className)} style={style} {...rest}>
+    <Flex className={clsx(styles.wrapper, className)} style={style} {...rest}>
       <Flex align="flex-start" justify="flex-start" vertical>
         {isNotEmpty(title) && <div className={styles.title}>{title}</div>}
         {isNotEmpty(description) && <div className={styles.description}>{description}</div>}

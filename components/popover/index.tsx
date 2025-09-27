@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isValidElement } from 'react';
 import { useControlledState } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -58,7 +58,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const rootPrefixCls = getPrefixCls();
   const mergedArrow = useMergedArrow(popoverArrow, contextArrow);
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     overlayClassName,
     hashId,
     cssVarCls,
@@ -66,7 +66,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     contextClassNames.root,
     popoverClassNames?.root,
   );
-  const bodyClassNames = classNames(contextClassNames.body, popoverClassNames?.body);
+
+  const bodyClassNames = clsx(contextClassNames.body, popoverClassNames?.body);
 
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
 

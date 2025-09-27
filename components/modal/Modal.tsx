@@ -2,7 +2,7 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
@@ -137,7 +137,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const wrapClassNameExtended = classNames(wrapClassName, {
+  const wrapClassNameExtended = clsx(wrapClassName, {
     [`${prefixCls}-centered`]: centered ?? contextCentered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
@@ -213,13 +213,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={classNames(
-            hashId,
-            rootClassName,
-            cssVarCls,
-            rootCls,
-            mergedClassNames.root,
-          )}
+          rootClassName={clsx(hashId, rootClassName, cssVarCls, rootCls, mergedClassNames.root)}
           rootStyle={mergedStyles.root}
           footer={dialogFooter}
           visible={open}
@@ -231,15 +225,11 @@ const Modal: React.FC<ModalProps> = (props) => {
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
-          className={classNames(hashId, className, contextClassName)}
-          style={{
-            ...contextStyle,
-            ...style,
-            ...responsiveWidthVars,
-          }}
+          className={clsx(hashId, className, contextClassName)}
+          style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{
             ...mergedClassNames,
-            wrapper: classNames(mergedClassNames.wrapper, wrapClassNameExtended),
+            wrapper: clsx(mergedClassNames.wrapper, wrapClassNameExtended),
           }}
           styles={mergedStyles}
           panelRef={mergedPanelRef}

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import { devUseWarning } from '../_util/warning';
 import Button from '../button';
 import type { ButtonHTMLType, ButtonProps } from '../button';
 import type { ButtonGroupProps } from '../button/button-group';
@@ -10,7 +11,6 @@ import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
 import type { DropdownProps } from './dropdown';
-import { devUseWarning } from '../_util/warning';
 
 export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
 
@@ -99,7 +99,7 @@ const DropdownButton: CompoundedComponent = (props) => {
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const classes = classNames(buttonPrefixCls, compactItemClassnames, className);
+  const classes = clsx(buttonPrefixCls, compactItemClassnames, className);
 
   if ('destroyPopupOnHide' in props) {
     dropdownProps.destroyPopupOnHide = destroyPopupOnHide;

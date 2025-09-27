@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { MasonryProps } from './Masonry';
 
@@ -39,7 +39,7 @@ const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, r
   }, [item, itemRender, column, index]);
 
   let returnNode = (
-    <div ref={ref} style={style} className={classNames(itemPrefix, className)}>
+    <div ref={ref} style={style} className={clsx(itemPrefix, className)}>
       {renderNode}
     </div>
   );

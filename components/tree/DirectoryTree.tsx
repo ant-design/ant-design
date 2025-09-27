@@ -2,12 +2,12 @@ import * as React from 'react';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
-import classNames from 'classnames';
 import type RcTree from '@rc-component/tree';
 import type { BasicDataNode } from '@rc-component/tree';
 import type { DataNode, EventDataNode, Key } from '@rc-component/tree/lib/interface';
 import { conductExpandParent } from '@rc-component/tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from '@rc-component/tree/lib/utils/treeUtil';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
@@ -176,7 +176,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
-  const connectClassName = classNames(
+  const connectClassName = clsx(
     `${prefixCls}-directory`,
     {
       [`${prefixCls}-directory-rtl`]: direction === 'rtl',

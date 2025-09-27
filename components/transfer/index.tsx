@@ -1,6 +1,6 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
@@ -454,7 +454,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     [contextStyles, styles],
   );
 
-  const cls = classnames(
+  const cls = clsx(
     prefixCls,
     {
       [`${prefixCls}-disabled`]: mergedDisabled,
@@ -524,7 +524,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         {...listLocale}
       />
       <Actions
-        className={classnames(`${prefixCls}-actions`, mergedClassNames.actions)}
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
         moveToRight={moveToRight}
         leftActive={leftActive}

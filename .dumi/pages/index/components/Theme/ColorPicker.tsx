@@ -3,7 +3,7 @@ import { ColorPicker, Flex, Input } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { PRESET_COLORS } from './colorUtil';
 
@@ -104,7 +104,7 @@ const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id
           const colorNode = (
             <label
               key={color}
-              className={classNames(styles.color, { [styles.colorActive]: active })}
+              className={clsx(styles.color, { [styles.colorActive]: active })}
               style={{ background: color }}
               onClick={() => {
                 if (!picker) {

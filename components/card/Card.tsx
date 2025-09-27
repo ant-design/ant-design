@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import { omit } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -139,7 +139,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const moduleClass = (moduleName: CardClassNamesModule) =>
-    classNames(contextClassNames?.[moduleName], customClassNames?.[moduleName]);
+    clsx(contextClassNames?.[moduleName], customClassNames?.[moduleName]);
 
   const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
     ...contextStyles?.[moduleName],
@@ -187,9 +187,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     />
   ) : null;
   if (title || extra || tabs) {
-    const headClasses = classNames(`${prefixCls}-head`, moduleClass('header'));
-    const titleClasses = classNames(`${prefixCls}-head-title`, moduleClass('title'));
-    const extraClasses = classNames(`${prefixCls}-extra`, moduleClass('extra'));
+    const headClasses = clsx(`${prefixCls}-head`, moduleClass('header'));
+    const titleClasses = clsx(`${prefixCls}-head-title`, moduleClass('title'));
+    const extraClasses = clsx(`${prefixCls}-extra`, moduleClass('extra'));
     const mergedHeadStyle: React.CSSProperties = {
       ...headStyle,
       ...moduleStyle('header'),
@@ -212,13 +212,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       </div>
     );
   }
-  const coverClasses = classNames(`${prefixCls}-cover`, moduleClass('cover'));
+  const coverClasses = clsx(`${prefixCls}-cover`, moduleClass('cover'));
   const coverDom = cover ? (
     <div className={coverClasses} style={moduleStyle('cover')}>
       {cover}
     </div>
   ) : null;
-  const bodyClasses = classNames(`${prefixCls}-body`, moduleClass('body'));
+  const bodyClasses = clsx(`${prefixCls}-body`, moduleClass('body'));
   const mergedBodyStyle: React.CSSProperties = {
     ...bodyStyle,
     ...moduleStyle('body'),
@@ -229,7 +229,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     </div>
   );
 
-  const actionClasses = classNames(`${prefixCls}-actions`, moduleClass('actions'));
+  const actionClasses = clsx(`${prefixCls}-actions`, moduleClass('actions'));
   const actionDom = actions?.length ? (
     <ActionNode
       actionClasses={actionClasses}
@@ -240,7 +240,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const divProps = omit(others, ['onTabChange']);
 
-  const classString = classNames(
+  const classString = clsx(
     prefixCls,
     contextClassName,
     {

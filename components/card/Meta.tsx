@@ -1,5 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
+
 import { useComponentConfig } from '../config-provider/context';
 
 export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
@@ -37,7 +38,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     metaPrefixCls,
     className,
     contextClassName,
@@ -52,7 +53,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     ...style,
   };
 
-  const avatarClassNames = classNames(
+  const avatarClassNames = clsx(
     `${metaPrefixCls}-avatar`,
     contextClassNames.avatar,
     cardMetaClassNames?.avatar,
@@ -63,7 +64,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     ...styles?.avatar,
   };
 
-  const titleClassNames = classNames(
+  const titleClassNames = clsx(
     `${metaPrefixCls}-title`,
     contextClassNames.title,
     cardMetaClassNames?.title,
@@ -74,7 +75,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     ...styles?.title,
   };
 
-  const descriptionClassNames = classNames(
+  const descriptionClassNames = clsx(
     `${metaPrefixCls}-description`,
     contextClassNames.description,
     cardMetaClassNames?.description,
@@ -85,7 +86,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     ...styles?.description,
   };
 
-  const sectionClassNames = classNames(
+  const sectionClassNames = clsx(
     `${metaPrefixCls}-section`,
     contextClassNames.section,
     cardMetaClassNames?.section,

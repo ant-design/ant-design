@@ -8,7 +8,7 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
 import { devUseWarning } from '../_util/warning';
@@ -48,7 +48,7 @@ const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefi
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>
   );
@@ -87,7 +87,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -217,13 +217,10 @@ export function useInternalNotification(
             role={role}
             classNames={
               {
-                icon: classNames(contextClassNames.icon, configClassNames.icon),
-                title: classNames(contextClassNames.title, configClassNames.title),
-                description: classNames(
-                  contextClassNames.description,
-                  configClassNames.description,
-                ),
-                actions: classNames(contextClassNames.actions, configClassNames.actions),
+                icon: clsx(contextClassNames.icon, configClassNames.icon),
+                title: clsx(contextClassNames.title, configClassNames.title),
+                description: clsx(contextClassNames.description, configClassNames.description),
+                actions: clsx(contextClassNames.actions, configClassNames.actions),
               } as PureContentProps['classNames']
             }
             styles={
@@ -236,7 +233,7 @@ export function useInternalNotification(
             }
           />
         ),
-        className: classNames(
+        className: clsx(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,

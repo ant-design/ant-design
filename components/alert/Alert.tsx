@@ -8,7 +8,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
@@ -98,14 +98,7 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(
-        (
-          icon as ReactElement<{
-            className?: string;
-          }>
-        ).props.className,
-        className,
-      ),
+      className: clsx((icon as ReactElement<{ className?: string }>).props.className, className),
       style,
     })) as ReactElement;
   }
@@ -235,7 +228,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
-  const alertCls = classNames(
+  const alertCls = clsx(
     prefixCls,
     `${prefixCls}-${type}`,
     {
@@ -293,7 +286,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           id={id}
           ref={composeRef(internalRef, setRef)}
           data-show={!closed}
-          className={classNames(alertCls, motionClassName)}
+          className={clsx(alertCls, motionClassName)}
           style={{
             ...contextStyles.root,
             ...contextStyle,
@@ -309,11 +302,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
         >
           {isShowIcon ? (
             <IconNode
-              className={classNames(
-                `${prefixCls}-icon`,
-                alertClassNames?.icon,
-                contextClassNames.icon,
-              )}
+              className={clsx(`${prefixCls}-icon`, alertClassNames?.icon, contextClassNames.icon)}
               style={{ ...contextStyles.icon, ...styles?.icon }}
               description={description}
               icon={props.icon}
@@ -322,7 +311,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             />
           ) : null}
           <div
-            className={classNames(
+            className={clsx(
               `${prefixCls}-section`,
               alertClassNames?.section,
               contextClassNames.section,
@@ -331,7 +320,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           >
             {mergedTitle ? (
               <div
-                className={classNames(
+                className={clsx(
                   `${prefixCls}-title`,
                   alertClassNames?.title,
                   contextClassNames.title,
@@ -343,7 +332,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             ) : null}
             {description ? (
               <div
-                className={classNames(
+                className={clsx(
                   `${prefixCls}-description`,
                   alertClassNames?.description,
                   contextClassNames.description,
@@ -356,7 +345,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           </div>
           {action ? (
             <div
-              className={classNames(
+              className={clsx(
                 `${prefixCls}-actions`,
                 alertClassNames?.actions,
                 contextClassNames.actions,

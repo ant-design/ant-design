@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
@@ -115,7 +115,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   return (
     <PopoverPurePanel
       placement={placement}
-      className={classNames(prefixCls, className)}
+      className={clsx(prefixCls, className)}
       style={style}
       content={<Overlay prefixCls={prefixCls} {...restProps} />}
     />

@@ -1,8 +1,9 @@
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ValidateStatus } from '../form/FormItem';
 
 const _InputStatuses = ['warning', 'error', ''] as const;
+
 export type InputStatus = (typeof _InputStatuses)[number];
 
 export function getStatusClassNames(
@@ -10,7 +11,7 @@ export function getStatusClassNames(
   status?: ValidateStatus,
   hasFeedback?: boolean,
 ) {
-  return classNames({
+  return clsx({
     [`${prefixCls}-status-success`]: status === 'success',
     [`${prefixCls}-status-warning`]: status === 'warning',
     [`${prefixCls}-status-error`]: status === 'error',

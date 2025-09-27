@@ -22,7 +22,7 @@ import {
 } from 'antd';
 import { createStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -457,16 +457,14 @@ const Theme: React.FC = () => {
     <ConfigProvider theme={memoTheme}>
       <TokenChecker />
       <div
-        className={classNames(styles.demo, {
+        className={clsx(styles.demo, {
           [styles.otherDemo]: isLight && closestColor !== DEFAULT_COLOR && styles.otherDemo,
           [styles.darkDemo]: !isLight,
         })}
         style={{ borderRadius: themeData.borderRadius }}
       >
         <Layout className={styles.transBg}>
-          <Header
-            className={classNames(styles.header, styles.transBg, !isLight && styles.headerDark)}
-          >
+          <Header className={clsx(styles.header, styles.transBg, !isLight && styles.headerDark)}>
             {/* Logo */}
             <div className={styles.logo}>
               <div className={styles.logoImg}>
@@ -486,7 +484,7 @@ const Theme: React.FC = () => {
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
-                className={classNames(styles.avatar, { [styles.avatarDark]: themeType === 'dark' })}
+                className={clsx(styles.avatar, { [styles.avatarDark]: themeType === 'dark' })}
                 style={{
                   backgroundColor: avatarColor,
                   backgroundImage: `url(${getAvatarURL(closestColor)})`,
@@ -495,10 +493,10 @@ const Theme: React.FC = () => {
             </Flex>
           </Header>
           <Layout className={styles.transBg} hasSider>
-            <Sider className={classNames(styles.transBg)} width={200}>
+            <Sider className={clsx(styles.transBg)} width={200}>
               <Menu
                 mode="inline"
-                className={classNames(styles.transBg)}
+                className={clsx(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderInlineEnd: 0 }}
@@ -582,7 +580,7 @@ const Theme: React.FC = () => {
         <>
           {/* >>>>>> Default <<<<<< */}
           <div
-            className={classNames(
+            className={clsx(
               styles.motion,
               isLight && closestColor === DEFAULT_COLOR ? styles.op1 : styles.op0,
             )}
@@ -590,36 +588,31 @@ const Theme: React.FC = () => {
             {/* Image Left Top */}
             <img
               draggable={false}
-              className={classNames(styles.pos, styles.leftTopImage)}
+              className={clsx(styles.pos, styles.leftTopImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
               alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
               draggable={false}
-              className={classNames(styles.pos, styles.rightBottomImage)}
+              className={clsx(styles.pos, styles.rightBottomImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
               alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Dark <<<<<< */}
-          <div
-            className={classNames(
-              styles.motion,
-              !isLight || !closestColor ? styles.op1 : styles.op0,
-            )}
-          >
+          <div className={clsx(styles.motion, !isLight || !closestColor ? styles.op1 : styles.op0)}>
             {/* Image Left Top */}
             <img
               draggable={false}
-              className={classNames(styles.pos, styles.leftTopImagePos)}
+              className={clsx(styles.pos, styles.leftTopImagePos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
               alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
               draggable={false}
-              className={classNames(styles.pos, styles.rightBottomPos)}
+              className={clsx(styles.pos, styles.rightBottomPos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
               alt="image-right-bottom"
             />

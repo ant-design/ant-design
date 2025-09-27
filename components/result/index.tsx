@@ -3,7 +3,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
@@ -153,7 +153,7 @@ const Result: ResultType = ({
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     prefixCls,
     `${prefixCls}-${status}`,
     customizeClassName,
@@ -165,15 +165,15 @@ const Result: ResultType = ({
     mergedClassNames.root,
   );
 
-  const titleClassNames = classNames(`${prefixCls}-title`, mergedClassNames.title);
+  const titleClassNames = clsx(`${prefixCls}-title`, mergedClassNames.title);
 
-  const subTitleClassNames = classNames(`${prefixCls}-subtitle`, mergedClassNames.subTitle);
+  const subTitleClassNames = clsx(`${prefixCls}-subtitle`, mergedClassNames.subTitle);
 
-  const extraClassNames = classNames(`${prefixCls}-extra`, mergedClassNames.extra);
+  const extraClassNames = clsx(`${prefixCls}-extra`, mergedClassNames.extra);
 
-  const bodyClassNames = classNames(`${prefixCls}-body`, mergedClassNames.body);
+  const bodyClassNames = clsx(`${prefixCls}-body`, mergedClassNames.body);
 
-  const iconClassNames = classNames(
+  const iconClassNames = clsx(
     `${prefixCls}-icon`,
     { [`${prefixCls}-image`]: ExceptionStatus.includes(`${status}`) },
     mergedClassNames.icon,

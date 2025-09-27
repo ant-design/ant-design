@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
@@ -84,7 +84,7 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
       key={extra?.title}
       href={extra.href}
       target="_blank"
-      className={classNames(styles.itemBase, className)}
+      className={clsx(styles.itemBase, className)}
       rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>

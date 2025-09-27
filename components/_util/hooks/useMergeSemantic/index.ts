@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { AnyObject } from '../../type';
 import type { ValidChar } from './interface';
@@ -33,11 +33,11 @@ export function mergeClassNames<
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
           acc[key] = acc[key] || {};
-          acc[key][defaultField!] = classnames(acc[key][defaultField!], curVal);
+          acc[key][defaultField!] = clsx(acc[key][defaultField!], curVal);
         }
       } else {
         // Flatten fill
-        acc[key] = classnames(acc[key], curVal);
+        acc[key] = clsx(acc[key], curVal);
       }
     });
     return acc;

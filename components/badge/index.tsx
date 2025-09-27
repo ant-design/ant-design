@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import CSSMotion from '@rc-component/motion';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import { useComponentConfig } from '../config-provider/context';
 import type { PresetColorKey } from '../theme/internal';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
-import { useComponentConfig } from '../config-provider/context';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
@@ -162,7 +162,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   const isInternalColor = isPresetColor(color, false);
 
   // Shared styles
-  const statusCls = classnames(classNames?.indicator, contextClassNames.indicator, {
+  const statusCls = clsx(classNames?.indicator, contextClassNames.indicator, {
     [`${prefixCls}-status-dot`]: hasStatus,
     [`${prefixCls}-status-${status}`]: !!status,
     [`${prefixCls}-color-${color}`]: isInternalColor,
@@ -174,7 +174,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     statusStyle.background = color;
   }
 
-  const badgeClassName = classnames(
+  const badgeClassName = clsx(
     prefixCls,
     {
       [`${prefixCls}-status`]: hasStatus,
@@ -234,7 +234,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
 
           const isDot = isDotRef.current;
 
-          const scrollNumberCls = classnames(classNames?.indicator, contextClassNames.indicator, {
+          const scrollNumberCls = clsx(classNames?.indicator, contextClassNames.indicator, {
             [`${prefixCls}-dot`]: isDot,
             [`${prefixCls}-count`]: !isDot,
             [`${prefixCls}-count-sm`]: size === 'small',

@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import BreadcrumbContext from './BreadcrumbContext';
-import classNames from 'classnames';
 
 type CompoundedComponent = React.FC<React.PropsWithChildren> & {
   /** @internal */
@@ -17,7 +17,7 @@ const BreadcrumbSeparator: CompoundedComponent = ({ children }) => {
 
   return (
     <li
-      className={classNames(`${prefixCls}-separator`, mergedClassNames?.separator)}
+      className={clsx(`${prefixCls}-separator`, mergedClassNames?.separator)}
       style={mergedStyles?.separator}
       aria-hidden="true"
     >

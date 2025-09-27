@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PreviewConfig } from '..';
 import useMergedMask from '../../_util/hooks/useMergedMask';
@@ -46,7 +46,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
       getContainer: getContainer ?? getContextPopupContainer,
       zIndex,
       closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: classnames(mergedRootClassName, previewRootClassName),
+      rootClassName: clsx(mergedRootClassName, previewRootClassName),
       mask: mergedPreviewMask,
       blurClassName: blurClassName.mask,
     };

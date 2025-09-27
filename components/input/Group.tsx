@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -28,7 +28,7 @@ const Group: React.FC<GroupProps> = (props) => {
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
   const [hashId, cssVarCls] = useStyle(inputPrefixCls);
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     cssVarCls,
     {
