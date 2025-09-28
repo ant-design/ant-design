@@ -49,6 +49,7 @@ return (
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/autosize-textarea-debug.tsx" debug>debug 自动大小</code>
 <code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -63,6 +64,7 @@ return (
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | 自动获得焦点 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultValue | 默认值 | string | - |  |
 | filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - |  |
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  |
@@ -83,6 +85,7 @@ return (
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  |
 | onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 |
 | options | 选项配置 | [Options](#option) | [] | 5.1.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 ### Mentions 方法
 

@@ -1,42 +1,90 @@
 import React from 'react';
-import { Flex, Input, Space } from 'antd';
-import type { InputProps } from 'antd';
+import { Flex, Input } from 'antd';
+import type { GetProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: InputProps['classNames'] = {
-  root: 'demo-input-root',
-  input: 'demo-input-element',
-};
+const useStyles = createStyles(() => ({
+  root: {
+    width: 300,
+    marginBottom: 10,
+  },
+}));
 
-const classNamesFn: InputProps['classNames'] = (info) => {
-  if (info.props.disabled) {
-    return { root: 'demo-input-root--disabled' };
-  }
-  return { root: 'demo-input-root--enabled' };
-};
+type InputProps = GetProps<typeof Input>;
+type PasswordProps = GetProps<typeof Input.Password>;
+type TextAreaProps = GetProps<typeof Input.TextArea>;
+type OTPProps = GetProps<typeof Input.OTP>;
+type SearchProps = GetProps<typeof Input.Search>;
 
-const stylesObject: InputProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  input: { fontStyle: 'italic' },
-};
+const { Search, TextArea, OTP, Password } = Input;
 
 const stylesFn: InputProps['styles'] = (info) => {
-  if (info.props.size === 'large') {
-    return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
+  if (info.props.size === 'middle') {
+    return {
+      root: { borderColor: '#696FC7' },
+    };
   }
-  return { root: { backgroundColor: '#fffbe6', borderColor: '#ffe58f' } };
+  return {};
 };
 
-const App: React.FC = () => (
-  <Space size={[8, 16]} wrap>
-    <Flex gap="small">
-      <Input classNames={classNamesObject} placeholder="classNames Object" />
-      <Input disabled classNames={classNamesFn} placeholder="classNames Function" />
+const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
+  if (info.props.showCount) {
+    return {
+      root: { borderColor: '#BDE3C3' },
+      count: { color: '#BDE3C3' },
+    };
+  }
+  return {};
+};
+
+const stylesFnPassword: PasswordProps['styles'] = (info) => {
+  if (info.props.size === 'middle') {
+    return {
+      root: { borderColor: '#F5D3C4' },
+    };
+  }
+  return {};
+};
+
+const stylesFnOTP: OTPProps['styles'] = (info) => {
+  if (info.props.size === 'middle') {
+    return {
+      input: { borderColor: '#6E8CFB', width: 32 },
+      prefix: { color: '#6E8CFB' },
+    };
+  }
+  return {};
+};
+
+const stylesFnSearch: SearchProps['styles'] = (info) => {
+  if (info.props.size === 'large') {
+    return {
+      root: { color: '#4DA8DA' },
+      input: { color: '#4DA8DA', borderColor: '#4DA8DA' },
+      prefix: { color: '#4DA8DA' },
+      suffix: { color: '#4DA8DA' },
+      count: { color: '#4DA8DA' },
+      button: {
+        root: { color: '#4DA8DA', borderColor: '#4DA8DA' },
+        icon: { color: '#4DA8DA' },
+      },
+    };
+  }
+  return {};
+};
+
+const App: React.FC = () => {
+  const { styles: classNames } = useStyles();
+  return (
+    <Flex vertical gap="middle">
+      <Input classNames={classNames} placeholder="Object" />
+      <Input size="middle" classNames={classNames} styles={stylesFn} placeholder="Function" />
+      <TextArea classNames={classNames} showCount styles={stylesFnTextArea} value="TextArea" />
+      <Password size="middle" classNames={classNames} styles={stylesFnPassword} value="Password" />
+      <OTP size="middle" length={6} separator="*" classNames={classNames} styles={stylesFnOTP} />
+      <Search placeholder="Search" classNames={classNames} styles={stylesFnSearch} size="large" />
     </Flex>
-    <Flex gap="small">
-      <Input styles={stylesObject} placeholder="styles Object" />
-      <Input size="large" styles={stylesFn} placeholder="styles Function" />
-    </Flex>
-  </Space>
-);
+  );
+};
 
 export default App;

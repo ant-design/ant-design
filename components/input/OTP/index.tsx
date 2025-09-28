@@ -17,9 +17,15 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
+import type {
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'input' | 'separator';
 
+export type OTPClassNamesType = SemanticClassNamesType<OTPProps, SemanticName>;
+export type OTPStylesType = SemanticStylesType<OTPProps, SemanticName>;
 export interface OTPRef {
   focus: VoidFunction;
   blur: VoidFunction;
@@ -55,8 +61,8 @@ export interface OTPProps
 
   onInput?: (value: string[]) => void;
 
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: OTPClassNamesType;
+  styles?: OTPStylesType;
 }
 
 function strToArr(str: string) {
@@ -128,10 +134,16 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   } = useComponentConfig('otp');
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const mergedProps: OTPProps = {
+    ...props,
+    length,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    OTPClassNamesType,
+    OTPStylesType,
+    OTPProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,
