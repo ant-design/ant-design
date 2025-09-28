@@ -486,12 +486,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    const mergedRowClassName = clsx(
-      typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName,
-    );
+    const resolvedRowClassName =
+      typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName;
     return clsx(
-      { [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)) },
-      mergedRowClassName,
+      {
+        [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
+      },
+      resolvedRowClassName,
     );
   };
 

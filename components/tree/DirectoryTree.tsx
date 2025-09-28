@@ -176,6 +176,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+
   const connectClassName = clsx(
     `${prefixCls}-directory`,
     {
