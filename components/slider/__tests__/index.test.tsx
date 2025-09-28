@@ -70,23 +70,23 @@ describe('Slider', () => {
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
     const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.mouseEnter(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.click(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     const { container: container2 } = render(
       <Slider defaultValue={30} tooltip={{ open: false }} />,
     );
-    expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
+    expect(container2.querySelector('.ant-tooltip-container')!).toBeNull();
   });
 
   it('when step is null, thumb can only be slid to the specific mark', () => {
