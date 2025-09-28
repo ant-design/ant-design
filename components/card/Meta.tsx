@@ -43,19 +43,12 @@ const Meta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
-  // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-    } as CardMetaProps;
-  }, [props]);
-
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CardMetaClassNamesType,
     CardMetaStylesType,
     CardMetaProps
   >([contextClassNames, cardMetaClassNames], [contextStyles, styles], undefined, {
-    props: mergedProps,
+    props,
   });
 
   const rootClassNames = classNames(
