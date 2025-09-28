@@ -44,7 +44,6 @@ export default antfu(
       'test/prefer-lowercase-title': 'off',
       'test/prefer-hooks-in-order': 'off', // TODO: remove this
       'react-hooks/exhaustive-deps': 'off',
-      'react/prefer-destructuring-assignment': 'off', // TODO: remove this
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
@@ -57,7 +56,6 @@ export default antfu(
       'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'react-dom/no-missing-button-type': 'off',
       'perfectionist/sort-imports': 'off',
-      'perfectionist/sort-exports': 'off',
       'perfectionist/sort-named-imports': 'off',
       'perfectionist/sort-named-exports': 'off',
       'regexp/strict': 'off',
