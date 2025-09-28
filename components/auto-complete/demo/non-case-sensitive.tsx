@@ -14,7 +14,7 @@ const App: React.FC = () => (
     placeholder="try to type `b`"
     showSearch={{
       filterOption: (inputValue, option) =>
-        option!.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1,
+        option!.value.toUpperCase().includes(inputValue.toUpperCase()),
     }}
   />
 );

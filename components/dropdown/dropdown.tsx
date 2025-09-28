@@ -5,7 +5,7 @@ import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -111,7 +111,7 @@ const Dropdown: CompoundedComponent = (props) => {
     autoAdjustOverflow = true,
     placement = '',
     transitionName,
-    classNames: dropdownClassNames,
+    classNames,
     styles,
     destroyPopupOnHide,
     destroyOnHidden,
@@ -137,7 +137,7 @@ const Dropdown: CompoundedComponent = (props) => {
     DropdownClassNamesType,
     DropdownStylesType,
     DropdownProps
-  >([contextClassNames, dropdownClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
@@ -210,7 +210,7 @@ const Dropdown: CompoundedComponent = (props) => {
   }>;
 
   const popupTrigger = cloneElement(child, {
-    className: classNames(
+    className: cls(
       `${prefixCls}-trigger`,
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -231,7 +231,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(
+  const overlayClassNameCustomized = cls(
     overlayClassName,
     rootClassName,
     hashId,
@@ -292,7 +292,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
-        rootClassName={classNames(cssVarCls, rootCls)}
+        rootClassName={cls(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             {direction === 'rtl' ? (

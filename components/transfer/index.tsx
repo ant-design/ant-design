@@ -26,9 +26,9 @@ import type { TransferCustomListBodyProps, TransferListProps } from './Section';
 import Section from './Section';
 import useStyle from './style';
 
-export type { TransferListProps } from './Section';
 export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
+export type { TransferListProps } from './Section';
 
 export type SemanticName =
   | 'root'

@@ -133,41 +133,7 @@ describe('Mentions', () => {
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
   });
-  it('support classNames and styles', () => {
-    const customClassNames = {
-      root: 'test-root',
-      popup: 'test-popup',
-      textarea: 'test-textarea',
-    };
-    const styles = {
-      root: { background: 'red' },
-      popup: { background: 'green' },
-      textarea: { background: 'blue' },
-    };
-    const wrapper = render(
-      <Mentions styles={styles} classNames={customClassNames}>
-        <Mentions.Option value="afc163">Afc163</Mentions.Option>
-        <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
-        <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
-      </Mentions>,
-    );
-    simulateInput(wrapper, '@');
-    const { container } = wrapper;
-    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
-    fireEvent.focus(container.querySelector('textarea')!);
-    act(() => {
-      jest.runAllTimers();
-    });
-    const root = container.querySelector('.ant-mentions');
-    const popup = container.querySelector('.ant-mentions-dropdown');
-    const textarea = container.querySelector('.rc-textarea');
-    expect(root).toHaveClass(customClassNames.root);
-    expect(popup).toHaveClass(customClassNames.popup);
-    expect(textarea).toHaveClass(customClassNames.textarea);
-    expect(root).toHaveStyle(styles.root);
-    expect(popup).toHaveStyle(styles.popup);
-    expect(textarea).toHaveStyle(styles.textarea);
-  });
+
   describe('form disabled', () => {
     it('set Input enabled', () => {
       const { container } = render(
@@ -185,6 +151,78 @@ describe('Mentions', () => {
 
       expect(container.querySelector('#textarea1[disabled]')).toBeFalsy();
       expect(container.querySelector('#textarea[disabled]')).toBeTruthy();
+    });
+  });
+
+  describe('Custom Style', () => {
+    it('support classNames and styles', () => {
+      const customClassNames = {
+        root: 'test-root',
+        popup: 'test-popup',
+        textarea: 'test-textarea',
+      };
+      const styles = {
+        root: { background: 'red' },
+        popup: { background: 'green' },
+        textarea: { background: 'blue' },
+      };
+      const wrapper = render(
+        <Mentions styles={styles} classNames={customClassNames}>
+          <Mentions.Option value="afc163">Afc163</Mentions.Option>
+          <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+          <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+        </Mentions>,
+      );
+      simulateInput(wrapper, '@');
+      const { container } = wrapper;
+      fireEvent.mouseEnter(
+        container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+      );
+      fireEvent.focus(container.querySelector('textarea')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+      const root = container.querySelector('.ant-mentions');
+      const popup = container.querySelector('.ant-mentions-dropdown');
+      const textarea = container.querySelector('.rc-textarea');
+      expect(root).toHaveClass(customClassNames.root);
+      expect(popup).toHaveClass(customClassNames.popup);
+      expect(textarea).toHaveClass(customClassNames.textarea);
+      expect(root).toHaveStyle(styles.root);
+      expect(popup).toHaveStyle(styles.popup);
+      expect(textarea).toHaveStyle(styles.textarea);
+    });
+
+    it('support classNames and styles as functions', () => {
+      const { container } = render(
+        <Mentions
+          placeholder="@someone"
+          options={[{ value: 'test', label: 'test' }]}
+          disabled={false}
+          loading={false}
+          classNames={(info) => ({
+            root: info.props.disabled ? 'disabled-root' : 'enabled-root',
+            textarea: `textarea-${info.props.loading ? 'loading' : 'normal'}`,
+            popup: 'dynamic-popup',
+          })}
+          styles={(info) => ({
+            root: {
+              opacity: info.props.disabled ? 0.5 : 1,
+              backgroundColor: info.props.loading ? 'gray' : 'white',
+            },
+            textarea: { fontSize: '14px' },
+            popup: { zIndex: 1000 },
+          })}
+        />,
+      );
+
+      const mentionsElement = container.querySelector('.ant-mentions');
+      expect(mentionsElement).toHaveClass('enabled-root');
+      // 检查样式是否应用到了 style 属性中
+      expect(mentionsElement).toHaveAttribute('style');
+      const style = mentionsElement?.getAttribute('style');
+      expect(style).toContain('opacity: 1');
+      expect(style).toContain('background-color: white');
     });
   });
 });
