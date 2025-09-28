@@ -16,7 +16,7 @@ interface ElementsHolderRef {
 
 // Add `then` field for `ModalFunc` return instance.
 export type ModalFuncWithPromise = (...args: Parameters<ModalFunc>) => ReturnType<ModalFunc> & {
-  then<T>(resolve: (confirmed: boolean) => T, reject: VoidFunction): Promise<T>;
+  then: <T>(resolve: (confirmed: boolean) => T, reject: VoidFunction) => Promise<T>;
 };
 
 export type HookAPI = Omit<Record<keyof ModalStaticFunctions, ModalFuncWithPromise>, 'warn'>;

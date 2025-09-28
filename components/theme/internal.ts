@@ -21,9 +21,9 @@ import { genComponentStyleHook, genStyleHooks, genSubStyleComponent } from './ut
 import genPresetColor from './util/genPresetColor';
 import useResetIconStyle from './util/useResetIconStyle';
 
+export { DesignTokenContext, defaultConfig } from './context';
 export type { CSSUtil, TokenWithCommonCls } from '@ant-design/cssinjs-utils';
 
-export { DesignTokenContext, defaultConfig } from './context';
 export {
   // generators
   genComponentStyleHook,

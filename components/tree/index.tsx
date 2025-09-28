@@ -7,11 +7,11 @@ import DirectoryTree from './DirectoryTree';
 import type { TreeProps } from './Tree';
 import TreePure from './Tree';
 
-export type { EventDataNode } from '@rc-component/tree/lib/interface';
 export type {
   ExpandAction as DirectoryTreeExpandAction,
   DirectoryTreeProps,
 } from './DirectoryTree';
+
 export type {
   AntTreeNode,
   AntTreeNodeCheckedEvent,
@@ -22,6 +22,9 @@ export type {
   AntdTreeNodeAttribute,
   TreeProps,
 } from './Tree';
+
+export type { EventDataNode } from '@rc-component/tree/lib/interface';
+
 export type { DataNode, BasicDataNode };
 
 type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
