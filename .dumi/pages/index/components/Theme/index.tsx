@@ -394,26 +394,6 @@ const Theme: React.FC = () => {
     form.setFieldsValue(mergedData);
   }, [themeType]);
 
-  React.useEffect(() => {
-    let i = 0;
-    const themes = Object.keys(themeType);
-    const interval = setInterval(() => {
-      // 主题每3s变化一次
-      i++;
-      if (i === themes.length) {
-        i = 0;
-      }
-      onThemeChange({}, {
-        ...themeData,
-        themeType: themes[i]
-      })
-    }, 5000);
-
-    return () => {
-      clearInterval(interval);
-    }
-  }, [])
-
   const isDark = React.use(DarkContext);
 
   React.useEffect(() => {
