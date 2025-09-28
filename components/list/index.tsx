@@ -19,8 +19,8 @@ import { ListContext } from './context';
 import Item from './Item';
 import useStyle from './style';
 
-export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
+export type { ListItemMetaProps, ListItemProps } from './Item';
 
 export type ColumnCount = number;
 

@@ -37,7 +37,7 @@ const App: React.FC = () => {
   }, []);
 
   const filterOption = (inputValue: string, option: RecordType) =>
-    option.description.indexOf(inputValue) > -1;
+    option.description.includes(inputValue);
 
   const handleChange: TransferProps['onChange'] = (newTargetKeys) => {
     setTargetKeys(newTargetKeys);
