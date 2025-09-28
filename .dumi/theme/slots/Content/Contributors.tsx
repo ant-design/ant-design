@@ -37,6 +37,9 @@ interface ContributorsProps {
   filename?: string;
 }
 
+// 这些机器人账号不需要展示
+const blockList = ['github-actions', 'copilot', 'renovate', 'dependabot'];
+
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
@@ -55,6 +58,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
         owner="ant-design"
         fileName={filename}
         className={styles.list}
+        filter={(item) => !blockList.includes(item?.username?.toLowerCase() ?? '')}
         renderItem={(item, loading) => (
           <ContributorAvatar item={item} loading={loading} key={item?.url} />
         )}
@@ -63,7 +67,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   );
 };
 
-const SuspenseContributors: React.FC<React.ComponentProps<typeof Contributors>> = (props) => (
+const SuspenseContributors: React.FC<ContributorsProps> = (props) => (
   <Suspense fallback={null}>
     <Contributors {...props} />
   </Suspense>
