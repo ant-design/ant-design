@@ -12,7 +12,7 @@ describe('isPrimitive', () => {
     expect(isPrimitive(false)).toBe(true);
     expect(isPrimitive(null)).toBe(true);
     expect(isPrimitive(undefined)).toBe(true);
-    expect(isPrimitive(NaN)).toBe(true);
+    expect(isPrimitive(Number.NaN)).toBe(true);
     expect(isPrimitive(Infinity)).toBe(true);
     expect(isPrimitive(Symbol('test'))).toBe(true);
     expect(isPrimitive(BigInt(123))).toBe(true);
