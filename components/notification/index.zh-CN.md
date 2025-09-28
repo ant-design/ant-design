@@ -56,7 +56,7 @@ config 参数如下：
 | actions | 自定义按钮组 | ReactNode | - | 5.24.0 |
 | ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | [Record<SemanticDOM, string> \| (info: { props })=> Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | [Record<SemanticDOM, string> \| (info: { props })=> Record<SemanticDOM, string>](#semantic-dom) | - | |
 | closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
