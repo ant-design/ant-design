@@ -1,10 +1,12 @@
 import React from 'react';
+import raf from '@rc-component/util/lib/raf';
+import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from '@rc-component/slider';
 import RcSlider from '@rc-component/slider';
 import type { SliderRef } from '@rc-component/slider/lib/Slider';
-import raf from '@rc-component/util/lib/raf';
-import { clsx } from 'clsx';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useOrientation from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import type { GetProp } from '../_util/type';
@@ -20,11 +22,12 @@ import useRafLock from './useRafLock';
 export type SliderMarks = RcSliderProps['marks'];
 
 export type SemanticName = 'root' | 'tracks' | 'track' | 'rail' | 'handle';
-export type SliderClassNames = Partial<Record<SemanticName, string>>;
-export type SliderStyles = Partial<Record<SemanticName, React.CSSProperties>>;
-export interface SliderProps extends RcSliderProps {
-  classNames?: SliderClassNames;
-  styles?: SliderStyles;
+
+export type SliderClassNamesType = SemanticClassNamesType<SliderBaseProps, SemanticName>;
+export type SliderStylesType = SemanticStylesType<SliderBaseProps, SemanticName>;
+export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
+  classNames?: SliderClassNamesType;
+  styles?: SliderStylesType;
 }
 
 interface HandleGeneratorInfo {
@@ -70,8 +73,8 @@ export interface SliderBaseProps {
   tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 
-  styles?: SliderProps['styles'];
-  classNames?: SliderProps['classNames'];
+  styles?: SliderStylesType;
+  classNames?: SliderClassNamesType;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 
@@ -157,6 +160,21 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: SliderSingleProps | SliderRangeProps = {
+    ...props,
+    disabled: mergedDisabled,
+    vertical: mergedVertical,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SliderClassNamesType,
+    SliderStylesType,
+    SliderSingleProps | SliderRangeProps
+  >([contextClassNames, sliderClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   // ============================= Context ==============================
   const { handleRender: contextHandleRender, direction: internalContextDirection } =
     React.useContext(SliderInternalContext);
@@ -208,11 +226,10 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const rootClassNames = clsx(
+  const rootClassNames = classNames(
     className,
     contextClassName,
-    contextClassNames.root,
-    sliderClassNames?.root,
+    mergedClassNames.root,
     rootClassName,
     {
       [`${prefixCls}-rtl`]: isRTL,
@@ -364,43 +381,26 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   // ============================== Render ==============================
   const rootStyle: React.CSSProperties = {
-    ...contextStyles.root,
+    ...mergedStyles.root,
     ...contextStyle,
-    ...styles?.root,
     ...style,
   };
-
-  const mergedTracks = {
-    ...contextStyles.tracks,
-    ...styles?.tracks,
-  };
-
-  const mergedTracksClassNames = clsx(contextClassNames.tracks, sliderClassNames?.tracks);
 
   return (
     // @ts-ignore
     <RcSlider
       {...restProps}
       classNames={{
-        handle: clsx(contextClassNames.handle, sliderClassNames?.handle),
-        rail: clsx(contextClassNames.rail, sliderClassNames?.rail),
-        track: clsx(contextClassNames.track, sliderClassNames?.track),
-        ...(mergedTracksClassNames ? { tracks: mergedTracksClassNames } : {}),
+        handle: mergedClassNames.handle,
+        rail: mergedClassNames.rail,
+        track: mergedClassNames.track,
+        tracks: mergedClassNames.tracks,
       }}
       styles={{
-        handle: {
-          ...contextStyles.handle,
-          ...styles?.handle,
-        },
-        rail: {
-          ...contextStyles.rail,
-          ...styles?.rail,
-        },
-        track: {
-          ...contextStyles.track,
-          ...styles?.track,
-        },
-        ...(Object.keys(mergedTracks).length ? { tracks: mergedTracks } : {}),
+        handle: mergedStyles.handle,
+        rail: mergedStyles.rail,
+        track: mergedStyles.track,
+        tracks: mergedStyles.tracks,
       }}
       step={restProps.step}
       range={range}
