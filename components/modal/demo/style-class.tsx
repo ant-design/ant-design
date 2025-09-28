@@ -29,7 +29,7 @@ const stylesFn: ModalProps['styles'] = (info) => {
         padding: 16,
       },
       body: {
-        padding: '0 16px',
+        padding: 16,
       },
       footer: {
         padding: '16px 10px',
@@ -40,34 +40,23 @@ const stylesFn: ModalProps['styles'] = (info) => {
   return {};
 };
 
-const Demo: React.FC = () => {
+const App: React.FC = () => {
   const [modalOpen, setOpen] = useState(false);
   const [modalFnOpen, setFnOpen] = useState(false);
   const { styles: classNames } = useStyles();
+  const lineStyle = { lineHeight: '28px' };
   const sharedContent = (
     <>
-      <div style={{ lineHeight: '28px' }}>
+      <div style={lineStyle}>
         Following the Ant Design specification, we developed a React UI library antd that contains a
         set of high quality components and demos for building rich, interactive user interfaces.
       </div>
-      <div style={{ lineHeight: '28px' }}>
-        🌈 Enterprise-class UI designed for web applications.
-      </div>
-      <div style={{ lineHeight: '28px' }}>
-        📦 A set of high-quality React components out of the box.
-      </div>
-      <div style={{ lineHeight: '28px' }}>
-        🛡 Written in TypeScript with predictable static types.
-      </div>
-      <div style={{ lineHeight: '28px' }}>
-        ⚙️ Whole package of design resources and development tools.
-      </div>
-      <div style={{ lineHeight: '28px' }}>
-        🌍 Internationalization support for dozens of languages.
-      </div>
-      <div style={{ marginBottom: 8, lineHeight: '28px' }}>
-        🎨 Powerful theme customization in every detail.
-      </div>
+      <div style={lineStyle}>🌈 Enterprise-class UI designed for web applications.</div>
+      <div style={lineStyle}>📦 A set of high-quality React components out of the box.</div>
+      <div style={lineStyle}>🛡 Written in TypeScript with predictable static types.</div>
+      <div style={lineStyle}>⚙️ Whole package of design resources and development tools.</div>
+      <div style={lineStyle}>🌍 Internationalization support for dozens of languages.</div>
+      <div style={lineStyle}>🎨 Powerful theme customization in every detail.</div>
     </>
   );
 
@@ -130,4 +119,4 @@ const Demo: React.FC = () => {
   );
 };
 
-export default Demo;
+export default App;
