@@ -35,7 +35,6 @@ export default antfu(
       'ts/consistent-type-definitions': 'off',
       'ts/method-signature-style': 'off', // TODO: remove this
       'ts/no-non-null-asserted-optional-chain': 'off',
-      'unicorn/prefer-number-properties': 'off',
       'unicorn/prefer-node-protocol': 'off',
       'unicorn/prefer-includes': 'off', // TODO: remove this
       'unicorn/prefer-string-starts-ends-with': 'off', // TODO: remove this
