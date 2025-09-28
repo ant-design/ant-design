@@ -171,7 +171,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -191,7 +191,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -211,7 +211,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -231,7 +231,7 @@ exports[`renders components/descriptions/demo/block.tsx extend context correctly
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -277,7 +277,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -297,7 +297,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -317,7 +317,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -337,7 +337,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -357,7 +357,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -377,7 +377,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -408,7 +408,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -428,7 +428,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -448,7 +448,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -468,7 +468,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -610,7 +610,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -630,7 +630,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -650,7 +650,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -670,7 +670,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -690,7 +690,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -710,7 +710,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -730,7 +730,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1433,7 +1433,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1453,7 +1453,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1473,7 +1473,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1493,7 +1493,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1513,7 +1513,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1533,7 +1533,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1553,7 +1553,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1577,7 +1577,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
             </span>
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -1715,7 +1715,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1735,7 +1735,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1755,7 +1755,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1775,7 +1775,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1795,7 +1795,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1815,7 +1815,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1835,7 +1835,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2149,7 +2149,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
               style="background: green;"
             >
@@ -2170,7 +2170,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2190,7 +2190,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2236,7 +2236,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
               style="background: green;"
             >
@@ -2258,7 +2258,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
               style="background: green;"
             >
@@ -2280,7 +2280,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
               style="background: green; color: blue;"
             >
@@ -2332,7 +2332,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2353,7 +2353,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2374,7 +2374,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2417,7 +2417,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2438,7 +2438,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -2459,7 +2459,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -3127,7 +3127,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3151,7 +3151,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3175,7 +3175,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3199,7 +3199,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3223,7 +3223,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3247,7 +3247,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3282,7 +3282,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3306,7 +3306,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3330,7 +3330,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
@@ -3354,7 +3354,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <span>
