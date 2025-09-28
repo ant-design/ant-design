@@ -620,7 +620,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
         role="tooltip"
       >
         <div
-          class="ant-tour-pannel"
+          class="ant-tour-panel"
         >
           <div
             class="ant-tour-section"
@@ -722,7 +722,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
         role="tooltip"
       >
         <div
-          class="ant-tour-pannel"
+          class="ant-tour-panel"
         >
           <div
             class="ant-tour-section"
@@ -844,7 +844,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
         role="tooltip"
       >
         <div
-          class="ant-tour-pannel"
+          class="ant-tour-panel"
         >
           <div
             class="ant-tour-section"
