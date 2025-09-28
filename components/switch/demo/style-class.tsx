@@ -34,7 +34,7 @@ const App: React.FC = () => {
         classNames={classNames}
         styles={stylesObject}
       />
-      <Switch classNames={classNames} styles={stylesFn} />
+      <Switch classNames={classNames} size="default" styles={stylesFn} />
     </Flex>
   );
 };
