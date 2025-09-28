@@ -1231,14 +1231,26 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
 `;
 
 exports[`renders components/modal/demo/style-class.tsx correctly 1`] = `
-<button
-  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-  type="button"
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
-  <span>
-    Open Modal
-  </span>
-</button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Open Style Modal
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Function Modal
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/modal/demo/width.tsx correctly 1`] = `

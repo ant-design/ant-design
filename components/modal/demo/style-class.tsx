@@ -1,74 +1,132 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import { Button, Flex, Modal } from 'antd';
 import type { ModalProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesFn: ModalProps['classNames'] = (info) => {
-  console.log('classNamesFn Modal props:', info.props);
-  return {
-    root: 'demo-modal-root',
-    header: 'demo-modal-header',
-    body: 'demo-modal-body',
-    footer: 'demo-modal-footer',
-    container: 'demo-modal-container',
-    wrapper: 'demo-modal-wrapper',
-    title: 'demo-modal-title',
-    mask: 'demo-modal-mask',
-  };
+const useStyles = createStyles(() => ({
+  container: {
+    borderRadius: 10,
+    padding: 10,
+  },
+}));
+
+const styles: ModalProps['styles'] = {
+  mask: {
+    backgroundImage: `linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%)`,
+  },
 };
 
 const stylesFn: ModalProps['styles'] = (info) => {
-  console.log('stylesFn Modal props:', info.props);
-  return {
-    container: {
-      borderRadius: 0,
-    },
-    mask: {
-      backgroundImage: `linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%)`,
-    },
-  };
+  if (info.props.footer) {
+    return {
+      container: {
+        borderRadius: 14,
+        border: '1px solid #ccc',
+        padding: 0,
+        overflow: 'hidden',
+      },
+      header: {
+        padding: 16,
+      },
+      body: {
+        padding: '0 16px',
+      },
+      footer: {
+        padding: '16px 10px',
+        backgroundColor: '#fafafa',
+      },
+    };
+  }
+  return {};
 };
 
 const Demo: React.FC = () => {
   const [modalOpen, setOpen] = useState(false);
-  return (
+  const [modalFnOpen, setFnOpen] = useState(false);
+  const { styles: classNames } = useStyles();
+  const sharedContent = (
     <>
-      <Button type="primary" onClick={() => setOpen(true)}>
-        Open Modal
+      <div style={{ lineHeight: '28px' }}>
+        Following the Ant Design specification, we developed a React UI library antd that contains a
+        set of high quality components and demos for building rich, interactive user interfaces.
+      </div>
+      <div style={{ lineHeight: '28px' }}>
+        🌈 Enterprise-class UI designed for web applications.
+      </div>
+      <div style={{ lineHeight: '28px' }}>
+        📦 A set of high-quality React components out of the box.
+      </div>
+      <div style={{ lineHeight: '28px' }}>
+        🛡 Written in TypeScript with predictable static types.
+      </div>
+      <div style={{ lineHeight: '28px' }}>
+        ⚙️ Whole package of design resources and development tools.
+      </div>
+      <div style={{ lineHeight: '28px' }}>
+        🌍 Internationalization support for dozens of languages.
+      </div>
+      <div style={{ marginBottom: 8, lineHeight: '28px' }}>
+        🎨 Powerful theme customization in every detail.
+      </div>
+    </>
+  );
+
+  const sharedProps: ModalProps = {
+    centered: true,
+    classNames,
+  };
+
+  const footer: React.ReactNode = (
+    <>
+      <Button
+        onClick={() => setFnOpen(false)}
+        styles={{ root: { borderColor: '#ccc', color: '#171717' } }}
+      >
+        Cancel
+      </Button>
+      <Button
+        type="primary"
+        styles={{ root: { backgroundColor: '#171717' } }}
+        onClick={() => setOpen(true)}
+      >
+        Submit
+      </Button>
+    </>
+  );
+
+  return (
+    <Flex gap="middle">
+      <Button onClick={() => setOpen(true)}>Open Style Modal</Button>
+      <Button type="primary" onClick={() => setFnOpen(true)}>
+        Open Function Modal
       </Button>
       <Modal
-        centered
+        {...sharedProps}
         footer={null}
-        title="Custom Modal"
-        classNames={classNamesFn}
-        styles={stylesFn}
+        title="Custom Style Modal"
+        styles={styles}
         open={modalOpen}
         onOk={() => setOpen(false)}
         onCancel={() => setOpen(false)}
       >
-        <div style={{ margin: '16px 0', lineHeight: '28px' }}>
-          Following the Ant Design specification, we developed a React UI library antd that contains
-          a set of high quality components and demos for building rich, interactive user interfaces.
-        </div>
-        <div style={{ lineHeight: '28px' }}>
-          🌈 Enterprise-class UI designed for web applications.
-        </div>
-        <div style={{ lineHeight: '28px' }}>
-          📦 A set of high-quality React components out of the box.
-        </div>
-        <div style={{ lineHeight: '28px' }}>
-          🛡 Written in TypeScript with predictable static types.
-        </div>
-        <div style={{ lineHeight: '28px' }}>
-          ⚙️ Whole package of design resources and development tools.
-        </div>
-        <div style={{ lineHeight: '28px' }}>
-          🌍 Internationalization support for dozens of languages.
-        </div>
-        <div style={{ marginBottom: 8, lineHeight: '28px' }}>
-          🎨 Powerful theme customization in every detail.
-        </div>
+        {sharedContent}
       </Modal>
-    </>
+      <Modal
+        {...sharedProps}
+        footer={footer}
+        title="Custom Function Modal"
+        styles={stylesFn}
+        mask={{
+          enabled: true,
+          blur: true,
+        }}
+        open={modalFnOpen}
+        onOk={() => setFnOpen(false)}
+        onCancel={() => setFnOpen(false)}
+      >
+        {sharedContent}
+      </Modal>
+    </Flex>
   );
 };
 
