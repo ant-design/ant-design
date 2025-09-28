@@ -24,12 +24,12 @@ describe('Upload', () => {
     jest.useFakeTimers();
   });
   beforeEach(() => setup());
-  afterAll(() => {
-    jest.useRealTimers();
-  });
   afterEach(() => {
     jest.clearAllTimers();
     return teardown();
+  });
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
   // Mock for rc-component/util raf

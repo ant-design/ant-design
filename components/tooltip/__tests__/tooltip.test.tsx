@@ -23,18 +23,20 @@ const { resetWarned } = warning;
 describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-  afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
-  });
 
   beforeAll(() => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
       get: () => ({}),
     });
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+    jest.clearAllTimers();
   });
 
   it('check `onOpenChange` arguments', async () => {
