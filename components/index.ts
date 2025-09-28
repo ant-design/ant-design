@@ -131,6 +131,8 @@ export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps } from './spin';
+export { default as Splitter } from './splitter';
+export type { SplitterProps } from './splitter';
 export { default as Statistic } from './statistic';
 export type { StatisticTimerProps, CountdownProps, StatisticProps } from './statistic';
 export { default as Steps } from './steps';
@@ -177,8 +179,7 @@ export type { UploadFile, UploadProps, DraggerProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
-export { default as Splitter } from './splitter';
-export type { SplitterProps } from './splitter';
 
 // TODO: Remove in v6
+/* eslint-disable-next-line perfectionist/sort-exports */
 export { unstableSetRender } from './config-provider/UnstableContext';
