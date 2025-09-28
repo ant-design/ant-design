@@ -8,6 +8,8 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
 
+  // This will never reach since we will not render this when no children
+  /* istanbul ignore next */
   if (
     !React.isValidElement<{
       className?: string;
