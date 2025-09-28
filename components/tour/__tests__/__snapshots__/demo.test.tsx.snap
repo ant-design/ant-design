@@ -613,7 +613,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
       class="ant-tour-arrow"
     />
     <div
-      class="ant-tour-body"
+      class="ant-tour-container"
       role="tooltip"
     >
       <div
@@ -711,7 +711,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
       class="ant-tour-arrow"
     />
     <div
-      class="ant-tour-body"
+      class="ant-tour-container"
       role="tooltip"
     >
       <div
@@ -829,7 +829,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
       class="ant-tour-arrow"
     />
     <div
-      class="ant-tour-body"
+      class="ant-tour-container"
       role="tooltip"
     >
       <div
