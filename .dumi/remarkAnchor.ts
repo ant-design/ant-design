@@ -41,7 +41,7 @@ const remarkAnchor = (opt: Options = {}): UnifiedTransformer<any> => {
     const ids = new Set();
 
     unistUtilVisit.visit(tree, 'heading', (node) => {
-      if (toArr(realOpt.level).indexOf(node.depth) === -1) {
+      if (!toArr(realOpt.level).includes(node.depth)) {
         return unistUtilVisit.CONTINUE;
       }
 
