@@ -1,7 +1,7 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { omit, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -132,9 +132,9 @@ const InternalCompoundedButton = React.forwardRef<
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
-    classNames: buttonClassNames,
+    classNames,
     styles,
-    style: customStyle = {},
+    style,
     autoInsertSpace,
     autoFocus,
     ...rest
@@ -345,7 +345,7 @@ const InternalCompoundedButton = React.forwardRef<
     ButtonStylesType,
     ButtonProps
   >(
-    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
+    [_skipSemantic ? undefined : contextClassNames, classNames],
     [_skipSemantic ? undefined : contextStyles, styles],
     undefined,
     {
@@ -354,7 +354,7 @@ const InternalCompoundedButton = React.forwardRef<
   );
 
   // ========================= Render =========================
-  const classes = classNames(
+  const classes = cls(
     prefixCls,
     hashId,
     cssVarCls,
@@ -385,7 +385,7 @@ const InternalCompoundedButton = React.forwardRef<
   const fullStyle: React.CSSProperties = {
     ...mergedStyles.root,
     ...contextStyle,
-    ...customStyle,
+    ...style,
   };
 
   const iconSharedProps = {
@@ -425,7 +425,7 @@ const InternalCompoundedButton = React.forwardRef<
     return (
       <a
         {...linkButtonRestProps}
-        className={classNames(classes, {
+        className={cls(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}

@@ -100,8 +100,8 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const {
     shape: contextShape,
     individual: contextIndividual,
-    classNames: groupPassedClassNames,
-    styles: groupPassedStyles,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = groupContext || {};
 
   const mergedShape = contextShape || shape;
@@ -128,21 +128,9 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     FloatButtonClassNamesType,
     FloatButtonStylesType,
     FloatButtonProps
-  >(
-    [
-      floatButtonClassNames,
-      // contextClassNames,
-      groupPassedClassNames,
-      classNames,
-    ],
-    [
-      // contextStyles,
-      groupPassedStyles,
-      styles,
-    ],
-    undefined,
-    { props: mergedProps },
-  );
+  >([floatButtonClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   // ============================= Icon =============================
   const mergedIcon = !mergedContent && !icon ? <FileTextOutlined /> : icon;
