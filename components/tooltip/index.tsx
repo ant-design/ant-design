@@ -248,13 +248,14 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       if (active && active.tagName === 'IFRAME') {
         setOpen(false);
         props.onOpenChange?.(false);
+        props.onVisibleChange?.(false);
       }
     }
     window.addEventListener('blur', handleWindowBlur, true);
     return () => {
       window.removeEventListener('blur', handleWindowBlur, true);
     };
-  }, [open, props.trigger, restProps.trigger]);
+  }, [open, props.trigger, restProps.trigger, props.onOpenChange, props.onVisibleChange]);
 
   const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
