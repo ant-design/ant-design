@@ -13,9 +13,9 @@ import Item from './MenuItem';
 import type { MenuItemProps } from './MenuItem';
 import SubMenu from './SubMenu';
 import type { SubMenuProps } from './SubMenu';
+export type { MenuDividerProps } from './MenuDivider';
 
 export type { MenuItemGroupProps } from 'rc-menu';
-export type { MenuDividerProps } from './MenuDivider';
 export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps };
 
 export type MenuRef = {
