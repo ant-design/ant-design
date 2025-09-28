@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 
 import type { ValidateStatus } from '../form/FormItem';
 
-const _InputStatuses = ['warning', 'error', ''] as const;
+const _InputStatuses = ['warning', 'error', '', 'success', 'validating'] as const;
 
 export type InputStatus = (typeof _InputStatuses)[number];
 
