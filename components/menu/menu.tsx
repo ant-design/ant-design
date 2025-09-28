@@ -146,7 +146,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = inlineCollapsed ?? siderCollapsed;
-  // =========== Merged Props for Semantic ==========
+  // ================ Merged Props for Semantic ================
   const mergedProps: MenuProps = {
     ...props,
     mode: mergedMode,
