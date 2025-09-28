@@ -9,12 +9,12 @@ describe('Test utils function', () => {
       jest.useFakeTimers();
     });
 
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
     afterEach(() => {
       jest.clearAllTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
     });
 
     it('throttle function should work', async () => {
