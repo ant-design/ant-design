@@ -58,7 +58,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     mergedClassNames.root,
   );
 
-  const rootStyles = {
+  const rootStyles: React.CSSProperties = {
     ...mergedStyles.root,
     ...contextStyle,
     ...style,
