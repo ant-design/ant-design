@@ -248,7 +248,7 @@
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-react-refresh": "^0.4.22",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "gh-pages": "^6.2.0",
