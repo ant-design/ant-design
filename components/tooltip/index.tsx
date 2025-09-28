@@ -234,6 +234,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
+  const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
+
   // ===================== Iframe Click Outside Fix =====================
   React.useEffect(() => {
     if (!open) return;
@@ -247,8 +249,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       const active = document.activeElement;
       if (active && active.tagName === 'IFRAME') {
         setOpen(false);
-        props.onOpenChange?.(false);
-        props.onVisibleChange?.(false);
+        if (!noTitle) {
+          props.onOpenChange?.(false);
+          props.onVisibleChange?.(false);
+        }
       }
     }
     window.addEventListener('blur', handleWindowBlur, true);
@@ -256,8 +260,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       window.removeEventListener('blur', handleWindowBlur, true);
     };
   }, [open, props.trigger, restProps.trigger, props.onOpenChange, props.onVisibleChange]);
-
-  const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
   const onOpenChange = (vis: boolean) => {
     setOpen(noTitle ? false : vis);
