@@ -42,7 +42,6 @@ export default antfu(
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
       'test/prefer-lowercase-title': 'off',
-      'test/prefer-hooks-in-order': 'off', // TODO: remove this
       'react-hooks/exhaustive-deps': 'off',
       'react/prefer-destructuring-assignment': 'off', // TODO: remove this
       'react-refresh/only-export-components': 'off', // TODO: remove this
