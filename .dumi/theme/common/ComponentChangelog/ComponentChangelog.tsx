@@ -217,26 +217,18 @@ const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[]
     () => import(`../../../preset/${logFileName}`),
   );
 
-  const componentName = React.useMemo(() => {
-    const component = componentPath.replace(/-/g, '');
-    if (data) {
-      const name = Object.keys(data).find((name) => name.toLowerCase() === component.toLowerCase());
-      return name;
-    } else {
-      return '';
-    }
-  }, [data, componentPath]);
+  const component = componentPath.replace(/-/g, '');
+  const name = Object.keys(data).find((name) => name.toLowerCase() === component.toLowerCase());
 
-  if (error) {
-    console.error(error.message);
+  if (error || isLoading) {
     return [];
   }
 
-  if (isLoading) {
+  if (!name) {
     return [];
   }
 
-  return data?.[componentName!] || [];
+  return data?.[name] || [];
 };
 
 const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
