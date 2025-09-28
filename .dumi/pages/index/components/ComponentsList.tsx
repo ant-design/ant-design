@@ -1,5 +1,11 @@
 import React from 'react';
-import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import {
+  CustomerServiceOutlined,
+  QuestionCircleOutlined,
+  SyncOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 import {
   Alert,
   Carousel,
@@ -11,6 +17,7 @@ import {
   Tag,
   Tour,
   Typography,
+  Button,
 } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
@@ -103,9 +110,29 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
     componentsList: css`
       width: 100%;
       overflow: hidden;
+      position: relative;
+    `,
+    scrollArea: css`
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     `,
     mobileComponentsList: css`
       margin: 0 ${token.margin}px;
+    `,
+    buttonContainer: css`
+      display: flex;
+      justify-content: center;
+      padding-top: 24px;
+      align-items: center;
+      gap: 24px;
+      margin-left: 60px;
+      margin-right: 40px;
     `,
   };
 });
@@ -148,6 +175,13 @@ const ComponentsList: React.FC = () => {
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = React.use(SiteContext);
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const scrollByPage = (direction: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const delta = el.clientWidth * 0.9;
+    el.scrollBy({ left: direction * delta, behavior: 'smooth' });
+  };
   const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
       {
@@ -276,19 +310,26 @@ const ComponentsList: React.FC = () => {
       </Carousel>
     </div>
   ) : (
-    <Flex justify="center" className={styles.componentsList}>
-      <Flex align="stretch" gap="large">
-        {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem
-            title={title}
-            node={node}
-            type={type}
-            index={index}
-            key={`desktop-item-${index}`}
-          />
-        ))}
+    <div>
+      <Flex justify="center" className={styles.componentsList}>
+        <Flex align="stretch" gap="large" className={styles.scrollArea} ref={scrollRef}>
+          {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
+            <ComponentItem
+              title={title}
+              node={node}
+              type={type}
+              index={index}
+              key={`desktop-item-${index}`}
+            />
+          ))}
+        </Flex>
       </Flex>
-    </Flex>
+      <div className={styles.buttonContainer}>
+        <Button icon={<LeftOutlined />} onClick={() => scrollByPage(-1)} />
+
+        <Button icon={<RightOutlined />} onClick={() => scrollByPage(1)} />
+      </div>
+    </div>
   );
 };
 
