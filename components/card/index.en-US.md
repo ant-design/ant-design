@@ -24,7 +24,7 @@ A card can be used to display content related to a single subject. The content c
 <code src="./demo/inner.tsx">Inner card</code>
 <code src="./demo/tabs.tsx">With tabs</code>
 <code src="./demo/meta.tsx">Support more content configuration</code>
-<code src="./demo/style-class.tsx">Semantic Structure</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -41,6 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | activeTabKey | Current TabPane's key | string | - |  |
 | ~~bordered~~ | Toggles rendering of the border around the card, please use `variant` instead | boolean | true |  |
 | variant | Variants of Card | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
@@ -52,8 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid

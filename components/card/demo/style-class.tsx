@@ -1,22 +1,28 @@
 import React from 'react';
 import { EditOutlined, HeartOutlined, ShareAltOutlined } from '@ant-design/icons';
-import { Avatar, Button, Card, Space } from 'antd';
-import type { CardProps } from 'antd';
+import { Avatar, Button, Card, Flex } from 'antd';
+import type { CardMetaProps, CardProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const { Meta } = Card;
 
 const useStyles = createStyles(({ token }) => ({
   root: {
-    maxWidth: 800,
+    width: 300,
     backgroundColor: token.colorBgContainer,
     borderRadius: token.borderRadius,
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
   },
+  header: {
+    borderBottom: 'none',
+    paddingBottom: 8,
+  },
+  body: {
+    paddingTop: 0,
+  },
 }));
 
-// 自定义样式卡片的 actions 配置
-const customCardActions = [
+const actions = [
   <HeartOutlined key="heart" style={{ color: '#ff6b6b' }} />,
   <ShareAltOutlined key="share" style={{ color: '#4ecdc4' }} />,
   <EditOutlined key="edit" style={{ color: '#45b7d1' }} />,
@@ -24,69 +30,88 @@ const customCardActions = [
 
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-  const stylesObject: CardProps['styles'] = {
+  const stylesCard: CardProps['styles'] = {
     root: {
-      border: 'none',
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
       borderRadius: '8px',
-    },
-    header: {
-      borderBottom: 'none',
-      paddingBottom: '8px',
     },
     title: {
       fontSize: '16px',
       fontWeight: '500',
       color: '#262626',
     },
-    body: {
-      paddingTop: '0',
+  };
+
+  const stylesCardFn: CardProps['styles'] = (info) => {
+    if (info.props.variant === 'outlined') {
+      return {
+        root: {
+          borderColor: '#696FC7',
+          boxShadow: '0 2px 8px #A7AAE1',
+          borderRadius: '8px',
+        },
+        extra: {
+          color: '#696FC7',
+        },
+        title: {
+          fontSize: '16px',
+          fontWeight: '500',
+          color: '#A7AAE1',
+        },
+      };
+    }
+    return {};
+  };
+
+  const stylesCardMeta: CardMetaProps['styles'] = {
+    title: {
+      color: '#A7AAE1',
+    },
+    description: {
+      color: '#A7AAE1',
     },
   };
+
+  const sharedCardProps: CardProps = {
+    classNames,
+    actions,
+  };
+
+  const sharedCardMetaProps: CardMetaProps = {
+    avatar: <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />,
+    description: 'This is the description',
+  };
   return (
-    <Space orientation="vertical">
-      <Space>
-        <Card
-          title="Normal card"
-          extra={<Button type="link">More</Button>}
-          style={{ width: 300 }}
-          actions={customCardActions}
-        >
-          <Meta
-            avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
-            title="Card title"
-            description="This is the description"
-          />
-        </Card>
-        <Card
-          title="Semantic card"
-          extra={<Button type="link">More</Button>}
-          style={{ width: 300 }}
-          classNames={classNames}
-          styles={stylesObject}
-          actions={customCardActions}
-        >
-          <Meta
-            avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
-            title="Card title"
-            description="This is the description"
-          />
-        </Card>
-      </Space>
-      <Space>
-        <Card title="Normal card" style={{ width: 300 }}>
-          <p>This is the description</p>
-        </Card>
-        <Card
-          title="Semantic card"
-          style={{ width: 300 }}
-          classNames={classNames}
-          styles={stylesObject}
-        >
-          <p>This is the description</p>
-        </Card>
-      </Space>
-    </Space>
+    <Flex gap="middle">
+      <Card
+        {...sharedCardProps}
+        title="Object Card"
+        styles={stylesCard}
+        extra={<Button type="link">More</Button>}
+        variant="borderless"
+      >
+        <Meta {...sharedCardMetaProps} title="Object Card Meta title" />
+      </Card>
+      <Card
+        {...sharedCardProps}
+        title="Function Card"
+        styles={stylesCardFn}
+        extra={
+          <Button
+            type="link"
+            styles={{
+              root: {
+                color: '#A7AAE1',
+              },
+            }}
+          >
+            More
+          </Button>
+        }
+      >
+        <Meta {...sharedCardMetaProps} styles={stylesCardMeta} title="Function Card Meta title" />
+      </Card>
+    </Flex>
   );
 };
 
