@@ -197,7 +197,7 @@ describe('Tour', () => {
     };
     const { getByText, baseElement } = render(<App />);
     expect(getByText('primary description.')).toBeTruthy();
-    expect(baseElement.querySelector('.ant-tour-pannel')?.parentElement).toHaveClass(
+    expect(baseElement.querySelector('.ant-tour-panel')?.parentElement).toHaveClass(
       'ant-tour-primary',
     );
     expect(baseElement).toMatchSnapshot();
@@ -233,10 +233,10 @@ describe('Tour', () => {
     };
     const { getByText, container, baseElement } = render(<App />);
     expect(getByText('cover description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-pannel')).toBeFalsy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeFalsy();
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-pannel')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -319,7 +319,7 @@ describe('Tour', () => {
     [undefined, null].forEach((total: any) => {
       const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-pannel .ant-tour-indicators'),
+        container.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-indicators'),
       ).toBeFalsy();
     });
   });
@@ -328,7 +328,7 @@ describe('Tour', () => {
     [undefined, null].forEach((title) => {
       const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-pannel .ant-tour-header'),
+        container.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-header'),
       ).toBeFalsy();
     });
   });
@@ -442,7 +442,7 @@ describe('Tour', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'SetCurrent' }));
     expect(getByText('Primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-pannel')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 

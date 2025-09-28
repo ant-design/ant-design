@@ -163,7 +163,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   );
 
   return (
-    <div className={`${prefixCls}-pannel`}>
+    <div className={`${prefixCls}-panel`}>
       <div
         className={classNames(`${prefixCls}-section`, tourClassNames?.section)}
         style={styles?.section}

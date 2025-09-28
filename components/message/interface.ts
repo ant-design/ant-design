@@ -93,6 +93,6 @@ export interface MessageInstance {
   error: TypeOpen;
   warning: TypeOpen;
   loading: TypeOpen;
-  open(args: ArgsProps): MessageType;
-  destroy(key?: React.Key): void;
+  open: (args: ArgsProps) => MessageType;
+  destroy: (key?: React.Key) => void;
 }
