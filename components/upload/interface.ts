@@ -3,7 +3,7 @@ import type {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
-} from 'rc-upload/lib/interface';
+} from '@rc-component/upload/lib/interface';
 
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
