@@ -8,7 +8,12 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
 
-  if (!React.isValidElement(children)) {
+  if (
+    !React.isValidElement<{
+      className?: string;
+      style?: React.CSSProperties;
+    }>(children)
+  ) {
     return children;
   }
 
@@ -22,9 +27,7 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
       removeOnLeave={false}
     >
       {({ style: motionStyle, className: motionClassName }) => {
-        const { className, style } = (
-          children as React.ReactElement<{ className?: string; style?: React.CSSProperties }>
-        ).props;
+        const { className, style } = children.props;
 
         const mergedClassName = classNames(className, motionClassName);
         const mergedStyles = {
