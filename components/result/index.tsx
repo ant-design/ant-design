@@ -28,10 +28,13 @@ export const ExceptionMap = {
 };
 
 export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
+
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
+
 type SemanticName = 'root' | 'title' | 'subTitle' | 'body' | 'extra' | 'icon';
 
 export type ResultClassNamesType = SemanticClassNamesType<ResultProps, SemanticName>;
+
 export type ResultStylesType = SemanticStylesType<ResultProps, SemanticName>;
 
 export interface ResultProps {
@@ -124,21 +127,22 @@ export interface ResultType extends React.FC<ResultProps> {
   PRESENTED_IMAGE_500: React.FC;
 }
 
-const Result: ResultType = ({
-  prefixCls: customizePrefixCls,
-  className: customizeClassName,
-  rootClassName,
-  subTitle,
-  title,
-  style,
-  children,
-  status = 'info',
-  icon,
-  extra,
-  styles,
-  classNames: resultClassNames,
-  ...rest
-}) => {
+const Result: ResultType = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className: customizeClassName,
+    rootClassName,
+    subTitle,
+    title,
+    style,
+    children,
+    status = 'info',
+    icon,
+    extra,
+    styles,
+    classNames: resultClassNames,
+  }
+  
   const {
     getPrefixCls,
     direction,
@@ -150,19 +154,8 @@ const Result: ResultType = ({
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: ResultProps = {
+    ...props,
     status,
-    icon,
-    title,
-    subTitle,
-    extra,
-    children,
-    prefixCls: customizePrefixCls,
-    className: customizeClassName,
-    rootClassName,
-    style,
-    styles,
-    classNames: resultClassNames,
-    ...rest,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
