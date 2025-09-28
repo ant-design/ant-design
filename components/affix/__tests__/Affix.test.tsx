@@ -45,14 +45,14 @@ describe('Affix Render', () => {
 
   const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
   beforeAll(() => {
     domMock.mockImplementation(function fn(this: HTMLElement) {
       return classRect[this.className] || { top: 0, bottom: 0 };
     });
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
   });
 
   afterEach(() => {

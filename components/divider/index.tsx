@@ -56,8 +56,8 @@ const Divider: React.FC<DividerProps> = (props) => {
   const {
     getPrefixCls,
     direction,
-    className: dividerClassName,
-    style: dividerStyle,
+    className: contextClassName,
+    style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('divider');
@@ -128,7 +128,7 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const classString = cls(
     prefixCls,
-    dividerClassName,
+    contextClassName,
     hashId,
     cssVarCls,
     `${prefixCls}-${mergedOrientation}`,
@@ -187,7 +187,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     <div
       className={classString}
       style={{
-        ...dividerStyle,
+        ...contextStyle,
         ...mergedStyles.root,
         ...(children ? {} : mergedStyles.rail),
         ...style,

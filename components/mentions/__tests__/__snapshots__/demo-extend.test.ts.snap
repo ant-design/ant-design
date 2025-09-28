@@ -503,6 +503,35 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
 
 exports[`renders components/mentions/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/mentions/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var acss-3jrxlv"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Object"
+      rows="1"
+      style="font-size: 14px;"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var acss-3jrxlv"
+    style="border: 1px solid rgb(114, 46, 209);"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Function"
+      rows="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/mentions/demo/variant.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
