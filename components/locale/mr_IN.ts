@@ -20,7 +20,7 @@ const localeValues: Locale = {
   Table: {
     filterTitle: 'फिल्टर मेनू',
     filterConfirm: 'ठीक आहे',
-    filterReset: 'पुन्हा नोंद करा',
+    filterReset: 'रीसेट करा',
     filterEmptyText: 'कोणतेही फिल्टर नाहीत',
     filterCheckAll: 'सर्व वस्तू निवडा',
     filterSearchPlaceholder: 'फिल्टरमध्ये शोधा',
