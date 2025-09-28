@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         },
 
         // ============================= panel content ============================
-        [`${componentCls}-pannel`]: {
+        [`${componentCls}-panel`]: {
           position: 'relative',
         },
 
