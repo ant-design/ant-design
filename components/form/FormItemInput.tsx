@@ -90,7 +90,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => {
-    const { labelCol, wrapperCol, ...rest } = formContext;
+    const { labelCol: _labelCol, wrapperCol: _wrapperCol, ...rest } = formContext;
     return rest;
   }, [formContext]);
 

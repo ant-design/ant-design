@@ -19,7 +19,8 @@ export interface WaveProps {
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-  const containerRef = useRef<HTMLElement>(null!);
+
+  const containerRef = useRef<HTMLElement | null>(null);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
@@ -31,7 +32,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   // ============================== Effect ==============================
   React.useEffect(() => {
     const node = containerRef.current;
-    if (!node || node.nodeType !== 1 || disabled) {
+    if (!node || node.nodeType !== window.Node.ELEMENT_NODE || disabled) {
       return;
     }
 

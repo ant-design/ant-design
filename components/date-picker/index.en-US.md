@@ -152,7 +152,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Show the fast access of current datetime | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/) | dayjs() | 5.27.3 |
+| showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | Show week info when in DatePicker | boolean | false | 5.14.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -224,7 +225,8 @@ Added in `4.1.0`.
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
+| ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] | 5.27.3 |
+| showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |

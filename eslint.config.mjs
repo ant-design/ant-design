@@ -33,21 +33,15 @@ export default antfu(
       'ts/explicit-function-return-type': 'off',
       'ts/ban-ts-comment': 'off', // TODO: remove this
       'ts/consistent-type-definitions': 'off',
-      'ts/consistent-type-imports': 'off', // TODO: remove this
-      'ts/method-signature-style': 'off', // TODO: remove this
       'ts/no-non-null-asserted-optional-chain': 'off',
-      'unicorn/prefer-number-properties': 'off',
       'unicorn/prefer-node-protocol': 'off',
-      'unicorn/prefer-includes': 'off', // TODO: remove this
       'unicorn/prefer-string-starts-ends-with': 'off', // TODO: remove this
       'regexp/no-unused-capturing-group': 'off',
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
       'test/prefer-lowercase-title': 'off',
-      'test/prefer-hooks-in-order': 'off', // TODO: remove this
       'react-hooks/exhaustive-deps': 'off',
-      'react/prefer-destructuring-assignment': 'off', // TODO: remove this
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
@@ -56,8 +50,10 @@ export default antfu(
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
+      'react/no-comment-textnodes': 'off',
+      'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
+      'react-dom/no-missing-button-type': 'off',
       'perfectionist/sort-imports': 'off',
-      'perfectionist/sort-exports': 'off',
       'perfectionist/sort-named-imports': 'off',
       'perfectionist/sort-named-exports': 'off',
       'regexp/strict': 'off',

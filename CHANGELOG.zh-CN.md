@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 5.27.4
+
+`2025-09-17`
+
+- Table
+  - 🐞 修复 Table 在使 `sticky` 表头或设置 `scroll.y` 时，筛选下拉与 Tooltip 重复显示的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
+  - 🐞 修复 Table 表头在首次加载时未正确渲染的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
+  - 🐞 修复 Table 在启用 `scroll.x` 时，固定列的对齐问题。[#54899](https://github.com/ant-design/ant-design/pull/54899) [@afc163](https://github.com/afc163)
+- 🐞 修复 Button 仅图标（icon-only）按钮的内边距受主题影响的问题。 [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Splitter 在非受控模式下初次挂载时，`minSize` 和 `maxSize` 未生效的问题。[#54939](https://github.com/ant-design/ant-design/pull/54939) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Switch 波纹效果与 Tailwind CSS disabled 变体的兼容性问题。[#54933](https://github.com/ant-design/ant-design/pull/54933)  [@Jiyur](https://github.com/Jiyur)
+- 🐞 修复 Input.Search 在搜索按钮为 `disabled` 时，悬停仍会导致边框和图标变色的问题。[#54892](https://github.com/ant-design/ant-design/pull/54892) [@Jiyur](https://github.com/Jiyur)
+
+
 ## 5.27.3
 
 `2025-09-04`

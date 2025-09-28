@@ -57,17 +57,6 @@ describe('Upload List', () => {
 
   // HTMLCanvasElement.prototype
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-    return setup();
-  });
-  afterEach(() => {
-    teardown();
-    drawImageCallback = null;
-    jest.clearAllTimers();
-    jest.useRealTimers();
-  });
-
   let open: jest.MockInstance<any, any[]>;
   beforeAll(() => {
     open = jest.spyOn(window, 'open').mockImplementation(() => null);
@@ -86,6 +75,16 @@ describe('Upload List', () => {
       },
     } as RenderingContext);
     mockToDataURL.mockReturnValue('data:image/png;base64,');
+  });
+  beforeEach(() => {
+    jest.useFakeTimers();
+    return setup();
+  });
+  afterEach(() => {
+    teardown();
+    drawImageCallback = null;
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   afterAll(() => {
