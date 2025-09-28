@@ -2,8 +2,8 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
-import type { UploadProps as RcUploadProps } from 'rc-upload';
-import RcUpload from 'rc-upload';
+import type { UploadProps as RcUploadProps } from '@rc-component/upload';
+import RcUpload from '@rc-component/upload';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
