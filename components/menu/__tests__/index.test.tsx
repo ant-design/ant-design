@@ -754,7 +754,7 @@ describe('Menu', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
   });
 
   it('MenuItem should render icon and icon should be the first child when icon exists', () => {
@@ -804,7 +804,7 @@ describe('Menu', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
 
     jest.useRealTimers();
   });
