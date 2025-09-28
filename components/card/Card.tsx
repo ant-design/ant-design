@@ -127,7 +127,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const mergedSize = useSize(customizeSize);
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = {
+  const mergedProps: CardProps = {
     ...props,
     size: mergedSize,
     variant: variant as CardProps['variant'],
