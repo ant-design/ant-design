@@ -35,7 +35,6 @@ export default antfu(
       'ts/consistent-type-definitions': 'off',
       'ts/no-non-null-asserted-optional-chain': 'off',
       'unicorn/prefer-node-protocol': 'off',
-      'unicorn/prefer-string-starts-ends-with': 'off', // TODO: remove this
       'regexp/no-unused-capturing-group': 'off',
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this

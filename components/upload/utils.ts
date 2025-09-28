@@ -62,7 +62,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
   ) {
     return true;
   }
-  if (/^data:/.test(url)) {
+  if (url.startsWith('data:')) {
     // other file types of base64
     return false;
   }
