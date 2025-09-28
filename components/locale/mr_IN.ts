@@ -92,7 +92,7 @@ const localeValues: Locale = {
       whitespace: '${label} मध्ये रिकामं वर्णन असू शकत नाही',
       date: {
         format: '${label} तारीख स्वरूप अवैध आहे',
-        parse: '${label} तारीखेत रूपांतरीत करता येत नाही',
+        parse: '${label} तारखेत रूपांतरीत करता येत नाही',
         invalid: '${label}ची तारीख चुकीची आहे',
       },
       types: {
@@ -119,7 +119,7 @@ const localeValues: Locale = {
       number: {
         len: '${label} ${len} च्या बरोबरचे असले पाहिजे',
         min: '${label} किमान ${min} असणे आवश्यक आहे',
-        max: '${label} ज्यास्तीत ज्यास्त ${max} असणे आवश्यक आहे',
+        max: '${label} जास्तीत जास्त ${max} असणे आवश्यक आहे',
         range: '${label} ${min}-${max} च्या दरम्यान असले पाहिजे',
       },
       array: {
