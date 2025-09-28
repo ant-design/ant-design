@@ -155,10 +155,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         maxWidth: 'none',
         margin: token.sizePopupArrow,
         display: 'inline-block',
-
-        [`${componentCls}-content`]: {
-          display: 'inline-block',
-        },
       },
     },
   ];
