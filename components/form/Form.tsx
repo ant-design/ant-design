@@ -6,9 +6,10 @@ import type {
   InternalNamePath,
   ValidateErrorEntity,
 } from '@rc-component/form/lib/interface';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
@@ -36,11 +37,14 @@ export type FormItemLayout = 'horizontal' | 'vertical';
 
 export type { ScrollFocusOptions };
 
-export type SemanticName = 'root' | 'label' | 'content';
+export type FormSemanticName = 'root' | 'label' | 'content';
+
+export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticName>;
+export type FormStylesType = SemanticStylesType<FormProps, FormSemanticName>;
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: FormClassNamesType;
+  styles?: FormStylesType;
   prefixCls?: string;
   colon?: boolean;
   name?: string;
@@ -93,7 +97,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     style,
     feedbackIcons,
     variant,
-    classNames: formClassNames,
+    classNames,
     styles,
     ...restFormProps
   } = props;
@@ -129,12 +133,25 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, formClassNames],
-    [contextStyles, styles],
-  );
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: FormProps = {
+    ...props,
+    size: mergedSize,
+    disabled,
+    layout,
+    colon: mergedColon,
+    requiredMark: mergedRequiredMark,
+  };
 
-  const formClassName = classNames(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FormClassNamesType,
+    FormStylesType,
+    FormProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
+  const formClassName = cls(
     prefixCls,
     `${prefixCls}-${layout}`,
     {
@@ -148,7 +165,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     contextClassName,
     className,
     rootClassName,
-    mergedClassNames?.root,
+    mergedClassNames.root,
   );
 
   const [wrapForm] = useForm(form);

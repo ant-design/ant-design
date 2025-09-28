@@ -2,8 +2,7 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import CSSMotion from '@rc-component/motion';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState, useEvent } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -109,7 +108,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     : 'top';
 
   // ========================== Open ==========================
-  const [open, setOpen] = useMergedState(false, { value: customOpen });
+  const [open, setOpen] = useControlledState(false, customOpen);
 
   const hoverTrigger = trigger === 'hover';
   const clickTrigger = trigger === 'click';

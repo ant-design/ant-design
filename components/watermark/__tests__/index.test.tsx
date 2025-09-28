@@ -25,12 +25,12 @@ describe('Watermark', () => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
-    mockSrcSet.mockRestore();
-  });
-
   afterEach(() => {
     jest.useRealTimers();
+  });
+
+  afterAll(() => {
+    mockSrcSet.mockRestore();
   });
 
   it('The watermark should render successfully', () => {

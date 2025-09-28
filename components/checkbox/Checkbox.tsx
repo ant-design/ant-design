@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import cls from 'classnames';
 import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -55,10 +57,14 @@ export interface CheckboxChangeEvent {
 }
 
 type SemanticName = 'root' | 'icon' | 'label';
+
+export type CheckboxClassNamesType = SemanticClassNamesType<CheckboxProps, SemanticName>;
+export type CheckboxStylesType = SemanticStylesType<CheckboxProps, SemanticName>;
+
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: CheckboxClassNamesType;
+  styles?: CheckboxStylesType;
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
@@ -76,7 +82,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onMouseLeave,
     skipGroup = false,
     disabled,
-    classNames: checkboxClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -92,6 +98,21 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const { isFormItemInput } = React.useContext(FormItemInputContext);
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: CheckboxProps = {
+    ...props,
+    indeterminate,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CheckboxClassNamesType,
+    CheckboxStylesType,
+    CheckboxProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const prevValue = React.useRef(restProps.value);
   const checkboxRef = React.useRef<CheckboxRef>(null);
@@ -147,7 +168,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checkboxProps.name = checkboxGroup.name;
     checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
-  const classString = classNames(
+  const classString = cls(
     `${prefixCls}-wrapper`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -157,16 +178,14 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     },
     contextClassName,
     className,
-    contextClassNames.root,
-    checkboxClassNames?.root,
+    mergedClassNames.root,
     rootClassName,
     cssVarCls,
     rootCls,
     hashId,
   );
-  const checkboxClass = classNames(
-    checkboxClassNames?.icon,
-    contextClassNames.icon,
+  const checkboxClass = cls(
+    mergedClassNames.icon,
     { [`${prefixCls}-indeterminate`]: indeterminate },
     TARGET_CLS,
     hashId,
@@ -180,7 +199,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     <Wave component="Checkbox" disabled={mergedDisabled}>
       <label
         className={classString}
-        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onLabelClick}
@@ -191,18 +210,14 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           onClick={onInputClick}
           prefixCls={prefixCls}
           className={checkboxClass}
-          style={{ ...contextStyles.icon, ...styles?.icon }}
+          style={mergedStyles.icon}
           disabled={mergedDisabled}
           ref={mergedRef}
         />
         {children !== undefined && children !== null && (
           <span
-            className={classNames(
-              `${prefixCls}-label`,
-              contextClassNames.label,
-              checkboxClassNames?.label,
-            )}
-            style={{ ...contextStyles.label, ...styles?.label }}
+            className={cls(`${prefixCls}-label`, mergedClassNames.label)}
+            style={mergedStyles.label}
           >
             {children}
           </span>

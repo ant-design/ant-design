@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Radio } from 'antd';
+import type { FormProps } from 'antd';
 
 type LayoutType = Parameters<typeof Form>[0]['layout'];
 
@@ -7,7 +8,7 @@ const App: React.FC = () => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState<LayoutType>('horizontal');
 
-  const onFormLayoutChange = ({ layout }: { layout: LayoutType }) => {
+  const onFormLayoutChange: FormProps<any>['onValuesChange'] = ({ layout }) => {
     setFormLayout(layout);
   };
 
