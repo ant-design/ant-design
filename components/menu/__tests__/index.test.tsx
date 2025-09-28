@@ -511,10 +511,10 @@ describe('Menu', () => {
 
     triggerAllTimer();
     // when title is null or '' and false, tooltip will not render.
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(3);
-    expect(container.querySelectorAll('.ant-tooltip-inner')[0].textContent).toBe('item');
-    expect(container.querySelectorAll('.ant-tooltip-inner')[1].textContent).toBe('title');
-    expect(container.querySelectorAll('.ant-tooltip-inner')[2].textContent).toBe('item');
+    expect(container.querySelectorAll('.ant-tooltip-container').length).toBe(3);
+    expect(container.querySelectorAll('.ant-tooltip-container')[0].textContent).toBe('item');
+    expect(container.querySelectorAll('.ant-tooltip-container')[1].textContent).toBe('title');
+    expect(container.querySelectorAll('.ant-tooltip-container')[2].textContent).toBe('item');
   });
 
   describe('open submenu when click submenu title', () => {
@@ -680,7 +680,7 @@ describe('Menu', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     triggerAllTimer();
-    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('bamboo lucky');
+    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('bamboo lucky');
   });
 
   it('render correctly when using with Layout.Sider', () => {
