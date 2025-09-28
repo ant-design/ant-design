@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEvent } from '@rc-component/util';
-import classNames from 'classnames';
+import cls from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
@@ -132,7 +132,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     getContainer,
     getCurrentAnchor,
     replace,
-    classNames: anchorClassNames,
+    classNames,
     styles,
   } = props;
 
@@ -301,11 +301,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     AnchorClassNamesType,
     AnchorStylesType,
     AnchorProps
-  >([contextClassNames, anchorClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
-  const wrapperClass = classNames(
+  const wrapperClass = cls(
     hashId,
     cssVarCls,
     rootCls,
@@ -320,11 +320,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     mergedClassNames.root,
   );
 
-  const anchorClass = classNames(prefixCls, {
+  const anchorClass = cls(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(`${prefixCls}-ink`, mergedClassNames.indicator, {
+  const inkClass = cls(`${prefixCls}-ink`, mergedClassNames.indicator, {
     [`${prefixCls}-ink-visible`]: activeLink,
   });
 
