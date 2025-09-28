@@ -141,7 +141,7 @@ const Result: ResultType = (props) => {
     extra,
     styles,
     classNames: resultClassNames,
-  }
+  } = props;
   
   const {
     getPrefixCls,
