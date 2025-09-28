@@ -330,3 +330,25 @@ describe('Select', () => {
     expect(input!.className.includes('compact')).toBeFalsy();
   });
 });
+
+describe('Select ARIA attributes', () => {
+  it('should have role="combobox"', () => {
+    const { container } = render(<Select />);
+    const selectEl = container.querySelector('.ant-select');
+    expect(selectEl).toHaveAttribute('role', 'combobox');
+  });
+
+  it('should have aria-expanded reflecting open state', () => {
+    const { container, rerender } = render(<Select />);
+    const selectEl = container.querySelector('.ant-select');
+
+    // default closed
+    expect(selectEl).toHaveAttribute('aria-expanded', 'false');
+
+    // open dropdown
+    rerender(<Select open />);
+    expect(selectEl).toHaveAttribute('aria-expanded', 'true');
+  });
+});
+
+//*/

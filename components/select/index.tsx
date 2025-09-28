@@ -331,6 +331,9 @@ const InternalSelect = <
   return wrapCSSVar(
     <RcSelect<ValueType, OptionType>
       ref={ref}
+      {...({ role: 'combobox' } as any)}
+      aria-expanded={props.open ?? false}
+      aria-controls={props.id ? `${props.id}_list` : undefined}
       virtual={virtual}
       showSearch={showSearch}
       {...selectProps}
