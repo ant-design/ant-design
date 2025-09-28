@@ -68,7 +68,7 @@ The properties of config are as follows:
 | placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - |
 | role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | [Record<SemanticDOM, CSSProperties> \| (info: { props })=> Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | [Record<SemanticDOM, CSSProperties> \| (info: { props })=> Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | |
 | onClick | Specify a function that will be called when the notification is clicked | function | - | - |
 | onClose | Trigger when notification closed | function | - | - |
 | props | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. | Object | - | - |
