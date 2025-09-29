@@ -21019,77 +21019,77 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="config-popover-arrow-content"
+      />
+    </div>
     <div
-      class="config-popover-content"
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="config-popover-content"
       >
         <div
-          class="config-popover-inner-content"
+          class="config-popconfirm-inner-content"
         >
           <div
-            class="config-popconfirm-inner-content"
+            class="config-popconfirm-message"
           >
-            <div
-              class="config-popconfirm-message"
+            <span
+              class="config-popconfirm-message-icon"
             >
               <span
-                class="config-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="config-popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="config-popconfirm-buttons"
+              class="config-popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="config-popconfirm-buttons"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              type="button"
             >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21107,79 +21107,79 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="config-popover-arrow-content"
+      />
+    </div>
     <div
-      class="config-popover-content"
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="config-popover-content"
       >
         <div
-          class="config-popover-inner-content"
+          class="config-popconfirm-inner-content"
         >
           <div
-            class="config-popconfirm-inner-content"
+            class="config-popconfirm-message"
           >
-            <div
-              class="config-popconfirm-message"
+            <span
+              class="config-popconfirm-message-icon"
             >
               <span
-                class="config-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="config-popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="config-popconfirm-buttons"
+              class="config-popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="config-popconfirm-buttons"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              disabled=""
+              type="button"
             >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                disabled=""
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                disabled=""
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              disabled=""
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21197,77 +21197,77 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="config-popover-arrow-content"
+      />
+    </div>
     <div
-      class="config-popover-content"
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="config-popover-content"
       >
         <div
-          class="config-popover-inner-content"
+          class="config-popconfirm-inner-content"
         >
           <div
-            class="config-popconfirm-inner-content"
+            class="config-popconfirm-message"
           >
-            <div
-              class="config-popconfirm-message"
+            <span
+              class="config-popconfirm-message-icon"
             >
               <span
-                class="config-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="config-popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="config-popconfirm-buttons"
+              class="config-popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="config-popconfirm-buttons"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              type="button"
             >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21285,77 +21285,77 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="config-popover-arrow-content"
+      />
+    </div>
     <div
-      class="config-popover-content"
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="config-popover-content"
       >
         <div
-          class="config-popover-inner-content"
+          class="config-popconfirm-inner-content"
         >
           <div
-            class="config-popconfirm-inner-content"
+            class="config-popconfirm-message"
           >
-            <div
-              class="config-popconfirm-message"
+            <span
+              class="config-popconfirm-message-icon"
             >
               <span
-                class="config-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="config-popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="config-popconfirm-buttons"
+              class="config-popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="config-popconfirm-buttons"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              type="button"
             >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21373,77 +21373,77 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="config-popover-arrow-content"
+      />
+    </div>
     <div
-      class="config-popover-content"
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="config-popover-content"
       >
         <div
-          class="config-popover-inner-content"
+          class="config-popconfirm-inner-content"
         >
           <div
-            class="config-popconfirm-inner-content"
+            class="config-popconfirm-message"
           >
-            <div
-              class="config-popconfirm-message"
+            <span
+              class="config-popconfirm-message-icon"
             >
               <span
-                class="config-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="config-popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="config-popconfirm-buttons"
+              class="config-popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="config-popconfirm-buttons"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              type="button"
             >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21461,77 +21461,77 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
     Bamboo
   </span>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-root css-var-root ant-popconfirm ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-root css-var-root ant-popconfirm ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
-            <div
-              class="ant-popconfirm-message"
+            <span
+              class="ant-popconfirm-message-icon"
             >
               <span
-                class="ant-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="ant-popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="ant-popconfirm-buttons"
+              class="ant-popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21549,77 +21549,77 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
     Bamboo
   </span>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-root css-var-root prefix-Popconfirm ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-root css-var-root prefix-Popconfirm ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="prefix-Popconfirm-inner-content"
         >
           <div
-            class="prefix-Popconfirm-inner-content"
+            class="prefix-Popconfirm-message"
           >
-            <div
-              class="prefix-Popconfirm-message"
+            <span
+              class="prefix-Popconfirm-message-icon"
             >
               <span
-                class="prefix-Popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
-              <div
-                class="prefix-Popconfirm-message-text"
-              />
-            </div>
+            </span>
             <div
-              class="prefix-Popconfirm-buttons"
+              class="prefix-Popconfirm-message-text"
+            />
+          </div>
+          <div
+            class="prefix-Popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -21637,22 +21637,22 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-popover-content"
     >
-      <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="config-popover-arrow-content"
       />
     </div>
+    <div
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -21666,22 +21666,22 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-popover-content"
     >
-      <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="config-popover-arrow-content"
       />
     </div>
+    <div
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -21695,22 +21695,22 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-popover-content"
     >
-      <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="config-popover-arrow-content"
       />
     </div>
+    <div
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -21724,22 +21724,22 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-popover-content"
     >
-      <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="config-popover-arrow-content"
       />
     </div>
+    <div
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -21753,22 +21753,22 @@ exports[`ConfigProvider components Popover configProvider componentSize small 1`
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big css-var-root css-var-root config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-css-var css-var-root css-var-root config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-popover-content"
     >
-      <div
-        class="config-popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="config-popover-arrow-content"
       />
     </div>
+    <div
+      class="config-popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -21782,22 +21782,22 @@ exports[`ConfigProvider components Popover normal 1`] = `
     Light
   </span>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-root css-var-root ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-root css-var-root ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-popover-content"
     >
-      <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="ant-popover-arrow-content"
       />
     </div>
+    <div
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -21811,22 +21811,22 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
     Light
   </span>
   <div
-    class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-root css-var-root prefix-Popover-placement-top"
+    class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popover-css-var css-var-root css-var-root prefix-Popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="prefix-Popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="prefix-Popover-content"
     >
-      <div
-        class="prefix-Popover-inner"
-        id="test-id"
-        role="tooltip"
+      <span
+        class="prefix-Popover-arrow-content"
       />
     </div>
+    <div
+      class="prefix-Popover-container"
+      id="test-id"
+      role="tooltip"
+    />
   </div>
 </div>
 `;
@@ -25603,23 +25603,23 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     tabindex="0"
   />
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-slider-tooltip config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-slider-tooltip config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -25651,23 +25651,23 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
     style="left: 0%; transform: translateX(-50%);"
   />
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-slider-tooltip config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-slider-tooltip config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -25700,23 +25700,23 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     tabindex="0"
   />
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-slider-tooltip config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-slider-tooltip config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -25749,23 +25749,23 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     tabindex="0"
   />
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-slider-tooltip config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-slider-tooltip config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -25798,23 +25798,23 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
     tabindex="0"
   />
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-slider-tooltip config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-slider-tooltip config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -25847,23 +25847,23 @@ exports[`ConfigProvider components Slider normal 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-root ant-slider-tooltip ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-root ant-slider-tooltip ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -25896,23 +25896,23 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     tabindex="0"
   />
   <div
-    class="prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-root prefix-Slider-tooltip prefix-Slider-tooltip-placement-top"
+    class="prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Slider-tooltip-css-var css-var-root prefix-Slider-tooltip prefix-Slider-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="prefix-Slider-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="prefix-Slider-tooltip-content"
     >
-      <div
-        class="prefix-Slider-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        0
-      </div>
+      <span
+        class="prefix-Slider-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="prefix-Slider-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      0
     </div>
   </div>
 </div>
@@ -39271,23 +39271,23 @@ Array [
     Light
   </span>,
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
@@ -39302,23 +39302,23 @@ Array [
     Light
   </span>,
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
@@ -39333,23 +39333,23 @@ Array [
     Light
   </span>,
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
@@ -39364,23 +39364,23 @@ Array [
     Light
   </span>,
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
@@ -39395,23 +39395,23 @@ Array [
     Light
   </span>,
   <div
-    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast css-var-root config-tooltip-placement-top"
+    class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-css-var css-var-root config-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="config-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="config-tooltip-content"
     >
-      <div
-        class="config-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="config-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="config-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
@@ -39426,23 +39426,23 @@ Array [
     Light
   </span>,
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-root ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-root ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
@@ -39457,23 +39457,23 @@ Array [
     Light
   </span>,
   <div
-    class="prefix-Tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-root prefix-Tooltip-placement-top"
+    class="prefix-Tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Tooltip-css-var css-var-root prefix-Tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="prefix-Tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="prefix-Tooltip-content"
     >
-      <div
-        class="prefix-Tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        Bamboo
-      </div>
+      <span
+        class="prefix-Tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="prefix-Tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Bamboo
     </div>
   </div>,
 ]
