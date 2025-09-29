@@ -90,9 +90,22 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+
+  const mergedProps: PopconfirmProps = {
+    ...props,
+    placement,
+    trigger,
+    okType,
+    overlayStyle,
+    styles,
+    classNames,
+  };
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [ctxClassNames, classNames],
     [ctxStyles, styles],
+    undefined,
+    { props: mergedProps },
   );
 
   const rootClassNames = cls(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);

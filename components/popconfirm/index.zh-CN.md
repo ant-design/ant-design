@@ -27,6 +27,7 @@ demo:
 <code src="./demo/icon.tsx">自定义 Icon 图标</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/promise.tsx">基于 Promise 的异步关闭</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义化结构样式</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 
@@ -38,12 +39,14 @@ demo:
 | --- | --- | --- | --- | --- |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | string | `取消` |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false |  |
 | icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircle /> |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | showCancel | 是否显示取消按钮 | boolean | true | 4.18.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | title | 确认框标题 | ReactNode \| () => ReactNode | - |  |
 | description | 确认内容的详细描述 | ReactNode \| () => ReactNode | - | 5.1.0 |
 | onCancel | 点击取消的回调 | function(e) | - |  |

@@ -2056,6 +2056,92 @@ exports[`renders components/popover/demo/shift.tsx extend context correctly 1`] 
 
 exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    style="margin-right: 16px;"
+    type="button"
+  >
+    <span>
+      Static
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id my-popover ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background: rgb(246, 255, 237);"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container custom-content"
+      id="test-id"
+      role="tooltip"
+      style="padding: 12px;"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Static Style
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        This is a popover with static classNames and styles
+      </div>
+    </div>
+  </div>,
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Dynamic
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id my-popover-top ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background: rgb(246, 255, 237);"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container custom-content-top"
+      id="test-id"
+      role="tooltip"
+      style="padding: 12px;"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Dynamic Style
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        This is a popover with dynamic classNames and styles
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

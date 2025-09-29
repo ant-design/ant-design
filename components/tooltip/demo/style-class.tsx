@@ -4,7 +4,7 @@ import type { TooltipProps } from 'antd';
 
 const classNamesObject: TooltipProps['classNames'] = {
   root: 'demo-tooltip-root',
-  body: 'demo-tooltip-body',
+  container: 'demo-tooltip-body',
 };
 
 const classNamesFn: TooltipProps['classNames'] = (info) => {
@@ -16,19 +16,19 @@ const classNamesFn: TooltipProps['classNames'] = (info) => {
 
 const stylesObject: TooltipProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed' },
-  body: { fontStyle: 'italic', backgroundColor: '#f0f0f0' },
+  container: { fontStyle: 'italic', backgroundColor: '#f0f0f0' },
 };
 
 const stylesFn: TooltipProps['styles'] = (info) => {
   if (info.props.placement?.startsWith('top')) {
     return {
       root: { backgroundColor: '#fff2e8', borderColor: '#ffbb96' },
-      body: { color: '#d4380d' },
+      container: { color: '#d4380d' },
     };
   }
   return {
     root: { backgroundColor: '#f6ffed', borderColor: '#b7eb8f' },
-    body: { color: '#389e0d' },
+    container: { color: '#389e0d' },
   };
 };
 

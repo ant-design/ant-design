@@ -2264,6 +2264,210 @@ exports[`renders components/popconfirm/demo/shift.tsx extend context correctly 1
 
 exports[`renders components/popconfirm/demo/shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popconfirm/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    style="margin-right: 16px;"
+    type="button"
+  >
+    <span>
+      静态样式
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm my-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background: rgb(246, 255, 237);"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container custom-content"
+      id="test-id"
+      role="tooltip"
+      style="padding: 12px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popconfirm-inner-content"
+        >
+          <div
+            class="ant-popconfirm-message"
+          >
+            <span
+              class="ant-popconfirm-message-icon"
+            >
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
+              <div
+                class="ant-popconfirm-title"
+              >
+                静态样式
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                使用对象形式的 classNames 和 styles
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      动态样式
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm top-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background: rgb(230, 247, 255);"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container top-content"
+      id="test-id"
+      role="tooltip"
+      style="padding: 16px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popconfirm-inner-content"
+        >
+          <div
+            class="ant-popconfirm-message"
+          >
+            <span
+              class="ant-popconfirm-message-icon"
+            >
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
+              <div
+                class="ant-popconfirm-title"
+              >
+                动态样式
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                使用函数形式的 classNames 和 styles
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popconfirm/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div

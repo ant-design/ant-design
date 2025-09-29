@@ -60,9 +60,22 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const mergedArrow = useMergedArrow(popoverArrow, contextArrow);
 
   // ============================= Styles =============================
+  const mergedProps: PopoverProps = {
+    ...props,
+    placement,
+    trigger,
+    mouseEnterDelay,
+    mouseLeaveDelay,
+    overlayStyle,
+    styles,
+    classNames,
+  };
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    undefined,
+    { props: mergedProps },
   );
 
   const rootClassNames = cls(
