@@ -53,18 +53,20 @@ describe('Descriptions.Semantic', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
-    const headerElement = container.querySelector('.ant-descriptions-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-descriptions-title') as HTMLElement;
-    const extraElement = container.querySelector('.ant-descriptions-extra') as HTMLElement;
-    const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
-    const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
-    const labelElements = container.querySelectorAll(
-      '.ant-descriptions-item-label',
-    ) as NodeListOf<HTMLElement>;
-    const contentElements = container.querySelectorAll(
+    const rootElement = container.querySelector<HTMLDivElement>('.ant-descriptions')!;
+    const headerElement = container.querySelector<HTMLDivElement>('.ant-descriptions-header')!;
+    const titleElement = container.querySelector<HTMLDivElement>('.ant-descriptions-title')!;
+    const extraElement = container.querySelector<HTMLDivElement>('.ant-descriptions-extra')!;
+    const labelElement = container.querySelector<HTMLDivElement>('.ant-descriptions-item-label')!;
+    const contentElement = container.querySelector<HTMLDivElement>(
       '.ant-descriptions-item-content',
-    ) as NodeListOf<HTMLElement>;
+    )!;
+    const labelElements = container.querySelectorAll<HTMLDivElement>(
+      '.ant-descriptions-item-label',
+    );
+    const contentElements = container.querySelectorAll<HTMLDivElement>(
+      '.ant-descriptions-item-content',
+    );
 
     // check classNames
     expect(rootElement.classList).toContain('custom-root');
