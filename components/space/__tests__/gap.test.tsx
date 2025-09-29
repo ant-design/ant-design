@@ -37,7 +37,7 @@ describe('flex gap', () => {
   it('should NaN work', () => {
     expect(() => {
       render(
-        <Space size={[NaN, NaN]}>
+        <Space size={[Number.NaN, Number.NaN]}>
           <span>test</span>
         </Space>,
       );
