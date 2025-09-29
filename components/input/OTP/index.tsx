@@ -97,10 +97,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     ...restProps
   } = props;
 
-  // Use 'tel' type for better mobile numeric keyboard support
-  // Note: This will be overridden to 'password' if mask=true in OTPInput
+  // Use inputMode='numeric' to trigger numeric keyboard
+  // Keep type='text' for better cross-platform consistency
   const mergedInputMode = numbersOnly ? 'numeric' : inputMode;
-  const mergedInputType = numbersOnly ? 'tel' : type;
+  const mergedInputType = numbersOnly ? 'text' : type;
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input.OTP');
