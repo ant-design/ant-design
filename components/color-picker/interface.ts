@@ -1,5 +1,4 @@
-import type { CSSProperties, FC, ReactNode } from 'react';
-import React from 'react';
+import type React from 'react';
 import type {
   ColorGenInput,
   ColorPickerProps as RcColorPickerProps,
@@ -24,7 +23,7 @@ export const FORMAT_HSB = 'hsb';
 export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FORMAT_HSB;
 
 export interface PresetsItem {
-  label: ReactNode;
+  label: React.ReactNode;
   colors: (string | AggregationColor | LineGradientType)[];
   /**
    * Whether the initial state is collapsed
@@ -81,7 +80,7 @@ export type ColorPickerProps = Omit<
   arrow?: boolean | { pointAtCenter: boolean };
   panelRender?: (
     panel: React.ReactNode,
-    extra: { components: { Picker: FC; Presets: FC } },
+    extra: { components: { Picker: React.FC; Presets: React.FC } },
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
@@ -90,7 +89,7 @@ export type ColorPickerProps = Omit<
   };
   styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
     popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-    popupOverlayInner?: CSSProperties;
+    popupOverlayInner?: React.CSSProperties;
   };
   rootClassName?: string;
   disabledAlpha?: boolean;
