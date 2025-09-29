@@ -1690,7 +1690,7 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
       style="position: absolute; top: 0px; left: 0px;"
     />
     <div
-      class="ant-tour-pannel"
+      class="ant-tour-panel"
     >
       <div
         class="ant-tour-section acss-rl6otz"
@@ -1782,7 +1782,7 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
-      class="ant-tour-pannel"
+      class="ant-tour-panel"
     >
       <div
         class="ant-tour-section acss-rl6otz"
