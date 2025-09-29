@@ -70,7 +70,7 @@ const Cell: React.FC<CellProps> = (props) => {
       >
         {notEmpty(label) && <span style={{ ...labelStyle, ...mergedStyles.label }}>{label}</span>}
         {notEmpty(content) && (
-          <span style={{ ...labelStyle, ...mergedStyles.content }}>{content}</span>
+          <span style={{ ...contentStyle, ...mergedStyles.content }}>{content}</span>
         )}
       </Component>
     );
