@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Image.Semantic rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-image css-var-root ant-image-css-var"
+>
+  <img
+    class="ant-image-img"
+  />
+  <div
+    class="ant-image-cover ant-image-cover-center"
+  />
+</div>
+`;
+
+exports[`Image.Semantic should render with classNames and styles when passed as functions to PreviewGroup 1`] = `"<div class="ant-image css-var-root ant-image-css-var" style="width: 100px;"><img class="ant-image-img" width="100" src="https://example.com/image.png"><div class="ant-image-cover ant-image-cover-center"></div></div>"`;
+
+exports[`Image.Semantic should render with custom classNames and styles when passed to PreviewGroup 1`] = `"<div class="ant-image css-var-root ant-image-css-var"><img class="ant-image-img" src="https://example.com/image.png"><div class="ant-image-cover ant-image-cover-center"></div></div>"`;
