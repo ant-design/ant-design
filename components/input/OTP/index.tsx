@@ -51,7 +51,7 @@ export interface OTPProps
   type?: React.HTMLInputTypeAttribute;
 
   /** Whether to allow only numeric input */
-  numbersOnly?: boolean;
+  numericOnly?: boolean;
 
   onInput?: (value: string[]) => void;
 }
@@ -93,14 +93,14 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     type,
     onInput,
     inputMode,
-    numbersOnly,
+    numericOnly,
     ...restProps
   } = props;
 
   // Use inputMode='numeric' to trigger numeric keyboard
   // Keep type='text' for better cross-platform consistency
-  const mergedInputMode = numbersOnly ? 'numeric' : inputMode;
-  const mergedInputType = numbersOnly ? 'text' : type;
+  const mergedInputMode = numericOnly ? 'numeric' : inputMode;
+  const mergedInputType = numericOnly ? 'text' : type;
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input.OTP');
@@ -194,7 +194,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     let nextCells = [...valueCells];
 
     // Handle numbers-only mode
-    if (props.numbersOnly) {
+    if (numericOnly) {
       // Filter out non-numeric characters
       const numericTxt = txt.replace(/\D/g, '');
 
@@ -244,7 +244,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ======================== Change ========================
   const onInputChange: OTPInputProps['onChange'] = (index, txt) => {
     const nextCells = patchValue(index, txt);
-    const effectiveLen = numbersOnly ? txt.replace(/\D/g, '').length : txt.length;
+    const effectiveLen = numericOnly ? txt.replace(/\D/g, '').length : txt.length;
 
     const nextIndex = Math.min(index + effectiveLen, length - 1);
 
