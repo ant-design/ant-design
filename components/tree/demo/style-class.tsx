@@ -51,7 +51,6 @@ const treeData: TreeProps['treeData'] = [
 const styles: TreeProps['styles'] = {
   root: { border: '2px solid #d9d9d9' },
   item: { margin: '2px 0' },
-  itemTitle: { color: '#262626' },
 };
 const stylesFn: TreeProps['styles'] = (info) => {
   if (!info.props.checkable) {

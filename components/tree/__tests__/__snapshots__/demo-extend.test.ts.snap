@@ -4809,7 +4809,6 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
               >
                 <span
                   class="ant-tree-title acss-1kuy7z7"
-                  style="color: rgb(38, 38, 38);"
                 >
                   parent 1
                 </span>
