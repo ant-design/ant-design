@@ -38,14 +38,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | The text of the Cancel button | string | `Cancel` |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | disabled | Whether show popconfirm when click its childrenNode | boolean | false |  |
 | icon | Customize icon of confirmation | ReactNode | &lt;ExclamationCircle /> |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | The text of the Confirm button | string | `OK` |  |
 | okType | Button `type` of the Confirm button | string | `primary` |  |
 | showCancel | Show cancel button | boolean | true | 4.18.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | title | The title of the confirmation box | ReactNode \| () => ReactNode | - |  |
 | description | The description of the confirmation box title | ReactNode \| () => ReactNode | - | 5.1.0 |
 | onCancel | A callback of cancel | function(e) | - |  |
