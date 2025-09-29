@@ -3,6 +3,7 @@ import React, { useCallback, useContext } from 'react';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
 import useMultipleSelect from '../_util/hooks/useMultipleSelect';
 import type { InputStatus } from '../_util/statusUtils';
@@ -41,6 +42,9 @@ export type SemanticName =
   | 'itemContent'
   | 'footer'
   | 'actions';
+
+export type TransferClassNamesType = SemanticClassNamesType<TransferProps, SemanticName>;
+export type TransferStylesType = SemanticStylesType<TransferProps, SemanticName>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -102,8 +106,8 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   /** @deprecated Please use `styles.actions` instead. */
   operationStyle?: CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TransferClassNamesType;
+  styles?: TransferStylesType;
 
   disabled?: boolean;
   dataSource?: RecordType[];
@@ -194,6 +198,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: TransferProps<RecordType> = {
+    ...props,
+    disabled: mergedDisabled,
+  };
 
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
@@ -449,10 +459,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       .length > 0;
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TransferClassNamesType,
+    TransferStylesType,
+    TransferProps<RecordType>
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const cls = clsx(
     prefixCls,
