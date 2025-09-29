@@ -4559,23 +4559,23 @@ exports[`renders components/upload/demo/style-class.tsx extend context correctly
           </span>
         </div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
-            >
-              Server Error 500
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          >
+            Server Error 500
           </div>
         </div>
       </div>
@@ -4860,23 +4860,23 @@ exports[`renders components/upload/demo/style-class.tsx extend context correctly
           </span>
         </div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
-            >
-              Server Error 500
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          >
+            Server Error 500
           </div>
         </div>
       </div>
