@@ -7,7 +7,8 @@ import type { RibbonProps } from 'antd/es/badge/Ribbon';
 const useStylesBadge = createStyles(() => ({
   root: {
     border: '1px solid #ccc',
-    borderRadius: 8,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
 }));
 
@@ -15,7 +16,7 @@ const useStylesRibbon = createStyles(() => ({
   root: {
     width: 400,
     border: '1px solid #d9d9d9',
-    borderRadius: 8,
+    borderRadius: 10,
   },
 }));
 
@@ -59,7 +60,8 @@ const App: React.FC = () => {
       return {
         root: {
           border: '1px solid #696FC7',
-          borderRadius: 8,
+          borderRadius: 10,
+          overflow: 'hidden',
         },
         content: {
           fontWeight: 'bold',

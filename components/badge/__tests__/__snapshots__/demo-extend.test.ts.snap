@@ -3071,7 +3071,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
       class="ant-flex css-var-test-id ant-flex-gap-middle"
     >
       <span
-        class="ant-badge acss-1cmb4yg css-var-test-id"
+        class="ant-badge acss-1tf3w8f css-var-test-id"
         style="background-color: rgb(240, 240, 240);"
       >
         <span
@@ -3103,7 +3103,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
         </sup>
       </span>
       <span
-        class="ant-badge acss-1cmb4yg css-var-test-id"
+        class="ant-badge acss-1tf3w8f css-var-test-id"
         style="border: 1px solid rgb(105, 111, 199);"
       >
         <span
@@ -3143,7 +3143,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-ribbon-wrapper css-var-test-id acss-py2id6"
+        class="ant-ribbon-wrapper css-var-test-id acss-19a7de9"
       >
         <div
           class="ant-card ant-card-bordered ant-card-small css-var-test-id"
@@ -3183,8 +3183,8 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
         </div>
       </div>
       <div
-        class="ant-ribbon-wrapper css-var-test-id acss-py2id6"
-        style="border: 1px solid rgb(105, 111, 199); border-radius: 8px;"
+        class="ant-ribbon-wrapper css-var-test-id acss-19a7de9"
+        style="border: 1px solid rgb(105, 111, 199); border-radius: 10px; overflow: hidden;"
       >
         <div
           class="ant-card ant-card-bordered ant-card-small css-var-test-id"
