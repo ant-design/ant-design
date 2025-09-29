@@ -646,12 +646,12 @@ describe('Tooltip', () => {
     it('should support static classNames and styles', () => {
       const classNames: TooltipProps['classNames'] = {
         root: 'custom-root',
-        body: 'custom-body',
+        container: 'custom-container',
       };
 
       const styles: TooltipProps['styles'] = {
         root: { backgroundColor: 'red' },
-        body: { color: 'blue' },
+        container: { color: 'blue' },
       };
 
       const { container } = render(
@@ -661,10 +661,10 @@ describe('Tooltip', () => {
       );
 
       const tooltipElement = container.querySelector('.ant-tooltip');
-      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+      const tooltipInner = container.querySelector('.ant-tooltip-container');
 
       expect(tooltipElement).toHaveClass('custom-root');
-      expect(tooltipInner).toHaveClass('custom-body');
+      expect(tooltipInner).toHaveClass('custom-container');
       expect(tooltipElement).toHaveStyle('background-color: rgb(255, 0, 0)');
       expect(tooltipInner).toHaveStyle('color: rgb(0, 0, 255)');
     });
@@ -679,9 +679,9 @@ describe('Tooltip', () => {
 
       const styles: TooltipProps['styles'] = (info) => {
         if (info.props.placement === 'top') {
-          return { body: { fontSize: '16px' } };
+          return { container: { fontSize: '16px' } };
         }
-        return { body: { fontSize: '14px' } };
+        return { container: { fontSize: '14px' } };
       };
 
       const { container } = render(
@@ -698,10 +698,10 @@ describe('Tooltip', () => {
       );
 
       const tooltipElement = container.querySelector('.ant-tooltip');
-      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+      const tooltipContainer = container.querySelector('.ant-tooltip-container');
 
       expect(tooltipElement).toHaveClass('blue-tooltip');
-      expect(tooltipInner).toHaveStyle('font-size: 16px');
+      expect(tooltipContainer).toHaveStyle('font-size: 16px');
     });
   });
 });
