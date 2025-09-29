@@ -1065,155 +1065,26 @@ exports[`renders components/tooltip/demo/smooth-transition.tsx correctly 1`] = `
 
 exports[`renders components/tooltip/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
-  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
-  <div
-    class="ant-space-item"
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
   >
-    <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-    >
-      <div>
-        Static classNames & styles:
-      </div>
-      <div
-        class="ant-flex css-var-test-id ant-flex-gap-small"
-      >
-        <button
-          aria-describedby="test-id"
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-tooltip-open"
-          type="button"
-        >
-          <span>
-            classNames Object
-          </span>
-        </button>
-        <div
-          class="ant-tooltip ant-tooltip-css-var css-var-test-id demo-tooltip-root ant-tooltip-placement-top"
-          style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;bottom:0;left:0"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            This tooltip uses classNames object
-          </div>
-        </div>
-        <button
-          aria-describedby="test-id"
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-tooltip-open"
-          type="button"
-        >
-          <span>
-            styles Object
-          </span>
-        </button>
-        <div
-          class="ant-tooltip ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-          style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box;border-width:2px;border-style:dashed"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;bottom:0;left:0"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            This tooltip uses styles object
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Object Tooltip.
+    </span>
+  </button>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
   >
-    <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-    >
-      <div>
-        Function-based classNames & styles:
-      </div>
-      <div
-        class="ant-flex css-var-test-id ant-flex-gap-small"
-      >
-        <button
-          aria-describedby="test-id"
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-tooltip-open"
-          type="button"
-        >
-          <span>
-            classNames Function
-          </span>
-        </button>
-        <div
-          class="ant-tooltip ant-tooltip-blue ant-tooltip-css-var css-var-test-id demo-tooltip-root--blue ant-tooltip-placement-top"
-          style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;bottom:0;left:0"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            This tooltip has blue color
-          </div>
-        </div>
-        <button
-          aria-describedby="test-id"
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-tooltip-open"
-          type="button"
-        >
-          <span>
-            styles Function
-          </span>
-        </button>
-        <div
-          class="ant-tooltip ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-          style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box;background-color:#fff2e8;border-color:#ffbb96"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;bottom:0;left:0"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            This tooltip uses top placement
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <span>
+      Function Tooltip.
+    </span>
+  </button>
 </div>
 `;
 

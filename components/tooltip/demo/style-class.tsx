@@ -1,62 +1,43 @@
 import React from 'react';
-import { Button, Flex, Tooltip, Space } from 'antd';
+import { Button, Flex, Tooltip } from 'antd';
 import type { TooltipProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: TooltipProps['classNames'] = {
-  root: 'demo-tooltip-root',
-  container: 'demo-tooltip-body',
-};
-
-const classNamesFn: TooltipProps['classNames'] = (info) => {
-  if (info.props.color === 'blue') {
-    return { root: 'demo-tooltip-root--blue' };
-  }
-  return { root: 'demo-tooltip-root--default' };
-};
-
-const stylesObject: TooltipProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  container: { fontStyle: 'italic', backgroundColor: '#f0f0f0' },
+const useStyles = createStyles(() => ({
+  container: {
+    padding: 10,
+  },
+}));
+const styles: TooltipProps['styles'] = {
+  container: { padding: 8 },
 };
 
 const stylesFn: TooltipProps['styles'] = (info) => {
-  if (info.props.placement?.startsWith('top')) {
+  if (!info.props.arrow) {
     return {
-      root: { backgroundColor: '#fff2e8', borderColor: '#ffbb96' },
-      container: { color: '#d4380d' },
+      container: {
+        backgroundColor: 'rgba(53, 71, 125, 0.8)',
+        padding: 12,
+        color: '#fff',
+        borderRadius: 4,
+      },
     };
   }
-  return {
-    root: { backgroundColor: '#f6ffed', borderColor: '#b7eb8f' },
-    container: { color: '#389e0d' },
-  };
+  return {};
 };
 
-const App: React.FC = () => (
-  <Space size={[8, 16]} wrap>
-    <Flex gap="small" vertical>
-      <div>Static classNames & styles:</div>
-      <Flex gap="small">
-        <Tooltip title="This tooltip uses classNames object" classNames={classNamesObject} open>
-          <Button>classNames Object</Button>
-        </Tooltip>
-        <Tooltip title="This tooltip uses styles object" styles={stylesObject} open>
-          <Button>styles Object</Button>
-        </Tooltip>
-      </Flex>
+const App: React.FC = () => {
+  const { styles: classNames } = useStyles();
+  return (
+    <Flex gap="middle">
+      <Tooltip title="Object text" classNames={classNames} styles={styles}>
+        <Button>Object Tooltip.</Button>
+      </Tooltip>
+      <Tooltip title="Function text" classNames={classNames} styles={stylesFn} arrow={false}>
+        <Button type="primary">Function Tooltip.</Button>
+      </Tooltip>
     </Flex>
-    <Flex gap="small" vertical>
-      <div>Function-based classNames & styles:</div>
-      <Flex gap="small">
-        <Tooltip title="This tooltip has blue color" color="blue" classNames={classNamesFn} open>
-          <Button>classNames Function</Button>
-        </Tooltip>
-        <Tooltip title="This tooltip uses top placement" placement="top" styles={stylesFn} open>
-          <Button>styles Function</Button>
-        </Tooltip>
-      </Flex>
-    </Flex>
-  </Space>
-);
+  );
+};
 
 export default App;

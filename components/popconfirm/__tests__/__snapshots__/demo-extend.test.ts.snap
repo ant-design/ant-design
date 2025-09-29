@@ -2265,20 +2265,21 @@ exports[`renders components/popconfirm/demo/shift.tsx extend context correctly 1
 exports[`renders components/popconfirm/demo/shift.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popconfirm/demo/style-class.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
   <button
     aria-describedby="test-id"
     class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    style="margin-right: 16px;"
     type="button"
   >
     <span>
-      静态样式
+      Object Popconfirm.
     </span>
-  </button>,
+  </button>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm my-popconfirm ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background: rgb(246, 255, 237);"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -2289,10 +2290,10 @@ Array [
       />
     </div>
     <div
-      class="ant-popover-container custom-content"
+      class="ant-popover-container acss-nk32ej"
       id="test-id"
       role="tooltip"
-      style="padding: 12px;"
+      style="padding: 8px;"
     >
       <div
         class="ant-popover-content"
@@ -2332,12 +2333,7 @@ Array [
               <div
                 class="ant-popconfirm-title"
               >
-                静态样式
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                使用对象形式的 classNames 和 styles
+                Object text
               </div>
             </div>
           </div>
@@ -2364,33 +2360,25 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <button
     aria-describedby="test-id"
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
-      动态样式
+      Function Popconfirm.
     </span>
-  </button>,
+  </button>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm top-popconfirm ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; background: rgb(230, 247, 255);"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-popover-arrow-content"
-      />
-    </div>
-    <div
-      class="ant-popover-container top-content"
+      class="ant-popover-container acss-nk32ej"
       id="test-id"
       role="tooltip"
-      style="padding: 16px;"
+      style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; border-radius: 4px;"
     >
       <div
         class="ant-popover-content"
@@ -2430,12 +2418,7 @@ Array [
               <div
                 class="ant-popconfirm-title"
               >
-                动态样式
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                使用函数形式的 classNames 和 styles
+                Function text
               </div>
             </div>
           </div>
@@ -2444,6 +2427,7 @@ Array [
           >
             <button
               class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              style="border-color: rgba(53, 71, 125, 0.6); color: rgba(53, 71, 125, 0.8);"
               type="button"
             >
               <span>
@@ -2452,6 +2436,7 @@ Array [
             </button>
             <button
               class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              style="background-color: rgba(53, 71, 125, 0.6); color: rgb(255, 255, 255);"
               type="button"
             >
               <span>
@@ -2462,8 +2447,8 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/popconfirm/demo/style-class.tsx extend context correctly 2`] = `[]`;
