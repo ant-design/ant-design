@@ -98,7 +98,42 @@ describe('Radio', () => {
     expect(onClick).toHaveBeenCalledTimes(3);
     expect(onRootClick).toHaveBeenCalledTimes(3);
   });
+  it('should support custom classNames', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      label: 'custom-label',
+    };
+
+    const { container } = render(<Radio classNames={customClassNames}>Test</Radio>);
+
+    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
+    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
+    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+
+    expect(rootElement.classList).toContain('custom-root');
+    expect(iconElement.classList).toContain('custom-icon');
+    expect(labelElement.classList).toContain('custom-label');
+  });
+
   it('should support custom styles', () => {
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      icon: { backgroundColor: 'black' },
+      label: { backgroundColor: 'gray' },
+    };
+    const { container } = render(<Radio styles={customStyles}>Test</Radio>);
+
+    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
+    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
+    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(iconElement.style.backgroundColor).toBe('black');
+    expect(labelElement.style.backgroundColor).toBe('gray');
+  });
+
+  it('should support both classNames and styles', () => {
     const customClassNames = {
       root: 'custom-root',
       icon: 'custom-icon',
@@ -120,12 +155,45 @@ describe('Radio', () => {
     const iconElement = container.querySelector('.ant-radio') as HTMLElement;
     const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
 
+    // Test classNames
     expect(rootElement.classList).toContain('custom-root');
     expect(iconElement.classList).toContain('custom-icon');
     expect(labelElement.classList).toContain('custom-label');
 
+    // Test styles
     expect(rootElement.style.backgroundColor).toBe('red');
     expect(iconElement.style.backgroundColor).toBe('black');
     expect(labelElement.style.backgroundColor).toBe('gray');
+  });
+
+  it('should merge semantic styles with context styles', () => {
+    const customStyles = {
+      root: { padding: '10px' },
+    };
+    const { container } = render(
+      <Radio styles={customStyles} style={{ margin: '5px' }}>
+        Test
+      </Radio>,
+    );
+
+    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
+    expect(rootElement.style.padding).toBe('10px');
+    expect(rootElement.style.margin).toBe('5px');
+  });
+
+  it('should apply semantic styles to radio without label', () => {
+    const customStyles = {
+      root: { backgroundColor: 'blue' },
+      icon: { backgroundColor: 'green' },
+    };
+    const { container } = render(<Radio styles={customStyles} />);
+
+    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
+    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
+    const labelElement = container.querySelector('.ant-radio-label');
+
+    expect(rootElement.style.backgroundColor).toBe('blue');
+    expect(iconElement.style.backgroundColor).toBe('green');
+    expect(labelElement).toBeNull(); // No label element should exist
   });
 });

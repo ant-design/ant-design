@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import { warning } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import { resetWarned } from '@rc-component/util/lib/warning';
 import userEvent from '@testing-library/user-event';
 
 import copy from '../../_util/copy';
@@ -14,6 +14,8 @@ import Paragraph from '../Paragraph';
 import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
+
+const { resetWarned } = warning;
 
 jest.mock('../../_util/copy');
 
@@ -128,17 +130,21 @@ describe('Typography', () => {
           });
 
           if (tooltips === undefined || tooltips === true) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
           } else if (tooltips === false) {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[0],
+            );
           } else {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[0],
+            );
           }
 
           // Click to copy
@@ -164,18 +170,24 @@ describe('Typography', () => {
           await waitFakeTimer(15, 10);
 
           if (tooltips === undefined || tooltips === true) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
           } else if (tooltips === false) {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[1],
+            );
           } else if (tooltips[1] === '' && tooltips[0]) {
             // Tooltip will be hidden in this case, with content memoized
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[0],
+            );
           } else {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[1],
+            );
           }
 
           // Will set back when 3 seconds pass
@@ -280,15 +292,15 @@ describe('Typography', () => {
 
             if (tooltip === undefined || tooltip === true) {
               await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe('Edit');
+                expect(wrapper.querySelector('.ant-tooltip-container')?.textContent).toBe('Edit');
               });
             } else if (tooltip === false) {
               await waitFor(() => {
-                expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+                expect(wrapper.querySelectorAll('.ant-tooltip-container').length).toBe(0);
               });
             } else {
               await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltip);
+                expect(wrapper.querySelector('.ant-tooltip-container')?.textContent).toBe(tooltip);
               });
             }
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import classNames from 'classnames';
+import { toArray } from '@rc-component/util';
+import cls from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -69,7 +69,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     style,
     vertical,
     wrap = false,
-    classNames: spaceClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -97,7 +97,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps : SpaceProps = {
+  const mergedProps: SpaceProps = {
     ...props,
     size,
     orientation: mergedOrientation,
@@ -108,11 +108,11 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     SpaceClassNamesType,
     SpaceStylesType,
     SpaceProps
-  >([contextClassNames, spaceClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
-  const rootClassNames = classNames(
+  const rootClassNames = cls(
     prefixCls,
     contextClassName,
     hashId,
@@ -129,7 +129,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     mergedClassNames.root,
   );
 
-  const itemClassName = classNames(`${prefixCls}-item`, mergedClassNames.item);
+  const itemClassName = cls(`${prefixCls}-item`, mergedClassNames.item);
 
   // Calculate latest one
   let latestIndex = 0;

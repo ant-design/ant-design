@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
-import type { UploadProps as RcUploadProps } from 'rc-upload';
-import RcUpload from 'rc-upload';
+import type { UploadProps as RcUploadProps } from '@rc-component/upload';
+import RcUpload from '@rc-component/upload';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -81,11 +81,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const customRequest = props.customRequest || config.customRequest;
 
-  const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
-    value: fileList,
-    postState: (list) => list ?? [],
-  });
-
+  const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
+  const mergedFileList = internalFileList || [];
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const upload = React.useRef<RcUpload>(null);
@@ -124,7 +121,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     // Cut to match count
     if (maxCount === 1) {
       cloneList = cloneList.slice(-1);
-    } else if (maxCount) {
+    } else if (typeof maxCount === 'number' && Number.isFinite(maxCount) && maxCount > 0) {
       exceedMaxCount = cloneList.length > maxCount;
       cloneList = cloneList.slice(0, maxCount);
     }

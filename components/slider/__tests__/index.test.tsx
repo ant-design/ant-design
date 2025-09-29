@@ -70,23 +70,23 @@ describe('Slider', () => {
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
     const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.mouseEnter(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.click(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     const { container: container2 } = render(
       <Slider defaultValue={30} tooltip={{ open: false }} />,
     );
-    expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
+    expect(container2.querySelector('.ant-tooltip-container')!).toBeNull();
   });
 
   it('when step is null, thumb can only be slid to the specific mark', () => {
@@ -164,7 +164,7 @@ describe('Slider', () => {
     });
   });
 
-  it('should apply custom styles to Descriptions', () => {
+  it('should apply custom styles to Slider', () => {
     const customClassNames = {
       root: 'custom-root',
       track: 'custom-track',
@@ -210,6 +210,38 @@ describe('Slider', () => {
     expect(tracksElement.style.backgroundColor).toBe('yellow');
     expect(railElement.style.backgroundColor).toBe('purple');
     expect(handleElement.style.backgroundColor).toBe('blue');
+  });
+
+  it('should support classNames and styles as functions', () => {
+    const classNamesFn = (info: { props: any }) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-slider' };
+      }
+      return { root: 'enabled-slider' };
+    };
+
+    const stylesFn = (info: { props: any }) => {
+      if (info.props.vertical) {
+        return { root: { padding: '10px' } };
+      }
+      return { root: { margin: '10px' } };
+    };
+
+    const { container: container1 } = render(
+      <Slider disabled defaultValue={30} classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    const rootElement1 = container1.querySelector('.ant-slider') as HTMLElement;
+    expect(rootElement1.classList).toContain('disabled-slider');
+    expect(rootElement1.style.margin).toBe('10px');
+
+    const { container: container2 } = render(
+      <Slider vertical defaultValue={30} classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    const rootElement2 = container2.querySelector('.ant-slider') as HTMLElement;
+    expect(rootElement2.classList).toContain('enabled-slider');
+    expect(rootElement2.style.padding).toBe('10px');
   });
 
   // ============================= orientation =============================
