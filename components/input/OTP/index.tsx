@@ -50,6 +50,9 @@ export interface OTPProps
 
   type?: React.HTMLInputTypeAttribute;
 
+  /** Whether to allow only numeric input */
+  numbersOnly?: boolean;
+
   onInput?: (value: string[]) => void;
 }
 
@@ -90,8 +93,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     type,
     onInput,
     inputMode,
+    numbersOnly,
     ...restProps
   } = props;
+
+  // Compute the final input mode and type based on props
+  const mergedInputMode = numbersOnly ? 'numeric' : inputMode;
+  const mergedInputType = numbersOnly ? 'tel' : type;
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input.OTP');
@@ -184,6 +192,20 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const patchValue = useEvent((index: number, txt: string) => {
     let nextCells = [...valueCells];
 
+    // Handle numbers-only mode
+    if (props.numbersOnly) {
+      // Filter out non-numeric characters
+      const numericTxt = txt.replace(/\D/g, '');
+
+      // If no numeric characters left, return without changes
+      if (!numericTxt && txt) {
+        return nextCells;
+      }
+
+      // Use the filtered numeric text
+      txt = numericTxt;
+    }
+
     // Fill cells till index
     for (let i = 0; i < index; i += 1) {
       if (!nextCells[i]) {
@@ -240,8 +262,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: mergedStatus as InputStatus,
     mask,
-    type,
-    inputMode,
+    type: mergedInputType,
+    inputMode: mergedInputMode,
   };
 
   return wrapCSSVar(
