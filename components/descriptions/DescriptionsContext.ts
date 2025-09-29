@@ -6,10 +6,10 @@ export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
+  styles: Required<Record<SemanticName, React.CSSProperties>>;
+  classNames: Required<Record<SemanticName, string>>;
 }
 
-const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
+const DescriptionsContext = React.createContext<DescriptionsContextProps>(null!);
 
 export default DescriptionsContext;
