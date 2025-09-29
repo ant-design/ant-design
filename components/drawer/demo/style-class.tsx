@@ -71,7 +71,7 @@ const App: React.FC = () => {
     <Flex gap="middle" justify="flex-end">
       <Button
         onClick={() => setFnOpen(false)}
-        styles={{ root: { borderColor: '#ccc', color: '#171717' } }}
+        styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
       >
         Cancel
       </Button>
