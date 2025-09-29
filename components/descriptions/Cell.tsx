@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
+
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
