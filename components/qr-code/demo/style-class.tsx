@@ -18,7 +18,7 @@ const App: React.FC = () => {
       border: '2px solid #1890ff',
       borderRadius: '8px',
       padding: '16px',
-      backgroundColor: '#f0f8ff',
+      backgroundColor: 'rgb(24,144,255, 0.1)',
     },
   };
 

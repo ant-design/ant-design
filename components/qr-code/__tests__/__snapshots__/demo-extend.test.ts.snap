@@ -713,7 +713,7 @@ exports[`renders components/qr-code/demo/style-class.tsx extend context correctl
 >
   <div
     class="ant-qrcode css-var-test-id acss-1x2gi4q"
-    style="background-color: rgb(240, 248, 255); border: 2px solid rgb(24, 144, 255); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
+    style="background-color: rgba(24, 144, 255, 0.1); border: 2px solid rgb(24, 144, 255); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="160"
