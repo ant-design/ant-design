@@ -13062,23 +13062,23 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                     Hover Me
                   </span>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; pointer-events: none;"
                   >
                     <div
                       class="ant-tooltip-arrow"
                       style="position: absolute; bottom: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
                     >
-                      <div
-                        class="ant-tooltip-inner"
-                        id="test-id"
-                        role="tooltip"
-                      >
-                        Long Label: c12, Long Label: h17, Long Label: j19, Long Label: k20
-                      </div>
+                      <span
+                        class="ant-tooltip-arrow-content"
+                      />
+                    </div>
+                    <div
+                      class="ant-tooltip-container"
+                      id="test-id"
+                      role="tooltip"
+                    >
+                      Long Label: c12, Long Label: h17, Long Label: j19, Long Label: k20
                     </div>
                   </div>
                 </span>
