@@ -40,7 +40,7 @@ const App: React.FC = () => {
   };
 
   const handleInputConfirm = () => {
-    if (inputValue && !tags.indexOf(inputValue)) {
+    if (inputValue && !tags.includes(inputValue)) {
       setTags([...tags, inputValue]);
     }
     setInputVisible(false);

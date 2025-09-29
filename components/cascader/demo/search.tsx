@@ -56,9 +56,7 @@ const onChange: CascaderProps<Option>['onChange'] = (value, selectedOptions) => 
 };
 
 const filter = (inputValue: string, path: DefaultOptionType[]) =>
-  path.some(
-    (option) => (option.label as string).toLowerCase().indexOf(inputValue.toLowerCase()) > -1,
-  );
+  path.some((option) => (option.label as string).toLowerCase().includes(inputValue.toLowerCase()));
 
 const App: React.FC = () => (
   <Cascader

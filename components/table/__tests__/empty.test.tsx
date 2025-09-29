@@ -63,9 +63,6 @@ describe('Table', () => {
         },
       });
     });
-    afterAll(() => {
-      domSpy.mockRestore();
-    });
 
     beforeEach(() => {
       jest.useFakeTimers();
@@ -73,6 +70,10 @@ describe('Table', () => {
 
     afterEach(() => {
       jest.useRealTimers();
+    });
+
+    afterAll(() => {
+      domSpy.mockRestore();
     });
 
     it('should work', async () => {
