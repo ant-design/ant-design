@@ -54,7 +54,7 @@ describe('Typography copy', () => {
 
           if (tooltipTexts[0] !== undefined) {
             await waitFor(() => {
-              expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+              expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
                 tooltipTexts[0],
               );
             });
@@ -62,7 +62,9 @@ describe('Typography copy', () => {
 
           if (tooltipLength !== undefined) {
             await waitFor(() => {
-              expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(tooltipLength);
+              expect(container.querySelectorAll('.ant-tooltip-container').length).toBe(
+                tooltipLength,
+              );
             });
           }
 
@@ -80,7 +82,7 @@ describe('Typography copy', () => {
           if (tooltipTexts[1] !== undefined) {
             const expectedInner = tooltipTexts[1] === '' ? tooltipTexts[0] : tooltipTexts[1];
             await waitFor(() => {
-              expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+              expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
                 expectedInner,
               );
             });
@@ -351,12 +353,12 @@ describe('Typography copy', () => {
       </Base>,
     );
     fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
-    await waitFakeTimer(1000, 100);
-    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+    await waitFakeTimer(1000, 1000);
+    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
 
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
     await sleep(0);
-    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
+    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
   });
 
   it('copy array children', () => {

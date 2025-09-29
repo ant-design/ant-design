@@ -1599,7 +1599,7 @@ describe('Form', () => {
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
     it('config tooltip should show when hover on icon', async () => {
@@ -1615,7 +1615,7 @@ describe('Form', () => {
       fireEvent.click(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
   });
 

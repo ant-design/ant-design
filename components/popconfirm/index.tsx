@@ -4,6 +4,7 @@ import { omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
@@ -50,15 +51,15 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     overlayStyle,
     styles,
     arrow: popconfirmArrow,
-    classNames: popconfirmClassNames,
+    classNames,
     ...restProps
   } = props;
   const {
     getPrefixCls,
-    className: contextClassName,
-    style: contextStyle,
-    classNames: contextClassNames,
-    styles: contextStyles,
+    className: ctxClassName,
+    style: ctxStyle,
+    classNames: ctxClassNames,
+    styles: ctxStyles,
     arrow: contextArrow,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
@@ -89,15 +90,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const rootClassNames = clsx(
-    prefixCls,
-    contextClassName,
-    overlayClassName,
-    contextClassNames.root,
-    popconfirmClassNames?.root,
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [ctxClassNames, classNames],
+    [ctxStyles, styles],
   );
 
-  const bodyClassNames = clsx(contextClassNames.body, popconfirmClassNames?.body);
+  const rootClassNames = clsx(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
 
   useStyle(prefixCls);
 
@@ -110,18 +109,14 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      classNames={{ root: rootClassNames, container: mergedClassNames.container }}
       styles={{
         root: {
-          ...contextStyles.root,
-          ...contextStyle,
+          ...ctxStyle,
+          ...mergedStyles.root,
           ...overlayStyle,
-          ...styles?.root,
         },
-        body: {
-          ...contextStyles.body,
-          ...styles?.body,
-        },
+        container: mergedStyles.container,
       }}
       content={
         <Overlay

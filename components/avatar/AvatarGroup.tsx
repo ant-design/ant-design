@@ -117,17 +117,17 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     const mergeStyle = max?.style || maxStyle;
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
     const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
-
-    const mergeProps = {
+        
+    const popoverProps: PopoverProps = {
       content: childrenHidden,
       ...max?.popover,
-      classNames: { root: clsx(`${groupPrefixCls}-popover`, max?.popover?.classNames?.root) },
       placement: mergePopoverPlacement,
       trigger: mergePopoverTrigger,
+      rootClassName: clsx(`${groupPrefixCls}-popover`, max?.popover?.rootClassName),
     };
 
     childrenShow.push(
-      <Popover key="avatar-popover-key" destroyOnHidden {...mergeProps}>
+      <Popover key="avatar-popover-key" destroyOnHidden {...popoverProps}>
         <Avatar style={mergeStyle}>{`+${numOfChildren - mergeCount}`}</Avatar>
       </Popover>,
     );

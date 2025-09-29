@@ -3,7 +3,9 @@ import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
 import type { TooltipProps } from '.';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 import { parseColor } from './util';
 
@@ -18,23 +20,31 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     title,
     color,
     overlayInnerStyle,
+    classNames,
+    styles,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const rootCls = useCSSVarCls(prefixCls);
+
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
 
   const arrowContentStyle = colorInfo.arrowStyle;
 
-  const formattedOverlayInnerStyle: React.CSSProperties = {
-    ...overlayInnerStyle,
-    ...colorInfo.overlayStyle,
-  };
+  const innerStyles = React.useMemo(
+    () => ({ container: { ...overlayInnerStyle, ...colorInfo.overlayStyle } }),
+    [overlayInnerStyle, colorInfo.overlayStyle],
+  );
 
-  const cls = clsx(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [innerStyles, styles]);
+
+  const rootClassName = clsx(
+    rootCls,
     hashId,
     cssVarCls,
     prefixCls,
@@ -45,13 +55,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   );
 
   return (
-    <div className={cls} style={arrowContentStyle}>
+    <div className={rootClassName} style={arrowContentStyle}>
       <div className={`${prefixCls}-arrow`} />
       <Popup
         {...props}
         className={hashId}
         prefixCls={prefixCls}
-        overlayInnerStyle={formattedOverlayInnerStyle}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
       >
         {title}
       </Popup>
