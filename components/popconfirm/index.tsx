@@ -4,15 +4,20 @@ import { omit, useControlledState } from '@rc-component/util';
 import cls from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import type { AbstractTooltipProps, SemanticName, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
+
+export type PopconfirmClassNamesType = SemanticClassNamesType<PopconfirmProps, SemanticName>;
+
+export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, SemanticName>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -32,6 +37,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  classNames?: PopconfirmClassNamesType;
+  styles?: PopconfirmStylesType;
 }
 
 export interface PopconfirmState {
@@ -101,12 +108,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     classNames,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [ctxClassNames, classNames],
-    [ctxStyles, styles],
-    undefined,
-    { props: mergedProps },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopconfirmClassNamesType,
+    PopconfirmStylesType,
+    PopconfirmProps
+  >([ctxClassNames, classNames], [ctxStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const rootClassNames = cls(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
 
