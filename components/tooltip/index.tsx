@@ -123,20 +123,12 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   overlayClassName?: string;
 }
 
-export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
+export interface TooltipProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
-}
-
-export interface TooltipPropsWithTitle extends AbstractTooltipProps {
-  title: React.ReactNode | RenderFunction;
-  overlay?: React.ReactNode | RenderFunction;
-}
-
-export type TooltipProps = (TooltipPropsWithTitle | TooltipPropsWithOverlay) & {
   classNames?: TooltipClassNamesType;
   styles?: TooltipStylesType;
-};
+}
 
 const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
