@@ -244,8 +244,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ======================== Change ========================
   const onInputChange: OTPInputProps['onChange'] = (index, txt) => {
     const nextCells = patchValue(index, txt);
+    const effectiveLen = numbersOnly ? txt.replace(/\D/g, '').length : txt.length;
 
-    const nextIndex = Math.min(index + txt.length, length - 1);
+    const nextIndex = Math.min(index + effectiveLen, length - 1);
+
     if (nextIndex !== index && nextCells[index] !== undefined) {
       refs.current[nextIndex]?.focus();
     }
