@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { render, unmount } from '@rc-component/util/lib/React/render';
 
 export type UnmountType = () => Promise<void>;

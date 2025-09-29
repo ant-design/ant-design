@@ -653,28 +653,24 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -687,29 +683,25 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width:250px"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -900,28 +892,24 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -934,29 +922,25 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width:250px"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -1058,28 +1042,24 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -1092,29 +1072,25 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width:250px"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>

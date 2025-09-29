@@ -72,7 +72,9 @@ describe('FloatButton', () => {
       const { container } = render(<FloatButton tooltip={0} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
-      const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+      const element = container
+        .querySelector('.ant-tooltip')
+        ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('0');
       jest.clearAllTimers();
       jest.useRealTimers();
@@ -82,7 +84,9 @@ describe('FloatButton', () => {
       const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
-      const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+      const element = container
+        .querySelector('.ant-tooltip')
+        ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('hi');
       jest.clearAllTimers();
       jest.useRealTimers();
