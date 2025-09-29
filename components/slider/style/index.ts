@@ -352,7 +352,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
       },
 
-      [`&-tooltip ${antCls}-tooltip-inner`]: {
+      [`&-tooltip ${antCls}-tooltip-container`]: {
         minWidth: 'unset',
       },
     },

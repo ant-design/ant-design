@@ -121,7 +121,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
           position: 'relative',
         },
 
-        [`${componentCls}-inner`]: {
+        [`${componentCls}-container`]: {
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
           borderRadius: borderRadiusLG,
@@ -138,7 +138,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
           padding: titlePadding,
         },
 
-        [`${componentCls}-inner-content`]: {
+        [`${componentCls}-content`]: {
           color: popoverColor,
           padding: innerContentPadding,
         },
@@ -155,10 +155,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         maxWidth: 'none',
         margin: token.sizePopupArrow,
         display: 'inline-block',
-
-        [`${componentCls}-content`]: {
-          display: 'inline-block',
-        },
       },
     },
   ];
