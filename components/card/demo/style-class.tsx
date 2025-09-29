@@ -33,11 +33,11 @@ const App: React.FC = () => {
   const stylesCard: CardProps['styles'] = {
     root: {
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      borderRadius: '8px',
+      borderRadius: 8,
     },
     title: {
-      fontSize: '16px',
-      fontWeight: '500',
+      fontSize: 16,
+      fontWeight: 500,
       color: '#262626',
     },
   };
@@ -48,14 +48,14 @@ const App: React.FC = () => {
         root: {
           borderColor: '#696FC7',
           boxShadow: '0 2px 8px #A7AAE1',
-          borderRadius: '8px',
+          borderRadius: 8,
         },
         extra: {
           color: '#696FC7',
         },
         title: {
-          fontSize: '16px',
-          fontWeight: '500',
+          fontSize: 16,
+          fontWeight: 500,
           color: '#A7AAE1',
         },
       };

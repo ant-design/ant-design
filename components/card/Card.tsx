@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
-import { omit } from '@rc-component/util/lib/omit';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
