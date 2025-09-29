@@ -1694,7 +1694,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
       <div
         aria-disabled="false"
         aria-expanded="true"
-        class="ant-collapse-header"
+        class="ant-collapse-header acss-13ow3bs"
         role="button"
         style="background-color:#f0f0f0;padding:12px 16px"
         tabindex="0"
@@ -1747,7 +1747,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header"
+        class="ant-collapse-header acss-13ow3bs"
         role="button"
         style="background-color:#f0f0f0;padding:12px 16px"
         tabindex="0"
@@ -1788,7 +1788,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header"
+        class="ant-collapse-header acss-13ow3bs"
         role="button"
         style="background-color:#f0f0f0;padding:12px 16px"
         tabindex="0"
@@ -1834,7 +1834,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header"
+        class="ant-collapse-header acss-13ow3bs"
         role="button"
         style="background-color:#F5EFFF;padding:12px 16px"
         tabindex="0"
@@ -1875,7 +1875,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
       <div
         aria-disabled="false"
         aria-expanded="true"
-        class="ant-collapse-header"
+        class="ant-collapse-header acss-13ow3bs"
         role="button"
         style="background-color:#F5EFFF;padding:12px 16px"
         tabindex="0"
@@ -1928,7 +1928,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header"
+        class="ant-collapse-header acss-13ow3bs"
         role="button"
         style="background-color:#F5EFFF;padding:12px 16px"
         tabindex="0"
