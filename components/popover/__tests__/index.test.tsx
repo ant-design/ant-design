@@ -19,13 +19,13 @@ describe('Popover', () => {
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
     const { container } = render(
-      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
+      <Popover ref={ref} content={<div className="bamboo" />} title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+    expect(container.querySelector('.bamboo')).toBeFalsy();
     fireEvent.click(container.querySelector('span')!);
-    expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+    expect(container.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('should support defaultOpen', () => {
@@ -140,12 +140,12 @@ describe('Popover', () => {
 
   it('should apply custom styles to Popover', () => {
     const customClassNames = {
-      body: 'custom-body',
+      container: 'custom-container',
       root: 'custom-root',
     };
 
     const customStyles = {
-      body: { color: 'red' },
+      container: { color: 'red' },
       root: { backgroundColor: 'blue' },
     };
 
@@ -156,11 +156,11 @@ describe('Popover', () => {
     );
 
     const popoverElement = container.querySelector('.ant-popover') as HTMLElement;
-    const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+    const popoverBodyElement = container.querySelector('.ant-popover-container') as HTMLElement;
 
     // 验证 classNames
     expect(popoverElement.classList).toContain('custom-root');
-    expect(popoverBodyElement.classList).toContain('custom-body');
+    expect(popoverBodyElement.classList).toContain('custom-container');
 
     // 验证 styles
     expect(popoverElement.style.backgroundColor).toBe('blue');
