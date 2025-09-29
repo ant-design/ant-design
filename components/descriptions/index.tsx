@@ -147,8 +147,14 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     () => ({
       labelStyle,
       contentStyle,
-      styles: { content: mergedStyles.content, label: mergedStyles.label },
-      classNames: { label: mergedClassNames.label, content: mergedClassNames.content },
+      styles: {
+        content: mergedStyles.content,
+        label: mergedStyles.label,
+      },
+      classNames: {
+        label: clsx(mergedClassNames.label),
+        content: clsx(mergedClassNames.content),
+      },
     }),
     [labelStyle, contentStyle, mergedStyles, mergedClassNames],
   );

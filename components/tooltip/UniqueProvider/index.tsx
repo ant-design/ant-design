@@ -5,11 +5,8 @@ import type { BuildInPlacements } from '@rc-component/trigger';
 import type { GetProp } from '../../_util/type';
 import MotionContent from './MotionContent';
 
-export interface UniqueProviderProps {
-  children?: React.ReactNode;
-}
-
 const cachedPlacements: [key: BuildInPlacements, target: BuildInPlacements] = [null!, null!];
+
 function uniqueBuiltinPlacements(ori: BuildInPlacements): BuildInPlacements {
   if (cachedPlacements[0] !== ori) {
     const target: BuildInPlacements = {};
@@ -25,7 +22,7 @@ function uniqueBuiltinPlacements(ori: BuildInPlacements): BuildInPlacements {
   return cachedPlacements[1];
 }
 
-const UniqueProvider: React.FC<UniqueProviderProps> = ({ children }) => {
+const UniqueProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const renderPopup: GetProp<typeof RcUniqueProvider, 'postTriggerProps'> = (options) => {
     const popupEle = typeof options.popup === 'function' ? options.popup() : options.popup;
 

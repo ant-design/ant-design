@@ -2332,7 +2332,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content "
               colspan="1"
             >
               <span>
@@ -2353,7 +2353,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content "
               colspan="1"
             >
               <span>
@@ -2374,7 +2374,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content "
               colspan="1"
             >
               <span>
@@ -2417,7 +2417,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content "
               colspan="1"
             >
               <span>
@@ -2438,7 +2438,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content "
               colspan="1"
             >
               <span>
@@ -2459,7 +2459,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-content "
               colspan="1"
             >
               <span>
