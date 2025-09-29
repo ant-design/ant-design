@@ -613,95 +613,91 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
       class="ant-tour-arrow"
     />
     <div
-      class="ant-tour-content"
+      class="ant-tour-container"
+      role="tooltip"
     >
       <div
-        class="ant-tour-inner"
-        role="tooltip"
+        class="ant-tour-panel"
       >
         <div
-          class="ant-tour-panel"
+          class="ant-tour-section"
         >
-          <div
-            class="ant-tour-section"
+          <button
+            aria-label="Close"
+            class="ant-tour-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="ant-tour-close"
-              type="button"
+              class="anticon anticon-close ant-tour-close-icon"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-tour-header"
+          >
+            <div
+              class="ant-tour-title"
+            >
+              Hello World!
+            </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            Hello World?!
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
+            <div
+              class="ant-tour-indicators"
             >
               <span
-                aria-label="Close"
-                class="anticon anticon-close ant-tour-close-icon"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-            <div
-              class="ant-tour-header"
-            >
-              <div
-                class="ant-tour-title"
-              >
-                Hello World!
-              </div>
+                class="ant-tour-indicator-active ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
             </div>
             <div
-              class="ant-tour-description"
+              class="ant-tour-actions"
             >
-              Hello World?!
-            </div>
-            <div
-              class="ant-tour-footer"
-            >
-              <div
-                class="ant-tour-indicators"
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+                type="button"
               >
-                <span
-                  class="ant-tour-indicator-active ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-              </div>
-              <div
-                class="ant-tour-actions"
-              >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
-                  type="button"
-                >
-                  <span>
-                    Next
-                  </span>
-                </button>
-              </div>
+                <span>
+                  Next
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -715,115 +711,111 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
       class="ant-tour-arrow"
     />
     <div
-      class="ant-tour-content"
+      class="ant-tour-container"
+      role="tooltip"
     >
       <div
-        class="ant-tour-inner"
-        role="tooltip"
+        class="ant-tour-panel"
       >
         <div
-          class="ant-tour-panel"
+          class="ant-tour-section"
         >
-          <div
-            class="ant-tour-section"
+          <button
+            aria-label="Close"
+            class="ant-tour-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="ant-tour-close"
-              type="button"
+              class="anticon anticon-close ant-tour-close-icon"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-tour-cover"
+          >
+            <img
+              alt="tour.png"
+              draggable="false"
+              src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+            />
+          </div>
+          <div
+            class="ant-tour-header"
+          >
+            <div
+              class="ant-tour-title"
+            >
+              Hello World!
+            </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            Hello World?!
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
+            <div
+              class="ant-tour-indicators"
             >
               <span
-                aria-label="Close"
-                class="anticon anticon-close ant-tour-close-icon"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-            <div
-              class="ant-tour-cover"
-            >
-              <img
-                alt="tour.png"
-                draggable="false"
-                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator-active ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
               />
             </div>
             <div
-              class="ant-tour-header"
+              class="ant-tour-actions"
             >
-              <div
-                class="ant-tour-title"
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-prev-btn"
+                type="button"
               >
-                Hello World!
-              </div>
-            </div>
-            <div
-              class="ant-tour-description"
-            >
-              Hello World?!
-            </div>
-            <div
-              class="ant-tour-footer"
-            >
-              <div
-                class="ant-tour-indicators"
+                <span>
+                  Previous
+                </span>
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+                type="button"
               >
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator-active ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-              </div>
-              <div
-                class="ant-tour-actions"
-              >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-prev-btn"
-                  type="button"
-                >
-                  <span>
-                    Previous
-                  </span>
-                </button>
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
-                  type="button"
-                >
-                  <span>
-                    Next
-                  </span>
-                </button>
-              </div>
+                <span>
+                  Next
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -837,100 +829,96 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
       class="ant-tour-arrow"
     />
     <div
-      class="ant-tour-content"
+      class="ant-tour-container"
+      role="tooltip"
     >
       <div
-        class="ant-tour-inner"
-        role="tooltip"
+        class="ant-tour-panel"
       >
         <div
-          class="ant-tour-panel"
+          class="ant-tour-section"
         >
-          <div
-            class="ant-tour-section"
+          <button
+            aria-label="Close"
+            class="ant-tour-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="ant-tour-close"
-              type="button"
+              class="anticon anticon-close ant-tour-close-icon"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-tour-header"
+          >
+            <div
+              class="ant-tour-title"
+            >
+              Hello World!
+            </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            Hello World?!
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
+            <div
+              class="ant-tour-indicators"
             >
               <span
-                aria-label="Close"
-                class="anticon anticon-close ant-tour-close-icon"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-            <div
-              class="ant-tour-header"
-            >
-              <div
-                class="ant-tour-title"
-              >
-                Hello World!
-              </div>
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator-active ant-tour-indicator"
+              />
             </div>
             <div
-              class="ant-tour-description"
+              class="ant-tour-actions"
             >
-              Hello World?!
-            </div>
-            <div
-              class="ant-tour-footer"
-            >
-              <div
-                class="ant-tour-indicators"
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                type="button"
               >
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator-active ant-tour-indicator"
-                />
-              </div>
-              <div
-                class="ant-tour-actions"
+                <span>
+                  Previous
+                </span>
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
-                  type="button"
-                >
-                  <span>
-                    Previous
-                  </span>
-                </button>
-                <button
-                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
-                  type="button"
-                >
-                  <span>
-                    Finish
-                  </span>
-                </button>
-              </div>
+                <span>
+                  Finish
+                </span>
+              </button>
             </div>
           </div>
         </div>

@@ -163,22 +163,22 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -200,22 +200,22 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -237,22 +237,22 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -425,22 +425,22 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -460,22 +460,22 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -592,22 +592,22 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -629,22 +629,22 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -666,22 +666,22 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
