@@ -28,23 +28,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
@@ -137,23 +137,23 @@ Array [
       style="left: 30%; transform: translateX(-50%);"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
@@ -222,23 +222,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            30
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          30
         </div>
       </div>
     </div>
@@ -485,23 +485,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
@@ -595,23 +595,23 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          0
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        0
       </div>
     </div>
   </div>
@@ -679,23 +679,23 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             tabindex="0"
           />
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                1
-              </div>
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              1
             </div>
           </div>
         </div>
@@ -818,23 +818,23 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             tabindex="0"
           />
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                0
-              </div>
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              0
             </div>
           </div>
         </div>
@@ -975,23 +975,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1150,23 +1150,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1246,23 +1246,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1342,23 +1342,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1485,23 +1485,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
@@ -1594,23 +1594,23 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        30
-      </div>
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      30
     </div>
   </div>
 </div>
@@ -1648,23 +1648,23 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>
@@ -1695,23 +1695,23 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; top: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>
@@ -1748,23 +1748,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          0%
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        0%
       </div>
     </div>
   </div>,
@@ -1794,22 +1794,22 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
+        <span
+          class="ant-tooltip-arrow-content"
         />
       </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      />
     </div>
   </div>,
 ]
@@ -1848,23 +1848,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            30
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          30
         </div>
       </div>
     </div>
