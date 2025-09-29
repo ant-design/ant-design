@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
-import type { UploadRequestOption } from 'rc-upload/lib/interface';
+import type { UploadRequestOption } from '@rc-component/upload/lib/interface';
 
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
@@ -24,12 +24,12 @@ describe('Upload', () => {
     jest.useFakeTimers();
   });
   beforeEach(() => setup());
-  afterAll(() => {
-    jest.useRealTimers();
-  });
   afterEach(() => {
     jest.clearAllTimers();
     return teardown();
+  });
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
   // Mock for rc-component/util raf

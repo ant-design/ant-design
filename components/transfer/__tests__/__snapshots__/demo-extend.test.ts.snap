@@ -68,22 +68,22 @@ exports[`renders components/transfer/demo/actions.tsx extend context correctly 1
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -99,22 +99,22 @@ exports[`renders components/transfer/demo/actions.tsx extend context correctly 1
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -547,22 +547,22 @@ exports[`renders components/transfer/demo/actions.tsx extend context correctly 1
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -578,22 +578,22 @@ exports[`renders components/transfer/demo/actions.tsx extend context correctly 1
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -918,22 +918,22 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -949,22 +949,22 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -1453,22 +1453,22 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -1484,22 +1484,22 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -1928,22 +1928,22 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -1959,22 +1959,22 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -2403,22 +2403,22 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -2434,22 +2434,22 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -2776,22 +2776,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -2807,22 +2807,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -3254,22 +3254,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -3285,22 +3285,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -3624,22 +3624,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -3655,22 +3655,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -3871,22 +3871,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -3902,22 +3902,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -4060,22 +4060,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -4091,22 +4091,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -4374,22 +4374,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -4405,22 +4405,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -4629,22 +4629,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -4660,22 +4660,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -5436,22 +5436,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -5467,22 +5467,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -6060,22 +6060,22 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -6091,22 +6091,22 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -6549,22 +6549,22 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -6580,22 +6580,22 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -6984,22 +6984,22 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -7015,22 +7015,22 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -7357,22 +7357,22 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -7388,22 +7388,22 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -7563,22 +7563,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -7594,22 +7594,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -7625,22 +7625,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -8111,22 +8111,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -8142,22 +8142,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -8173,22 +8173,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -8649,22 +8649,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -8680,22 +8680,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -9162,22 +9162,22 @@ Array [
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -9513,22 +9513,22 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -9544,22 +9544,22 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -10028,22 +10028,22 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
           <li
             aria-describedby="test-id"
@@ -10059,22 +10059,22 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             </span>
           </li>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; top: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
+              <span
+                class="ant-tooltip-arrow-content"
               />
             </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            />
           </div>
         </ul>
         <div
@@ -10494,22 +10494,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -10525,22 +10525,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -10741,22 +10741,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -10772,22 +10772,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -10930,22 +10930,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -10961,22 +10961,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -11244,22 +11244,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -11275,22 +11275,22 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -11436,6 +11436,1701 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
 `;
 
 exports[`renders components/transfer/demo/status.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/transfer/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
+  style="width: 100%;"
+>
+  <div
+    class="ant-transfer ant-transfer-status-error css-var-test-id"
+  >
+    <div
+      class="ant-transfer-section acss-qd6duc"
+      style="background-color: rgb(250, 250, 250);"
+    >
+      <div
+        class="ant-transfer-list-header acss-r4s437"
+        style="font-weight: bold;"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+        >
+          <span
+            class="ant-checkbox ant-wave-target"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          11 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <li
+            class="ant-transfer-list-content-item"
+            title="content1"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content1
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content2"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content2
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content3"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content3
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content4"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content4
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content5"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content5
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content6"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content6
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content7"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content7
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content8"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content8
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content9"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content9
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content10"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content10
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content11"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content11
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-transfer-actions"
+      style="background-color: rgb(255, 242, 232);"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-section acss-qd6duc"
+      style="background-color: rgb(250, 250, 250);"
+    >
+      <div
+        class="ant-transfer-list-header acss-r4s437"
+        style="font-weight: bold;"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+        >
+          <span
+            class="ant-checkbox ant-wave-target"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          9 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <li
+            class="ant-transfer-list-content-item"
+            title="content12"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content12
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content13"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content13
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content14"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content14
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content15"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content15
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content16"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content16
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content17"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content17
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content18"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content18
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content19"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content19
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content20"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content20
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-transfer ant-transfer-status-warning css-var-test-id"
+  >
+    <div
+      class="ant-transfer-section acss-qd6duc"
+      style="background-color: rgb(246, 255, 237); border-color: rgb(183, 235, 143);"
+    >
+      <div
+        class="ant-transfer-list-header acss-r4s437"
+        style="color: rgb(141, 188, 199); font-weight: normal;"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+        >
+          <span
+            class="ant-checkbox ant-wave-target"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          11 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <li
+            class="ant-transfer-list-content-item"
+            title="content1"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content1
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content2"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content2
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content3"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content3
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content4"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content4
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content5"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content5
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content6"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content6
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content7"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content7
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content8"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content8
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content9"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content9
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content10"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content10
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content11"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content11
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-transfer-actions"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-section acss-qd6duc"
+      style="background-color: rgb(246, 255, 237); border-color: rgb(183, 235, 143);"
+    >
+      <div
+        class="ant-transfer-list-header acss-r4s437"
+        style="color: rgb(141, 188, 199); font-weight: normal;"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+        >
+          <span
+            class="ant-checkbox ant-wave-target"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+            <li
+              aria-describedby="test-id"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          9 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <li
+            class="ant-transfer-list-content-item"
+            title="content12"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content12
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content13"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content13
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content14"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content14
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content15"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content15
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content16"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content16
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content17"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content17
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content18"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content18
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content19"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content19
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content20"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+            >
+              <span
+                class="ant-checkbox ant-wave-target"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content20
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/transfer/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/transfer/demo/table-transfer.tsx extend context correctly 1`] = `
 <div
@@ -11636,22 +13331,22 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         </span>
                                       </li>
                                       <div
-                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
                                           style="position: absolute; top: 0px; left: 0px;"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
                                         >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            id="test-id"
-                                            role="tooltip"
+                                          <span
+                                            class="ant-tooltip-arrow-content"
                                           />
                                         </div>
+                                        <div
+                                          class="ant-tooltip-container"
+                                          id="test-id"
+                                          role="tooltip"
+                                        />
                                       </div>
                                       <li
                                         aria-describedby="test-id"
@@ -11667,22 +13362,22 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         </span>
                                       </li>
                                       <div
-                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
                                           style="position: absolute; top: 0px; left: 0px;"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
                                         >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            id="test-id"
-                                            role="tooltip"
+                                          <span
+                                            class="ant-tooltip-arrow-content"
                                           />
                                         </div>
+                                        <div
+                                          class="ant-tooltip-container"
+                                          id="test-id"
+                                          role="tooltip"
+                                        />
                                       </div>
                                       <li
                                         aria-describedby="test-id"
@@ -11698,22 +13393,22 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         </span>
                                       </li>
                                       <div
-                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
                                           style="position: absolute; top: 0px; left: 0px;"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
                                         >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            id="test-id"
-                                            role="tooltip"
+                                          <span
+                                            class="ant-tooltip-arrow-content"
                                           />
                                         </div>
+                                        <div
+                                          class="ant-tooltip-container"
+                                          id="test-id"
+                                          role="tooltip"
+                                        />
                                       </div>
                                     </ul>
                                     <div
@@ -12542,22 +14237,22 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         </span>
                                       </li>
                                       <div
-                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
                                           style="position: absolute; top: 0px; left: 0px;"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
                                         >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            id="test-id"
-                                            role="tooltip"
+                                          <span
+                                            class="ant-tooltip-arrow-content"
                                           />
                                         </div>
+                                        <div
+                                          class="ant-tooltip-container"
+                                          id="test-id"
+                                          role="tooltip"
+                                        />
                                       </div>
                                       <li
                                         aria-describedby="test-id"
@@ -12573,22 +14268,22 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         </span>
                                       </li>
                                       <div
-                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
                                           style="position: absolute; top: 0px; left: 0px;"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
                                         >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            id="test-id"
-                                            role="tooltip"
+                                          <span
+                                            class="ant-tooltip-arrow-content"
                                           />
                                         </div>
+                                        <div
+                                          class="ant-tooltip-container"
+                                          id="test-id"
+                                          role="tooltip"
+                                        />
                                       </div>
                                       <li
                                         aria-describedby="test-id"
@@ -12604,22 +14299,22 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         </span>
                                       </li>
                                       <div
-                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
                                           style="position: absolute; top: 0px; left: 0px;"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
                                         >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            id="test-id"
-                                            role="tooltip"
+                                          <span
+                                            class="ant-tooltip-arrow-content"
                                           />
                                         </div>
+                                        <div
+                                          class="ant-tooltip-container"
+                                          id="test-id"
+                                          role="tooltip"
+                                        />
                                       </div>
                                     </ul>
                                     <div
