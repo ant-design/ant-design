@@ -22,7 +22,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import { PureContent } from './PurePanel';
+import { defaultIcons, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
 
@@ -157,6 +157,7 @@ export function useInternalMessage(
       const { open: originOpen, prefixCls, message } = holderRef.current;
       const contextClassName = message?.className || {};
       const contextClassNames = message?.classNames || {};
+      const contextIcons = message?.icons || {};
       const contextStyle = message?.style || {};
       const contextStyles = message?.styles || {};
 
@@ -171,6 +172,7 @@ export function useInternalMessage(
         style,
         onClose,
         classNames: configClassNames,
+        icons,
         styles,
         ...restConfig
       } = config;
@@ -192,6 +194,11 @@ export function useInternalMessage(
               classNames={{
                 icon: classNames(configClassNames?.icon, contextClassNames.icon),
                 content: classNames(configClassNames?.content, contextClassNames.content),
+              }}
+              icons={{
+                ...defaultIcons,
+                ...contextIcons,
+                ...icons,
               }}
               styles={{
                 icon: { ...contextStyles.icon, ...styles?.icon },
