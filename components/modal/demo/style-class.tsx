@@ -69,7 +69,7 @@ const App: React.FC = () => {
     <>
       <Button
         onClick={() => setFnOpen(false)}
-        styles={{ root: { borderColor: '#ccc', color: '#171717' } }}
+        styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
       >
         Cancel
       </Button>
