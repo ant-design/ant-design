@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Space, message } from 'antd';
+import { Button, message, Space } from 'antd';
 import type { MessageArgsProps } from 'antd';
 import { createStyles } from 'antd-style';
 
@@ -10,12 +10,19 @@ const useStyle = createStyles(({ css }) => ({
 }));
 
 const stylesObject: MessageArgsProps['styles'] = {
-  icon: { fontSize: '20px' },
+  icon: { fontSize: 20 },
 };
 
 const stylesFn: MessageArgsProps['styles'] = ({ props: { type } }) => {
   if (type === 'success') {
-    return { content: { backgroundColor: '#F5F5F5' } };
+    return {
+      root: {
+        border: '1px solid #eee',
+        display: 'inline-flex',
+        borderRadius: 10,
+        overflow: 'hidden',
+      },
+    };
   }
 
   return {};
@@ -44,6 +51,7 @@ const App: React.FC = () => {
         root: styles.root,
       },
       styles: stylesFn,
+      duration: 10000000000,
     });
   };
 
@@ -52,7 +60,9 @@ const App: React.FC = () => {
       {contextHolder}
       <Space>
         <Button onClick={showObjectStyle}>Object style</Button>
-        <Button onClick={showFunctionStyle}>Function style</Button>
+        <Button onClick={showFunctionStyle} type="primary">
+          Function style
+        </Button>
       </Space>
     </>
   );
