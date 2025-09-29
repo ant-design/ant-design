@@ -1786,7 +1786,7 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
     >
       <div
         class="ant-tour-section acss-rl6otz"
-        style="background-color: rgb(205, 193, 255); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
+        style="background-color: rgba(205, 193, 255, 0.8); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
       >
         <button
           aria-label="Close"
@@ -1858,6 +1858,7 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
           >
             <button
               class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
+              style="border: 1px solid rgb(205, 193, 255); color: rgb(205, 193, 255);"
               type="button"
             >
               <span>

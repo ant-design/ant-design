@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Flex, Space, Tour } from 'antd';
-import type { TourProps } from 'antd';
+import type { TourProps, TourStepProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(() => ({
@@ -21,6 +21,24 @@ const App: React.FC = () => {
   const [openFn, setOpenFn] = useState<boolean>(false);
   const { styles: classNames } = useStyles();
 
+  const btnProps: {
+    nextButtonProps: TourStepProps['nextButtonProps'];
+    prevButtonProps: TourStepProps['prevButtonProps'];
+  } = {
+    nextButtonProps: {
+      style: {
+        border: '1px solid #CDC1FF',
+        color: '#CDC1FF',
+      },
+    },
+    prevButtonProps: {
+      style: {
+        backgroundColor: '#CDC1FF',
+        color: '#fff',
+      },
+    },
+  };
+
   const steps: TourProps['steps'] = [
     {
       title: 'Upload File',
@@ -32,6 +50,7 @@ const App: React.FC = () => {
         />
       ),
       target: () => ref1.current,
+      prevButtonProps: {},
     },
     {
       title: 'Save',
@@ -64,7 +83,7 @@ const App: React.FC = () => {
           backgroundColor: 'rgba(0, 0, 0, 0.3)',
         },
         section: {
-          backgroundColor: '#CDC1FF',
+          backgroundColor: 'rgb(205,193,255, 0.8)',
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
         },
         cover: {
@@ -93,6 +112,7 @@ const App: React.FC = () => {
       <Tour {...sharedProps} open={open} onClose={() => setOpen(false)} styles={stylesObject} />
       <Tour
         {...sharedProps}
+        steps={steps.map((s) => ({ ...s, ...btnProps }))}
         arrow={false}
         type="primary"
         open={openFn}
