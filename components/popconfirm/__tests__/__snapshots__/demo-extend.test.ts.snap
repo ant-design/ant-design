@@ -2427,7 +2427,7 @@ exports[`renders components/popconfirm/demo/style-class.tsx extend context corre
           >
             <button
               class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-              style="border-color: rgba(53, 71, 125, 0.6); color: rgba(53, 71, 125, 0.8);"
+              style="border-color: rgba(53, 71, 125, 0.6); background-color: rgb(255, 255, 255); color: rgba(53, 71, 125, 0.8);"
               type="button"
             >
               <span>

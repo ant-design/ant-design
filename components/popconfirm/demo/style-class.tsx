@@ -49,6 +49,7 @@ const App: React.FC = () => {
           styles: {
             root: {
               borderColor: 'rgba(53, 71, 125, 0.6)',
+              backgroundColor: '#fff',
               color: 'rgba(53, 71, 125, 0.8)',
             },
           },
