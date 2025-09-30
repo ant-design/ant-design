@@ -2231,7 +2231,9 @@ Array [
               colspan="1"
               style="background: red;"
             >
-              <span>
+              <span
+                style="background: red;"
+              >
                 Product
               </span>
             </th>
@@ -2240,7 +2242,9 @@ Array [
               colspan="1"
               style="background: green;"
             >
-              <span>
+              <span
+                style="background: green;"
+              >
                 Cloud Database
               </span>
             </td>
@@ -2253,7 +2257,9 @@ Array [
               colspan="1"
               style="background: red;"
             >
-              <span>
+              <span
+                style="background: red;"
+              >
                 Billing Mode
               </span>
             </th>
@@ -2262,7 +2268,9 @@ Array [
               colspan="1"
               style="background: green;"
             >
-              <span>
+              <span
+                style="background: green;"
+              >
                 Prepaid
               </span>
             </td>
@@ -2275,7 +2283,9 @@ Array [
               colspan="1"
               style="background: red; color: orange;"
             >
-              <span>
+              <span
+                style="background: red;"
+              >
                 Automatic Renewal
               </span>
             </th>
@@ -2284,7 +2294,9 @@ Array [
               colspan="1"
               style="background: green; color: blue;"
             >
-              <span>
+              <span
+                style="background: green;"
+              >
                 YES
               </span>
             </td>
@@ -2327,7 +2339,9 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               colspan="1"
               style="color: rgb(0, 0, 0);"
             >
-              <span>
+              <span
+                style="color: rgb(0, 0, 0);"
+              >
                 Product
               </span>
             </th>
@@ -2348,7 +2362,9 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               colspan="1"
               style="color: rgb(0, 0, 0);"
             >
-              <span>
+              <span
+                style="color: rgb(0, 0, 0);"
+              >
                 Billing Mode
               </span>
             </th>
@@ -2369,7 +2385,9 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               colspan="1"
               style="color: rgb(0, 0, 0);"
             >
-              <span>
+              <span
+                style="color: rgb(0, 0, 0);"
+              >
                 Automatic Renewal
               </span>
             </th>
@@ -2412,7 +2430,9 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               colspan="1"
               style="color: rgb(162, 148, 249);"
             >
-              <span>
+              <span
+                style="color: rgb(162, 148, 249);"
+              >
                 Product
               </span>
             </th>
@@ -2433,7 +2453,9 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               colspan="1"
               style="color: rgb(162, 148, 249);"
             >
-              <span>
+              <span
+                style="color: rgb(162, 148, 249);"
+              >
                 Billing Mode
               </span>
             </th>
@@ -2454,7 +2476,9 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
               colspan="1"
               style="color: rgb(162, 148, 249);"
             >
-              <span>
+              <span
+                style="color: rgb(162, 148, 249);"
+              >
                 Automatic Renewal
               </span>
             </th>

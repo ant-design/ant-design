@@ -80,7 +80,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     contentStyle,
     styles,
     items,
-    classNames: descriptionsClassNames,
+    classNames,
     ...restProps
   } = props;
   const {
@@ -138,7 +138,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     DescriptionsClassNamesType,
     DescriptionsStylesType,
     DescriptionsProps
-  >([contextClassNames, descriptionsClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
@@ -150,11 +150,11 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       styles: {
         content: mergedStyles.content,
         label: mergedStyles.label,
-      },
+      } as DescriptionsContextProps['styles'],
       classNames: {
-        label: clsx(mergedClassNames.label),
-        content: clsx(mergedClassNames.content),
-      },
+        label: mergedClassNames.label,
+        content: mergedClassNames.content,
+      } as DescriptionsContextProps['classNames'],
     }),
     [labelStyle, contentStyle, mergedStyles, mergedClassNames],
   );
@@ -229,7 +229,7 @@ if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';
 }
 
-export type { DescriptionsContextProps } from './DescriptionsContext';
+export type { DescriptionsContextProps };
 export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;
