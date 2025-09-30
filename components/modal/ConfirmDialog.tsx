@@ -49,11 +49,7 @@ export interface ConfirmDialogProps extends ModalFuncProps {
   isSilent?: () => boolean;
 }
 
-export function ConfirmContent(
-  props: ConfirmDialogProps & {
-    confirmPrefixCls: string;
-  },
-) {
+export function ConfirmContent(props: ConfirmDialogProps & { confirmPrefixCls: string }) {
   const {
     prefixCls,
     icon,
@@ -153,10 +149,7 @@ export function ConfirmContent(
         <ModalContextProvider value={btnCtxValueMemo}>
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
-              ? footer(footerOriginNode, {
-                  OkBtn,
-                  CancelBtn,
-                })
+              ? footer(footerOriginNode, { OkBtn, CancelBtn })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
