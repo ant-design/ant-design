@@ -10,11 +10,10 @@ import RcTreeSelect, {
 } from '@rc-component/tree-select';
 import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import cls from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -247,16 +246,17 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     isFormItemInput,
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
+
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps = {
+  const mergedProps: TreeSelectProps<ValueType, OptionType> = {
     ...props,
     size: mergedSize,
     disabled: mergedDisabled,
     status: mergedStatus,
     variant,
-  } as TreeSelectProps<ValueType, OptionType>;
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TreeSelectClassNamesType,
