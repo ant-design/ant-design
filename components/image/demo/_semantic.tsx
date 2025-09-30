@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Image, theme } from 'antd';
 import type { ImageProps } from 'antd';
+import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
 
@@ -43,8 +44,11 @@ const locales = {
       'Preview actions group element, sets flex layout, background color, border radius and action button styles',
   },
 };
+interface ImagePropsBlock extends Omit<ImageProps, 'classNames'> {
+  classNames?: RcImageProps['classNames'];
+}
 
-const Block: React.FC<Readonly<ImageProps>> = ({ classNames, ...restProps }) => {
+const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }) => {
   const holderRef = React.useRef<HTMLDivElement>(null);
 
   const { token } = theme.useToken();

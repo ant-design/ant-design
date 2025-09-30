@@ -696,6 +696,43 @@ exports[`renders components/image/demo/previewSrc.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/image/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <div
+    class="ant-image css-var-test-id ant-image-css-var acss-1spuuhl"
+    style="width:160px"
+  >
+    <img
+      alt="示例图片"
+      class="ant-image-img"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      style="border-radius:4px"
+      width="160"
+    />
+    <div
+      class="ant-image-cover ant-image-cover-center"
+    />
+  </div>
+  <div
+    class="ant-image css-var-test-id ant-image-css-var acss-1spuuhl"
+    style="width:160px;border:2px solid #A594F9;border-radius:8px;padding:4px;transition:all 0.3s ease"
+  >
+    <img
+      alt="示例图片"
+      class="ant-image-img"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      style="border-radius:4px;filter:grayscale(50%)"
+      width="160"
+    />
+    <div
+      class="ant-image-cover ant-image-cover-center"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/image/demo/toolbarRender.tsx correctly 1`] = `
 Array [
   <div
