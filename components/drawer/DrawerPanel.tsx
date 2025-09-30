@@ -32,7 +32,11 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: ClosableType;
+  closable?:
+    | boolean
+    | (Extract<ClosableType, object> & {
+        placement?: 'start' | 'end';
+      });
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
@@ -61,6 +65,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
+    closable,
     loading,
     onClose,
     headerStyle,
@@ -72,13 +77,28 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   } = props;
   const drawerContext = useComponentConfig('drawer');
 
+  let closablePlacement: string | undefined;
+  if (closable === false) {
+    closablePlacement = undefined;
+  } else if (closable === undefined || closable === true) {
+    closablePlacement = 'start';
+  } else {
+    closablePlacement = closable?.placement === 'end' ? 'end' : 'start';
+  }
+
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+      <button
+        type="button"
+        onClick={onClose}
+        className={classNames(`${prefixCls}-close`, {
+          [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
+        })}
+      >
         {icon}
       </button>
     ),
-    [onClose],
+    [onClose, prefixCls, closablePlacement],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
@@ -90,11 +110,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  const headerNode = React.useMemo<React.ReactNode>(() => {
-    if (!title && !mergedClosable) {
-      return null;
-    }
-    return (
+  let headerNode: React.ReactNode = null;
+  if (title || mergedClosable) {
+    headerNode = (
       <div
         style={{
           ...drawerContext.styles?.header,
@@ -111,13 +129,14 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         )}
       >
         <div className={`${prefixCls}-header-title`}>
-          {mergedCloseIcon}
+          {closablePlacement === 'start' && mergedCloseIcon}
           {title && <div className={`${prefixCls}-title`}>{title}</div>}
         </div>
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        {closablePlacement === 'end' && mergedCloseIcon}
       </div>
     );
-  }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);
+  }
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {

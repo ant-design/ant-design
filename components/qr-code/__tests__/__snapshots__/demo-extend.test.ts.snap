@@ -202,6 +202,7 @@ Array [
       width="160"
     />
     <img
+      alt="QR-Code"
       crossorigin="anonymous"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       style="display: none;"
@@ -447,6 +448,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
           width="160"
         />
         <img
+          alt="QR-Code"
           crossorigin="anonymous"
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           style="display: none;"
@@ -571,6 +573,7 @@ exports[`renders components/qr-code/demo/icon.tsx extend context correctly 1`] =
     width="160"
   />
   <img
+    alt="QR-Code"
     crossorigin="anonymous"
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     style="display: none;"
