@@ -536,7 +536,7 @@ describe('Segmented', () => {
       await waitFor(() => {
         const tooltipList = document.querySelectorAll('.ant-tooltip');
         expect(tooltipList).toHaveLength(2);
-        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-inner');
+        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-container');
         expect(tooltipInnerList).toHaveLength(2);
         expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
         expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');

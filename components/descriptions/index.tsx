@@ -1,7 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -16,6 +18,7 @@ import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
+import type { DescriptionsContextProps } from './DescriptionsContext';
 
 interface CompoundedComponent {
   Item: typeof DescriptionsItem;
@@ -32,6 +35,8 @@ export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefi
 }
 
 type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content';
+export type DescriptionsClassNamesType = SemanticClassNamesType<DescriptionsProps, SemanticName>;
+export type DescriptionsStylesType = SemanticStylesType<DescriptionsProps, SemanticName>;
 
 export interface DescriptionsProps {
   prefixCls?: string;
@@ -51,8 +56,8 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: DescriptionsStylesType;
+  classNames?: DescriptionsClassNamesType;
   items?: DescriptionsItemType[];
   id?: string;
 }
@@ -75,7 +80,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     contentStyle,
     styles,
     items,
-    classNames: descriptionsClassNames,
+    classNames,
     ...restProps
   } = props;
   const {
@@ -121,31 +126,46 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: DescriptionsProps = {
+    ...props,
+    column: mergedColumn,
+    items: mergedItems,
+    size: mergedSize,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsClassNamesType,
+    DescriptionsStylesType,
+    DescriptionsProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   // ======================== Render ========================
   const contextValue = React.useMemo(
     () => ({
       labelStyle,
       contentStyle,
       styles: {
-        content: { ...contextStyles.content, ...styles?.content },
-        label: { ...contextStyles.label, ...styles?.label },
-      },
+        content: mergedStyles.content,
+        label: mergedStyles.label,
+      } as DescriptionsContextProps['styles'],
       classNames: {
-        label: classNames(contextClassNames.label, descriptionsClassNames?.label),
-        content: classNames(contextClassNames.content, descriptionsClassNames?.content),
-      },
+        label: mergedClassNames.label,
+        content: mergedClassNames.content,
+      } as DescriptionsContextProps['classNames'],
     }),
-    [labelStyle, contentStyle, styles, descriptionsClassNames, contextClassNames, contextStyles],
+    [labelStyle, contentStyle, mergedStyles, mergedClassNames],
   );
 
   return (
     <DescriptionsContext.Provider value={contextValue}>
       <div
-        className={classNames(
+        className={cls(
           prefixCls,
           contextClassName,
-          contextClassNames.root,
-          descriptionsClassNames?.root,
+          mergedClassNames.root,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
@@ -156,41 +176,26 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...contextStyles.root, ...styles?.root, ...style }}
+        style={{ ...contextStyle, ...mergedStyles.root, ...style }}
         {...restProps}
       >
         {(title || extra) && (
           <div
-            className={classNames(
-              `${prefixCls}-header`,
-              contextClassNames.header,
-              descriptionsClassNames?.header,
-            )}
-            style={{ ...contextStyles.header, ...styles?.header }}
+            className={cls(`${prefixCls}-header`, mergedClassNames.header)}
+            style={mergedStyles.header}
           >
             {title && (
               <div
-                className={classNames(
-                  `${prefixCls}-title`,
-                  contextClassNames.title,
-                  descriptionsClassNames?.title,
-                )}
-                style={{
-                  ...contextStyles.title,
-                  ...styles?.title,
-                }}
+                className={cls(`${prefixCls}-title`, mergedClassNames.title)}
+                style={mergedStyles.title}
               >
                 {title}
               </div>
             )}
             {extra && (
               <div
-                className={classNames(
-                  `${prefixCls}-extra`,
-                  contextClassNames.extra,
-                  descriptionsClassNames?.extra,
-                )}
-                style={{ ...contextStyles.extra, ...styles?.extra }}
+                className={cls(`${prefixCls}-extra`, mergedClassNames.extra)}
+                style={mergedStyles.extra}
               >
                 {extra}
               </div>
@@ -224,7 +229,7 @@ if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';
 }
 
-export type { DescriptionsContextProps } from './DescriptionsContext';
+export type { DescriptionsContextProps };
 export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;

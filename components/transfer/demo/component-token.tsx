@@ -190,7 +190,7 @@ const App: React.FC = () => {
         showSearch={showSearch}
         onChange={secondOnChange}
         filterOption={(inputValue, item) =>
-          item.title!.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
+          item.title!.includes(inputValue) || item.tag.includes(inputValue)
         }
         leftColumns={leftTableColumns}
         rightColumns={rightTableColumns}

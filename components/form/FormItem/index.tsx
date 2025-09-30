@@ -3,8 +3,8 @@ import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
 import type { FieldProps } from '@rc-component/form/lib/Field';
 import type { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
+import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
-import { supportRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import { cloneElement } from '../../_util/reactNode';

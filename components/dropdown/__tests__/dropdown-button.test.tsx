@@ -1,11 +1,13 @@
 import React from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import type { DropdownProps } from '../dropdown';
 import DropdownButton from '../dropdown-button';
+
+const { resetWarned } = warning;
 
 let dropdownProps: DropdownProps;
 

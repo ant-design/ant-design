@@ -92,7 +92,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
+const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
 
@@ -145,15 +145,20 @@ const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
   );
 };
 
-export default () => {
+const ResourceArticles: React.FC = () => {
   const { styles } = useStyle();
-  const data = useSiteData();
-
-  const articles = data ? <Articles data={data} /> : <Skeleton active />;
-
+  const { data, error, isLoading } = useSiteData();
+  if (isLoading) {
+    return <Skeleton active />;
+  }
+  if (error) {
+    return <div>{error.message}</div>;
+  }
   return (
     <div id="articles" className={styles.articles}>
-      {articles}
+      <Articles data={data} />
     </div>
   );
 };
+
+export default ResourceArticles;

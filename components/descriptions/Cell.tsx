@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
@@ -42,54 +43,56 @@ const Cell: React.FC<CellProps> = (props) => {
     colon,
     type,
     styles,
+    classNames,
   } = props;
 
   const Component = component as keyof JSX.IntrinsicElements;
   const descContext = React.useContext(DescriptionsContext);
-  const { classNames: descriptionsClassNames } = descContext;
-
+  const { classNames: contextClassNames, styles: contextStyles } = descContext;
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
   if (bordered) {
     return (
       <Component
-        className={classNames(
+        className={cls(
           {
             [`${itemPrefixCls}-item-label`]: type === 'label',
             [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
           },
+          type === 'label' && mergedClassNames.label,
+          type === 'content' && mergedClassNames.content,
           className,
         )}
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
+        {notEmpty(label) && <span style={{ ...labelStyle, ...mergedStyles.label }}>{label}</span>}
+        {notEmpty(content) && (
+          <span style={{ ...contentStyle, ...mergedStyles.content }}>{content}</span>
+        )}
       </Component>
     );
   }
 
   return (
-    <Component
-      className={classNames(`${itemPrefixCls}-item`, className)}
-      style={style}
-      colSpan={span}
-    >
+    <Component className={cls(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
         {(label || label === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
+            className={cls(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
-            style={{ ...labelStyle, ...styles?.label }}
+            style={{ ...labelStyle, ...mergedStyles.label }}
           >
             {label}
           </span>
         )}
         {(content || content === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
-            style={{ ...contentStyle, ...styles?.content }}
+            className={cls(`${itemPrefixCls}-item-content`, mergedClassNames.content)}
+            style={{ ...contentStyle, ...mergedStyles.content }}
           >
             {content}
           </span>

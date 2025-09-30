@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SubMenu as RcSubMenu, useFullPath } from '@rc-component/menu';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';

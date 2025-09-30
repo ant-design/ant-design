@@ -204,7 +204,7 @@ describe('Masonry', () => {
         .match(/\d+px/)![0];
       const verticalGutter = itemElements[2].style.top.match(/\d+px/)![0];
 
-      return [parseInt(horizontalGutter, 10), parseInt(verticalGutter, 10)];
+      return [Number.parseInt(horizontalGutter, 10), Number.parseInt(verticalGutter, 10)];
     };
 
     const renderGutter = (gutter: MasonryProps['gutter']) => (

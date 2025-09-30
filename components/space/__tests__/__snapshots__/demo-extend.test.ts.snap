@@ -235,83 +235,83 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-text"
+                  class="ant-popconfirm-title"
                 >
-                  <div
-                    class="ant-popconfirm-title"
-                  >
-                    Are you sure delete this task?
-                  </div>
+                  Are you sure delete this task?
                 </div>
               </div>
-              <div
-                class="ant-popconfirm-buttons"
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
-              </div>
+                <span>
+                  No
+                </span>
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Yes
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -433,23 +433,23 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </button>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            copy git url
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          copy git url
         </div>
       </div>
     </div>
@@ -8994,258 +8994,338 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         />
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-content"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-color-picker-inner"
             >
               <div
-                class="ant-color-picker-inner"
+                class="ant-color-picker-inner-content"
               >
                 <div
-                  class="ant-color-picker-inner-content"
+                  class="ant-color-picker-panel"
                 >
                   <div
-                    class="ant-color-picker-panel"
+                    class="ant-color-picker-select"
                   >
                     <div
-                      class="ant-color-picker-select"
+                      class="ant-color-picker-palette"
+                      style="position: relative;"
                     >
                       <div
-                        class="ant-color-picker-palette"
-                        style="position: relative;"
+                        style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                       >
                         <div
-                          style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
-                        >
-                          <div
-                            class="ant-color-picker-handler"
-                            style="background-color: rgba(0, 0, 0, 0);"
-                          />
-                        </div>
-                        <div
-                          class="ant-color-picker-saturation"
-                          style="background-color: rgb(255, 0, 0); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                          class="ant-color-picker-handler"
+                          style="background-color: rgba(0, 0, 0, 0);"
                         />
                       </div>
-                    </div>
-                    <div
-                      class="ant-color-picker-slider-container"
-                    >
                       <div
-                        class="ant-color-picker-slider-group"
-                      >
-                        <div
-                          class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
-                        >
-                          <div
-                            class="ant-slider-rail ant-color-picker-slider-rail"
-                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
-                          />
-                          <div
-                            class="ant-slider-step"
-                          />
-                          <div
-                            aria-disabled="false"
-                            aria-orientation="horizontal"
-                            aria-valuemax="359"
-                            aria-valuemin="0"
-                            aria-valuenow="0"
-                            class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                            role="slider"
-                            style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
-                            tabindex="0"
-                          />
-                        </div>
-                        <div
-                          class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
-                        >
-                          <div
-                            class="ant-slider-rail ant-color-picker-slider-rail"
-                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(0,0,0) 100%);"
-                          />
-                          <div
-                            class="ant-slider-step"
-                          />
-                          <div
-                            aria-disabled="false"
-                            aria-orientation="horizontal"
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="0"
-                            class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                            role="slider"
-                            style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
-                            tabindex="0"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-color-picker-color-block"
-                      >
-                        <div
-                          class="ant-color-picker-color-block-inner"
-                          style="background: rgba(0, 0, 0, 0);"
-                        />
-                      </div>
+                        class="ant-color-picker-saturation"
+                        style="background-color: rgb(255, 0, 0); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                      />
                     </div>
                   </div>
                   <div
-                    class="ant-color-picker-input-container"
+                    class="ant-color-picker-slider-container"
                   >
                     <div
-                      class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                      class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-select-selector"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
-                        <span
-                          class="ant-select-selection-wrap"
-                        >
-                          <span
-                            class="ant-select-selection-search"
-                          >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="test-id_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="test-id_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="test-id"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
-                          </span>
-                        </span>
+                        <div
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                          style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="359"
+                          aria-valuemin="0"
+                          aria-valuenow="0"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                          tabindex="0"
+                        />
                       </div>
                       <div
-                        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
-                        <div>
+                        <div
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                          style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(0,0,0) 100%);"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="0"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                          tabindex="0"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="ant-color-picker-color-block"
+                    >
+                      <div
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgba(0, 0, 0, 0);"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-input-container"
+                >
+                  <div
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  >
+                    <div
+                      class="ant-select-selector"
+                    >
+                      <span
+                        class="ant-select-selection-wrap"
+                      >
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="test-id_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="test-id_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="test-id"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    >
+                      <div>
+                        <div
+                          id="test-id_list"
+                          role="listbox"
+                          style="height: 0px; width: 0px; overflow: hidden;"
+                        >
                           <div
-                            id="test-id_list"
-                            role="listbox"
-                            style="height: 0px; width: 0px; overflow: hidden;"
+                            aria-label="HEX"
+                            aria-selected="true"
+                            id="test-id_list_0"
+                            role="option"
                           >
-                            <div
-                              aria-label="HEX"
-                              aria-selected="true"
-                              id="test-id_list_0"
-                              role="option"
-                            >
-                              hex
-                            </div>
-                            <div
-                              aria-label="HSB"
-                              aria-selected="false"
-                              id="test-id_list_1"
-                              role="option"
-                            >
-                              hsb
-                            </div>
+                            hex
                           </div>
                           <div
-                            class="rc-virtual-list"
-                            style="position: relative;"
+                            aria-label="HSB"
+                            aria-selected="false"
+                            id="test-id_list_1"
+                            role="option"
                           >
-                            <div
-                              class="rc-virtual-list-holder"
-                              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-                            >
-                              <div>
+                            hsb
+                          </div>
+                        </div>
+                        <div
+                          class="rc-virtual-list"
+                          style="position: relative;"
+                        >
+                          <div
+                            class="rc-virtual-list-holder"
+                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                          >
+                            <div>
+                              <div
+                                class="rc-virtual-list-holder-inner"
+                                style="display: flex; flex-direction: column;"
+                              >
                                 <div
-                                  class="rc-virtual-list-holder-inner"
-                                  style="display: flex; flex-direction: column;"
+                                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                  title="HEX"
                                 >
                                   <div
-                                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                                    title="HEX"
+                                    class="ant-select-item-option-content"
                                   >
-                                    <div
-                                      class="ant-select-item-option-content"
-                                    >
-                                      HEX
-                                    </div>
-                                    <span
-                                      aria-hidden="true"
-                                      class="ant-select-item-option-state"
-                                      style="user-select: none;"
-                                      unselectable="on"
-                                    />
+                                    HEX
                                   </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
+                                </div>
+                                <div
+                                  class="ant-select-item ant-select-item-option"
+                                  title="HSB"
+                                >
                                   <div
-                                    class="ant-select-item ant-select-item-option"
-                                    title="HSB"
+                                    class="ant-select-item-option-content"
                                   >
-                                    <div
-                                      class="ant-select-item-option-content"
-                                    >
-                                      HSB
-                                    </div>
-                                    <span
-                                      aria-hidden="true"
-                                      class="ant-select-item-option-state"
-                                      style="user-select: none;"
-                                      unselectable="on"
-                                    />
+                                    HSB
                                   </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
+                                </div>
+                                <div
+                                  class="ant-select-item ant-select-item-option"
+                                  title="RGB"
+                                >
                                   <div
-                                    class="ant-select-item ant-select-item-option"
-                                    title="RGB"
+                                    class="ant-select-item-option-content"
                                   >
-                                    <div
-                                      class="ant-select-item-option-content"
-                                    >
-                                      RGB
-                                    </div>
-                                    <span
-                                      aria-hidden="true"
-                                      class="ant-select-item-option-state"
-                                      style="user-select: none;"
-                                      unselectable="on"
-                                    />
+                                    RGB
                                   </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-arrow"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
                       <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
+                        aria-label="down"
+                        class="anticon anticon-down ant-select-suffix"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-color-picker-input"
+                  >
+                    <span
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
+                    >
+                      <span
+                        class="ant-input-prefix"
+                      >
+                        #
+                      </span>
+                      <input
+                        class="ant-input ant-input-sm"
+                        type="text"
+                        value="000000"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  >
+                    <div
+                      class="ant-input-number-handler-wrap"
+                    >
+                      <span
+                        aria-disabled="false"
+                        aria-label="Increase Value"
+                        class="ant-input-number-handler ant-input-number-handler-up"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="up"
+                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="up"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span
+                        aria-disabled="true"
+                        aria-label="Decrease Value"
+                        class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+                        role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
+                          class="anticon anticon-down ant-input-number-handler-down-inner"
                           role="img"
                         >
                           <svg
@@ -9265,98 +9345,18 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </span>
                     </div>
                     <div
-                      class="ant-color-picker-input"
+                      class="ant-input-number-input-wrap"
                     >
-                      <span
-                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
-                      >
-                        <span
-                          class="ant-input-prefix"
-                        >
-                          #
-                        </span>
-                        <input
-                          class="ant-input ant-input-sm"
-                          type="text"
-                          value="000000"
-                        />
-                      </span>
-                    </div>
-                    <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
-                    >
-                      <div
-                        class="ant-input-number-handler-wrap"
-                      >
-                        <span
-                          aria-disabled="false"
-                          aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
-                          role="button"
-                          unselectable="on"
-                        >
-                          <span
-                            aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="up"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                        <span
-                          aria-disabled="true"
-                          aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-                          role="button"
-                          unselectable="on"
-                        >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="0"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="0%"
-                        />
-                      </div>
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="0"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="0%"
+                      />
                     </div>
                   </div>
                 </div>
@@ -9547,23 +9547,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Like
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Like
       </div>
     </div>
     <button
@@ -9605,23 +9605,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Comment
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Comment
       </div>
     </div>
     <button
@@ -9654,23 +9654,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Star
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Star
       </div>
     </div>
     <button
@@ -9703,23 +9703,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Heart
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Heart
       </div>
     </div>
     <button
@@ -9752,23 +9752,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Share
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Share
       </div>
     </div>
     <button
@@ -9801,23 +9801,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Download
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Download
       </div>
     </div>
     <button
@@ -9891,22 +9891,22 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
             />
           </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
         </div>
         <li
           aria-describedby="test-id"
@@ -9941,22 +9941,22 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
             />
           </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
         </div>
         <li
           aria-describedby="test-id"
@@ -9991,22 +9991,22 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
             />
           </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
         </div>
       </ul>
       <div
@@ -10082,23 +10082,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Tooltip
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Tooltip
       </div>
     </div>
     <button
@@ -10131,23 +10131,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Tooltip
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Tooltip
       </div>
     </div>
   </div>
@@ -10210,23 +10210,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Tooltip
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Tooltip
       </div>
     </div>
     <button
@@ -10259,23 +10259,23 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Tooltip
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Tooltip
       </div>
     </div>
     <button
@@ -10338,22 +10338,22 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
             />
           </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
         </div>
         <li
           aria-describedby="test-id"
@@ -10369,22 +10369,22 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
             />
           </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
         </div>
         <li
           aria-describedby="test-id"
@@ -10400,22 +10400,22 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
             />
           </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
         </div>
       </ul>
       <div
@@ -10510,23 +10510,23 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Tooltip
         </div>
       </div>
     </div>
@@ -11629,22 +11629,22 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
             <li
               aria-describedby="test-id"
@@ -11660,22 +11660,22 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
+                <span
+                  class="ant-tooltip-arrow-content"
                 />
               </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              />
             </div>
           </ul>
           <div
@@ -11724,832 +11724,695 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-content"
           >
+            <input
+              class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+              placeholder="Left Border"
+              type="text"
+              value=""
+            />
             <div
-              class="ant-popover-inner-content"
+              class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+              role="separator"
+            />
+            <div
+              class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
             >
-              <input
-                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
-                placeholder="Left Border"
-                type="text"
-                value=""
-              />
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
-                role="separator"
-              />
-              <div
-                class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
+                class="ant-picker-input"
               >
-                <div
-                  class="ant-picker-input"
-                >
-                  <input
-                    aria-invalid="false"
-                    autocomplete="off"
-                    placeholder="Select date"
-                    size="12"
-                    value=""
-                  />
-                  <span
-                    class="ant-picker-suffix"
-                  >
-                    <span
-                      aria-label="calendar"
-                      class="anticon anticon-calendar"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="calendar"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
-              >
-                <div
-                  class="ant-picker-panel-container ant-picker-date-panel-container"
-                  style="margin-left: 0px; margin-right: auto;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="ant-picker-panel-layout"
-                  >
-                    <div>
-                      <div
-                        class="ant-picker-panel"
-                        tabindex="0"
-                      >
-                        <div
-                          class="ant-picker-date-panel"
-                        >
-                          <div
-                            class="ant-picker-header"
-                          >
-                            <button
-                              aria-label="Last year (Control + left)"
-                              class="ant-picker-header-super-prev-btn"
-                              tabindex="-1"
-                              type="button"
-                            >
-                              <span
-                                class="ant-picker-super-prev-icon"
-                              />
-                            </button>
-                            <button
-                              aria-label="Previous month (PageUp)"
-                              class="ant-picker-header-prev-btn"
-                              tabindex="-1"
-                              type="button"
-                            >
-                              <span
-                                class="ant-picker-prev-icon"
-                              />
-                            </button>
-                            <div
-                              class="ant-picker-header-view"
-                            >
-                              <button
-                                aria-label="Choose a month"
-                                class="ant-picker-month-btn"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                Nov
-                              </button>
-                              <button
-                                aria-label="Choose a year"
-                                class="ant-picker-year-btn"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                2016
-                              </button>
-                            </div>
-                            <button
-                              aria-label="Next month (PageDown)"
-                              class="ant-picker-header-next-btn"
-                              tabindex="-1"
-                              type="button"
-                            >
-                              <span
-                                class="ant-picker-next-icon"
-                              />
-                            </button>
-                            <button
-                              aria-label="Next year (Control + right)"
-                              class="ant-picker-header-super-next-btn"
-                              tabindex="-1"
-                              type="button"
-                            >
-                              <span
-                                class="ant-picker-super-next-icon"
-                              />
-                            </button>
-                          </div>
-                          <div
-                            class="ant-picker-body"
-                          >
-                            <table
-                              class="ant-picker-content"
-                            >
-                              <thead>
-                                <tr>
-                                  <th>
-                                    Su
-                                  </th>
-                                  <th>
-                                    Mo
-                                  </th>
-                                  <th>
-                                    Tu
-                                  </th>
-                                  <th>
-                                    We
-                                  </th>
-                                  <th>
-                                    Th
-                                  </th>
-                                  <th>
-                                    Fr
-                                  </th>
-                                  <th>
-                                    Sa
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-10-30"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      30
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-10-31"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      31
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-01"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      1
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-02"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      2
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-03"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      3
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-04"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      4
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-05"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      5
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-06"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      6
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-07"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      7
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-08"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      8
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-09"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      9
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-10"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      10
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-11"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      11
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-12"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      12
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-13"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      13
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-14"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      14
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-15"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      15
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-16"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      16
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-17"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      17
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-18"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      18
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-19"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      19
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-20"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      20
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-21"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      21
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
-                                    title="2016-11-22"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      22
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-23"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      23
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-24"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      24
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-25"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      25
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-26"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      26
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-27"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      27
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-28"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      28
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-29"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      29
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
-                                    title="2016-11-30"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      30
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-01"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      1
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-02"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      2
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-03"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      3
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-04"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      4
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-05"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      5
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-06"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      6
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-07"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      7
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-08"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      8
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-09"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      9
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="ant-picker-cell"
-                                    title="2016-12-10"
-                                  >
-                                    <div
-                                      class="ant-picker-cell-inner"
-                                    >
-                                      10
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="ant-picker-footer"
-                      >
-                        <ul
-                          class="ant-picker-ranges"
-                        >
-                          <li
-                            class="ant-picker-now"
-                          >
-                            <a
-                              aria-disabled="false"
-                              class="ant-picker-now-btn"
-                            >
-                              Today
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
-                role="separator"
-              />
-              <div
-                class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
-              >
-                <div
-                  class="ant-input-number-handler-wrap"
+                <input
+                  aria-invalid="false"
+                  autocomplete="off"
+                  placeholder="Select date"
+                  size="12"
+                  value=""
+                />
+                <span
+                  class="ant-picker-suffix"
                 >
                   <span
-                    aria-disabled="false"
-                    aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up"
-                    role="button"
-                    unselectable="on"
+                    aria-label="calendar"
+                    class="anticon anticon-calendar"
+                    role="img"
                   >
-                    <span
-                      aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
-                      role="img"
+                    <svg
+                      aria-hidden="true"
+                      data-icon="calendar"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="up"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <span
-                    aria-disabled="false"
-                    aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
-                    role="button"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
-                role="separator"
-              />
-              <div
-                class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-              >
-                <div
-                  class="ant-select-selector"
-                >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                       />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
+                    </svg>
                   </span>
-                </div>
+                </span>
+              </div>
+            </div>
+            <div
+              class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
+            >
+              <div
+                class="ant-picker-panel-container ant-picker-date-panel-container"
+                style="margin-left: 0px; margin-right: auto;"
+                tabindex="-1"
+              >
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
+                  class="ant-picker-panel-layout"
                 >
                   <div>
                     <div
-                      class="ant-select-item-empty"
-                      id="test-id_list"
-                      role="listbox"
+                      class="ant-picker-panel"
+                      tabindex="0"
                     >
                       <div
-                        class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+                        class="ant-picker-date-panel"
                       >
                         <div
-                          class="ant-empty-image"
+                          class="ant-picker-header"
                         >
-                          <svg
-                            height="41"
-                            viewBox="0 0 64 41"
-                            width="64"
-                            xmlns="http://www.w3.org/2000/svg"
+                          <button
+                            aria-label="Last year (Control + left)"
+                            class="ant-picker-header-super-prev-btn"
+                            tabindex="-1"
+                            type="button"
                           >
-                            <title>
-                              No data
-                            </title>
-                            <g
-                              fill="none"
-                              fill-rule="evenodd"
-                              transform="translate(0 1)"
+                            <span
+                              class="ant-picker-super-prev-icon"
+                            />
+                          </button>
+                          <button
+                            aria-label="Previous month (PageUp)"
+                            class="ant-picker-header-prev-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-prev-icon"
+                            />
+                          </button>
+                          <div
+                            class="ant-picker-header-view"
+                          >
+                            <button
+                              aria-label="Choose a month"
+                              class="ant-picker-month-btn"
+                              tabindex="-1"
+                              type="button"
                             >
-                              <ellipse
-                                cx="32"
-                                cy="33"
-                                fill="#f5f5f5"
-                                rx="32"
-                                ry="7"
-                              />
-                              <g
-                                fill-rule="nonzero"
-                                stroke="#d9d9d9"
-                              >
-                                <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                />
-                                <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                  fill="#fafafa"
-                                />
-                              </g>
-                            </g>
-                          </svg>
+                              Nov
+                            </button>
+                            <button
+                              aria-label="Choose a year"
+                              class="ant-picker-year-btn"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              2016
+                            </button>
+                          </div>
+                          <button
+                            aria-label="Next month (PageDown)"
+                            class="ant-picker-header-next-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-next-icon"
+                            />
+                          </button>
+                          <button
+                            aria-label="Next year (Control + right)"
+                            class="ant-picker-header-super-next-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-super-next-icon"
+                            />
+                          </button>
                         </div>
                         <div
-                          class="ant-empty-description"
+                          class="ant-picker-body"
                         >
-                          No data
+                          <table
+                            class="ant-picker-content"
+                          >
+                            <thead>
+                              <tr>
+                                <th>
+                                  Su
+                                </th>
+                                <th>
+                                  Mo
+                                </th>
+                                <th>
+                                  Tu
+                                </th>
+                                <th>
+                                  We
+                                </th>
+                                <th>
+                                  Th
+                                </th>
+                                <th>
+                                  Fr
+                                </th>
+                                <th>
+                                  Sa
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-10-30"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    30
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-10-31"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    31
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-01"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    1
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-02"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    2
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-03"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    3
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-04"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    4
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-05"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    5
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-06"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    6
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-07"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    7
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-08"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    8
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-09"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    9
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-10"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    10
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-11"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    11
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-12"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    12
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-13"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    13
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-14"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    14
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-15"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    15
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-16"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    16
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-17"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    17
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-18"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    18
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-19"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    19
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-20"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    20
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-21"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    21
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                  title="2016-11-22"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    22
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-23"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    23
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-24"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    24
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-25"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    25
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-26"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    26
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-27"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    27
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-28"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    28
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-29"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    29
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2016-11-30"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    30
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-01"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    1
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-02"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    2
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-03"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    3
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-04"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    4
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-05"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    5
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-06"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    6
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-07"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    7
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-08"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    8
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-09"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    9
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2016-12-10"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    10
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     </div>
+                    <div
+                      class="ant-picker-footer"
+                    >
+                      <ul
+                        class="ant-picker-ranges"
+                      >
+                        <li
+                          class="ant-picker-now"
+                        >
+                          <a
+                            aria-disabled="false"
+                            class="ant-picker-now-btn"
+                          >
+                            Today
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+              role="separator"
+            />
+            <div
+              class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+            >
+              <div
+                class="ant-input-number-handler-wrap"
+              >
                 <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select: none;"
+                  aria-disabled="false"
+                  aria-label="Increase Value"
+                  class="ant-input-number-handler ant-input-number-handler-up"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="up"
+                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="up"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  aria-disabled="false"
+                  aria-label="Decrease Value"
+                  class="ant-input-number-handler ant-input-number-handler-down"
+                  role="button"
                   unselectable="on"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down ant-input-number-handler-down-inner"
                     role="img"
                   >
                     <svg
@@ -12568,6 +12431,143 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </span>
                 </span>
               </div>
+              <div
+                class="ant-input-number-input-wrap"
+              >
+                <input
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+              role="separator"
+            />
+            <div
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+            >
+              <div
+                class="ant-select-selector"
+              >
+                <span
+                  class="ant-select-selection-wrap"
+                >
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="test-id_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="test-id_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="test-id"
+                      readonly=""
+                      role="combobox"
+                      style="opacity: 0;"
+                      type="search"
+                      unselectable="on"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-placeholder"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="test-id_list"
+                    role="listbox"
+                  >
+                    <div
+                      class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
+                            >
+                              <path
+                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              />
+                              <path
+                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -16454,83 +16454,83 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-text"
+                  class="ant-popconfirm-title"
                 >
-                  <div
-                    class="ant-popconfirm-title"
-                  >
-                    Are you sure delete this task?
-                  </div>
+                  Are you sure delete this task?
                 </div>
               </div>
-              <div
-                class="ant-popconfirm-buttons"
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
-              </div>
+                <span>
+                  No
+                </span>
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Yes
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -16551,83 +16551,83 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-text"
+                  class="ant-popconfirm-title"
                 >
-                  <div
-                    class="ant-popconfirm-title"
-                  >
-                    Are you sure delete this task?
-                  </div>
+                  Are you sure delete this task?
                 </div>
               </div>
-              <div
-                class="ant-popconfirm-buttons"
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
-              </div>
+                <span>
+                  No
+                </span>
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Yes
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -16918,6 +16918,110 @@ Array [
 `;
 
 exports[`renders components/space/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/space/demo/style-class.tsx extend context correctly 1`] = `
+<div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id demo-space-root"
+    style="border-width: 2px; border-style: dashed; padding: 8px; margin-bottom: 10px;"
+  >
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color: rgb(240, 240, 240); padding: 4px;"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 1
+        </span>
+      </button>
+    </div>
+    <span
+      class="ant-space-item-separator demo-space-separator"
+      style="color: red; font-weight: bold;"
+    >
+      •
+    </span>
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color: rgb(240, 240, 240); padding: 4px;"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 2
+        </span>
+      </button>
+    </div>
+    <span
+      class="ant-space-item-separator demo-space-separator"
+      style="color: red; font-weight: bold;"
+    >
+      •
+    </span>
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color: rgb(240, 240, 240); padding: 4px;"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id demo-space-root--horizontal"
+    style="background-color: rgb(230, 247, 255); border-color: rgb(24, 144, 255); padding: 8px;"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 1
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 2
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/space/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/vertical.tsx extend context correctly 1`] = `
 <div

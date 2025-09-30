@@ -986,28 +986,28 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-content"
           >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <span>
-                step 0 status: finish
-              </span>
-            </div>
+            <span>
+              step 0 status: finish
+            </span>
           </div>
         </div>
       </div>
@@ -1045,28 +1045,28 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-content"
           >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <span>
-                step 1 status: process
-              </span>
-            </div>
+            <span>
+              step 1 status: process
+            </span>
           </div>
         </div>
       </div>
@@ -1104,28 +1104,28 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-content"
           >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <span>
-                step 2 status: wait
-              </span>
-            </div>
+            <span>
+              step 2 status: wait
+            </span>
           </div>
         </div>
       </div>
@@ -1163,28 +1163,28 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-content"
           >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <span>
-                step 3 status: wait
-              </span>
-            </div>
+            <span>
+              step 3 status: wait
+            </span>
           </div>
         </div>
       </div>
@@ -1649,23 +1649,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 1
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 1
               </div>
             </div>
             <div
@@ -1702,23 +1702,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 2
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 2
               </div>
             </div>
             <div
@@ -1752,23 +1752,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 3
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 3
               </div>
             </div>
           </div>
@@ -1847,23 +1847,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 1
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 1
               </div>
             </div>
             <div
@@ -1900,23 +1900,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 2
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 2
               </div>
             </div>
             <div
@@ -1950,23 +1950,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 3
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 3
               </div>
             </div>
           </div>
@@ -2045,23 +2045,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 1
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 1
               </div>
             </div>
             <div
@@ -2098,23 +2098,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 2
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 2
               </div>
             </div>
             <div
@@ -2148,23 +2148,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 3
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 3
               </div>
             </div>
           </div>
@@ -2243,23 +2243,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 1
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 1
               </div>
             </div>
             <div
@@ -2296,23 +2296,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 2
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 2
               </div>
             </div>
             <div
@@ -2346,23 +2346,23 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
                 style="position: absolute; bottom: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
               >
-                <div
-                  class="ant-tooltip-inner"
-                  id="test-id"
-                  role="tooltip"
-                >
-                  This is Step 3
-                </div>
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-container"
+                id="test-id"
+                role="tooltip"
+              >
+                This is Step 3
               </div>
             </div>
           </div>
@@ -2427,23 +2427,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 1
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 1
       </div>
     </div>
     <div
@@ -2486,23 +2486,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 2
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 2
       </div>
     </div>
     <div
@@ -2545,23 +2545,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 3
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 3
       </div>
     </div>
     <div
@@ -2604,23 +2604,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 4
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 4
       </div>
     </div>
     <div
@@ -2660,23 +2660,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 5
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 5
       </div>
     </div>
   </div>
@@ -2727,23 +2727,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 1
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 1
       </div>
     </div>
     <div
@@ -2789,23 +2789,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 2
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 2
       </div>
     </div>
     <div
@@ -2851,23 +2851,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 3
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 3
       </div>
     </div>
     <div
@@ -2913,23 +2913,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 4
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 4
       </div>
     </div>
     <div
@@ -2971,23 +2971,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 5
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 5
       </div>
     </div>
   </div>
@@ -3035,23 +3035,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 3
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 3
       </div>
     </div>
     <div
@@ -3094,23 +3094,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 4
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 4
       </div>
     </div>
     <div
@@ -3150,23 +3150,23 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          This is Step 5
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        This is Step 5
       </div>
     </div>
   </div>
@@ -6281,6 +6281,281 @@ Array [
 `;
 
 exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/steps/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id acss-1tcbvg1"
+    style="--steps-items-offset: 0;"
+  >
+    <div
+      class="ant-steps-item ant-steps-item-finish"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+          style="border-radius: 30%;"
+        >
+          <span
+            aria-label="check"
+            class="anticon anticon-check ant-steps-item-icon-finish"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              Finished
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-process"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content"
+            style="font-style: italic;"
+          >
+            This is a content.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+          style="border-radius: 30%;"
+        >
+          <span
+            class="ant-steps-item-icon-number"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              In Progress
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-wait"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content"
+            style="font-style: italic;"
+          >
+            This is a content.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+          style="border-radius: 30%;"
+        >
+          <span
+            class="ant-steps-item-icon-number"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              Waiting
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content"
+            style="font-style: italic;"
+          >
+            This is a content.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-test-id acss-1tcbvg1"
+    style="--steps-items-offset: 0; border-color: rgb(24, 144, 255);"
+  >
+    <div
+      class="ant-steps-item ant-steps-item-finish"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+        >
+          <span
+            aria-label="check"
+            class="anticon anticon-check ant-steps-item-icon-finish"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              Finished
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-process"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content"
+          >
+            This is a content.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+        >
+          <span
+            class="ant-steps-item-icon-number"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              In Progress
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-wait"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content"
+          >
+            This is a content.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+        >
+          <span
+            class="ant-steps-item-icon-number"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              Waiting
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content"
+          >
+            This is a content.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/steps/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/title-placement.tsx extend context correctly 1`] = `
 Array [

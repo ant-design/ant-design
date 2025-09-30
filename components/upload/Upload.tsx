@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
-import type { UploadProps as RcUploadProps } from 'rc-upload';
-import RcUpload from 'rc-upload';
+import type { UploadProps as RcUploadProps } from '@rc-component/upload';
+import RcUpload from '@rc-component/upload';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -16,6 +17,8 @@ import type {
   UploadChangeParam,
   UploadFile,
   UploadProps,
+  UploadClassNamesType,
+  UploadStylesType,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';
@@ -81,11 +84,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const customRequest = props.customRequest || config.customRequest;
 
-  const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
-    value: fileList,
-    postState: (list) => list ?? [],
-  });
-
+  const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
+  const mergedFileList = internalFileList || [];
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const upload = React.useRef<RcUpload>(null);
@@ -124,7 +124,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     // Cut to match count
     if (maxCount === 1) {
       cloneList = cloneList.slice(-1);
-    } else if (maxCount) {
+    } else if (typeof maxCount === 'number' && Number.isFinite(maxCount) && maxCount > 0) {
       exceedMaxCount = cloneList.length > maxCount;
       cloneList = cloneList.slice(0, maxCount);
     }
@@ -352,6 +352,26 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: UploadProps = {
+    ...props,
+    listType,
+    showUploadList,
+    type,
+    multiple,
+    hasControlInside,
+    supportServerRender,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    UploadClassNamesType,
+    UploadStylesType,
+    UploadProps
+  >([contextClassNames, uploadClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   const rcUploadProps = {
     onBatchStart,
     onError,
@@ -408,12 +428,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     return (
       <UploadList
         classNames={{
-          list: classNames(contextClassNames.list, uploadClassNames?.list),
-          item: classNames(contextClassNames.item, uploadClassNames?.item),
+          list: mergedClassNames.list,
+          item: mergedClassNames.item,
         }}
         styles={{
-          list: { ...contextStyles.list, ...styles?.list },
-          item: { ...contextStyles.item, ...styles?.item },
+          list: mergedStyles.list,
+          item: mergedStyles.item,
         }}
         prefixCls={prefixCls}
         listType={listType}
@@ -448,15 +468,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     hashId,
     cssVarCls,
     contextClassName,
-    contextClassNames.root,
-    uploadClassNames?.root,
+    mergedClassNames.root,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
       [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
     },
   );
-  const mergedRootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
+  const mergedRootStyle: React.CSSProperties = { ...mergedStyles.root };
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 

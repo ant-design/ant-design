@@ -3,8 +3,7 @@ import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from '@rc-component/menu';
 import RcMenu from '@rc-component/menu';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import omit from '@rc-component/util/lib/omit';
+import { omit, useEvent } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -147,7 +146,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = inlineCollapsed ?? siderCollapsed;
-  // =========== Merged Props for Semantic ==========
+  // ================ Merged Props for Semantic ================
   const mergedProps: MenuProps = {
     ...props,
     mode: mergedMode,

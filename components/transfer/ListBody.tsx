@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
 import cls from 'classnames';
 
 import type { KeyWiseTransferItem } from '.';
@@ -64,9 +64,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     return parsePagination(convertPagination);
   }, [pagination]);
 
-  const [pageSize, setPageSize] = useMergedState<number>(10, {
-    value: mergedPagination?.pageSize,
-  });
+  const [pageSize, setPageSize] = useControlledState<number>(10, mergedPagination?.pageSize);
 
   React.useEffect(() => {
     if (mergedPagination) {

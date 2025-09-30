@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import classnames from 'classnames';
 
 import { groupKeysMap } from '../_util/transKeys';
@@ -14,8 +14,8 @@ import type {
   SelectAllLabel,
   TransferDirection,
   TransferLocale,
-  TransferProps,
   TransferSearchOption,
+  SemanticName,
 } from './index';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -49,8 +49,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: NonNullable<TransferProps['classNames']>;
-  styles: NonNullable<TransferProps['styles']>;
+  classNames: Partial<Record<SemanticName, string>>;
+  styles: Partial<Record<SemanticName, React.CSSProperties>>;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
