@@ -9,6 +9,7 @@ import type { DataNode, Key } from 'rc-tree/lib/interface';
 
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
 import dropIndicatorRender from './utils/dropIndicator';
@@ -171,12 +172,16 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     checkable = false,
     selectable = true,
     draggable,
+    disabled,
     motion: customMotion,
     style,
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
 
   const motion: CSSMotionProps = customMotion ?? {
     ...initCollapseMotion(rootPrefixCls),
@@ -190,6 +195,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     showIcon,
     motion,
     blockNode,
+    disabled: mergedDisabled,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -250,6 +256,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
           [`${prefixCls}-block-node`]: blockNode,
           [`${prefixCls}-unselectable`]: !selectable,
           [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-disabled`]: mergedDisabled,
         },
         tree?.className,
         className,

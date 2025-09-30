@@ -2,13 +2,13 @@ import type { Breakpoint, ScreenMap } from '../../_util/responsiveObserver';
 import { responsiveArray } from '../../_util/responsiveObserver';
 import type { RowProps } from '../row';
 
-type Gap = number | undefined;
+type Gap = number | string | undefined;
 
 export default function useGutter(
   gutter: RowProps['gutter'],
   screens: ScreenMap | null,
 ): [Gap, Gap] {
-  const results: [number | undefined, number | undefined] = [undefined, undefined];
+  const results: [Gap, Gap] = [undefined, undefined];
   const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
 
   // By default use as `xs`
@@ -26,7 +26,7 @@ export default function useGutter(
       for (let i = 0; i < responsiveArray.length; i++) {
         const breakpoint: Breakpoint = responsiveArray[i];
         if (mergedScreens[breakpoint] && g[breakpoint] !== undefined) {
-          results[index] = g[breakpoint] as number;
+          results[index] = g[breakpoint] as number | string;
           break;
         }
       }
