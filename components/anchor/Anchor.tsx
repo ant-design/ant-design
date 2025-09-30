@@ -1,9 +1,11 @@
 import * as React from 'react';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import classNames from 'classnames';
+import { useEvent } from '@rc-component/util';
+import cls from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -14,8 +16,6 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
 import useStyle from './style';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -132,7 +132,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     getContainer,
     getCurrentAnchor,
     replace,
-    classNames: anchorClassNames,
+    classNames,
     styles,
   } = props;
 
@@ -301,11 +301,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     AnchorClassNamesType,
     AnchorStylesType,
     AnchorProps
-  >([contextClassNames, anchorClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
-  const wrapperClass = classNames(
+  const wrapperClass = cls(
     hashId,
     cssVarCls,
     rootCls,
@@ -320,11 +320,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     mergedClassNames.root,
   );
 
-  const anchorClass = classNames(prefixCls, {
+  const anchorClass = cls(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(`${prefixCls}-ink`, mergedClassNames.indicator, {
+  const inkClass = cls(`${prefixCls}-ink`, mergedClassNames.indicator, {
     [`${prefixCls}-ink-visible`]: activeLink,
   });
 

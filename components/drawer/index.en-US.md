@@ -37,6 +37,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/mask.tsx">mask</code>
 <code src="./demo/closable-placement.tsx" version="5.28.0">Closable placement</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
 <code src="./demo/no-mask.tsx" debug>No mask</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -57,7 +58,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
-| classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
+| classNames | Customize class for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 |
@@ -75,7 +76,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | resizable | Enable resizable by dragging | [ResizableConfig](#resizable-config) | - | 6.0.0 |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
-| styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
+| styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | size | preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
 | loading | Show the Skeleton | boolean | false | 5.17.0 |

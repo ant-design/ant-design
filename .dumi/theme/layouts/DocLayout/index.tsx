@@ -72,10 +72,7 @@ const DocLayout: React.FC = () => {
   }, [location]);
 
   const content = React.useMemo<React.ReactNode>(() => {
-    if (
-      ['', '/'].some((path) => path === pathname) ||
-      ['/index'].some((path) => pathname.startsWith(path))
-    ) {
+    if (['', '/'].includes(pathname) || ['/index'].some((path) => pathname.startsWith(path))) {
       return (
         <IndexLayout title={locale.title} desc={locale.description}>
           {outlet}

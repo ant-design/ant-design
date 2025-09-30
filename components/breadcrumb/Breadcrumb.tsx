@@ -1,11 +1,10 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -107,7 +106,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     children,
     itemRender,
     params = {},
-    classNames: breadcrumbClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -144,7 +143,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     BreadcrumbClassNamesType<T>,
     BreadcrumbStylesType<T>,
     BreadcrumbProps<T>
-  >([contextClassNames, breadcrumbClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
@@ -253,7 +252,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     });
   }
 
-  const breadcrumbClassName = classNames(
+  const breadcrumbClassName = cls(
     prefixCls,
     contextClassName,
     {
