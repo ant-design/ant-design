@@ -140,7 +140,7 @@ const Spin: SpinType = (props) => {
     SpinClassNamesType,
     SpinStylesType,
     SpinProps
-  >([contextClassNames, spinClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, spinClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

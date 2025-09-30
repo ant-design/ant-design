@@ -187,14 +187,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     ModalClassNamesType,
     ModalStylesType,
     ModalProps
-  >(
-    [contextClassNames, modalClassNames, maskBlurClassName],
-    [contextStyles, modalStyles],
-    undefined,
-    {
-      props: mergedProps,
-    },
-  );
+  >([contextClassNames, modalClassNames, maskBlurClassName], [contextStyles, modalStyles], {
+    props: mergedProps,
+  });
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<

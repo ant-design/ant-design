@@ -248,7 +248,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     AlertClassNamesType,
     AlertStylesType,
     AlertProps
-  >([contextClassNames, alertClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, alertClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

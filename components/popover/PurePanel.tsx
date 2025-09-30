@@ -68,7 +68,9 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles]);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
+    props,
+  });
 
   const rootClassName = clsx(
     hashId,

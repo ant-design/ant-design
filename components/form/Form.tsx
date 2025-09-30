@@ -147,7 +147,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     FormClassNamesType,
     FormStylesType,
     FormProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

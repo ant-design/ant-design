@@ -133,7 +133,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       CalendarClassNamesType<DateType>,
       CalendarStylesType<DateType>,
       CalendarProps<DateType>
-    >([contextClassNames, calendarClassNames], [contextStyles, styles], undefined, {
+    >([contextClassNames, calendarClassNames], [contextStyles, styles], {
       props: mergedProps,
     });
 

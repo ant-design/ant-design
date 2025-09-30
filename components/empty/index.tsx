@@ -75,13 +75,14 @@ const Empty: CompoundedComponent = (props) => {
     EmptyClassNamesType,
     EmptyStylesType,
     EmptyProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props,
   });
 
   const [locale] = useLocale('Empty');
 
   const des = typeof description !== 'undefined' ? description : locale?.description;
+
   const alt = typeof des === 'string' ? des : 'empty';
 
   const mergedImage = image ?? contextImage ?? defaultEmptyImg;

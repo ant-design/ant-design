@@ -230,7 +230,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     TreeClassNamesType,
     TreeStylesType,
     TreeProps
-  >([contextClassNames, treeClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, treeClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

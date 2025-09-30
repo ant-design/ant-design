@@ -156,7 +156,9 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     ProgressClassNamesType,
     ProgressStylesType,
     ProgressProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ========================= Info =========================
   const isLineType = type === 'line';

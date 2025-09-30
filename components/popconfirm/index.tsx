@@ -112,7 +112,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     PopconfirmClassNamesType,
     PopconfirmStylesType,
     PopconfirmProps
-  >([ctxClassNames, classNames], [ctxStyles, styles], undefined, {
+  >([ctxClassNames, classNames], [ctxStyles, styles], {
     props: mergedProps,
   });
 

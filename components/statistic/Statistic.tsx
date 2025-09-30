@@ -90,7 +90,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     StatisticClassNamesType,
     StatisticStylesType,
     StatisticProps
-  >([contextClassNames, statisticClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, statisticClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

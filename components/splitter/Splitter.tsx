@@ -157,6 +157,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       // Convert `classNames.dragger: 'a'` to
       // `classNames.dragger: { default: 'a' }`
@@ -164,7 +165,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         _default: 'default',
       },
     },
-    { props: mergedProps },
   );
 
   const containerClassName = clsx(

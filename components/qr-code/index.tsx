@@ -63,7 +63,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     QRCodeClassNamesType,
     QRCodeStylesType,
     QRCodeProps
-  >([contextClassNames, qrcodeClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, qrcodeClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

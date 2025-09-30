@@ -249,6 +249,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       pagination: {
         _default: 'root',
@@ -260,8 +261,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         _default: 'wrapper',
       },
     },
-    { props: mergedProps },
-  ) as unknown as [SemanticType['classNames'], SemanticType['styles']];
+  ) as [SemanticType['classNames'], SemanticType['styles']];
 
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const [globalLocale] = useLocale('global', defaultLocale.global);

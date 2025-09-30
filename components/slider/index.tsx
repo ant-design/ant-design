@@ -171,7 +171,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     SliderClassNamesType,
     SliderStylesType,
     SliderSingleProps | SliderRangeProps
-  >([contextClassNames, sliderClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, sliderClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

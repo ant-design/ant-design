@@ -54,6 +54,7 @@ const Cell: React.FC<CellProps> = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props },
   );
 
   if (bordered) {

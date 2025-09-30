@@ -108,7 +108,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ArgsClassNamesType,
     ArgsStylesType,
     HolderProps
-  >([props?.classNames, message?.classNames], [props?.styles, message?.styles], undefined, {
+  >([props?.classNames, message?.classNames], [props?.styles, message?.styles], {
     props,
   });
 

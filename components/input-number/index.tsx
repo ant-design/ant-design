@@ -157,7 +157,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     InputNumberClassNamesType,
     InputNumberStylesType,
     InputNumberProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const wrapperClassName = `${prefixCls}-group`;
 

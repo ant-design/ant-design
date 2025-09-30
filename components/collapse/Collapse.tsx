@@ -117,7 +117,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     CollapseClassNamesType,
     CollapseStylesType,
     CollapseProps
-  >([contextClassNames, collapseClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, collapseClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

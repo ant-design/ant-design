@@ -368,7 +368,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     UploadClassNamesType,
     UploadStylesType,
     UploadProps
-  >([contextClassNames, uploadClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, uploadClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

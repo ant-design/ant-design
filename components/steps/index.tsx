@@ -257,7 +257,7 @@ const Steps = (props: StepsProps) => {
     StepsClassNamesType,
     StepsStylesType,
     StepsProps
-  >([waveEffectClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([waveEffectClassNames, contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

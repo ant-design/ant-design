@@ -140,7 +140,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     SkeletonClassNamesType,
     SkeletonStylesType,
     SkeletonProps
-  >([contextClassNames, skeletonClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, skeletonClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

@@ -138,7 +138,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     DescriptionsClassNamesType,
     DescriptionsStylesType,
     DescriptionsProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

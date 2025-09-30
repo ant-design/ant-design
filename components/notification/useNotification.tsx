@@ -131,14 +131,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     NotificationClassNamesType,
     NotificationStylesType,
     HolderProps
-  >(
-    [notification?.classNames, props?.classNames],
-    [notification?.styles, props?.styles],
-    undefined,
-    {
-      props,
-    },
-  );
+  >([notification?.classNames, props?.classNames], [notification?.styles, props?.styles], {
+    props,
+  });
 
   // ================================ Ref ================================
   React.useImperativeHandle(ref, () => ({

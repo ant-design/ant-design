@@ -5,7 +5,6 @@ import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import type { ButtonSemanticName } from '../button/button';
@@ -75,6 +74,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     ...props,
     enterButton,
   };
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     InputSearchClassNamesType,
     InputSearchStylesType,
@@ -82,12 +82,12 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       button: {
         _default: 'root',
       },
     },
-    { props: mergedProps },
   );
 
   const composedRef = React.useRef<boolean>(false);

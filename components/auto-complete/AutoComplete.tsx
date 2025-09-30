@@ -198,12 +198,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [undefined, classNames],
     [undefined, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
-    },
-    {
-      props: mergedProps,
     },
   );
 

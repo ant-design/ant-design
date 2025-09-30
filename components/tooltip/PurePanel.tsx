@@ -41,7 +41,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     [overlayInnerStyle, colorInfo.overlayStyle],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [innerStyles, styles]);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [innerStyles, styles], {
+    props,
+  });
 
   const rootClassName = clsx(
     rootCls,

@@ -130,20 +130,20 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps = {
+  const mergedProps: MentionProps = {
     ...props,
     disabled: mergedDisabled,
     status: mergedStatus,
     loading,
     options,
     variant: customVariant,
-  } as MentionProps;
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     MentionsClassNamesType,
     MentionsStylesType,
     MentionProps
-  >([contextClassNames, mentionsClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, mentionsClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

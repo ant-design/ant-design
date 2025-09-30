@@ -90,23 +90,18 @@ type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<
+const useMergeSemantic = <
   ClassNamesType extends AnyObject,
   StylesType extends AnyObject,
   Props extends AnyObject,
 >(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
   stylesList: MaybeFn<StylesType, Props>[],
+  info: { props: Props },
   schema?: SemanticSchema,
-  info?: {
-    props: Props;
-  },
-) {
-  const resolveCallBack = <T extends object>(val?: MaybeFn<T, Props>) => {
-    if (typeof val === 'function') {
-      return val(info as { props: Props });
-    }
-    return val;
+) => {
+  const resolveCallBack = <T extends AnyObject>(val?: MaybeFn<T, Props>) => {
+    return typeof val === 'function' ? val(info) : val;
   };
 
   const resolvedClassNamesList = classNamesList.map(resolveCallBack);
@@ -129,7 +124,9 @@ export default function useMergeSemantic<
       fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles]);
-}
+};
+
+export default useMergeSemantic;
 
 export const resolveFunctionStyle = <T extends AnyObject>(
   value: T | ((config: any) => T),

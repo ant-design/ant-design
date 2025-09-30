@@ -137,11 +137,11 @@ const Dropdown: CompoundedComponent = (props) => {
     DropdownClassNamesType,
     DropdownStylesType,
     DropdownProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
-  const mergedRootStyles = {
+  const mergedRootStyles: React.CSSProperties = {
     ...contextStyle,
     ...overlayStyle,
     ...mergedStyles.root,
