@@ -205,7 +205,7 @@
     "@types/jest-environment-puppeteer": "^5.0.6",
     "@types/jest-image-snapshot": "^6.4.0",
     "@types/jquery": "^3.5.31",
-    "@types/jsdom": "^21.1.7",
+    "@types/jsdom": "^27.0.0",
     "@types/lodash": "^4.17.12",
     "@types/minimist": "^1.2.5",
     "@types/node": "^24.0.0",
