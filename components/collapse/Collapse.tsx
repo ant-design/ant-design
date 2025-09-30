@@ -9,6 +9,8 @@ import classNames from 'classnames';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -18,7 +20,10 @@ import useStyle from './style';
 
 export type ExpandIconPlacement = 'start' | 'end';
 
-export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
+export type CollapseSemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
+
+export type CollapseClassNamesType = SemanticClassNamesType<CollapseProps, CollapseSemanticName>;
+export type CollapseStylesType = SemanticStylesType<CollapseProps, CollapseSemanticName>;
 
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
@@ -48,8 +53,8 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
    * @deprecated use `items` instead
    */
   children?: React.ReactNode;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: CollapseClassNamesType;
+  styles?: CollapseStylesType;
 }
 
 interface PanelProps {
@@ -61,8 +66,8 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<CollapseSemanticName, string>>;
+  styles?: Partial<Record<CollapseSemanticName, React.CSSProperties>>;
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
@@ -98,6 +103,23 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [hashId, cssVarCls] = useStyle(prefixCls);
+  const mergedPlacement = expandIconPlacement ?? expandIconPosition ?? 'start';
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: CollapseProps = {
+    ...props,
+    size: mergedSize,
+    bordered,
+    expandIconPlacement: mergedPlacement,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CollapseClassNamesType,
+    CollapseStylesType,
+    CollapseProps
+  >([contextClassNames, collapseClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
@@ -125,17 +147,14 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       return cloneElement(icon, () => ({
         className: classNames(
           (icon as React.ReactElement<{ className?: string }>)?.props?.className,
-          contextClassNames.icon,
-          collapseClassNames?.icon,
+          mergedClassNames.icon,
           `${prefixCls}-arrow`,
         ),
-        style: { ...contextStyles.icon, ...styles?.icon },
+        style: mergedStyles.icon,
       }));
     },
     [mergedExpandIcon, prefixCls, direction],
   );
-
-  const mergedPlacement = expandIconPlacement ?? expandIconPosition ?? 'start';
 
   const collapseClassName = classNames(
     `${prefixCls}-icon-placement-${mergedPlacement}`,
@@ -150,8 +169,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     hashId,
     cssVarCls,
-    contextClassNames.root,
-    collapseClassNames?.root,
+    mergedClassNames.root,
   );
 
   const openMotion = React.useMemo<CSSMotionProps>(
@@ -179,18 +197,18 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       classNames={{
-        header: classNames(contextClassNames.header, collapseClassNames?.header),
-        title: classNames(contextClassNames.title, collapseClassNames?.title),
-        body: classNames(contextClassNames.body, collapseClassNames?.body),
-        icon: classNames(contextClassNames.icon, collapseClassNames?.icon),
+        header: mergedClassNames.header,
+        title: mergedClassNames.title,
+        body: mergedClassNames.body,
+        icon: mergedClassNames.icon,
       }}
       styles={{
-        header: { ...contextStyles.header, ...styles?.header },
-        title: { ...contextStyles.title, ...styles?.title },
-        body: { ...contextStyles.body, ...styles?.body },
-        icon: { ...contextStyles.icon, ...styles?.icon },
+        header: mergedStyles.header,
+        title: mergedStyles.title,
+        body: mergedStyles.body,
+        icon: mergedStyles.icon,
       }}
       destroyOnHidden={destroyOnHidden ?? destroyInactivePanel}
     >

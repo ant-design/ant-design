@@ -4602,6 +4602,387 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-tree ant-tree-icon-hide css-var-test-id acss-lz3q7n"
+    style="border:2px solid #d9d9d9"
+  >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tree-list"
+      role="tree"
+      style="position:relative"
+    >
+      <div
+        class="ant-tree-list-holder"
+      >
+        <div>
+          <div
+            class="ant-tree-list-holder-inner"
+            style="display:flex;flex-direction:column"
+          >
+            <div
+              aria-expanded="false"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              draggable="false"
+              role="treeitem"
+              style="margin:2px 0"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
+                class="ant-tree-switcher ant-tree-switcher_close"
+              >
+                <span
+                  aria-label="caret-down"
+                  class="anticon anticon-caret-down ant-tree-switcher-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="caret-down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-checked="false"
+                aria-label="Select parent 1"
+                class="ant-tree-checkbox"
+                role="checkbox"
+              >
+                <span
+                  class="ant-tree-checkbox-inner"
+                />
+              </span>
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+                title="parent 1"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  parent 1
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tree ant-tree-icon-hide css-var-test-id acss-lz3q7n"
+    style="border:2px solid #E5D9F2;border-radius:4px"
+  >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tree-list"
+      role="tree"
+      style="position:relative"
+    >
+      <div
+        class="ant-tree-list-holder"
+      >
+        <div>
+          <div
+            class="ant-tree-list-holder-inner"
+            style="display:flex;flex-direction:column"
+          >
+            <div
+              aria-expanded="true"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+              draggable="false"
+              role="treeitem"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              />
+              <span
+                class="ant-tree-switcher ant-tree-switcher_open"
+              >
+                <span
+                  aria-label="caret-down"
+                  class="anticon anticon-caret-down ant-tree-switcher-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="caret-down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                title="parent 1"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  parent 1
+                </span>
+              </span>
+            </div>
+            <div
+              aria-expanded="true"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-open"
+              draggable="false"
+              role="treeitem"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher_open"
+              >
+                <span
+                  aria-label="caret-down"
+                  class="anticon anticon-caret-down ant-tree-switcher-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="caret-down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                title="parent 1-0"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  parent 1-0
+                </span>
+              </span>
+            </div>
+            <div
+              aria-expanded="false"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
+              draggable="false"
+              role="treeitem"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                />
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="leaf"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  leaf
+                </span>
+              </span>
+            </div>
+            <div
+              aria-expanded="false"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+              draggable="false"
+              role="treeitem"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                />
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="leaf"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  leaf
+                </span>
+              </span>
+            </div>
+            <div
+              aria-expanded="true"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+              draggable="false"
+              role="treeitem"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher_open"
+              >
+                <span
+                  aria-label="caret-down"
+                  class="anticon anticon-caret-down ant-tree-switcher-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="caret-down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+                title="parent 1-1"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  parent 1-1
+                </span>
+              </span>
+            </div>
+            <div
+              aria-expanded="false"
+              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+              draggable="false"
+              role="treeitem"
+            >
+              <span
+                aria-hidden="true"
+                class="ant-tree-indent"
+              >
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                />
+                <span
+                  class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                />
+              </span>
+              <span
+                class="ant-tree-switcher ant-tree-switcher-noop"
+              />
+              <span
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                title="leaf"
+              >
+                <span
+                  class="ant-tree-title acss-1kuy7z7"
+                >
+                  leaf
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide css-var-test-id ant-tree-show-line"
