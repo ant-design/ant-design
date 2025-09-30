@@ -8,16 +8,16 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
-import type { PopoverProps } from '../popover';
+import type { PopoverProps, PopoverSemanticName } from '../popover';
 import Popover from '../popover';
-import type { AbstractTooltipProps, SemanticName, TooltipRef } from '../tooltip';
+import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
-export type PopconfirmClassNamesType = SemanticClassNamesType<PopconfirmProps, SemanticName>;
+export type PopconfirmClassNamesType = SemanticClassNamesType<PopconfirmProps, PopoverSemanticName>;
 
-export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, SemanticName>;
+export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopoverSemanticName>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -129,7 +129,11 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      classNames={{ root: rootClassNames, container: mergedClassNames.container }}
+      classNames={{
+        root: rootClassNames,
+        container: mergedClassNames.container,
+        arrow: mergedClassNames.arrow,
+      }}
       styles={{
         root: {
           ...ctxStyle,
@@ -137,6 +141,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
           ...overlayStyle,
         },
         container: mergedStyles.container,
+        arrow: mergedStyles.arrow,
       }}
       content={
         <Overlay
@@ -147,6 +152,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
           close={close}
           onConfirm={onConfirm}
           onCancel={onCancel}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
         />
       }
       data-popover-inject

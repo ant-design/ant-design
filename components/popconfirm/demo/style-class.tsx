@@ -9,7 +9,10 @@ const useStyles = createStyles(() => ({
   },
 }));
 const styles: PopconfirmProps['styles'] = {
-  container: { padding: 8 },
+  container: {
+    background: '#eee',
+    boxShadow: 'inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2)',
+  },
 };
 
 const stylesFn: PopconfirmProps['styles'] = (info) => {
@@ -20,6 +23,12 @@ const stylesFn: PopconfirmProps['styles'] = (info) => {
         padding: 12,
         borderRadius: 4,
       },
+      title: {
+        color: '#fff',
+      },
+      content: {
+        color: '#fff',
+      },
     };
   }
   return {};
@@ -29,11 +38,18 @@ const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
     <Flex gap="middle">
-      <Popconfirm title="Object text" classNames={classNames} styles={styles}>
-        <Button>Object Popconfirm.</Button>
+      <Popconfirm
+        title="Object text"
+        description="Object description"
+        classNames={classNames}
+        styles={styles}
+        arrow={false}
+      >
+        <Button>Object Style</Button>
       </Popconfirm>
       <Popconfirm
         title="Function text"
+        description="Function description"
         classNames={classNames}
         styles={stylesFn}
         arrow={false}
@@ -55,7 +71,7 @@ const App: React.FC = () => {
           },
         }}
       >
-        <Button type="primary">Function Popconfirm.</Button>
+        <Button type="primary">Function Style</Button>
       </Popconfirm>
     </Flex>
   );

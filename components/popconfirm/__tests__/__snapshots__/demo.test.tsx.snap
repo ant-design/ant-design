@@ -634,7 +634,7 @@ exports[`renders components/popconfirm/demo/style-class.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Object Popconfirm.
+      Object Style
     </span>
   </button>
   <button
@@ -643,7 +643,7 @@ exports[`renders components/popconfirm/demo/style-class.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Function Popconfirm.
+      Function Style
     </span>
   </button>
 </div>

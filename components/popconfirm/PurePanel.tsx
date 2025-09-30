@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
@@ -36,6 +36,14 @@ export interface OverlayProps
   close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  classNames: {
+    title?: string;
+    content?: string;
+  };
+  styles: {
+    title?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -54,6 +62,8 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
     onConfirm,
     onCancel,
     onPopupClick,
+    classNames,
+    styles,
   } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -68,8 +78,19 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       <div className={`${prefixCls}-message`}>
         {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
         <div className={`${prefixCls}-message-text`}>
-          {titleNode && <div className={`${prefixCls}-title`}>{titleNode}</div>}
-          {descriptionNode && <div className={`${prefixCls}-description`}>{descriptionNode}</div>}
+          {titleNode && (
+            <div className={cls(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
+              {titleNode}
+            </div>
+          )}
+          {descriptionNode && (
+            <div
+              className={cls(`${prefixCls}-description`, classNames?.content)}
+              style={styles?.content}
+            >
+              {descriptionNode}
+            </div>
+          )}
         </div>
       </div>
       <div className={`${prefixCls}-buttons`}>
@@ -115,9 +136,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   return (
     <PopoverPurePanel
       placement={placement}
-      className={classNames(prefixCls, className)}
+      className={cls(prefixCls, className)}
       style={style}
-      content={<Overlay prefixCls={prefixCls} {...restProps} />}
+      content={<Overlay prefixCls={prefixCls} {...restProps} classNames={{}} styles={{}} />}
     />
   );
 };

@@ -7,15 +7,19 @@ import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
-    root: '根元素，包含定位样式、层级控制、变换原点等基础容器样式',
-    container: '内容元素，设置最小宽度高度、内边距、颜色、文本对齐、背景色、圆角、阴影和边框样式',
+    root: '根元素，设置绝对定位、层级、变换原点、箭头指向和弹层容器样式',
+    container: '容器元素，设置背景色、内边距、圆角、阴影、边框和内容展示样式',
     arrow: '箭头元素，设置宽高、位置、颜色和边框样式',
+    title: '标题元素，设置标题文本样式和间距',
+    content: '描述元素，设置描述文本样式和布局',
   },
   en: {
-    root: 'Root element with positioning styles, z-index control, transform origin and other basic container styles',
+    root: 'Root element, set absolute positioning, z-index, transform origin, arrow direction and popover container styles',
     container:
-      'Content element with min width and height, padding, color, text alignment, background color, border radius, shadow and border styles',
+      'Container element, set background color, padding, border radius, shadow, border and content display styles',
     arrow: 'Arrow element with width, height, position, color and border styles',
+    title: 'Title element, set title text styles and spacing',
+    content: 'Description element, set content text styles and layout',
   },
 };
 
@@ -45,9 +49,12 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'container', desc: locale.container },
+        { name: 'title', desc: locale.title },
+        { name: 'content', desc: locale.content },
+        { name: 'arrow', desc: locale.arrow },
       ]}
     >
-      <BlockList title="popconfirm prompt text" />
+      <BlockList title="确认操作" description="您确定要执行此操作吗？" />
     </SemanticPreview>
   );
 };
