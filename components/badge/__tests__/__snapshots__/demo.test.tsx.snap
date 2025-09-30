@@ -3141,7 +3141,6 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
         >
           <span
             class="ant-ribbon-content"
-            style="font-weight:bold"
           >
             Custom Ribbon
           </span>
