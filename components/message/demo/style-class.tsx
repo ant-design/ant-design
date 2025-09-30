@@ -3,10 +3,8 @@ import { Button, message, Space } from 'antd';
 import type { MessageArgsProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
-  root: css`
-    margin-top: 20vh;
-  `,
+const useStyle = createStyles(() => ({
+  icon: { fontSize: 14 },
 }));
 
 const stylesObject: MessageArgsProps['styles'] = {
@@ -36,9 +34,7 @@ const App: React.FC = () => {
     messageApi.open({
       type: 'info',
       content: 'This is a message with object classNames and styles',
-      classNames: {
-        root: styles.root,
-      },
+      classNames: styles,
       styles: stylesObject,
     });
   };
@@ -47,9 +43,7 @@ const App: React.FC = () => {
     messageApi.open({
       type: 'success',
       content: 'This is a message with function classNames and styles',
-      classNames: {
-        root: styles.root,
-      },
+      classNames: styles,
       styles: stylesFn,
       duration: 10000000000,
     });
