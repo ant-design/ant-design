@@ -19,14 +19,19 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
+  NotificationClassNamesType,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
+  NotificationStylesType,
+  ResolvedNotificationClassNamesType,
+  ResolvedNotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -42,6 +47,8 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
+  classNames: ResolvedNotificationClassNamesType;
+  styles: ResolvedNotificationStylesType;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -116,8 +123,27 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
           },
   });
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    NotificationClassNamesType,
+    NotificationStylesType,
+    HolderProps
+  >(
+    [notification?.classNames, props?.classNames],
+    [notification?.styles, props?.styles],
+    undefined,
+    {
+      props,
+    },
+  );
+
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
+  React.useImperativeHandle(ref, () => ({
+    ...api,
+    prefixCls,
+    notification,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+  }));
 
   return holder;
 });
@@ -146,11 +172,15 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const {
+        open: originOpen,
+        prefixCls,
+        notification,
+        classNames: originClassNames,
+        styles: originStyles,
+      } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const contextClassNames = notification?.classNames || {};
-      const contextStyles = notification?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -202,6 +232,46 @@ export function useInternalNotification(
           }
         : false;
 
+      const resolveFunctionStyle = <T extends Record<string, any>>(
+        value: T | ((config: { props: ArgsProps }) => T) | undefined,
+        props: ArgsProps,
+      ): T => (typeof value === 'function' ? value({ props }) || {} : value || {}) as T;
+
+      const [semanticClassNames, semanticStyles] = [configClassNames, styles].map((value) =>
+        resolveFunctionStyle(value, config),
+      );
+
+      const mergedClassNames: ResolvedNotificationClassNamesType = {
+        root: classNames(originClassNames.root, semanticClassNames.root),
+        title: classNames(originClassNames.title, semanticClassNames.title),
+        description: classNames(originClassNames.description, semanticClassNames.description),
+        actions: classNames(originClassNames.actions, semanticClassNames.actions),
+        icon: classNames(originClassNames.icon, semanticClassNames.icon),
+      };
+
+      const mergedStyles: ResolvedNotificationStylesType = {
+        root: {
+          ...originStyles.root,
+          ...semanticStyles.root,
+        },
+        title: {
+          ...originStyles.title,
+          ...semanticStyles.title,
+        },
+        description: {
+          ...originStyles.description,
+          ...semanticStyles.description,
+        },
+        actions: {
+          ...originStyles.actions,
+          ...semanticStyles.actions,
+        },
+        icon: {
+          ...originStyles.icon,
+          ...semanticStyles.icon,
+        },
+      };
+
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -215,35 +285,21 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={
-              {
-                icon: classNames(contextClassNames.icon, configClassNames.icon),
-                title: classNames(contextClassNames.title, configClassNames.title),
-                description: classNames(
-                  contextClassNames.description,
-                  configClassNames.description,
-                ),
-                actions: classNames(contextClassNames.actions, configClassNames.actions),
-              } as PureContentProps['classNames']
-            }
-            styles={
-              {
-                icon: { ...contextStyles.icon, ...styles.icon },
-                title: { ...contextStyles.title, ...styles.title },
-                description: { ...contextStyles.description, ...styles.description },
-                actions: { ...contextStyles.actions, ...styles.actions },
-              } as PureContentProps['styles']
-            }
+            classNames={mergedClassNames as PureContentProps['classNames']}
+            styles={mergedStyles as PureContentProps['styles']}
           />
         ),
         className: classNames(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          configClassNames.root,
-          contextClassNames.root,
+          mergedClassNames.root,
         ),
-        style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
+        style: {
+          ...contextStyle,
+          ...mergedStyles.root,
+          ...style,
+        },
         closable: mergedClosable,
       });
     };
