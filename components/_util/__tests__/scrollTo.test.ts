@@ -12,13 +12,13 @@ describe('Test ScrollTo function', () => {
     dateNowMock.mockReturnValueOnce(0).mockReturnValueOnce(1000);
   });
 
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   afterEach(() => {
     jest.clearAllTimers();
     dateNowMock.mockClear();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
   it('test scrollTo', async () => {
