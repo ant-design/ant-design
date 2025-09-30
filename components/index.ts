@@ -22,6 +22,7 @@ export { default as Calendar } from './calendar';
 export type { CalendarMode, CalendarProps } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
+export type { CardMetaProps } from './card/Meta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
