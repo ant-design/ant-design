@@ -205,23 +205,19 @@ export function useInternalMessage(
         mergedKey = `antd-message-${keyIndex}`;
       }
 
-      // Handle function classNames and styles
-      const contextClassNames =
-        typeof rawContextClassNames === 'function'
-          ? rawContextClassNames({ props: { ...messageConfig, ...config } }) || {}
-          : rawContextClassNames || {};
-      const contextStyles =
-        typeof rawContextStyles === 'function'
-          ? rawContextStyles({ props: { ...messageConfig, ...config } }) || {}
-          : rawContextStyles || {};
+      const contextConfig: HolderProps = { ...messageConfig, ...config };
 
-      // Handle function config classNames and styles
-      const semanticClassNames =
-        typeof configClassNames === 'function'
-          ? configClassNames({ props: config }) || {}
-          : configClassNames || {};
-      const semanticStyles =
-        typeof styles === 'function' ? styles({ props: config }) || {} : styles || {};
+      const resolveFunctionStyle = <T extends Record<string, any>>(
+        value: T | ((config: { props: HolderProps }) => T) | undefined,
+        props: HolderProps,
+      ): T => (typeof value === 'function' ? value({ props }) || {} : value || {}) as T;
+
+      const [contextClassNames, contextStyles] = [rawContextClassNames, rawContextStyles].map(
+        (value) => resolveFunctionStyle(value, contextConfig),
+      );
+      const [semanticClassNames, semanticStyles] = [configClassNames, styles].map((value) =>
+        resolveFunctionStyle(value, config),
+      );
 
       const mergedClassNames = {
         icon: classNames(contextClassNames.icon, semanticClassNames.icon, originClassNames.icon),
