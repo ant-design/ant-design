@@ -9,7 +9,7 @@ const useStyles = createStyles(() => ({
   },
 }));
 const styles: TooltipProps['styles'] = {
-  container: { padding: 8 },
+  container: { borderRadius: 12, boxShadow: 'inset 0 0 8px #ccc' },
 };
 
 const stylesFn: TooltipProps['styles'] = (info) => {
@@ -30,11 +30,11 @@ const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
     <Flex gap="middle">
-      <Tooltip title="Object text" classNames={classNames} styles={styles}>
-        <Button>Object Tooltip.</Button>
+      <Tooltip title="Object text" classNames={classNames} styles={styles} arrow={false}>
+        <Button>Object Style</Button>
       </Tooltip>
       <Tooltip title="Function text" classNames={classNames} styles={stylesFn} arrow={false}>
-        <Button type="primary">Function Tooltip.</Button>
+        <Button type="primary">Function Style</Button>
       </Tooltip>
     </Flex>
   );

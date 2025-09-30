@@ -9,7 +9,10 @@ const useStyles = createStyles(() => ({
   },
 }));
 const styles: PopoverProps['styles'] = {
-  container: { padding: 8 },
+  container: {
+    background: '#eee',
+    boxShadow: 'inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2)',
+  },
 };
 
 const stylesFn: PopoverProps['styles'] = (info) => {
@@ -20,6 +23,9 @@ const stylesFn: PopoverProps['styles'] = (info) => {
         padding: 12,
         borderRadius: 4,
       },
+      content: {
+        color: '#fff',
+      },
     };
   }
   return {};
@@ -29,7 +35,7 @@ const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
     <Flex gap="middle">
-      <Popover content="Object text" classNames={classNames} styles={styles}>
+      <Popover content="Object text" classNames={classNames} styles={styles} arrow={false}>
         <Button>Object Popover.</Button>
       </Popover>
       <Popover content="Function text" classNames={classNames} styles={stylesFn} arrow={false}>

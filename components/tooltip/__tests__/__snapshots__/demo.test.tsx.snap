@@ -1073,7 +1073,7 @@ exports[`renders components/tooltip/demo/style-class.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Object Tooltip.
+      Object Style
     </span>
   </button>
   <button
@@ -1082,7 +1082,7 @@ exports[`renders components/tooltip/demo/style-class.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Function Tooltip.
+      Function Style
     </span>
   </button>
 </div>
