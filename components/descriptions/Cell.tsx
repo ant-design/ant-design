@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import { clsx } from 'clsx';
 
+import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
@@ -51,11 +52,13 @@ const Cell: React.FC<CellProps> = (props) => {
   const descContext = React.useContext(DescriptionsContext);
   const { classNames: contextClassNames, styles: contextStyles } = descContext;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    { props },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsClassNamesType,
+    DescriptionsStylesType,
+    CellProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props,
+  });
 
   if (bordered) {
     return (

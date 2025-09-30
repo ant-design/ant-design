@@ -2,7 +2,12 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
-import type { PopoverProps, PopoverSemanticName } from '.';
+import type {
+  PopoverClassNamesType,
+  PopoverProps,
+  PopoverSemanticName,
+  PopoverStylesType,
+} from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
@@ -68,8 +73,17 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
-    props,
+  const mergedProps: PopoverProps = {
+    ...props,
+    placement,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopoverClassNamesType,
+    PopoverStylesType,
+    PopoverProps
+  >([classNames], [styles], {
+    props: mergedProps,
   });
 
   const rootClassName = clsx(
@@ -109,6 +123,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
+
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   return (

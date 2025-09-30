@@ -14,7 +14,7 @@ import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
 import useMergeSemantic, {
   mergeClassNames,
   mergeStyles,
-  resolveFunctionStyle,
+  resolveStyleOrClass,
 } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -231,19 +231,19 @@ export function useInternalNotification(
           }
         : false;
 
-      const semanticClassNames = resolveFunctionStyle(configClassNames, { props: config });
-      const semanticStyles = resolveFunctionStyle(styles, { props: config });
+      const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
+      const semanticStyles = resolveStyleOrClass(styles, { props: config });
 
       const mergedClassNames: ResolvedNotificationClassNamesType = mergeClassNames(
         undefined,
         originClassNames,
         semanticClassNames,
-      ) as ResolvedNotificationClassNamesType;
+      );
 
       const mergedStyles: ResolvedNotificationStylesType = mergeStyles(
         originStyles,
         semanticStyles,
-      ) as ResolvedNotificationStylesType;
+      );
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
