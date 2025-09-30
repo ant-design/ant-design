@@ -52,17 +52,20 @@ function useSemanticClassNames<ClassNamesType extends object>(
 }
 
 // =========================== Styles ===========================
+export function mergeStyles<StylesType extends AnyObject>(
+  ...styles: (Partial<StylesType> | undefined)[]
+): Record<string, React.CSSProperties> {
+  return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
+    Object.keys(cur).forEach((key) => {
+      acc[key] = { ...acc[key], ...cur[key] };
+    });
+    return acc;
+  }, {});
+}
 function useSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) {
-  return React.useMemo(() => {
-    return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
-      Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] };
-      });
-      return acc;
-    }, {});
-  }, [...styles]) as StylesType;
+  return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
 }
 
 // =========================== Export ===========================
@@ -127,6 +130,13 @@ export default function useMergeSemantic<
     ] as const;
   }, [mergedClassNames, mergedStyles]);
 }
+
+export const resolveFunctionStyle = <T extends AnyObject>(
+  value: T | ((config: any) => T),
+  info: { props: AnyObject },
+) => {
+  return typeof value === 'function' ? value(info) : value;
+};
 
 export type SemanticClassNamesType<
   Props,
