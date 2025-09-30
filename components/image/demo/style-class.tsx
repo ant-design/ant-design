@@ -7,6 +7,7 @@ const useStyles = createStyles(() => ({
   root: {
     padding: 4,
     borderRadius: 8,
+    overflow: 'hidden',
   },
 }));
 
