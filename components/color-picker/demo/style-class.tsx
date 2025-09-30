@@ -42,6 +42,7 @@ const App: React.FC = () => {
           defaultValue="#722ed1"
           size="large"
           styles={stylesFn}
+          arrow={false}
           classNames={classNames}
         />
       </Flex>
