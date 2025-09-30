@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Flex, Space, Tour } from 'antd';
+import { Button, Flex, Space, Tour, Divider } from 'antd';
 import type { TourProps, TourStepProps } from 'antd';
 import { createStyles } from 'antd-style';
 
@@ -70,6 +70,7 @@ const App: React.FC = () => {
     },
     section: {
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+      border: '2px solid #4096ff',
     },
     cover: {
       borderRadius: '12px 12px 0 0',
@@ -97,6 +98,7 @@ const App: React.FC = () => {
   const sharedProps = {
     steps,
     classNames,
+    arrow: false,
   };
 
   return (
@@ -109,11 +111,11 @@ const App: React.FC = () => {
           Begin Tour Function
         </Button>
       </Flex>
+      <Divider />
       <Tour {...sharedProps} open={open} onClose={() => setOpen(false)} styles={stylesObject} />
       <Tour
         {...sharedProps}
         steps={steps.map((s) => ({ ...s, ...btnProps }))}
-        arrow={false}
         type="primary"
         open={openFn}
         onClose={() => setOpenFn(false)}

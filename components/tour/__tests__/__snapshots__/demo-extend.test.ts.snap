@@ -1682,19 +1682,19 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
     </button>
   </div>
   <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <div
     class="ant-tour css-var-test-id acss-wtpnzt ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
-    <div
-      class="ant-tour-arrow"
-      style="position: absolute; top: 0px; left: 0px;"
-    />
     <div
       class="ant-tour-panel"
     >
       <div
         class="ant-tour-section acss-rl6otz"
-        style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
+        style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border: 2px solid rgb(64, 150, 255);"
       >
         <button
           aria-label="Close"
