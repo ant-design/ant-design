@@ -6,7 +6,6 @@ import { createStyles } from 'antd-style';
 const useStyles = createStyles(({ token }) => ({
   root: {
     width: 300,
-    border: `1px solid ${token.colorPrimary}`,
     borderRadius: token.borderRadius,
   },
 }));
@@ -63,16 +62,15 @@ const App: React.FC = () => {
   const styleFunction: TreeSelectProps['styles'] = (info) => {
     if (info.props.size === 'middle') {
       return {
-        root: {
-          border: '1px solid #722ed1',
-        },
-
         suffix: {
           color: '#722ed1',
         },
         popup: {
           root: {
             border: '1px solid #722ed1',
+          },
+          item: {
+            color: '#722ed1',
           },
         },
       };

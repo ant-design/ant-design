@@ -943,7 +943,7 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
 >
   <div
-    class="ant-select ant-tree-select ant-select-outlined acss-er6m02 css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-outlined acss-aylixc css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -1006,8 +1006,7 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-outlined acss-er6m02 css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-    style="border:1px solid #722ed1"
+    class="ant-select ant-tree-select ant-select-outlined acss-aylixc css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
