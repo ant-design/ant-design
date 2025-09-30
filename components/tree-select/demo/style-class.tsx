@@ -66,9 +66,6 @@ const App: React.FC = () => {
           color: '#722ed1',
         },
         popup: {
-          root: {
-            border: '1px solid #722ed1',
-          },
           item: {
             color: '#722ed1',
           },
