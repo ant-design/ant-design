@@ -9,7 +9,11 @@ import type {
 } from '@rc-component/notification';
 import classNames from 'classnames';
 
-import useMergeSemantic, { mergeClassNames, mergeStyles } from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic, {
+  mergeClassNames,
+  mergeStyles,
+  resolveFunctionStyle,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -207,17 +211,12 @@ export function useInternalMessage(
 
       const contextConfig: HolderProps = { ...messageConfig, ...config };
 
-      const resolveFunctionStyle = <T extends Record<string, any>>(
-        value: T | ((config: { props: HolderProps }) => T) | undefined,
-        props: HolderProps,
-      ): T => (typeof value === 'function' ? value({ props }) || {} : value || {}) as T;
-
-      const [contextClassNames, contextStyles] = [rawContextClassNames, rawContextStyles].map(
-        (value) => resolveFunctionStyle(value, contextConfig),
-      );
-      const [semanticClassNames, semanticStyles] = [configClassNames, styles].map((value) =>
-        resolveFunctionStyle(value, config),
-      );
+      const contextClassNames = resolveFunctionStyle(rawContextClassNames, {
+        props: contextConfig,
+      });
+      const contextStyles = resolveFunctionStyle(rawContextStyles, { props: contextConfig });
+      const semanticClassNames = resolveFunctionStyle(configClassNames, { props: config });
+      const semanticStyles = resolveFunctionStyle(styles, { props: config });
 
       const mergedClassNames = mergeClassNames(
         undefined,

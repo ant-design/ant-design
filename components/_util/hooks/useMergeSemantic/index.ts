@@ -131,6 +131,13 @@ export default function useMergeSemantic<
   }, [mergedClassNames, mergedStyles]);
 }
 
+export const resolveFunctionStyle = <T extends AnyObject>(
+  value: T | ((config: any) => T),
+  info: { props: AnyObject },
+) => {
+  return typeof value === 'function' ? value(info) : value;
+};
+
 export type SemanticClassNamesType<
   Props,
   SemanticName extends string,
