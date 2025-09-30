@@ -14,12 +14,12 @@ describe('AutoComplete children could be focus', () => {
     document.body.appendChild(container);
   });
 
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   afterEach(() => {
     document.body.removeChild(container);
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
   it('focus() and onFocus', () => {
