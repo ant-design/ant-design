@@ -9,7 +9,7 @@ import type {
 import RcCascader from '@rc-component/cascader';
 import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -300,6 +300,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
+
   const mergedOnOpenChange = onOpenChange || onPopupVisibleChange || onDropdownVisibleChange;
 
   // ==================== Search =====================
@@ -387,7 +388,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
 
-  const mergedPopupClassName = cls(
+  const mergedPopupClassName = clsx(
     popupClassName || dropdownClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
@@ -405,7 +406,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   return (
     <RcCascader
       prefixCls={prefixCls}
-      className={cls(
+      className={clsx(
         !customizePrefixCls && cascaderPrefixCls,
         {
           [`${prefixCls}-lg`]: mergedSize === 'large',

@@ -3,15 +3,15 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RcSwitch from '@rc-component/switch';
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-component/switch';
 import { useControlledState } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 export type SwitchSize = 'small' | 'default';
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
@@ -116,7 +116,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     props: mergedProps,
   });
 
-  const classes = cls(
+  const classes = clsx(
     contextClassName,
     {
       [`${prefixCls}-small`]: mergedSize === 'small',

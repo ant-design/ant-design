@@ -8,7 +8,7 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
 import useMergeSemantic, {
@@ -59,7 +59,7 @@ const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefi
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>
   );
@@ -98,7 +98,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -267,17 +267,13 @@ export function useInternalNotification(
             styles={mergedStyles as PureContentProps['styles']}
           />
         ),
-        className: classNames(
-          type && `${noticePrefixCls}-${type}`,
+        className: clsx(
+          { [`${noticePrefixCls}-${type}`]: type },
           className,
           contextClassName,
           mergedClassNames.root,
         ),
-        style: {
-          ...contextStyle,
-          ...mergedStyles.root,
-          ...style,
-        },
+        style: { ...contextStyle, ...mergedStyles.root, ...style },
         closable: mergedClosable,
       });
     };
@@ -298,11 +294,7 @@ export function useInternalNotification(
 
     const keys = ['success', 'info', 'warning', 'error'] as const;
     keys.forEach((type) => {
-      clone[type] = (config) =>
-        open({
-          ...config,
-          type,
-        });
+      clone[type] = (config) => open({ ...config, type });
     });
 
     return clone;

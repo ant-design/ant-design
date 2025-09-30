@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { composeRef } from '@rc-component/util/lib/ref';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -132,7 +132,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
-  const btnClassName = cls(`${prefixCls}-button`, mergedClassNames.button?.root);
+  const btnClassName = clsx(`${prefixCls}-button`, mergedClassNames.button?.root);
 
   let button: React.ReactNode;
   const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
@@ -185,15 +185,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   }
 
   if (addonAfter) {
-    button = [
-      button,
-      cloneElement(addonAfter, {
-        key: 'addonAfter',
-      }),
-    ];
+    button = [button, cloneElement(addonAfter, { key: 'addonAfter' })];
   }
 
-  const mergedClassName = cls(
+  const mergedClassName = clsx(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',

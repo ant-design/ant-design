@@ -1,7 +1,7 @@
 import React from 'react';
 import { PauseCircleFilled, PlayCircleFilled } from '@ant-design/icons';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 const useStyles = createStyles(({ cx, cssVar }) => {
   const play = css`
@@ -59,7 +59,7 @@ const VideoPlayer: React.FC<React.HtmlHTMLAttributes<HTMLVideoElement>> = ({
 
   return (
     <div
-      className={classNames(styles.container, className)}
+      className={clsx(styles.container, className)}
       tabIndex={0}
       role="button"
       title="play or pause"
@@ -67,7 +67,7 @@ const VideoPlayer: React.FC<React.HtmlHTMLAttributes<HTMLVideoElement>> = ({
         setPlaying(!playing);
       }}
     >
-      <div className={classNames(styles.holder)}>
+      <div className={clsx(styles.holder)}>
         <video ref={videoRef} className={styles.video} muted loop {...restProps} />
         <div className={styles.play}>{playing ? <PauseCircleFilled /> : <PlayCircleFilled />}</div>
       </div>

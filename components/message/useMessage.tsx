@@ -7,7 +7,7 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic, {
   mergeClassNames,
@@ -59,7 +59,7 @@ const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>
   );
@@ -98,7 +98,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
@@ -243,8 +243,8 @@ export function useInternalMessage(
             </PureContent>
           ),
           placement: 'top',
-          className: classNames(
-            type && `${noticePrefixCls}-${type}`,
+          className: clsx(
+            { [`${noticePrefixCls}-${type}`]: type },
             className,
             contextClassName,
             mergedClassNames.root,

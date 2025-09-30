@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
@@ -74,13 +74,13 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
         {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
         <div className={`${prefixCls}-message-text`}>
           {titleNode && (
-            <div className={cls(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
+            <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
               {titleNode}
             </div>
           )}
           {descriptionNode && (
             <div
-              className={cls(`${prefixCls}-description`, classNames?.content)}
+              className={clsx(`${prefixCls}-description`, classNames?.content)}
               style={styles?.content}
             >
               {descriptionNode}
@@ -131,7 +131,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   return (
     <PopoverPurePanel
       placement={placement}
-      className={cls(prefixCls, className)}
+      className={clsx(prefixCls, className)}
       style={style}
       content={<Overlay prefixCls={prefixCls} {...restProps} />}
     />

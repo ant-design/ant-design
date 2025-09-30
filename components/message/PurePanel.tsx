@@ -4,12 +4,12 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
 import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
+import { clsx } from 'clsx';
 
-import { cloneElement } from '../_util/reactNode';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsClassNamesType, ArgsStylesType, NoticeType, SemanticName } from './interface';
@@ -27,26 +27,22 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
-  children: React.ReactNode;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
-export const PureContent: React.FC<PureContentProps> = ({
-  prefixCls,
-  type,
-  icon,
-  children,
-  classNames: pureContentClassNames,
-  styles,
-}) => {
+export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
+  const { prefixCls, type, icon, children, classNames: pureContentClassNames, styles } = props;
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
-    className: classNames(currentProps.className, pureContentClassNames?.icon),
-    style: { ...currentProps.style, ...styles?.icon },
-  }));
+  const iconNode = cloneElement<any>(iconElement, (currentProps) => {
+    const mergedStyle: React.CSSProperties = { ...currentProps?.style, ...styles?.icon };
+    return {
+      className: clsx(currentProps.className, pureContentClassNames?.icon),
+      style: mergedStyle,
+    };
+  });
   return (
-    <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
+    <div className={clsx(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
       {iconNode}
       <span className={pureContentClassNames?.content} style={styles?.content}>
         {children}
@@ -101,7 +97,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     <Notice
       {...restProps}
       prefixCls={prefixCls}
-      className={classNames(
+      className={clsx(
         contextClassName,
         mergedClassNames.root,
         className,

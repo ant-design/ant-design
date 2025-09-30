@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { TooltipProps } from '.';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -28,6 +28,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootCls = useCSSVarCls(prefixCls);
+
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // Color
@@ -36,18 +37,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const arrowContentStyle = colorInfo.arrowStyle;
 
   const innerStyles = React.useMemo(
-    () => ({
-      container: {
-        ...overlayInnerStyle,
-        ...colorInfo.overlayStyle,
-      },
-    }),
+    () => ({ container: { ...overlayInnerStyle, ...colorInfo.overlayStyle } }),
     [overlayInnerStyle, colorInfo.overlayStyle],
   );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [innerStyles, styles]);
 
-  const rootClassName = cls(
+  const rootClassName = clsx(
     rootCls,
     hashId,
     cssVarCls,

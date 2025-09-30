@@ -4,7 +4,7 @@ import RCPicker from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
 import type { PickerMode } from '@rc-component/picker/lib/interface';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -138,7 +138,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const rootCls = useCSSVarCls(prefixCls);
       const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-      const mergedRootClassName = cls(hashId, cssVarCls, rootCls, rootClassName);
+      const mergedRootClassName = clsx(hashId, cssVarCls, rootCls, rootClassName);
 
       useImperativeHandle(ref, () => innerRef.current!);
 
@@ -205,7 +205,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             // Style
             prefixCls={prefixCls}
             rootClassName={mergedRootClassName}
-            className={cls(
+            className={clsx(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
                 [`${prefixCls}-${variant}`]: enableVariantCls,

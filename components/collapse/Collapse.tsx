@@ -4,13 +4,13 @@ import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
 import RcCollapse from '@rc-component/collapse';
 import type { CSSMotionProps } from '@rc-component/motion';
 import { omit, toArray } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -145,7 +145,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
           />
         );
       return cloneElement(icon, () => ({
-        className: classNames(
+        className: clsx(
           (icon as React.ReactElement<{ className?: string }>)?.props?.className,
           mergedClassNames.icon,
           `${prefixCls}-arrow`,
@@ -156,7 +156,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     [mergedExpandIcon, prefixCls, direction],
   );
 
-  const collapseClassName = classNames(
+  const collapseClassName = clsx(
     `${prefixCls}-icon-placement-${mergedPlacement}`,
     {
       [`${prefixCls}-borderless`]: !bordered,

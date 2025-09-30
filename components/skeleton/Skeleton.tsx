@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -162,7 +162,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
       // We direct use SkeletonElement as avatar in skeleton internal.
       avatarNode = (
         <div
-          className={classNames(mergedClassNames.header, `${prefixCls}-header`)}
+          className={clsx(mergedClassNames.header, `${prefixCls}-header`)}
           style={mergedStyles.header}
         >
           <Element {...avatarProps} />
@@ -202,7 +202,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
 
       contentNode = (
         <div
-          className={classNames(mergedClassNames.section, `${prefixCls}-section`)}
+          className={clsx(mergedClassNames.section, `${prefixCls}-section`)}
           style={mergedStyles.section}
         >
           {$title}
@@ -211,7 +211,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
       );
     }
 
-    const cls = classNames(
+    const cls = clsx(
       prefixCls,
       {
         [`${prefixCls}-with-avatar`]: hasAvatar,

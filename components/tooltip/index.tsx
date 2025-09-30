@@ -7,7 +7,7 @@ import type {
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
@@ -277,6 +277,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   });
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
+
   const rootPrefixCls = getPrefixCls();
 
   const injectFromPopover = (props as any)['data-popover-inject'];
@@ -293,7 +294,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
-      ? cls(childProps.className, openClassName || `${prefixCls}-open`)
+      ? clsx(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
   // Style
@@ -304,9 +305,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const colorInfo = parseColor(prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
-  const themeCls = cls(rootCls, hashId, cssVarCls);
+  const themeCls = clsx(rootCls, hashId, cssVarCls);
 
-  const rootClassNames = cls(
+  const rootClassNames = clsx(
     overlayClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     colorInfo.className,
@@ -339,7 +340,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         root: rootClassNames,
         container: mergedClassNames.container,
         arrow: mergedClassNames.arrow,
-        uniqueContainer: cls(themeCls, mergedClassNames.container),
+        uniqueContainer: clsx(themeCls, mergedClassNames.container),
       }}
       styles={{
         root: {

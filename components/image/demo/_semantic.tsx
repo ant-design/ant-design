@@ -3,7 +3,7 @@ import { Flex, Image, theme } from 'antd';
 import type { ImageProps } from 'antd';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { createStyles, css } from 'antd-style';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
@@ -61,7 +61,7 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
         <Image
           width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          classNames={{ ...classNames, cover: classnames(classNames?.cover, styles.cover) }}
+          classNames={{ ...classNames, cover: clsx(classNames?.cover, styles.cover) }}
           preview={{ getContainer: () => holderRef.current! }}
           {...restProps}
         />

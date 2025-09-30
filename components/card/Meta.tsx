@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -32,6 +32,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     styles,
     ...restProps
   } = props;
+
   const {
     getPrefixCls,
     className: contextClassName,
@@ -51,12 +52,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     props,
   });
 
-  const rootClassNames = classNames(
-    metaPrefixCls,
-    className,
-    contextClassName,
-    mergedClassNames.root,
-  );
+  const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
 
   const rootStyles: React.CSSProperties = {
     ...contextStyle,
@@ -64,16 +60,13 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     ...style,
   };
 
-  const avatarClassNames = classNames(`${metaPrefixCls}-avatar`, mergedClassNames.avatar);
+  const avatarClassNames = clsx(`${metaPrefixCls}-avatar`, mergedClassNames.avatar);
 
-  const titleClassNames = classNames(`${metaPrefixCls}-title`, mergedClassNames.title);
+  const titleClassNames = clsx(`${metaPrefixCls}-title`, mergedClassNames.title);
 
-  const descriptionClassNames = classNames(
-    `${metaPrefixCls}-description`,
-    mergedClassNames.description,
-  );
+  const descriptionClassNames = clsx(`${metaPrefixCls}-description`, mergedClassNames.description);
 
-  const sectionClassNames = classNames(`${metaPrefixCls}-section`, mergedClassNames.section);
+  const sectionClassNames = clsx(`${metaPrefixCls}-section`, mergedClassNames.section);
 
   const avatarDom: React.ReactNode = avatar ? (
     <div className={avatarClassNames} style={mergedStyles.avatar}>

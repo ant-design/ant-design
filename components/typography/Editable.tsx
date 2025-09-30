@@ -2,7 +2,7 @@ import * as React from 'react';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import type { TextAreaProps } from '@rc-component/textarea';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import type { DirectionType } from '../config-provider';
@@ -117,7 +117,7 @@ const Editable: React.FC<EditableProps> = (props) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const textAreaClassName = classNames(
+  const textAreaClassName = clsx(
     prefixCls,
     `${prefixCls}-edit-content`,
     {

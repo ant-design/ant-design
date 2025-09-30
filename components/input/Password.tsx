@@ -4,7 +4,7 @@ import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import { omit } from '@rc-component/util';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -122,9 +122,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
 
   const suffixIcon = visibilityToggle && getIcon(prefixCls);
 
-  const inputClassName = classNames(prefixCls, className, {
-    [`${prefixCls}-${size}`]: !!size,
-  });
+  const inputClassName = clsx(prefixCls, className, { [`${prefixCls}-${size}`]: !!size });
 
   const omittedProps: InputProps = {
     ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),

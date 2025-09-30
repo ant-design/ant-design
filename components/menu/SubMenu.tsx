@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SubMenu as RcSubMenu, useFullPath } from '@rc-component/menu';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
@@ -37,7 +37,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     titleNode = (
       <>
         {cloneElement(icon, (oriProps) => ({
-          className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames.itemIcon),
+          className: clsx(oriProps.className, `${prefixCls}-item-icon`, classNames.itemIcon),
           style: { ...oriProps.style, ...styles.itemIcon },
         }))}
         {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
@@ -66,7 +66,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
           list: styles.subMenu.list,
           listTitle: styles.subMenu.itemTitle,
         }}
-        popupClassName={cls(
+        popupClassName={clsx(
           prefixCls,
           popupClassName,
           classNames.popup.root,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { omit } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { isPresetSize } from '../_util/gapSize';
 import useOrientation from '../_util/hooks/useOrientation';
@@ -36,7 +36,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const [, mergedVertical] = useOrientation(orientation, vertical ?? ctxFlex?.vertical);
 
-  const mergedCls = classNames(
+  const mergedCls = clsx(
     className,
     rootClassName,
     ctxFlex?.className,

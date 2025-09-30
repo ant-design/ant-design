@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
@@ -264,11 +264,9 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
     }
     return (
       <div
-        className={classnames(
+        className={clsx(
           `${listPrefixCls}-body`,
-          {
-            [`${listPrefixCls}-body-with-search`]: showSearch,
-          },
+          { [`${listPrefixCls}-body-with-search`]: showSearch },
           classNames.body,
         )}
         style={styles.body}
@@ -324,7 +322,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (
-    <div className={classnames(`${listPrefixCls}-footer`, classNames.footer)} style={styles.footer}>
+    <div className={clsx(`${listPrefixCls}-footer`, classNames.footer)} style={styles.footer}>
       {footerDom}
     </div>
   ) : null;
@@ -406,17 +404,14 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   return (
     <div
-      className={classnames(sectionPrefixCls, classNames.section, {
+      className={clsx(sectionPrefixCls, classNames.section, {
         [`${sectionPrefixCls}-with-pagination`]: !!pagination,
         [`${sectionPrefixCls}-with-footer`]: !!footerDom,
       })}
       style={{ ...style, ...styles.section }}
     >
       {/* Header */}
-      <div
-        className={classnames(`${listPrefixCls}-header`, classNames.header)}
-        style={styles.header}
-      >
+      <div className={clsx(`${listPrefixCls}-header`, classNames.header)} style={styles.header}>
         {showSelectAll ? (
           <>
             {checkAllCheckbox}
@@ -427,7 +422,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
           {getSelectAllLabel(checkedActiveItems.length, filteredItems.length)}
         </span>
         <span
-          className={classnames(`${listPrefixCls}-header-title`, classNames.title)}
+          className={clsx(`${listPrefixCls}-header-title`, classNames.title)}
           style={styles.title}
         >
           {titleText}

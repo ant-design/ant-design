@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { omit } from '@rc-component/util';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
@@ -145,7 +145,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls);
 
-    const tagClassName = classnames(
+    const tagClassName = clsx(
       prefixCls,
       contextClassName,
       mergedClassNames.root,
@@ -189,7 +189,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
             originProps?.onClick?.(e);
             handleCloseClick(e);
           },
-          className: classnames(originProps?.className, `${prefixCls}-close-icon`),
+          className: clsx(originProps?.className, `${prefixCls}-close-icon`),
         }));
       },
     });
@@ -200,7 +200,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
-      className: classnames(
+      className: clsx(
         React.isValidElement(icon)
           ? (icon as React.ReactElement<{ className?: string }>).props?.className
           : '',

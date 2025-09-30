@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { toArray } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Orientation } from '../_util/hooks/useOrientation';
 import useOrientation from '../_util/hooks/useOrientation';
@@ -32,7 +32,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
     const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
     const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
-    return classNames(`${prefixCls}-compact${separator}item`, {
+    return clsx(`${prefixCls}-compact${separator}item`, {
       [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
       [`${prefixCls}-compact${separator}last-item`]: isLastItem,
       [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
@@ -102,7 +102,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
   const [hashId] = useStyle(prefixCls);
-  const clx = classNames(
+  const clx = clsx(
     prefixCls,
     hashId,
     {

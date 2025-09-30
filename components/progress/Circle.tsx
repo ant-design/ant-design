@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { ProgressProps as RcProgressProps } from '@rc-component/progress';
 import { Circle as RCCircle } from '@rc-component/progress';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
@@ -86,11 +86,9 @@ const Circle: React.FC<CircleProps> = (props) => {
   const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
-  const wrapperClassName = cls(
+  const wrapperClassName = clsx(
     `${prefixCls}-body`,
-    {
-      [`${prefixCls}-circle-gradient`]: isGradient,
-    },
+    { [`${prefixCls}-circle-gradient`]: isGradient },
     classNames.body,
   );
 

@@ -3,7 +3,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { CONTAINER_MAX_OFFSET } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -137,11 +137,7 @@ export function ConfirmContent(props: ConfirmDialogProps & { confirmPrefixCls: s
 
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div
-        className={classNames(bodyCls, {
-          [`${bodyCls}-has-title`]: hasTitle,
-        })}
-      >
+      <div className={clsx(bodyCls, { [`${bodyCls}-has-title`]: hasTitle })}>
         {mergedIcon}
         <div className={`${confirmPrefixCls}-paragraph`}>
           {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}
@@ -204,7 +200,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
-  const classString = classNames(
+  const classString = clsx(
     confirmPrefixCls,
     `${confirmPrefixCls}-${props.type}`,
     { [`${confirmPrefixCls}-rtl`]: direction === 'rtl' },
@@ -228,10 +224,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     <Modal
       {...props}
       className={classString}
-      wrapClassName={classNames(
-        { [`${confirmPrefixCls}-centered`]: !!props.centered },
-        wrapClassName,
-      )}
+      wrapClassName={clsx({ [`${confirmPrefixCls}-centered`]: !!props.centered }, wrapClassName)}
       onCancel={() => {
         close?.({ triggerCancel: true });
         onConfirm?.(false);

@@ -8,7 +8,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -104,14 +104,7 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(
-        (
-          icon as ReactElement<{
-            className?: string;
-          }>
-        ).props.className,
-        className,
-      ),
+      className: clsx((icon as ReactElement<{ className?: string }>).props.className, className),
       style,
     })) as ReactElement;
   }
@@ -201,6 +194,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('alert');
+
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -258,7 +252,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     props: mergedProps,
   });
 
-  const alertCls = classNames(
+  const alertCls = clsx(
     prefixCls,
     `${prefixCls}-${type}`,
     {
@@ -315,7 +309,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           id={id}
           ref={composeRef(internalRef, setRef)}
           data-show={!closed}
-          className={classNames(alertCls, motionClassName)}
+          className={clsx(alertCls, motionClassName)}
           style={{
             ...mergedStyles.root,
             ...contextStyle,
@@ -330,7 +324,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
         >
           {isShowIcon ? (
             <IconNode
-              className={classNames(`${prefixCls}-icon`, mergedClassNames.icon)}
+              className={clsx(`${prefixCls}-icon`, mergedClassNames.icon)}
               style={mergedStyles.icon}
               description={description}
               icon={props.icon}
@@ -339,12 +333,12 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             />
           ) : null}
           <div
-            className={classNames(`${prefixCls}-section`, mergedClassNames.section)}
+            className={clsx(`${prefixCls}-section`, mergedClassNames.section)}
             style={mergedStyles.section}
           >
             {mergedTitle ? (
               <div
-                className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
+                className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
               >
                 {mergedTitle}
@@ -352,7 +346,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             ) : null}
             {description ? (
               <div
-                className={classNames(`${prefixCls}-description`, mergedClassNames.description)}
+                className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
                 style={mergedStyles.description}
               >
                 {description}
@@ -361,7 +355,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           </div>
           {action ? (
             <div
-              className={classNames(`${prefixCls}-actions`, mergedClassNames.actions)}
+              className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
               style={mergedStyles.actions}
             >
               {action}

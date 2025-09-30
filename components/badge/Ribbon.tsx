@@ -1,13 +1,13 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import useStyle from './style/ribbon';
+import type { LiteralUnion } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
+import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -70,7 +70,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
   });
 
   const colorInPreset = isPresetColor(color, false);
-  const ribbonCls = classNames(
+  const ribbonCls = clsx(
     prefixCls,
     `${prefixCls}-placement-${placement}`,
     {
@@ -90,21 +90,16 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
   }
   return (
     <div
-      className={classNames(wrapperCls, rootClassName, hashId, cssVarCls, mergedClassNames.root)}
+      className={clsx(wrapperCls, rootClassName, hashId, cssVarCls, mergedClassNames.root)}
       style={mergedStyles.root}
     >
       {children}
       <div
-        className={classNames(ribbonCls, hashId)}
-        style={{
-          ...colorStyle,
-          ...mergedStyles.indicator,
-          ...contextStyle,
-          ...style,
-        }}
+        className={clsx(ribbonCls, hashId)}
+        style={{ ...colorStyle, ...mergedStyles.indicator, ...contextStyle, ...style }}
       >
         <span
-          className={classNames(`${prefixCls}-content`, mergedClassNames.content)}
+          className={clsx(`${prefixCls}-content`, mergedClassNames.content)}
           style={mergedStyles.content}
         >
           {text}

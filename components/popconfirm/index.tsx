@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import { omit, useControlledState } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -116,7 +116,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     props: mergedProps,
   });
 
-  const rootClassNames = cls(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
+  const rootClassNames = clsx(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
 
   useStyle(prefixCls);
 
@@ -135,11 +135,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
         arrow: mergedClassNames.arrow,
       }}
       styles={{
-        root: {
-          ...ctxStyle,
-          ...mergedStyles.root,
-          ...overlayStyle,
-        },
+        root: { ...ctxStyle, ...mergedStyles.root, ...overlayStyle },
         container: mergedStyles.container,
         arrow: mergedStyles.arrow,
       }}

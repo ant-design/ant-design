@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isValidElement } from 'react';
 import { useControlledState } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -92,7 +92,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     props: mergedProps,
   });
 
-  const rootClassNames = cls(
+  const rootClassNames = clsx(
     overlayClassName,
     hashId,
     cssVarCls,

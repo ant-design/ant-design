@@ -10,7 +10,7 @@ import RcTreeSelect, {
 } from '@rc-component/tree-select';
 import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -275,7 +275,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     },
   );
 
-  const mergedPopupClassName = cls(
+  const mergedPopupClassName = clsx(
     popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
@@ -351,7 +351,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedClassName = cls(
+  const mergedClassName = clsx(
     !customizePrefixCls && treeSelectPrefixCls,
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',

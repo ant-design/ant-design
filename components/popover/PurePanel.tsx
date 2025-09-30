@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PopoverProps, PopoverSemanticName } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -30,12 +30,12 @@ export const Overlay: React.FC<OverlayProps> = ({
   return (
     <>
       {title && (
-        <div className={cls(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
+        <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
           {title}
         </div>
       )}
       {content && (
-        <div className={cls(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
+        <div className={clsx(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
           {content}
         </div>
       )}
@@ -70,7 +70,7 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles]);
 
-  const rootClassName = cls(
+  const rootClassName = clsx(
     hashId,
     prefixCls,
     `${prefixCls}-pure`,
@@ -114,7 +114,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       {...restProps}
       prefixCls={prefixCls}
       hashId={hashId}
-      className={cls(className, cssVarCls)}
+      className={clsx(className, cssVarCls)}
     />
   );
 };

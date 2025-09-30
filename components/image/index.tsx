@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -114,9 +114,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
+  const mergedRootClassName = clsx(rootClassName, hashId, cssVarCls, rootCls);
 
-  const mergedClassName = classnames(className, hashId, contextClassName);
+  const mergedClassName = clsx(className, hashId, contextClassName);
 
   // ============================= Preview ==============================
   const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
@@ -146,10 +146,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
   // ============================= Semantic =============================
   const mergedLegacyClassNames = React.useMemo(
     () => ({
-      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
-      popup: {
-        root: classnames(contextPreviewRootClassName, previewRootClassName),
-      },
+      cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
+      popup: { root: clsx(contextPreviewRootClassName, previewRootClassName) },
     }),
     [
       previewRootClassName,
@@ -161,9 +159,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const { mask: mergedMask, blurClassName } = mergedPreviewConfig ?? {};
   const mergedPopupClassNames = React.useMemo(
-    () => ({
-      mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
-    }),
+    () => ({ mask: clsx(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName) }),
     [mergedMask, prefixCls, blurClassName],
   );
   const internalClassNames = React.useMemo(

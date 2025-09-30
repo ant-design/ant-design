@@ -1,10 +1,10 @@
 import * as React from 'react';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
@@ -114,7 +114,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     />
   );
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -127,15 +127,16 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     cssVarCls,
   );
 
-  const headerClassNames = classNames(`${prefixCls}-header`, mergedClassNames.header);
+  const headerClassNames = clsx(`${prefixCls}-header`, mergedClassNames.header);
 
-  const titleClassNames = classNames(`${prefixCls}-title`, mergedClassNames.title);
+  const titleClassNames = clsx(`${prefixCls}-title`, mergedClassNames.title);
 
-  const contentClassNames = classNames(`${prefixCls}-content`, mergedClassNames.content);
+  const contentClassNames = clsx(`${prefixCls}-content`, mergedClassNames.content);
 
-  const prefixClassNames = classNames(`${prefixCls}-content-prefix`, mergedClassNames.prefix);
+  const prefixClassNames = clsx(`${prefixCls}-content-prefix`, mergedClassNames.prefix);
 
-  const suffixClassNames = classNames(`${prefixCls}-content-suffix`, mergedClassNames.suffix);
+  const suffixClassNames = clsx(`${prefixCls}-content-suffix`, mergedClassNames.suffix);
+
   const internalRef = React.useRef<HTMLDivElement>(null);
 
   React.useImperativeHandle(ref, () => ({
