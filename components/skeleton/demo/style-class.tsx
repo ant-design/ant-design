@@ -22,9 +22,11 @@ const useParagraphStyles = createStyles(({ css }) => ({
 }));
 
 const styles: SkeletonProps['styles'] = {
+  avatar: {
+    border: '1px solid #aaa',
+  },
   title: {
-    height: 20,
-    borderRadius: 6,
+    border: '1px solid #aaa',
   },
 };
 
@@ -49,7 +51,7 @@ const App: React.FC = () => {
   const { styles: paragraphStyles } = useParagraphStyles();
   return (
     <Flex gap="middle">
-      <Skeleton classNames={classnames} styles={styles} />
+      <Skeleton classNames={classnames} styles={styles} avatar paragraph={false} />
       <Skeleton
         classNames={{
           ...classnames,
