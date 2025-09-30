@@ -11,6 +11,7 @@ import type {
 import classNames from 'classnames';
 
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
+import useMergeSemantic, { mergeClassNames, mergeStyles } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -31,7 +32,6 @@ import { getCloseIcon, PureContent } from './PurePanel';
 import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -241,36 +241,16 @@ export function useInternalNotification(
         resolveFunctionStyle(value, config),
       );
 
-      const mergedClassNames: ResolvedNotificationClassNamesType = {
-        root: classNames(originClassNames.root, semanticClassNames.root),
-        title: classNames(originClassNames.title, semanticClassNames.title),
-        description: classNames(originClassNames.description, semanticClassNames.description),
-        actions: classNames(originClassNames.actions, semanticClassNames.actions),
-        icon: classNames(originClassNames.icon, semanticClassNames.icon),
-      };
+      const mergedClassNames: ResolvedNotificationClassNamesType = mergeClassNames(
+        undefined,
+        originClassNames,
+        semanticClassNames,
+      ) as ResolvedNotificationClassNamesType;
 
-      const mergedStyles: ResolvedNotificationStylesType = {
-        root: {
-          ...originStyles.root,
-          ...semanticStyles.root,
-        },
-        title: {
-          ...originStyles.title,
-          ...semanticStyles.title,
-        },
-        description: {
-          ...originStyles.description,
-          ...semanticStyles.description,
-        },
-        actions: {
-          ...originStyles.actions,
-          ...semanticStyles.actions,
-        },
-        icon: {
-          ...originStyles.icon,
-          ...semanticStyles.icon,
-        },
-      };
+      const mergedStyles: ResolvedNotificationStylesType = mergeStyles(
+        originStyles,
+        semanticStyles,
+      ) as ResolvedNotificationStylesType;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
