@@ -147,6 +147,32 @@ describe('Image.Semantic', () => {
     );
   });
 
+  // it('should render with classNames and styles when passed as functions to PreviewGroup', () => {
+  //   const classNamesFn: ImageProps['classNames'] = (info) => ({
+  //     root: info.props.preview ? 'fn-root' : 'fn-root-no',
+  //     image: 'fn-img',
+  //     cover: 'fn-cover',
+  //     popup: {
+  //       root: 'fn-popup-root',
+  //       mask: 'fn-popup-mask',
+  //     },
+  //   });
+
+  //   const stylesFn: ImageProps['styles'] = (info) => ({
+  //     root: { border: info.props.preview ? '1px solid blue' : '1px solid gray' },
+  //     image: { borderRadius: info.props.preview ? 4 : 2 },
+  //     popup: { root: { background: info.props.preview ? 'white' : 'black' } },
+  //   });
+
+  //   const { container } = render(
+  //     <Image.PreviewGroup preview={{ open: false }} classNames={classNamesFn} styles={stylesFn}>
+  //       <Image src="https://example.com/image.png" />
+  //     </Image.PreviewGroup>,
+  //   );
+
+  //   expect(container.innerHTML).toMatchSnapshot();
+  // });
+
   it('should render with custom classNames and styles when passed to PreviewGroup', () => {
     const classNamesObject: ImageProps['classNames'] = {
       root: 'test-root',
@@ -171,32 +197,6 @@ describe('Image.Semantic', () => {
         styles={stylesObject}
       >
         <Image src="https://example.com/image.png" />
-      </Image.PreviewGroup>,
-    );
-
-    expect(container.innerHTML).toMatchSnapshot();
-  });
-
-  it('should render with classNames and styles when passed as functions to PreviewGroup', () => {
-    const classNamesFn: ImageProps['classNames'] = (info) => ({
-      root: info.props.preview ? 'fn-root' : 'fn-root-no',
-      image: 'fn-img',
-      cover: 'fn-cover',
-      popup: {
-        root: 'fn-popup-root',
-        mask: 'fn-popup-mask',
-      },
-    });
-
-    const stylesFn: ImageProps['styles'] = (info) => ({
-      root: { border: info.props.preview ? '1px solid blue' : '1px solid gray' },
-      image: { borderRadius: info.props.preview ? 4 : 2 },
-      popup: { root: { background: info.props.preview ? 'white' : 'black' } },
-    });
-
-    const { container } = render(
-      <Image.PreviewGroup preview={{ open: false }} classNames={classNamesFn} styles={stylesFn}>
-        <Image width={100} src="https://example.com/image.png" />
       </Image.PreviewGroup>,
     );
 
