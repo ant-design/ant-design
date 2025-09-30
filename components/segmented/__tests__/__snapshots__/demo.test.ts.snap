@@ -1933,7 +1933,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
     aria-label="segmented control"
     class="ant-segmented ant-segmented-vertical acss-1o3848f ant-segmented-vertical css-var-test-id"
     role="radiogroup"
-    style="border:1px solid #77BEF0;padding:4px;width:80px"
+    style="border:1px solid #77BEF0;padding:4px;width:100px"
     tabindex="0"
   >
     <div
@@ -1941,6 +1941,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        style="text-align:left"
       >
         <input
           checked=""
@@ -1984,6 +1985,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        style="text-align:left"
       >
         <input
           class="ant-segmented-item-input"
@@ -2026,6 +2028,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        style="text-align:left"
       >
         <input
           class="ant-segmented-item-input"

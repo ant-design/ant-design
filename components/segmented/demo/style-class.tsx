@@ -42,10 +42,13 @@ const App: React.FC = () => {
         root: {
           border: '1px solid #77BEF0',
           padding: 4,
-          width: 80,
+          width: 100,
         },
         icon: {
           color: '#77BEF0',
+        },
+        item: {
+          textAlign: 'left',
         },
       };
     }
