@@ -3971,6 +3971,331 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
 
 exports[`renders components/cascader/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/cascader/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-select ant-cascader ant-select-outlined acss-rl6otz ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix"
+        style="color: rgb(204, 204, 204);"
+      >
+        🏠
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Object styles
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
+          >
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="Meet-student"
+              role="menuitemcheckbox"
+              title="Meet-student"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Meet-student
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select: none; color: rgb(204, 204, 204);"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-select ant-cascader ant-select-filled acss-rl6otz ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix"
+        style="color: rgb(24, 144, 255);"
+      >
+        ✅
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Function  styles
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
+          >
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="Meet-student"
+              role="menuitemcheckbox"
+              style="color: rgb(24, 144, 255);"
+              title="Meet-student"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Meet-student
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              style="color: rgb(24, 144, 255);"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select: none; color: rgb(24, 144, 255);"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/cascader/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
