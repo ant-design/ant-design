@@ -142,7 +142,7 @@ const Result: ResultType = (props) => {
     styles,
     classNames: resultClassNames,
   } = props;
-  
+
   const {
     getPrefixCls,
     direction,

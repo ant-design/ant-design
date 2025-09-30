@@ -9,12 +9,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type {
-  QRCodeClassNamesType,
-  QRCodeProps,
-  QRCodeStylesType,
-  QRProps,
-} from './interface';
+import type { QRCodeClassNamesType, QRCodeProps, QRCodeStylesType, QRProps } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
@@ -54,7 +49,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   } = useComponentConfig('qrcode');
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps : QRCodeProps = {
+  const mergedProps: QRCodeProps = {
     ...props,
     bgColor,
     type,
