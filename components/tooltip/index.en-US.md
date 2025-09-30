@@ -30,6 +30,7 @@ demo:
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-children.tsx" debug>Disabled children</code>
 <code src="./demo/wrap-custom-component.tsx">Wrap custom component</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
@@ -39,6 +40,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | title | The text shown in the tooltip | ReactNode \| () => ReactNode | - | - |
 | color | The background color. After using this attribute, the internal text color will adapt automatically | string | - | 5.27.0 |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| styles | Semantic DOM style | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 ### Common API
 

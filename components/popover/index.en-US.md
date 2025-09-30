@@ -26,6 +26,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 <code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/control.tsx">Controlling the close of the dialog</code>
 <code src="./demo/hover-with-click.tsx">Hover with click popover</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -34,10 +35,12 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Param   | Description         | Type                         | Default value | Version |
-| ------- | ------------------- | ---------------------------- | ------------- | ------- |
-| content | Content of the card | ReactNode \| () => ReactNode | -             |         |
-| title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| content | Content of the card | ReactNode \| () => ReactNode | - |  |
+| title | Title of the card | ReactNode \| () => ReactNode | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 <!-- Common API -->
 
