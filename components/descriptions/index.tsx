@@ -143,24 +143,31 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   });
 
   // ======================== Render ========================
-  const contextValue = React.useMemo<DescriptionsContextProps>(
+  const memoizedValue = React.useMemo<DescriptionsContextProps>(
     () => ({
       labelStyle,
       contentStyle,
       styles: {
-        content: mergedStyles.content,
-        label: mergedStyles.label,
-      } as DescriptionsContextProps['styles'],
+        label: mergedStyles.label!,
+        content: mergedStyles.content!,
+      },
       classNames: {
-        label: mergedClassNames.label,
-        content: mergedClassNames.content,
-      } as DescriptionsContextProps['classNames'],
+        label: clsx(mergedClassNames.label),
+        content: clsx(mergedClassNames.content),
+      },
     }),
-    [labelStyle, contentStyle, mergedStyles, mergedClassNames],
+    [
+      labelStyle,
+      contentStyle,
+      mergedStyles.label,
+      mergedStyles.content,
+      mergedClassNames.label,
+      mergedClassNames.content,
+    ],
   );
 
   return (
-    <DescriptionsContext.Provider value={contextValue}>
+    <DescriptionsContext.Provider value={memoizedValue}>
       <div
         className={clsx(
           prefixCls,
