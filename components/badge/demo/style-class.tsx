@@ -5,10 +5,8 @@ import { createStyles } from 'antd-style';
 import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
 const useStylesBadge = createStyles(() => ({
-  root: {
-    border: '1px solid #ccc',
-    borderRadius: 10,
-    overflow: 'hidden',
+  indicator: {
+    fontSize: 10,
   },
 }));
 
@@ -27,18 +25,13 @@ const App: React.FC = () => {
     root: {
       backgroundColor: '#f0f0f0',
     },
-    indicator: {
-      fontSize: 12,
-    },
   };
 
   const badgeStylesFn: BadgeProps['styles'] = (info) => {
     if (info.props.size === 'default') {
       return {
-        root: {
-          border: '1px solid #696FC7',
-        },
         indicator: {
+          fontSize: 14,
           backgroundColor: '#696FC7',
         },
       };
@@ -58,11 +51,6 @@ const App: React.FC = () => {
   const ribbonStylesFn: RibbonProps['styles'] = (info) => {
     if (info.props.color === '#696FC7') {
       return {
-        root: {
-          border: '1px solid #696FC7',
-          borderRadius: 10,
-          overflow: 'hidden',
-        },
         content: {
           fontWeight: 'bold',
         },

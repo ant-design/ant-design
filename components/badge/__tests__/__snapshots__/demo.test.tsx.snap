@@ -3041,7 +3041,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-gap-middle"
     >
       <span
-        class="ant-badge acss-1tf3w8f css-var-test-id"
+        class="ant-badge css-var-test-id"
         style="background-color:#f0f0f0"
       >
         <span
@@ -3053,9 +3053,8 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
           />
         </span>
         <sup
-          class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+          class="ant-scroll-number acss-9c7r58 ant-badge-count ant-badge-count-sm"
           data-show="true"
-          style="font-size:12px"
           title="5"
         >
           <bdi>
@@ -3073,8 +3072,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
         </sup>
       </span>
       <span
-        class="ant-badge acss-1tf3w8f css-var-test-id"
-        style="border:1px solid #696FC7"
+        class="ant-badge css-var-test-id"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
@@ -3085,9 +3083,9 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
           />
         </span>
         <sup
-          class="ant-scroll-number ant-badge-count"
+          class="ant-scroll-number acss-9c7r58 ant-badge-count"
           data-show="true"
-          style="background-color:#696FC7"
+          style="font-size:14px;background-color:#696FC7"
           title="5"
         >
           <bdi>
@@ -3154,7 +3152,6 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
       </div>
       <div
         class="ant-ribbon-wrapper css-var-test-id acss-19a7de9"
-        style="border:1px solid #696FC7;border-radius:10px;overflow:hidden"
       >
         <div
           class="ant-card ant-card-bordered ant-card-small css-var-test-id"
