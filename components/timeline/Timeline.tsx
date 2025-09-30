@@ -8,7 +8,7 @@ import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
-import type { StepsProps } from '../steps';
+import type { StepsProps, StepsSemanticName } from '../steps';
 import { InternalContext } from '../steps/context';
 import useStyle from './style';
 import useItems from './useItems';
@@ -54,19 +54,8 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
-export type TimelineSemanticName =
-  | 'root'
-  | 'item'
-  | 'itemWrapper'
-  | 'itemIcon'
-  | 'itemSection'
-  | 'itemHeader'
-  | 'itemTitle'
-  | 'itemContent'
-  | 'itemRail';
-
-export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, TimelineSemanticName>;
-export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticName>;
+export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, StepsSemanticName>;
+export type TimelineStylesType = SemanticStylesType<TimelineProps, StepsSemanticName>;
 
 export interface TimelineProps {
   // Style
