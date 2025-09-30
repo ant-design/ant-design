@@ -6,7 +6,6 @@ import { createStyles } from 'antd-style';
 const useStyles = createStyles(({ token }) => {
   return {
     root: {
-      border: `1px solid ${token.colorPrimary}`,
       borderRadius: token.borderRadiusLG,
     },
   };

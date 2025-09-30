@@ -3976,7 +3976,7 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-select ant-cascader ant-select-outlined acss-1aqzj3n ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined acss-rl6otz ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -4133,7 +4133,7 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-filled acss-1aqzj3n ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-filled acss-rl6otz ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
