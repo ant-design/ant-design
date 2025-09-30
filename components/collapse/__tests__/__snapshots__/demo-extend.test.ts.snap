@@ -1779,3 +1779,292 @@ Array [
 `;
 
 exports[`renders components/collapse/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/collapse/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-c792w8"
+    style="background-color: rgb(250, 250, 250); border: 1px solid rgb(224, 224, 224); border-radius: 8px;"
+  >
+    <div
+      class="ant-collapse-item ant-collapse-item-active"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="true"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="expanded"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              style="transform: rotate(90deg);"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 1
+        </span>
+      </div>
+      <div
+        class="ant-collapse-panel ant-collapse-panel-active"
+      >
+        <div
+          class="ant-collapse-body"
+        >
+          <p>
+            A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 2
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 3
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id acss-c792w8"
+    style="background-color: rgb(255, 255, 255); border: 1px solid rgb(105, 111, 199); border-radius: 8px;"
+  >
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 1
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item ant-collapse-item-active"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="true"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="expanded"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              style="transform: rotate(90deg);"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 2
+        </span>
+      </div>
+      <div
+        class="ant-collapse-panel ant-collapse-panel-active"
+      >
+        <div
+          class="ant-collapse-body"
+        >
+          <p>
+            A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 3
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/collapse/demo/style-class.tsx extend context correctly 2`] = `[]`;

@@ -146,7 +146,7 @@ exports[`site test Component components/menu zh Page 1`] = `5`;
 
 exports[`site test Component components/message en Page 1`] = `2`;
 
-exports[`site test Component components/message zh Page 1`] = `2`;
+exports[`site test Component components/message zh Page 1`] = `3`;
 
 exports[`site test Component components/modal en Page 1`] = `3`;
 
