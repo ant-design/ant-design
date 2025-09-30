@@ -6,6 +6,7 @@ import WarningFilled from '@ant-design/icons/WarningFilled';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -27,8 +28,14 @@ export const ExceptionMap = {
 };
 
 export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
+
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
+
 type SemanticName = 'root' | 'title' | 'subTitle' | 'body' | 'extra' | 'icon';
+
+export type ResultClassNamesType = SemanticClassNamesType<ResultProps, SemanticName>;
+
+export type ResultStylesType = SemanticStylesType<ResultProps, SemanticName>;
 
 export interface ResultProps {
   icon?: React.ReactNode;
@@ -41,8 +48,8 @@ export interface ResultProps {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: ResultClassNamesType;
+  styles?: ResultStylesType;
 }
 
 // ExceptionImageMap keys
@@ -120,20 +127,22 @@ export interface ResultType extends React.FC<ResultProps> {
   PRESENTED_IMAGE_500: React.FC;
 }
 
-const Result: ResultType = ({
-  prefixCls: customizePrefixCls,
-  className: customizeClassName,
-  rootClassName,
-  subTitle,
-  title,
-  style,
-  children,
-  status = 'info',
-  icon,
-  extra,
-  styles,
-  classNames: resultClassNames,
-}) => {
+const Result: ResultType = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className: customizeClassName,
+    rootClassName,
+    subTitle,
+    title,
+    style,
+    children,
+    status = 'info',
+    icon,
+    extra,
+    styles,
+    classNames: resultClassNames,
+  } = props;
+
   const {
     getPrefixCls,
     direction,
@@ -143,10 +152,19 @@ const Result: ResultType = ({
     styles: contextStyles,
   } = useComponentConfig('result');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, resultClassNames],
-    [contextStyles, styles],
-  );
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: ResultProps = {
+    ...props,
+    status,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ResultClassNamesType,
+    ResultStylesType,
+    ResultProps
+  >([contextClassNames, resultClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
