@@ -13,6 +13,14 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+const useParagraphStyles = createStyles(({ css }) => ({
+  paragraph: css`
+    & > li {
+      background-color: rgba(229, 243, 254, 0.5);
+    }
+  `,
+}));
+
 const styles: SkeletonProps['styles'] = {
   title: {
     height: 20,
@@ -24,9 +32,10 @@ const stylesFn: SkeletonProps['styles'] = (info) => {
   if (info.props.active) {
     return {
       root: {
-        border: '1px solid rgba(0,0,0,0.06)',
+        border: '1px solid rgba(229, 243, 254, 0.3)',
       },
       title: {
+        backgroundColor: 'rgba(229, 243, 254, 0.5)',
         height: 20,
         borderRadius: 20,
       },
@@ -37,10 +46,18 @@ const stylesFn: SkeletonProps['styles'] = (info) => {
 
 const App: React.FC = () => {
   const { styles: classnames } = useStyles();
+  const { styles: paragraphStyles } = useParagraphStyles();
   return (
     <Flex gap="middle">
       <Skeleton classNames={classnames} styles={styles} />
-      <Skeleton classNames={classnames} styles={stylesFn} active />
+      <Skeleton
+        classNames={{
+          ...classnames,
+          paragraph: paragraphStyles.paragraph,
+        }}
+        styles={stylesFn}
+        active
+      />
     </Flex>
   );
 };

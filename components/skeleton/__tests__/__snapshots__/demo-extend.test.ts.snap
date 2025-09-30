@@ -876,17 +876,17 @@ exports[`renders components/skeleton/demo/style-class.tsx extend context correct
   </div>
   <div
     class="ant-skeleton ant-skeleton-active acss-1080ep8 css-var-test-id"
-    style="border: 1px solid rgba(0, 0, 0, 0.06);"
+    style="border: 1px solid rgba(229, 243, 254, 0.3);"
   >
     <div
       class="ant-skeleton-section"
     >
       <h3
         class="ant-skeleton-title"
-        style="width: 38%; height: 20px; border-radius: 20px;"
+        style="width: 38%; background-color: rgba(229, 243, 254, 0.5); height: 20px; border-radius: 20px;"
       />
       <ul
-        class="ant-skeleton-paragraph"
+        class="ant-skeleton-paragraph acss-7yt14g"
       >
         <li />
         <li />
