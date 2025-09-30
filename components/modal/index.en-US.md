@@ -36,6 +36,7 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/confirm.tsx">Static confirmation</code>
 <code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/nested.tsx" debug>Nested Modal</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
@@ -49,11 +50,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| classNames | Config Modal build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| styles | Config Modal build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
+| classNames | Customize class for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
@@ -71,6 +71,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
+| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | loading | Show the skeleton | boolean |  | 5.18.0 |
 | title | The modal dialog's title | ReactNode | - |  |
 | open | Whether the modal dialog is visible or not | boolean | false |  |

@@ -803,6 +803,39 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
 
 exports[`renders components/notification/demo/stack.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/notification/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Default Notification
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Error Notification
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/notification/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/update.tsx extend context correctly 1`] = `
 <button
   class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
