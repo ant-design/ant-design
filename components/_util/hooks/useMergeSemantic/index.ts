@@ -57,7 +57,7 @@ export function mergeStyles<StylesType extends AnyObject>(
 ): Record<string, React.CSSProperties> {
   return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
     Object.keys(cur).forEach((key) => {
-      acc[key] = { ...acc[key], ...(cur as any)[key] };
+      acc[key] = { ...acc[key], ...cur[key] };
     });
     return acc;
   }, {});
