@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import cls from 'classnames';
 
-import type { PopoverProps } from '.';
+import type { PopoverProps, PopoverSemanticName } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
@@ -12,14 +12,8 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  classNames: {
-    title?: string;
-    content?: string;
-  };
-  styles: {
-    title?: React.CSSProperties;
-    content?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<PopoverSemanticName, string>>;
+  styles?: Partial<Record<PopoverSemanticName, React.CSSProperties>>;
 }
 
 export const Overlay: React.FC<OverlayProps> = ({
@@ -36,12 +30,12 @@ export const Overlay: React.FC<OverlayProps> = ({
   return (
     <>
       {title && (
-        <div className={cls(`${prefixCls}-title`, classNames.title)} style={styles.title}>
+        <div className={cls(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
           {title}
         </div>
       )}
       {content && (
-        <div className={cls(`${prefixCls}-content`, classNames.content)} style={styles.content}>
+        <div className={cls(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
           {content}
         </div>
       )}

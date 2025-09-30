@@ -54,7 +54,7 @@ const App: React.FC = () => {
         { name: 'arrow', desc: locale.arrow },
       ]}
     >
-      <BlockList title="确认操作" description="您确定要执行此操作吗？" />
+      <BlockList title="Confirm" description="Are you sure you want to perform this action?" />
     </SemanticPreview>
   );
 };

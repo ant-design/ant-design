@@ -10,6 +10,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
+import type { PopoverSemanticName } from '../popover';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
@@ -36,14 +37,8 @@ export interface OverlayProps
   close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  classNames: {
-    title?: string;
-    content?: string;
-  };
-  styles: {
-    title?: React.CSSProperties;
-    content?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<PopoverSemanticName, string>>;
+  styles?: Partial<Record<PopoverSemanticName, React.CSSProperties>>;
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -138,7 +133,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       placement={placement}
       className={cls(prefixCls, className)}
       style={style}
-      content={<Overlay prefixCls={prefixCls} {...restProps} classNames={{}} styles={{}} />}
+      content={<Overlay prefixCls={prefixCls} {...restProps} />}
     />
   );
 };
