@@ -11,7 +11,11 @@ import type {
 import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic, {
+  mergeClassNames,
+  mergeStyles,
+  resolveFunctionStyle,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -232,30 +236,19 @@ export function useInternalNotification(
           }
         : false;
 
-      const resolveFunctionStyle = <T extends Record<string, any>>(
-        value: T | ((config: { props: ArgsProps }) => T) | undefined,
-        props: ArgsProps,
-      ): T => (typeof value === 'function' ? value({ props }) || {} : value || {}) as T;
+      const semanticClassNames = resolveFunctionStyle(configClassNames, { props: config });
+      const semanticStyles = resolveFunctionStyle(styles, { props: config });
 
-      const [semanticClassNames, semanticStyles] = [configClassNames, styles].map((value) =>
-        resolveFunctionStyle(value, config),
-      );
+      const mergedClassNames: ResolvedNotificationClassNamesType = mergeClassNames(
+        undefined,
+        originClassNames,
+        semanticClassNames,
+      ) as ResolvedNotificationClassNamesType;
 
-      const mergedClassNames: ResolvedNotificationClassNamesType = {
-        root: clsx(originClassNames.root, semanticClassNames.root),
-        title: clsx(originClassNames.title, semanticClassNames.title),
-        description: clsx(originClassNames.description, semanticClassNames.description),
-        actions: clsx(originClassNames.actions, semanticClassNames.actions),
-        icon: clsx(originClassNames.icon, semanticClassNames.icon),
-      };
-
-      const mergedStyles: ResolvedNotificationStylesType = {
-        root: { ...originStyles.root, ...semanticStyles.root },
-        title: { ...originStyles.title, ...semanticStyles.title },
-        description: { ...originStyles.description, ...semanticStyles.description },
-        actions: { ...originStyles.actions, ...semanticStyles.actions },
-        icon: { ...originStyles.icon, ...semanticStyles.icon },
-      };
+      const mergedStyles: ResolvedNotificationStylesType = mergeStyles(
+        originStyles,
+        semanticStyles,
+      ) as ResolvedNotificationStylesType;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -275,7 +268,7 @@ export function useInternalNotification(
           />
         ),
         className: clsx(
-          type && `${noticePrefixCls}-${type}`,
+          { [`${noticePrefixCls}-${type}`]: type },
           className,
           contextClassName,
           mergedClassNames.root,
