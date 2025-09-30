@@ -3638,6 +3638,94 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
   <h5
     class="ant-typography"
   >
+    Numbers only
+  </h5>
+  <div
+    class="ant-otp"
+    role="group"
+  >
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <input
+        aria-label="OTP Input 1"
+        class="ant-input ant-input-outlined ant-otp-input"
+        inputmode="numeric"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <input
+        aria-label="OTP Input 2"
+        class="ant-input ant-input-outlined ant-otp-input"
+        inputmode="numeric"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <input
+        aria-label="OTP Input 3"
+        class="ant-input ant-input-outlined ant-otp-input"
+        inputmode="numeric"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <input
+        aria-label="OTP Input 4"
+        class="ant-input ant-input-outlined ant-otp-input"
+        inputmode="numeric"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <input
+        aria-label="OTP Input 5"
+        class="ant-input ant-input-outlined ant-otp-input"
+        inputmode="numeric"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <input
+        aria-label="OTP Input 6"
+        class="ant-input ant-input-outlined ant-otp-input"
+        inputmode="numeric"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+  </div>
+  <h5
+    class="ant-typography"
+  >
     With formatter (Upcase)
   </h5>
   <div
