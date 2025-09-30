@@ -27,24 +27,20 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
-  children: React.ReactNode;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
-export const PureContent: React.FC<PureContentProps> = ({
-  prefixCls,
-  type,
-  icon,
-  children,
-  classNames: pureContentClassNames,
-  styles,
-}) => {
+export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
+  const { prefixCls, type, icon, children, classNames: pureContentClassNames, styles } = props;
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
-    className: clsx(currentProps.className, pureContentClassNames?.icon),
-    style: { ...currentProps.style, ...styles?.icon },
-  }));
+  const iconNode = cloneElement<any>(iconElement, (currentProps) => {
+    const mergedStyle: React.CSSProperties = { ...currentProps?.style, ...styles?.icon };
+    return {
+      className: clsx(currentProps.className, pureContentClassNames?.icon),
+      style: mergedStyle,
+    };
+  });
   return (
     <div className={clsx(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
       {iconNode}
