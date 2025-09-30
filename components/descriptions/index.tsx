@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -18,6 +18,7 @@ import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
+import type { DescriptionsContextProps } from './DescriptionsContext';
 
 interface CompoundedComponent {
   Item: typeof DescriptionsItem;
@@ -79,7 +80,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     contentStyle,
     styles,
     items,
-    classNames: descriptionsClassNames,
+    classNames,
     ...restProps
   } = props;
   const {
@@ -137,7 +138,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     DescriptionsClassNamesType,
     DescriptionsStylesType,
     DescriptionsProps
-  >([contextClassNames, descriptionsClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
@@ -149,11 +150,11 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       styles: {
         content: mergedStyles.content,
         label: mergedStyles.label,
-      },
+      } as DescriptionsContextProps['styles'],
       classNames: {
-        label: classNames(mergedClassNames.label),
-        content: classNames(mergedClassNames.content),
-      },
+        label: mergedClassNames.label,
+        content: mergedClassNames.content,
+      } as DescriptionsContextProps['classNames'],
     }),
     [labelStyle, contentStyle, mergedStyles, mergedClassNames],
   );
@@ -161,7 +162,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   return (
     <DescriptionsContext.Provider value={contextValue}>
       <div
-        className={classNames(
+        className={cls(
           prefixCls,
           contextClassName,
           mergedClassNames.root,
@@ -180,12 +181,12 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       >
         {(title || extra) && (
           <div
-            className={classNames(`${prefixCls}-header`, mergedClassNames.header)}
+            className={cls(`${prefixCls}-header`, mergedClassNames.header)}
             style={mergedStyles.header}
           >
             {title && (
               <div
-                className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
+                className={cls(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
               >
                 {title}
@@ -193,7 +194,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
             )}
             {extra && (
               <div
-                className={classNames(`${prefixCls}-extra`, mergedClassNames.extra)}
+                className={cls(`${prefixCls}-extra`, mergedClassNames.extra)}
                 style={mergedStyles.extra}
               >
                 {extra}
@@ -228,7 +229,7 @@ if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';
 }
 
-export type { DescriptionsContextProps } from './DescriptionsContext';
+export type { DescriptionsContextProps };
 export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;
