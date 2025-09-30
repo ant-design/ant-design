@@ -1,5 +1,6 @@
 import React from 'react';
 
+import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
@@ -189,6 +190,103 @@ describe('Table', () => {
     Object.entries(classNameCounts).forEach(([className, expectedCount]) => {
       const elements = container.getElementsByClassName(flatTestClassNames[className]);
       expect(elements.length).toBe(expectedCount);
+    });
+  });
+
+  it('should work with function classNames and styles', () => {
+    const columns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+      },
+    ];
+
+    const data = [
+      {
+        key: '1',
+        name: 'John',
+        age: 25,
+      },
+      {
+        key: '2',
+        name: 'Jane',
+        age: 30,
+      },
+    ];
+
+    const functionClassNames: TableProps['classNames'] = (info) => ({
+      root: info.props.bordered ? 'test-bordered-root' : 'test-borderless-root',
+      header: {
+        wrapper: info.props.size === 'small' ? 'test-header-small' : 'test-header-default',
+      },
+      body: {
+        wrapper: 'test-body-dynamic',
+      },
+      pagination: {
+        root: 'test-pagination-function',
+      },
+    });
+
+    const functionStyles: TableProps['styles'] = (info) => ({
+      root: {
+        border: info.props.bordered ? '2px solid blue' : '1px solid gray',
+      },
+      header: {
+        wrapper: {
+          backgroundColor: info.props.size === 'small' ? '#e6f7ff' : '#f6ffed',
+        },
+      },
+      body: {
+        wrapper: {
+          backgroundColor: '#fffbe6',
+        },
+      },
+      pagination: {
+        root: {
+          borderTop: '1px solid #d9d9d9',
+        },
+      },
+    });
+
+    const { container } = render(
+      <Table
+        columns={columns}
+        dataSource={data}
+        classNames={functionClassNames}
+        styles={functionStyles}
+        size="small"
+        bordered
+        pagination={{ pageSize: 2 }}
+      />,
+    );
+
+    const root = container.querySelector('.ant-table-wrapper');
+    const header = container.querySelector('.ant-table-thead');
+    const body = container.querySelector('.ant-table-tbody');
+    const pagination = container.querySelector('.ant-pagination');
+
+    // Check function-based classNames
+    expect(root).toHaveClass('test-bordered-root');
+    expect(header).toHaveClass('test-header-small');
+    expect(body).toHaveClass('test-body-dynamic');
+    expect(pagination).toHaveClass('test-pagination-function');
+
+    // Check function-based styles
+    expect(root).toHaveStyle({
+      border: '2px solid blue',
+    });
+    expect(header).toHaveStyle({
+      backgroundColor: '#e6f7ff',
+    });
+    expect(body).toHaveStyle({
+      backgroundColor: '#fffbe6',
+    });
+    expect(pagination).toHaveStyle({
+      borderTop: '1px solid #d9d9d9',
     });
   });
 });
