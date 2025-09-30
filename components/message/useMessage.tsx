@@ -248,9 +248,9 @@ export function useInternalMessage(
             type && `${noticePrefixCls}-${type}`,
             className,
             contextClassName,
-            mergedClassNames?.root,
+            mergedClassNames.root,
           ),
-          style: { ...mergedStyles?.root, ...contextStyle, ...style },
+          style: { ...mergedStyles.root, ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();
