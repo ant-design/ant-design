@@ -9,8 +9,12 @@ import type {
 } from '@rc-component/notification';
 import classNames from 'classnames';
 
+import useMergeSemantic, {
+  mergeClassNames,
+  mergeStyles,
+  resolveFunctionStyle,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
@@ -207,33 +211,21 @@ export function useInternalMessage(
 
       const contextConfig: HolderProps = { ...messageConfig, ...config };
 
-      const resolveFunctionStyle = <T extends Record<string, any>>(
-        value: T | ((config: { props: HolderProps }) => T) | undefined,
-        props: HolderProps,
-      ): T => (typeof value === 'function' ? value({ props }) || {} : value || {}) as T;
+      const contextClassNames = resolveFunctionStyle(rawContextClassNames, {
+        props: contextConfig,
+      });
+      const contextStyles = resolveFunctionStyle(rawContextStyles, { props: contextConfig });
+      const semanticClassNames = resolveFunctionStyle(configClassNames, { props: config });
+      const semanticStyles = resolveFunctionStyle(styles, { props: config });
 
-      const [contextClassNames, contextStyles] = [rawContextClassNames, rawContextStyles].map(
-        (value) => resolveFunctionStyle(value, contextConfig),
+      const mergedClassNames = mergeClassNames(
+        undefined,
+        contextClassNames,
+        semanticClassNames,
+        originClassNames,
       );
-      const [semanticClassNames, semanticStyles] = [configClassNames, styles].map((value) =>
-        resolveFunctionStyle(value, config),
-      );
 
-      const mergedClassNames = {
-        icon: classNames(contextClassNames.icon, semanticClassNames.icon, originClassNames.icon),
-        content: classNames(
-          contextClassNames.content,
-          semanticClassNames.content,
-          originClassNames.content,
-        ),
-        root: classNames(contextClassNames.root, semanticClassNames.root, originClassNames.root),
-      };
-
-      const mergedStyles = {
-        icon: { ...contextStyles.icon, ...semanticStyles.icon, ...originStyles.icon },
-        content: { ...contextStyles.content, ...semanticStyles.content, ...originStyles.content },
-        root: { ...contextStyles.root, ...semanticStyles.root, ...originStyles.root },
-      };
+      const mergedStyles = mergeStyles(contextStyles, semanticStyles, originStyles);
 
       return wrapPromiseFn((resolve) => {
         originOpen({
@@ -255,9 +247,9 @@ export function useInternalMessage(
             type && `${noticePrefixCls}-${type}`,
             className,
             contextClassName,
-            mergedClassNames?.root,
+            mergedClassNames.root,
           ),
-          style: { ...mergedStyles?.root, ...contextStyle, ...style },
+          style: { ...mergedStyles.root, ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();
