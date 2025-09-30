@@ -36,10 +36,10 @@ const App: React.FC = () => {
   return (
     <Flex gap="middle">
       <Popover content="Object text" classNames={classNames} styles={styles} arrow={false}>
-        <Button>Object Popover.</Button>
+        <Button>Object Style</Button>
       </Popover>
       <Popover content="Function text" classNames={classNames} styles={stylesFn} arrow={false}>
-        <Button type="primary">Function Popover.</Button>
+        <Button type="primary">Function Style</Button>
       </Popover>
     </Flex>
   );

@@ -996,7 +996,7 @@ exports[`renders components/popover/demo/style-class.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Object Popover.
+      Object Style
     </span>
   </button>
   <button
@@ -1005,7 +1005,7 @@ exports[`renders components/popover/demo/style-class.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Function Popover.
+      Function Style
     </span>
   </button>
 </div>

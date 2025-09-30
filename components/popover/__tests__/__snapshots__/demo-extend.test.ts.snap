@@ -2066,7 +2066,7 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     type="button"
   >
     <span>
-      Object Popover.
+      Object Style
     </span>
   </button>
   <div
@@ -2074,18 +2074,10 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-popover-arrow-content"
-      />
-    </div>
-    <div
       class="ant-popover-container acss-nk32ej"
       id="test-id"
       role="tooltip"
-      style="padding: 8px;"
+      style="background: rgb(238, 238, 238); box-shadow: inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2);"
     >
       <div
         class="ant-popover-content"
@@ -2100,7 +2092,7 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     type="button"
   >
     <span>
-      Function Popover.
+      Function Style
     </span>
   </button>
   <div
@@ -2115,6 +2107,7 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     >
       <div
         class="ant-popover-content"
+        style="color: rgb(255, 255, 255);"
       >
         Function text
       </div>

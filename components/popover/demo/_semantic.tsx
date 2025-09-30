@@ -51,9 +51,9 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'container', desc: locale.container },
-        { name: 'arrow', desc: locale.arrow },
         { name: 'title', desc: locale.title },
         { name: 'content', desc: locale.content },
+        { name: 'arrow', desc: locale.arrow },
       ]}
     >
       <BlockList />

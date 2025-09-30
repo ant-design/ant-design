@@ -12,16 +12,39 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
+  classNames: {
+    title?: string;
+    content?: string;
+  };
+  styles: {
+    title?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 }
 
-export const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
+export const Overlay: React.FC<OverlayProps> = ({
+  title,
+  content,
+  prefixCls,
+  classNames,
+  styles,
+}) => {
   if (!title && !content) {
     return null;
   }
+
   return (
     <>
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      {content && <div className={`${prefixCls}-content`}>{content}</div>}
+      {title && (
+        <div className={cls(`${prefixCls}-title`, classNames.title)} style={styles.title}>
+          {title}
+        </div>
+      )}
+      {content && (
+        <div className={cls(`${prefixCls}-content`, classNames.content)} style={styles.content}>
+          {content}
+        </div>
+      )}
     </>
   );
 };
@@ -71,7 +94,15 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
         classNames={mergedClassNames}
         styles={mergedStyles}
       >
-        {children || <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />}
+        {children || (
+          <Overlay
+            prefixCls={prefixCls}
+            title={titleNode}
+            content={contentNode}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
+          />
+        )}
       </Popup>
     </div>
   );

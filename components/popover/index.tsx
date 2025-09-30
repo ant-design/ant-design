@@ -11,16 +11,22 @@ import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
-import type { AbstractTooltipProps, SemanticName, TooltipRef } from '../tooltip';
+import type {
+  AbstractTooltipProps,
+  TooltipRef,
+  SemanticName as TooltipSemanticName,
+} from '../tooltip';
 import Tooltip from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 
-export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, SemanticName>;
+export type PopoverSemanticName = TooltipSemanticName | 'title' | 'content';
 
-export type PopoverStylesType = SemanticStylesType<PopoverProps, SemanticName>;
+export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticName>;
+
+export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticName>;
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -127,17 +133,28 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       mouseLeaveDelay={mouseLeaveDelay}
       {...restProps}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, container: mergedClassNames.container }}
+      classNames={{
+        root: rootClassNames,
+        container: mergedClassNames.container,
+        arrow: mergedClassNames.arrow,
+      }}
       styles={{
         root: { ...mergedStyles.root, ...contextStyle, ...overlayStyle },
         container: mergedStyles.container,
+        arrow: mergedStyles.arrow,
       }}
       ref={ref}
       open={open}
       onOpenChange={onInternalOpenChange}
       overlay={
         titleNode || contentNode ? (
-          <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />
+          <Overlay
+            prefixCls={prefixCls}
+            title={titleNode}
+            content={contentNode}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
+          />
         ) : null
       }
       motion={{
