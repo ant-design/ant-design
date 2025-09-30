@@ -232,12 +232,14 @@ export function useInternalNotification(
           }
         : false;
 
-      const semanticClassNames =
-        typeof configClassNames === 'function'
-          ? configClassNames({ props: config }) || {}
-          : configClassNames || {};
-      const semanticStyles =
-        typeof styles === 'function' ? styles({ props: config }) || {} : styles || {};
+      const resolveFunctionStyle = <T extends Record<string, any>>(
+        value: T | ((config: { props: ArgsProps }) => T) | undefined,
+        props: ArgsProps,
+      ): T => (typeof value === 'function' ? value({ props }) || {} : value || {}) as T;
+
+      const [semanticClassNames, semanticStyles] = [configClassNames, styles].map((value) =>
+        resolveFunctionStyle(value, config),
+      );
 
       const mergedClassNames: ResolvedNotificationClassNamesType = {
         root: classNames(originClassNames.root, semanticClassNames.root),
