@@ -13,6 +13,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -54,7 +55,15 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 type SemanticName = 'root' | 'prefix' | 'input' | 'suffix';
 type PopupSemantic = 'item' | 'itemTitle' | 'root';
-export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
+
+export type TreeSelectClassNamesType = SemanticClassNamesType<TreeSelectProps, SemanticName> & {
+  popup?: Partial<Record<PopupSemantic, string>>;
+};
+export type TreeSelectStylesType = SemanticStylesType<TreeSelectProps, SemanticName> & {
+  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+};
+
+interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends React.AriaAttributes,
     Omit<
       RcTreeSelectProps<ValueType, OptionType>,
@@ -65,13 +74,19 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
       | 'backfill'
       | 'treeLine'
       | 'switcherIcon'
+      | 'classNames'
+      | 'styles'
     > {
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
+  size?: SizeType;
+  disabled?: boolean;
+  status?: InputStatus;
+  variant?: Variant;
+}
+
+export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
+  extends BaseTreeSelectProps<ValueType, OptionType> {
+  styles?: TreeSelectStylesType;
+  classNames?: TreeSelectClassNamesType;
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -217,13 +232,46 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
+  // ===================== Form =====================
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = React.useContext(FormItemInputContext);
+
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TreeSelectProps<ValueType, OptionType> = {
+    ...props,
+    size: mergedSize,
+    disabled: mergedDisabled,
+    status: mergedStatus,
+    variant,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeSelectClassNamesType,
+    TreeSelectStylesType,
+    TreeSelectProps<ValueType, OptionType>
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
       popup: {
         _default: 'root',
       },
+    },
+    {
+      props: mergedProps,
     },
   );
 
@@ -264,15 +312,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
-  // ===================== Form =====================
-  const {
-    status: contextStatus,
-    hasFeedback,
-    isFormItemInput,
-    feedbackIcon,
-  } = React.useContext(FormItemInputContext);
-  const mergedStatus = getMergedStatus(contextStatus, customStatus);
-
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = useIcons({
     ...restProps,
@@ -311,13 +350,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     }
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
-
-  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-
-  const mergedDisabled = customDisabled ?? disabled;
 
   const mergedClassName = clsx(
     !customizePrefixCls && treeSelectPrefixCls,

@@ -2,43 +2,44 @@ import * as React from 'react';
 
 import Cascader from '..';
 import { render } from '../../../tests/utils';
+import type { CascaderProps } from '..';
 
 describe('Cascader.Semantic', () => {
+  const options = [
+    {
+      value: 1,
+      label: 'Zhejiang',
+      children: [
+        {
+          value: 'hangzhou',
+          label: 'Hangzhou',
+          children: [
+            {
+              value: 'xihu',
+              label: 'West Lake',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [
+        {
+          value: 'nanjing',
+          label: 'Nanjing',
+          children: [
+            {
+              value: 'zhonghuamen',
+              label: 'Zhong Hua Men',
+            },
+          ],
+        },
+      ],
+    },
+  ];
   it('support classNames and styles', () => {
-    const options = [
-      {
-        value: 1,
-        label: 'Zhejiang',
-        children: [
-          {
-            value: 'hangzhou',
-            label: 'Hangzhou',
-            children: [
-              {
-                value: 'xihu',
-                label: 'West Lake',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        value: 'jiangsu',
-        label: 'Jiangsu',
-        children: [
-          {
-            value: 'nanjing',
-            label: 'Nanjing',
-            children: [
-              {
-                value: 'zhonghuamen',
-                label: 'Zhong Hua Men',
-              },
-            ],
-          },
-        ],
-      },
-    ];
     const customClassNames = {
       root: 'custom-root',
       input: 'custom-input',
@@ -84,5 +85,48 @@ describe('Cascader.Semantic', () => {
     expect(list).toHaveStyle(customStyles.popup.list);
     expect(listItem).toHaveStyle(customStyles.popup.listItem);
     expect(popup).toHaveStyle(customStyles.popup.root);
+  });
+  it('should support function-based classNames and styles', () => {
+    const classNamesFn: CascaderProps['classNames'] = (info) => {
+      const { props } = info;
+      return {
+        root: props.disabled ? 'disabled-cascader' : 'enabled-cascader',
+        prefix: 'dynamic-prefix',
+        suffix: 'dynamic-suffix',
+      };
+    };
+
+    const stylesFn: CascaderProps['styles'] = (info) => {
+      const { props } = info;
+      return {
+        root: {
+          background: props.disabled ? '#f5f5f5' : '#ffffff',
+          opacity: props.disabled ? 0.6 : 1,
+        },
+        prefix: {
+          color: props.disabled ? '#d9d9d9' : '#52c41a',
+        },
+        suffix: {
+          color: props.disabled ? '#d9d9d9' : '#52c41a',
+        },
+      };
+    };
+    const { container } = render(
+      <Cascader
+        open
+        options={options}
+        disabled
+        classNames={classNamesFn}
+        styles={stylesFn}
+        prefix="prefix"
+      />,
+    );
+
+    const cascader = container.querySelector('.ant-select');
+    expect(cascader).toHaveClass('disabled-cascader');
+    expect(cascader).toHaveStyle({
+      background: '#f5f5f5',
+      opacity: '0.6',
+    });
   });
 });
