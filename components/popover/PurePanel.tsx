@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import cls from 'classnames';
 
-import type { PopoverProps } from '.';
+import type { PopoverProps, PopoverSemanticName } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
@@ -12,16 +12,33 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
+  classNames?: Partial<Record<PopoverSemanticName, string>>;
+  styles?: Partial<Record<PopoverSemanticName, React.CSSProperties>>;
 }
 
-export const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
+export const Overlay: React.FC<OverlayProps> = ({
+  title,
+  content,
+  prefixCls,
+  classNames,
+  styles,
+}) => {
   if (!title && !content) {
     return null;
   }
+
   return (
     <>
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      {content && <div className={`${prefixCls}-content`}>{content}</div>}
+      {title && (
+        <div className={cls(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
+          {title}
+        </div>
+      )}
+      {content && (
+        <div className={cls(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
+          {content}
+        </div>
+      )}
     </>
   );
 };
@@ -71,7 +88,15 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
         classNames={mergedClassNames}
         styles={mergedStyles}
       >
-        {children || <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />}
+        {children || (
+          <Overlay
+            prefixCls={prefixCls}
+            title={titleNode}
+            content={contentNode}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
+          />
+        )}
       </Popup>
     </div>
   );

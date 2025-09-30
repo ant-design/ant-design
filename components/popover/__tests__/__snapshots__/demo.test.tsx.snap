@@ -986,6 +986,31 @@ exports[`renders components/popover/demo/shift.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/popover/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

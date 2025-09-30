@@ -2264,6 +2264,199 @@ exports[`renders components/popconfirm/demo/shift.tsx extend context correctly 1
 
 exports[`renders components/popconfirm/demo/shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popconfirm/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-container acss-nk32ej"
+      id="test-id"
+      role="tooltip"
+      style="background: rgb(238, 238, 238); box-shadow: inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2);"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popconfirm-inner-content"
+        >
+          <div
+            class="ant-popconfirm-message"
+          >
+            <span
+              class="ant-popconfirm-message-icon"
+            >
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
+              <div
+                class="ant-popconfirm-title"
+              >
+                Object text
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Object description
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-container acss-nk32ej"
+      id="test-id"
+      role="tooltip"
+      style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; border-radius: 4px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popconfirm-inner-content"
+        >
+          <div
+            class="ant-popconfirm-message"
+          >
+            <span
+              class="ant-popconfirm-message-icon"
+            >
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
+              <div
+                class="ant-popconfirm-title"
+                style="color: rgb(255, 255, 255);"
+              >
+                Function text
+              </div>
+              <div
+                class="ant-popconfirm-description"
+                style="color: rgb(255, 255, 255);"
+              >
+                Function description
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              style="border-color: rgba(53, 71, 125, 0.6); background-color: rgb(255, 255, 255); color: rgba(53, 71, 125, 0.8);"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              style="background-color: rgba(53, 71, 125, 0.6); color: rgb(255, 255, 255);"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popconfirm/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div

@@ -87,14 +87,13 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-type SemanticName = 'root' | 'container' | 'arrow';
+export type SemanticName = 'root' | 'container' | 'arrow';
 
-export type TooltipClassNamesType = SemanticClassNamesType<AbstractTooltipProps, SemanticName>;
-export type TooltipStylesType = SemanticStylesType<AbstractTooltipProps, SemanticName>;
+export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, SemanticName>;
+
+export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: TooltipStylesType;
-  classNames?: TooltipClassNamesType;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -124,17 +123,12 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   overlayClassName?: string;
 }
 
-export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
+export interface TooltipProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
+  classNames?: TooltipClassNamesType;
+  styles?: TooltipStylesType;
 }
-
-export interface TooltipPropsWithTitle extends AbstractTooltipProps {
-  title: React.ReactNode | RenderFunction;
-  overlay?: React.ReactNode | RenderFunction;
-}
-
-export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
 const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
@@ -202,13 +196,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     popupElement: tooltipRef.current?.popupElement!,
   }));
 
-  // ============================= Styles =============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TooltipClassNamesType,
-    TooltipStylesType,
-    AbstractTooltipProps
-  >([contextClassNames, classNames], [contextStyles, styles]);
-
   // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
     [
@@ -265,6 +252,29 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TooltipProps = {
+    ...props,
+    color,
+    placement,
+    builtinPlacements,
+    openClassName,
+    arrow: tooltipArrow,
+    autoAdjustOverflow,
+    getPopupContainer,
+    children,
+    destroyTooltipOnHide,
+    destroyOnHidden,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TooltipClassNamesType,
+    TooltipStylesType,
+    TooltipProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
