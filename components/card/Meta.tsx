@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 
 export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
+export type CardMetaClassNamesType = SemanticClassNamesType<CardMetaProps, SemanticName>;
+export type CardMetaStylesType = SemanticStylesType<CardMetaProps, SemanticName>;
+
 export interface CardMetaProps {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -11,8 +16,8 @@ export interface CardMetaProps {
   avatar?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: CardMetaClassNamesType;
+  styles?: CardMetaStylesType;
 }
 
 const Meta: React.FC<CardMetaProps> = (props) => {
@@ -27,6 +32,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     styles,
     ...restProps
   } = props;
+
   const {
     getPrefixCls,
     className: contextClassName,
@@ -38,86 +44,51 @@ const Meta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
-  const rootClassNames = clsx(
-    metaPrefixCls,
-    className,
-    contextClassName,
-    contextClassNames.root,
-    cardMetaClassNames?.root,
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CardMetaClassNamesType,
+    CardMetaStylesType,
+    CardMetaProps
+  >([contextClassNames, cardMetaClassNames], [contextStyles, styles], undefined, {
+    props,
+  });
 
-  const rootStyles = {
-    ...contextStyles.root,
+  const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
+
+  const rootStyles: React.CSSProperties = {
     ...contextStyle,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...style,
   };
 
-  const avatarClassNames = clsx(
-    `${metaPrefixCls}-avatar`,
-    contextClassNames.avatar,
-    cardMetaClassNames?.avatar,
-  );
+  const avatarClassNames = clsx(`${metaPrefixCls}-avatar`, mergedClassNames.avatar);
 
-  const avatarStyles = {
-    ...contextStyles.avatar,
-    ...styles?.avatar,
-  };
+  const titleClassNames = clsx(`${metaPrefixCls}-title`, mergedClassNames.title);
 
-  const titleClassNames = clsx(
-    `${metaPrefixCls}-title`,
-    contextClassNames.title,
-    cardMetaClassNames?.title,
-  );
+  const descriptionClassNames = clsx(`${metaPrefixCls}-description`, mergedClassNames.description);
 
-  const titleStyles = {
-    ...contextStyles.title,
-    ...styles?.title,
-  };
-
-  const descriptionClassNames = clsx(
-    `${metaPrefixCls}-description`,
-    contextClassNames.description,
-    cardMetaClassNames?.description,
-  );
-
-  const descriptionStyles = {
-    ...contextStyles.description,
-    ...styles?.description,
-  };
-
-  const sectionClassNames = clsx(
-    `${metaPrefixCls}-section`,
-    contextClassNames.section,
-    cardMetaClassNames?.section,
-  );
-
-  const sectionStyles = {
-    ...contextStyles.section,
-    ...styles?.section,
-  };
+  const sectionClassNames = clsx(`${metaPrefixCls}-section`, mergedClassNames.section);
 
   const avatarDom: React.ReactNode = avatar ? (
-    <div className={avatarClassNames} style={avatarStyles}>
+    <div className={avatarClassNames} style={mergedStyles.avatar}>
       {avatar}
     </div>
   ) : null;
 
   const titleDom: React.ReactNode = title ? (
-    <div className={titleClassNames} style={titleStyles}>
+    <div className={titleClassNames} style={mergedStyles.title}>
       {title}
     </div>
   ) : null;
 
   const descriptionDom: React.ReactNode = description ? (
-    <div className={descriptionClassNames} style={descriptionStyles}>
+    <div className={descriptionClassNames} style={mergedStyles.description}>
       {description}
     </div>
   ) : null;
 
   const MetaDetail: React.ReactNode =
     titleDom || descriptionDom ? (
-      <div className={sectionClassNames} style={sectionStyles}>
+      <div className={sectionClassNames} style={mergedStyles.section}>
         {titleDom}
         {descriptionDom}
       </div>
