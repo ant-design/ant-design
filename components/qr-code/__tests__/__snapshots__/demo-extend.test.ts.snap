@@ -707,6 +707,41 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
 
 exports[`renders components/qr-code/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/qr-code/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <div
+    class="ant-qrcode css-var-test-id acss-1x2gi4q"
+    style="background-color: rgba(24, 144, 255, 0.1); border: 2px solid rgb(24, 144, 255); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
+  >
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+  </div>
+  <div
+    class="ant-qrcode css-var-test-id acss-1x2gi4q"
+    style="background-color: rgba(255, 77, 79, 0.1); border: 2px solid rgb(255, 77, 79); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
+  >
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+    <img
+      alt="QR-Code"
+      crossorigin="anonymous"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      style="display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/qr-code/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
