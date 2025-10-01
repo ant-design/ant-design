@@ -75,7 +75,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     supportServerRender = true,
     rootClassName,
     styles,
-    classNames: uploadClassNames,
+    classNames,
   } = props;
 
   // ===================== Disabled =====================
@@ -368,7 +368,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     UploadClassNamesType,
     UploadStylesType,
     UploadProps
-  >([contextClassNames, uploadClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

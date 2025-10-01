@@ -4,6 +4,10 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../../_util/hooks/useMergeSemantic';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -17,10 +21,6 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
-import type {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'input' | 'separator';
 
@@ -143,7 +143,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     OTPClassNamesType,
     OTPStylesType,
     OTPProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,

@@ -266,12 +266,12 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
-    },
-    {
-      props: mergedProps,
     },
   );
 

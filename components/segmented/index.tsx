@@ -85,7 +85,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     shape = 'default',
     name = defaultName,
     styles,
-    classNames: segmentedClassNames,
+    classNames,
     ...restProps
   } = props;
 
@@ -104,11 +104,12 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     size: customSize,
     shape,
   };
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     SegmentedClassNamesType,
     SegmentedStylesType,
     SegmentedProps
-  >([contextClassNames, segmentedClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

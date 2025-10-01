@@ -225,12 +225,12 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
-    },
-    {
-      props: mergedProps,
     },
   );
 

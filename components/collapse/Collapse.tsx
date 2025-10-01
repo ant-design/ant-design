@@ -95,7 +95,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     destroyInactivePanel,
     destroyOnHidden,
     expandIcon,
-    classNames: collapseClassNames,
+    classNames,
     styles,
   } = props;
 
@@ -117,7 +117,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     CollapseClassNamesType,
     CollapseStylesType,
     CollapseProps
-  >([contextClassNames, collapseClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

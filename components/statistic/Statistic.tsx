@@ -62,7 +62,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     onMouseEnter,
     onMouseLeave,
     styles,
-    classNames: statisticClassNames,
+    classNames,
     ...rest
   } = props;
 
@@ -90,7 +90,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     StatisticClassNamesType,
     StatisticStylesType,
     StatisticProps
-  >([contextClassNames, statisticClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

@@ -154,7 +154,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     PurePanelClassNamesType,
     PurePanelStylesType,
     PurePanelProps
-  >([contextClassNames, notificationClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, notificationClassNames], [contextStyles, styles], {
     props,
   });
 

@@ -88,7 +88,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     PopoverClassNamesType,
     PopoverStylesType,
     PopoverProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

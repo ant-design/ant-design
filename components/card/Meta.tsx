@@ -48,7 +48,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     CardMetaClassNamesType,
     CardMetaStylesType,
     CardMetaProps
-  >([contextClassNames, cardMetaClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, cardMetaClassNames], [contextStyles, styles], {
     props,
   });
 

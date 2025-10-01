@@ -93,7 +93,9 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     BadgeClassNamesType,
     BadgeStylesType,
     BadgeProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ================================ Misc ================================
   const numberedDisplayCount = (

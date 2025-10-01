@@ -140,7 +140,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     // Deprecated Props
     tooltip = {},
     onChangeComplete,
-    classNames: sliderClassNames,
+    classNames,
     styles,
     vertical,
     orientation,
@@ -171,7 +171,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     SliderClassNamesType,
     SliderStylesType,
     SliderSingleProps | SliderRangeProps
-  >([contextClassNames, sliderClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

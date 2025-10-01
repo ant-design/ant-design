@@ -88,7 +88,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     DrawerClassNamesType,
     DrawerStylesType,
     DrawerPanelProps
-  >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], undefined, {
+  >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], {
     props,
   });
 

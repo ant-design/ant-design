@@ -140,7 +140,7 @@ const Result: ResultType = (props) => {
     icon,
     extra,
     styles,
-    classNames: resultClassNames,
+    classNames,
   } = props;
 
   const {
@@ -162,7 +162,7 @@ const Result: ResultType = (props) => {
     ResultClassNamesType,
     ResultStylesType,
     ResultProps
-  >([contextClassNames, resultClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

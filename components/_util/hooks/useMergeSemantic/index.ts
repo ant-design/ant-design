@@ -44,7 +44,7 @@ export function mergeClassNames<
   }, {} as SemanticClassNames) as SemanticClassNames;
 }
 
-function useSemanticClassNames<ClassNamesType extends object>(
+function useSemanticClassNames<ClassNamesType extends AnyObject>(
   schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
@@ -69,7 +69,7 @@ function useSemanticStyles<StylesType extends AnyObject>(
 }
 
 // =========================== Export ===========================
-function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T {
+function fillObjectBySchema<T extends AnyObject>(obj: T, schema: SemanticSchema): T {
   const newObj: any = { ...obj };
 
   Object.keys(schema).forEach((key) => {
@@ -84,33 +84,38 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
   return newObj;
 }
 
+export const resolveStyleOrClass = <T extends AnyObject>(
+  value: T | ((config: any) => T),
+  info: { props: AnyObject },
+) => {
+  return typeof value === 'function' ? value(info) : value;
+};
+
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
+
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
+
 /**
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<
+const useMergeSemantic = <
   ClassNamesType extends AnyObject,
   StylesType extends AnyObject,
   Props extends AnyObject,
 >(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
   stylesList: MaybeFn<StylesType, Props>[],
+  info: { props: Props },
   schema?: SemanticSchema,
-  info?: {
-    props: Props;
-  },
-) {
-  const resolveCallBack = <T extends object>(val?: MaybeFn<T, Props>) => {
-    if (typeof val === 'function') {
-      return val(info as { props: Props });
-    }
-    return val;
-  };
+) => {
+  const resolvedClassNamesList = classNamesList.map((classNames) =>
+    classNames ? resolveStyleOrClass(classNames, info) : undefined,
+  );
 
-  const resolvedClassNamesList = classNamesList.map(resolveCallBack);
-  const resolvedStylesList = stylesList.map(resolveCallBack);
+  const resolvedStylesList = stylesList.map((styles) =>
+    styles ? resolveStyleOrClass(styles, info) : undefined,
+  );
 
   const mergedClassNames = useSemanticClassNames(
     schema,
@@ -129,14 +134,9 @@ export default function useMergeSemantic<
       fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles]);
-}
-
-export const resolveFunctionStyle = <T extends AnyObject>(
-  value: T | ((config: any) => T),
-  info: { props: AnyObject },
-) => {
-  return typeof value === 'function' ? value(info) : value;
 };
+
+export default useMergeSemantic;
 
 export type SemanticClassNamesType<
   Props,

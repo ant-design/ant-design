@@ -89,7 +89,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     ArgsClassNamesType,
     ArgsStylesType,
     PurePanelProps
-  >([contextClassNames, messageClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, messageClassNames], [contextStyles, styles], {
     props,
   });
 

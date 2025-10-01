@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 import useMergeSemantic, {
   mergeClassNames,
   mergeStyles,
-  resolveFunctionStyle,
+  resolveStyleOrClass,
 } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -29,6 +29,7 @@ import type {
   NoticeType,
   ResolvedMessageClassNamesType,
   ResolvedMessageStylesType,
+  SemanticName,
   TypeOpen,
 } from './interface';
 import { PureContent } from './PurePanel';
@@ -108,7 +109,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ArgsClassNamesType,
     ArgsStylesType,
     HolderProps
-  >([props?.classNames, message?.classNames], [props?.styles, message?.styles], undefined, {
+  >([props?.classNames, message?.classNames], [props?.styles, message?.styles], {
     props,
   });
 
@@ -183,6 +184,7 @@ export function useInternalMessage(
         classNames: originClassNames,
         styles: originStyles,
       } = holderRef.current;
+
       const contextClassName = message?.className || {};
       const contextStyle = message?.style || {};
       const rawContextClassNames = message?.classNames || {};
@@ -211,21 +213,23 @@ export function useInternalMessage(
 
       const contextConfig: HolderProps = { ...messageConfig, ...config };
 
-      const contextClassNames = resolveFunctionStyle(rawContextClassNames, {
-        props: contextConfig,
-      });
-      const contextStyles = resolveFunctionStyle(rawContextStyles, { props: contextConfig });
-      const semanticClassNames = resolveFunctionStyle(configClassNames, { props: config });
-      const semanticStyles = resolveFunctionStyle(styles, { props: config });
+      const contextClassNames = resolveStyleOrClass(rawContextClassNames, { props: contextConfig });
+      const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig });
+      const contextStyles = resolveStyleOrClass(rawContextStyles, { props: contextConfig });
+      const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
 
-      const mergedClassNames = mergeClassNames(
+      const mergedClassNames: Partial<Record<SemanticName, string>> = mergeClassNames(
         undefined,
         contextClassNames,
         semanticClassNames,
         originClassNames,
       );
 
-      const mergedStyles = mergeStyles(contextStyles, semanticStyles, originStyles);
+      const mergedStyles: Partial<Record<SemanticName, React.CSSProperties>> = mergeStyles(
+        contextStyles,
+        semanticStyles,
+        originStyles,
+      );
 
       return wrapPromiseFn((resolve) => {
         originOpen({

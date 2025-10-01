@@ -108,7 +108,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     SpaceClassNamesType,
     SpaceStylesType,
     SpaceProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

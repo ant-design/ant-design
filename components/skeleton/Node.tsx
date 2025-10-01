@@ -14,7 +14,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    classNames: skeletonNodeClassNames,
+    classNames,
     rootClassName,
     internalClassName,
     style,
@@ -31,7 +31,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     `${prefixCls}-element`,
     { [`${prefixCls}-active`]: active },
     hashId,
-    skeletonNodeClassNames?.root,
+    classNames?.root,
     className,
     rootClassName,
     cssVarCls,
@@ -40,7 +40,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   return (
     <div className={cls} style={styles?.root}>
       <div
-        className={clsx(skeletonNodeClassNames?.content, internalClassName || `${prefixCls}-node`)}
+        className={clsx(classNames?.content, internalClassName || `${prefixCls}-node`)}
         style={{ ...styles?.content, ...style }}
       >
         {children}

@@ -9,7 +9,7 @@ import getPlacements from '../_util/placements';
 import zIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
-import type { TourProps, TourClassNamesType, TourStylesType } from './interface';
+import type { TourClassNamesType, TourProps, TourStylesType } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -25,7 +25,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     actionsRender,
     steps,
     closeIcon,
-    classNames: tourClassNames,
+    classNames,
     styles,
     className,
     style,
@@ -67,7 +67,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     TourClassNamesType,
     TourStylesType,
     TourProps
-  >([contextClassNames, tourClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

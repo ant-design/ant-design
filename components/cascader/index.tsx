@@ -374,12 +374,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       popup: {
         _default: 'root',
       },
     },
-    { props: mergedProps },
   );
 
   // =================== Dropdown ====================

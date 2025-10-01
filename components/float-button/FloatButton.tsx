@@ -128,7 +128,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     FloatButtonClassNamesType,
     FloatButtonStylesType,
     FloatButtonProps
-  >([floatButtonClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([floatButtonClassNames, contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

@@ -124,20 +124,26 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
         cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
         popup: {
           root: clsx(contextPreviewRootClassName, previewRootClassName),
-          mask: clsx(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+          mask: clsx(
+            {
+              [`${prefixCls}-preview-mask-hidden`]: !mergedMask,
+            },
+            blurClassName,
+          ),
         },
       },
     ],
     [contextStyles, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
     },
-    {
-      props: mergedProps,
-    },
   );
+
   return (
     <RcImage.PreviewGroup
       preview={mergedPreview}

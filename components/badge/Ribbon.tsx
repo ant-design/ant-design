@@ -65,7 +65,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     RibbonClassNamesType,
     RibbonStylesType,
     RibbonProps
-  >([contextClassNames, ribbonClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, ribbonClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

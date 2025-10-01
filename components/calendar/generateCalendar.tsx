@@ -110,7 +110,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       onPanelChange,
       onSelect,
       styles,
-      classNames: calendarClassNames,
+      classNames,
     } = props;
     const {
       getPrefixCls,
@@ -133,7 +133,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       CalendarClassNamesType<DateType>,
       CalendarStylesType<DateType>,
       CalendarProps<DateType>
-    >([contextClassNames, calendarClassNames], [contextStyles, styles], undefined, {
+    >([contextClassNames, classNames], [contextStyles, styles], {
       props: mergedProps,
     });
 

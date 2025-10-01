@@ -186,7 +186,7 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
+  const { classNames, styles, rootStyle } = rest;
 
   const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
 
@@ -203,7 +203,7 @@ const Drawer: React.FC<DrawerProps> & {
     DrawerClassNamesType,
     DrawerStylesType,
     DrawerProps
-  >([contextClassNames, propClassNames], [contextStyles, propStyles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
