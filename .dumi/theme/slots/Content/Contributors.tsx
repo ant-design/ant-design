@@ -58,7 +58,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
         owner="ant-design"
         fileName={filename}
         className={styles.list}
-        filter={(item) => !blockList.some((name) => name === item?.username?.toLowerCase())}
+        filter={(item) => !blockList.includes(item?.username?.toLowerCase() ?? '')}
         renderItem={(item, loading) => (
           <ContributorAvatar item={item} loading={loading} key={item?.url} />
         )}
