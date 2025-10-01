@@ -40,7 +40,6 @@ export default antfu(
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
-      'test/prefer-lowercase-title': 'off',
       'react-hooks/exhaustive-deps': 'off',
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
@@ -82,6 +81,7 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-components': 'off',
       'react/no-useless-fragment': 'off',
