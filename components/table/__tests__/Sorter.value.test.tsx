@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Table from '..';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Sorter.value.test.tsx', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

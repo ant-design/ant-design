@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Row, Col } from 'antd';
+import { Anchor, Col, Row } from 'antd';
 import type { AnchorProps } from 'antd';
 
 const classNamesObject: AnchorProps['classNames'] = {

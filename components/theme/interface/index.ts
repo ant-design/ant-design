@@ -11,12 +11,12 @@ export type { AliasToken } from './alias';
 export type { ComponentTokenMap } from './components';
 
 export type {
-  GlobalToken,
-  OverrideToken,
   FullToken,
-  OverrideComponent,
-  GetDefaultToken,
   GenStyleFn,
+  GetDefaultToken,
+  GlobalToken,
+  OverrideComponent,
+  OverrideToken,
 } from './cssinjs-utils';
 
 export type {
@@ -31,8 +31,8 @@ export type {
 } from './maps';
 export { PresetColors } from './presetColors';
 export type {
-  LegacyColorPalettes,
   ColorPalettes,
+  LegacyColorPalettes,
   PresetColorKey,
   PresetColorType,
 } from './presetColors';

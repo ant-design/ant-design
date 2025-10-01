@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Transfer, message } from 'antd';
+import { Button, message, Transfer } from 'antd';
 import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import type { TransferProps } from 'antd';
 

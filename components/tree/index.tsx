@@ -13,19 +13,19 @@ export type {
 } from './DirectoryTree';
 
 export type {
+  AntdTreeNodeAttribute,
   AntTreeNode,
   AntTreeNodeCheckedEvent,
   AntTreeNodeExpandedEvent,
   AntTreeNodeMouseEvent,
   AntTreeNodeProps,
   AntTreeNodeSelectedEvent,
-  AntdTreeNodeAttribute,
   TreeProps,
 } from './Tree';
 
 export type { EventDataNode } from '@rc-component/tree/lib/interface';
 
-export type { DataNode, BasicDataNode };
+export type { BasicDataNode, DataNode };
 
 type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<TreeProps<T>> & React.RefAttributes<RcTree>,
