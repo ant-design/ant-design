@@ -139,7 +139,7 @@ const CloseIconNode: React.FC<CloseIconProps> = (props) => {
     <button
       type="button"
       onClick={handleClose}
-      className={classNames(`${prefixCls}-close-icon`, className)}
+      className={clsx(`${prefixCls}-close-icon`, className)}
       tabIndex={0}
       style={style}
       {...ariaProps}
