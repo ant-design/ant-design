@@ -188,7 +188,7 @@
     "@size-limit/file": "^11.1.6",
     "@stackblitz/sdk": "^1.11.0",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "~6.6.3",
+    "@testing-library/jest-dom": "~6.8.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/adm-zip": "^0.5.6",
