@@ -233,7 +233,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
                   // DOM's html
                   html: renderReactToHTMLString(
                     <Flex align="center" justify="center">
-                      <RightCircleOutlined />
+                      <RightCircleOutlined style={{ color: '#BFBFBF' }} />
                     </Flex>,
                   ),
                 },
