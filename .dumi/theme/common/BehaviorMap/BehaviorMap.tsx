@@ -256,7 +256,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
                 'sub-node-link': {
                   html: renderReactToHTMLString(
                     <Flex align="center" justify="center">
-                      <RightCircleOutlined />
+                      <RightCircleOutlined style={{ color: '#1677ff' }} />
                     </Flex>,
                   ),
                 },
