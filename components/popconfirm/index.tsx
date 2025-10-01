@@ -63,10 +63,10 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   } = props;
   const {
     getPrefixCls,
-    className: ctxClassName,
-    style: ctxStyle,
-    classNames: ctxClassNames,
-    styles: ctxStyles,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
     arrow: contextArrow,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
@@ -112,11 +112,11 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     PopconfirmClassNamesType,
     PopconfirmStylesType,
     PopconfirmProps
-  >([ctxClassNames, classNames], [ctxStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
-  const rootClassNames = clsx(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
+  const rootClassNames = clsx(prefixCls, contextClassName, overlayClassName, mergedClassNames.root);
 
   useStyle(prefixCls);
 
@@ -135,7 +135,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
         arrow: mergedClassNames.arrow,
       }}
       styles={{
-        root: { ...ctxStyle, ...mergedStyles.root, ...overlayStyle },
+        root: { ...contextStyle, ...mergedStyles.root, ...overlayStyle },
         container: mergedStyles.container,
         arrow: mergedStyles.arrow,
       }}

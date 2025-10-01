@@ -16,7 +16,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
-    classNames: skeletonButtonClassNames,
+    classNames,
     active,
     style,
     styles,
@@ -35,7 +35,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
       [`${prefixCls}-active`]: active,
       [`${prefixCls}-block`]: block,
     },
-    skeletonButtonClassNames?.root,
+    classNames?.root,
     className,
     rootClassName,
     hashId,
@@ -46,7 +46,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-button`}
-        className={skeletonButtonClassNames?.content}
+        className={classNames?.content}
         style={{ ...styles?.content, ...style }}
         size={size}
         {...rest}

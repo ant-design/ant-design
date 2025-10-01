@@ -93,7 +93,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     popupClassName,
     style,
     variant: customVariant,
-    classNames: mentionsClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -143,7 +143,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     MentionsClassNamesType,
     MentionsStylesType,
     MentionProps
-  >([contextClassNames, mentionsClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 

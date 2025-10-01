@@ -80,7 +80,7 @@ const Spin: SpinType = (props) => {
     fullscreen = false,
     indicator,
     percent,
-    classNames: spinClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -140,7 +140,7 @@ const Spin: SpinType = (props) => {
     SpinClassNamesType,
     SpinStylesType,
     SpinProps
-  >([contextClassNames, spinClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
