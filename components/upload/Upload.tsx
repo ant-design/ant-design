@@ -7,6 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -20,7 +21,6 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import { useComponentConfig } from '../config-provider/context';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -132,7 +132,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
     // Prevent React18 auto batch since input[upload] trigger process at same time
     // which makes fileList closure problem
-    // eslint-disable-next-line react-dom/no-flush-sync
     flushSync(() => {
       setMergedFileList(cloneList);
     });
@@ -152,7 +151,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       // We should ignore event if current file is exceed `maxCount`
       cloneList.some((f) => f.uid === file.uid)
     ) {
-      // eslint-disable-next-line react-dom/no-flush-sync
       flushSync(() => {
         onChange?.(changeInfo);
       });
