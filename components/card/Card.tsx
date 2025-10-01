@@ -138,7 +138,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     CardClassNamesType,
     CardStylesType,
     CardProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

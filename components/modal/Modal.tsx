@@ -187,7 +187,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     ModalClassNamesType,
     ModalStylesType,
     ModalProps
-  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
     props: mergedProps,
   });
 

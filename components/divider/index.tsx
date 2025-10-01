@@ -124,7 +124,9 @@ const Divider: React.FC<DividerProps> = (props) => {
     DividerClassNamesType,
     DividerStylesType,
     DividerProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const classString = clsx(
     prefixCls,

@@ -106,7 +106,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     TextAreaClassNamesType,
     TextAreaStylesType,
     TextAreaProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props,
+  });
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);

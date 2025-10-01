@@ -121,22 +121,15 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       TagClassNamesType,
       TagStylesType,
       TagProps
-    >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+    >([contextClassNames, classNames], [contextStyles, styles], {
       props: mergedProps,
     });
 
     const tagStyle = React.useMemo(() => {
-      let nextTagStyle: React.CSSProperties = {
-        ...mergedStyles.root,
-        ...contextStyle,
-        ...style,
-      };
+      let nextTagStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
 
       if (!mergedDisabled) {
-        nextTagStyle = {
-          ...customTagStyle,
-          ...nextTagStyle,
-        };
+        nextTagStyle = { ...customTagStyle, ...nextTagStyle };
       }
 
       return nextTagStyle;

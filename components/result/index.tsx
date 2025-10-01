@@ -162,7 +162,7 @@ const Result: ResultType = (props) => {
     ResultClassNamesType,
     ResultStylesType,
     ResultProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

@@ -19,12 +19,12 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
   const [mergedClassNames, mergedStyles] = useMergeSemantic<P['classNames'], P['styles'], P>(
     [contextClassNames as P['classNames'], classNames],
     [contextStyles as P['styles'], styles],
+    { props: mergedProps as P },
     {
       popup: {
         _default: 'root',
       },
     },
-    { props: mergedProps as P },
   );
 
   return React.useMemo(() => {

@@ -203,7 +203,7 @@ const Drawer: React.FC<DrawerProps> & {
     DrawerClassNamesType,
     DrawerStylesType,
     DrawerProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

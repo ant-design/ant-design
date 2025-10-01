@@ -190,14 +190,12 @@ const Timeline: CompoundedComponent = (props) => {
     TimelineClassNamesType,
     TimelineStylesType,
     TimelineProps
-  >([stepsClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([stepsClassNames, contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
   const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
-    () => ({
-      railFollowPrevStatus: reverse,
-    }),
+    () => ({ railFollowPrevStatus: reverse }),
     [reverse],
   );
 
