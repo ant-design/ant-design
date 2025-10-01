@@ -25,7 +25,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     actionsRender,
     steps,
     closeIcon,
-    classNames: tourClassNames,
+    classNames,
     styles,
     className,
     style,
@@ -67,7 +67,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     TourClassNamesType,
     TourStylesType,
     TourProps
-  >([contextClassNames, tourClassNames], [contextStyles, styles], {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

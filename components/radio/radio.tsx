@@ -51,7 +51,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     children,
     style,
     title,
-    classNames: radioClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -88,7 +88,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     SemanticClassNamesType<RadioProps, 'root' | 'icon' | 'label'>,
     SemanticStylesType<RadioProps, 'root' | 'icon' | 'label'>,
     RadioProps
-  >([contextClassNames, radioClassNames], [contextStyles, styles], {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

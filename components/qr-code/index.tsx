@@ -34,7 +34,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
     statusRender,
-    classNames: qrcodeClassNames,
+    classNames,
     styles,
     boostLevel /* 👈 5.28.0+ */,
     ...rest
@@ -63,7 +63,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     QRCodeClassNamesType,
     QRCodeStylesType,
     QRCodeProps
-  >([contextClassNames, qrcodeClassNames], [contextStyles, styles], {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 

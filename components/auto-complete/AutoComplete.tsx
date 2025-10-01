@@ -195,8 +195,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     AutoCompleteStylesType,
     AutoCompleteProps
   >(
-    [undefined, classNames],
-    [undefined, styles],
+    [classNames],
+    [styles],
     {
       props: mergedProps,
     },

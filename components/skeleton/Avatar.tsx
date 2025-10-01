@@ -14,7 +14,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    classNames: skeletonAvatarClassNames,
+    classNames,
     rootClassName,
     active,
     style,
@@ -33,7 +33,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     {
       [`${prefixCls}-active`]: active,
     },
-    skeletonAvatarClassNames?.root,
+    classNames?.root,
     className,
     rootClassName,
     hashId,
@@ -44,7 +44,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-avatar`}
-        className={skeletonAvatarClassNames?.content}
+        className={classNames?.content}
         style={{ ...styles?.content, ...style }}
         shape={shape}
         size={size}

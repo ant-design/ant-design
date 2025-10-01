@@ -110,9 +110,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     tabBarExtraContent,
     hoverable,
     tabProps = {},
-    classNames: customClassNames,
-    styles: customStyles,
-    ...others
+    classNames,
+    styles,
+    ...rest
   } = props;
   const {
     getPrefixCls,
@@ -138,7 +138,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     CardClassNamesType,
     CardStylesType,
     CardProps
-  >([contextClassNames, customClassNames], [contextStyles, customStyles], {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
@@ -249,7 +249,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     />
   ) : null;
 
-  const divProps = omit(others, ['onTabChange']);
+  const divProps = omit(rest, ['onTabChange']);
 
   const classString = clsx(
     prefixCls,

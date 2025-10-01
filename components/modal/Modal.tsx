@@ -57,8 +57,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     style,
     width = 520,
     footer,
-    classNames: modalClassNames,
-    styles: modalStyles,
+    classNames,
+    styles,
     children,
     loading,
     confirmLoading,
@@ -187,7 +187,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     ModalClassNamesType,
     ModalStylesType,
     ModalProps
-  >([contextClassNames, modalClassNames, maskBlurClassName], [contextStyles, modalStyles], {
+  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
     props: mergedProps,
   });
 

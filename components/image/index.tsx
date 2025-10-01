@@ -83,7 +83,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     rootClassName,
     style,
     styles,
-    classNames: imageClassNames,
+    classNames,
     wrapperStyle,
     fallback,
     ...otherProps
@@ -172,13 +172,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 
   const internalClassNames = React.useMemo(
-    () => [
-      contextClassNames,
-      imageClassNames,
-      mergedLegacyClassNames,
-      { popup: mergedPopupClassNames },
-    ],
-    [contextClassNames, imageClassNames, mergedLegacyClassNames, mergedPopupClassNames],
+    () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
+    [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
