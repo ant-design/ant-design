@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Flex, Space, Tour, Divider } from 'antd';
+import { Button, Divider, Flex, Space, Tour } from 'antd';
 import type { TourProps, TourStepProps } from 'antd';
 import { createStyles } from 'antd-style';
 

@@ -12,10 +12,10 @@ import type {
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
+  SemanticName,
   TransferDirection,
   TransferLocale,
   TransferSearchOption,
-  SemanticName,
 } from './index';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
