@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
@@ -10,6 +10,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
+import type { PopoverSemanticName } from '../popover';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
@@ -36,6 +37,8 @@ export interface OverlayProps
   close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  classNames?: Partial<Record<PopoverSemanticName, string>>;
+  styles?: Partial<Record<PopoverSemanticName, React.CSSProperties>>;
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -54,6 +57,8 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
     onConfirm,
     onCancel,
     onPopupClick,
+    classNames,
+    styles,
   } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -68,8 +73,19 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       <div className={`${prefixCls}-message`}>
         {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
         <div className={`${prefixCls}-message-text`}>
-          {titleNode && <div className={`${prefixCls}-title`}>{titleNode}</div>}
-          {descriptionNode && <div className={`${prefixCls}-description`}>{descriptionNode}</div>}
+          {titleNode && (
+            <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
+              {titleNode}
+            </div>
+          )}
+          {descriptionNode && (
+            <div
+              className={clsx(`${prefixCls}-description`, classNames?.content)}
+              style={styles?.content}
+            >
+              {descriptionNode}
+            </div>
+          )}
         </div>
       </div>
       <div className={`${prefixCls}-buttons`}>
@@ -115,7 +131,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   return (
     <PopoverPurePanel
       placement={placement}
-      className={classNames(prefixCls, className)}
+      className={clsx(prefixCls, className)}
       style={style}
       content={<Overlay prefixCls={prefixCls} {...restProps} />}
     />

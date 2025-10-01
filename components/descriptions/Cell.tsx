@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
+
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
@@ -49,14 +50,16 @@ const Cell: React.FC<CellProps> = (props) => {
   const Component = component as keyof JSX.IntrinsicElements;
   const descContext = React.useContext(DescriptionsContext);
   const { classNames: contextClassNames, styles: contextStyles } = descContext;
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
   );
+
   if (bordered) {
     return (
       <Component
-        className={cls(
+        className={clsx(
           {
             [`${itemPrefixCls}-item-label`]: type === 'label',
             [`${itemPrefixCls}-item-content`]: type === 'content',
@@ -77,11 +80,11 @@ const Cell: React.FC<CellProps> = (props) => {
   }
 
   return (
-    <Component className={cls(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
+    <Component className={clsx(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
         {(label || label === 0) && (
           <span
-            className={cls(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
+            className={clsx(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
             style={{ ...labelStyle, ...mergedStyles.label }}
@@ -91,7 +94,7 @@ const Cell: React.FC<CellProps> = (props) => {
         )}
         {(content || content === 0) && (
           <span
-            className={cls(`${itemPrefixCls}-item-content`, mergedClassNames.content)}
+            className={clsx(`${itemPrefixCls}-item-content`, mergedClassNames.content)}
             style={{ ...contentStyle, ...mergedStyles.content }}
           >
             {content}

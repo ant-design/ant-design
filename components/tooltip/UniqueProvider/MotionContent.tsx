@@ -1,6 +1,6 @@
 import React from 'react';
 import CSSMotion from '@rc-component/motion';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../../config-provider/context';
 
@@ -10,12 +10,7 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   // This will never reach since we will not render this when no children
   /* istanbul ignore next */
-  if (
-    !React.isValidElement<{
-      className?: string;
-      style?: React.CSSProperties;
-    }>(children)
-  ) {
+  if (!React.isValidElement<{ className?: string; style?: React.CSSProperties }>(children)) {
     return children;
   }
 
@@ -31,14 +26,13 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
       {({ style: motionStyle, className: motionClassName }) => {
         const { className, style } = children.props;
 
-        const mergedClassName = classNames(className, motionClassName);
-        const mergedStyles = {
+        const mergedStyles: React.CSSProperties = {
           ...style,
           ...motionStyle,
         };
 
         return React.cloneElement<any>(children, {
-          className: mergedClassName,
+          className: clsx(className, motionClassName),
           style: mergedStyles,
         });
       }}

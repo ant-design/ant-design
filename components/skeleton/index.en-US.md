@@ -23,6 +23,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 <code src="./demo/element.tsx">Button/Avatar/Input/Image/Node</code>
 <code src="./demo/children.tsx">Contains sub component</code>
 <code src="./demo/list.tsx">List</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/componentToken.tsx" debug>Custom component token</code>
 
 ## API
@@ -35,14 +36,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Skeleton
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| active | Show animation effect | boolean | false |
-| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |
-| loading | Display the skeleton when true | boolean | - |
-| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |
-| round | Show paragraph and title radius when true | boolean | false |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| active | Show animation effect | boolean | false |  |
+| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |  |
+| loading | Display the skeleton when true | boolean | - |  |
+| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |  |
+| round | Show paragraph and title radius when true | boolean | false |  |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |  |
 
 #### SkeletonTitleProps
 

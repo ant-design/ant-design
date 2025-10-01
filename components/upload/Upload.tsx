@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
-import { useControlledState } from '@rc-component/util';
-import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import RcUpload from '@rc-component/upload';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -15,9 +15,9 @@ import type {
   RcFile,
   ShowUploadListInterface,
   UploadChangeParam,
+  UploadClassNamesType,
   UploadFile,
   UploadProps,
-  UploadClassNamesType,
   UploadStylesType,
 } from './interface';
 import useStyle from './style';
@@ -427,14 +427,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     }
     return (
       <UploadList
-        classNames={{
-          list: mergedClassNames.list,
-          item: mergedClassNames.item,
-        }}
-        styles={{
-          list: mergedStyles.list,
-          item: mergedStyles.item,
-        }}
+        classNames={{ list: mergedClassNames.list, item: mergedClassNames.item }}
+        styles={{ list: mergedStyles.list, item: mergedStyles.item }}
         prefixCls={prefixCls}
         listType={listType}
         items={mergedFileList}
@@ -461,7 +455,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const mergedRootCls = classNames(
+  const mergedRootCls = clsx(
     wrapperCls,
     className,
     rootClassName,
@@ -482,7 +476,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   // ======================== Render ========================
 
   if (type === 'drag') {
-    const dragCls = classNames(hashId, prefixCls, `${prefixCls}-drag`, {
+    const dragCls = clsx(hashId, prefixCls, `${prefixCls}-drag`, {
       [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
       [`${prefixCls}-drag-hover`]: dragState === 'dragover',
       [`${prefixCls}-disabled`]: mergedDisabled,
@@ -507,7 +501,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   }
 
-  const uploadBtnCls = classNames(prefixCls, `${prefixCls}-select`, {
+  const uploadBtnCls = clsx(prefixCls, `${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: mergedDisabled,
     [`${prefixCls}-hidden`]: !children,
   });

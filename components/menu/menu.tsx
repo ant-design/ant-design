@@ -4,7 +4,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from '@rc-component/menu';
 import RcMenu from '@rc-component/menu';
 import { omit, useEvent } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
@@ -184,7 +184,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
-  const menuClassName = cls(`${prefixCls}-${theme}`, contextClassName, className);
+  const menuClassName = clsx(`${prefixCls}-${theme}`, contextClassName, className);
 
   // ====================== ExpandIcon ========================
   const mergedExpandIcon = React.useMemo<MenuProps['expandIcon']>(() => {
@@ -199,7 +199,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     }
     const mergedIcon = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;
     return cloneElement(mergedIcon, {
-      className: cls(
+      className: clsx(
         `${prefixCls}-submenu-expand-icon`,
         React.isValidElement<{ className?: string }>(mergedIcon)
           ? mergedIcon.props?.className
@@ -239,7 +239,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={cls(
+          overflowedIndicatorPopupClassName={clsx(
             prefixCls,
             `${prefixCls}-${theme}`,
             overflowedIndicatorPopupClassName,
@@ -264,7 +264,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
           ref={ref}
-          rootClassName={cls(
+          rootClassName={clsx(
             rootClassName,
             hashId,
             overrideObj.rootClassName,

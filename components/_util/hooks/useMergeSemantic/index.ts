@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { AnyObject } from '../../type';
 import type { ValidChar } from './interface';
@@ -33,11 +33,11 @@ export function mergeClassNames<
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
           acc[key] = acc[key] || {};
-          acc[key][defaultField!] = classnames(acc[key][defaultField!], curVal);
+          acc[key][defaultField!] = clsx(acc[key][defaultField!], curVal);
         }
       } else {
         // Flatten fill
-        acc[key] = classnames(acc[key], curVal);
+        acc[key] = clsx(acc[key], curVal);
       }
     });
     return acc;
@@ -52,17 +52,20 @@ function useSemanticClassNames<ClassNamesType extends object>(
 }
 
 // =========================== Styles ===========================
+export function mergeStyles<StylesType extends AnyObject>(
+  ...styles: (Partial<StylesType> | undefined)[]
+): Record<string, React.CSSProperties> {
+  return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
+    Object.keys(cur).forEach((key) => {
+      acc[key] = { ...acc[key], ...cur[key] };
+    });
+    return acc;
+  }, {});
+}
 function useSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) {
-  return React.useMemo(() => {
-    return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
-      Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] };
-      });
-      return acc;
-    }, {});
-  }, [...styles]) as StylesType;
+  return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
 }
 
 // =========================== Export ===========================
@@ -127,6 +130,13 @@ export default function useMergeSemantic<
     ] as const;
   }, [mergedClassNames, mergedStyles]);
 }
+
+export const resolveFunctionStyle = <T extends AnyObject>(
+  value: T | ((config: any) => T),
+  info: { props: AnyObject },
+) => {
+  return typeof value === 'function' ? value(info) : value;
+};
 
 export type SemanticClassNamesType<
   Props,

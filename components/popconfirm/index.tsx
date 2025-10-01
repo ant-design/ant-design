@@ -1,18 +1,23 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import { omit, useControlledState } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
-import type { PopoverProps } from '../popover';
+import type { PopoverProps, PopoverSemanticName } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
+
+export type PopconfirmClassNamesType = SemanticClassNamesType<PopconfirmProps, PopoverSemanticName>;
+
+export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopoverSemanticName>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -32,6 +37,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  classNames?: PopconfirmClassNamesType;
+  styles?: PopconfirmStylesType;
 }
 
 export interface PopconfirmState {
@@ -90,12 +97,26 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [ctxClassNames, classNames],
-    [ctxStyles, styles],
-  );
 
-  const rootClassNames = cls(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
+  const mergedProps: PopconfirmProps = {
+    ...props,
+    placement,
+    trigger,
+    okType,
+    overlayStyle,
+    styles,
+    classNames,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopconfirmClassNamesType,
+    PopconfirmStylesType,
+    PopconfirmProps
+  >([ctxClassNames, classNames], [ctxStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
+  const rootClassNames = clsx(prefixCls, ctxClassName, overlayClassName, mergedClassNames.root);
 
   useStyle(prefixCls);
 
@@ -108,14 +129,15 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      classNames={{ root: rootClassNames, container: mergedClassNames.container }}
+      classNames={{
+        root: rootClassNames,
+        container: mergedClassNames.container,
+        arrow: mergedClassNames.arrow,
+      }}
       styles={{
-        root: {
-          ...ctxStyle,
-          ...mergedStyles.root,
-          ...overlayStyle,
-        },
+        root: { ...ctxStyle, ...mergedStyles.root, ...overlayStyle },
         container: mergedStyles.container,
+        arrow: mergedStyles.arrow,
       }}
       content={
         <Overlay
@@ -126,6 +148,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
           close={close}
           onConfirm={onConfirm}
           onCancel={onCancel}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
         />
       }
       data-popover-inject

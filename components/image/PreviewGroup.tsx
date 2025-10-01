@@ -8,9 +8,9 @@ import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from '@rc-component/image';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
-import type { DeprecatedPreviewConfig } from '.';
+import type { DeprecatedPreviewConfig, ImageClassNamesType, ImageStylesType } from '.';
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { GetProps } from '../_util/type';
@@ -45,6 +45,8 @@ export type GroupPreviewConfig = OriginPreviewConfig &
 
 export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
   preview?: boolean | GroupPreviewConfig;
+  classNames?: ImageClassNamesType;
+  styles?: ImageStylesType;
 }
 
 const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
@@ -72,7 +74,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classnames(hashId, cssVarCls, rootCls);
+  const mergedRootClassName = clsx(hashId, cssVarCls, rootCls);
 
   // ============================= Preview ==============================
   const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
@@ -102,37 +104,38 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     icons,
   );
   const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
-  const internalClassNames = React.useMemo(
-    () => [
-      contextClassNames,
-      classNames,
-      {
-        cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
-        popup: {
-          root: classnames(contextPreviewRootClassName, previewRootClassName),
-          mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
-        },
-      },
-    ],
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: PreviewGroupProps = {
+    ...otherProps,
+    classNames,
+    styles,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ImageClassNamesType,
+    ImageStylesType,
+    PreviewGroupProps
+  >(
     [
       contextClassNames,
       classNames,
-      contextPreviewMaskClassName,
-      previewMaskClassName,
-      contextPreviewRootClassName,
-      previewRootClassName,
-      mergedMask,
-      prefixCls,
-      blurClassName,
+      {
+        cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
+        popup: {
+          root: clsx(contextPreviewRootClassName, previewRootClassName),
+          mask: clsx(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+        },
+      },
     ],
-  );
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    internalClassNames,
     [contextStyles, styles],
     {
       popup: {
         _default: 'root',
       },
+    },
+    {
+      props: mergedProps,
     },
   );
   return (

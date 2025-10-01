@@ -13,7 +13,7 @@ import {
   Typography,
 } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 
 import useLocale from '../../../hooks/useLocale';
@@ -118,7 +118,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
   const { isMobile } = React.use(SiteContext);
   const { styles } = useStyle(isDark);
   return (
-    <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
+    <div className={clsx(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}
       <div
         className={styles.cardCircle}

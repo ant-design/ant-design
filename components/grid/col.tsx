@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
@@ -105,7 +105,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   });
 
   // ==================== Normal =====================
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-${span}`]: span !== undefined,

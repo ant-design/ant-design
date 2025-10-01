@@ -3,7 +3,7 @@ import { INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
 import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -424,7 +424,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
-    rootClassName: cls(rootClassName, rootCls),
+    rootClassName: clsx(rootClassName, rootCls),
   });
   const mergedData = getFilterData(sortedData, filterStates, childrenColumnName);
 
@@ -516,18 +516,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    let mergedRowClassName: string;
-    if (typeof rowClassName === 'function') {
-      mergedRowClassName = cls(rowClassName(record, index, indent));
-    } else {
-      mergedRowClassName = cls(rowClassName);
-    }
-
-    return cls(
+    const resolvedRowClassName =
+      typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName;
+    return clsx(
       {
         [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
       },
-      mergedRowClassName,
+      resolvedRowClassName,
     );
   };
 
@@ -576,7 +571,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         {...mergedPagination}
         classNames={mergedClassNames.pagination}
         styles={mergedStyles.pagination}
-        className={cls(
+        className={clsx(
           `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
           mergedPagination.className,
         )}
@@ -629,7 +624,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  const wrappercls = cls(
+  const wrappercls = clsx(
     cssVarCls,
     rootCls,
     `${prefixCls}-wrapper`,
@@ -700,7 +695,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={cls(
+          className={clsx(
             {
               [`${prefixCls}-middle`]: mergedSize === 'middle',
               [`${prefixCls}-small`]: mergedSize === 'small',

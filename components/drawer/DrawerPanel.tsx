@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { DrawerProps } from '.';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
@@ -106,7 +106,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <button
         type="button"
         onClick={onClose}
-        className={classNames(`${prefixCls}-close`, {
+        className={clsx(`${prefixCls}-close`, {
           [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
         })}
       >
@@ -130,7 +130,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     headerNode = (
       <div
         style={{ ...mergedStyles.header, ...headerStyle }}
-        className={classNames(`${prefixCls}-header`, mergedClassNames.header, {
+        className={clsx(`${prefixCls}-header`, mergedClassNames.header, {
           [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
         })}
       >
@@ -138,7 +138,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           {closablePlacement === 'start' && mergedCloseIcon}
           {title && (
             <div
-              className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
+              className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
               style={mergedStyles.title}
             >
               {title}
@@ -147,7 +147,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         </div>
         {extra && (
           <div
-            className={classNames(`${prefixCls}-extra`, mergedClassNames.extra)}
+            className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
             style={mergedStyles.extra}
           >
             {extra}
@@ -164,7 +164,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     }
     return (
       <div
-        className={classNames(`${prefixCls}-footer`, mergedClassNames.footer)}
+        className={clsx(`${prefixCls}-footer`, mergedClassNames.footer)}
         style={{ ...mergedStyles.footer, ...footerStyle }}
       >
         {footer}
@@ -176,7 +176,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     <>
       {headerNode}
       <div
-        className={classNames(`${prefixCls}-body`, mergedClassNames.body)}
+        className={clsx(`${prefixCls}-body`, mergedClassNames.body)}
         style={{ ...mergedStyles.body, ...bodyStyle }}
       >
         {loading ? (

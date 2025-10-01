@@ -3,7 +3,7 @@ import type { Meta } from '@rc-component/form/lib/interface';
 import { omit } from '@rc-component/util';
 import isVisible from '@rc-component/util/lib/Dom/isVisible';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { FormItemProps } from '.';
 import { Row } from '../../grid';
@@ -94,7 +94,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const mergedValidateStatus = getValidateState();
 
   // ======================== Render ========================
-  const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
+  const itemClassName = clsx(itemPrefixCls, className, rootClassName, {
     [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
 
     // Status

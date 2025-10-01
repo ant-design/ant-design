@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { toArray } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -252,12 +252,10 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     });
   }
 
-  const breadcrumbClassName = cls(
+  const breadcrumbClassName = clsx(
     prefixCls,
     contextClassName,
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
     className,
     rootClassName,
     mergedClassNames.root,

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -12,13 +12,13 @@ import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import DEFAULT_COLUMN_MAP from './constant';
 import DescriptionsContext from './DescriptionsContext';
+import type { DescriptionsContextProps } from './DescriptionsContext';
 import useItems from './hooks/useItems';
 import useRow from './hooks/useRow';
 import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
-import type { DescriptionsContextProps } from './DescriptionsContext';
 
 interface CompoundedComponent {
   Item: typeof DescriptionsItem;
@@ -143,26 +143,33 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   });
 
   // ======================== Render ========================
-  const contextValue = React.useMemo(
+  const memoizedValue = React.useMemo<DescriptionsContextProps>(
     () => ({
       labelStyle,
       contentStyle,
       styles: {
-        content: mergedStyles.content,
-        label: mergedStyles.label,
-      } as DescriptionsContextProps['styles'],
+        label: mergedStyles.label!,
+        content: mergedStyles.content!,
+      },
       classNames: {
-        label: mergedClassNames.label,
-        content: mergedClassNames.content,
-      } as DescriptionsContextProps['classNames'],
+        label: clsx(mergedClassNames.label),
+        content: clsx(mergedClassNames.content),
+      },
     }),
-    [labelStyle, contentStyle, mergedStyles, mergedClassNames],
+    [
+      labelStyle,
+      contentStyle,
+      mergedStyles.label,
+      mergedStyles.content,
+      mergedClassNames.label,
+      mergedClassNames.content,
+    ],
   );
 
   return (
-    <DescriptionsContext.Provider value={contextValue}>
+    <DescriptionsContext.Provider value={memoizedValue}>
       <div
-        className={cls(
+        className={clsx(
           prefixCls,
           contextClassName,
           mergedClassNames.root,
@@ -181,12 +188,12 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       >
         {(title || extra) && (
           <div
-            className={cls(`${prefixCls}-header`, mergedClassNames.header)}
+            className={clsx(`${prefixCls}-header`, mergedClassNames.header)}
             style={mergedStyles.header}
           >
             {title && (
               <div
-                className={cls(`${prefixCls}-title`, mergedClassNames.title)}
+                className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
               >
                 {title}
@@ -194,7 +201,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
             )}
             {extra && (
               <div
-                className={cls(`${prefixCls}-extra`, mergedClassNames.extra)}
+                className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
                 style={mergedStyles.extra}
               >
                 {extra}

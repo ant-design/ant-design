@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { CSSMotionProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -110,7 +110,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
         return (
           <div
             {...helpProps}
-            className={classNames(
+            className={clsx(
               baseClassName,
               holderClassName,
               cssVarCls,
@@ -138,7 +138,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
                 return (
                   <div
                     key={key}
-                    className={classNames(itemClassName, {
+                    className={clsx(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
                     style={itemStyle}

@@ -3,6 +3,7 @@ import type * as React from 'react';
 import type { Breakpoint } from '../_util/responsiveObserver';
 
 type SemanticName = 'label' | 'content';
+
 export interface DescriptionsItemProps {
   prefixCls?: string;
   className?: string;

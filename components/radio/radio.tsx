@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
 import RcCheckbox from '@rc-component/checkbox';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -91,7 +91,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   >([contextClassNames, radioClassNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
-  const wrapperClassString = classNames(
+  const wrapperClassString = clsx(
     `${prefixCls}-wrapper`,
     {
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
@@ -126,9 +126,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
-          className={classNames(mergedClassNames.icon, {
-            [TARGET_CLS]: !isButtonType,
-          })}
+          className={clsx(mergedClassNames.icon, { [TARGET_CLS]: !isButtonType })}
           style={mergedStyles.icon}
           type="radio"
           prefixCls={prefixCls}
@@ -137,7 +135,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         />
         {children !== undefined ? (
           <span
-            className={classNames(`${prefixCls}-label`, mergedClassNames.label)}
+            className={clsx(`${prefixCls}-label`, mergedClassNames.label)}
             style={mergedStyles.label}
           >
             {children}

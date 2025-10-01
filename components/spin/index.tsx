@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -154,7 +154,7 @@ const Spin: SpinType = (props) => {
     );
   }
 
-  const spinClassName = classNames(
+  const spinClassName = clsx(
     prefixCls,
     contextClassName,
     {
@@ -171,7 +171,7 @@ const Spin: SpinType = (props) => {
     cssVarCls,
   );
 
-  const containerClassName = classNames(`${prefixCls}-container`, {
+  const containerClassName = clsx(`${prefixCls}-container`, {
     [`${prefixCls}-blur`]: spinning,
   });
 
@@ -195,10 +195,7 @@ const Spin: SpinType = (props) => {
         percent={mergedPercent}
       />
       {tip && (isNestedPattern || fullscreen) ? (
-        <div
-          className={classNames(`${prefixCls}-text`, mergedClassNames.tip)}
-          style={mergedStyles.tip}
-        >
+        <div className={clsx(`${prefixCls}-text`, mergedClassNames.tip)} style={mergedStyles.tip}>
           {tip}
         </div>
       ) : null}
@@ -209,7 +206,7 @@ const Spin: SpinType = (props) => {
     return (
       <div
         {...restProps}
-        className={classNames(
+        className={clsx(
           `${prefixCls}-nested-loading`,
           wrapperClassName,
           mergedClassNames.wrapper,
@@ -229,7 +226,7 @@ const Spin: SpinType = (props) => {
   if (fullscreen) {
     return (
       <div
-        className={classNames(
+        className={clsx(
           `${prefixCls}-fullscreen`,
           {
             [`${prefixCls}-fullscreen-show`]: spinning,

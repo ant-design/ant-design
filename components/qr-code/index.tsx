@@ -2,19 +2,14 @@ import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import { omit } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type {
-  QRCodeClassNamesType,
-  QRCodeProps,
-  QRCodeStylesType,
-  QRProps,
-} from './interface';
+import type { QRCodeClassNamesType, QRCodeProps, QRCodeStylesType, QRProps } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
@@ -54,7 +49,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   } = useComponentConfig('qrcode');
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps : QRCodeProps = {
+  const mergedProps: QRCodeProps = {
     ...props,
     bgColor,
     type,
@@ -123,7 +118,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const rootClassNames = cls(
+  const rootClassNames = clsx(
     prefixCls,
     className,
     rootClassName,
@@ -149,7 +144,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     <div {...restProps} className={rootClassNames} style={rootStyle}>
       {status !== 'active' && (
         <div
-          className={cls(`${prefixCls}-cover`, mergedClassNames.cover)}
+          className={clsx(`${prefixCls}-cover`, mergedClassNames.cover)}
           style={mergedStyles.cover}
         >
           <QRcodeStatus

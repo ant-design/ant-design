@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface UnitNumberProps {
   prefixCls: string;
@@ -15,7 +15,7 @@ const UnitNumber: React.FC<Readonly<UnitNumberProps>> = (props) => {
     style = { position: 'absolute', top: `${offset}00%`, left: 0 };
   }
   return (
-    <span style={style} className={classNames(`${prefixCls}-only-unit`, { current })}>
+    <span style={style} className={clsx(`${prefixCls}-only-unit`, { current })}>
       {value}
     </span>
   );
