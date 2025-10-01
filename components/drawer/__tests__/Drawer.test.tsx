@@ -493,6 +493,7 @@ describe('Drawer', () => {
       section: 'custom-section',
       body: 'custom-body',
       footer: 'custom-footer',
+      close: 'custom-close',
     };
 
     const customStyles: DrawerProps['styles'] = {
@@ -504,6 +505,7 @@ describe('Drawer', () => {
       section: { padding: '24px' },
       body: { color: 'rgb(0, 255, 0)' },
       footer: { color: 'rgb(255, 255, 0)' },
+      close: { color: 'rgb(0, 0, 255)' },
     };
 
     const { container } = render(
@@ -514,7 +516,6 @@ describe('Drawer', () => {
         title="title"
         placement="right"
         footer={'Footer'}
-        closable={false}
         getContainer={false}
         extra={'Cancel'}
       >
@@ -530,6 +531,7 @@ describe('Drawer', () => {
     const sectionElement = container.querySelector<HTMLElement>('.ant-drawer-section');
     const bodyElement = container.querySelector<HTMLElement>('.ant-drawer-body');
     const footerElement = container.querySelector<HTMLElement>('.ant-drawer-footer');
+    const closeElement = container.querySelector<HTMLElement>('.ant-drawer-close');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -540,6 +542,7 @@ describe('Drawer', () => {
     expect(sectionElement).toHaveClass('custom-section');
     expect(bodyElement).toHaveClass('custom-body');
     expect(footerElement).toHaveClass('custom-footer');
+    expect(closeElement).toHaveClass('custom-close');
 
     // check styles
     expect(rootElement).toHaveStyle({ 'font-size': '24px' });
@@ -550,6 +553,7 @@ describe('Drawer', () => {
     expect(sectionElement).toHaveStyle({ padding: '24px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
     expect(footerElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
+    expect(closeElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('should apply custom classnames & styles function to Drawer', () => {
@@ -564,6 +568,7 @@ describe('Drawer', () => {
             section: 'custom-section-default',
             body: 'custom-body-default',
             footer: 'custom-footer-default',
+            close: 'custom-close-default',
           }
         : {
             root: 'custom-root-large',
@@ -574,6 +579,7 @@ describe('Drawer', () => {
             section: 'custom-section-large',
             body: 'custom-body-large',
             footer: 'custom-footer-large',
+            close: 'custom-close-large',
           };
     };
 
@@ -588,6 +594,7 @@ describe('Drawer', () => {
             section: { padding: '18px' },
             body: { color: 'rgb(0, 200, 0)' },
             footer: { color: 'rgb(100, 0, 0)' },
+            close: { color: 'rgb(80, 0, 0)' },
           }
         : {
             root: { padding: '24px' },
@@ -598,6 +605,7 @@ describe('Drawer', () => {
             section: { padding: '22px' },
             body: { color: 'rgb(0, 255, 0)' },
             footer: { color: 'rgb(255, 255, 0)' },
+            close: { color: 'rgb(90, 0, 0)' },
           };
     };
 
@@ -610,7 +618,6 @@ describe('Drawer', () => {
         title="title"
         placement="right"
         footer={'Footer'}
-        closable={false}
         getContainer={false}
         extra={'Cancel'}
       >
@@ -626,6 +633,7 @@ describe('Drawer', () => {
     const sectionElement = container.querySelector<HTMLElement>('.ant-drawer-section');
     const bodyElement = container.querySelector<HTMLElement>('.ant-drawer-body');
     const footerElement = container.querySelector<HTMLElement>('.ant-drawer-footer');
+    const closeElement = container.querySelector<HTMLElement>('.ant-drawer-close');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root-default');
@@ -636,6 +644,7 @@ describe('Drawer', () => {
     expect(sectionElement).toHaveClass('custom-section-default');
     expect(bodyElement).toHaveClass('custom-body-default');
     expect(footerElement).toHaveClass('custom-footer-default');
+    expect(closeElement).toHaveClass('custom-close-default');
 
     // check styles
     expect(rootElement).toHaveStyle({ padding: '20px' });
@@ -646,6 +655,7 @@ describe('Drawer', () => {
     expect(sectionElement).toHaveStyle({ padding: '18px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 200, 0)' });
     expect(footerElement).toHaveStyle({ color: 'rgb(100, 0, 0)' });
+    expect(closeElement).toHaveStyle({ color: 'rgb(80, 0, 0)' });
 
     rerender(
       <Drawer
@@ -656,7 +666,6 @@ describe('Drawer', () => {
         title="title"
         placement="right"
         footer={'Footer'}
-        closable={false}
         getContainer={false}
         extra={'Cancel'}
       >
@@ -673,6 +682,7 @@ describe('Drawer', () => {
     expect(sectionElement).toHaveClass('custom-section-large');
     expect(bodyElement).toHaveClass('custom-body-large');
     expect(footerElement).toHaveClass('custom-footer-large');
+    expect(closeElement).toHaveClass('custom-close-large');
 
     // check styles
     expect(rootElement).toHaveStyle({ padding: '24px' });
@@ -683,6 +693,7 @@ describe('Drawer', () => {
     expect(sectionElement).toHaveStyle({ padding: '22px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
     expect(footerElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
+    expect(closeElement).toHaveStyle({ color: 'rgb(90, 0, 0)' });
   });
 
   describe('Drawer mask blur className', () => {
