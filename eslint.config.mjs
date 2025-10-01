@@ -54,7 +54,6 @@ export default antfu(
       'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'react-dom/no-missing-button-type': 'off',
       'perfectionist/sort-imports': 'off',
-      'perfectionist/sort-named-exports': 'off',
       'regexp/strict': 'off',
       /* turn off React 19 only rules */
       'react/no-forward-ref': 'off',

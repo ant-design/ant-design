@@ -21,38 +21,38 @@ import { genComponentStyleHook, genStyleHooks, genSubStyleComponent } from './ut
 import genPresetColor from './util/genPresetColor';
 import useResetIconStyle from './util/useResetIconStyle';
 
-export { DesignTokenContext, defaultConfig } from './context';
+export { defaultConfig, DesignTokenContext } from './context';
 export type { CSSUtil, TokenWithCommonCls } from '@ant-design/cssinjs-utils';
 
 export {
+  calc,
   // generators
   genComponentStyleHook,
-  genSubStyleComponent,
   genPresetColor,
   genStyleHooks,
+  genSubStyleComponent,
+  getLineHeight,
   // utils
   mergeToken,
+  // constant
+  PresetColors,
+  statistic,
   statisticToken,
-  calc,
-  getLineHeight,
   // hooks
   useResetIconStyle,
   useStyleRegister,
   useToken,
-  // constant
-  PresetColors,
-  statistic,
 };
 export type {
   AliasToken,
   FullToken,
-  OverrideComponent,
   GenerateStyle,
+  GenStyleFn,
+  GetDefaultToken,
+  GlobalToken,
+  OverrideComponent,
   PresetColorKey,
   PresetColorType,
   SeedToken,
   UseComponentStyleResult,
-  GetDefaultToken,
-  GlobalToken,
-  GenStyleFn,
 };
