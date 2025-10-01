@@ -16,6 +16,7 @@ const locales = {
     extra: '额外元素，包含flex固定布局等额外操作内容的样式控制',
     dragger:
       '拖拽元素，用于调整抽屉大小的拖拽手柄，包含绝对定位、背景透明、指针事件控制、hover状态样式、拖拽状态样式等',
+    close: '关闭按钮元素，包含按钮的基础样式',
   },
   en: {
     root: 'Root element with fixed positioning, z-index control, pointer events, color and other basic styles and layout control for drawer container',
@@ -33,6 +34,7 @@ const locales = {
       'Extra element with flex fixed layout and other additional operation content style controls',
     dragger:
       'Dragger element used to resize the drawer, with absolute positioning, transparent background, pointer events control, hover state styles, and dragging state styles',
+    close: 'Close button element with basic button styling',
   },
 };
 
@@ -51,13 +53,13 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
         { name: 'dragger', desc: locale.dragger, version: '6.0.0' },
+        { name: 'close', desc: locale.close, version: '6.0.0' },
       ]}
     >
       <Drawer
         title="Title"
         placement="right"
         footer={<Typography.Link>Footer</Typography.Link>}
-        closable={false}
         open
         getContainer={false}
         extra={<Button>Cancel</Button>}
