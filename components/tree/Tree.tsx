@@ -200,7 +200,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion: customMotion,
     style,
     rootClassName,
-    classNames: treeClassNames,
+    classNames,
     styles,
   } = props;
 
@@ -230,7 +230,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     TreeClassNamesType,
     TreeStylesType,
     TreeProps
-  >([contextClassNames, treeClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 

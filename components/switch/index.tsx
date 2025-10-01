@@ -67,7 +67,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     defaultValue,
     onChange,
     styles,
-    classNames: switchClassNames,
+    classNames,
     ...restProps
   } = props;
 
@@ -112,7 +112,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     SwitchClassNamesType,
     SwitchStylesType,
     SwitchProps
-  >([contextClassNames, switchClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
