@@ -27,7 +27,8 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     },
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-      height: itemHeight,
+      height: 'auto',
+      minHeight: itemHeight,
       lineHeight: unit(itemHeight),
       paddingInline: itemPaddingInline,
       overflow: 'hidden',
@@ -39,7 +40,8 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
 
     [`> ${componentCls}-item,
             > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-      height: itemHeight,
+      height: 'auto',
+      minHeight: itemHeight,
       lineHeight: unit(itemHeight),
     },
 
@@ -71,7 +73,8 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   } = token;
 
   const inlineItemStyle: CSSObject = {
-    height: itemHeight,
+    height: 'auto',
+    minHeight: itemHeight,
     lineHeight: unit(itemHeight),
     listStylePosition: 'inside',
     listStyleType: 'disc',
