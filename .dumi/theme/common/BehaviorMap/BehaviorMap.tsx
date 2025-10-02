@@ -7,9 +7,19 @@ import { useRouteMeta } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import { renderReactToHTMLString } from '../../../theme/utils/renderReactToHTML';
 
-const dataTransform = (data: BehaviorMapItem) => {
-  const changeData = (d: any, level = 0) => {
-    const clonedData: any = { ...d };
+interface BehaviorMapItem {
+  id: string;
+  label: string;
+  targetType?: 'mvp' | 'extension';
+  children?: BehaviorMapItem[];
+  link?: string;
+  collapsed?: boolean;
+  type?: 'behavior-start-node' | 'behavior-sub-node';
+}
+
+const dataTransform = (rootData: BehaviorMapItem) => {
+  const changeData = (data: BehaviorMapItem, level = 0) => {
+    const clonedData: BehaviorMapItem = { ...data };
     switch (level) {
       case 0:
         clonedData.type = 'behavior-start-node';
@@ -22,21 +32,12 @@ const dataTransform = (data: BehaviorMapItem) => {
         clonedData.type = 'behavior-sub-node';
         break;
     }
-
-    if (d.children) {
-      clonedData.children = d.children.map((child: any) => changeData(child, level + 1));
+    if (Array.isArray(data.children)) {
+      clonedData.children = data.children.map((child) => changeData(child, level + 1));
     }
     return clonedData;
   };
-  return changeData(data);
-};
-
-type BehaviorMapItem = {
-  id: string;
-  label: string;
-  targetType?: 'mvp' | 'extension';
-  children?: BehaviorMapItem[];
-  link?: string;
+  return changeData(rootData);
 };
 
 const useStyle = createStyles(({ token }) => ({
@@ -103,9 +104,9 @@ const locales = {
   },
 };
 
-export type BehaviorMapProps = {
+export interface BehaviorMapProps {
   data: BehaviorMapItem;
-};
+}
 
 const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
