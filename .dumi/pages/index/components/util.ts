@@ -82,7 +82,7 @@ export function preLoad(list: string[]) {
   }
 }
 
-export const useSiteData = () => {
+export const useAntdSiteConfig = () => {
   const { data, error, isLoading } = useSWR<Partial<SiteData>, Error>(
     `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`,
     (url: string) => fetch(url).then((res) => res.json()),
