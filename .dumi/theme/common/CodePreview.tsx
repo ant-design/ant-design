@@ -153,6 +153,8 @@ const CodePreview: React.FC<CodePreviewProps> = ({
             ) : (
               toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])
             )}
+            {/* 这里用 div 标签，不能用 button */}
+            {/* button 嵌套 button 会导致水合失败 */}
             <div className={styles.copyButton}>
               <Typography.Text className={styles.copyIcon} copyable={{ text: sourceCodes[lang] }} />
             </div>
