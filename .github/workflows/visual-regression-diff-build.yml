@@ -25,15 +25,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: generate image snapshots
         id: test-image
         run: |
           node node_modules/puppeteer/install.mjs
-          bun run version
-          bun run test:image -- --shard=${{matrix.shard}}
+          ut version
+          ut test:image -- --shard=${{matrix.shard}}
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
@@ -51,8 +51,8 @@ jobs:
     needs: visual-diff-snapshot
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - uses: actions/download-artifact@v5
         with:
@@ -67,7 +67,7 @@ jobs:
           EVENT_NUMBER: ${{ github.event.number }}
           BASE_REF: ${{ github.base_ref }}
         run: |
-          bun run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
+          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
