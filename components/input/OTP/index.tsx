@@ -50,6 +50,9 @@ export interface OTPProps
 
   type?: React.HTMLInputTypeAttribute;
 
+  /** Whether to allow only numeric input */
+  numericOnly?: boolean;
+
   onInput?: (value: string[]) => void;
 }
 
@@ -90,8 +93,14 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     type,
     onInput,
     inputMode,
+    numericOnly,
     ...restProps
   } = props;
+
+  // Use inputMode='numeric' to trigger numeric keyboard
+  // Keep type='text' for better cross-platform consistency
+  const mergedInputMode = numericOnly ? 'numeric' : inputMode;
+  const mergedInputType = numericOnly ? 'text' : type;
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input.OTP');
@@ -184,6 +193,20 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const patchValue = useEvent((index: number, txt: string) => {
     let nextCells = [...valueCells];
 
+    // Handle numbers-only mode
+    if (numericOnly) {
+      // Filter out non-numeric characters
+      const numericTxt = txt.replace(/\D/g, '');
+
+      // If no numeric characters left, return without changes
+      if (!numericTxt && txt) {
+        return nextCells;
+      }
+
+      // Use the filtered numeric text
+      txt = numericTxt;
+    }
+
     // Fill cells till index
     for (let i = 0; i < index; i += 1) {
       if (!nextCells[i]) {
@@ -221,8 +244,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ======================== Change ========================
   const onInputChange: OTPInputProps['onChange'] = (index, txt) => {
     const nextCells = patchValue(index, txt);
+    const effectiveLen = numericOnly ? txt.replace(/\D/g, '').length : txt.length;
 
-    const nextIndex = Math.min(index + txt.length, length - 1);
+    const nextIndex = Math.min(index + effectiveLen, length - 1);
+
     if (nextIndex !== index && nextCells[index] !== undefined) {
       refs.current[nextIndex]?.focus();
     }
@@ -240,8 +265,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: mergedStatus as InputStatus,
     mask,
-    type,
-    inputMode,
+    type: mergedInputType,
+    inputMode: mergedInputMode,
   };
 
   return wrapCSSVar(
