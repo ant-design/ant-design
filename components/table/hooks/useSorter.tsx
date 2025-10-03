@@ -20,7 +20,13 @@ import type {
   TableLocale,
   TransformColumns,
 } from '../interface';
-import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
+import {
+  getColumnKey,
+  getColumnPos,
+  proxyOverrideField,
+  renderColumnTitle,
+  safeColumnTitle,
+} from '../util';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -363,10 +369,11 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
     .map<RecordType>((record) => {
       const subRecords = record[childrenColumnName];
       if (subRecords) {
-        return {
-          ...record,
-          [childrenColumnName]: getSortData<RecordType>(subRecords, sortStates, childrenColumnName),
-        };
+        return proxyOverrideField(
+          record,
+          childrenColumnName,
+          getSortData<RecordType>(subRecords, sortStates, childrenColumnName),
+        );
       }
       return record;
     });
