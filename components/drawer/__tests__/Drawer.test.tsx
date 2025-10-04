@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -58,6 +59,32 @@ describe('Drawer', () => {
     triggerMotion();
 
     expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
+  it('render correctly with size default', () => {
+    const { container } = render(
+      <Drawer open size="default" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '378px' });
+  });
+
+  it('render correctly with size large', () => {
+    const { container } = render(
+      <Drawer open size="large" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '736px' });
   });
 
   it('getContainer return undefined', () => {
@@ -212,6 +239,26 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('support closable placement', () => {
+    const { container } = render(
+      <Drawer
+        open
+        closable={{
+          placement: 'end',
+        }}
+        closeIcon={<span>close</span>}
+        width={400}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    const wrapper = container.querySelector<HTMLButtonElement>('.ant-drawer-close-end');
+    expect(wrapper).toBeTruthy();
+  });
+
   it('ConfigProvider should not warning', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -261,6 +308,30 @@ describe('Drawer', () => {
       render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Drawer] `style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated width prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer width={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `width` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated height prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer height={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `height` is deprecated. Please use `size` instead.',
       );
 
       errorSpy.mockRestore();
@@ -412,8 +483,8 @@ describe('Drawer', () => {
     expect(container.querySelector('#test')).toBeTruthy();
   });
 
-  it('should apply custom styles to Drawer', () => {
-    const customClassNames = {
+  it('should apply custom classnames & styles to Drawer', () => {
+    const customClassNames: DrawerProps['classNames'] = {
       root: 'custom-root',
       mask: 'custom-mask',
       header: 'custom-header',
@@ -424,60 +495,267 @@ describe('Drawer', () => {
       footer: 'custom-footer',
     };
 
-    const customStyles = {
+    const customStyles: DrawerProps['styles'] = {
       root: { fontSize: '24px' },
       mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-      header: { borderBottom: '1px solid #e8e8e8' },
+      header: { borderBottom: '1px solid rgb(232, 232, 232)' },
       title: { fontWeight: 'bold' },
-      extra: { color: 'blue' },
+      extra: { color: 'rgb(255, 0, 0)' },
       section: { padding: '24px' },
-      body: { color: 'green' },
-      footer: { color: 'yellow' },
+      body: { color: 'rgb(0, 255, 0)' },
+      footer: { color: 'rgb(255, 255, 0)' },
     };
 
     const { container } = render(
       <Drawer
+        open
         classNames={customClassNames}
         styles={customStyles}
-        title="Title"
+        title="title"
         placement="right"
-        footer={<>Footer</>}
+        footer={'Footer'}
         closable={false}
-        open
         getContainer={false}
-        extra={<>Cancel</>}
+        extra={'Cancel'}
       >
-        <p>Some contents...</p>
+        test
       </Drawer>,
     );
 
-    const rootElement = container.querySelector('.ant-drawer') as HTMLElement;
-    const maskElement = container.querySelector('.ant-drawer-mask') as HTMLElement;
-    const headerElement = container.querySelector('.ant-drawer-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-drawer-title') as HTMLElement;
-    const extraElement = container.querySelector('.ant-drawer-extra') as HTMLElement;
-    const sectionElement = container.querySelector('.ant-drawer-section') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-drawer-body') as HTMLElement;
-    const footerElement = container.querySelector('.ant-drawer-footer') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-drawer');
+    const maskElement = container.querySelector<HTMLElement>('.ant-drawer-mask');
+    const headerElement = container.querySelector<HTMLElement>('.ant-drawer-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-drawer-title');
+    const extraElement = container.querySelector<HTMLElement>('.ant-drawer-extra');
+    const sectionElement = container.querySelector<HTMLElement>('.ant-drawer-section');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-drawer-body');
+    const footerElement = container.querySelector<HTMLElement>('.ant-drawer-footer');
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(maskElement.classList).toContain('custom-mask');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(extraElement.classList).toContain('custom-extra');
-    expect(sectionElement.classList).toContain('custom-section');
-    expect(bodyElement.classList).toContain('custom-body');
-    expect(footerElement.classList).toContain('custom-footer');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(maskElement).toHaveClass('custom-mask');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(extraElement).toHaveClass('custom-extra');
+    expect(sectionElement).toHaveClass('custom-section');
+    expect(bodyElement).toHaveClass('custom-body');
+    expect(footerElement).toHaveClass('custom-footer');
 
     // check styles
-    expect(rootElement.style.fontSize).toBe('24px');
-    expect(maskElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
-    expect(headerElement.style.borderBottom).toBe('1px solid #e8e8e8');
-    expect(titleElement.style.fontWeight).toBe('bold');
-    expect(extraElement.style.color).toBe('blue');
-    expect(sectionElement.style.padding).toBe('24px');
-    expect(bodyElement.style.color).toBe('green');
-    expect(footerElement.style.color).toBe('yellow');
+    expect(rootElement).toHaveStyle({ 'font-size': '24px' });
+    expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
+    expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
+    expect(titleElement).toHaveStyle({ 'font-weight': 'bold' });
+    expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(sectionElement).toHaveStyle({ padding: '24px' });
+    expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
+    expect(footerElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
+  });
+
+  it('should apply custom classnames & styles function to Drawer', () => {
+    const customClassNames: DrawerProps['classNames'] = (info) => {
+      return info?.props?.size === 'default'
+        ? {
+            root: 'custom-root-default',
+            mask: 'custom-mask-default',
+            header: 'custom-header-default',
+            title: 'custom-title-default',
+            extra: 'custom-extra-default',
+            section: 'custom-section-default',
+            body: 'custom-body-default',
+            footer: 'custom-footer-default',
+          }
+        : {
+            root: 'custom-root-large',
+            mask: 'custom-mask-large',
+            header: 'custom-header-large',
+            title: 'custom-title-large',
+            extra: 'custom-extra-large',
+            section: 'custom-section-large',
+            body: 'custom-body-large',
+            footer: 'custom-footer-large',
+          };
+    };
+
+    const customStyles: DrawerProps['styles'] = (info) => {
+      return info?.props?.size === 'default'
+        ? {
+            root: { padding: '20px' },
+            mask: { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
+            header: { borderBottom: '1px solid rgb(250, 250, 250)' },
+            title: { fontWeight: 'normal' },
+            extra: { color: 'rgb(0, 0, 255)' },
+            section: { padding: '18px' },
+            body: { color: 'rgb(0, 200, 0)' },
+            footer: { color: 'rgb(100, 0, 0)' },
+          }
+        : {
+            root: { padding: '24px' },
+            mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+            header: { borderBottom: '1px solid rgb(232, 232, 232)' },
+            title: { fontWeight: 'bold' },
+            extra: { color: 'rgb(255, 0, 0)' },
+            section: { padding: '22px' },
+            body: { color: 'rgb(0, 255, 0)' },
+            footer: { color: 'rgb(255, 255, 0)' },
+          };
+    };
+
+    const { container, rerender } = render(
+      <Drawer
+        open
+        size="default"
+        classNames={customClassNames}
+        styles={customStyles}
+        title="title"
+        placement="right"
+        footer={'Footer'}
+        closable={false}
+        getContainer={false}
+        extra={'Cancel'}
+      >
+        test
+      </Drawer>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-drawer');
+    const maskElement = container.querySelector<HTMLElement>('.ant-drawer-mask');
+    const headerElement = container.querySelector<HTMLElement>('.ant-drawer-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-drawer-title');
+    const extraElement = container.querySelector<HTMLElement>('.ant-drawer-extra');
+    const sectionElement = container.querySelector<HTMLElement>('.ant-drawer-section');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-drawer-body');
+    const footerElement = container.querySelector<HTMLElement>('.ant-drawer-footer');
+
+    // check classNames
+    expect(rootElement).toHaveClass('custom-root-default');
+    expect(maskElement).toHaveClass('custom-mask-default');
+    expect(headerElement).toHaveClass('custom-header-default');
+    expect(titleElement).toHaveClass('custom-title-default');
+    expect(extraElement).toHaveClass('custom-extra-default');
+    expect(sectionElement).toHaveClass('custom-section-default');
+    expect(bodyElement).toHaveClass('custom-body-default');
+    expect(footerElement).toHaveClass('custom-footer-default');
+
+    // check styles
+    expect(rootElement).toHaveStyle({ padding: '20px' });
+    expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.8)' });
+    expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(250, 250, 250)' });
+    expect(titleElement).toHaveStyle({ 'font-weight': 'normal' });
+    expect(extraElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+    expect(sectionElement).toHaveStyle({ padding: '18px' });
+    expect(bodyElement).toHaveStyle({ color: 'rgb(0, 200, 0)' });
+    expect(footerElement).toHaveStyle({ color: 'rgb(100, 0, 0)' });
+
+    rerender(
+      <Drawer
+        open
+        size="large"
+        classNames={customClassNames}
+        styles={customStyles}
+        title="title"
+        placement="right"
+        footer={'Footer'}
+        closable={false}
+        getContainer={false}
+        extra={'Cancel'}
+      >
+        test
+      </Drawer>,
+    );
+
+    // check classNames
+    expect(rootElement).toHaveClass('custom-root-large');
+    expect(maskElement).toHaveClass('custom-mask-large');
+    expect(headerElement).toHaveClass('custom-header-large');
+    expect(titleElement).toHaveClass('custom-title-large');
+    expect(extraElement).toHaveClass('custom-extra-large');
+    expect(sectionElement).toHaveClass('custom-section-large');
+    expect(bodyElement).toHaveClass('custom-body-large');
+    expect(footerElement).toHaveClass('custom-footer-large');
+
+    // check styles
+    expect(rootElement).toHaveStyle({ padding: '24px' });
+    expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
+    expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
+    expect(titleElement).toHaveStyle({ 'font-weight': 'bold' });
+    expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(sectionElement).toHaveStyle({ padding: '22px' });
+    expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
+    expect(footerElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
+  });
+
+  describe('Drawer mask blur className', () => {
+    const testCases: [
+      mask?: MaskType,
+      contextMask?: MaskType,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(testCases)(
+      'drawerMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider drawer={{ mask: configMask }}>
+            <Drawer open mask={modalMask} />
+          </ConfigProvider>,
+        );
+
+        const maskElement = document.querySelector('.ant-drawer-mask');
+
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-drawer-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
+        }
+      },
+    );
+    it('should support closable placement with start', () => {
+      const { container } = render(
+        <Drawer open closable={{ placement: 'start' }} getContainer={false}>
+          Test
+        </Drawer>,
+      );
+      triggerMotion();
+      // 当 placement 为 'start' 时，使用默认的类名
+      expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+      expect(container.querySelector('.ant-drawer-close-start')).toBeNull();
+      expect(container.querySelector('.ant-drawer-close-end')).toBeNull();
+      // 添加快照断言
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('should support closable placement with end', () => {
+      const { container } = render(
+        <Drawer open closable={{ placement: 'end' }} getContainer={false}>
+          Test
+        </Drawer>,
+      );
+      triggerMotion();
+      // 当 placement 为 'end' 时，使用新的类名
+      expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+      expect(container.querySelector('.ant-drawer-close-end')).toBeInTheDocument();
+      // 添加快照断言
+      expect(container.firstChild).toMatchSnapshot();
+    });
   });
 });

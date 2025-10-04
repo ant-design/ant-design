@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { UnstableContext } from '@rc-component/steps';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
-import type { StepsProps } from '../steps';
+import type { StepsProps, StepsSemanticName } from '../steps';
 import { InternalContext } from '../steps/context';
 import useStyle from './style';
 import useItems from './useItems';
@@ -18,6 +19,7 @@ const stepInternalContext = {
 };
 
 export type ItemPosition = 'left' | 'right' | 'start' | 'end';
+export type ItemPlacement = 'start' | 'end';
 
 export type TimelineMode = ItemPosition | 'alternate';
 
@@ -32,6 +34,8 @@ export interface TimelineItemType {
   styles?: GetProp<StepsProps, 'items'>[number]['styles'];
 
   // Design
+  placement?: ItemPlacement;
+  /** @deprecated please use `placement` instead */
   position?: ItemPosition;
   loading?: boolean;
 
@@ -50,13 +54,16 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
+export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, StepsSemanticName>;
+export type TimelineStylesType = SemanticStylesType<TimelineProps, StepsSemanticName>;
+
 export interface TimelineProps {
   // Style
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: StepsProps['classNames'];
-  styles?: StepsProps['styles'];
+  classNames?: TimelineClassNamesType;
+  styles?: TimelineStylesType;
   rootClassName?: string;
 
   // Design
@@ -139,11 +146,6 @@ const Timeline: CompoundedComponent = (props) => {
     [prefixCls],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [stepsClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
-  );
-
   // ===================== Mode =======================
   const mergedMode = React.useMemo(() => {
     // Deprecated
@@ -175,10 +177,25 @@ const Timeline: CompoundedComponent = (props) => {
     [reverse, rawItems],
   );
 
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TimelineProps = {
+    ...props,
+    variant,
+    mode: mergedMode,
+    orientation,
+    items: mergedItems,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TimelineClassNamesType,
+    TimelineStylesType,
+    TimelineProps
+  >([stepsClassNames, contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
   const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
-    () => ({
-      railFollowPrevStatus: reverse,
-    }),
+    () => ({ railFollowPrevStatus: reverse }),
     [reverse],
   );
 
@@ -213,6 +230,7 @@ const Timeline: CompoundedComponent = (props) => {
         ['label', 'title'],
         ['children', 'content'],
         ['dot', 'icon'],
+        ['position', 'placement'],
       ] as const
     ).forEach(([oldProp, newProp]) => {
       warning.deprecated(
@@ -221,12 +239,6 @@ const Timeline: CompoundedComponent = (props) => {
         `items.${newProp}`,
       );
     });
-
-    warning.deprecated(
-      warnItems.every((item) => item.position !== 'left' && item.position !== 'right'),
-      `items.position=left|right`,
-      `items.position=start|end`,
-    );
   }
 
   // ==================== Render ======================
@@ -249,7 +261,7 @@ const Timeline: CompoundedComponent = (props) => {
         <Steps
           {...restProps}
           // Style
-          className={cls(prefixCls, contextClassName, className, hashId, cssVarCls, {
+          className={clsx(prefixCls, contextClassName, className, hashId, cssVarCls, {
             [`${prefixCls}-${orientation}`]: orientation === 'horizontal',
             [`${prefixCls}-layout-alternate`]: layoutAlternate,
             [`${prefixCls}-rtl`]: direction === 'rtl',

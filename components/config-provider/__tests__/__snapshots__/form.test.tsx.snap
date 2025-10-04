@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"

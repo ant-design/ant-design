@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Input, Tooltip } from 'antd';
 
 const App: React.FC = () => (
@@ -19,6 +19,12 @@ const App: React.FC = () => (
     <br />
     <br />
     <Input prefix="￥" suffix="RMB" disabled />
+    <br />
+    <br />
+    <Input.Password
+      suffix={<LockOutlined />} // `suffix` available since `5.27.0`
+      placeholder="input password support suffix"
+    />
   </>
 );
 

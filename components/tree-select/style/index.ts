@@ -88,7 +88,7 @@ export default function useTreeSelectStyle(
     'TreeSelect',
     (token) => {
       const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
-      return [genBaseStyle(treeSelectToken)];
+      return genBaseStyle(treeSelectToken);
     },
     initComponentToken,
   )(prefixCls, rootCls);

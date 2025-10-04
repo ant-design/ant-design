@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { AnyObject } from '../_util/type';
+import type { MaskType } from '../_util/hooks/useMergedMask';
+import type { AnyObject } from '../_util/type';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
@@ -23,7 +24,8 @@ import type { DrawerProps } from '../drawer';
 import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
-import type { FloatButtonGroupProps } from '../float-button/interface';
+import type { FloatButtonProps } from '../float-button';
+import type { FloatButtonGroupProps } from '../float-button/FloatButtonGroup';
 import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';
 import type { InputProps, SearchProps, TextAreaProps } from '../input';
@@ -69,6 +71,7 @@ import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultPrefixCls = 'ant';
+
 export const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
@@ -141,6 +144,13 @@ export interface ThemeConfig {
      */
     key?: string;
   };
+  /**
+   * @descCN 是否关闭运行时样式生成
+   * @descEN Disable runtime style generation.
+   * @default false
+   * @since 6.0.0
+   */
+  zeroRuntime?: boolean;
 }
 
 export interface ComponentStyleConfig {
@@ -158,7 +168,8 @@ export interface TableConfig extends ComponentStyleConfig {
 export type ImageConfig = ComponentStyleConfig &
   Pick<ImageProps, 'classNames' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', React.ReactNode>> &
-      Pick<ImageProps, 'classNames' | 'styles'>;
+      Pick<ImageProps, 'classNames' | 'styles'> & { mask?: MaskType };
+    fallback?: string;
   };
 
 export type CollapseConfig = ComponentStyleConfig &
@@ -177,7 +188,8 @@ export type TourConfig = ComponentStyleConfig &
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
 
-export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+export type EmptyConfig = ComponentStyleConfig &
+  Pick<EmptyProps, 'classNames' | 'styles' | 'image'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<
@@ -189,6 +201,7 @@ export type ModalConfig = ComponentStyleConfig &
     | 'centered'
     | 'okButtonProps'
     | 'cancelButtonProps'
+    | 'mask'
   >;
 
 export type TabsConfig = ComponentStyleConfig &
@@ -212,7 +225,7 @@ export type AlertConfig = ComponentStyleConfig &
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type BreadcrumbConfig = ComponentStyleConfig &
-  Pick<BreadcrumbProps, 'classNames' | 'styles'>;
+  Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
@@ -225,7 +238,7 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
 
 export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
@@ -247,7 +260,7 @@ export type CalendarConfig = ComponentStyleConfig &
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask'>;
 
 export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
 
@@ -270,7 +283,13 @@ export type FormConfig = ComponentStyleConfig &
     | 'styles'
   >;
 
-export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
+export type FloatButtonConfig = ComponentStyleConfig &
+  Pick<FloatButtonProps, 'classNames' | 'styles'> & {
+    backTopIcon?: React.ReactNode;
+  };
+
+export type FloatButtonGroupConfig = ComponentStyleConfig &
+  Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type PaginationConfig = ComponentStyleConfig &
   Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
@@ -285,7 +304,14 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 export type TooltipConfig = Pick<
   TooltipProps,
   'className' | 'style' | 'styles' | 'classNames' | 'arrow'
->;
+> & {
+  /**
+   * @descCN 是否开启 Tooltip 流畅过渡动画
+   * @descEN Whether to enable smooth transition for tooltips
+   * @default false
+   */
+  unique?: boolean;
+};
 
 export type PopoverConfig = Pick<
   PopoverProps,
@@ -325,7 +351,7 @@ export type CascaderConfig = ComponentStyleConfig &
   Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
@@ -342,7 +368,8 @@ export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNa
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
-export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'classNames' | 'styles'>;
+export type UploadConfig = ComponentStyleConfig &
+  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
@@ -358,9 +385,9 @@ export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   /**
-   * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `false`。
-   * @descEN Whether to use wave effect. If it needs to close, set to `false`.
-   * @default true
+   * @descCN 是否禁用水波纹效果。
+   * @descEN Whether to disable wave effect.
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -392,6 +419,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: SkeletonConfig;

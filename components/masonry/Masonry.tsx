@@ -5,8 +5,10 @@ import ResizeObserver from '@rc-component/resize-observer';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
@@ -27,6 +29,9 @@ export type Key = string | number;
 
 export type SemanticName = 'root' | 'item';
 
+export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, SemanticName>;
+export type MasonryStylesType = SemanticStylesType<MasonryProps, SemanticName>;
+
 export interface MasonryProps<ItemDataType = any> {
   // Style
   prefixCls?: string;
@@ -34,8 +39,8 @@ export interface MasonryProps<ItemDataType = any> {
   rootClassName?: string;
   style?: CSSProperties;
 
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, CSSProperties>>;
+  classNames?: MasonryClassNamesType;
+  styles?: MasonryStylesType;
 
   /** Spacing between items */
   gutter?: RowProps['gutter'];
@@ -65,8 +70,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     rootClassName,
     className,
     style,
-    classNames: classes = {},
-    styles = {},
+    classNames,
+    styles,
     columns,
     prefixCls: customizePrefixCls,
     gutter = 0,
@@ -133,6 +138,20 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     return columns.xs ?? 1;
   }, [columns, screens]);
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: MasonryProps = {
+    ...props,
+    columns: columnCount,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MasonryClassNamesType,
+    MasonryStylesType,
+    MasonryProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
@@ -149,7 +168,11 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     );
   });
 
-  const [itemPositions, totalHeight] = usePositions(itemHeights, columnCount, verticalGutter);
+  const [itemPositions, totalHeight] = usePositions(
+    itemHeights,
+    columnCount,
+    verticalGutter as number,
+  );
 
   const itemWithPositions = React.useMemo(
     () =>
@@ -198,24 +221,20 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     <ResizeObserver onResize={collectItemSize}>
       <div
         ref={containerRef}
-        className={classNames(
+        className={clsx(
           prefixCls,
           contextClassName,
-          contextClassNames.root,
+          mergedClassNames.root,
           rootClassName,
           className,
-          classes.root,
           hashId,
           cssVarCls,
-          {
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-          },
+          { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
         style={{
           height: totalHeight,
-          ...contextStyles.root,
+          ...mergedStyles.root,
           ...contextStyle,
-          ...styles.root,
           ...style,
         }}
         // Listen for image events
@@ -256,8 +275,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 prefixCls={prefixCls}
                 key={key}
                 item={item}
-                style={{ ...motionStyle, ...contextStyles.item, ...itemStyle, ...styles.item }}
-                className={classNames(contextClassNames.item, classes.item, motionClassName)}
+                style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
+                className={clsx(mergedClassNames.item, motionClassName)}
                 ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
                 index={itemIndex}
                 itemRender={itemRender}

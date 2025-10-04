@@ -32,6 +32,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/block-node.tsx">Block Node</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
@@ -47,26 +48,31 @@ Common props ref：[Common props](/docs/react/common-props)
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |
 | checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |  |
 | checkStrictly | Check treeNode precisely; parent treeNode and children treeNodes are not associated | boolean | false |  |
+| className | Additional class to Tree | string | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string\[] | \[] |  |
 | defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |  |
 | defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |  |
-| disabled | Whether disabled the tree | boolean | false |  |
+| disabled | Whether the tree is disabled | boolean | false |  |
 | draggable | Specifies whether this Tree or the node is draggable. Use `icon: false` to disable drag handler icon | boolean \| ((node: DataNode) => boolean) \| { icon?: React.ReactNode \| false, nodeDraggable?: (node: DataNode) => boolean } | false | `config`: 4.17.0 |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
-| height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
+| height | Config virtual scroll height. Will not support horizontal scroll when enabled | number | - |  |
 | icon | Insert a custom icon before the title. Need to set `showIcon` to true | ReactNode \| (props) => ReactNode | - |  |
 | loadData | Load data asynchronously | function(node) | - |  |
-| loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
+| loadedKeys | (Controlled) Set loaded tree nodes. Need to work with `loadData` | string\[] | \[] |  |
+| motion | Custom motion config for the tree | CSSMotionProps | - |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
-| selectable | Whether can be selected | boolean | true |  |
+| selectable | Whether it can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
-| showIcon | Controls whether to display the `icon` node, no default style | boolean | false |  |
+| showIcon | Controls whether to display the `icon` node (no default style) | boolean | false |  |
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
+| style | Style of Tree component | CSSProperties | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | switcherIcon | Customize expand/collapse icons for tree nodes (With default rotate angular style) | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | switcherLoadingIcon | Customize loading icons for tree nodes | ReactNode | - | 5.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
@@ -92,7 +98,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disables the treeNode | boolean | false |  |
 | icon | Customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode \| (props) => ReactNode | - |  |
-| isLeaf | Determines if this is a leaf node(effective when `loadData` is specified). `false` will force trade TreeNode as a parent node | boolean | - |  |
+| isLeaf | Determines if this is a leaf node (effective when `loadData` is specified). `false` will force the TreeNode to be treated as a parent node | boolean | - |  |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree | string | (internal calculated position of treeNode) |  |
 | selectable | Set whether the treeNode can be selected | boolean | true |  |
 | title | Title | ReactNode | `---` |  |
@@ -101,7 +107,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| expandAction | Directory open logic, optional: false \| `click` \| `doubleClick` | string \| boolean | `click` |
+| expandAction | Directory opening logic, options: false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
 ## Note
 
@@ -139,7 +145,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ### Why defaultExpandAll not working on ajax data?
 
-`default` prefix prop only works when initializing. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
+`default` prefix props only work when initializing. So `defaultExpandAll` has already been executed when ajax loads data. You can control `expandedKeys` or render the Tree when data is loaded to realize expanding all nodes.
 
 ### Virtual scroll limitation
 
@@ -149,4 +155,4 @@ Virtual scroll only render items in visible region. Thus not support auto width 
 
 Tree change its data by conduction. Includes checked or auto expanded, it will conduction state to parent / children node until current node is `disabled`. So if a controlled node is `disabled`, it will only modify self state and not affect other nodes. For example, a parent node contains 3 child nodes and one of them is `disabled`. When check the parent node, it will only check rest 2 child nodes. As the same, when check these 2 child node, parent will be checked whatever checked state the `disabled` one is.
 
-This conduction logic prevent that modify `disabled` parent checked state by check children node and user can not modify directly with click parent which makes the interactive conflict. If you want to modify this conduction logic, you can customize it with `checkStrictly` prop.
+This conduction logic prevents modifying `disabled` parent checked state by checking children nodes, and users cannot modify directly with click which avoids interactive conflicts. If you want to modify this conduction logic, you can customize it with the `checkStrictly` prop.

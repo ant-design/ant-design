@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import type { AnchorDirection } from '../Anchor';
+
+const { resetWarned } = warning;
 
 const { Link } = Anchor;
 
@@ -19,13 +21,6 @@ let idCounter = 0;
 const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 jest.mock('scroll-into-view-if-needed', () => jest.fn());
-
-Object.defineProperty(window, 'location', {
-  value: {
-    replace: jest.fn(),
-  },
-});
-
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
     HTMLHeadingElement.prototype,
@@ -378,22 +373,24 @@ describe('Anchor Render', () => {
     const title = hash;
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
 
-    jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
-
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
-
     expect(window.history.replaceState).toHaveBeenCalledWith(null, '', href);
+    replaceStateSpy.mockRestore();
   });
 
   it('replaces item href in browser history (external href)', () => {
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+    const pushStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
     const hash = getHashUrl();
-
     const href = `http://www.example.com/#${hash}`;
     const title = hash;
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
-
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
-    expect(window.location.replace).toHaveBeenCalledWith(href);
+    expect(replaceStateSpy).not.toHaveBeenCalled();
+    expect(pushStateSpy).not.toHaveBeenCalled();
+    replaceStateSpy.mockRestore();
+    pushStateSpy.mockRestore();
   });
 
   it('onChange event', () => {

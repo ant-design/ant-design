@@ -1,89 +1,115 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { useMemo } from 'react';
+import { clsx } from 'clsx';
 
+import useLocale from '../../../hooks/useLocale';
 import Palette from './Palette';
 
-const colors = [
-  {
-    name: 'red',
-    english: 'Dust Red',
-    chinese: '薄暮',
-    description: '斗志、奔放',
+const COLOR_KEYS = [
+  'red',
+  'volcano',
+  'orange',
+  'lime',
+  'gold',
+  'yellow',
+  'green',
+  'cyan',
+  'blue',
+  'geekblue',
+  'purple',
+  'magenta',
+] as const;
+
+const locales = {
+  cn: {
+    redTitle: '薄暮',
+    redDescription: '斗志、奔放',
+
+    volcanoTitle: '火山',
+    volcanoDescription: '醒目、澎湃',
+
+    orangeTitle: '日暮',
+    orangeDescription: '温暖、欢快',
+
+    limeTitle: '青柠',
+    limeDescription: '自然、生机',
+
+    goldTitle: '金盏花',
+    goldDescription: '活力、积极',
+
+    yellowTitle: '日出',
+    yellowDescription: '出生、阳光',
+
+    greenTitle: '极光绿',
+    greenDescription: '健康、创新',
+
+    cyanTitle: '明青',
+    cyanDescription: '希望、坚强',
+
+    blueTitle: '拂晓蓝',
+    blueDescription: '包容、科技、普惠',
+
+    geekblueTitle: '极客蓝',
+    geekblueDescription: '探索、钻研',
+
+    purpleTitle: '酱紫',
+    purpleDescription: '优雅、浪漫',
+
+    magentaTitle: '法式洋红',
+    magentaDescription: '明快、感性',
   },
-  {
-    name: 'volcano',
-    english: 'Volcano',
-    chinese: '火山',
-    description: '醒目、澎湃',
+  en: {
+    redTitle: 'Dust Red',
+    redDescription: 'Fighting Spirit, Unrestrained',
+
+    volcanoTitle: 'Volcano',
+    volcanoDescription: 'Eye-catching, Surging',
+
+    orangeTitle: 'Sunset Orange',
+    orangeDescription: 'Warm, Cheerful',
+
+    limeTitle: 'Lime',
+    limeDescription: 'Natural, Vitality',
+
+    goldTitle: 'Calendula Gold',
+    goldDescription: 'Energetic, Positive',
+
+    yellowTitle: 'Sunrise Yellow',
+    yellowDescription: 'Birth, Sunshine',
+
+    greenTitle: 'Polar Green',
+    greenDescription: 'Healthy, Innovative',
+
+    cyanTitle: 'Cyan',
+    cyanDescription: 'Hope, Strong',
+
+    blueTitle: 'Daybreak Blue',
+    blueDescription: 'Inclusive, Technology, Universal',
+
+    geekblueTitle: 'Geek Blue',
+    geekblueDescription: 'Exploration, Research',
+
+    purpleTitle: 'Golden Purple',
+    purpleDescription: 'Elegant, Romantic',
+
+    magentaTitle: 'French Magenta',
+    magentaDescription: 'Bright, Emotional',
   },
-  {
-    name: 'orange',
-    english: 'Sunset Orange',
-    chinese: '日暮',
-    description: '温暖、欢快',
-  },
-  {
-    name: 'gold',
-    english: 'Calendula Gold',
-    chinese: '金盏花',
-    description: '活力、积极',
-  },
-  {
-    name: 'yellow',
-    english: 'Sunrise Yellow',
-    chinese: '日出',
-    description: '出生、阳光',
-  },
-  {
-    name: 'lime',
-    english: 'Lime',
-    chinese: '青柠',
-    description: '自然、生机',
-  },
-  {
-    name: 'green',
-    english: 'Polar Green',
-    chinese: '极光绿',
-    description: '健康、创新',
-  },
-  {
-    name: 'cyan',
-    english: 'Cyan',
-    chinese: '明青',
-    description: '希望、坚强',
-  },
-  {
-    name: 'blue',
-    english: 'Daybreak Blue',
-    chinese: '拂晓蓝',
-    description: '包容、科技、普惠',
-  },
-  {
-    name: 'geekblue',
-    english: 'Geek Blue',
-    chinese: '极客蓝',
-    description: '探索、钻研',
-  },
-  {
-    name: 'purple',
-    english: 'Golden Purple',
-    chinese: '酱紫',
-    description: '优雅、浪漫',
-  },
-  {
-    name: 'magenta',
-    english: 'Magenta',
-    chinese: '法式洋红',
-    description: '明快、感性',
-  },
-];
+};
 
 const ColorPalettes: React.FC<{ dark?: boolean }> = (props) => {
   const { dark } = props;
+  const [locale] = useLocale(locales);
+  const memoizedColors = useMemo(() => {
+    return COLOR_KEYS.map((key) => ({
+      name: key,
+      title: locale[`${key}Title`],
+      description: locale[`${key}Description`],
+    }));
+  }, [locale]);
   return (
-    <div className={classNames('color-palettes', { 'color-palettes-dark': dark })}>
-      {colors.map((color) => (
-        <Palette key={color.name} color={color} dark={dark} showTitle />
+    <div className={clsx('color-palettes', { 'color-palettes-dark': dark })}>
+      {memoizedColors.map((color) => (
+        <Palette key={`item-${color.name}`} color={color} dark={dark} showTitle />
       ))}
     </div>
   );

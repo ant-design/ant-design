@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Modal.confirm triggers callbacks correctly footer confirm should render the footer when footer is set 1`] = `
 <div
-  class="ant-modal-section"
+  class="ant-modal-container"
 >
   <div
     class="ant-modal-body"

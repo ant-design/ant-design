@@ -29,13 +29,14 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/slide.tsx">滑动</code>
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>
-<code src="./demo/position.tsx">位置</code>
+<code src="./demo/placement.tsx">位置</code>
 <code src="./demo/card.tsx">卡片式页签</code>
 <code src="./demo/editable-card.tsx">新增和关闭页签</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>卡片式页签容器</code>
 <code src="./demo/custom-add-trigger.tsx">自定义新增页签触发器</code>
 <code src="./demo/custom-tab-bar.tsx">自定义页签头</code>
 <code src="./demo/custom-tab-bar-node.tsx">可拖拽标签</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/animated.tsx" debug>动画</code>
 <code src="./demo/nest.tsx" debug>嵌套</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -52,6 +53,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<PlusOutlined />` | 4.4.0 |
 | animated | 是否使用动画切换 Tabs | boolean\| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板的 key` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
 | indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
@@ -61,10 +63,12 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | ~~popupClassName~~ | 更多菜单的 `className`, 请使用 `classNames.popup` 替换 | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | 大小，提供 `large` `middle` 和 `small` 三种大小 | string | `middle` |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - |  |
-| tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |
+| tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | string | `top` |  |
+| ~~tabPosition~~ | 页签位置，可选值有 `top` `right` `bottom` `left`，请使用 `tabPlacement` 替换 | string | `top` |  |
 | ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构，使用 `destroyOnHidden` 代替 | boolean | false |  |
 | destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |

@@ -2,36 +2,49 @@ import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import FloatButtonGroupContext from './context';
+import { useComponentConfig } from '../config-provider/context';
+import { GroupContext } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type {
-  BackTopProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonRef,
-  FloatButtonShape,
-} from './interface';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
+
+export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
+  visibilityHeight?: number;
+  onClick?: React.MouseEventHandler<FloatButtonElement>;
+  target?: () => HTMLElement | Window | Document;
+  prefixCls?: string;
+  children?: React.ReactNode;
+  className?: string;
+  rootClassName?: string;
+  style?: React.CSSProperties;
+  duration?: number;
+}
+
+const defaultIcon = <VerticalAlignTopOutlined />;
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
+  const { backTopIcon: contextIcon } = useComponentConfig('floatButton');
+
   const {
     prefixCls: customizePrefixCls,
     className,
     type = 'default',
     shape = 'circle',
     visibilityHeight = 400,
-    icon = <VerticalAlignTopOutlined />,
+    icon,
     target,
     onClick,
     duration = 450,
     ...restProps
   } = props;
+
+  const mergedIcon = icon ?? contextIcon ?? defaultIcon;
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
@@ -72,13 +85,13 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
+  const groupShape = useContext(GroupContext)?.shape;
 
   const mergedShape = groupShape || shape;
 
   const contentProps: FloatButtonProps = {
     prefixCls,
-    icon,
+    icon: mergedIcon,
     type,
     shape: mergedShape,
     ...restProps,
@@ -91,7 +104,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
           ref={composeRef(internalRef, setRef)}
           {...contentProps}
           onClick={scrollToTop}
-          className={classNames(className, motionClassName)}
+          className={clsx(className, motionClassName)}
         />
       )}
     </CSSMotion>

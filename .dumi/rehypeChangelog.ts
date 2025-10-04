@@ -1,6 +1,7 @@
 import type { UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
 import set from 'lodash/set';
+
 let hastToString: typeof import('hast-util-to-string').toString;
 
 // workaround to import pure esm module
@@ -15,14 +16,17 @@ function rehypeChangelog(): UnifiedTransformer<any> {
     const { filename } = vFile.data.frontmatter as any;
 
     // 只处理 changelog 文件
-    if (!/^changelog\.\S+\.md$/i.test(filename)) return;
+    if (!/^changelog\.\S+\.md$/i.test(filename)) {
+      return;
+    }
 
     const nodesToWrap: { parent: any; startIdx: number }[] = [];
     const WRAPPER_FLAG = 'data-changelog-wrapped'; // 包裹容器唯一标识
 
     unistUtilVisit.visit(tree, 'element', (node, idx, parent) => {
-      if (node.properties?.[WRAPPER_FLAG]) return unistUtilVisit.SKIP;
-
+      if (node.properties?.[WRAPPER_FLAG]) {
+        return unistUtilVisit.SKIP;
+      }
       if (
         idx !== undefined &&
         parent &&

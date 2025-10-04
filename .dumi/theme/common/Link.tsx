@@ -1,6 +1,6 @@
 import type { MouseEvent, MouseEventHandler } from 'react';
-import React, { useMemo, forwardRef } from 'react';
-import { Link as DumiLink, useLocation, useAppData, useNavigate } from 'dumi';
+import React, { forwardRef, useMemo } from 'react';
+import { Link as DumiLink, useAppData, useLocation, useNavigate } from 'dumi';
 
 export interface LinkProps {
   to: string | { pathname?: string; search?: string; hash?: string };

@@ -1,9 +1,9 @@
 import React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import { Image } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-interface ImagePreviewProps {
+export interface ImagePreviewProps {
   className?: string;
   /** Do not show padding & background */
   pure?: boolean;
@@ -41,7 +41,8 @@ interface MateType {
 
 const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (props) => {
   const { children, className: rootClassName, pure } = props;
-  const imgs = toArray(children).filter((ele) => ele.type === 'img');
+
+  const imgs: React.ReactElement<any>[] = toArray(children).filter((ele) => ele.type === 'img');
 
   const imgsMeta = imgs.map<Partial<MateType>>((img) => {
     const { alt, description, src, className } = img.props;
@@ -64,7 +65,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
     return (
       <div key={index}>
         <div className="image-modal-container">
-          <img {...metaCopy} src={meta.src} alt={meta.alt} />
+          <img {...metaCopy} draggable={false} src={meta.src} alt={meta.alt} />
         </div>
       </div>
     );
@@ -80,7 +81,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
 
   const hasCarousel = imgs.length > 1 && !comparable;
 
-  const previewClassName = classNames(rootClassName, 'clearfix', 'preview-image-boxes', {
+  const previewClassName = clsx(rootClassName, 'clearfix', 'preview-image-boxes', {
     'preview-image-boxes-compare': comparable,
     'preview-image-boxes-with-carousel': hasCarousel,
   });
@@ -104,7 +105,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
           return null;
         }
         const coverMeta = imgsMeta[index];
-        const imageWrapperClassName = classNames(imgWrapperCls, {
+        const imageWrapperClassName = clsx(imgWrapperCls, {
           good: coverMeta.isGood,
           bad: coverMeta.isBad,
         });

@@ -13,11 +13,11 @@ describe('semantic', () => {
       actions: 'test-handle',
     };
     const testStyles = {
-      root: { color: 'black' },
-      prefix: { color: 'red' },
-      input: { backgroundColor: 'blue' },
-      suffix: { color: 'green' },
-      actions: { color: 'yellow' },
+      root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(58, 32, 32) ' },
+      input: { backgroundColor: 'rgb(0, 0, 255)' },
+      suffix: { color: 'rgb(0, 255, 0)' },
+      actions: { color: 'rgb(255, 255, 0)' },
     };
     const { container } = render(
       <InputNumber

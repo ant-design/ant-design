@@ -1,6 +1,6 @@
 import React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -216,10 +216,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   };
 
   const removeListeners = () => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-      timer.current = null;
-    }
     const newTarget = targetFunc?.();
     TRIGGER_EVENTS.forEach((eventName) => {
       newTarget?.removeEventListener(eventName, lazyUpdatePosition);
@@ -238,7 +234,14 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     // [Legacy] Wait for parent component ref has its value.
     // We should use target as directly element instead of function which makes element check hard.
     timer.current = setTimeout(addListeners);
-    return () => removeListeners();
+
+    return () => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+        timer.current = null;
+      }
+      removeListeners();
+    };
   }, []);
 
   React.useEffect(() => {
@@ -252,15 +255,15 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(affixPrefixCls);
 
-  const rootCls = classNames(rootClassName, hashId, affixPrefixCls, cssVarCls);
+  const rootCls = clsx(rootClassName, hashId, affixPrefixCls, cssVarCls);
 
-  const mergedCls = classNames({ [rootCls]: affixStyle });
+  const mergedCls = clsx({ [rootCls]: affixStyle });
 
   return (
     <ResizeObserver onResize={updatePosition}>
       <div
         style={{ ...contextStyle, ...style }}
-        className={classNames(className, contextClassName)}
+        className={clsx(className, contextClassName)}
         ref={placeholderNodeRef}
         {...restProps}
       >

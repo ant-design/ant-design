@@ -21,7 +21,7 @@ describe('Modal.typescript', () => {
           footer: style,
           mask: style,
           wrapper: style,
-          section: style,
+          container: style,
         }}
       />
     );

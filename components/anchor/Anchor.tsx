@@ -1,9 +1,11 @@
 import * as React from 'react';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import classNames from 'classnames';
+import { useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -51,13 +53,15 @@ interface Section {
 }
 
 type SemanticName = 'root' | 'item' | 'title' | 'indicator';
+export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, SemanticName>;
+export type AnchorStylesType = SemanticStylesType<AnchorProps, SemanticName>;
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: AnchorClassNamesType;
+  styles?: AnchorStylesType;
   /**
    * @deprecated Please use `items` instead.
    */
@@ -128,7 +132,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     getContainer,
     getCurrentAnchor,
     replace,
-    classNames: anchorClassNames,
+    classNames,
     styles,
   } = props;
 
@@ -285,7 +289,21 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     [targetOffset, offsetTop],
   );
 
-  const wrapperClass = classNames(
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: AnchorProps = {
+    ...props,
+    direction: anchorDirection,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    AnchorClassNamesType,
+    AnchorStylesType,
+    AnchorProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const wrapperClass = clsx(
     hashId,
     cssVarCls,
     rootCls,
@@ -297,27 +315,20 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     },
     className,
     contextClassName,
-    contextClassNames.root,
-    anchorClassNames?.root,
+    mergedClassNames.root,
   );
 
-  const anchorClass = classNames(prefixCls, {
+  const anchorClass = clsx(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(
-    `${prefixCls}-ink`,
-    contextClassNames.indicator,
-    anchorClassNames?.indicator,
-    {
-      [`${prefixCls}-ink-visible`]: activeLink,
-    },
-  );
+  const inkClass = clsx(`${prefixCls}-ink`, mergedClassNames.indicator, {
+    [`${prefixCls}-ink-visible`]: activeLink,
+  });
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...style,
   };
@@ -334,11 +345,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <span
-          className={inkClass}
-          ref={spanLinkNode}
-          style={{ ...contextStyles.indicator, ...styles?.indicator }}
-        />
+        <span className={inkClass} ref={spanLinkNode} style={mergedStyles.indicator} />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
@@ -362,22 +369,6 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   React.useEffect(() => {
     updateInk();
   }, [anchorDirection, getCurrentAnchor, dependencyListItem, activeLink]);
-
-  const mergedStyles = React.useMemo(
-    () => ({
-      title: { ...contextStyles.title, ...styles?.title },
-      item: { ...contextStyles.item, ...styles?.item },
-    }),
-    [styles, contextStyles],
-  );
-
-  const mergedClassNames = React.useMemo(
-    () => ({
-      title: classNames(contextClassNames.title, anchorClassNames?.title),
-      item: classNames(contextClassNames.item, anchorClassNames?.item),
-    }),
-    [anchorClassNames, contextClassNames],
-  );
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({

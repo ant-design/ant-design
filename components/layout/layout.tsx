@@ -1,6 +1,6 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -54,11 +54,7 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
 
   return (
     <TagName
-      className={classNames(
-        customizePrefixCls || prefixWithSuffixCls,
-        className,
-        hashId,
-      )}
+      className={clsx(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
       ref={ref}
       {...others}
     />
@@ -93,7 +89,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
-  const classString = classNames(
+  const classString = clsx(
     prefixCls,
     {
       [`${prefixCls}-has-sider`]: mergedHasSider,

@@ -42,7 +42,7 @@ const Demo: React.FC = () => {
         maskClosable={false}
         closable={false}
         styles={{
-          section: {
+          container: {
             marginBlockStart: 100,
           },
         }}
@@ -58,7 +58,7 @@ const Demo: React.FC = () => {
           maskClosable={false}
           closable={false}
           styles={{
-            section: {
+            container: {
               marginBlockStart: 250,
             },
             body: {
@@ -79,7 +79,7 @@ const Demo: React.FC = () => {
             onCancel={() => setIsModalOpen(false)}
             closable={false}
             styles={{
-              section: {
+              container: {
                 marginBlockStart: 400,
               },
               body: {

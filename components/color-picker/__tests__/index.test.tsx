@@ -1014,9 +1014,9 @@ describe('ColorPicker', () => {
       },
     };
     const testStyles = {
-      root: { color: 'red' },
+      root: { color: 'rgb(255, 0, 0)' },
       popup: {
-        root: { color: 'green' },
+        root: { color: 'rgb(0, 255, 0)' },
       },
     };
     const { container } = render(

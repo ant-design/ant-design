@@ -247,6 +247,8 @@ export interface TableRowSelection<T = AnyObject> {
     originNode: React.ReactNode,
   ) => React.ReactNode | RcRenderedCell<T>;
   onCell?: GetComponentProps<T>;
+  getTitleCheckboxProps?: () => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>> &
+    React.AriaAttributes;
 }
 
 export type TransformColumns<RecordType = AnyObject> = (
@@ -267,7 +269,16 @@ export interface SorterResult<RecordType = AnyObject> {
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
-type TablePaginationPosition =
+export type TablePaginationPlacement =
+  | 'topStart'
+  | 'topCenter'
+  | 'topEnd'
+  | 'bottomStart'
+  | 'bottomCenter'
+  | 'bottomEnd'
+  | 'none';
+
+export type TablePaginationPosition =
   | 'topLeft'
   | 'topCenter'
   | 'topRight'
@@ -277,5 +288,7 @@ type TablePaginationPosition =
   | 'none';
 
 export interface TablePaginationConfig extends PaginationProps {
+  placement?: TablePaginationPlacement[];
+  /** @deprecated please use `placement` instead */
   position?: TablePaginationPosition[];
 }

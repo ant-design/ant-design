@@ -3,9 +3,10 @@ import type {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
-} from 'rc-upload/lib/interface';
+} from '@rc-component/upload/lib/interface';
 
 import type { ProgressAriaProps, ProgressProps } from '../progress';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
@@ -86,6 +87,10 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export type SemanticName = 'root' | 'list' | 'item';
+
+export type UploadClassNamesType<T = any> = SemanticClassNamesType<UploadProps<T>, SemanticName>;
+export type UploadStylesType<T = any> = SemanticStylesType<UploadProps<T>, SemanticName>;
+
 export interface UploadProps<T = any>
   extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
   type?: UploadType;
@@ -99,7 +104,7 @@ export interface UploadProps<T = any>
     | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   headers?: HttpRequestHeader;
-  showUploadList?: boolean | ShowUploadListInterface;
+  showUploadList?: boolean | ShowUploadListInterface<T>;
   multiple?: boolean;
   accept?: string;
   beforeUpload?: (
@@ -110,8 +115,8 @@ export interface UploadProps<T = any>
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: UploadClassNamesType<T>;
+  styles?: UploadStylesType<T>;
   rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
@@ -120,7 +125,15 @@ export interface UploadProps<T = any>
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (options: RcCustomRequestOptions<T>) => void;
+  customRequest?: (
+    options: RcCustomRequestOptions<T>,
+    info: {
+      /**
+       * @since 5.28.0
+       */
+      defaultRequest: (option: RcCustomRequestOptions<T>) => void;
+    },
+  ) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;

@@ -6,9 +6,9 @@ import { FormattedMessage } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
-import { useSiteData } from '../../../pages/index/components/util';
+import { useAntdSiteConfig } from '../../../pages/index/components/util';
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const { antCls } = token;
 
   return {
@@ -16,7 +16,7 @@ const useStyle = createStyles(({ token, css }) => {
       h4 {
         margin: 40px 0 24px;
         font-weight: 500;
-        font-size: ${token.fontSizeXL}px;
+        font-size: ${cssVar.fontSizeXL};
       }
 
       ${antCls}-skeleton {
@@ -44,7 +44,7 @@ const useStyle = createStyles(({ token, css }) => {
       li {
         margin: 1em 0;
         padding: 0;
-        font-size: ${token.fontSize}px;
+        font-size: ${cssVar.fontSize};
         list-style: none;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -92,7 +92,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
+const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
 
@@ -145,15 +145,20 @@ const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
   );
 };
 
-export default () => {
+const ResourceArticles: React.FC = () => {
   const { styles } = useStyle();
-  const data = useSiteData();
-
-  const articles = data ? <Articles data={data} /> : <Skeleton active />;
-
+  const { data, error, isLoading } = useAntdSiteConfig();
+  if (isLoading) {
+    return <Skeleton active />;
+  }
+  if (error) {
+    return <div>{error.message}</div>;
+  }
   return (
     <div id="articles" className={styles.articles}>
-      {articles}
+      <Articles data={data} />
     </div>
   );
 };
+
+export default ResourceArticles;

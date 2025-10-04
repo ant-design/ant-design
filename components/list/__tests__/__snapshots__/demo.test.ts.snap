@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/list/demo/basic.tsx correctly 1`] = `
 <div
@@ -865,6 +865,344 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split css-var-test-id"
+>
+  <div
+    class="ant-spin-nested-loading css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items"
+      >
+        <li
+          class="ant-list-item"
+          style="cursor:move"
+        >
+          <div
+            aria-describedby="list-drag-sorting"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            1
+            <!-- -->
+            <!-- -->
+            Racing car sprays burning fuel into crowd.
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+          style="cursor:move"
+        >
+          <div
+            aria-describedby="list-drag-sorting"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            2
+            <!-- -->
+            <!-- -->
+            Japanese princess to wed commoner.
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+          style="cursor:move"
+        >
+          <div
+            aria-describedby="list-drag-sorting"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            3
+            <!-- -->
+            <!-- -->
+            Australian walks 100km after outback crash.
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+          style="cursor:move"
+        >
+          <div
+            aria-describedby="list-drag-sorting"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            4
+            <!-- -->
+            <!-- -->
+            Man charged over missing wedding girl.
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+          style="cursor:move"
+        >
+          <div
+            aria-describedby="list-drag-sorting"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            5
+            <!-- -->
+            <!-- -->
+            Los Angeles battles huge wildfires.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split css-var-test-id"
+>
+  <div
+    class="ant-spin-nested-loading css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items"
+      >
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <button
+            aria-describedby="list-drag-sorting-handler"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            role="button"
+            style="cursor:move"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <!-- -->
+          1
+          <!-- -->
+          <!-- -->
+          Racing car sprays burning fuel into crowd.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <button
+            aria-describedby="list-drag-sorting-handler"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            role="button"
+            style="cursor:move"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <!-- -->
+          2
+          <!-- -->
+          <!-- -->
+          Japanese princess to wed commoner.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <button
+            aria-describedby="list-drag-sorting-handler"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            role="button"
+            style="cursor:move"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <!-- -->
+          3
+          <!-- -->
+          <!-- -->
+          Australian walks 100km after outback crash.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <button
+            aria-describedby="list-drag-sorting-handler"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            role="button"
+            style="cursor:move"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <!-- -->
+          4
+          <!-- -->
+          <!-- -->
+          Man charged over missing wedding girl.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <button
+            aria-describedby="list-drag-sorting-handler"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            role="button"
+            style="cursor:move"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <!-- -->
+          5
+          <!-- -->
+          <!-- -->
+          Los Angeles battles huge wildfires.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/list/demo/grid.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid css-var-test-id"
@@ -1007,6 +1345,706 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
                       class="ant-card-head-title"
                     >
                       Title 4
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
+>
+  <div
+    class="ant-spin-nested-loading css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
+      >
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              aria-describedby="list-grid-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-list-item"
+              role="button"
+              style="cursor:move"
+              tabindex="0"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 1
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              aria-describedby="list-grid-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-list-item"
+              role="button"
+              style="cursor:move"
+              tabindex="0"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 2
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              aria-describedby="list-grid-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-list-item"
+              role="button"
+              style="cursor:move"
+              tabindex="0"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 3
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              aria-describedby="list-grid-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-list-item"
+              role="button"
+              style="cursor:move"
+              tabindex="0"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 4
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              aria-describedby="list-grid-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-list-item"
+              role="button"
+              style="cursor:move"
+              tabindex="0"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 5
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              aria-describedby="list-grid-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-list-item"
+              role="button"
+              style="cursor:move"
+              tabindex="0"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 6
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
+>
+  <div
+    class="ant-spin-nested-loading css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
+      >
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      <button
+                        aria-describedby="list-grid-drag-sorting-handler"
+                        aria-disabled="false"
+                        aria-roledescription="sortable"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        role="button"
+                        style="cursor:move"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="ant-btn-icon"
+                        >
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                      Title 1
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      <button
+                        aria-describedby="list-grid-drag-sorting-handler"
+                        aria-disabled="false"
+                        aria-roledescription="sortable"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        role="button"
+                        style="cursor:move"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="ant-btn-icon"
+                        >
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                      Title 2
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      <button
+                        aria-describedby="list-grid-drag-sorting-handler"
+                        aria-disabled="false"
+                        aria-roledescription="sortable"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        role="button"
+                        style="cursor:move"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="ant-btn-icon"
+                        >
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                      Title 3
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      <button
+                        aria-describedby="list-grid-drag-sorting-handler"
+                        aria-disabled="false"
+                        aria-roledescription="sortable"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        role="button"
+                        style="cursor:move"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="ant-btn-icon"
+                        >
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                      Title 4
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      <button
+                        aria-describedby="list-grid-drag-sorting-handler"
+                        aria-disabled="false"
+                        aria-roledescription="sortable"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        role="button"
+                        style="cursor:move"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="ant-btn-icon"
+                        >
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                      Title 5
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered css-var-test-id"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      <button
+                        aria-describedby="list-grid-drag-sorting-handler"
+                        aria-disabled="false"
+                        aria-roledescription="sortable"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        role="button"
+                        style="cursor:move"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="ant-btn-icon"
+                        >
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                      Title 6
                     </div>
                   </div>
                 </div>
@@ -2952,6 +3990,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -3115,6 +4154,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -3278,6 +4318,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />

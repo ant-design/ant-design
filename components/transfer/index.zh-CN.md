@@ -27,10 +27,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/advanced.tsx">高级用法</code>
 <code src="./demo/custom-item.tsx">自定义渲染行数据</code>
+<code src="./demo/actions.tsx" version="6.0.0">自定义操作按钮</code>
 <code src="./demo/large-data.tsx">分页</code>
 <code src="./demo/table-transfer.tsx">表格穿梭框</code>
 <code src="./demo/tree-transfer.tsx">树穿梭框</code>
 <code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/custom-select-all-labels.tsx" debug>自定义全选文字</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -42,8 +44,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| actions | 操作文案集合，顺序从上至下 | string\[] | \[`>`, `<`] |  |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| actions | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 ReactNode 数组时直接使用自定义元素 | ReactNode\[] | \[`>`, `<`] | 6.0.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
 | selectionsIcon | 自定义下拉菜单图标 | React.ReactNode |  | 5.8.0 |
@@ -61,7 +63,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | showSearch | 是否显示搜索框，或可对两侧搜索框进行配置 | boolean \| { placeholder:string,defaultValue:string } | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] \| number\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | - |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void | - |  |

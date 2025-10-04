@@ -2,7 +2,7 @@ import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
 import type { ColProps } from 'antd/es/grid';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import type { FormInstance } from '..';
@@ -1381,14 +1381,23 @@ describe('Form', () => {
 
   it('form.item should support layout', () => {
     const App: React.FC = () => (
-      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal">
+      <Form layout="horizontal">
         <Form.Item label="name" name="name">
           <Input />
         </Form.Item>
-        <Form.Item label="horizontal" name="horizontal" layout="horizontal">
+        <Form.Item
+          label="horizontal"
+          name="horizontal"
+          layout="horizontal"
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 14 }}
+        >
           <Input />
         </Form.Item>
         <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical2" name="vertical2" layout="vertical">
           <Input />
         </Form.Item>
       </Form>
@@ -1590,7 +1599,7 @@ describe('Form', () => {
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
     it('config tooltip should show when hover on icon', async () => {
@@ -1606,7 +1615,7 @@ describe('Form', () => {
       fireEvent.click(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
   });
 
@@ -1851,6 +1860,7 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should be set up correctly marginBottom', () => {
     render(
       <Modal open>
@@ -1875,7 +1885,7 @@ describe('Form', () => {
       value,
     }) => {
       const { status } = useStatus();
-      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
+      return <div className={clsx(className, `custom-input-status-${status}`)}>{value}</div>;
     };
 
     const Demo: React.FC = () => {
@@ -2552,9 +2562,9 @@ describe('Form', () => {
       content: 'test-content',
     };
     const customStyles = {
-      root: { color: 'red' },
-      label: { color: 'green' },
-      content: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      label: { color: 'rgb(0, 255, 0)' },
+      content: { color: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Form classNames={customClassNames} styles={customStyles}>
@@ -2576,5 +2586,111 @@ describe('Form', () => {
     expect(root).toHaveStyle(customStyles.root);
     expect(label).toHaveStyle(customStyles.label);
     expect(content).toHaveStyle(customStyles.content);
+  });
+
+  it('should support useMergeSemantic with mergedProps', () => {
+    const semanticClassNames = {
+      root: 'semantic-form-root',
+      label: 'semantic-form-label',
+      content: 'semantic-form-content',
+    };
+
+    const semanticStyles = {
+      root: { backgroundColor: '#f0f0f0' },
+      label: { color: '#333333', fontWeight: 600 },
+      content: { padding: '16px' },
+    };
+
+    const { container } = render(
+      <Form
+        layout="vertical"
+        size="large"
+        disabled={false}
+        classNames={semanticClassNames}
+        styles={semanticStyles}
+      >
+        <Form.Item label="Username" name="username" required>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const root = container.querySelector('.ant-form');
+    const label = container.querySelector('.ant-form-item-label label');
+    const content = container.querySelector('.ant-form-item-control-input-content');
+
+    // Check semantic class names
+    expect(root).toHaveClass('semantic-form-root');
+    expect(label).toHaveClass('semantic-form-label');
+    expect(content).toHaveClass('semantic-form-content');
+
+    // Check semantic styles
+    expect(root).toHaveStyle('background-color: rgb(240, 240, 240)');
+    expect(label).toHaveStyle('color: rgb(51, 51, 51)');
+    expect(label).toHaveStyle('font-weight: 600');
+    expect(content).toHaveStyle('padding: 16px');
+  });
+
+  it('should support function-based semantic classNames and styles', () => {
+    const dynamicClassNames = () => ({
+      root: 'dynamic-form-root',
+      label: 'dynamic-form-label',
+    });
+
+    const dynamicStyles = () => ({
+      root: { borderRadius: '8px' },
+      label: { fontSize: '14px' },
+    });
+
+    const { container } = render(
+      <Form classNames={dynamicClassNames} styles={dynamicStyles}>
+        <Form.Item label="Email" name="email">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const root = container.querySelector('.ant-form');
+    const label = container.querySelector('.ant-form-item-label label');
+
+    expect(root).toHaveClass('dynamic-form-root');
+    expect(label).toHaveClass('dynamic-form-label');
+    expect(root).toHaveStyle('border-radius: 8px');
+    expect(label).toHaveStyle('font-size: 14px');
+  });
+
+  it('Nest Form.Item should not pass style to child Form', async () => {
+    const formRef = React.createRef<FormInstance<any>>();
+    const subFormRef = React.createRef<FormInstance<any>>();
+
+    const { container } = render(
+      <Form ref={formRef}>
+        <Form.Item name="root" rules={[{ required: true }]}>
+          <Form component={false} ref={subFormRef}>
+            <Form.Item noStyle name="child" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </Form.Item>
+      </Form>,
+    );
+
+    // Parent validation
+    await formRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeFalsy();
+
+    // Child validation
+    await subFormRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeTruthy();
   });
 });

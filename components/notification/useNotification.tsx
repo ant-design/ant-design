@@ -8,9 +8,14 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
+import useMergeSemantic, {
+  mergeClassNames,
+  mergeStyles,
+  resolveStyleOrClass,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -19,11 +24,16 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
+  NotificationClassNamesType,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
+  NotificationStylesType,
+  ResolvedNotificationClassNamesType,
+  ResolvedNotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
+import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
@@ -41,13 +51,15 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
+  classNames: ResolvedNotificationClassNamesType;
+  styles: ResolvedNotificationStylesType;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>
   );
@@ -86,7 +98,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -115,8 +127,22 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
           },
   });
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    NotificationClassNamesType,
+    NotificationStylesType,
+    HolderProps
+  >([notification?.classNames, props?.classNames], [notification?.styles, props?.styles], {
+    props,
+  });
+
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
+  React.useImperativeHandle(ref, () => ({
+    ...api,
+    prefixCls,
+    notification,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+  }));
 
   return holder;
 });
@@ -145,11 +171,15 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const {
+        open: originOpen,
+        prefixCls,
+        notification,
+        classNames: originClassNames,
+        styles: originStyles,
+      } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const contextClassNames = notification?.classNames || {};
-      const contextStyles = notification?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -165,8 +195,8 @@ export function useInternalNotification(
         role = 'alert',
         closeIcon,
         closable,
-        classNames: configClassNames,
-        styles,
+        classNames: configClassNames = {},
+        styles = {},
         ...restConfig
       } = config;
       if (process.env.NODE_ENV !== 'production') {
@@ -184,14 +214,35 @@ export function useInternalNotification(
         noticePrefixCls,
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
-
-      const [mergedClosable, mergedCloseIcon, , ariaProps] = computeClosable(
+      const [rawClosable, mergedCloseIcon, , ariaProps] = computeClosable(
         pickClosable({ ...(notificationConfig || {}), ...config }),
         pickClosable(notificationContext),
         {
           closable: true,
           closeIcon: realCloseIcon,
         },
+      );
+
+      const mergedClosable = rawClosable
+        ? {
+            onClose: closable && typeof closable === 'object' ? closable.onClose : undefined,
+            closeIcon: mergedCloseIcon,
+            ...ariaProps,
+          }
+        : false;
+
+      const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
+      const semanticStyles = resolveStyleOrClass(styles, { props: config });
+
+      const mergedClassNames: ResolvedNotificationClassNamesType = mergeClassNames(
+        undefined,
+        originClassNames,
+        semanticClassNames,
+      );
+
+      const mergedStyles: ResolvedNotificationStylesType = mergeStyles(
+        originStyles,
+        semanticStyles,
       );
 
       return originOpen({
@@ -207,29 +258,18 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={{
-              icon: classNames(contextClassNames.icon, configClassNames?.icon),
-              title: classNames(contextClassNames.title, configClassNames?.title),
-              description: classNames(contextClassNames.description, configClassNames?.description),
-              actions: classNames(contextClassNames.actions, configClassNames?.actions),
-            }}
-            styles={{
-              icon: { ...contextStyles.icon, ...styles?.icon },
-              title: { ...contextStyles.title, ...styles?.title },
-              description: { ...contextStyles.description, ...styles?.description },
-              actions: { ...contextStyles.actions, ...styles?.actions },
-            }}
+            classNames={mergedClassNames as PureContentProps['classNames']}
+            styles={mergedStyles as PureContentProps['styles']}
           />
         ),
-        className: classNames(
-          type && `${noticePrefixCls}-${type}`,
+        className: clsx(
+          { [`${noticePrefixCls}-${type}`]: type },
           className,
           contextClassName,
-          configClassNames?.root,
-          contextClassNames.root,
+          mergedClassNames.root,
         ),
-        style: { ...contextStyle, ...style, ...contextStyles.root, ...styles?.root },
-        closable: mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable,
+        style: { ...contextStyle, ...mergedStyles.root, ...style },
+        closable: mergedClosable,
       });
     };
 
@@ -249,11 +289,7 @@ export function useInternalNotification(
 
     const keys = ['success', 'info', 'warning', 'error'] as const;
     keys.forEach((type) => {
-      clone[type] = (config) =>
-        open({
-          ...config,
-          type,
-        });
+      clone[type] = (config) => open({ ...config, type });
     });
 
     return clone;

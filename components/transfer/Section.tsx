@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import omit from '@rc-component/util/lib/omit';
-import classnames from 'classnames';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
@@ -12,9 +12,9 @@ import type {
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
+  SemanticName,
   TransferDirection,
   TransferLocale,
-  TransferProps,
   TransferSearchOption,
 } from './index';
 import type { PaginationType, TransferKey } from './interface';
@@ -27,7 +27,7 @@ const defaultRender = () => null;
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
   return !!(
     result &&
-    !React.isValidElement(result) &&
+    !React.isValidElement<any>(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
@@ -49,8 +49,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: NonNullable<TransferProps['classNames']>;
-  styles: NonNullable<TransferProps['styles']>;
+  classNames: Partial<Record<SemanticName, string>>;
+  styles: Partial<Record<SemanticName, React.CSSProperties>>;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
@@ -264,11 +264,9 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
     }
     return (
       <div
-        className={classnames(
+        className={clsx(
           `${listPrefixCls}-body`,
-          {
-            [`${listPrefixCls}-body-with-search`]: showSearch,
-          },
+          { [`${listPrefixCls}-body-with-search`]: showSearch },
           classNames.body,
         )}
         style={styles.body}
@@ -324,7 +322,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (
-    <div className={classnames(`${listPrefixCls}-footer`, classNames.footer)} style={styles.footer}>
+    <div className={clsx(`${listPrefixCls}-footer`, classNames.footer)} style={styles.footer}>
       {footerDom}
     </div>
   ) : null;
@@ -406,17 +404,14 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   return (
     <div
-      className={classnames(sectionPrefixCls, classNames.section, {
+      className={clsx(sectionPrefixCls, classNames.section, {
         [`${sectionPrefixCls}-with-pagination`]: !!pagination,
         [`${sectionPrefixCls}-with-footer`]: !!footerDom,
       })}
       style={{ ...style, ...styles.section }}
     >
       {/* Header */}
-      <div
-        className={classnames(`${listPrefixCls}-header`, classNames.header)}
-        style={styles.header}
-      >
+      <div className={clsx(`${listPrefixCls}-header`, classNames.header)} style={styles.header}>
         {showSelectAll ? (
           <>
             {checkAllCheckbox}
@@ -427,7 +422,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
           {getSelectAllLabel(checkedActiveItems.length, filteredItems.length)}
         </span>
         <span
-          className={classnames(`${listPrefixCls}-header-title`, classNames.title)}
+          className={clsx(`${listPrefixCls}-header-title`, classNames.title)}
           style={styles.title}
         >
           {titleText}

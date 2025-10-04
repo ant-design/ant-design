@@ -1,7 +1,7 @@
 import React from 'react';
 import { darkAlgorithm } from '@ant-design/compatible';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
-import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, CloseCircleOutlined, LinkedinOutlined } from '@ant-design/icons';
 
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -196,6 +196,23 @@ describe('Tag', () => {
       expect(refElement).toBe(queryTarget);
     });
 
+    it('should render icon', () => {
+      const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked />);
+      expect(container.querySelector('.anticon')).toBeInTheDocument();
+    });
+
+    it('should render custom icon', () => {
+      const { container } = render(
+        <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked />,
+      );
+      expect(container.querySelector('.custom-icon')).toBeInTheDocument();
+    });
+
+    it('not render icon', () => {
+      const { container } = render(<Tag.CheckableTag checked />);
+      expect(container.querySelector('.anticon')).not.toBeInTheDocument();
+    });
+
     it('should not trigger onChange when disabled', () => {
       const onChange = jest.fn();
       const { container } = render(
@@ -261,9 +278,9 @@ describe('Tag', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'green' },
-      icon: { color: 'red' },
-      content: { backgroundColor: 'blue' },
+      root: { backgroundColor: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(255, 0, 0)' },
+      content: { backgroundColor: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Tag icon={<CheckCircleOutlined />} classNames={customClassNames} styles={customStyles}>
@@ -274,9 +291,11 @@ describe('Tag', () => {
     const rootElement = container.querySelector('.ant-tag') as HTMLElement;
 
     expect(rootElement.classList).toContain('custom-root');
-    expect(rootElement.style.backgroundColor).toBe('green');
-    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.custom-content')).toHaveStyle({ backgroundColor: 'blue' });
+    expect(rootElement.style.backgroundColor).toBe('rgb(0, 255, 0)');
+    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(container.querySelector('.custom-content')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
   it('should handle invalid icon gracefully', () => {
     const { container } = render(<Tag icon="">tag</Tag>);
@@ -354,8 +373,8 @@ describe('Tag', () => {
             item: 'customize-item',
           }}
           styles={{
-            root: { backgroundColor: 'green' },
-            item: { color: 'red' },
+            root: { backgroundColor: 'rgb(0, 255, 0)' },
+            item: { color: 'rgb(255, 0, 0)' },
           }}
           options={['Bamboo']}
         />,
@@ -363,11 +382,13 @@ describe('Tag', () => {
 
       expect(container.querySelector('.ant-tag-checkable-group')).toHaveClass('customize-root');
       expect(container.querySelector('.ant-tag-checkable-group')).toHaveStyle({
-        backgroundColor: 'green',
+        backgroundColor: 'rgb(0, 255, 0)',
       });
 
       expect(container.querySelector('.ant-tag-checkable')).toHaveClass('customize-item');
-      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({ color: 'red' });
+      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({
+        color: 'rgb(255, 0, 0)',
+      });
     });
 
     it('id', () => {
@@ -396,8 +417,128 @@ describe('Tag', () => {
 
     expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
   });
+
   it('legacy bordered={false}', () => {
     const { container } = render(<Tag bordered={false}>Tag</Tag>);
     expect(container.querySelector('.ant-tag-filled')).toBeTruthy();
+  });
+
+  it('should not override aria-label in custom closeIcon', () => {
+    const { getByRole } = render(
+      <Tag
+        closable
+        closeIcon={
+          <button type="button" aria-label="Remove This Filter">
+            x
+          </button>
+        }
+      >
+        Filter
+      </Tag>,
+    );
+    expect(getByRole('button')).toHaveAttribute('aria-label', 'Remove This Filter');
+  });
+
+  it('support classNames and styles as objects', () => {
+    const { container } = render(
+      <Tag
+        icon={<CheckCircleOutlined />}
+        classNames={{
+          root: 'custom-tag-root',
+          icon: 'custom-tag-icon',
+          content: 'custom-tag-content',
+        }}
+        styles={{
+          root: {
+            backgroundColor: 'lightblue',
+            border: '2px solid blue',
+          },
+          icon: {
+            color: 'red',
+            fontSize: '16px',
+          },
+          content: {
+            backgroundColor: 'yellow',
+            color: 'green',
+          },
+        }}
+      >
+        Test Tag
+      </Tag>,
+    );
+
+    const tagElement = container.querySelector('.ant-tag');
+    const iconElement = container.querySelector('.custom-tag-icon');
+    const contentElement = container.querySelector('.custom-tag-content');
+
+    expect(tagElement).toHaveClass('custom-tag-root');
+    expect(tagElement).toHaveAttribute('style');
+    const rootStyle = tagElement?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('border: 2px solid blue');
+
+    expect(iconElement).toHaveAttribute('style');
+    const iconStyle = iconElement?.getAttribute('style');
+    expect(iconStyle).toContain('color: red');
+    expect(iconStyle).toContain('font-size: 16px');
+
+    expect(contentElement).toHaveClass('custom-tag-content');
+    expect(contentElement).toHaveAttribute('style');
+    const contentStyle = contentElement?.getAttribute('style');
+    expect(contentStyle).toContain('background-color: yellow');
+    expect(contentStyle).toContain('color: green');
+  });
+
+  it('support classNames and styles as functions', () => {
+    const { container } = render(
+      <Tag
+        color="blue"
+        variant="filled"
+        disabled={false}
+        icon={<CheckCircleOutlined />}
+        classNames={(info) => ({
+          root: info.props.variant === 'filled' ? 'filled-tag' : 'outlined-tag',
+          icon: `icon-${info.props.color}`,
+          content: `content-${info.props.disabled ? 'disabled' : 'enabled'}`,
+        })}
+        styles={(info) => ({
+          root: {
+            backgroundColor: info.props.color === 'blue' ? 'lightblue' : 'lightgreen',
+            borderRadius: info.props.variant === 'filled' ? '8px' : '4px',
+          },
+          icon: {
+            color: info.props.color === 'blue' ? 'blue' : 'green',
+            fontSize: '18px',
+          },
+          content: {
+            fontWeight: info.props.disabled ? 'normal' : 'bold',
+            color: info.props.color === 'blue' ? 'darkblue' : 'darkgreen',
+          },
+        })}
+      >
+        Function Tag
+      </Tag>,
+    );
+
+    const tagElement = container.querySelector('.ant-tag');
+    const iconElement = container.querySelector('.icon-blue');
+    const contentElement = container.querySelector('.content-enabled');
+
+    expect(tagElement).toHaveClass('filled-tag');
+    expect(tagElement).toHaveAttribute('style');
+    const rootStyle = tagElement?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('border-radius: 8px');
+
+    expect(iconElement).toHaveAttribute('style');
+    const iconStyle = iconElement?.getAttribute('style');
+    expect(iconStyle).toContain('color: blue');
+    expect(iconStyle).toContain('font-size: 18px');
+
+    expect(contentElement).toHaveClass('content-enabled');
+    expect(contentElement).toHaveAttribute('style');
+    const contentStyle = contentElement?.getAttribute('style');
+    expect(contentStyle).toContain('font-weight: bold');
+    expect(contentStyle).toContain('color: darkblue');
   });
 });

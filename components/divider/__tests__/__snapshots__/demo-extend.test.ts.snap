@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/divider/demo/component-token.tsx extend context correctly 1`] = `
 Array [
@@ -112,17 +112,17 @@ Array [
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
-    style="border-width: 2px; border-color: #7cb305;"
+    style="border-width: 2px; border-color: rgb(124, 179, 5);"
   />,
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-dashed ant-divider-rail"
     role="separator"
-    style="border-color: #7cb305;"
+    style="border-color: rgb(124, 179, 5);"
   />,
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
     role="separator"
-    style="border-color: #7cb305;"
+    style="border-color: rgb(124, 179, 5);"
   >
     <div
       class="ant-divider-rail ant-divider-rail-start"
@@ -139,12 +139,12 @@ Array [
   <div
     class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
     role="separator"
-    style="height: 60px; border-color: #7cb305;"
+    style="height: 60px; border-color: rgb(124, 179, 5);"
   />,
   <div
     class="ant-divider css-var-test-id ant-divider-vertical ant-divider-dashed ant-divider-rail"
     role="separator"
-    style="height: 60px; border-color: #7cb305;"
+    style="height: 60px; border-color: rgb(124, 179, 5);"
   />,
   <div
     style="display: flex; flex-direction: column; height: 50px; box-shadow: 0 0 1px red;"
@@ -294,6 +294,82 @@ Array [
 
 exports[`renders components/divider/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/divider/demo/style-class.tsx extend context correctly 1`] = `
+<div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center demo-divider-root"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start demo-divider-rail"
+    />
+    <span
+      class="ant-divider-inner-text demo-divider-content"
+    >
+      classNames Object
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end demo-divider-rail"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start demo-divider-root--start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      classNames Function
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+    style="border-width: 2px; border-style: dashed;"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+      style="opacity: 0.85;"
+    />
+    <span
+      class="ant-divider-inner-text"
+      style="font-style: italic;"
+    >
+      styles Object
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+      style="opacity: 0.85;"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-sm"
+    role="separator"
+    style="opacity: 0.6; cursor: default;"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      styles Function
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/divider/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/divider/demo/variant.tsx extend context correctly 1`] = `
 Array [
   <p>
@@ -302,7 +378,7 @@ Array [
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
-    style="border-color: #7cb305;"
+    style="border-color: rgb(124, 179, 5);"
   >
     <div
       class="ant-divider-rail ant-divider-rail-start"
@@ -322,7 +398,7 @@ Array [
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dotted"
     role="separator"
-    style="border-color: #7cb305;"
+    style="border-color: rgb(124, 179, 5);"
   >
     <div
       class="ant-divider-rail ant-divider-rail-start"
@@ -342,7 +418,7 @@ Array [
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
     role="separator"
-    style="border-color: #7cb305;"
+    style="border-color: rgb(124, 179, 5);"
   >
     <div
       class="ant-divider-rail ant-divider-rail-start"

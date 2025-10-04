@@ -481,6 +481,10 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },
+    // 覆盖 affix-wrapper borderRadius！
+    [`${componentCls}-underlined`]: {
+      borderRadius: 0,
+    },
   };
 };
 
@@ -502,5 +506,6 @@ export default genStyleHooks(
     unitless: {
       handleOpacity: true,
     },
+    resetFont: false,
   },
 );

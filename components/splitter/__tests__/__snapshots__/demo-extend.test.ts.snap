@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/splitter/demo/collapsible.tsx extend context correctly 1`] = `
 <div
@@ -104,6 +104,170 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
 `;
 
 exports[`renders components/splitter/demo/collapsible.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 20px;"
+>
+  <div
+    class="ant-flex css-var-test-id"
+    style="gap: 5px;"
+  >
+    <p>
+      ShowCollapsibleIcon: 
+    </p>
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    >
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="auto"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          Auto
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="true"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          True
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="false"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          False
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="33"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="67"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          Third
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/control.tsx extend context correctly 1`] = `
 <div
@@ -416,7 +580,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
@@ -496,7 +660,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
@@ -576,12 +740,12 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        class="ant-splitter-bar-dragger"
       />
     </div>
     <div
@@ -1035,7 +1199,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -1127,6 +1291,111 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 1`] 
 `;
 
 exports[`renders components/splitter/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/splitter/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal acss-3vbbjp css-var-test-id ant-splitter-css-var"
+    style="background-color: rgb(255, 251, 230); height: 200px;"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal acss-3vbbjp css-var-test-id ant-splitter-css-var"
+    style="border-width: 2px; border-style: dashed; margin-bottom: 10px; height: 200px;"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space: nowrap;"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/splitter/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/vertical.tsx extend context correctly 1`] = `
 <div

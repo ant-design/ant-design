@@ -40,6 +40,18 @@ function getTokenList(list?: DeclarationReflection[], source?: string) {
     }));
 }
 
+function getPresetColorsTokenList(presetColors: string[]) {
+  return presetColors.map((item) => ({
+    source: 'seed',
+    token: item,
+    type: 'color',
+    desc: `预设${item}颜色`,
+    descEn: `Preset ${item} color`,
+    name: `预设${item}颜色`,
+    nameEn: `Preset ${item} color`,
+  }));
+}
+
 const main = async () => {
   const app = await (Application as any).bootstrap(
     {
@@ -79,10 +91,11 @@ const main = async () => {
           }
         });
 
-        // Exclude preset colors
-        tokenMeta.seed = tokenMeta.seed.filter(
-          (item) => !presetColors.some((color) => item.token.startsWith(color)),
-        );
+        // Exclude preset colors e.g. 'blue' 'blue-1' 'blue-2' ...
+        tokenMeta.seed = tokenMeta.seed
+          .filter((item) => !presetColors.some((color) => item.token.startsWith(color)))
+          // Incorporate preset colors
+          .concat(getPresetColorsTokenList(presetColors));
         tokenMeta.map = tokenMeta.map.filter(
           (item) => !presetColors.some((color) => item.token.startsWith(color)),
         );

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 <div
@@ -554,6 +554,56 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             #1677FF
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
+  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <div
+        aria-describedby="test-id"
+        class="ant-color-picker-trigger acss-pbemrr css-var-test-id ant-color-picker-css-var"
+      >
+        <div
+          class="ant-color-picker-color-block"
+        >
+          <div
+            class="ant-color-picker-color-block-inner"
+            style="background:rgb(22,119,255)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <div
+        aria-describedby="test-id"
+        class="ant-color-picker-trigger ant-color-picker-lg acss-pbemrr css-var-test-id ant-color-picker-css-var"
+      >
+        <div
+          class="ant-color-picker-color-block"
+        >
+          <div
+            class="ant-color-picker-color-block-inner"
+            style="background:rgb(114,46,209)"
+          />
         </div>
       </div>
     </div>

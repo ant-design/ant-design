@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable compat/compat */
 import { css } from 'antd-style';
-import fetch from 'cross-fetch';
+import useSWR from 'swr';
 
 export interface Author {
   avatar: string;
@@ -26,6 +26,7 @@ export interface Recommendation {
 }
 
 type SourceType = 'zhihu' | 'yuque';
+
 export interface Extra {
   title: string;
   description: string;
@@ -81,19 +82,13 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData(): Partial<SiteData> | undefined {
-  const [data, setData] = useState<SiteData | undefined>(undefined);
-
-  useEffect(() => {
-    fetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json').then(
-      async (res) => {
-        setData(await res.json());
-      },
-    );
-  }, []);
-
-  return data;
-}
+export const useAntdSiteConfig = () => {
+  const { data, error, isLoading } = useSWR<Partial<SiteData>, Error>(
+    `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`,
+    (url: string) => fetch(url).then((res) => res.json()),
+  );
+  return { data, error, isLoading };
+};
 
 export const getCarouselStyle = () => ({
   carousel: css`

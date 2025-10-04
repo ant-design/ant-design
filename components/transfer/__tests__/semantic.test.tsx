@@ -17,7 +17,9 @@ describe('Transfer.Semantic', () => {
       title: 'custom-title',
       body: 'custom-body',
       list: 'custom-list',
-      listItem: 'custom-list-item',
+      item: 'custom-item',
+      itemIcon: 'custom-item-icon',
+      itemContent: 'custom-item-content',
       footer: 'custom-footer',
       actions: 'custom-actions',
     };
@@ -29,38 +31,46 @@ describe('Transfer.Semantic', () => {
       title: ['.ant-transfer-list-title', 2],
       body: ['.ant-transfer-list-body', 2],
       list: ['.ant-transfer-list-content', 2],
-      listItem: ['.ant-transfer-list-item', mockData.length],
+      item: ['.ant-transfer-list-item', mockData.length],
+      itemIcon: ['.ant-transfer-list-item-icon', mockData.length],
+      itemContent: ['.ant-transfer-list-item-content', mockData.length],
       footer: ['.ant-transfer-list-footer', 2],
       actions: ['.ant-transfer-action', 1],
     };
 
     const styles = {
       root: {
-        backgroundColor: 'red',
+        backgroundColor: 'rgb(255, 0, 0)',
       },
       section: {
-        backgroundColor: 'blue',
+        backgroundColor: 'rgb(0, 0, 255)',
       },
       header: {
-        backgroundColor: 'green',
+        backgroundColor: 'rgb(0, 128, 0)',
       },
       title: {
-        backgroundColor: 'gray',
+        backgroundColor: 'rgb(128, 128, 128)',
       },
       body: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'rgb(255, 255, 0)',
       },
       list: {
-        backgroundColor: 'purple',
+        backgroundColor: 'rgb(128, 0, 128)',
       },
-      listItem: {
-        backgroundColor: 'orange',
+      item: {
+        backgroundColor: 'rgb(255, 165, 0)',
+      },
+      itemIcon: {
+        backgroundColor: 'rgb(173, 216, 230)',
+      },
+      itemContent: {
+        backgroundColor: 'rgb(144, 238, 144)',
       },
       footer: {
-        backgroundColor: 'pink',
+        backgroundColor: 'rgb(255, 192, 203)',
       },
       actions: {
-        backgroundColor: 'cyan',
+        backgroundColor: 'rgb(255, 0, 0)',
       },
     };
 

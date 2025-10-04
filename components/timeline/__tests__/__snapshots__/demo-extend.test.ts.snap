@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/timeline/demo/alternate.tsx extend context correctly 1`] = `
 <ol
@@ -6,7 +6,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -33,7 +33,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-green ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-green ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -60,7 +60,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -111,7 +111,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -138,7 +138,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -165,7 +165,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -222,7 +222,7 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`]
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -249,7 +249,7 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`]
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -276,7 +276,7 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`]
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -303,7 +303,7 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`]
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -336,7 +336,7 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -363,7 +363,7 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -390,7 +390,7 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -417,7 +417,7 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -450,7 +450,7 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -477,7 +477,7 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -504,7 +504,7 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -555,7 +555,7 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -588,7 +588,7 @@ exports[`renders components/timeline/demo/end.tsx extend context correctly 1`] =
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -615,7 +615,7 @@ exports[`renders components/timeline/demo/end.tsx extend context correctly 1`] =
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -642,7 +642,7 @@ exports[`renders components/timeline/demo/end.tsx extend context correctly 1`] =
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -692,7 +692,7 @@ exports[`renders components/timeline/demo/end.tsx extend context correctly 1`] =
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -728,7 +728,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -755,7 +755,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -782,7 +782,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -809,7 +809,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -841,7 +841,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -868,7 +868,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -895,7 +895,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -922,7 +922,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -954,7 +954,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -981,7 +981,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1008,7 +1008,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1035,7 +1035,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1072,7 +1072,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1105,7 +1105,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1133,7 +1133,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1161,7 +1161,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1200,7 +1200,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1233,7 +1233,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1261,7 +1261,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1289,7 +1289,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1328,7 +1328,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1361,7 +1361,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1389,7 +1389,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1417,7 +1417,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
       style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
     >
       <div
@@ -1461,7 +1461,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1488,7 +1488,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1515,7 +1515,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1542,7 +1542,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1607,7 +1607,7 @@ exports[`renders components/timeline/demo/pending-legacy.tsx extend context corr
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1682,7 +1682,7 @@ exports[`renders components/timeline/demo/pending-legacy.tsx extend context corr
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1750,7 +1750,7 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1777,7 +1777,7 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     style="height: 100px;"
   >
     <div
@@ -1806,7 +1806,7 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     style="height: 100px;"
   >
     <div
@@ -1836,7 +1836,7 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1863,7 +1863,7 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -1889,6 +1889,205 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
 `;
 
 exports[`renders components/timeline/demo/semantic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-lz3q7n"
+    style="--steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-lz3q7n"
+    style="--steps-items-offset: 0; padding: 10px 6px; border: 1px solid rgb(162, 148, 249);"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/title.tsx extend context correctly 1`] = `
 Array [
@@ -1969,7 +2168,7 @@ Array [
     style="--steps-items-offset: 0;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2001,7 +2200,7 @@ Array [
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2033,7 +2232,7 @@ Array [
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2060,7 +2259,7 @@ Array [
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2109,7 +2308,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
     style="--steps-items-offset: 0; --timeline-head-span-ptg: 100px;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2141,7 +2340,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2173,7 +2372,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2200,7 +2399,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2240,7 +2439,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
     style="--steps-items-offset: 0; --timeline-head-span-ptg: 25%;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2272,7 +2471,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2304,7 +2503,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2331,7 +2530,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2371,7 +2570,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
     style="--steps-items-offset: 0; --timeline-head-span: 18;"
   >
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2403,7 +2602,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2435,7 +2634,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2462,7 +2661,7 @@ exports[`renders components/timeline/demo/title-span.tsx extend context correctl
       </div>
     </li>
     <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-end ant-timeline-item"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
     >
       <div
         class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2502,7 +2701,7 @@ exports[`renders components/timeline/demo/variant.tsx extend context correctly 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2529,7 +2728,7 @@ exports[`renders components/timeline/demo/variant.tsx extend context correctly 1
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2556,7 +2755,7 @@ exports[`renders components/timeline/demo/variant.tsx extend context correctly 1
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -2583,7 +2782,7 @@ exports[`renders components/timeline/demo/variant.tsx extend context correctly 1
     </div>
   </li>
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"

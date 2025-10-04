@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
@@ -57,17 +58,6 @@ describe('Upload List', () => {
 
   // HTMLCanvasElement.prototype
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-    return setup();
-  });
-  afterEach(() => {
-    teardown();
-    drawImageCallback = null;
-    jest.clearAllTimers();
-    jest.useRealTimers();
-  });
-
   let open: jest.MockInstance<any, any[]>;
   beforeAll(() => {
     open = jest.spyOn(window, 'open').mockImplementation(() => null);
@@ -86,6 +76,16 @@ describe('Upload List', () => {
       },
     } as RenderingContext);
     mockToDataURL.mockReturnValue('data:image/png;base64,');
+  });
+  beforeEach(() => {
+    jest.useFakeTimers();
+    return setup();
+  });
+  afterEach(() => {
+    teardown();
+    drawImageCallback = null;
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   afterAll(() => {
@@ -122,9 +122,9 @@ describe('Upload List', () => {
       item: 'custom-item',
     };
     const customStyles = {
-      root: { color: 'red' },
-      list: { color: 'green' },
-      item: { color: 'blue' },
+      root: { color: 'rgba(40, 167, 69, 0.9)' },
+      list: { color: 'rgba(255, 193, 7, 0.7)' },
+      item: { color: 'rgb(255, 0, 0)' },
     };
     const { container } = render(
       <Upload defaultFileList={fileList} classNames={customClassNames} styles={customStyles}>
@@ -189,7 +189,6 @@ describe('Upload List', () => {
 
   it('should be uploading when upload a file', async () => {
     const done = jest.fn();
-    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let latestFileList: UploadFile<any>[] | null = null;
     const onChange: UploadProps['onChange'] = async ({ file, fileList: eventFileList }) => {
@@ -1229,7 +1228,6 @@ describe('Upload List', () => {
     it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
-      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1286,7 +1284,6 @@ describe('Upload List', () => {
     it('should not render <img /> when upload non-image file without thumbUrl in onChange', async () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
-      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1724,6 +1721,35 @@ describe('Upload List', () => {
       const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
       expect(removeButton).toBeTruthy();
       expect(removeButton).not.toBeDisabled();
+    });
+  });
+
+  describe('Customize token', () => {
+    it('pictureCardSize', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            components: { Upload: { pictureCardSize: 142 } },
+          }}
+        >
+          <Upload
+            listType="picture-card"
+            fileList={[
+              {
+                uid: '-1',
+                name: 'image.png',
+                status: 'done',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+              },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-upload-list-item-container')).toHaveStyle({
+        width: 'var(--ant-upload-picture-card-size)',
+        height: 'var(--ant-upload-picture-card-size)',
+      });
     });
   });
 });

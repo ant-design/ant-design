@@ -19,6 +19,31 @@ describe('Drawer', () => {
     jest.useRealTimers();
   });
 
+  function triggerMotion() {
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    const mask = document.querySelector('.ant-drawer-mask');
+    if (mask) {
+      fireEvent.animationEnd(mask);
+    }
+
+    const panel = document.querySelector('.ant-drawer-section');
+    if (panel) {
+      fireEvent.animationEnd(panel);
+    }
+
+    const contentWrapper = document.querySelector('.ant-drawer-content-wrapper');
+    if (contentWrapper) {
+      fireEvent.animationEnd(contentWrapper);
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  }
+
   it('render correctly', () => {
     const { container, asFragment, rerender } = render(<DrawerTest />);
     expect(container.querySelector('.ant-drawer-body')).toBeTruthy();
@@ -87,10 +112,7 @@ describe('Drawer', () => {
 
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+    triggerMotion();
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
 
     // Show
@@ -100,22 +122,16 @@ describe('Drawer', () => {
 
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+    triggerMotion();
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
   it('test afterOpenChange', async () => {
     const afterOpenChange = jest.fn();
-    const { container, rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
+    const { rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
     rerender(<DrawerTest open={false} afterOpenChange={afterOpenChange} />);
 
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+    triggerMotion();
 
     expect(afterOpenChange).toHaveBeenCalledTimes(1);
   });

@@ -1,0 +1,139 @@
+// FIXME: workaround for avoid searchbar styles be extracted to async chunk
+@import 'dumi/theme-default/slots/SearchBar/index.less';
+
+.demo-logo {
+  width: 120px;
+  min-width: 120px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  margin-inline-end: 24px;
+}
+
+.demo-logo-vertical {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #eaeaea transparent;
+}
+
+.rc-footer {
+  position: relative;
+  clear: both;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #000;
+}
+.rc-footer a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.rc-footer a:hover {
+  color: #40a9ff;
+}
+.rc-footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 0 20px;
+}
+.rc-footer-columns {
+  display: flex;
+  justify-content: space-around;
+}
+.rc-footer-column {
+  margin-bottom: 60px;
+}
+.rc-footer-column h2 {
+  position: relative;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+}
+.rc-footer-column-icon {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 22px;
+  text-align: center;
+  vertical-align: middle;
+  margin-inline-end: 0.5em;
+}
+.rc-footer-column-icon > span,
+.rc-footer-column-icon > svg,
+.rc-footer-column-icon img {
+  display: block;
+  width: 100%;
+}
+.rc-footer-item {
+  margin: 12px 0;
+}
+.rc-footer-item-icon {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  vertical-align: middle;
+  margin-inline-end: 0.4em;
+}
+.rc-footer-item-icon > span,
+.rc-footer-item-icon > svg,
+.rc-footer-item-icon img {
+  display: block;
+  width: 100%;
+}
+.rc-footer-item-separator {
+  margin: 0 0.3em;
+}
+.rc-footer-bottom-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+.rc-footer-light {
+  color: rgba(0, 0, 0, 0.85);
+  background-color: transparent;
+}
+.rc-footer-light h2,
+.rc-footer-light a {
+  color: rgba(0, 0, 0, 0.85);
+}
+.rc-footer-light .rc-footer-bottom-container {
+  border-top-color: #e8e8e8;
+}
+.rc-footer-light .rc-footer-item-separator,
+.rc-footer-light .rc-footer-item-description {
+  color: rgba(0, 0, 0, 0.45);
+}
+@media only screen and (max-width: 767.99px) {
+  .rc-footer {
+    text-align: center;
+  }
+  .rc-footer-container {
+    padding: 40px 0;
+  }
+  .rc-footer-columns {
+    display: block;
+  }
+  .rc-footer-column {
+    display: block;
+    margin-bottom: 40px;
+  }
+  .rc-footer-column:last-child {
+    margin-bottom: 0;
+  }
+}

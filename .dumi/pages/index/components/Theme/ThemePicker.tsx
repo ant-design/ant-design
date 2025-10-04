@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../../hooks/useLocale';
 
@@ -32,11 +32,11 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   themeCard: css`
-    border-radius: ${token.borderRadius}px;
+    border-radius: ${cssVar.borderRadius};
     cursor: pointer;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     overflow: hidden;
     display: inline-block;
 
@@ -63,8 +63,8 @@ const useStyle = createStyles(({ token, css }) => ({
 
   themeCardActive: css`
     box-shadow:
-      0 0 0 1px ${token.colorBgContainer},
-      0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
+      0 0 0 1px ${cssVar.colorBgContainer},
+      0 0 0 calc(${cssVar.controlOutlineWidth} * 2 + 1px) ${cssVar.colorPrimary};
     &,
     &:hover:not(:focus-within) {
       transform: scale(1);
@@ -88,12 +88,10 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
           <label
             onClick={() => onChange?.(theme)}
-            className={classNames(styles.themeCard, {
-              [styles.themeCardActive]: value === theme,
-            })}
+            className={clsx(styles.themeCard, { [styles.themeCardActive]: value === theme })}
           >
             <input type="radio" name="theme" id={index === 0 ? id : undefined} />
-            <img src={THEMES[theme]} alt={theme} />
+            <img draggable={false} src={THEMES[theme]} alt={theme} />
           </label>
           <span>{locale[theme]}</span>
         </Flex>

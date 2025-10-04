@@ -3,10 +3,11 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from '@rc-component/input-number';
 import RcInputNumber from '@rc-component/input-number';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -23,12 +24,22 @@ import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
+
+export type InputNumberClassNamesType<T extends ValueType = ValueType> = SemanticClassNamesType<
+  InputNumberProps<T>,
+  SemanticName
+>;
+export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticStylesType<
+  InputNumberProps<T>,
+  SemanticName
+>;
+
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: InputNumberClassNamesType;
+  styles?: InputNumberStylesType;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
@@ -91,11 +102,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     classNames: contextClassNames,
   } = useComponentConfig('inputNumber');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
-
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
@@ -140,23 +146,28 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
-  const inputNumberClass = cls(
-    {
-      [`${prefixCls}-lg`]: mergedSize === 'large',
-      [`${prefixCls}-sm`]: mergedSize === 'small',
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-in-form-item`]: isFormItemInput,
-    },
-    hashId,
-    mergedClassNames.input,
-  );
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: InputNumberProps = {
+    ...props,
+    size: mergedSize,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputNumberClassNamesType,
+    InputNumberStylesType,
+    InputNumberProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
   const wrapperClassName = `${prefixCls}-group`;
 
   return (
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={cls(
+      className={clsx(
         cssVarCls,
         rootCls,
         className,
@@ -165,6 +176,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         contextClassName,
         compactItemClassnames,
       )}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
@@ -188,29 +200,32 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }
       classNames={{
         ...mergedClassNames,
-        input: inputNumberClass,
-        variant: cls(
+        input: clsx(
           {
-            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-in-form-item`]: isFormItemInput,
           },
+          hashId,
+          mergedClassNames.input,
+        ),
+        variant: clsx(
+          { [`${prefixCls}-${variant}`]: enableVariantCls },
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
-        affixWrapper: cls(
+        affixWrapper: clsx(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-without-controls`]: controls === false || mergedDisabled,
+            [`${prefixCls}-affix-wrapper-without-controls`]:
+              controls === false || mergedDisabled || readOnly,
           },
           hashId,
         ),
-        wrapper: cls(
-          {
-            [`${wrapperClassName}-rtl`]: direction === 'rtl',
-          },
-          hashId,
-        ),
-        groupWrapper: cls(
+        wrapper: clsx({ [`${wrapperClassName}-rtl`]: direction === 'rtl' }, hashId),
+        groupWrapper: clsx(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
@@ -222,7 +237,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         ),
       }}
       styles={mergedStyles}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...others}
     />
   );

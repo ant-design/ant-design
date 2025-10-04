@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
@@ -161,7 +161,7 @@ Array [
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -303,7 +303,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -443,7 +443,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -586,7 +586,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -735,7 +735,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -880,7 +880,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1030,7 +1030,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1180,7 +1180,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1330,7 +1330,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1479,7 +1479,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1616,7 +1616,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1753,7 +1753,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -1973,7 +1973,7 @@ Array [
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -2126,7 +2126,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -2246,7 +2246,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -2448,7 +2448,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -2596,7 +2596,7 @@ Array [
           </button>
           <div
             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
               aria-label="expanded dropdown"
@@ -2788,7 +2788,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -2994,7 +2994,7 @@ Array [
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -3140,7 +3140,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -3457,7 +3457,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -3679,7 +3679,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -3848,7 +3848,7 @@ Array [
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -4067,7 +4067,7 @@ Array [
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -4255,7 +4255,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
       </button>
       <div
         class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           aria-label="expanded dropdown"
@@ -4334,7 +4334,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -4347,14 +4347,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             id="test-id_list_0"
             role="option"
           >
-            left
+            start
           </div>
           <div
             aria-selected="false"
             id="test-id_list_1"
             role="option"
           >
-            right
+            end
           </div>
         </div>
         <div
@@ -4363,7 +4363,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -4371,13 +4371,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Parent - left
+                    Parent - start
                   </div>
                   <span
                     aria-hidden="true"
@@ -4387,13 +4386,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Parent - right
+                    Parent - end
                   </div>
                   <span
                     aria-hidden="true"
@@ -4403,7 +4401,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4419,7 +4416,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4504,7 +4500,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -4517,14 +4513,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             id="test-id_list_0"
             role="option"
           >
-            left
+            start
           </div>
           <div
             aria-selected="false"
             id="test-id_list_1"
             role="option"
           >
-            right
+            end
           </div>
         </div>
         <div
@@ -4533,7 +4529,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -4541,13 +4537,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Child - left
+                    Child - start
                   </div>
                   <span
                     aria-hidden="true"
@@ -4557,13 +4552,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Child - right
+                    Child - end
                   </div>
                   <span
                     aria-hidden="true"
@@ -4573,7 +4567,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4589,7 +4582,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4674,7 +4666,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -4705,7 +4697,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -4713,7 +4705,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Parent - line"
                 >
@@ -4730,7 +4721,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card"
                 >
@@ -4747,7 +4737,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card edit"
                 >
@@ -4833,7 +4822,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -4864,7 +4853,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -4872,7 +4861,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Child - line"
                 >
@@ -4889,7 +4877,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Child - card"
                 >
@@ -4906,7 +4893,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card edit"
                 >
@@ -5039,7 +5025,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -5425,7 +5411,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 </button>
                 <div
                   class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <ul
                     aria-label="expanded dropdown"
@@ -5470,7 +5456,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 
 exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -5479,7 +5465,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      Tab position:
+      Tab placement:
     </div>
     <div
       class="ant-space-item"
@@ -5542,7 +5528,7 @@ Array [
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
-              value="left"
+              value="start"
             />
             <span
               class="ant-radio-button-inner"
@@ -5551,7 +5537,7 @@ Array [
           <span
             class="ant-radio-button-label"
           >
-            left
+            start
           </span>
         </label>
         <label
@@ -5564,7 +5550,7 @@ Array [
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
-              value="right"
+              value="end"
             />
             <span
               class="ant-radio-button-inner"
@@ -5573,7 +5559,7 @@ Array [
           <span
             class="ant-radio-button-label"
           >
-            right
+            end
           </span>
         </label>
       </div>
@@ -5678,7 +5664,7 @@ Array [
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -5717,7 +5703,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tabs/demo/position.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tabs/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
@@ -5893,7 +5879,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -6029,7 +6015,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -6273,7 +6259,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -6928,7 +6914,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
         </button>
         <div
           class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             aria-label="expanded dropdown"
@@ -6968,3 +6954,290 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 `;
 
 exports[`renders components/tabs/demo/slide.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-tabs ant-tabs-top demo-tabs-root css-var-test-id ant-tabs-css-var"
+    style="border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav demo-tabs-header"
+      role="tablist"
+      style="background-color: rgb(245, 245, 245);"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab demo-tabs-item ant-tabs-tab-active"
+            data-node-key="1"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-1"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab demo-tabs-item"
+            data-node-key="2"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-2"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab demo-tabs-item"
+            data-node-key="3"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-3"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar demo-tabs-indicator ant-tabs-ink-bar-animated"
+            style="background-color: rgb(255, 77, 79); height: 4px;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="rc-tabs-test-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <ul
+            aria-label="expanded dropdown"
+            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-menu-list="true"
+            id="rc-tabs-test-more-popup"
+            role="listbox"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active demo-tabs-content"
+          id="rc-tabs-test-panel-1"
+          role="tabpanel"
+          style="background-color: rgb(230, 247, 255); padding: 16px;"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-tabs ant-tabs-left ant-tabs-card demo-tabs-root--card css-var-test-id ant-tabs-css-var"
+    style="background-color: rgb(250, 250, 250); border-color: rgb(217, 217, 217);"
+  >
+    <div
+      aria-orientation="vertical"
+      class="ant-tabs-nav"
+      role="tablist"
+      style="text-align: left;"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-1"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-2"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-3"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="rc-tabs-test-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <ul
+            aria-label="expanded dropdown"
+            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-menu-list="true"
+            id="rc-tabs-test-more-popup"
+            role="listbox"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-left"
+      >
+        <div
+          aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
+          role="tabpanel"
+          style="padding: 8px;"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/tabs/demo/style-class.tsx extend context correctly 2`] = `[]`;

@@ -170,6 +170,9 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             flex: 'none',
             cursor: 'pointer',
           },
+          [`${componentCls}-expand-icon`]: {
+            cursor: 'pointer',
+          },
         },
 
         [`${componentCls}-collapsible-icon`]: {
@@ -250,8 +253,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         },
       },
 
-      // ========================== Icon Position ==========================
-      [`&${componentCls}-icon-position-end`]: {
+      // ========================== Icon Placement ==========================
+      [`&${componentCls}-icon-placement-end`]: {
         [`& > ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             [`${componentCls}-expand-icon`]: {

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/progress/demo/circle.tsx extend context correctly 1`] = `
 <div
@@ -260,28 +260,28 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
       </svg>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <span
+          class="ant-progress-indicator"
+          title="进行中，已完成60%"
         >
-          <span
-            class="ant-progress-indicator"
-            title="进行中，已完成60%"
-          >
-            进行中，已完成60%
-          </span>
-        </div>
+          进行中，已完成60%
+        </span>
       </div>
     </div>
   </div>
@@ -532,23 +532,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          5
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        5
       </div>
     </div>
   </div>,
@@ -583,23 +583,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          8
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        8
       </div>
     </div>
   </div>,
@@ -1073,28 +1073,28 @@ Array [
           </svg>
         </div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <span
+              class="ant-progress-indicator"
+              title="50%"
             >
-              <span
-                class="ant-progress-indicator"
-                title="50%"
-              >
-                50%
-              </span>
-            </div>
+              50%
+            </span>
           </div>
         </div>
       </div>
@@ -1274,28 +1274,28 @@ Array [
           </svg>
         </div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
             style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
           >
-            <div
-              class="ant-tooltip-inner"
-              id="test-id"
-              role="tooltip"
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <span
+              class="ant-progress-indicator"
+              title="50%"
             >
-              <span
-                class="ant-progress-indicator"
-                title="50%"
-              >
-                50%
-              </span>
-            </div>
+              50%
+            </span>
           </div>
         </div>
       </div>
@@ -1451,66 +1451,144 @@ exports[`renders components/progress/demo/component-token.tsx extend context cor
 
 exports[`renders components/progress/demo/dashboard.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
 >
-  <div
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default css-var-test-id"
-    role="progressbar"
-  >
+  <div>
+    gapDegree:
     <div
-      class="ant-progress-body"
-      style="width: 120px; height: 120px; font-size: 24px;"
+      aria-label="segmented control"
+      class="ant-segmented css-var-test-id"
+      role="radiogroup"
+      tabindex="0"
     >
-      <svg
-        class="ant-progress-circle"
-        role="presentation"
-        viewBox="0 0 100 100"
+      <div
+        class="ant-segmented-group"
       >
-        <circle
-          class="ant-progress-circle-rail"
-          cx="50"
-          cy="50"
-          r="47"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-        />
-        <circle
-          class="ant-progress-circle-path"
-          cx="50"
-          cy="50"
-          opacity="1"
-          r="47"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 61.44671332616011; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-        />
-        <circle
-          class="ant-progress-circle-path"
-          cx="50"
-          cy="50"
-          opacity="0"
-          r="47"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke: #52C41A; stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 233.77685330464044; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-        />
-      </svg>
-      <span
-        class="ant-progress-indicator"
-        title="75%"
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            aria-checked="true"
+            class="ant-segmented-item-label"
+            role="radio"
+            title="50"
+          >
+            50
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            aria-checked="false"
+            class="ant-segmented-item-label"
+            role="radio"
+            title="100"
+          >
+            100
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div>
+    gapPlacement:
+    <div
+      aria-label="segmented control"
+      class="ant-segmented css-var-test-id"
+      role="radiogroup"
+      tabindex="0"
+    >
+      <div
+        class="ant-segmented-group"
       >
-        75%
-      </span>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            aria-checked="false"
+            class="ant-segmented-item-label"
+            role="radio"
+            title="start"
+          >
+            start
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            aria-checked="false"
+            class="ant-segmented-item-label"
+            role="radio"
+            title="end"
+          >
+            end
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            aria-checked="false"
+            class="ant-segmented-item-label"
+            role="radio"
+            title="top"
+          >
+            top
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            aria-checked="true"
+            class="ant-segmented-item-label"
+            role="radio"
+            title="bottom"
+          >
+            bottom
+          </div>
+        </label>
+      </div>
     </div>
   </div>
   <div
     aria-valuemax="100"
     aria-valuemin="0"
-    aria-valuenow="75"
+    aria-valuenow="30"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default css-var-test-id"
     role="progressbar"
   >
@@ -1530,7 +1608,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
           r="47"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray: 270.7005669843205px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(105deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+          style="stroke-dasharray: 254.29447201557383px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(115deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
         />
         <circle
           class="ant-progress-circle-path"
@@ -1540,7 +1618,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
           r="47"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray: 270.7005669843205px 295.3097094374406; stroke-dashoffset: 70.67514174608013; transform: rotate(105deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+          style="stroke-dasharray: 254.29447201557383px 295.3097094374406; stroke-dashoffset: 181.00613041090168; transform: rotate(115deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
         />
         <circle
           class="ant-progress-circle-path"
@@ -1550,14 +1628,14 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
           r="47"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke: #52C41A; stroke-dasharray: 270.7005669843205px 295.3097094374406; stroke-dashoffset: 270.6905669843205; transform: rotate(105deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+          style="stroke: #52C41A; stroke-dasharray: 254.29447201557383px 295.3097094374406; stroke-dashoffset: 254.28447201557384; transform: rotate(115deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
         />
       </svg>
       <span
         class="ant-progress-indicator"
-        title="75%"
+        title="30%"
       >
-        75%
+        30%
       </span>
     </div>
   </div>
@@ -1862,7 +1940,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
       >
         <div
           class="ant-progress-track"
-          style="width: 99.9%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%);"
+          style="width: 99.9%; height: 8px; background: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%);"
         />
       </div>
       <span
@@ -1890,7 +1968,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
       >
         <div
           class="ant-progress-track"
-          style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068);"
+          style="width: 50%; height: 8px; background: linear-gradient(to right, #108ee9, #87d068); --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068);"
         />
       </div>
       <span
@@ -1952,10 +2030,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to top, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 0deg, #108ee9 0%, #87d068 100%);"
               />
             </div>
           </foreignobject>
@@ -2026,10 +2104,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to top, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 0deg, #108ee9 0%, #87d068 100%);"
               />
             </div>
           </foreignobject>
@@ -2117,10 +2195,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to top, #87d068 0%, #ffe58f 50%, #ffccc7 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 0deg, #87d068 0%, #ffe58f 50%, #ffccc7 100%);"
               />
             </div>
           </foreignobject>
@@ -2195,10 +2273,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to bottom, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 217.5deg, #108ee9 0%, #87d068 79%);"
               />
             </div>
           </foreignobject>
@@ -2269,10 +2347,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to bottom, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 217.5deg, #108ee9 0%, #87d068 79%);"
               />
             </div>
           </foreignobject>
@@ -2360,10 +2438,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to bottom, #87d068 0%, #ffe58f 50%, #ffccc7 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 217.5deg, #87d068 0%, #ffe58f 39%, #ffccc7 79%);"
               />
             </div>
           </foreignobject>
@@ -3214,23 +3292,23 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        3 done / 3 in progress / 4 to do
-      </div>
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      3 done / 3 in progress / 4 to do
     </div>
   </div>
   <div
@@ -3292,23 +3370,23 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          3 done / 3 in progress / 4 to do
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        3 done / 3 in progress / 4 to do
       </div>
     </div>
     <div
@@ -3367,23 +3445,23 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          3 done / 3 in progress / 4 to do
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        3 done / 3 in progress / 4 to do
       </div>
     </div>
   </div>
@@ -3646,28 +3724,28 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
         </svg>
       </div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <span
+            class="ant-progress-indicator"
+            title="50%"
           >
-            <span
-              class="ant-progress-indicator"
-              title="50%"
-            >
-              50%
-            </span>
-          </div>
+            50%
+          </span>
         </div>
       </div>
     </div>
@@ -3833,28 +3911,28 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
         </svg>
       </div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <span
+            class="ant-progress-indicator"
+            title="50%"
           >
-            <span
-              class="ant-progress-indicator"
-              title="50%"
-            >
-              50%
-            </span>
-          </div>
+            50%
+          </span>
         </div>
       </div>
     </div>
@@ -4158,3 +4236,180 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
 `;
 
 exports[`renders components/progress/demo/steps.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/progress/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
+>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="10"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default demo-progress-root css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail demo-progress-rail"
+        style="border-radius: 8px; height: 8px; background: rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-progress-track demo-progress-track"
+          style="width: 10%; height: 8px; border-radius: 8px; background-image: linear-gradient( to right, hsla(180, 85%, 65%, 1), hsla(210, 90%, 55%, 0.95) ); transition: all 0.3s ease;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="10%"
+      >
+        10%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="20"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default demo-progress-root css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail demo-progress-rail"
+        style="border-radius: 8px; height: 8px; background: rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-progress-track demo-progress-track"
+          style="width: 20%; height: 8px; border-radius: 8px; background-image: linear-gradient( to right, hsla(160, 85%, 65%, 1), hsla(190, 90%, 55%, 0.95) ); transition: all 0.3s ease;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="20%"
+      >
+        20%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="40"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default demo-progress-root css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail demo-progress-rail"
+        style="border-radius: 8px; height: 8px; background: rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-progress-track demo-progress-track"
+          style="width: 40%; height: 8px; border-radius: 8px; background-image: linear-gradient( to right, hsla(120, 85%, 65%, 1), hsla(150, 90%, 55%, 0.95) ); transition: all 0.3s ease;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="40%"
+      >
+        40%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="60"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default demo-progress-root css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail demo-progress-rail"
+        style="border-radius: 8px; height: 8px; background: rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-progress-track demo-progress-track"
+          style="width: 60%; height: 8px; border-radius: 8px; background-image: linear-gradient( to right, hsla(80, 85%, 65%, 1), hsla(110, 90%, 55%, 0.95) ); transition: all 0.3s ease;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="60%"
+      >
+        60%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="80"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default demo-progress-root css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail demo-progress-rail"
+        style="border-radius: 8px; height: 8px; background: rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-progress-track demo-progress-track"
+          style="width: 80%; height: 8px; border-radius: 8px; background-image: linear-gradient( to right, hsla(40, 85%, 65%, 1), hsla(70, 90%, 55%, 0.95) ); transition: all 0.3s ease;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="80%"
+      >
+        80%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="99"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default demo-progress-root css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail demo-progress-rail"
+        style="border-radius: 8px; height: 8px; background: rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-progress-track demo-progress-track"
+          style="width: 99%; height: 8px; border-radius: 8px; background-image: linear-gradient( to right, hsla(2, 85%, 65%, 1), hsla(32, 90%, 55%, 0.95) ); transition: all 0.3s ease;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="99%"
+      >
+        99%
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/progress/demo/style-class.tsx extend context correctly 2`] = `[]`;

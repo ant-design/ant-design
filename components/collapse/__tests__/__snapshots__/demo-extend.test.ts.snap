@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/collapse/demo/accordion.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
   role="tablist"
 >
   <div
@@ -132,7 +132,7 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
 
 exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -275,7 +275,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 2`]
 
 exports[`renders components/collapse/demo/borderless.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-borderless css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -424,7 +424,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+      class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
@@ -467,7 +467,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             role="button"
             tabindex="0"
           >
-            This panel can only be collapsed by clicking text
+            This panel can be collapsed by clicking text or icon
           </span>
         </div>
         <div
@@ -490,7 +490,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+      class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
@@ -552,7 +552,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+      class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
     >
       <div
         class="ant-collapse-item ant-collapse-item-disabled"
@@ -603,7 +603,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
 
 exports[`renders components/collapse/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item"
@@ -732,7 +732,7 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
 
 exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-borderless css-var-test-id"
   style="background: rgb(255, 255, 255);"
 >
   <div
@@ -880,7 +880,7 @@ exports[`renders components/collapse/demo/custom.tsx extend context correctly 2`
 exports[`renders components/collapse/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
@@ -1091,7 +1091,7 @@ Array [
   </div>,
   <br />,
   <span>
-    Expand Icon Position: 
+    Expand Icon Placement: 
   </span>,
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -1133,7 +1133,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -1164,7 +1164,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -1172,7 +1172,6 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="start"
                 >
@@ -1189,7 +1188,6 @@ Array [
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="end"
                 >
@@ -1245,7 +1243,7 @@ exports[`renders components/collapse/demo/extra.tsx extend context correctly 2`]
 
 exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-ghost css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1388,7 +1386,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 2`]
 
 exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item"
@@ -1517,7 +1515,7 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 2`] =
 
 exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1614,7 +1612,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
   >
     <div
       class="ant-collapse-item"
@@ -1674,7 +1672,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-collapse ant-collapse-icon-position-start ant-collapse-small css-var-test-id"
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-small css-var-test-id"
   >
     <div
       class="ant-collapse-item"
@@ -1734,7 +1732,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-collapse ant-collapse-icon-position-start ant-collapse-large css-var-test-id"
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id"
   >
     <div
       class="ant-collapse-item"
@@ -1781,3 +1779,292 @@ Array [
 `;
 
 exports[`renders components/collapse/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/collapse/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-c792w8"
+    style="background-color: rgb(250, 250, 250); border: 1px solid rgb(224, 224, 224); border-radius: 8px;"
+  >
+    <div
+      class="ant-collapse-item ant-collapse-item-active"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="true"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="expanded"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              style="transform: rotate(90deg);"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 1
+        </span>
+      </div>
+      <div
+        class="ant-collapse-panel ant-collapse-panel-active"
+      >
+        <div
+          class="ant-collapse-body"
+        >
+          <p>
+            A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 2
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 3
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id acss-c792w8"
+    style="background-color: rgb(255, 255, 255); border: 1px solid rgb(105, 111, 199); border-radius: 8px;"
+  >
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 1
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item ant-collapse-item-active"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="true"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="expanded"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              style="transform: rotate(90deg);"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 2
+        </span>
+      </div>
+      <div
+        class="ant-collapse-panel ant-collapse-panel-active"
+      >
+        <div
+          class="ant-collapse-body"
+        >
+          <p>
+            A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-collapse-item"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="ant-collapse-header acss-13ow3bs"
+        role="button"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        tabindex="0"
+      >
+        <div
+          class="ant-collapse-expand-icon"
+        >
+          <span
+            aria-label="collapsed"
+            class="anticon anticon-right ant-collapse-arrow"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-collapse-title"
+        >
+          This is panel header 3
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/collapse/demo/style-class.tsx extend context correctly 2`] = `[]`;

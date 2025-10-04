@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
-import type { UploadRequestOption } from 'rc-upload/lib/interface';
+import type { UploadRequestOption } from '@rc-component/upload/lib/interface';
 
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
@@ -9,6 +9,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
@@ -23,12 +24,12 @@ describe('Upload', () => {
     jest.useFakeTimers();
   });
   beforeEach(() => setup());
-  afterAll(() => {
-    jest.useRealTimers();
-  });
   afterEach(() => {
     jest.clearAllTimers();
     return teardown();
+  });
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
   // Mock for rc-component/util raf
@@ -1119,7 +1120,7 @@ describe('Upload', () => {
     );
     const normalEl = normalContainer.querySelector('.ant-upload');
     expect(normalEl).toBeTruthy();
-    expect(getComputedStyle(normalEl!).background).toContain('red');
+    expect(getComputedStyle(normalEl!).background).toContain('rgb(255, 0, 0)');
 
     // Drag type
     const { container: dragContainer } = render(
@@ -1129,7 +1130,7 @@ describe('Upload', () => {
     );
     const dragEl = dragContainer.querySelector('.ant-upload-drag');
     expect(dragEl).toBeTruthy();
-    expect(getComputedStyle(dragEl!).background).toContain('green');
+    expect(getComputedStyle(dragEl!).background).toContain('rgb(0, 128, 0)');
 
     // Picture-card type
     const { container: pictureCardContainer } = render(
@@ -1139,7 +1140,7 @@ describe('Upload', () => {
     );
     const pictureCardEl = pictureCardContainer.querySelector('.ant-upload');
     expect(pictureCardEl).toBeTruthy();
-    expect(getComputedStyle(pictureCardEl!).background).toContain('blue');
+    expect(getComputedStyle(pictureCardEl!).background).toContain('rgb(0, 0, 255)');
 
     // Dragger component
     const { container: draggerContainer } = render(
@@ -1149,6 +1150,237 @@ describe('Upload', () => {
     );
     const draggerEl = draggerContainer.querySelector('.ant-upload-drag');
     expect(draggerEl).toBeTruthy();
-    expect(getComputedStyle(draggerEl!).background).toContain('yellow');
+    expect(getComputedStyle(draggerEl!).background).toContain('rgb(255, 255, 0)');
+  });
+
+  it('supports ConfigProvider customRequest', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
+    const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
+
+    const customRequest = jest.fn(async (options) => {
+      // stop here to make sure new fileList has been set and passed to Upload
+
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve<string>('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    let fileListOut: UploadProps['fileList'] = [];
+
+    const Demo: React.FC = () => {
+      const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+
+      const onChange: UploadProps['onChange'] = async (e) => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+
+        fileListOut = newFileList;
+      };
+
+      return (
+        <ConfigProvider upload={{ customRequest }}>
+          <Upload onChange={onChange} fileList={fileList}>
+            <button type="button">Upload</button>
+          </Upload>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.change(container.querySelector<HTMLInputElement>('input')!, {
+      target: { files: [mockFile1, mockFile2] },
+    });
+
+    // React 18 is async now
+    await waitFakeTimer();
+
+    fileListOut.forEach((file) => {
+      expect(file.status).toBe('done');
+    });
+  });
+
+  describe('semantic classNames and styles', () => {
+    it('should work with classNames object', () => {
+      const { container } = render(
+        <Upload
+          classNames={{
+            root: 'test-upload-root',
+            list: 'test-upload-list',
+            item: 'test-upload-item',
+          }}
+          defaultFileList={[
+            {
+              uid: '1',
+              name: 'test.txt',
+              status: 'done',
+            },
+          ]}
+        >
+          <button type="button">Upload</button>
+        </Upload>,
+      );
+
+      expect(container.querySelector('.test-upload-root')).toBeTruthy();
+      expect(container.querySelector('.test-upload-list')).toBeTruthy();
+      expect(container.querySelector('.test-upload-item')).toBeTruthy();
+    });
+
+    it('should work with classNames function', () => {
+      const classNamesFn: UploadProps['classNames'] = (info) => {
+        if (info.props.disabled) {
+          return {
+            root: 'test-upload-root--disabled',
+          };
+        }
+        return {
+          root: 'test-upload-root--enabled',
+        };
+      };
+
+      const { container } = render(
+        <Upload disabled classNames={classNamesFn}>
+          <button type="button">Upload</button>
+        </Upload>,
+      );
+
+      expect(container.querySelector('.test-upload-root--disabled')).toBeTruthy();
+      expect(container.querySelector('.test-upload-root--enabled')).toBeFalsy();
+    });
+
+    it('should work with styles object', () => {
+      const { container } = render(
+        <Upload
+          styles={{
+            root: { backgroundColor: 'red' },
+            list: { borderColor: 'blue' },
+            item: { color: 'green' },
+          }}
+          defaultFileList={[
+            {
+              uid: '1',
+              name: 'test.txt',
+              status: 'done',
+            },
+          ]}
+        >
+          <button type="button">Upload</button>
+        </Upload>,
+      );
+
+      const rootElement = container.querySelector('.ant-upload-wrapper');
+      expect(rootElement).toBeTruthy();
+      expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+
+      const listElement = container.querySelector('.ant-upload-list');
+      expect(listElement).toBeTruthy();
+      expect(getComputedStyle(listElement!).borderColor).toBe('blue');
+
+      const itemElement = container.querySelector('.ant-upload-list-item');
+      expect(itemElement).toBeTruthy();
+      expect(getComputedStyle(itemElement!).color).toBe('rgb(0, 128, 0)');
+    });
+
+    it('should work with styles function', () => {
+      const stylesFn: UploadProps['styles'] = (info) => {
+        if (info.props.multiple) {
+          return {
+            root: { backgroundColor: 'yellow' },
+          };
+        }
+        return {
+          root: { backgroundColor: 'gray' },
+        };
+      };
+
+      const { container } = render(
+        <Upload multiple styles={stylesFn}>
+          <button type="button">Upload</button>
+        </Upload>,
+      );
+
+      const rootElement = container.querySelector('.ant-upload-wrapper');
+      expect(rootElement).toBeTruthy();
+      expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 255, 0)');
+    });
+
+    it('should merge context and component classNames', () => {
+      const { container } = render(
+        <ConfigProvider
+          upload={{
+            classNames: {
+              root: 'context-upload-root',
+              list: 'context-upload-list',
+            },
+          }}
+        >
+          <Upload
+            classNames={{
+              root: 'component-upload-root',
+              item: 'component-upload-item',
+            }}
+            defaultFileList={[
+              {
+                uid: '1',
+                name: 'test.txt',
+                status: 'done',
+              },
+            ]}
+          >
+            <button type="button">Upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+
+      const rootElement = container.querySelector('.ant-upload-wrapper');
+      expect(rootElement).toHaveClass('context-upload-root', 'component-upload-root');
+
+      expect(container.querySelector('.context-upload-list')).toBeTruthy();
+      expect(container.querySelector('.component-upload-item')).toBeTruthy();
+    });
+
+    it('should merge context and component styles', () => {
+      const { container } = render(
+        <ConfigProvider
+          upload={{
+            styles: {
+              root: { borderWidth: '2px' },
+              list: { padding: '10px' },
+            },
+          }}
+        >
+          <Upload
+            styles={{
+              root: { backgroundColor: 'red' },
+              item: { color: 'blue' },
+            }}
+            defaultFileList={[
+              {
+                uid: '1',
+                name: 'test.txt',
+                status: 'done',
+              },
+            ]}
+          >
+            <button type="button">Upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+
+      const rootElement = container.querySelector('.ant-upload-wrapper');
+      expect(rootElement).toBeTruthy();
+      expect(getComputedStyle(rootElement!).borderWidth).toBe('2px');
+      expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+
+      const listElement = container.querySelector('.ant-upload-list');
+      expect(listElement).toBeTruthy();
+      expect(getComputedStyle(listElement!).padding).toBe('10px');
+
+      const itemElement = container.querySelector('.ant-upload-list-item');
+      expect(itemElement).toBeTruthy();
+      expect(getComputedStyle(itemElement!).color).toBe('rgb(0, 0, 255)');
+    });
   });
 });

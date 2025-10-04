@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
 <div
@@ -189,7 +189,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-justify-flex-start"
-    style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid #40a9ff;"
+    style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid rgb(64, 169, 255);"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
@@ -286,13 +286,13 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
     class="ant-flex css-var-test-id"
   >
     <div
-      style="width: 25%; height: 54px; background-color: rgba(22, 119, 255, 0.749);"
+      style="width: 25%; height: 54px; background-color: rgba(22, 119, 255, 0.75);"
     />
     <div
       style="width: 25%; height: 54px; background-color: rgb(22, 119, 255);"
     />
     <div
-      style="width: 25%; height: 54px; background-color: rgba(22, 119, 255, 0.749);"
+      style="width: 25%; height: 54px; background-color: rgba(22, 119, 255, 0.75);"
     />
     <div
       style="width: 25%; height: 54px; background-color: rgb(22, 119, 255);"
@@ -317,6 +317,7 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
     >
       <img
         alt="avatar"
+        draggable="false"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style="display: block; width: 273px;"
       />
@@ -330,6 +331,7 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
           “antd is an enterprise-class UI design language and React UI library.”
         </h3>
         <a
+          aria-disabled="false"
           class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           href="https://ant.design"
           tabindex="0"
@@ -353,13 +355,13 @@ Array [
     class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   >
     <div
-      style="height: 60px; background-color: rgba(22, 119, 255, 0.749);"
+      style="height: 60px; background-color: rgba(22, 119, 255, 0.75);"
     />
     <div
       style="height: 60px; background-color: rgb(22, 119, 255);"
     />
     <div
-      style="height: 60px; background-color: rgba(22, 119, 255, 0.749);"
+      style="height: 60px; background-color: rgba(22, 119, 255, 0.75);"
     />
     <div
       style="height: 60px; background-color: rgb(22, 119, 255);"
@@ -370,13 +372,13 @@ Array [
     style="margin-top: 20px;"
   >
     <div
-      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.749);"
+      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.75);"
     />
     <div
       style="width: 25%; height: 60px; background-color: rgb(22, 119, 255);"
     />
     <div
-      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.749);"
+      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.75);"
     />
     <div
       style="width: 25%; height: 60px; background-color: rgb(22, 119, 255);"

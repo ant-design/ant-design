@@ -117,15 +117,15 @@ describe('TimePicker', () => {
     };
 
     const testStyles = {
-      root: { color: 'red' },
-      prefix: { color: 'blue' },
-      input: { color: 'green' },
-      suffix: { color: 'yellow' },
+      root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 0, 255)' },
+      input: { color: 'rgb(0, 255, 0)' },
+      suffix: { color: 'rgb(255, 255, 0)' },
     };
     const testPopupStyles = {
-      root: { color: 'purple' },
-      content: { color: 'cyan' },
-      item: { color: 'magenta' },
+      root: { color: 'rgb(128, 0, 128)' },
+      content: { color: 'rgb(0, 255, 255)' },
+      item: { color: 'rgb(255, 0, 255)' },
     };
     const mergedTestStyles = {
       ...testStyles,
@@ -195,5 +195,80 @@ describe('TimePicker', () => {
     testPopupSelectors.forEach(({ key, selector }) => {
       checkElement(rangePickerContainer, selector, testPopupClassNames[key], testPopupStyles[key]);
     });
+  });
+
+  it('should support semantic classNames and styles with useMergeSemantic', () => {
+    const semanticClassNames = {
+      root: 'semantic-root',
+      prefix: 'semantic-prefix',
+      input: 'semantic-input',
+      suffix: 'semantic-suffix',
+      popup: 'semantic-popup-root',
+    };
+
+    const semanticStyles = {
+      root: { backgroundColor: 'rgb(240, 240, 240)' },
+      prefix: { fontSize: '16px' },
+      input: { fontWeight: 'bold' },
+      suffix: { opacity: 0.8 },
+      popup: {
+        root: { borderRadius: '8px' },
+      },
+    };
+
+    const { container } = render(
+      <TimePicker
+        open
+        classNames={semanticClassNames}
+        styles={semanticStyles}
+        prefix={<span>Test</span>}
+        defaultValue={dayjs('12:30:45', 'HH:mm:ss')}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-picker');
+    expect(rootElement).toHaveClass('semantic-root');
+    expect(rootElement).toHaveStyle('background-color: rgb(240, 240, 240)');
+
+    const prefixElement = container.querySelector('.ant-picker-prefix');
+    expect(prefixElement).toHaveClass('semantic-prefix');
+    expect(prefixElement).toHaveStyle('font-size: 16px');
+
+    const inputElement = container.querySelector('.ant-picker-input input');
+    expect(inputElement).toHaveClass('semantic-input');
+    expect(inputElement).toHaveStyle('font-weight: bold');
+
+    const popupRoot = container.querySelector('.ant-picker-dropdown');
+    expect(popupRoot).toHaveClass('semantic-popup-root');
+    expect(popupRoot).toHaveStyle('border-radius: 8px');
+  });
+
+  it('should merge context and component classNames and styles correctly', () => {
+    const componentClassNames = {
+      root: 'component-root',
+      prefix: 'component-prefix',
+    };
+
+    const componentStyles = {
+      root: { padding: '8px' },
+      prefix: { color: 'red' },
+    };
+
+    const { container } = render(
+      <TimePicker
+        classNames={componentClassNames}
+        styles={componentStyles}
+        prefix={<span>Prefix</span>}
+        defaultValue={dayjs('10:20:30', 'HH:mm:ss')}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-picker');
+    expect(rootElement).toHaveClass('component-root');
+    expect(rootElement).toHaveStyle('padding: 8px');
+
+    const prefixElement = container.querySelector('.ant-picker-prefix');
+    expect(prefixElement).toHaveClass('component-prefix');
+    expect(prefixElement).toHaveStyle('color: rgb(255, 0, 0)');
   });
 });

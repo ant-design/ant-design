@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
 Array [
@@ -16,7 +16,7 @@ Array [
         style="padding-inline:12px"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -60,7 +60,7 @@ Array [
         style="padding-inline:12px"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -162,7 +162,7 @@ Array [
         style="padding-inline:12px"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -206,7 +206,7 @@ Array [
         style="padding-inline:12px"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -250,7 +250,7 @@ Array [
         style="padding-inline:12px"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -352,7 +352,7 @@ Array [
         style="padding-inline:12px"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -469,7 +469,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -507,7 +507,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -576,7 +576,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -618,7 +618,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -657,7 +657,7 @@ Array [
     style="max-width:600px"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -695,7 +695,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -764,7 +764,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
       style="box-shadow:0 0 3px red"
     >
       <div
@@ -918,7 +918,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -952,7 +952,7 @@ Array [
     id="responsive"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -990,7 +990,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1059,7 +1059,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1095,7 +1095,7 @@ Array [
     class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="box-shadow:0 0 3px red"
     >
       <div
@@ -1249,7 +1249,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1296,7 +1296,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1334,7 +1334,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1430,7 +1430,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1499,7 +1499,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
   style="max-width:600px"
 >
   <div
-    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-with-help"
+    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1544,7 +1544,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-with-help"
+    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1589,7 +1589,106 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-test-id"
+    >
+      <div
+        class="ant-col ant-form-item-label css-var-test-id"
+      >
+        <label
+          class=""
+          for="custom-feedback-icons_custom-feedback-test-item3"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control css-var-test-id"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-input-with-clear-btn ant-mentions-outlined ant-mentions-status-success css-var-test-id ant-mentions-css-var"
+            >
+              <div
+                class="ant-mentions"
+              >
+                <textarea
+                  class="rc-textarea"
+                  id="custom-feedback-icons_custom-feedback-test-item3"
+                  rows="1"
+                >
+                  @mention1
+                </textarea>
+              </div>
+              <span
+                class="ant-mentions-suffix"
+              >
+                <button
+                  class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <span
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
+                >
+                  <span
+                    aria-label="check-circle"
+                    class="anticon anticon-check-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1625,7 +1724,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
   id="customized_form_controls"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1731,7 +1830,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1789,7 +1888,7 @@ Array [
     style="max-width:600px"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1842,7 +1941,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1922,7 +2021,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1958,7 +2057,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2050,7 +2149,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2142,7 +2241,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2234,7 +2333,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2303,7 +2402,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2418,7 +2517,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2522,7 +2621,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2557,7 +2656,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2608,7 +2707,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2693,7 +2792,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2732,7 +2831,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2787,7 +2886,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2825,7 +2924,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -2850,7 +2949,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <ul
-                class="ant-rate css-var-test-id ant-rate-disabled"
+                class="ant-rate ant-rate-middle css-var-test-id ant-rate-disabled"
                 tabindex="-1"
               >
                 <li
@@ -3149,6 +3248,1109 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            title="Mentions"
+          >
+            Mentions
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-mentions ant-mentions-disabled ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+              >
+                <textarea
+                  class="rc-textarea rc-textarea-disabled"
+                  disabled=""
+                  rows="1"
+                >
+                  @afc163
+                </textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            title="Transfer"
+          >
+            Transfer
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-transfer ant-transfer-disabled css-var-test-id"
+              >
+                <div
+                  class="ant-transfer-section"
+                >
+                  <div
+                    class="ant-transfer-list-header"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                    >
+                      <span
+                        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          disabled=""
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-dropdown-trigger"
+                      disabled=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-transfer-list-header-selected"
+                    >
+                      17
+                      <!-- -->
+                      <!-- -->
+                      items
+                    </span>
+                    <span
+                      class="ant-transfer-list-header-title"
+                    />
+                  </div>
+                  <div
+                    class="ant-transfer-list-body"
+                  >
+                    <ul
+                      class="ant-transfer-list-content"
+                    >
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 1"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 1
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 3"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 3
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 5"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 5
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 7"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 7
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 8"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 8
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 9"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 9
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 10"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 10
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 11"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 11
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 12"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 12
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 13"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 13
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 14"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 14
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 15"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 15
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 16"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 16
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 17"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 17
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 18"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 18
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 19"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 19
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 20"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 20
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="ant-transfer-actions"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+                    disabled=""
+                    type="button"
+                  >
+                    <span
+                      class="ant-btn-icon"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+                    disabled=""
+                    type="button"
+                  >
+                    <span
+                      class="ant-btn-icon"
+                    >
+                      <span
+                        aria-label="left"
+                        class="anticon anticon-left"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="left"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-transfer-section"
+                >
+                  <div
+                    class="ant-transfer-list-header"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                    >
+                      <span
+                        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          disabled=""
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-dropdown-trigger"
+                      disabled=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-transfer-list-header-selected"
+                    >
+                      3
+                      <!-- -->
+                      <!-- -->
+                      items
+                    </span>
+                    <span
+                      class="ant-transfer-list-header-title"
+                    />
+                  </div>
+                  <div
+                    class="ant-transfer-list-body"
+                  >
+                    <ul
+                      class="ant-transfer-list-content"
+                    >
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 2"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 2
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 4"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 4
+                        </span>
+                      </li>
+                      <li
+                        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+                        title="Content 6"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                          >
+                            <input
+                              class="ant-checkbox-input"
+                              disabled=""
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                        <span
+                          class="ant-transfer-list-content-item-text"
+                        >
+                          Content 6
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            title="Tree"
+          >
+            Tree
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-tree ant-tree-icon-hide ant-tree-disabled css-var-test-id"
+              >
+                <div>
+                  <input
+                    aria-label="for screen reader"
+                    disabled=""
+                    style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                    tabindex="0"
+                    value=""
+                  />
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="ant-tree-treenode"
+                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+                >
+                  <div
+                    class="ant-tree-indent"
+                  >
+                    <div
+                      class="ant-tree-indent-unit"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tree-list"
+                  role="tree"
+                  style="position:relative"
+                >
+                  <div
+                    class="ant-tree-list-holder"
+                  >
+                    <div>
+                      <div
+                        class="ant-tree-list-holder-inner"
+                        style="display:flex;flex-direction:column"
+                      >
+                        <div
+                          aria-expanded="true"
+                          class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-tree-indent"
+                          />
+                          <span
+                            class="ant-tree-switcher ant-tree-switcher_open"
+                          >
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-tree-switcher-icon"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <span
+                            aria-checked="mixed"
+                            aria-disabled="true"
+                            aria-label="Select Parent 1"
+                            class="ant-tree-checkbox ant-tree-checkbox-indeterminate ant-tree-checkbox-disabled"
+                            role="checkbox"
+                          >
+                            <span
+                              class="ant-tree-checkbox-inner"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                            title="Parent 1"
+                          >
+                            <span
+                              class="ant-tree-title"
+                            >
+                              Parent 1
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="false"
+                          class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-tree-indent"
+                          >
+                            <span
+                              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-switcher ant-tree-switcher_close"
+                          >
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-tree-switcher-icon"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <span
+                            aria-checked="true"
+                            aria-disabled="true"
+                            aria-label="Select Child 1-1"
+                            class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
+                            role="checkbox"
+                          >
+                            <span
+                              class="ant-tree-checkbox-inner"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+                            title="Child 1-1"
+                          >
+                            <span
+                              class="ant-tree-title"
+                            >
+                              Child 1-1
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="false"
+                          class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-tree-indent"
+                          >
+                            <span
+                              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-switcher ant-tree-switcher-noop"
+                          />
+                          <span
+                            aria-checked="false"
+                            aria-disabled="true"
+                            aria-label="Select Child 1-2"
+                            class="ant-tree-checkbox ant-tree-checkbox-disabled"
+                            role="checkbox"
+                          >
+                            <span
+                              class="ant-tree-checkbox-inner"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                            title="Child 1-2"
+                          >
+                            <span
+                              class="ant-tree-title"
+                            >
+                              Child 1-2
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="true"
+                          class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-tree-indent"
+                          />
+                          <span
+                            class="ant-tree-switcher ant-tree-switcher_open"
+                          >
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-tree-switcher-icon"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <span
+                            aria-checked="true"
+                            aria-disabled="true"
+                            aria-label="Select Parent 2"
+                            class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
+                            role="checkbox"
+                          >
+                            <span
+                              class="ant-tree-checkbox-inner"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                            title="Parent 2"
+                          >
+                            <span
+                              class="ant-tree-title"
+                            >
+                              Parent 2
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="false"
+                          class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-tree-indent"
+                          >
+                            <span
+                              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-switcher ant-tree-switcher-noop"
+                          />
+                          <span
+                            aria-checked="true"
+                            aria-disabled="true"
+                            aria-label="Select Child 2-1"
+                            class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
+                            role="checkbox"
+                          >
+                            <span
+                              class="ant-tree-checkbox-inner"
+                            />
+                          </span>
+                          <span
+                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                            title="Child 2-1"
+                          >
+                            <span
+                              class="ant-tree-title"
+                            >
+                              Child 2-1
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>,
 ]
 `;
@@ -3159,7 +4361,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3195,7 +4397,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3231,7 +4433,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3268,7 +4470,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3304,7 +4506,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3340,7 +4542,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3377,7 +4579,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3426,7 +4628,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3475,7 +4677,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3525,7 +4727,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3570,7 +4772,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3615,7 +4817,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3670,7 +4872,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3760,7 +4962,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3798,7 +5000,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3852,7 +5054,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -3937,7 +5139,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
         class="ant-card-body"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -3974,7 +5176,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
           </div>
         </div>
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row css-var-test-id"
@@ -4044,7 +5246,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4069,7 +5271,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item css-var-test-id ant-form-css-var"
+              class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
             >
               <div
                 class="ant-row ant-form-item-row css-var-test-id"
@@ -4128,7 +5330,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4165,7 +5367,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4204,7 +5406,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4242,7 +5444,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4282,7 +5484,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4319,7 +5521,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4357,7 +5559,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4412,7 +5614,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4493,7 +5695,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4531,7 +5733,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4605,7 +5807,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
   id="form_item_path"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4642,7 +5844,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4679,7 +5881,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4734,7 +5936,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4830,7 +6032,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4867,7 +6069,7 @@ Array [
     id="global_state"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -4931,7 +6133,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
   id="horizontal_login"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -4986,7 +6188,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5041,7 +6243,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5079,7 +6281,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5120,7 +6322,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5200,7 +6402,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5238,7 +6440,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   <input
                     checked=""
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="layout"
                     type="radio"
                     value="horizontal"
                   />
@@ -5260,7 +6462,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="layout"
                     type="radio"
                     value="vertical"
                   />
@@ -5282,7 +6484,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="layout"
                     type="radio"
                     value="inline"
                   />
@@ -5303,7 +6505,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5339,7 +6541,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5375,7 +6577,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5412,7 +6614,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5452,7 +6654,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5492,7 +6694,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5531,7 +6733,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5579,7 +6781,7 @@ Array [
     id="layout-multiple-horizontal"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5623,7 +6825,7 @@ Array [
         class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-24 ant-form-item-label css-var-test-id"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class="ant-form-item-required"
@@ -5634,7 +6836,7 @@ Array [
           </label>
         </div>
         <div
-          class="ant-col ant-col-24 ant-form-item-control css-var-test-id"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -5654,20 +6856,61 @@ Array [
         </div>
       </div>
     </div>
-  </form>,
-  <br />,
-  <form
-    class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
-    id="layout-multiple-vertical"
-  >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+          class="ant-col ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal_vertical2"
+            title="vertical2"
+          >
+            vertical2
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="layout-multiple-horizontal_vertical2"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />,
+  <form
+    class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
+    id="layout-multiple-vertical"
+  >
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class="ant-form-item-required"
@@ -5678,7 +6921,7 @@ Array [
           </label>
         </div>
         <div
-          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -5690,6 +6933,44 @@ Array [
                 aria-required="true"
                 class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                 id="layout-multiple-vertical_vertical"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical_vertical2"
+            title="vertical2"
+          >
+            vertical2
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="layout-multiple-vertical_vertical2"
                 type="text"
                 value=""
               />
@@ -5747,7 +7028,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
   style="max-width:360px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5802,7 +7083,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5857,7 +7138,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5908,7 +7189,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5951,7 +7232,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -5989,7 +7270,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6026,7 +7307,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6131,7 +7412,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6168,7 +7449,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6203,7 +7484,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6239,7 +7520,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6276,7 +7557,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6327,7 +7608,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6365,7 +7646,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6434,7 +7715,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6503,7 +7784,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6565,7 +7846,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6689,7 +7970,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6805,7 +8086,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -6986,7 +8267,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7053,7 +8334,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7104,7 +8385,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7200,7 +8481,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7269,7 +8550,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7315,7 +8596,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7350,7 +8631,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
   class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7393,7 +8674,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="requiredMarkValue"
                     type="radio"
                     value="true"
                   />
@@ -7416,7 +8697,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   <input
                     checked=""
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="requiredMarkValue"
                     type="radio"
                     value="optional"
                   />
@@ -7438,7 +8719,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="requiredMarkValue"
                     type="radio"
                     value="false"
                   />
@@ -7460,7 +8741,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="requiredMarkValue"
                     type="radio"
                     value="customize"
                   />
@@ -7481,7 +8762,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7541,7 +8822,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7607,7 +8888,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7643,7 +8924,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7680,7 +8961,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="size"
                     type="radio"
                     value="small"
                   />
@@ -7703,7 +8984,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   <input
                     checked=""
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="size"
                     type="radio"
                     value="default"
                   />
@@ -7725,7 +9006,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="size"
                     type="radio"
                     value="large"
                   />
@@ -7746,7 +9027,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7781,7 +9062,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7872,7 +9153,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -7963,7 +9244,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8054,7 +9335,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8122,7 +9403,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8225,7 +9506,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8275,7 +9556,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8315,6 +9596,284 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
 </form>
 `;
 
+exports[`renders components/form/demo/style-class.tsx correctly 1`] = `
+Array [
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var acss-1u5ihmq"
+  >
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="username"
+            style="text-align:right;color:#333;font-weight:500"
+            title="Username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left:12px"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="username"
+                placeholder="Please enter username"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="email"
+            style="text-align:right;color:#333;font-weight:500"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left:12px"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="email"
+                placeholder="Please enter email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-20 ant-col-offset-4 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left:12px"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+              >
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                    type="submit"
+                  >
+                    <span>
+                      Submit
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    type="reset"
+                  >
+                    <span>
+                      reset
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var acss-1u5ihmq"
+    style="border:1px solid #1677FF"
+  >
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="username"
+            style="text-align:right;color:#1677FF"
+            title="Username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left:12px"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
+                id="username"
+                placeholder="Please enter username"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
+        >
+          <label
+            class="ant-form-item-required"
+            for="email"
+            style="text-align:right;color:#1677FF"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left:12px"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
+                id="email"
+                placeholder="Please enter email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-col-20 ant-col-offset-4 ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+              style="padding-left:12px"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+              >
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                    type="submit"
+                  >
+                    <span>
+                      Submit
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    type="reset"
+                  >
+                    <span>
+                      reset
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+]
+`;
+
 exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var"
@@ -8322,7 +9881,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8393,7 +9952,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8464,7 +10023,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8535,7 +10094,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8652,7 +10211,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8769,7 +10328,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8843,7 +10402,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -8880,7 +10439,7 @@ Array [
     class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -8917,7 +10476,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -9030,6 +10589,8 @@ Array [
     </pre>
     <pre>
       Custom Value: 
+      <!-- -->
+      name: 
     </pre>
   </article>,
 ]
@@ -9042,7 +10603,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
   id="validateOnly"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9080,7 +10641,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9118,7 +10679,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9176,7 +10737,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9211,7 +10772,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9307,7 +10868,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9418,7 +10979,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9531,7 +11092,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9583,7 +11144,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9706,7 +11267,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9743,7 +11304,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-input"
-                    name="test-id"
+                    name="radio-group"
                     type="radio"
                     value="a"
                   />
@@ -9765,7 +11326,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-input"
-                    name="test-id"
+                    name="radio-group"
                     type="radio"
                     value="b"
                   />
@@ -9787,7 +11348,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-input"
-                    name="test-id"
+                    name="radio-group"
                     type="radio"
                     value="c"
                   />
@@ -9808,7 +11369,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -9846,7 +11407,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="radio-button"
                     type="radio"
                     value="a"
                   />
@@ -9868,7 +11429,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="radio-button"
                     type="radio"
                     value="b"
                   />
@@ -9890,7 +11451,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="radio-button"
                     type="radio"
                     value="c"
                   />
@@ -9911,7 +11472,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10110,7 +11671,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10136,7 +11697,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <ul
-              class="ant-rate css-var-test-id"
+              class="ant-rate ant-rate-middle css-var-test-id"
               id="validate_other_rate"
               tabindex="0"
             >
@@ -10437,7 +11998,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10532,7 +12093,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10623,7 +12184,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10664,7 +12225,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10720,7 +12281,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
   style="padding-block:32px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10748,7 +12309,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10786,7 +12347,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10878,7 +12439,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10914,7 +12475,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10951,7 +12512,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -10999,7 +12560,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11036,7 +12597,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-warning"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11100,7 +12661,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11168,7 +12729,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11236,7 +12797,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11304,7 +12865,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11373,7 +12934,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11465,7 +13026,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11560,7 +13121,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11698,7 +13259,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11815,7 +13376,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -11932,7 +13493,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12048,7 +13609,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     style="margin-bottom:0"
   >
     <div
@@ -12074,7 +13635,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+              class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
               style="display:inline-block;width:calc(50% - 12px)"
             >
               <div
@@ -12138,7 +13699,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               -
             </span>
             <div
-              class="ant-form-item css-var-test-id ant-form-css-var"
+              class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
               style="display:inline-block;width:calc(50% - 12px)"
             >
               <div
@@ -12202,7 +13763,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12337,7 +13898,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12430,7 +13991,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12520,7 +14081,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12637,7 +14198,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12744,7 +14305,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12851,7 +14412,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -12958,7 +14519,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13028,7 +14589,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13154,7 +14715,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13199,7 +14760,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13244,7 +14805,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13297,7 +14858,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13409,7 +14970,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13447,7 +15008,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13554,7 +15115,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13590,7 +15151,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13631,7 +15192,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13725,7 +15286,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13819,7 +15380,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13913,7 +15474,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -13984,7 +15545,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -14101,7 +15662,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -14137,7 +15698,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
   class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -14176,7 +15737,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -14232,7 +15793,7 @@ exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"

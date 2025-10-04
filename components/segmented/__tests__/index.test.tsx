@@ -3,8 +3,8 @@ import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
-import type { SegmentedValue } from '../index';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
+import type { SegmentedProps, SegmentedValue } from '../index';
 import Segmented from '../index';
 
 // Make CSSMotion working without transition
@@ -201,6 +201,108 @@ describe('Segmented', () => {
 
     expect(container.querySelector('.mock-cls')).toBeTruthy();
     expect(container.querySelector('[data-test-id]')).toHaveAttribute('data-test-id', 'hello');
+  });
+
+  it('support function classNames and styles', () => {
+    const fnClassNames = (info: { props: SegmentedProps }) => {
+      const { value, options: currentOptions = [] } = info.props;
+      const [firstOption] = currentOptions as { value: SegmentedValue }[];
+      const isFirst = firstOption.value === value;
+
+      return {
+        root: isFirst ? 'test-segmented-root-first' : 'test-segmented-root',
+        item: 'test-segmented-item',
+        label: 'test-segmented-label',
+        icon: 'test-segmented-icon',
+      };
+    };
+
+    const fnStyles = (info: { props: SegmentedProps }) => {
+      const { value } = info.props;
+      const isGrowth = value === 'growth';
+
+      return {
+        root: {
+          backgroundColor: isGrowth ? 'rgb(246, 255, 237)' : 'rgb(230, 247, 255)',
+        },
+        item: {
+          paddingInline: 24,
+        },
+        label: {
+          fontWeight: 600,
+        },
+        icon: {
+          color: isGrowth ? 'rgb(82, 196, 26)' : 'rgb(24, 144, 255)',
+        },
+      };
+    };
+
+    const options: NonNullable<SegmentedProps['options']> = [
+      { label: 'Growth', value: 'growth', icon: <span className="growth-icon" /> },
+      { label: 'Stable', value: 'stable', icon: <span className="stable-icon" /> },
+    ];
+
+    const { container, rerender } = render(
+      <Segmented options={options} value="growth" classNames={fnClassNames} styles={fnStyles} />,
+    );
+
+    const root = container.querySelector('.ant-segmented');
+    let items = Array.from(container.querySelectorAll('.ant-segmented-item'));
+    let labels = Array.from(container.querySelectorAll('.ant-segmented-item-label'));
+
+    expect(root).toHaveClass('test-segmented-root-first');
+    items.forEach((item) => {
+      expect(item).toHaveClass('test-segmented-item');
+      expect(item).toHaveStyle('padding-inline: 24px');
+    });
+    labels.forEach((label) => {
+      expect(label).toHaveClass('test-segmented-label');
+      expect(label).toHaveStyle('font-weight: 600');
+    });
+    expect(root).toHaveStyle('background-color: rgb(246, 255, 237)');
+    let icon = container.querySelector('.ant-segmented-item-icon');
+    expect(icon).toHaveClass('test-segmented-icon');
+    expect(icon).toHaveStyle('color: rgb(82, 196, 26)');
+
+    const objectClassNames: SegmentedProps['classNames'] = {
+      root: 'test-segmented-root-object',
+      item: 'test-segmented-item-object',
+      label: 'test-segmented-label-object',
+      icon: 'test-segmented-icon-object',
+    };
+
+    const objectStylesRecord: SegmentedProps['styles'] = {
+      root: { backgroundColor: 'rgb(255, 241, 240)' },
+      item: { paddingInline: 16 },
+      label: { fontSize: 18 },
+      icon: { color: 'rgb(250, 84, 28)' },
+    };
+
+    rerender(
+      <Segmented
+        options={options}
+        value="stable"
+        classNames={objectClassNames}
+        styles={objectStylesRecord as SegmentedProps['styles']}
+      />,
+    );
+
+    expect(root).toHaveClass('test-segmented-root-object');
+    items = Array.from(container.querySelectorAll('.ant-segmented-item'));
+    labels = Array.from(container.querySelectorAll('.ant-segmented-item-label'));
+    icon = container.querySelector('.ant-segmented-item-icon');
+
+    items.forEach((item) => {
+      expect(item).toHaveClass('test-segmented-item-object');
+      expect(item).toHaveStyle('padding-inline: 16px');
+    });
+    labels.forEach((label) => {
+      expect(label).toHaveClass('test-segmented-label-object');
+      expect(label).toHaveStyle('font-size: 18px');
+    });
+    expect(root).toHaveStyle('background-color: rgb(255, 241, 240)');
+    expect(icon).toHaveClass('test-segmented-icon-object');
+    expect(icon).toHaveStyle('color: rgb(250, 84, 28)');
   });
 
   it('render segmented with ref', () => {
@@ -412,6 +514,33 @@ describe('Segmented', () => {
         <Segmented orientation="vertical" options={['Daily', 'Weekly', 'Monthly']} />,
       );
       expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).not.toBeNull();
+    });
+  });
+
+  describe('toolTip for optionItem ', () => {
+    it('Configuring tooltip in the options should display the corresponding information', async () => {
+      const { container } = render(
+        <Segmented
+          orientation="vertical"
+          options={[
+            { label: 'Daily', value: 'Daily', tooltip: 'hello Daily' },
+            'Weekly',
+            { label: 'Monthly', value: 'Monthly', tooltip: 'hello Monthly' },
+          ]}
+        />,
+      );
+      const itemList = container.querySelectorAll('.ant-segmented-item');
+      fireEvent.mouseEnter(itemList[0]);
+      fireEvent.mouseEnter(itemList[1]);
+      fireEvent.mouseEnter(itemList[2]);
+      await waitFor(() => {
+        const tooltipList = document.querySelectorAll('.ant-tooltip');
+        expect(tooltipList).toHaveLength(2);
+        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-container');
+        expect(tooltipInnerList).toHaveLength(2);
+        expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
+        expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
+      });
     });
   });
 });

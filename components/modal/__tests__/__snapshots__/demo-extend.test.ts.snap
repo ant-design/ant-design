@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/modal/demo/async.tsx extend context correctly 1`] = `
 <button
@@ -87,7 +87,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -171,7 +171,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -255,7 +255,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -327,7 +327,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -665,6 +665,51 @@ exports[`renders components/modal/demo/manual.tsx extend context correctly 1`] =
 
 exports[`renders components/modal/demo/manual.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/mask.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default blur
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Dimmed mask
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        No mask
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/modal/demo/mask.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/modal-render.tsx extend context correctly 1`] = `
 <button
   class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
@@ -777,7 +822,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -861,7 +906,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -933,7 +978,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -1018,7 +1063,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -1227,6 +1272,31 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
 
 exports[`renders components/modal/demo/static-info.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Open Style Modal
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Function Modal
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/modal/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
@@ -1267,7 +1337,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -1351,7 +1421,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -1423,7 +1493,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"

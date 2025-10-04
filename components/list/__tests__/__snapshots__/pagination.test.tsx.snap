@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`List.pagination pagination button should be displayed normally, when the paginator total is not defined 1`] = `
 <ul
@@ -486,7 +486,7 @@ exports[`List.pagination should change page size work 2`] = `
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up css-var-root ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -495,7 +495,7 @@ exports[`List.pagination should change page size work 2`] = `
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div

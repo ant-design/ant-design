@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/grid/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -643,7 +643,7 @@ Array [
     </div>
     <div
       class="ant-col css-var-test-id"
-      style="flex-basis: auto;"
+      style="flex: 1 1 auto;"
     >
       Fill Rest
     </div>
@@ -695,7 +695,7 @@ Array [
     </div>
     <div
       class="ant-col css-var-test-id"
-      style="flex-basis: auto; min-width: 0;"
+      style="flex: 1 1 auto; min-width: 0;"
     >
       auto with no-wrap
     </div>
@@ -930,6 +930,67 @@ Array [
       </div>
     </div>
   </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Gutter(string)
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-row css-var-test-id"
+    style="margin-inline: calc(2rem / -2);"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: calc(2rem / 2);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: calc(2rem / 2);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: calc(2rem / 2);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: calc(2rem / 2);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -1038,23 +1099,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            16
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          16
         </div>
       </div>
       <div
@@ -1156,23 +1217,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            16
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          16
         </div>
       </div>
       <div
@@ -1274,23 +1335,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            4
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          4
         </div>
       </div>
       <div

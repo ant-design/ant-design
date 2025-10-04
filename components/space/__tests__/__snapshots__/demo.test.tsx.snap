@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/space/demo/align.tsx correctly 1`] = `
 <div
@@ -1415,7 +1415,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var ant-input-compact-item"
         disabled=""
         placeholder="~"
-        style="width:30px;border-left:0;border-right:0;pointer-events:none"
+        style="width:30px;border-inline-start:0;border-inline-end:0;pointer-events:none"
         type="text"
         value=""
       />
@@ -4760,6 +4760,108 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`renders components/space/demo/style-class.tsx correctly 1`] = `
+<div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id demo-space-root"
+    style="border-width:2px;border-style:dashed;padding:8px;margin-bottom:10px"
+  >
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color:#f0f0f0;padding:4px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 1
+        </span>
+      </button>
+    </div>
+    <span
+      class="ant-space-item-separator demo-space-separator"
+      style="color:red;font-weight:bold"
+    >
+      •
+    </span>
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color:#f0f0f0;padding:4px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 2
+        </span>
+      </button>
+    </div>
+    <span
+      class="ant-space-item-separator demo-space-separator"
+      style="color:red;font-weight:bold"
+    >
+      •
+    </span>
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color:#f0f0f0;padding:4px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id demo-space-root--horizontal"
+    style="background-color:#e6f7ff;border-color:#1890ff;padding:8px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 1
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 2
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders components/space/demo/vertical.tsx correctly 1`] = `

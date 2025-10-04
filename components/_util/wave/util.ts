@@ -8,7 +8,8 @@ export function isValidWaveColor(
     color !== 'rgb(255, 255, 255)' &&
     color !== 'rgba(255, 255, 255, 1)' &&
     !/rgba\((?:\d*, ){3}0\)/.test(color) && // any transparent rgba color
-    color !== 'transparent') as boolean;
+    color !== 'transparent' &&
+    color !== 'canvastext') as boolean;
 }
 
 export function getTargetWaveColor(
@@ -22,15 +23,5 @@ export function getTargetWaveColor(
     return style[colorSource];
   }
 
-  if (isValidWaveColor(borderTopColor)) {
-    return borderTopColor;
-  }
-  if (isValidWaveColor(borderColor)) {
-    return borderColor;
-  }
-
-  if (isValidWaveColor(backgroundColor)) {
-    return backgroundColor;
-  }
-  return null;
+  return [borderTopColor, borderColor, backgroundColor].find(isValidWaveColor) ?? null;
 }

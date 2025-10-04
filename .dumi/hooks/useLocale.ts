@@ -16,7 +16,7 @@ const useLocale = <
 ): [Record<K, V>, 'cn' | 'en'] => {
   const { id } = useDumiLocale();
   const localeType = id === 'zh-CN' ? 'cn' : 'en';
-  return [localeMap?.[localeType]!, localeType] as const;
+  return [localeMap?.[localeType] ?? ({} as Record<K, V>), localeType] as const;
 };
 
 export default useLocale;

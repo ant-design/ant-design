@@ -111,15 +111,16 @@ describe('Splitter', () => {
     function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
       // Down
       const downEvent = createEvent.mouseDown(draggerEle);
-      (downEvent as any).pageX = 0;
-      (downEvent as any).pageY = 0;
+      Object.defineProperty(downEvent, 'pageX', { value: 0 });
+      Object.defineProperty(downEvent, 'pageY', { value: 0 });
 
       fireEvent(draggerEle, downEvent);
 
       // Move
       const moveEvent = createEvent.mouseMove(draggerEle);
-      (moveEvent as any).pageX = offset;
-      (moveEvent as any).pageY = offset;
+      Object.defineProperty(moveEvent, 'pageX', { value: offset });
+      Object.defineProperty(moveEvent, 'pageY', { value: offset });
+
       fireEvent(draggerEle, moveEvent);
 
       // mask should exist
@@ -136,16 +137,14 @@ describe('Splitter', () => {
       const touchStart = createEvent.touchStart(draggerEle, {
         touches: [{}],
       });
-      (touchStart as any).touches[0].pageX = 0;
-      (touchStart as any).touches[0].pageY = 0;
+      Object.defineProperty(touchStart, 'touches', { value: [{ pageX: 0, pageY: 0 }] });
       fireEvent(draggerEle, touchStart);
 
       // Move
       const touchMove = createEvent.touchMove(draggerEle, {
         touches: [{}],
       });
-      (touchMove as any).touches[0].pageX = offset;
-      (touchMove as any).touches[0].pageY = offset;
+      Object.defineProperty(touchMove, 'touches', { value: [{ pageX: offset, pageY: offset }] });
       fireEvent(draggerEle, touchMove);
 
       // Up
@@ -225,6 +224,7 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 100);
+
       expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
     });
@@ -453,6 +453,218 @@ describe('Splitter', () => {
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
       expect(onResize).toHaveBeenCalledWith([40, 0, 60]);
       expect(onResizeEnd).toHaveBeenCalledWith([40, 0, 60]);
+    });
+
+    it('collapsible - showCollapsibleIcon:true', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(2);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: false,
+                showCollapsibleIcon: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(1);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+          ]}
+        />,
+      );
+      await resizeSplitter();
+
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(4);
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-start')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(3);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-end')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-start')).toHaveLength(1);
+
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-start')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-end')).toHaveLength(1);
+
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(4);
+    });
+
+    it('collapsible - showCollapsibleIcon:false', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-hidden'),
+      ).toHaveLength(2);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+            {
+              size: 0,
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-hidden'),
+      ).toHaveLength(2);
+    });
+
+    it('collapsible - showCollapsibleIcon:auto', async () => {
+      // Default: auto
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: true,
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        2,
+      );
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        1,
+      );
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: 'auto',
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        2,
+      );
     });
 
     it('both collapsible', async () => {
@@ -759,6 +971,119 @@ describe('Splitter', () => {
           'Warning: [antd: Splitter] `layout` is deprecated. Please use `orientation` instead.',
         );
       }
+    });
+  });
+
+  describe('Semantic classNames and styles as function', () => {
+    it('should support classNames as function', async () => {
+      const classNamesFn = jest.fn(({ props }) => ({
+        root: `custom-root-${props.orientation}`,
+        panel: 'custom-panel',
+        dragger: 'custom-dragger',
+      }));
+
+      const { container } = render(
+        <SplitterDemo orientation="horizontal" classNames={classNamesFn} items={[{}, {}]} />,
+      );
+
+      await resizeSplitter();
+
+      expect(classNamesFn).toHaveBeenCalledWith({
+        props: expect.objectContaining({
+          orientation: 'horizontal',
+        }),
+      });
+
+      const splitterElement = container.querySelector('.ant-splitter');
+      expect(splitterElement).toHaveClass('custom-root-horizontal');
+
+      const panelElements = container.querySelectorAll('.ant-splitter-panel');
+      panelElements.forEach((panel) => {
+        expect(panel).toHaveClass('custom-panel');
+      });
+
+      const draggerElement = container.querySelector('.ant-splitter-bar-dragger');
+      expect(draggerElement).toHaveClass('custom-dragger');
+    });
+
+    it('should support styles as function', async () => {
+      const stylesFn = jest.fn(({ props }) => ({
+        root: { backgroundColor: props.orientation === 'horizontal' ? 'red' : 'blue' },
+        panel: { padding: '10px' },
+        dragger: { width: '8px' },
+      }));
+
+      const { container } = render(
+        <SplitterDemo orientation="vertical" styles={stylesFn} items={[{}, {}]} />,
+      );
+
+      await resizeSplitter();
+
+      expect(stylesFn).toHaveBeenCalledWith({
+        props: expect.objectContaining({
+          orientation: 'vertical',
+        }),
+      });
+
+      const splitterElement = container.querySelector('.ant-splitter') as HTMLElement;
+      expect(splitterElement.style.backgroundColor).toBe('blue');
+
+      const panelElements = container.querySelectorAll('.ant-splitter-panel');
+      panelElements.forEach((panel) => {
+        expect((panel as HTMLElement).style.padding).toBe('10px');
+      });
+
+      const draggerElement = container.querySelector('.ant-splitter-bar-dragger') as HTMLElement;
+      expect(draggerElement.style.width).toBe('8px');
+    });
+
+    it('should support both function and object classNames/styles', async () => {
+      const classNamesFn = jest.fn(() => ({
+        root: 'fn-root',
+        panel: 'fn-panel',
+      }));
+
+      const stylesFn = jest.fn(() => ({
+        root: { color: 'red' },
+        panel: { margin: '5px' },
+      }));
+
+      const { container } = render(
+        <SplitterDemo classNames={classNamesFn} styles={stylesFn} items={[{}, {}]} />,
+      );
+
+      await resizeSplitter();
+
+      expect(classNamesFn).toHaveBeenCalled();
+      expect(stylesFn).toHaveBeenCalled();
+
+      const splitterElement = container.querySelector('.ant-splitter') as HTMLElement;
+      expect(splitterElement).toHaveClass('fn-root');
+      expect(splitterElement.style.color).toBe('red');
+
+      const panelElements = container.querySelectorAll('.ant-splitter-panel');
+      panelElements.forEach((panel) => {
+        expect(panel).toHaveClass('fn-panel');
+        expect((panel as HTMLElement).style.margin).toBe('5px');
+      });
+    });
+
+    it('should work with complex dragger classNames as function', async () => {
+      const classNamesFn = jest.fn(() => ({
+        dragger: {
+          default: 'custom-dragger-default',
+          active: 'custom-dragger-active',
+        },
+      }));
+
+      const { container } = render(<SplitterDemo classNames={classNamesFn} items={[{}, {}]} />);
+
+      await resizeSplitter();
+
+      expect(classNamesFn).toHaveBeenCalled();
+
+      const draggerElement = container.querySelector('.ant-splitter-bar-dragger');
+      expect(draggerElement).toHaveClass('custom-dragger-default');
     });
   });
 });

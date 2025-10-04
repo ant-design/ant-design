@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   browserMockup: css`
     position: relative;
     border-top: 2em solid rgba(230, 230, 230, 0.7);
-    border-radius: ${token.borderRadiusSM}px ${token.borderRadiusSM}px 0 0;
+    border-radius: ${cssVar.borderRadiusSM} ${cssVar.borderRadiusSM} 0 0;
     box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.28);
     &::before {
       position: absolute;
@@ -31,10 +31,19 @@ const useStyle = createStyles(({ token, css }) => ({
       width: calc(100% - 6em);
       height: 1.2em;
       background-color: #fff;
-      border-radius: ${token.borderRadiusSM}px;
+      border-radius: ${cssVar.borderRadiusSM};
     }
     & > * {
       display: block;
+    }
+    [data-prefers-color='dark'] & {
+      border-top: 2em solid rgba(80, 80, 80, 0.7);
+      box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.6);
+      background-color: #000; /* 可选 */
+
+      &::after {
+        background-color: #333;
+      }
     }
   `,
 }));

@@ -49,9 +49,6 @@ export interface Locale {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
   };
-  Image?: {
-    preview: string;
-  };
   QRCode?: {
     expired?: string;
     refresh?: string;

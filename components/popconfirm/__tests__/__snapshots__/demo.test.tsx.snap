@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 <button
@@ -256,79 +256,75 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
-            <div
-              class="ant-popconfirm-message"
+            <span
+              class="ant-popconfirm-message-icon"
             >
               <span
-                class="ant-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
               <div
-                class="ant-popconfirm-message-text"
+                class="ant-popconfirm-title"
               >
-                <div
-                  class="ant-popconfirm-title"
-                >
-                  Are you OK?
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Does this look good?
-                </div>
+                Are you OK?
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Does this look good?
               </div>
             </div>
-            <div
-              class="ant-popconfirm-buttons"
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -342,80 +338,76 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width:250px"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
-            <div
-              class="ant-popconfirm-message"
+            <span
+              class="ant-popconfirm-message-icon"
             >
               <span
-                class="ant-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
               <div
-                class="ant-popconfirm-message-text"
+                class="ant-popconfirm-title"
               >
-                <div
-                  class="ant-popconfirm-title"
-                >
-                  Are you OK?
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Does this look good?
-                </div>
+                Are you OK?
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Does this look good?
               </div>
             </div>
-            <div
-              class="ant-popconfirm-buttons"
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -428,51 +420,47 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
             <div
-              class="ant-popconfirm-message"
+              class="ant-popconfirm-message-text"
             >
               <div
-                class="ant-popconfirm-message-text"
+                class="ant-popconfirm-title"
               >
-                <div
-                  class="ant-popconfirm-title"
-                >
-                  Are you OK?
-                </div>
+                Are you OK?
               </div>
             </div>
-            <div
-              class="ant-popconfirm-buttons"
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -485,56 +473,52 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
             <div
-              class="ant-popconfirm-message"
+              class="ant-popconfirm-message-text"
             >
               <div
-                class="ant-popconfirm-message-text"
+                class="ant-popconfirm-title"
               >
-                <div
-                  class="ant-popconfirm-title"
-                >
-                  Are you OK?
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Does this look good?
-                </div>
+                Are you OK?
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Does this look good?
               </div>
             </div>
-            <div
-              class="ant-popconfirm-buttons"
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -640,6 +624,31 @@ exports[`renders components/popconfirm/demo/shift.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/popconfirm/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders components/popconfirm/demo/wireframe.tsx correctly 1`] = `
 Array [
   <div
@@ -649,74 +658,70 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
-            <div
-              class="ant-popconfirm-message"
+            <span
+              class="ant-popconfirm-message-icon"
             >
               <span
-                class="ant-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
               <div
-                class="ant-popconfirm-message-text"
+                class="ant-popconfirm-title"
               >
-                <div
-                  class="ant-popconfirm-title"
-                >
-                  Are you OK?
-                </div>
+                Are you OK?
               </div>
             </div>
-            <div
-              class="ant-popconfirm-buttons"
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -730,75 +735,71 @@ Array [
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width:250px"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-popconfirm-inner-content"
         >
           <div
-            class="ant-popconfirm-inner-content"
+            class="ant-popconfirm-message"
           >
-            <div
-              class="ant-popconfirm-message"
+            <span
+              class="ant-popconfirm-message-icon"
             >
               <span
-                class="ant-popconfirm-message-icon"
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
               </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
               <div
-                class="ant-popconfirm-message-text"
+                class="ant-popconfirm-title"
               >
-                <div
-                  class="ant-popconfirm-title"
-                >
-                  Are you OK?
-                </div>
+                Are you OK?
               </div>
             </div>
-            <div
-              class="ant-popconfirm-buttons"
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+              type="button"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import CSSMotion from '@rc-component/motion';
 import raf from '@rc-component/util/lib/raf';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
 import { unstableSetRender } from '../../config-provider/UnstableContext';
@@ -65,8 +65,8 @@ const WaveEffect = (props: WaveEffectProps) => {
 
     // Rect
     const { borderLeftWidth, borderTopWidth } = nodeStyle;
-    setLeft(isStatic ? target.offsetLeft : validateNum(-parseFloat(borderLeftWidth)));
-    setTop(isStatic ? target.offsetTop : validateNum(-parseFloat(borderTopWidth)));
+    setLeft(isStatic ? target.offsetLeft : validateNum(-Number.parseFloat(borderLeftWidth)));
+    setTop(isStatic ? target.offsetTop : validateNum(-Number.parseFloat(borderTopWidth)));
     setWidth(target.offsetWidth);
     setHeight(target.offsetHeight);
 
@@ -84,7 +84,7 @@ const WaveEffect = (props: WaveEffectProps) => {
         borderTopRightRadius,
         borderBottomRightRadius,
         borderBottomLeftRadius,
-      ].map((radius) => validateNum(parseFloat(radius))),
+      ].map((radius) => validateNum(Number.parseFloat(radius))),
     );
   }
 
@@ -139,7 +139,7 @@ const WaveEffect = (props: WaveEffectProps) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={composeRef(divRef, ref)}
-          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
+          className={clsx(className, motionClassName, { 'wave-quick': isSmallComponent })}
           style={waveStyle}
         />
       )}

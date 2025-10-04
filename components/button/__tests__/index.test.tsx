@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
@@ -11,6 +11,8 @@ import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
 import type { BaseButtonProps } from '../button';
+
+const { resetWarned } = warning;
 
 describe('Button', () => {
   mountTest(Button);
@@ -174,7 +176,11 @@ describe('Button', () => {
 
   it('should support custom icon styles', () => {
     const { container } = render(
-      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+      <Button
+        type="primary"
+        icon={<SearchOutlined />}
+        styles={{ icon: { color: 'rgb(255, 0, 0)' } }}
+      />,
     );
     expect(container).toMatchSnapshot();
   });
@@ -516,7 +522,7 @@ describe('Button', () => {
 
   it('should support classnames and styles', () => {
     const cusomStyles = {
-      root: { color: 'red' },
+      root: { color: 'rgb(255, 0, 0)' },
       icon: { background: 'blue' },
       content: { fontSize: '20px' },
     };
@@ -605,6 +611,15 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('ant-btn-color-blue');
   });
 
+  it('ConfigProvider support button shape', () => {
+    const { container } = render(
+      <ConfigProvider button={{ shape: 'round' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+    expect(container.firstChild).toHaveClass('ant-btn-round');
+  });
+
   it('should show the component internal properties', () => {
     const { container } = render(
       <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
@@ -629,5 +644,45 @@ describe('Button', () => {
 
     expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
     expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
+  });
+
+  describe('Button icon placement', () => {
+    let consoleWarnSpy: jest.SpyInstance;
+    beforeEach(() => {
+      consoleWarnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+    afterEach(() => {
+      consoleWarnSpy.mockRestore();
+    });
+    it('should use iconPlacement when provided ,and not log a deprecation with iconPosition', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Button iconPlacement="end">Test</Button>);
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+      expect(consoleWarnSpy).not.toHaveBeenCalled();
+    });
+
+    it('should fall back to iconPosition when iconPlacement is not provided and should log a deprecation', () => {
+      const { container } = render(<Button iconPosition="end">Test</Button>);
+      render(<Button iconPosition="end">Test</Button>);
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Button] `iconPosition` is deprecated. Please use `iconPlacement` instead.',
+      );
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+    });
+
+    it('should use default "start" when neither prop is provided', () => {
+      const { container } = render(<Button>Test</Button>);
+      expect(container.querySelector('.ant-btn-icon-start')).toBeNull();
+      expect(container.querySelector('.ant-btn-icon-end')).toBeNull();
+    });
+
+    it('should prioritize iconPlacement over iconPosition when both are provided', () => {
+      const { container } = render(
+        <Button iconPosition="start" iconPlacement="end">
+          Test
+        </Button>,
+      );
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+    });
   });
 });

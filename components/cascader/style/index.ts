@@ -109,4 +109,8 @@ export const prepareComponentToken = (token: GlobalToken) => {
   };
 };
 
-export default genStyleHooks('Cascader', (token) => [genBaseStyle(token)], prepareComponentToken);
+export default genStyleHooks('Cascader', genBaseStyle, prepareComponentToken, {
+  unitless: {
+    optionSelectedFontWeight: true,
+  },
+});

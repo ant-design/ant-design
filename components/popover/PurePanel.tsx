@@ -1,9 +1,15 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Popup } from '@rc-component/tooltip';
+import { clsx } from 'clsx';
 
-import type { PopoverProps } from '.';
+import type {
+  PopoverClassNamesType,
+  PopoverProps,
+  PopoverSemanticName,
+  PopoverStylesType,
+} from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -11,16 +17,33 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
+  classNames?: Partial<Record<PopoverSemanticName, string>>;
+  styles?: Partial<Record<PopoverSemanticName, React.CSSProperties>>;
 }
 
-export const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
+export const Overlay: React.FC<OverlayProps> = ({
+  title,
+  content,
+  prefixCls,
+  classNames,
+  styles,
+}) => {
   if (!title && !content) {
     return null;
   }
+
   return (
     <>
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      {content && <div className={`${prefixCls}-inner-content`}>{content}</div>}
+      {title && (
+        <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
+          {title}
+        </div>
+      )}
+      {content && (
+        <div className={clsx(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
+          {content}
+        </div>
+      )}
     </>
   );
 };
@@ -43,12 +66,27 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
     title,
     content,
     children,
+    classNames,
+    styles,
   } = props;
 
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  const cls = classNames(
+  const mergedProps: PopoverProps = {
+    ...props,
+    placement,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopoverClassNamesType,
+    PopoverStylesType,
+    PopoverProps
+  >([classNames], [styles], {
+    props: mergedProps,
+  });
+
+  const rootClassName = clsx(
     hashId,
     prefixCls,
     `${prefixCls}-pure`,
@@ -57,10 +95,24 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
   );
 
   return (
-    <div className={cls} style={style}>
+    <div className={rootClassName} style={style}>
       <div className={`${prefixCls}-arrow`} />
-      <Popup {...props} className={hashId} prefixCls={prefixCls}>
-        {children || <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />}
+      <Popup
+        {...props}
+        className={hashId}
+        prefixCls={prefixCls}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
+      >
+        {children || (
+          <Overlay
+            prefixCls={prefixCls}
+            title={titleNode}
+            content={contentNode}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
+          />
+        )}
       </Popup>
     </div>
   );
@@ -71,6 +123,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
+
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   return (
@@ -78,7 +131,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       {...restProps}
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(className, cssVarCls)}
+      className={clsx(className, cssVarCls)}
     />
   );
 };

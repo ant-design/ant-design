@@ -1,11 +1,12 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
-import classnames from 'classnames';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -23,7 +24,11 @@ import StatusCmp from './style/statusCmp';
 export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
-type SemanticName = 'root' | 'icon' | 'content';
+export type TagSemanticName = 'root' | 'icon' | 'content';
+
+export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticName>;
+export type TagStylesType = SemanticStylesType<TagProps, TagSemanticName>;
+
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
@@ -41,8 +46,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TagClassNamesType;
+  styles?: TagStylesType;
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
@@ -55,7 +60,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       children,
       icon,
       color,
-      variant,
+      variant: _variant,
       onClose,
       bordered,
       disabled: customDisabled,
@@ -100,24 +105,31 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     const domProps = omit(restProps, ['closeIcon', 'closable']);
 
+    // =========== Merged Props for Semantic ===========
+    const mergedProps: TagProps = {
+      ...props,
+      color: mergedColor,
+      variant: mergedVariant,
+      disabled: mergedDisabled,
+      href,
+      target,
+      icon,
+    };
+
     // ====================== Styles ======================
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, classNames],
-      [contextStyles, styles],
-    );
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      TagClassNamesType,
+      TagStylesType,
+      TagProps
+    >([contextClassNames, classNames], [contextStyles, styles], {
+      props: mergedProps,
+    });
 
     const tagStyle = React.useMemo(() => {
-      let nextTagStyle: React.CSSProperties = {
-        ...mergedStyles.root,
-        ...contextStyle,
-        ...style,
-      };
+      let nextTagStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
 
       if (!mergedDisabled) {
-        nextTagStyle = {
-          ...customTagStyle,
-          ...nextTagStyle,
-        };
+        nextTagStyle = { ...customTagStyle, ...nextTagStyle };
       }
 
       return nextTagStyle;
@@ -126,7 +138,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls);
 
-    const tagClassName = classnames(
+    const tagClassName = clsx(
       prefixCls,
       contextClassName,
       mergedClassNames.root,
@@ -170,7 +182,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
             originProps?.onClick?.(e);
             handleCloseClick(e);
           },
-          className: classnames(originProps?.className, `${prefixCls}-close-icon`),
+          className: clsx(originProps?.className, `${prefixCls}-close-icon`),
         }));
       },
     });
@@ -181,7 +193,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
-      className: classnames(
+      className: clsx(
         React.isValidElement(icon)
           ? (icon as React.ReactElement<{ className?: string }>).props?.className
           : '',

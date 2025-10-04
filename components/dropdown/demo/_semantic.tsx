@@ -1,24 +1,25 @@
 import React from 'react';
 import { DeleteOutlined, DownOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons';
-import { Dropdown, MenuProps, Space } from 'antd';
+import { Dropdown, Space } from 'antd';
+import type { DropdownProps, MenuProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
-    root: '根元素',
-    itemTitle: '菜单标题',
-    item: '菜单项',
-    itemContent: '菜单项内容',
-    itemIcon: '菜单项图标',
+    root: 'dropdown 的根元素，设置定位、层级和容器样式',
+    itemTitle: 'dropdown 选项的标题内容区域，设置布局和文字样式',
+    item: 'dropdown 的单个选项元素，设置选项的交互状态和背景样式',
+    itemContent: 'dropdown 选项的主要内容区域，设置内容布局和链接样式',
+    itemIcon: 'dropdown 选项的图标区域，设置图标的尺寸和间距样式',
   },
   en: {
-    root: 'Root element',
-    itemTitle: 'Item title element',
-    item: 'Item element',
-    itemContent: 'Item content element',
-    itemIcon: 'Item icon element',
+    root: 'Root element of dropdown, sets positioning, z-index and container styles',
+    itemTitle: 'Title content area of dropdown option, sets layout and text styles',
+    item: 'Individual dropdown option element, sets interaction states and background styles',
+    itemContent: 'Main content area of dropdown option, sets content layout and link styles',
+    itemIcon: 'Icon area of dropdown option, sets icon size and spacing styles',
   },
 };
 
@@ -67,21 +68,16 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const Block: React.FC = (props: any) => {
+const Block: React.FC<Readonly<DropdownProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div style={{ height: 120, position: 'absolute', top: 50 }} ref={divRef}>
       <Dropdown
+        open
         {...props}
         menu={{ items, defaultOpenKeys: ['SubMenu'] }}
-        open
-        styles={{
-          root: {
-            width: 200,
-            zIndex: 1,
-          },
-        }}
-        getPopupContainer={() => divRef.current}
+        styles={{ root: { width: 200, zIndex: 1 } }}
+        getPopupContainer={() => divRef.current!}
       >
         <a onClick={(e) => e.preventDefault()}>
           <Space>

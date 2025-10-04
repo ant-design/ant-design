@@ -15,32 +15,24 @@ Solve most of problems on the same page and avoid a new one, because the page re
 
 ## Overlays
 
-<ImagePreview>
-<img class="preview-img good" alt="good example" description="As the user clicks delete, a success message and an undo button are displayed. When the user does nothing within one minute or click the undo button, the message and the button disappear." src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png">
-<img class="preview-img good" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png">
-<img class="preview-img bad" alt="bad example" description="
+<FlexWithImagePreview justify='space-between' title='Double-confirm overlay: Using the Modal to double confirm should be avoided, while affording an opportunity to undo is preferred.'>
+ <img class="preview-img good" alt="good example" description="As the user clicks delete, a success message and an undo button are displayed. When the user does nothing within one minute or click the undo button, the message and the button disappear." src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png">
+ <img class="preview-img good" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png">
+ <img class="preview-img bad" alt="bad example" description="
 Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user's flow, nor allow the user to undo the change." src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png">
-</ImagePreview>
-
-Double-confirm overlay: Using the Modal to double confirm should be avoided, while affording an opportunity to undo is preferred.
+</FlexWithImagePreview>
 
 <br>
 
-<ImagePreview>
-<img class="preview-img" alt="example of Detail Overlay " description="Click the eye icon to see more information." src="https://gw.alipayobjects.com/zos/rmsportal/yagQVxwdzuXOulzqdxEq.png">
-</ImagePreview>
-
-Detail Overlay: Allows an overlay to present additional information when the user clicks or hovers over a link or section of content.
-
-> Note that when a mouseover event occurs to trigger the Detail Overlay, 0.5-second delay needs to be added, and when the mouse is out, the overlay needs to be closed immediately.
+<FlexWithImagePreview justify='space-between' title='Detail Overlay: Allows an overlay to present additional information when the user clicks or hovers over a link or section of content.' description='Note that when a mouseover event occurs to trigger the Detail Overlay, 0.5-second delay needs to be added, and when the mouse is out, the overlay needs to be closed immediately.'>
+ <img class="preview-img" alt="example of Detail Overlay " description="Click the eye icon to see more information." src="https://gw.alipayobjects.com/zos/rmsportal/yagQVxwdzuXOulzqdxEq.png">
+</FlexWithImagePreview>
 
 <br>
 
-<ImagePreview>
-<img class="preview-img" alt="example of Input Overlay" description="Click the edit icon to trigger the Input Overlay. Click the outside of it to preserve the input and close it." src="https://gw.alipayobjects.com/zos/rmsportal/lLhJKFcaJnIPxFCjvUKY.png">
-</ImagePreview>
-
-Input Overlay: Let the user enter small amounts of text on the overlay.
+<FlexWithImagePreview justify='space-between' title='Input Overlay: Let the user enter small amounts of text on the overlay.'>
+ <img class="preview-img" alt="example of Input Overlay" description="Click the edit icon to trigger the Input Overlay. Click the outside of it to preserve the input and close it." src="https://gw.alipayobjects.com/zos/rmsportal/lLhJKFcaJnIPxFCjvUKY.png">
+</FlexWithImagePreview>
 
 <br>
 
@@ -48,19 +40,15 @@ Input Overlay: Let the user enter small amounts of text on the overlay.
 
 ## Inlays
 
-<ImagePreview>
-<img class="preview-img" alt="example of List Inlay" src="https://gw.alipayobjects.com/zos/rmsportal/TgoEocLVYXfMKzFGwJar.png">
-</ImagePreview>
-
-List Inlay: Works as an effective way to hide detail until needed — while at the same time preserving space on the page for high-level overview information.
+<FlexWithImagePreview justify='space-between' title='List Inlay: Works as an effective way to hide detail until needed — while at the same time preserving space on the page for high-level overview information.'>
+ <img class="preview-img" alt="example of List Inlay" src="https://gw.alipayobjects.com/zos/rmsportal/TgoEocLVYXfMKzFGwJar.png">
+</FlexWithImagePreview>
 
 <br>
 
-<ImagePreview>
-<img class="preview-img" alt="example of Tabs" src="https://gw.alipayobjects.com/zos/rmsportal/CKwQXddFJnJHsyFAifsg.png">
-</ImagePreview>
-
-Tabs: Provides additional panels of information accessible by tab controls.
+<FlexWithImagePreview justify='space-between' title='Tabs: Provides additional panels of information accessible by tab controls.'>
+ <img class="preview-img" alt="example of Tabs" src="https://gw.alipayobjects.com/zos/rmsportal/CKwQXddFJnJHsyFAifsg.png">
+</FlexWithImagePreview>
 
 <br>
 
@@ -80,24 +68,18 @@ It has long been common practice on the Web to turn each step into a separate pa
 
 <br>
 
-<ImagePreview>
-<img class="preview-img" alt="example of Responsive Disclosure" src="https://gw.alipayobjects.com/zos/rmsportal/OIxzAapqoGokUSIuFOWC.png">
-</ImagePreview>
-
-Responsive Disclosure: Make the experience for selecting painless by providing disclosures as quickly as possible, and doing it all in a single-page interface.
+<FlexWithImagePreview justify='space-between' title='Responsive Disclosure: Make the experience for selecting painless by providing disclosures as quickly as possible, and doing it all in a single-page interface.'>
+ <img class="preview-img" alt="example of Responsive Disclosure" src="https://gw.alipayobjects.com/zos/rmsportal/OIxzAapqoGokUSIuFOWC.png">
+</FlexWithImagePreview>
 
 <br>
 
-<ImagePreview>
-<img class="preview-img" alt="example of Configurator Process" src="https://gw.alipayobjects.com/zos/rmsportal/nVgSYAiXfKGMHxkjypPp.png">
-</ImagePreview>
-
-Configurator Process: Provides a configurator that allows users to help them accomplish the task or build their own product.
+<FlexWithImagePreview justify='space-between' title='Configurator Process: Provides a configurator that allows users to help them accomplish the task or build their own product.'>
+ <img class="preview-img" alt="example of Configurator Process" src="https://gw.alipayobjects.com/zos/rmsportal/nVgSYAiXfKGMHxkjypPp.png">
+</FlexWithImagePreview>
 
 <br>
 
-<ImagePreview>
-<img class="preview-img" alt="example of Dialog Overlay Process" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
-</ImagePreview>
-
-Dialog Overlay Process: Any page switch is an interruption to the user's mental flow. In addition, any context switch is a chance for a user to leave the site. But sometimes the step-by-step flow is necessary.
+<FlexWithImagePreview justify='space-between' title="Dialog Overlay Process: Any page switch is an interruption to the user's mental flow. In addition, any context switch is a chance for a user to leave the site. But sometimes the step-by-step flow is necessary.">
+ <img class="preview-img" alt="example of Dialog Overlay Process" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
+</FlexWithImagePreview>

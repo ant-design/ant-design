@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
@@ -15,7 +15,7 @@ const SkeletonInput: React.FC<SkeletonInputProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    classNames: skeletonInputClassNames,
+    classNames,
     rootClassName,
     active,
     block,
@@ -28,14 +28,14 @@ const SkeletonInput: React.FC<SkeletonInputProps> = (props) => {
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-element`,
     {
       [`${prefixCls}-active`]: active,
       [`${prefixCls}-block`]: block,
     },
-    skeletonInputClassNames?.root,
+    classNames?.root,
     className,
     rootClassName,
     hashId,
@@ -46,7 +46,7 @@ const SkeletonInput: React.FC<SkeletonInputProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-input`}
-        className={skeletonInputClassNames?.content}
+        className={classNames?.content}
         style={{ ...styles?.content, ...style }}
         size={size}
         {...rest}

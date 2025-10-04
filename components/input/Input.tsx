@@ -1,12 +1,15 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { InputFocusOptions, triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
+import { triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
+import type { InputFocusOptions } from '@rc-component/input/lib/utils/commonUtils';
 import { composeRef } from '@rc-component/util/lib/ref';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -22,7 +25,6 @@ import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle, { useSharedStyle } from './style';
 import { hasPrefixSuffix } from './utils';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 export type { InputFocusOptions };
 export type { InputRef };
@@ -30,10 +32,18 @@ export { triggerFocus };
 
 type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'count';
 
+export type InputClassNamesType = SemanticClassNamesType<InputProps, SemanticName>;
+export type InputStylesType = SemanticStylesType<InputProps, SemanticName>;
 export interface InputProps
   extends Omit<
     RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'classes'
+    | 'wrapperClassName'
+    | 'groupClassName'
+    | 'inputClassName'
+    | 'affixWrapperClassName'
+    | 'classes'
+    | 'classNames'
+    | 'styles'
   > {
   rootClassName?: string;
   size?: SizeType;
@@ -46,8 +56,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: InputClassNamesType;
+  styles?: InputStylesType;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -108,10 +118,20 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: InputProps = {
+    ...props,
+    size: mergedSize,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputClassNamesType,
+    InputStylesType,
+    InputProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -125,6 +145,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
+    // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useEffect(() => {
       if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
         warning(
@@ -180,7 +201,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       styles={mergedStyles}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={cls(
+      className={clsx(
         className,
         rootClassName,
         cssVarCls,
@@ -206,7 +227,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       }
       classNames={{
         ...mergedClassNames,
-        input: cls(
+        input: clsx(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -215,13 +236,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           mergedClassNames.input,
           hashId,
         ),
-        variant: cls(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
         ),
-        affixWrapper: cls(
+        affixWrapper: clsx(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -229,13 +250,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           },
           hashId,
         ),
-        wrapper: cls(
+        wrapper: clsx(
           {
             [`${prefixCls}-group-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        groupWrapper: cls(
+        groupWrapper: clsx(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',

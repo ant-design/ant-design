@@ -374,7 +374,7 @@ export const genBaseUnderlinedStyle = (
   },
 
   '&:focus, &:focus-within': {
-    borderColor: `transparent transparent ${options.borderColor} transparent`,
+    borderColor: `transparent transparent ${options.activeBorderColor} transparent`,
     outline: 0,
     backgroundColor: token.activeBg,
   },

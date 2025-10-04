@@ -19,13 +19,13 @@ describe('Popover', () => {
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
     const { container } = render(
-      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
+      <Popover ref={ref} content={<div className="bamboo" />} title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+    expect(container.querySelector('.bamboo')).toBeFalsy();
     fireEvent.click(container.querySelector('span')!);
-    expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+    expect(container.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('should support defaultOpen', () => {
@@ -92,6 +92,59 @@ describe('Popover', () => {
     expect(overlay).not.toHaveBeenCalled();
   });
 
+  describe('semantic structure', () => {
+    it('should support static classNames and styles', () => {
+      const { container } = render(
+        <Popover
+          title="Test"
+          content="Content"
+          open
+          classNames={{ root: 'custom-root', container: 'custom-container' }}
+          styles={{ root: { backgroundColor: 'red' }, container: { padding: '20px' } }}
+        >
+          <span>Static Test</span>
+        </Popover>,
+      );
+
+      const popoverElement = container.querySelector('.ant-popover');
+      const contentElement = container.querySelector('.ant-popover-container');
+
+      expect(popoverElement).toHaveClass('custom-root');
+      expect(contentElement).toHaveClass('custom-container');
+      expect(window.getComputedStyle(popoverElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+      expect(window.getComputedStyle(contentElement!).padding).toBe('20px');
+    });
+
+    it('should support function-based classNames and styles', () => {
+      const { container } = render(
+        <Popover
+          title="Test"
+          content="Content"
+          open
+          placement="top"
+          classNames={({ props }) => ({
+            root: props.placement === 'top' ? 'top-root' : 'default-root',
+            container: 'custom-container',
+          })}
+          styles={({ props }) => ({
+            root: { backgroundColor: props.open ? 'blue' : 'transparent' },
+            container: { padding: '16px' },
+          })}
+        >
+          <span>Dynamic Test</span>
+        </Popover>,
+      );
+
+      const popoverElement = container.querySelector('.ant-popover');
+      const contentElement = container.querySelector('.ant-popover-container');
+
+      expect(popoverElement).toHaveClass('top-root');
+      expect(contentElement).toHaveClass('custom-container');
+      expect(window.getComputedStyle(popoverElement!).backgroundColor).toBe('rgb(0, 0, 255)');
+      expect(window.getComputedStyle(contentElement!).padding).toBe('16px');
+    });
+  });
+
   it(`should be rendered correctly in RTL direction`, () => {
     const { container } = render(
       <ConfigProvider direction="rtl">
@@ -140,12 +193,12 @@ describe('Popover', () => {
 
   it('should apply custom styles to Popover', () => {
     const customClassNames = {
-      body: 'custom-body',
+      container: 'custom-container',
       root: 'custom-root',
     };
 
     const customStyles = {
-      body: { color: 'red' },
+      container: { color: 'red' },
       root: { backgroundColor: 'blue' },
     };
 
@@ -156,11 +209,11 @@ describe('Popover', () => {
     );
 
     const popoverElement = container.querySelector('.ant-popover') as HTMLElement;
-    const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+    const popoverBodyElement = container.querySelector('.ant-popover-container') as HTMLElement;
 
     // 验证 classNames
     expect(popoverElement.classList).toContain('custom-root');
-    expect(popoverBodyElement.classList).toContain('custom-body');
+    expect(popoverBodyElement.classList).toContain('custom-container');
 
     // 验证 styles
     expect(popoverElement.style.backgroundColor).toBe('blue');

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { composeRef } from '@rc-component/util/lib/ref';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import type { ButtonSemanticName } from '../button/button';
@@ -15,6 +16,12 @@ import Input from './Input';
 
 type SemanticName = 'root' | 'input' | 'prefix' | 'suffix' | 'count';
 
+export type InputSearchClassNamesType = SemanticClassNamesType<SearchProps, SemanticName> & {
+  button?: Partial<Record<ButtonSemanticName, string>>;
+};
+export type InputSearchStylesType = SemanticStylesType<SearchProps, SemanticName> & {
+  button?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+};
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
   onSearch?: (
@@ -30,12 +37,8 @@ export interface SearchProps extends InputProps {
   enterButton?: React.ReactNode;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  classNames?: Partial<Record<SemanticName, string>> & {
-    button?: Partial<Record<ButtonSemanticName, string>>;
-  };
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    button?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
-  };
+  classNames?: InputSearchClassNamesType;
+  styles?: InputSearchStylesType;
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -67,9 +70,19 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('inputSearch');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const mergedProps: SearchProps = {
+    ...props,
+    enterButton,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputSearchClassNamesType,
+    InputSearchStylesType,
+    SearchProps
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       button: {
         _default: 'root',
@@ -119,7 +132,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
-  const btnClassName = cls(`${prefixCls}-button`, mergedClassNames.button?.root);
+  const btnClassName = clsx(`${prefixCls}-button`, mergedClassNames.button?.root);
 
   let button: React.ReactNode;
   const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
@@ -172,15 +185,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   }
 
   if (addonAfter) {
-    button = [
-      button,
-      cloneElement(addonAfter, {
-        key: 'addonAfter',
-      }),
-    ];
+    button = [button, cloneElement(addonAfter, { key: 'addonAfter' })];
   }
 
-  const mergedClassName = cls(
+  const mergedClassName = clsx(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',

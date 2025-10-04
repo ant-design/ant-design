@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tabs/demo/animated.tsx correctly 1`] = `
 Array [
@@ -4299,7 +4299,7 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/position.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -4308,7 +4308,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      Tab position:
+      Tab placement:
     </div>
     <div
       class="ant-space-item"
@@ -4371,7 +4371,7 @@ Array [
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
-              value="left"
+              value="start"
             />
             <span
               class="ant-radio-button-inner"
@@ -4380,7 +4380,7 @@ Array [
           <span
             class="ant-radio-button-label"
           >
-            left
+            start
           </span>
         </label>
         <label
@@ -4393,7 +4393,7 @@ Array [
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
-              value="right"
+              value="end"
             />
             <span
               class="ant-radio-button-inner"
@@ -4402,7 +4402,7 @@ Array [
           <span
             class="ant-radio-button-label"
           >
-            right
+            end
           </span>
         </label>
       </div>
@@ -5611,4 +5611,239 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/tabs/demo/style-class.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-tabs ant-tabs-top demo-tabs-root css-var-test-id ant-tabs-css-var"
+    style="border-width:2px;border-style:dashed;padding:16px;margin-bottom:10px"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav demo-tabs-header"
+      role="tablist"
+      style="background-color:#f5f5f5"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform:translate(0px, 0px)"
+        >
+          <div
+            class="ant-tabs-tab demo-tabs-item ant-tabs-tab-active"
+            data-node-key="1"
+            style="font-weight:bold;color:#1890ff;padding:6px 10px"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab demo-tabs-item"
+            data-node-key="2"
+            style="font-weight:bold;color:#1890ff;padding:6px 10px"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab demo-tabs-item"
+            data-node-key="3"
+            style="font-weight:bold;color:#1890ff;padding:6px 10px"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar demo-tabs-indicator ant-tabs-ink-bar-animated"
+            style="background-color:#ff4d4f;height:4px"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="visibility:hidden;order:1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active demo-tabs-content"
+          role="tabpanel"
+          style="background-color:#e6f7ff;padding:16px"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-tabs ant-tabs-left ant-tabs-card demo-tabs-root--card css-var-test-id ant-tabs-css-var"
+    style="background-color:#fafafa;border-color:#d9d9d9"
+  >
+    <div
+      aria-orientation="vertical"
+      class="ant-tabs-nav"
+      role="tablist"
+      style="text-align:left"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform:translate(0px, 0px)"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="visibility:hidden;order:1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-left"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          style="padding:8px"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;

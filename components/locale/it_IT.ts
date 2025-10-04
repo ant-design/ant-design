@@ -131,8 +131,16 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Anteprima',
+  QRCode: {
+    expired: 'Codice QR scaduto',
+    refresh: 'Ricarica',
+    scanned: 'Scansionato',
+  },
+  ColorPicker: {
+    presetEmpty: 'Vuoto',
+    transparent: 'Trasparente',
+    singleColor: 'Tinta unita',
+    gradientColor: 'Gradiente',
   },
 };
 

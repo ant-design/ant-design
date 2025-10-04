@@ -5,12 +5,14 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import type { BasicDataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
 import RcTree from '@rc-component/tree';
 import type { DataNode, Key } from '@rc-component/tree/lib/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
 import dropIndicatorRender from './utils/dropIndicator';
@@ -110,7 +112,9 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
+export type TreeSemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
+export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticName>;
+export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticName>;
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<
@@ -126,8 +130,8 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   > {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TreeClassNamesType;
+  styles?: TreeStylesType;
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */
@@ -192,17 +196,16 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     checkable = false,
     selectable = true,
     draggable,
+    disabled,
     motion: customMotion,
     style,
     rootClassName,
-    classNames: treeClassNames,
+    classNames,
     styles,
   } = props;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, treeClassNames],
-    [contextStyles, styles],
-  );
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -212,6 +215,25 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motionAppear: false,
   };
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: TreeProps = {
+    ...props,
+    showIcon,
+    blockNode,
+    checkable,
+    selectable,
+    disabled: mergedDisabled,
+    motion,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeClassNamesType,
+    TreeStylesType,
+    TreeProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
   const newProps = {
     ...props,
     checkable,
@@ -219,6 +241,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     showIcon,
     motion,
     blockNode,
+    disabled: mergedDisabled,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -271,12 +294,13 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       {...newProps}
       // newProps may contain style so declare style below it
       prefixCls={prefixCls}
-      className={classNames(
+      className={clsx(
         {
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
           [`${prefixCls}-unselectable`]: !selectable,
           [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-disabled`]: mergedDisabled,
         },
         contextClassName,
         className,
@@ -284,7 +308,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         cssVarCls,
       )}
       style={{ ...contextStyle, ...style }}
-      rootClassName={classNames(mergedClassNames?.root, rootClassName)}
+      rootClassName={clsx(mergedClassNames?.root, rootClassName)}
       rootStyle={mergedStyles?.root}
       classNames={mergedClassNames}
       styles={mergedStyles}

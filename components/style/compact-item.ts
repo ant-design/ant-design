@@ -1,6 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
-import type { AliasToken, FullToken, OverrideComponent, CSSUtil } from '../theme/internal';
+import type { AliasToken, CSSUtil, FullToken, OverrideComponent } from '../theme/internal';
 
 interface CompactItemOptions {
   focus?: boolean;
@@ -21,6 +21,7 @@ function compactItemBorder(
   token: AliasToken & CSSUtil,
   parentCls: string,
   options: CompactItemOptions,
+  prefixCls: string,
 ): CSSObject {
   const { focusElCls, focus, borderElCls } = options;
   const childCombinator = borderElCls ? '> *' : '';
@@ -28,20 +29,25 @@ function compactItemBorder(
     .filter(Boolean)
     .map((n) => `&:${n} ${childCombinator}`)
     .join(',');
+
   return {
     [`&-item:not(${parentCls}-last-item)`]: {
       marginInlineEnd: token.calc(token.lineWidth).mul(-1).equal(),
     },
 
+    [`&-item:not(${prefixCls}-status-success)`]: {
+      zIndex: 2,
+    },
+
     '&-item': {
       [hoverEffects]: {
-        zIndex: 2,
+        zIndex: 3,
       },
 
       ...(focusElCls
         ? {
             [`&${focusElCls}`]: {
-              zIndex: 2,
+              zIndex: 3,
             },
           }
         : {}),
@@ -95,7 +101,7 @@ export function genCompactItemStyle<T extends OverrideComponent>(
 
   return {
     [compactCls]: {
-      ...compactItemBorder(token, compactCls, options),
+      ...compactItemBorder(token, compactCls, options, componentCls),
       ...compactItemBorderRadius(componentCls, compactCls, options),
     },
   };

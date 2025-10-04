@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import * as React from 'react';
 import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import { FastColor } from '@ant-design/fast-color';
@@ -23,7 +22,7 @@ import {
 } from 'antd';
 import { createStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -46,9 +45,10 @@ type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any
 const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
+  const token = theme.useToken();
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
-    console.log('Demo Token:', theme.useToken());
+    console.log('Demo Token:', token);
   }
   return null;
 };
@@ -92,14 +92,14 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = createStyles(({ token, css, cx }) => {
+const useStyle = createStyles(({ cssVar, css, cx }) => {
   const { carousel } = getCarouselStyle();
   const demo = css`
     overflow: hidden;
     background: rgba(240, 242, 245, 0.25);
     backdrop-filter: blur(50px);
     box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
   `;
 
   return {
@@ -138,10 +138,10 @@ const useStyle = createStyles(({ token, css, cx }) => {
     header: css`
       display: flex;
       align-items: center;
-      border-bottom: 1px solid ${token.colorSplit};
-      padding-inline: ${token.paddingLG}px !important;
-      height: ${token.controlHeightLG * 1.2}px;
-      line-height: ${token.controlHeightLG * 1.2}px;
+      border-bottom: 1px solid ${cssVar.colorSplit};
+      padding-inline: ${cssVar.paddingLG} !important;
+      height: calc(${cssVar.controlHeightLG} * 1.2);
+      line-height: calc(${cssVar.controlHeightLG} * 1.2);
     `,
 
     headerDark: css`
@@ -149,8 +149,8 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
 
     avatar: css`
-      width: ${token.controlHeight}px;
-      height: ${token.controlHeight}px;
+      width: ${cssVar.controlHeight};
+      height: ${cssVar.controlHeight};
       border-radius: 100%;
       background: rgba(240, 240, 240, 0.75);
       background-size: cover;
@@ -164,11 +164,11 @@ const useStyle = createStyles(({ token, css, cx }) => {
     logo: css`
       display: flex;
       align-items: center;
-      column-gap: ${token.padding}px;
+      column-gap: ${cssVar.padding};
 
       h1 {
         font-weight: 400;
-        font-size: ${token.fontSizeLG}px;
+        font-size: ${cssVar.fontSizeLG};
         line-height: 1.5;
       }
     `,
@@ -219,7 +219,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
       height: 287px;
     `,
     motion: css`
-      transition: all ${token.motionDurationSlow};
+      transition: all ${cssVar.motionDurationSlow};
     `,
     op1: css`
       opacity: 1;
@@ -457,20 +457,19 @@ const Theme: React.FC = () => {
     <ConfigProvider theme={memoTheme}>
       <TokenChecker />
       <div
-        className={classNames(styles.demo, {
+        className={clsx(styles.demo, {
           [styles.otherDemo]: isLight && closestColor !== DEFAULT_COLOR && styles.otherDemo,
           [styles.darkDemo]: !isLight,
         })}
         style={{ borderRadius: themeData.borderRadius }}
       >
         <Layout className={styles.transBg}>
-          <Header
-            className={classNames(styles.header, styles.transBg, !isLight && styles.headerDark)}
-          >
+          <Header className={clsx(styles.header, styles.transBg, !isLight && styles.headerDark)}>
             {/* Logo */}
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
+                  draggable={false}
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
@@ -485,7 +484,7 @@ const Theme: React.FC = () => {
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
-                className={classNames(styles.avatar, { [styles.avatarDark]: themeType === 'dark' })}
+                className={clsx(styles.avatar, { [styles.avatarDark]: themeType === 'dark' })}
                 style={{
                   backgroundColor: avatarColor,
                   backgroundImage: `url(${getAvatarURL(closestColor)})`,
@@ -494,13 +493,13 @@ const Theme: React.FC = () => {
             </Flex>
           </Header>
           <Layout className={styles.transBg} hasSider>
-            <Sider className={classNames(styles.transBg)} width={200}>
+            <Sider className={clsx(styles.transBg)} width={200}>
               <Menu
                 mode="inline"
-                className={classNames(styles.transBg)}
+                className={clsx(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
-                style={{ height: '100%', borderRight: 0 }}
+                style={{ height: '100%', borderInlineEnd: 0 }}
                 items={sideMenuItems}
                 expandIcon={false}
               />
@@ -581,42 +580,41 @@ const Theme: React.FC = () => {
         <>
           {/* >>>>>> Default <<<<<< */}
           <div
-            className={classNames(
+            className={clsx(
               styles.motion,
               isLight && closestColor === DEFAULT_COLOR ? styles.op1 : styles.op0,
             )}
           >
             {/* Image Left Top */}
             <img
-              className={classNames(styles.pos, styles.leftTopImage)}
+              draggable={false}
+              className={clsx(styles.pos, styles.leftTopImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
-              alt=""
+              alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
-              className={classNames(styles.pos, styles.rightBottomImage)}
+              draggable={false}
+              className={clsx(styles.pos, styles.rightBottomImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
-              alt=""
+              alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Dark <<<<<< */}
-          <div
-            className={classNames(
-              styles.motion,
-              !isLight || !closestColor ? styles.op1 : styles.op0,
-            )}
-          >
+          <div className={clsx(styles.motion, !isLight || !closestColor ? styles.op1 : styles.op0)}>
             {/* Image Left Top */}
             <img
-              className={classNames(styles.pos, styles.leftTopImagePos)}
+              draggable={false}
+              className={clsx(styles.pos, styles.leftTopImagePos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
-              alt=""
+              alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
-              className={classNames(styles.pos, styles.rightBottomPos)}
+              draggable={false}
+              className={clsx(styles.pos, styles.rightBottomPos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
-              alt=""
+              alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Background Image <<<<<< */}

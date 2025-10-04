@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/typography/demo/basic.tsx correctly 1`] = `
 <article
@@ -1562,7 +1562,7 @@ Array [
     >
       this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
   and that

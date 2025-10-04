@@ -29,6 +29,59 @@ describe('Popconfirm', () => {
     preventDefault: expect.any(Function),
   });
 
+  describe('semantic structure', () => {
+    it('should support static classNames and styles', () => {
+      const { container } = render(
+        <Popconfirm
+          title="Test"
+          description="Content"
+          open
+          classNames={{ root: 'custom-root', container: 'custom-container' }}
+          styles={{ root: { backgroundColor: 'red' }, container: { padding: '20px' } }}
+        >
+          <span>Static Test</span>
+        </Popconfirm>,
+      );
+
+      const popconfirmElement = container.querySelector('.ant-popover');
+      const contentElement = container.querySelector('.ant-popover-container');
+
+      expect(popconfirmElement).toHaveClass('custom-root');
+      expect(contentElement).toHaveClass('custom-container');
+      expect(window.getComputedStyle(popconfirmElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+      expect(window.getComputedStyle(contentElement!).padding).toBe('20px');
+    });
+
+    it('should support function-based classNames and styles', () => {
+      const { container } = render(
+        <Popconfirm
+          title="Test"
+          description="Content"
+          open
+          placement="top"
+          classNames={({ props }) => ({
+            root: props.placement === 'top' ? 'top-root' : 'default-root',
+            container: 'custom-container',
+          })}
+          styles={({ props }) => ({
+            root: { backgroundColor: props.placement === 'top' ? 'blue' : 'transparent' },
+            container: { padding: '16px' },
+          })}
+        >
+          <span>Dynamic Test</span>
+        </Popconfirm>,
+      );
+
+      const popconfirmElement = container.querySelector('.ant-popover');
+      const contentElement = container.querySelector('.ant-popover-container');
+
+      expect(popconfirmElement).toHaveClass('top-root');
+      expect(contentElement).toHaveClass('custom-container');
+      expect(window.getComputedStyle(popconfirmElement!).backgroundColor).toBe('rgb(0, 0, 255)');
+      expect(window.getComputedStyle(contentElement!).padding).toBe('16px');
+    });
+  });
+
   beforeAll(() => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
       get: () => ({}),
@@ -304,14 +357,14 @@ describe('Popconfirm', () => {
     const onPopupClick = jest.fn();
 
     const popconfirm = render(
-      <Popconfirm title="pop test" onPopupClick={onPopupClick}>
+      <Popconfirm title={<div className="bamboo" />} onPopupClick={onPopupClick}>
         <span>show me your code</span>
       </Popconfirm>,
     );
     const triggerNode = popconfirm.container.querySelector('span')!;
     fireEvent.click(triggerNode);
     await waitFakeTimer();
-    fireEvent.click(popconfirm.container.querySelector('.ant-popover-inner-content')!);
+    fireEvent.click(popconfirm.container.querySelector('.bamboo')!);
     expect(onPopupClick).toHaveBeenCalled();
   });
 
@@ -328,12 +381,12 @@ describe('Popconfirm', () => {
 
   it('should apply custom styles to Popconfirm', () => {
     const customClassNames = {
-      body: 'custom-body',
+      container: 'custom-container',
       root: 'custom-root',
     };
 
     const customStyles = {
-      body: { color: 'red' },
+      container: { color: 'red' },
       root: { backgroundColor: 'blue' },
     };
 
@@ -344,11 +397,11 @@ describe('Popconfirm', () => {
     );
 
     const popconfirmElement = container.querySelector('.ant-popconfirm') as HTMLElement;
-    const popconfirmBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+    const popconfirmBodyElement = container.querySelector('.ant-popover-container') as HTMLElement;
 
     // 验证 classNames
     expect(popconfirmElement.classList).toContain('custom-root');
-    expect(popconfirmBodyElement.classList).toContain('custom-body');
+    expect(popconfirmBodyElement.classList).toContain('custom-container');
 
     // 验证 styles
     expect(popconfirmElement.style.backgroundColor).toBe('blue');

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Modal } from 'antd';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
@@ -6,7 +7,6 @@ import { render, waitFakeTimer } from '../../../tests/utils';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
 import { useToken } from '../../theme/internal';
-import { Modal } from 'antd';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
@@ -211,7 +211,7 @@ describe('ConfigProvider.Theme', () => {
       expect(button).toHaveClass('foo');
       expect(button).toHaveStyle({
         '--ant-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--ant-button-default-shadow)',
+        '--ant-btn-shadow': 'var(--ant-button-default-shadow)',
         'border-radius': 'var(--ant-border-radius)',
       });
     });
@@ -234,14 +234,14 @@ describe('ConfigProvider.Theme', () => {
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
         '--ant-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--ant-button-default-shadow)',
+        '--ant-btn-shadow': 'var(--ant-button-default-shadow)',
         'border-radius': 'var(--ant-border-radius)',
       });
 
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
         '--bar-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--bar-button-default-shadow)',
+        '--ant-btn-shadow': 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
     });
@@ -275,7 +275,7 @@ describe('ConfigProvider.Theme', () => {
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
         '--foo-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--foo-button-default-shadow)',
+        '--foo-btn-shadow': 'var(--foo-button-default-shadow)',
         'border-radius': 'var(--foo-border-radius)',
       });
 
@@ -283,7 +283,7 @@ describe('ConfigProvider.Theme', () => {
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
         '--bar-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--bar-button-default-shadow)',
+        '--bar-btn-shadow': 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
 
@@ -291,7 +291,7 @@ describe('ConfigProvider.Theme', () => {
       expect(bananaBtn).toHaveClass('banana');
       expect(bananaBtn).toHaveStyle({
         '--banana-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--banana-button-default-shadow)',
+        '--banana-btn-shadow': 'var(--banana-button-default-shadow)',
         'border-radius': 'var(--banana-border-radius)',
       });
 
@@ -299,7 +299,7 @@ describe('ConfigProvider.Theme', () => {
       expect(catBtn).toHaveClass('apple');
       expect(catBtn).toHaveStyle({
         '--cat-color-text': 'rgba(0,0,0,0.88)',
-        boxShadow: 'var(--cat-button-default-shadow)',
+        '--apple-btn-shadow': 'var(--cat-button-default-shadow)',
         'border-radius': 'var(--cat-border-radius)',
       });
     });

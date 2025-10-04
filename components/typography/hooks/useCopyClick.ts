@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import { useEvent } from '@rc-component/util';
 
 import copy from '../../_util/copy';
 import toList from '../../_util/toList';
@@ -39,7 +39,7 @@ const useCopyClick = ({
     try {
       const text =
         typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
-      copy(text || toList(children, true).join('') || '', copyOptions);
+      await copy(text || toList(children, true).join('') || '', copyOptions);
       setCopyLoading(false);
 
       setCopied(true);

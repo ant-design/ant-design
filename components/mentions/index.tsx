@@ -6,9 +6,11 @@ import type {
   MentionsRef as RcMentionsRef,
 } from '@rc-component/mentions/lib/Mentions';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -18,6 +20,7 @@ import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
@@ -42,6 +45,9 @@ export interface OptionProps {
 
 type SemanticName = 'root' | 'textarea' | 'popup';
 
+export type MentionsClassNamesType = SemanticClassNamesType<MentionProps, SemanticName>;
+export type MentionsStylesType = SemanticStylesType<MentionProps, SemanticName>;
+
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;
   loading?: boolean;
@@ -53,8 +59,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNam
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: RcMentionsProps['classNames'] & Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: MentionsClassNamesType;
+  styles?: MentionsStylesType;
 }
 
 export interface MentionsProps extends MentionProps {}
@@ -76,7 +82,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
-    disabled,
+    disabled: customDisabled,
     loading,
     filterOption,
     children,
@@ -87,7 +93,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     popupClassName,
     style,
     variant: customVariant,
-    classNames: mentionsClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -117,6 +123,29 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
+  // ===================== Disabled =====================
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? contextDisabled;
+
+  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: MentionProps = {
+    ...props,
+    disabled: mergedDisabled,
+    status: mergedStatus,
+    loading,
+    options,
+    variant: customVariant,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MentionsClassNamesType,
+    MentionsStylesType,
+    MentionProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -163,8 +192,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
-  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
-
   const mergedAllowClear = getAllowClear(allowClear);
 
   // Style
@@ -175,14 +202,13 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
-  const mergedClassName = classNames(
+  const mergedClassName = clsx(
     contextClassName,
     className,
     rootClassName,
     cssVarCls,
     rootCls,
-    contextClassNames.root,
-    mentionsClassNames?.root,
+    mergedClassNames.root,
   );
 
   return (
@@ -191,10 +217,10 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       prefixCls={prefixCls}
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
-      disabled={disabled}
+      disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       direction={direction}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
@@ -202,30 +228,26 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       ref={mergedRef}
       options={mergedOptions}
       suffix={suffixNode}
-      styles={{
-        textarea: { ...contextStyles.textarea, ...styles?.textarea },
-        popup: { ...contextStyles.popup, ...styles?.popup },
-      }}
+      styles={{ textarea: mergedStyles.textarea, popup: mergedStyles.popup }}
       classNames={{
-        textarea: classNames(mentionsClassNames?.textarea, contextClassNames.textarea),
-        popup: classNames(
-          mentionsClassNames?.popup,
-          contextClassNames.popup,
+        textarea: clsx(mergedClassNames.textarea),
+        popup: clsx(
+          mergedClassNames.popup,
           popupClassName,
           rootClassName,
           hashId,
           cssVarCls,
           rootCls,
         ),
-        mentions: classNames(
+        mentions: clsx(
           {
-            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-disabled`]: mergedDisabled,
             [`${prefixCls}-focused`]: focused,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        variant: classNames(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },

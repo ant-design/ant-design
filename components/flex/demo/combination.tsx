@@ -14,6 +14,7 @@ const App: React.FC = () => (
   <Card hoverable style={cardStyle} styles={{ body: { padding: 0, overflow: 'hidden' } }}>
     <Flex justify="space-between">
       <img
+        draggable={false}
         alt="avatar"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style={imgStyle}

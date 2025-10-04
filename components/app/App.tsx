@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { AnyObject, CustomComponent } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -37,7 +37,7 @@ const App: React.FC<AppProps> = (props) => {
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls, {
+  const customClassName = clsx(hashId, prefixCls, className, rootClassName, cssVarCls, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -255,7 +254,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -365,7 +364,6 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -474,7 +472,7 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -579,7 +577,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -793,7 +790,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -883,7 +880,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -933,7 +930,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -983,7 +980,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1033,7 +1030,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1083,7 +1080,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1133,7 +1130,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1183,7 +1180,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1233,7 +1230,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1283,7 +1280,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1333,7 +1330,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1383,7 +1380,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1484,7 +1481,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1585,7 +1582,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1664,7 +1661,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1701,7 +1698,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topLeft"
+                      value="topStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1710,7 +1707,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopLeft
+                    TopStart
                   </span>
                 </label>
                 <label
@@ -1745,7 +1742,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topRight"
+                      value="topEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1754,7 +1751,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopRight
+                    TopEnd
                   </span>
                 </label>
                 <label
@@ -1787,7 +1784,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -1824,7 +1821,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomLeft"
+                      value="bottomStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1833,7 +1830,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomLeft
+                    BottomStart
                   </span>
                 </label>
                 <label
@@ -1869,7 +1866,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomRight"
+                      value="bottomEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1878,7 +1875,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomRight
+                    BottomEnd
                   </span>
                 </label>
                 <label
@@ -3182,7 +3179,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -3300,7 +3297,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -3467,7 +3463,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -3852,7 +3848,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -3957,7 +3953,6 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4178,7 +4173,7 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4283,7 +4278,6 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4395,7 +4389,7 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4719,7 +4713,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4809,7 +4803,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -4859,7 +4853,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -4909,7 +4903,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -4959,7 +4953,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5009,7 +5003,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5059,7 +5053,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5109,7 +5103,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5159,7 +5153,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5209,7 +5203,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5259,7 +5253,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5309,7 +5303,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5410,7 +5404,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5511,7 +5505,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5590,7 +5584,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5627,7 +5621,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topLeft"
+                      value="topStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5636,7 +5630,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopLeft
+                    TopStart
                   </span>
                 </label>
                 <label
@@ -5671,7 +5665,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topRight"
+                      value="topEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5680,7 +5674,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopRight
+                    TopEnd
                   </span>
                 </label>
                 <label
@@ -5713,7 +5707,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -5750,7 +5744,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomLeft"
+                      value="bottomStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5759,7 +5753,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomLeft
+                    BottomStart
                   </span>
                 </label>
                 <label
@@ -5795,7 +5789,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomRight"
+                      value="bottomEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5804,7 +5798,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomRight
+                    BottomEnd
                   </span>
                 </label>
                 <label
@@ -7108,7 +7102,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -7336,7 +7330,7 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -7782,7 +7776,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -8233,7 +8227,7 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -8560,7 +8554,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -8860,7 +8854,7 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9197,7 +9191,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9549,7 +9543,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9901,7 +9895,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -10250,190 +10244,269 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        aria-describedby="test-id"
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -10718,9 +10791,53 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:auto;min-width:100%;width:max-content"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -10928,190 +11045,213 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -12371,7 +12511,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -12840,206 +12980,231 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 3
                     </div>
                   </td>
                 </tr>
@@ -13354,9 +13519,16 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -13404,30 +13576,33 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Address
                     </div>
                   </td>
                 </tr>
@@ -14437,7 +14612,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -14619,9 +14794,32 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:calc(700px + 50%)"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:200px"
+                />
+                <col />
+                <col
+                  style="width:80px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -14849,70 +15047,167 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        aria-describedby="test-id"
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Street
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Building
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Door No.
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Company Address
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Company Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Gender
                     </div>
                   </td>
                 </tr>
@@ -15392,7 +15687,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15657,7 +15952,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -15937,7 +16231,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -16240,7 +16534,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16394,7 +16687,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -16500,7 +16793,6 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16761,7 +17053,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -16866,7 +17158,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17183,7 +17474,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -17291,7 +17582,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -17525,7 +17815,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="false"
@@ -17825,7 +18115,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -17875,7 +18165,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -18177,7 +18467,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -18423,7 +18713,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -18841,7 +19130,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -19082,7 +19371,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19500,7 +19788,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -19741,7 +20029,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20159,7 +20446,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20532,7 +20819,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -20633,7 +20920,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-input"
             name="test-id"
             type="radio"
-            value="topLeft"
+            value="topStart"
           />
           <span
             class="ant-radio-inner"
@@ -20642,7 +20929,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-label"
         >
-          topLeft
+          topStart
         </span>
       </label>
       <label
@@ -20677,7 +20964,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-input"
             name="test-id"
             type="radio"
-            value="topRight"
+            value="topEnd"
           />
           <span
             class="ant-radio-inner"
@@ -20686,7 +20973,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-label"
         >
-          topRight
+          topEnd
         </span>
       </label>
       <label
@@ -20727,7 +21014,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="bottomLeft"
+          value="bottomStart"
         />
         <span
           class="ant-radio-inner"
@@ -20736,7 +21023,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-        bottomLeft
+        bottomStart
       </span>
     </label>
     <label
@@ -20772,7 +21059,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="bottomRight"
+          value="bottomEnd"
         />
         <span
           class="ant-radio-inner"
@@ -20781,7 +21068,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-        bottomRight
+        bottomEnd
       </span>
     </label>
     <label
@@ -20817,7 +21104,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         class="ant-spin-container"
       >
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-left css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-start css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20907,7 +21194,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -21140,7 +21426,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -21288,7 +21574,6 @@ Array [
               <table
                 style="table-layout:fixed"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -21660,7 +21945,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -21992,7 +22277,7 @@ exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -22097,7 +22382,6 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -22131,7 +22415,7 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -22522,7 +22806,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -23097,7 +23381,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -23727,7 +24011,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -24142,7 +24426,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -26763,7 +27047,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -26885,7 +27169,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -26979,7 +27262,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27097,7 +27380,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -27191,7 +27473,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27297,9 +27579,41 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;top:64px"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -27423,94 +27737,105 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -28172,9 +28497,41 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;bottom:0"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <tfoot
                 class="ant-table-summary"
               >
@@ -28228,7 +28585,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -28471,6 +28828,487 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
+    style="padding:10px;border-radius:8px"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-small css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title"
+          >
+            Table Object Styles
+          </div>
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout:auto"
+              >
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Joe Black
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sydney No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer"
+          >
+            Table Object Footer
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          style="padding:10px"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-simple-pager"
+            title="1/2"
+          >
+            <input
+              aria-label="Go to"
+              size="3"
+              type="text"
+              value="1"
+            />
+            <span
+              class="ant-pagination-slash"
+            >
+              /
+            </span>
+            2
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
+    style="color:#e0e0e0;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title"
+            style="background:linear-gradient(90deg, #6a5acd, #836fff);color:#fff;font-size:1.25rem;font-weight:600;padding:12px 16px"
+          >
+            Table Function Styles
+          </div>
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout:auto"
+              >
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Joe Black
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sydney No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer"
+            style="color:#9ca3af"
+          >
+            Table Function Styles
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          style="padding:10px"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            style="color:#b8bdfd"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-simple-pager"
+            title="1/2"
+          >
+            <input
+              aria-label="Go to"
+              size="3"
+              type="text"
+              value="1"
+            />
+            <span
+              class="ant-pagination-slash"
+            >
+              /
+            </span>
+            2
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            style="color:#b8bdfd"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/table/demo/summary.tsx correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
@@ -28496,7 +29334,6 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28678,9 +29515,13 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -28720,22 +29561,24 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height:0;font-size:0"
+                    style="height:0"
                   >
                     <td
-                      style="padding:0;border:0;height:0"
+                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                     >
                       <div
-                        style="height:0;overflow:hidden"
+                        style="height:0;overflow:hidden;font-weight:bold"
                       >
+                        Name
                       </div>
                     </td>
                     <td
-                      style="padding:0;border:0;height:0"
+                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                     >
                       <div
-                        style="height:0;overflow:hidden"
+                        style="height:0;overflow:hidden;font-weight:bold"
                       >
+                        Description
                       </div>
                     </td>
                   </tr>
@@ -29067,9 +29910,13 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <tfoot
                   class="ant-table-summary"
                 >
@@ -29322,7 +30169,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -30044,7 +30891,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -30533,7 +31380,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"

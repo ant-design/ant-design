@@ -1,12 +1,14 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider, Input, Space } from 'antd';
+import type { TreeNodeProps } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -198,14 +200,14 @@ describe('TreeSelect', () => {
       },
     };
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      prefix: { color: 'green' },
-      input: { color: 'blue' },
-      suffix: { color: 'yellow' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 255, 0)' },
+      input: { color: 'rgb(0, 0, 255)' },
+      suffix: { color: 'rgb(255, 255, 0)' },
       popup: {
-        root: { color: 'orange' },
-        item: { color: 'black' },
-        itemTitle: { color: 'purple' },
+        root: { color: 'rgb(255, 165, 0)' },
+        item: { color: 'rgb(0, 0, 0)' },
+        itemTitle: { color: 'rgb(128, 0, 128)' },
       },
     };
     const { container } = render(
@@ -246,5 +248,124 @@ describe('TreeSelect', () => {
     expect(root).toHaveStyle(customStyles.root);
     expect(selectRoot).toHaveStyle(customStyles.root);
     expect(item).toHaveStyle(customStyles.popup.item);
+  });
+
+  it('TreeSelect ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <TreeSelect
+          open
+          defaultValue="lucy"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          treeData={[
+            { value: 'jack', title: 'Jack', children: [{ value: 'Emily', title: 'Emily' }] },
+            { value: 'lucy', title: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  it('should support switcherIcon from ConfigProvider', () => {
+    render(
+      <ConfigProvider
+        treeSelect={{
+          switcherIcon: ({ expanded }: TreeNodeProps) => {
+            return expanded ? (
+              <span data-testid="custom-expanded">▼</span>
+            ) : (
+              <span data-testid="custom-collapsed">▶</span>
+            );
+          },
+        }}
+      >
+        <TreeSelect open>
+          <TreeNode value="parent 1" title="parent 1" key="0-1">
+            <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
+              <TreeNode value="leaf1" title="my leaf" key="random" />
+              <TreeNode value="leaf2" title="your leaf" key="random1" />
+            </TreeNode>
+          </TreeNode>
+        </TreeSelect>
+      </ConfigProvider>,
+    );
+
+    const customIcon = screen.getByTestId(/custom-(expanded|collapsed)/);
+    expect(customIcon).toBeInTheDocument();
+  });
+
+  it('support classNames and styles as functions', () => {
+    const treeData = [
+      {
+        value: 'parent 1',
+        title: 'parent 1',
+        children: [
+          {
+            value: 'leaf1',
+            title: 'leaf1',
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <TreeSelect
+        treeData={treeData}
+        placeholder="Please select"
+        disabled={false}
+        size="middle"
+        classNames={(info) => ({
+          root: info.props.disabled ? 'disabled-tree-select-root' : 'enabled-tree-select-root',
+          input: `dynamic-input-${info.props.size}`,
+          suffix: 'dynamic-suffix',
+          popup: {
+            root: 'dynamic-popup-root',
+            item: info.props.disabled ? 'disabled-item' : 'enabled-item',
+            itemTitle: 'dynamic-item-title',
+          },
+        })}
+        styles={(info) => ({
+          root: {
+            opacity: info.props.disabled ? 0.5 : 1,
+            backgroundColor: info.props.disabled ? 'gray' : 'white',
+          },
+          input: { fontSize: '14px' },
+          suffix: { color: 'blue' },
+          popup: {
+            root: { zIndex: 1000 },
+            item: { padding: '6px' },
+            itemTitle: { color: 'black' },
+          },
+        })}
+      />,
+    );
+
+    const treeSelectElement = container.querySelector('.ant-select');
+    expect(treeSelectElement).toHaveClass('enabled-tree-select-root');
+    expect(treeSelectElement).toHaveAttribute('style');
+    const style = treeSelectElement?.getAttribute('style');
+    expect(style).toContain('opacity: 1');
+    expect(style).toContain('background-color: white');
   });
 });

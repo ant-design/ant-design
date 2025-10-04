@@ -422,7 +422,7 @@ export default genStyleHooks(
       skeletonLoadingBackground: `linear-gradient(90deg, ${token.gradientFromColor} 25%, ${token.gradientToColor} 37%, ${token.gradientFromColor} 63%)`,
       skeletonLoadingMotionDuration: '1.4s',
     });
-    return [genBaseStyle(skeletonToken)];
+    return genBaseStyle(skeletonToken);
   },
   prepareComponentToken,
   {

@@ -8,6 +8,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -87,6 +89,12 @@ const generateData = (n = 20) => {
   }
   return data;
 };
+
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button type="link" onClick={onClick}>
+    Custom Button
+  </Button>
+);
 
 describe('Transfer', () => {
   mountTest(Transfer);
@@ -542,7 +550,7 @@ describe('Transfer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should add custom styles when their props are provided', () => {
+  it('should apply custom styles when their props are provided', () => {
     const style: React.CSSProperties = {
       backgroundColor: 'red',
     };
@@ -574,6 +582,100 @@ describe('Transfer', () => {
     expect(listSource.style.backgroundColor).toEqual('blue');
     expect(listTarget.style.backgroundColor).toEqual('red');
     expect(operation.style.backgroundColor).toEqual('yellow');
+  });
+
+  it('should apply custom classNames and styles to Transfer', () => {
+    const customClassNames: TransferProps['classNames'] = {
+      root: 'custom-transfer-root',
+      section: 'custom-transfer-section',
+      header: 'custom-transfer-header',
+      actions: 'custom-transfer-actions',
+    };
+
+    const customStyles: TransferProps['styles'] = {
+      root: { backgroundColor: 'red' },
+      section: { backgroundColor: 'blue' },
+      header: { color: 'yellow' },
+      actions: { backgroundColor: 'green' },
+    };
+
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        classNames={customClassNames}
+        styles={customStyles}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-transfer') as HTMLElement;
+    const sectionElements = container.querySelectorAll(
+      '.ant-transfer-section',
+    ) as NodeListOf<HTMLElement>;
+    const headerElements = container.querySelectorAll(
+      '.ant-transfer-list-header',
+    ) as NodeListOf<HTMLElement>;
+    const actionsElement = container.querySelector('.ant-transfer-actions') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-transfer-root');
+    expect(sectionElements[0].classList).toContain('custom-transfer-section');
+    expect(sectionElements[1].classList).toContain('custom-transfer-section');
+    expect(headerElements[0].classList).toContain('custom-transfer-header');
+    expect(headerElements[1].classList).toContain('custom-transfer-header');
+    expect(actionsElement.classList).toContain('custom-transfer-actions');
+
+    // check styles
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(sectionElements[0].style.backgroundColor).toBe('blue');
+    expect(sectionElements[1].style.backgroundColor).toBe('blue');
+    expect(headerElements[0].style.color).toBe('yellow');
+    expect(headerElements[1].style.color).toBe('yellow');
+    expect(actionsElement.style.backgroundColor).toBe('green');
+  });
+
+  it('should support classNames and styles as functions', () => {
+    const classNamesFn: TransferProps['classNames'] = (info) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-transfer' };
+      }
+      return { root: 'enabled-transfer' };
+    };
+
+    const stylesFn: TransferProps['styles'] = (info) => {
+      if (info.props.showSearch) {
+        return { root: { padding: '10px' } };
+      }
+      return { root: { margin: '10px' } };
+    };
+
+    const { container: container1 } = render(
+      <Transfer
+        {...listCommonProps}
+        disabled
+        classNames={classNamesFn}
+        styles={stylesFn}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement1 = container1.querySelector('.ant-transfer') as HTMLElement;
+    expect(rootElement1.classList).toContain('disabled-transfer');
+    expect(rootElement1.style.margin).toBe('10px');
+
+    const { container: container2 } = render(
+      <Transfer
+        {...listCommonProps}
+        showSearch
+        classNames={classNamesFn}
+        styles={stylesFn}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement2 = container2.querySelector('.ant-transfer') as HTMLElement;
+    expect(rootElement2.classList).toContain('enabled-transfer');
+    expect(rootElement2.style.padding).toBe('10px');
   });
 
   it('should support onScroll', () => {
@@ -862,11 +964,40 @@ describe('Transfer', () => {
       expect(input).toHaveValue('values');
     });
   });
-});
 
-const ButtonRender = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick}>Right button reload</Button>
-);
+  describe('form disabled', () => {
+    it('should support Form disabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <Form.Item name="transfer1" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('.ant-transfer.ant-transfer-disabled')).toBeTruthy();
+    });
+
+    it('set Transfer enabled when ConfigProvider componentDisabled is false', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="transfer1" label="启用">
+              <Transfer {...listCommonProps} />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="transfer2" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      const transfers = container.querySelectorAll('.ant-transfer');
+      expect(transfers[0]).not.toHaveClass('ant-transfer-disabled');
+      expect(transfers[1]).toHaveClass('ant-transfer-disabled');
+    });
+  });
+});
 
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
@@ -911,7 +1042,6 @@ describe('immutable data', () => {
       return (
         <Transfer
           dataSource={mockData}
-          operations={['to right', 'to left']}
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}

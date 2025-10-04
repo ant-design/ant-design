@@ -134,9 +134,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Önbaxış',
-  },
   QRCode: {
     expired: 'QR kodunun müddəti bitmişdir',
     refresh: 'Yenilə',

@@ -1,8 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import extendsObject from '../_util/extendsObject';
 import { responsiveArray } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -18,8 +19,8 @@ import { ListContext } from './context';
 import Item from './Item';
 import useStyle from './style';
 
-export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
+export type { ListItemMetaProps, ListItemProps } from './Item';
 
 export type ColumnCount = number;
 
@@ -179,7 +180,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
       break;
   }
 
-  const classString = classNames(
+  const classString = clsx(
     prefixCls,
     {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
@@ -213,7 +214,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
   paginationProps.current = Math.min(paginationProps.current, largestPage);
 
   const paginationContent = pagination && (
-    <div className={classNames(`${prefixCls}-pagination`)}>
+    <div className={clsx(`${prefixCls}-pagination`)}>
       <Pagination
         align="end"
         {...paginationProps}
@@ -288,6 +289,15 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     () => ({ grid, itemLayout }),
     [JSON.stringify(grid), itemLayout],
   );
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('List');
+    warning(
+      false,
+      'deprecated',
+      'The `List` component is deprecated. And will be removed in next major version.',
+    );
+  }
 
   return (
     <ListContext.Provider value={contextValue}>

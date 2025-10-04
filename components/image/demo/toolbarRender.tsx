@@ -63,8 +63,11 @@ const App: React.FC = () => {
           },
         ) => (
           <Space size={12} className="toolbar-wrapper">
-            <LeftOutlined onClick={() => onActive?.(-1)} />
-            <RightOutlined onClick={() => onActive?.(1)} />
+            <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
+            <RightOutlined
+              disabled={current === imageList.length - 1}
+              onClick={() => onActive?.(1)}
+            />
             <DownloadOutlined onClick={onDownload} />
             <SwapOutlined rotate={90} onClick={onFlipY} />
             <SwapOutlined onClick={onFlipX} />
@@ -80,8 +83,8 @@ const App: React.FC = () => {
         },
       }}
     >
-      {imageList.map((item) => (
-        <Image key={item} src={item} width={200} />
+      {imageList.map((item, index) => (
+        <Image alt={`image-${index}`} key={item} src={item} width={200} />
       ))}
     </Image.PreviewGroup>
   );

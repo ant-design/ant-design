@@ -16,14 +16,6 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         direction: 'rtl',
       },
 
-      [`${componentCls}-pagination-left`]: {
-        justifyContent: 'flex-end',
-      },
-
-      [`${componentCls}-pagination-right`]: {
-        justifyContent: 'flex-start',
-      },
-
       [`${componentCls}-row-expand-icon`]: {
         float: 'right',
 

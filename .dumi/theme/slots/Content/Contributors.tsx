@@ -1,20 +1,20 @@
 import React, { Suspense } from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { useIntl } from 'dumi';
 
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   listMobile: css`
     margin: 1em 0 !important;
   `,
   title: css`
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     opacity: 0.5;
-    margin-bottom: ${token.marginXS}px;
+    margin-bottom: ${cssVar.marginXS};
   `,
   list: css`
     display: flex;
@@ -22,8 +22,8 @@ const useStyle = createStyles(({ token, css }) => ({
     clear: both;
     li {
       height: 24px;
-      transition: all ${token.motionDurationSlow};
-      margin-inline-end: -${token.marginXS}px;
+      transition: all ${cssVar.motionDurationSlow};
+      margin-inline-end: calc(-1 * ${cssVar.marginXS});
     }
     &:hover {
       li {
@@ -37,6 +37,9 @@ interface ContributorsProps {
   filename?: string;
 }
 
+// 这些机器人账号不需要展示
+const blockList = ['github-actions', 'copilot', 'renovate', 'dependabot'];
+
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
@@ -47,7 +50,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   }
 
   return (
-    <div className={classNames({ [styles.listMobile]: isMobile })}>
+    <div className={clsx({ [styles.listMobile]: isMobile })}>
       <div className={styles.title}>{formatMessage({ id: 'app.content.contributors' })}</div>
       <ContributorsList
         cache
@@ -55,6 +58,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
         owner="ant-design"
         fileName={filename}
         className={styles.list}
+        filter={(item) => !blockList.includes(item?.username?.toLowerCase() ?? '')}
         renderItem={(item, loading) => (
           <ContributorAvatar item={item} loading={loading} key={item?.url} />
         )}
@@ -63,7 +67,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   );
 };
 
-const SuspenseContributors = (props: React.ComponentProps<typeof Contributors>) => (
+const SuspenseContributors: React.FC<ContributorsProps> = (props) => (
   <Suspense fallback={null}>
     <Contributors {...props} />
   </Suspense>

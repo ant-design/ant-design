@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStyles } from 'antd-style';
@@ -7,40 +7,54 @@ import copy from '../../../../components/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
 import type { AntdPreviewerProps } from '.';
+import useLocale from '../../../hooks/useLocale';
 
-const useStyle = createStyles(({ token, css }) => ({
+const locales = {
+  cn: {
+    copySketch: '复制 Sketch JSON',
+    pasteToPlugin: '已复制，使用 Kitchen 插件即可粘贴',
+    message: '复制失败',
+  },
+  en: {
+    copySketch: 'Copy Sketch JSON',
+    pasteToPlugin: 'Copied. You can paste using the Kitchen plugin.',
+    message: 'Copy failed',
+  },
+};
+
+const useStyle = createStyles(({ cssVar, css }) => ({
   wrapper: css`
     position: relative;
-    border: 1px solid ${token.colorBorderSecondary};
-    border-radius: ${token.borderRadius}px;
-    padding: ${token.paddingMD}px ${token.paddingLG}px ${token.paddingMD * 2}px;
-    margin-bottom: ${token.marginLG}px;
+    border: 1px solid ${cssVar.colorBorderSecondary};
+    border-radius: ${cssVar.borderRadius};
+    padding: ${cssVar.paddingMD} ${cssVar.paddingLG} ${cssVar.paddingMD * 2};
+    margin-bottom: ${cssVar.marginLG};
   `,
   title: css`
-    font-size: ${token.fontSizeLG}px;
-    font-weight: ${token.fontWeightStrong};
-    color: ${token.colorTextHeading};
+    font-size: ${cssVar.fontSizeLG};
+    font-weight: ${cssVar.fontWeightStrong};
+    color: ${cssVar.colorTextHeading};
 
     &:hover {
-      color: ${token.colorTextHeading};
+      color: ${cssVar.colorTextHeading};
     }
   `,
   description: css`
-    margin-top: ${token.margin}px;
+    margin-top: ${cssVar.margin};
   `,
   demo: css`
-    margin-top: ${token.marginLG}px;
+    margin-top: ${cssVar.marginLG};
     display: flex;
     justify-content: center;
   `,
   copy: css`
     position: absolute;
-    inset-inline-end: ${token.paddingMD}px;
-    inset-block-start: ${token.paddingMD}px;
+    inset-inline-end: ${cssVar.paddingMD};
+    inset-block-start: ${cssVar.paddingMD};
     cursor: pointer;
   `,
   copyTip: css`
-    color: ${token.colorTextTertiary};
+    color: ${cssVar.colorTextTertiary};
     border: none;
     background: transparent;
     padding: 0;
@@ -48,12 +62,12 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   copiedTip: css`
     .anticon {
-      color: ${token.colorSuccess};
+      color: ${cssVar.colorSuccess};
     }
   `,
   tip: css`
-    color: ${token.colorTextTertiary};
-    margin-top: ${token.marginMD * 2}px;
+    color: ${cssVar.colorTextTertiary};
+    margin-top: ${cssVar.marginMD * 2};
   `,
 }));
 
@@ -62,21 +76,31 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
   const demoRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = React.useState<boolean>(false);
   const { message } = App.useApp();
+  const [locale] = useLocale(locales);
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   const handleCopy = async () => {
     try {
       if (demoRef.current) {
         const group = await nodeToGroup(demoRef.current);
-        copy(JSON.stringify(group.toSketchJSON()));
+        await copy(JSON.stringify(group.toSketchJSON()));
         setCopied(true);
-        setTimeout(() => {
+        timerRef.current = setTimeout(() => {
           setCopied(false);
         }, 5000);
       }
     } catch {
-      message.error('复制失败');
+      message.error(locale.message);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={styles.wrapper} id={asset.id}>
@@ -91,12 +115,12 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {copied ? (
           <div className={styles.copiedTip}>
             <CheckOutlined />
-            <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
+            <span style={{ marginInlineStart: 8 }}>{locale.pasteToPlugin}</span>
           </div>
         ) : (
           <button type="button" onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
-            <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
+            <span style={{ marginInlineStart: 8 }}>{locale.copySketch}</span>
           </button>
         )}
       </div>

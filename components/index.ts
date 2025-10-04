@@ -8,7 +8,7 @@ export {
 export type { StyleProviderProps } from '@ant-design/cssinjs';
 
 export type { Breakpoint } from './_util/responsiveObserver';
-export type { GetProps, GetRef, GetProp } from './_util/type';
+export type { GetProp, GetProps, GetRef } from './_util/type';
 export { default as Affix } from './affix';
 export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
@@ -31,11 +31,12 @@ export { default as Calendar } from './calendar';
 export type { CalendarMode, CalendarProps } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
+export type { CardMetaProps } from './card/Meta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderProps, CascaderAutoProps } from './cascader';
-export type { CascaderPanelProps, CascaderPanelAutoProps } from './cascader/Panel';
+export type { CascaderAutoProps, CascaderProps } from './cascader';
+export type { CascaderPanelAutoProps, CascaderPanelProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
 export type {
   CheckboxChangeEvent,
@@ -63,6 +64,7 @@ export { default as Dropdown } from './dropdown';
 export type {
   // typo, but we need to support it for backwards compatibility
   // https://github.com/ant-design/ant-design/pull/35161
+  /** @deprecated Use `DropdownProps` instead. */
   DropdownProps as DropDownProps,
   DropdownProps,
 } from './dropdown';
@@ -75,7 +77,7 @@ export type {
   FloatButtonGroupProps,
   FloatButtonProps,
   FloatButtonRef,
-} from './float-button/interface';
+} from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -138,8 +140,10 @@ export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps } from './spin';
+export { default as Splitter } from './splitter';
+export type { SplitterProps } from './splitter';
 export { default as Statistic } from './statistic';
-export type { StatisticTimerProps, CountdownProps, StatisticProps } from './statistic';
+export type { CountdownProps, StatisticProps, StatisticTimerProps } from './statistic';
 export { default as Steps } from './steps';
 export type { StepsProps } from './steps';
 export { default as Switch } from './switch';
@@ -148,8 +152,8 @@ export { default as Table } from './table';
 export type {
   ColumnGroupType as TableColumnGroupType,
   ColumnProps as TableColumnProps,
-  ColumnType as TableColumnType,
   ColumnsType as TableColumnsType,
+  ColumnType as TableColumnType,
   TablePaginationConfig,
   TableProps,
 } from './table';
@@ -180,12 +184,11 @@ export type { TreeSelectProps } from './tree-select';
 export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
-export type { UploadFile, UploadProps, DraggerProps } from './upload';
+export type { DraggerProps, UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
-export { default as Splitter } from './splitter';
-export type { SplitterProps } from './splitter';
 
 // TODO: Remove in v6
+/* eslint-disable-next-line perfectionist/sort-exports */
 export { unstableSetRender } from './config-provider/UnstableContext';

@@ -3,12 +3,12 @@ import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { INTERNAL_COL_DEFINE } from '@rc-component/table';
 import type { FixedType } from '@rc-component/table/lib/interface';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
 import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interface';
 import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
 import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
 import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
 import type { AnyObject } from '../../_util/type';
@@ -61,12 +61,12 @@ export type INTERNAL_SELECTION_ITEM =
 const flattenData = <RecordType extends AnyObject = AnyObject>(
   childrenColumnName: keyof RecordType,
   data?: RecordType[],
+  list: RecordType[] = [],
 ): RecordType[] => {
-  let list: RecordType[] = [];
   (data || []).forEach((record) => {
     list.push(record);
     if (record && typeof record === 'object' && childrenColumnName in record) {
-      list = [...list, ...flattenData<RecordType>(childrenColumnName, record[childrenColumnName])];
+      flattenData<RecordType>(childrenColumnName, record[childrenColumnName], list);
     }
   });
   return list;
@@ -81,6 +81,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     selectedRowKeys,
     defaultSelectedRowKeys,
     getCheckboxProps,
+    getTitleCheckboxProps,
     onChange: onSelectionChange,
     onSelect,
     onSelectAll,
@@ -116,11 +117,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   // ========================= Keys =========================
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
-    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
-    {
-      value: selectedRowKeys,
-    },
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
+    defaultSelectedRowKeys || EMPTY_LIST,
+    selectedRowKeys,
   );
 
   // ======================== Caches ========================
@@ -469,9 +468,12 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           allDisabled && allDisabledData.every(({ checked }) => checked);
         const allDisabledSomeChecked =
           allDisabled && allDisabledData.some(({ checked }) => checked);
-
+        const customCheckboxProps = getTitleCheckboxProps?.() || {};
+        const { onChange, disabled } = customCheckboxProps;
         columnTitleCheckbox = (
           <Checkbox
+            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            {...customCheckboxProps}
             checked={
               !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
             }
@@ -480,9 +482,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                 ? !checkedCurrentAll && checkedCurrentSome
                 : !allDisabledAndChecked && allDisabledSomeChecked
             }
-            onChange={onSelectAllChange}
-            disabled={flattedData.length === 0 || allDisabled}
-            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            onChange={(e) => {
+              onSelectAllChange();
+              onChange?.(e);
+            }}
+            disabled={disabled ?? (flattedData.length === 0 || allDisabled)}
             skipGroup
           />
         );
@@ -558,7 +562,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                 onChange={(event) => {
                   const { nativeEvent } = event;
                   const { shiftKey } = nativeEvent;
-                  const currentSelectedIndex = recordKeys.findIndex((item) => item === key);
+                  const currentSelectedIndex = recordKeys.indexOf(key);
                   const isMultiple = derivedSelectedKeys.some((item) => recordKeys.includes(item));
 
                   if (shiftKey && checkStrictly && isMultiple) {
@@ -685,7 +689,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         prevCol.fixed = mergedFixed;
       }
 
-      const columnCls = classNames(`${prefixCls}-selection-col`, {
+      const columnCls = clsx(`${prefixCls}-selection-col`, {
         [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
       });
 

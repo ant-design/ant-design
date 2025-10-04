@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Tour Primary 1`] = `
 <body>
@@ -11,14 +11,14 @@ exports[`Tour Primary 1`] = `
     </button>
     <div
       class="ant-tour css-var-root ant-tour-primary ant-tour-placement-bottom"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
         style="position: absolute; top: 0px; left: 0px;"
       />
       <div
-        class="ant-tour-pannel"
+        class="ant-tour-panel"
       >
         <div
           class="ant-tour-section"
@@ -221,10 +221,10 @@ exports[`Tour controlled current 1`] = `
     </div>
     <div
       class="ant-tour css-var-root ant-tour-primary"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
     >
       <div
-        class="ant-tour-pannel"
+        class="ant-tour-panel"
       >
         <div
           class="ant-tour-section"
@@ -351,10 +351,10 @@ exports[`Tour controlled current 1`] = `
 exports[`Tour custom step pre btn & next btn className & style 1`] = `
 <div
   class="ant-tour css-var-root"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
 >
   <div
-    class="ant-tour-pannel"
+    class="ant-tour-panel"
   >
     <div
       class="ant-tour-section"
@@ -443,14 +443,14 @@ exports[`Tour should support gap.offset 1`] = `
     </button>
     <div
       class="ant-tour css-var-root ant-tour-placement-bottom"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
         style="position: absolute; top: 0px; left: 0px;"
       />
       <div
-        class="ant-tour-pannel"
+        class="ant-tour-panel"
       >
         <div
           class="ant-tour-section"
@@ -608,14 +608,14 @@ exports[`Tour single 1`] = `
     </button>
     <div
       class="ant-tour css-var-root ant-tour-placement-bottom"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
         style="position: absolute; top: 0px; left: 0px;"
       />
       <div
-        class="ant-tour-pannel"
+        class="ant-tour-panel"
       >
         <div
           class="ant-tour-section"
@@ -773,14 +773,14 @@ exports[`Tour step support Primary 1`] = `
     </button>
     <div
       class="ant-tour css-var-root ant-tour-primary ant-tour-placement-bottom"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
         style="position: absolute; top: 0px; left: 0px;"
       />
       <div
-        class="ant-tour-pannel"
+        class="ant-tour-panel"
       >
         <div
           class="ant-tour-section"

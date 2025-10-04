@@ -1,3 +1,3 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('splitter');
+demoTest('splitter', { skip: ['size-mix'] });

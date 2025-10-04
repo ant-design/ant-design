@@ -7,19 +7,29 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import useMergeSemantic, {
+  mergeClassNames,
+  mergeStyles,
+  resolveStyleOrClass,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
+  ArgsClassNamesType,
   ArgsProps,
+  ArgsStylesType,
   ConfigOptions,
   MessageInstance,
   MessageType,
   NoticeType,
+  ResolvedMessageClassNamesType,
+  ResolvedMessageStylesType,
+  SemanticName,
   TypeOpen,
 } from './interface';
 import { PureContent } from './PurePanel';
@@ -39,6 +49,8 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   message?: MessageConfig;
+  classNames: ResolvedMessageClassNamesType;
+  styles: ResolvedMessageStylesType;
 }
 
 const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
@@ -48,7 +60,7 @@ const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>
   );
@@ -87,10 +99,19 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
+
+  // Use useMergeSemantic to merge classNames and styles
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ArgsClassNamesType,
+    ArgsStylesType,
+    HolderProps
+  >([props?.classNames, message?.classNames], [props?.styles, message?.styles], {
+    props,
+  });
 
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
@@ -114,6 +135,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     message,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
   }));
 
   return holder;
@@ -154,11 +177,18 @@ export function useInternalMessage(
         return fakeResult;
       }
 
-      const { open: originOpen, prefixCls, message } = holderRef.current;
+      const {
+        open: originOpen,
+        prefixCls,
+        message,
+        classNames: originClassNames,
+        styles: originStyles,
+      } = holderRef.current;
+
       const contextClassName = message?.className || {};
-      const contextClassNames = message?.classNames || {};
       const contextStyle = message?.style || {};
-      const contextStyles = message?.styles || {};
+      const rawContextClassNames = message?.classNames || {};
+      const rawContextStyles = message?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
 
@@ -170,8 +200,8 @@ export function useInternalMessage(
         className,
         style,
         onClose,
-        classNames: configClassNames,
-        styles,
+        classNames: configClassNames = {},
+        styles = {},
         ...restConfig
       } = config;
 
@@ -180,6 +210,27 @@ export function useInternalMessage(
         keyIndex += 1;
         mergedKey = `antd-message-${keyIndex}`;
       }
+
+      const contextConfig: HolderProps = { ...messageConfig, ...config };
+
+      const contextClassNames = resolveStyleOrClass(rawContextClassNames, { props: contextConfig });
+      const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig });
+      const contextStyles = resolveStyleOrClass(rawContextStyles, { props: contextConfig });
+      const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
+
+      const mergedClassNames: Partial<Record<SemanticName, string>> = mergeClassNames(
+        undefined,
+        contextClassNames,
+        semanticClassNames,
+        originClassNames,
+      );
+
+      const mergedStyles: Partial<Record<SemanticName, React.CSSProperties>> = mergeStyles(
+        contextStyles,
+        semanticStyles,
+        originStyles,
+      );
+
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig,
@@ -189,27 +240,20 @@ export function useInternalMessage(
               prefixCls={prefixCls}
               type={type}
               icon={icon}
-              classNames={{
-                icon: classNames(configClassNames?.icon, contextClassNames.icon),
-                content: classNames(configClassNames?.content, contextClassNames.content),
-              }}
-              styles={{
-                icon: { ...contextStyles.icon, ...styles?.icon },
-                content: { ...contextStyles.content, ...styles?.content },
-              }}
+              classNames={mergedClassNames}
+              styles={mergedStyles}
             >
               {content}
             </PureContent>
           ),
           placement: 'top',
-          className: classNames(
-            type && `${noticePrefixCls}-${type}`,
+          className: clsx(
+            { [`${noticePrefixCls}-${type}`]: type },
             className,
             contextClassName,
-            contextClassNames.root,
-            configClassNames?.root,
+            mergedClassNames.root,
           ),
-          style: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
+          style: { ...mergedStyles.root, ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();

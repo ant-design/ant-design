@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -25,12 +25,12 @@ describe('Watermark', () => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
-    mockSrcSet.mockRestore();
-  });
-
   afterEach(() => {
     jest.useRealTimers();
+  });
+
+  afterAll(() => {
+    mockSrcSet.mockRestore();
   });
 
   it('The watermark should render successfully', () => {
@@ -157,7 +157,7 @@ describe('Watermark', () => {
     test(
       'Modal',
       <Modal open />,
-      () => document.body.querySelector('.ant-modal-section')!.lastChild!,
+      () => document.body.querySelector('.ant-modal-container')!.lastChild!,
     );
 
     test(

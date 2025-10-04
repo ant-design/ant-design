@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { TimelineToken } from '.';
+import type { TimelineToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
@@ -68,14 +68,14 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             transform: 'translateX(-50%)',
           },
 
-          // Position
-          '&-position-start': {
+          // Placement
+          '&-placement-start': {
             [`${itemCls}-title`]: { bottom: 'var(--timeline-alternate-content-offset)' },
             [`${itemCls}-content`]: {
               top: 'var(--timeline-alternate-content-offset)',
             },
           },
-          '&-position-end': {
+          '&-placement-end': {
             [`${itemCls}-title`]: { top: 'var(--timeline-alternate-content-offset)' },
             [`${itemCls}-content`]: {
               bottom: 'var(--timeline-alternate-content-offset)',
@@ -88,7 +88,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==                        Same Side                        ==
       // =============================================================
       [`&:not(${componentCls}-layout-alternate)`]: {
-        [`${itemCls}-position-end`]: {
+        [`${itemCls}-placement-end`]: {
           display: 'flex',
           alignItems: 'flex-end',
 

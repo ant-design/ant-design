@@ -235,6 +235,14 @@ describe('Badge', () => {
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
   });
 
+  // https://github.com/ant-design/ant-design/issues/49149
+  it('should display custom color and number is 0 when showZero is false visibility', () => {
+    const { container, rerender } = render(<Badge count={0} color="#ff0" />);
+    expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(0);
+    rerender(<Badge count={0} showZero color="#ff0" />);
+    expect(container.querySelectorAll('[title="0"]')).toHaveLength(1);
+  });
+
   it('should support classNames and styles', () => {
     const { container } = render(
       <Badge
@@ -259,7 +267,38 @@ describe('Badge', () => {
     expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
 
     // styles
-    expect(element).toHaveStyle({ backgroundColor: 'yellow' });
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
+  });
+
+  it('should support function-based semantic classNames and styles', () => {
+    const { container } = render(
+      <Badge
+        count={5}
+        size="small"
+        classNames={({ props }) => ({
+          root: `badge-${props.size}`,
+          indicator: 'indicator-small',
+        })}
+        styles={({ props }) => ({
+          root: { padding: props.size === 'small' ? '2px' : '4px' },
+          indicator: { fontSize: '10px' },
+        })}
+      >
+        test
+      </Badge>,
+    );
+
+    const element = container.querySelector<HTMLSpanElement>('.ant-badge');
+
+    // function-based classNames
+    expect(element).toHaveClass('badge-small');
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('indicator-small');
+
+    // function-based styles
+    expect(element).toHaveStyle({ padding: '2px' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ fontSize: '10px' });
   });
 });

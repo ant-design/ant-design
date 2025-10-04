@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-
+import type { InputProps } from '..';
 import Input from '..';
 
 const testClassNames = {
@@ -19,21 +19,21 @@ const testClassNames = {
 };
 
 const testStyles = {
-  root: { color: 'red' },
-  input: { color: 'blue' },
-  textarea: { color: 'green' },
-  prefix: { color: 'yellow' },
-  suffix: { color: 'purple' },
-  count: { color: 'orange' },
-  separator: { color: 'pink' },
+  root: { color: 'rgb(255, 0, 0)' },
+  input: { color: 'rgb(0, 0, 255)' },
+  textarea: { color: 'rgb(0, 255, 0)' },
+  prefix: { color: 'rgb(255, 255, 0)' },
+  suffix: { color: 'rgb(128, 0, 128)' },
+  count: { color: 'rgb(255, 165, 0)' },
+  separator: { color: 'rgb(255, 192, 203)' },
   button: {
-    root: { color: 'cyan' },
-    icon: { color: 'magenta' },
-    content: { color: 'lime' },
+    root: { color: 'rgb(255, 0, 0)' },
+    icon: { color: 'rgb(0, 0, 255)' },
+    content: { color: 'rgb(0, 255, 0)' },
   },
 };
 
-describe('semantic dom', () => {
+describe('Input.Semantic', () => {
   it('input should support classNames and styles', () => {
     const { container } = render(
       <Input
@@ -162,5 +162,25 @@ describe('semantic dom', () => {
     expect(input).toHaveStyle(testStyles.input);
     expect(separator).toHaveClass(testClassNames.separator);
     expect(separator).toHaveStyle(testStyles.separator);
+  });
+  it('should apply dynamic classNames and styles from props function', () => {
+    const classNames: InputProps['classNames'] = (info) => {
+      if (info.props.disabled) return { root: 'input-disabled' };
+      return { root: 'input-enabled' };
+    };
+    const styles: InputProps['styles'] = (info) => {
+      if (info.props.size === 'large') return { root: { background: 'red' } };
+      return { root: { background: 'blue' } };
+    };
+
+    const { rerender, container } = render(
+      <Input size="large" classNames={classNames} styles={styles} />,
+    );
+    expect(container.querySelector('.ant-input')).toHaveClass('input-enabled');
+    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'red' });
+
+    rerender(<Input disabled classNames={classNames} styles={styles} />);
+    expect(container.querySelector('.ant-input')).toHaveClass('input-disabled');
+    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'blue' });
   });
 });

@@ -133,9 +133,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'プレビュー',
-  },
   QRCode: {
     expired: 'QRコードの有効期限が切れました',
     refresh: 'リフレッシュ',

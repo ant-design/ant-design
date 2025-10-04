@@ -75,7 +75,7 @@ const App: React.FC = () => (
       </Dropdown>
     </Space.Compact>
     <Dropdown menu={menuProps}>
-      <Button onClick={handleButtonClick} icon={<DownOutlined />} iconPosition="end">
+      <Button onClick={handleButtonClick} icon={<DownOutlined />} iconPlacement="end">
         Button
       </Button>
     </Dropdown>

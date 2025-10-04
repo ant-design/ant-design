@@ -8,18 +8,18 @@ export interface MarkersProps {
   containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
-type ReactList = {
+interface RectType {
   left: number;
   top: number;
   width: number;
   height: number;
   visible: boolean;
-}[];
+}
 
-export default function Markers(props: MarkersProps) {
+const Markers: React.FC<MarkersProps> = (props) => {
   const { targetClassName, containerRef } = props;
 
-  const [rectList, setRectList] = React.useState<ReactList>([]);
+  const [rectList, setRectList] = React.useState<RectType[]>([]);
 
   // ======================== Effect =========================
   React.useEffect(() => {
@@ -27,8 +27,9 @@ export default function Markers(props: MarkersProps) {
       ? Array.from(containerRef.current?.querySelectorAll<HTMLElement>(`.${targetClassName}`) || [])
       : [];
 
-    const containerRect = (containerRef.current?.getBoundingClientRect() || {}) as DOMRect;
-    const targetRectList = targetElements.map((targetElement) => {
+    const containerRect = containerRef.current?.getBoundingClientRect() || ({} as DOMRect);
+
+    const targetRectList = targetElements.map<RectType>((targetElement) => {
       const rect = targetElement.getBoundingClientRect();
       return {
         left: rect.left - (containerRect.left || 0),
@@ -40,20 +41,19 @@ export default function Markers(props: MarkersProps) {
     });
 
     setRectList((prev) => {
-      return Array.from({
-        length: Math.max(prev.length, targetRectList.length),
-      }).map((_, index) => {
-        const prevRect = prev[index] || {};
-        const nextRect = targetRectList[index] || {};
-
-        return {
-          left: nextRect.left ?? prevRect.left ?? 0,
-          top: nextRect.top ?? prevRect.top ?? 0,
-          width: nextRect.width ?? prevRect.width ?? 0,
-          height: nextRect.height ?? prevRect.height ?? 0,
-          visible: !!nextRect.visible,
-        };
-      });
+      return Array.from({ length: Math.max(prev.length, targetRectList.length) }).map<RectType>(
+        (_, index) => {
+          const prevRect = prev[index] || {};
+          const nextRect = targetRectList[index] || {};
+          return {
+            left: nextRect.left ?? prevRect.left ?? 0,
+            top: nextRect.top ?? prevRect.top ?? 0,
+            width: nextRect.width ?? prevRect.width ?? 0,
+            height: nextRect.height ?? prevRect.height ?? 0,
+            visible: !!nextRect.visible,
+          };
+        },
+      );
     });
   }, [targetClassName]);
 
@@ -62,9 +62,10 @@ export default function Markers(props: MarkersProps) {
     <>
       {rectList.map((rect, index) => {
         const key = `key-${index}`;
-
         return <Marker rect={rect} key={key} data-id={key} primary={index === 0} />;
       })}
     </>
   );
-}
+};
+
+export default Markers;

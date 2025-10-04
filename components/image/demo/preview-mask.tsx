@@ -5,6 +5,7 @@ import { Image, Space } from 'antd';
 const App: React.FC = () => (
   <Image
     width={96}
+    alt="basic image"
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
     classNames={{
       popup: {

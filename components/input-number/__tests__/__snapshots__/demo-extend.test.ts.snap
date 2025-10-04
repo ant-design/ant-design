@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/input-number/demo/addon.tsx extend context correctly 1`] = `
 <div
@@ -152,7 +152,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div>
                 <div
@@ -183,7 +183,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -191,7 +191,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="+"
                         >
@@ -208,7 +207,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="-"
                         >
@@ -375,7 +373,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div>
                 <div
@@ -406,7 +404,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                 >
                   <div
                     class="rc-virtual-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -414,7 +412,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="$"
                         >
@@ -431,7 +428,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="€"
                         >
@@ -448,7 +444,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="£"
                         >
@@ -465,7 +460,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="¥"
                         >
@@ -678,7 +672,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div>
                 <div
@@ -4454,6 +4448,165 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
 `;
 
 exports[`renders components/input-number/demo/status.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/input-number/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var acss-1tkizl6"
+    style="font-size: 14px;"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="up"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        placeholder="Object"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-input-number ant-input-number-lg ant-input-number-outlined css-var-test-id ant-input-number-css-var acss-1tkizl6"
+    style="background-color: rgb(250, 250, 250); border-color: rgb(114, 46, 209);"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="up"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        placeholder="Function"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/input-number/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/variant.tsx extend context correctly 1`] = `
 <div

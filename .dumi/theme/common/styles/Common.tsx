@@ -7,7 +7,7 @@ export default () => {
   const { anchorTop } = useTheme();
 
   React.useInsertionEffect(() => {
-    updateCSS(`@layer global, antd;`, 'site-global', {
+    updateCSS(`@layer theme, base, global, antd, components, utilities;`, 'site-global', {
       prepend: true,
     });
   }, []);

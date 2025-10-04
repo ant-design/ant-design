@@ -3,8 +3,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil';
 import { ConfigContext } from '../config-provider';
@@ -20,7 +20,8 @@ const dimensionMaxMap = {
   xxl: '1599.98px',
 };
 
-const isNumeric = (value: any) => !Number.isNaN(Number.parseFloat(value)) && isFinite(value);
+const isNumeric = (val: any) =>
+  !Number.isNaN(Number.parseFloat(val)) && Number.isFinite(Number(val));
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
@@ -148,10 +149,10 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
   // special trigger when collapsedWidth == 0
   const zeroWidthTrigger =
-    parseFloat(String(collapsedWidth || 0)) === 0 ? (
+    Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span
         onClick={toggle}
-        className={classNames(
+        className={clsx(
           `${prefixCls}-zero-width-trigger`,
           `${prefixCls}-zero-width-trigger-${reverseArrow ? 'right' : 'left'}`,
         )}
@@ -187,14 +188,14 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     width: siderWidth,
   };
 
-  const siderCls = classNames(
+  const siderCls = clsx(
     prefixCls,
     `${prefixCls}-${theme}`,
     {
       [`${prefixCls}-collapsed`]: !!collapsed,
       [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!below,
-      [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
+      [`${prefixCls}-zero-width`]: Number.parseFloat(siderWidth) === 0,
     },
     className,
     hashId,

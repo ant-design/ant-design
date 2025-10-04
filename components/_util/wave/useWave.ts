@@ -1,16 +1,16 @@
 import * as React from 'react';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import { useEvent } from '@rc-component/util';
 import raf from '@rc-component/util/lib/raf';
 
+import type { WaveProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
 import { TARGET_CLS } from './interface';
 import type { ShowWave, WaveComponent } from './interface';
 import showWaveEffect from './WaveEffect';
-import type { WaveProps } from '.';
 
 const useWave = (
-  nodeRef: React.RefObject<HTMLElement>,
+  nodeRef: React.RefObject<HTMLElement | null>,
   className: string,
   component?: WaveComponent,
   colorSource?: WaveProps['colorSource'],
@@ -19,7 +19,7 @@ const useWave = (
   const [, token, hashId] = useToken();
 
   const showWave = useEvent<ShowWave>((event) => {
-    const node = nodeRef.current!;
+    const node = nodeRef.current;
 
     if (wave?.disabled || !node) {
       return;

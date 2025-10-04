@@ -1,8 +1,19 @@
-import { useMemo } from 'react';
+import { isValidElement, useMemo } from 'react';
 
 import type { PreviewConfig } from '..';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { devUseWarning } from '../../_util/warning';
 import type { GroupPreviewConfig } from '../PreviewGroup';
+
+function normalizeMask(mask?: MaskType | React.ReactNode) {
+  if (isValidElement(mask)) {
+    return [mask, undefined];
+  }
+  if (typeof mask === 'boolean' || (mask && typeof mask === 'object')) {
+    return [undefined, mask];
+  }
+  return [undefined, undefined];
+}
 
 export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
   preview?: boolean | T,
@@ -32,8 +43,8 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
       rootClassName,
       maskClassName,
       mask,
-      forceRender,
-      destroyOnClose,
+      forceRender: _forceRender,
+      destroyOnClose: _destroyOnClose,
       toolbarRender,
 
       ...restPreviewConfig
@@ -54,12 +65,15 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
       };
     }
 
+    const [coverElement, maskConfig] = normalizeMask(mask);
+
     return [
       {
         ...restPreviewConfig,
         open: open ?? visible,
         onOpenChange: onInternalOpenChange,
-        cover: cover ?? mask,
+        cover: cover ?? coverElement,
+        mask: maskConfig,
         actionsRender: actionsRender ?? toolbarRender,
       },
       rootClassName,
@@ -76,12 +90,15 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
         ['onVisibleChange', 'onOpenChange'],
         ['maskClassName', 'classNames.cover'],
         ['rootClassName', 'classNames.root'],
-        ['mask', 'cover'],
         ['toolbarRender', 'actionsRender'],
       ].forEach(([deprecatedName, newName]) => {
         warning.deprecated(!(deprecatedName in rawPreviewConfig), deprecatedName, newName);
       });
-
+      warning(
+        !isValidElement(rawPreviewConfig.mask),
+        'deprecated',
+        '`mask` used as ReactNode is deprecated. Please use `cover` instead.',
+      );
       warning(
         !('forceRender' in rawPreviewConfig),
         'breaking',

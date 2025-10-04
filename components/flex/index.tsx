@@ -1,6 +1,6 @@
 import React from 'react';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { isPresetSize } from '../_util/gapSize';
 import useOrientation from '../_util/hooks/useOrientation';
@@ -18,7 +18,6 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     style,
     flex,
     gap,
-    children,
     vertical,
     orientation,
     component: Component = 'div',
@@ -37,7 +36,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const [, mergedVertical] = useOrientation(orientation, vertical ?? ctxFlex?.vertical);
 
-  const mergedCls = classNames(
+  const mergedCls = clsx(
     className,
     rootClassName,
     ctxFlex?.className,
@@ -68,9 +67,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
       className={mergedCls}
       style={mergedStyle}
       {...omit(othersProps, ['justify', 'wrap', 'align'])}
-    >
-      {children}
-    </Component>
+    />
   );
 });
 

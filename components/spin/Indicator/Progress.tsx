@@ -1,6 +1,6 @@
 import * as React from 'react';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export interface ProgressProps {
   prefixCls: string;
@@ -23,9 +23,7 @@ const CustomCircle: React.FC<Readonly<CircleProps>> = (props) => {
   const { dotClassName, style, hasCircleCls } = props;
   return (
     <circle
-      className={classNames(`${dotClassName}-circle`, {
-        [`${dotClassName}-circle-bg`]: hasCircleCls,
-      })}
+      className={clsx(`${dotClassName}-circle`, { [`${dotClassName}-circle-bg`]: hasCircleCls })}
       r={radius}
       cx={position}
       cy={position}
@@ -66,15 +64,10 @@ const Progress: React.FC<Readonly<ProgressProps>> = ({ percent, prefixCls }) => 
 
   return (
     <span
-      className={classNames(
-        holderClassName,
-        `${dotClassName}-progress`,
-        safePtg <= 0 && hideClassName,
-      )}
+      className={clsx(holderClassName, `${dotClassName}-progress`, safePtg <= 0 && hideClassName)}
     >
       <svg
         viewBox={`0 0 ${viewSize} ${viewSize}`}
-        // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: progressbar could be readonly
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={100}

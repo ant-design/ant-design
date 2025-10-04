@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
@@ -8,18 +8,19 @@ import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
+  SemanticName,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-interface LineProps extends ProgressProps {
+interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   prefixCls: string;
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: Required<ProgressProps>['classNames'];
-  styles: Required<ProgressProps>['styles'];
+  classNames: Record<SemanticName, string>;
+  styles: Record<SemanticName, React.CSSProperties>;
 }
 
 /**
@@ -35,7 +36,7 @@ interface LineProps extends ProgressProps {
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
-    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    const formattedKey = Number.parseFloat(key.replace(/%/g, ''));
     if (!Number.isNaN(formattedKey)) {
       tempArr.push({ key: formattedKey, value: gradients[key] });
     }
@@ -145,26 +146,20 @@ const Line: React.FC<LineProps> = (props) => {
   // ======================== Render ========================
   return (
     <div
-      className={cls(`${prefixCls}-body`, classNames.body, {
+      className={clsx(`${prefixCls}-body`, classNames.body, {
         [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
       })}
-      style={{
-        width: width > 0 ? width : '100%',
-        ...styles.body,
-      }}
+      style={{ width: width > 0 ? width : '100%', ...styles.body }}
     >
       {/************** Rail **************/}
       <div
-        className={cls(`${prefixCls}-rail`, classNames.rail)}
-        style={{
-          ...railStyle,
-          ...styles.rail,
-        }}
+        className={clsx(`${prefixCls}-rail`, classNames.rail)}
+        style={{ ...railStyle, ...styles.rail }}
       >
         {/************* Track *************/}
         {/* Percent */}
         <div
-          className={cls(trackCls, classNames.track)}
+          className={clsx(trackCls, classNames.track)}
           style={{
             ...percentTrackStyle,
             ...styles.track,
@@ -176,7 +171,7 @@ const Line: React.FC<LineProps> = (props) => {
         {/* Success */}
         {successPercent !== undefined && (
           <div
-            className={cls(trackCls, `${trackCls}-success`, classNames.track)}
+            className={clsx(trackCls, `${trackCls}-success`, classNames.track)}
             style={{
               ...successTrackStyle,
               ...styles.track,

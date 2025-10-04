@@ -41,8 +41,8 @@ describe('ColorPicker.gradient', () => {
   ) {
     const ele = typeof query === 'object' ? query : container.querySelector(query)!;
     const mouseDown = createEvent.mouseDown(ele);
-    (mouseDown as any).pageX = start;
-    (mouseDown as any).pageY = start;
+    Object.defineProperty(mouseDown, 'pageX', { value: start });
+    Object.defineProperty(mouseDown, 'pageY', { value: start });
 
     const preventDefault = jest.fn();
 
@@ -65,8 +65,8 @@ describe('ColorPicker.gradient', () => {
 
   function doMouseMove(end: number) {
     const mouseMove = createEvent.mouseMove(document);
-    (mouseMove as any).pageX = end;
-    (mouseMove as any).pageY = end;
+    Object.defineProperty(mouseMove, 'pageX', { value: end });
+    Object.defineProperty(mouseMove, 'pageY', { value: end });
     fireEvent(document, mouseMove);
   }
 

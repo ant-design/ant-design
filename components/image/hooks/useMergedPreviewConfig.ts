@@ -1,7 +1,9 @@
 import React from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { PreviewConfig } from '..';
+import useMergedMask from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getTransitionName } from '../../_util/motion';
 import type { GroupPreviewConfig } from '../PreviewGroup';
@@ -14,8 +16,15 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
   getContextPopupContainer: PreviewConfig['getContainer'],
   icons: PreviewConfig['icons'],
   defaultCover?: React.ReactNode,
-): T {
+): T & {
+  blurClassName?: string;
+} {
   const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
+  const [mergedPreviewMask, blurClassName] = useMergedMask(
+    previewConfig?.mask as MaskType,
+    contextPreviewConfig?.mask as MaskType,
+    `${prefixCls}-preview`,
+  );
 
   return React.useMemo(() => {
     if (!previewConfig) {
@@ -28,6 +37,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
       rootClassName: previewRootClassName,
     } = previewConfig as PreviewConfig;
     const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
+
     return {
       motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
       ...previewConfig,
@@ -36,7 +46,9 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
       getContainer: getContainer ?? getContextPopupContainer,
       zIndex,
       closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: classnames(mergedRootClassName, previewRootClassName),
+      rootClassName: clsx(mergedRootClassName, previewRootClassName),
+      mask: mergedPreviewMask,
+      blurClassName: blurClassName.mask,
     };
   }, [
     previewConfig,
@@ -47,5 +59,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
     defaultCover,
     icons,
     zIndex,
+    mergedPreviewMask,
+    blurClassName,
   ]);
 }

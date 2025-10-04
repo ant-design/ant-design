@@ -1,5 +1,5 @@
 import React from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
 
 import Alert from '..';
@@ -7,9 +7,12 @@ import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
-import type { AlertRef } from '../Alert';
+import type { AlertProps, AlertRef } from '../Alert';
+
+const { resetWarned } = warning;
 
 const { ErrorBoundary } = Alert;
 
@@ -38,8 +41,28 @@ describe('Alert', () => {
     );
 
     fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
-
     expect(onClose).toHaveBeenCalledTimes(1);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('onClose and closable.onClose', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onClose = jest.fn();
+    const handleClosableClose = jest.fn();
+    const { container } = render(
+      <Alert
+        title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
+        closable={{ onClose: handleClosableClose, closeIcon: true }}
+        onClose={onClose}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+
+    expect(onClose).toHaveBeenCalledTimes(0);
+    expect(handleClosableClose).toHaveBeenCalledTimes(1);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
@@ -201,7 +224,7 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBe(element);
   });
   it('should apply custom styles to Alert', () => {
-    const customClassNames = {
+    const customClassNames: AlertProps['classNames'] = {
       root: 'custom-root',
       icon: 'custom-icon',
       section: 'custom-section',
@@ -209,7 +232,7 @@ describe('Alert', () => {
       description: 'custom-description',
       actions: 'custom-actions',
     };
-    const customStyles = {
+    const customStyles: AlertProps['styles'] = {
       root: { color: 'red' },
       icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
       section: { padding: '20px' },
@@ -257,5 +280,91 @@ describe('Alert', () => {
     expect(titleElement.style.backgroundColor).toBe('blue');
     expect(descriptionElement.style.fontSize).toBe('20px');
     expect(actionElement.style.color).toBe('green');
+  });
+
+  it('should support classNames and styles as functions', () => {
+    const classNamesFn: AlertProps['classNames'] = jest.fn((info) => {
+      if (info.props.type === 'error') {
+        return { root: 'error-alert' };
+      }
+      return { root: 'default-alert' };
+    });
+
+    const stylesFn: AlertProps['styles'] = jest.fn((info) => {
+      if (info.props.type === 'success') {
+        return { root: { backgroundColor: '#f6ffed' } };
+      }
+      return { root: { backgroundColor: '#fff7e6' } };
+    });
+
+    const { rerender } = render(
+      <Alert title="Test Alert" type="error" classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    expect(classNamesFn).toHaveBeenCalled();
+    expect(stylesFn).toHaveBeenCalled();
+
+    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    expect(rootElement.classList).toContain('error-alert');
+    expect(rootElement.style.backgroundColor).toBe('rgb(255, 247, 230)');
+
+    rerender(
+      <Alert title="Test Alert" type="success" classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    const updatedRootElement = document.querySelector('.ant-alert') as HTMLElement;
+    expect(updatedRootElement.classList).toContain('default-alert');
+    expect(updatedRootElement.style.backgroundColor).toBe('rgb(246, 255, 237)');
+  });
+
+  it('should merge context and component classNames and styles', () => {
+    const contextClassNames: AlertProps['classNames'] = {
+      root: 'context-root',
+      icon: 'context-icon',
+    };
+    const contextStyles: AlertProps['styles'] = {
+      root: { margin: '10px' },
+      icon: { fontSize: '16px' },
+    };
+    const componentClassNames: AlertProps['classNames'] = {
+      root: 'component-root',
+      title: 'component-title',
+    };
+    const componentStyles: AlertProps['styles'] = {
+      root: { padding: '5px' },
+      title: { fontWeight: 'bold' },
+    };
+
+    render(
+      <ConfigProvider
+        alert={{
+          classNames: contextClassNames,
+          styles: contextStyles,
+        }}
+      >
+        <Alert
+          title="Test Alert"
+          showIcon
+          classNames={componentClassNames}
+          styles={componentStyles}
+        />
+      </ConfigProvider>,
+    );
+
+    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
+    const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
+
+    // Check merged classNames
+    expect(rootElement.classList).toContain('context-root');
+    expect(rootElement.classList).toContain('component-root');
+    expect(iconElement.classList).toContain('context-icon');
+    expect(titleElement.classList).toContain('component-title');
+
+    // Check merged styles
+    expect(rootElement.style.margin).toBe('10px'); // from context
+    expect(rootElement.style.padding).toBe('5px'); // from component
+    expect(iconElement.style.fontSize).toBe('16px'); // from context
+    expect(titleElement.style.fontWeight).toBe('bold'); // from component
   });
 });

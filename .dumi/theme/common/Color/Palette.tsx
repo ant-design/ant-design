@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { presetDarkPalettes } from '@ant-design/colors';
 import { App } from 'antd';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import copy from 'antd/es/_util/copy';
 
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
   if (!rgb) {
     return '';
   }
-  let r = parseInt(rgb[0], 10).toString(16);
-  let g = parseInt(rgb[1], 10).toString(16);
-  let b = parseInt(rgb[2], 10).toString(16);
+  let r = Number.parseInt(rgb[0], 10).toString(16);
+  let g = Number.parseInt(rgb[1], 10).toString(16);
+  let b = Number.parseInt(rgb[2], 10).toString(16);
   r = r.length === 1 ? `0${r}` : r;
   g = g.length === 1 ? `0${g}` : g;
   b = b.length === 1 ? `0${b}` : b;
@@ -21,22 +21,19 @@ interface PaletteProps {
   showTitle?: boolean;
   direction?: 'horizontal' | 'vertical';
   dark?: boolean;
+  count?: number;
   color?: {
-    name: string;
-    count?: number;
+    name?: string;
+    title?: string;
     description?: string;
-    english?: string;
-    chinese?: string;
   };
 }
 
 const Palette: React.FC<PaletteProps> = (props) => {
-  const {
-    showTitle,
-    direction,
-    dark,
-    color: { name, count = 10, description, english, chinese } = { name: 'gray', count: 13 },
-  } = props;
+  const { showTitle, direction, dark, count = 10, color = {} } = props;
+
+  const { name = 'gray', title, description } = color;
+
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
   const { message } = App.useApp();
@@ -44,19 +41,25 @@ const Palette: React.FC<PaletteProps> = (props) => {
   useEffect(() => {
     const colors: Record<string, string> = {};
     Object.keys(colorNodesRef.current || {}).forEach((key) => {
-      const computedColor = getComputedStyle(colorNodesRef.current[key])['background-color'];
-      if (computedColor.includes('rgba')) {
-        colors[key] = computedColor;
+      const { backgroundColor } = getComputedStyle(colorNodesRef.current[key]);
+      if (backgroundColor.includes('rgba')) {
+        colors[key] = backgroundColor;
       } else {
-        colors[key] = rgbToHex(computedColor);
+        colors[key] = rgbToHex(backgroundColor);
       }
     });
     setHexColors(colors);
   }, []);
 
+  const onCopy = async (colorText: string) => {
+    await copy(hexColors[colorText]);
+    message.success(`@${colorText} copied: ${hexColors[colorText]}`);
+  };
+
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
+
   const colors: React.ReactNode[] = [];
-  const colorName = `${english} / ${chinese}`;
+
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
     default: ['rgba(0, 0, 0, 0.85)', '#fff'],
@@ -64,40 +67,36 @@ const Palette: React.FC<PaletteProps> = (props) => {
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
   for (let i = 1; i <= count; i += 1) {
     const colorText = `${name}-${i}`;
-    const defaultBgStyle = dark ? presetDarkPalettes[name][i - 1] : '';
+    const defaultBgStyle = dark && name ? presetDarkPalettes[name][i - 1] : '';
     colors.push(
-      <CopyToClipboard
-        text={hexColors[colorText]}
-        onCopy={() => message.success(`@${colorText} copied: ${hexColors[colorText]}`)}
-        key={colorText}
+      <div
+        key={i}
+        ref={(node) => {
+          if (node) {
+            colorNodesRef.current[`${name}-${i}`] = node;
+          }
+        }}
+        className={`main-color-item palette-${name}-${i}`}
+        style={{
+          color: (name === 'yellow' ? i > 6 : i > 5) ? firstColor : lastColor,
+          fontWeight: i === 6 ? 'bold' : 'normal',
+          backgroundColor: defaultBgStyle,
+          cursor: 'pointer',
+        }}
+        title="click to copy color"
+        onClick={() => onCopy(colorText)}
       >
-        <div
-          key={i}
-          ref={(node) => {
-            if (node) {
-              colorNodesRef.current[`${name}-${i}`] = node;
-            }
-          }}
-          className={`main-color-item palette-${name}-${i}`}
-          style={{
-            color: (name === 'yellow' ? i > 6 : i > 5) ? firstColor : lastColor,
-            fontWeight: i === 6 ? 'bold' : 'normal',
-            backgroundColor: defaultBgStyle,
-          }}
-          title="click to copy color"
-        >
-          <span className="main-color-text">{colorText}</span>
-          <span className="main-color-value">{hexColors[colorText]}</span>
-        </div>
-      </CopyToClipboard>,
+        <span className="main-color-text">{colorText}</span>
+        <span className="main-color-value">{hexColors[colorText]}</span>
+      </div>,
     );
   }
   return (
     <div className={className}>
       {showTitle && (
         <div className="color-title">
-          {colorName}
-          <span className="color-description">{description}</span>
+          {title}
+          {description && <span className="color-description">{description}</span>}
         </div>
       )}
       <div className="main-color">{colors}</div>

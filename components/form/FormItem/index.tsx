@@ -3,9 +3,9 @@ import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
 import type { FieldProps } from '@rc-component/form/lib/Field';
 import type { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
+import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
-import { supportRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
@@ -256,6 +256,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           errors={mergedErrors}
           warnings={mergedWarnings}
           noStyle
+          name={name}
         >
           {baseChildren}
         </StatusProvider>
@@ -266,7 +267,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, cssVarCls, rootCls, hashId)}
+        className={clsx(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -275,6 +276,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
         layout={layout}
+        name={name}
       >
         {baseChildren}
       </ItemHolder>
@@ -358,21 +360,18 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             'usage',
             'Must set `name` or use a render function when `dependencies` is set.',
           );
-        } else if (React.isValidElement(mergedChildren)) {
+        } else if (React.isValidElement<{ defaultValue?: any }>(mergedChildren)) {
           warning(
-            (
-              mergedChildren as React.ReactElement<{
-                defaultValue?: any;
-              }>
-            ).props.defaultValue === undefined,
+            mergedChildren.props.defaultValue === undefined,
             'usage',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
           );
 
-          const childProps = {
-            ...(mergedChildren as React.ReactElement<any>).props,
+          const childProps: React.ReactElement<any>['props'] = {
+            ...mergedChildren.props,
             ...mergedControl,
           };
+
           if (!childProps.id) {
             childProps.id = fieldId;
           }

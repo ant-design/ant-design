@@ -26,7 +26,7 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
         },
         [`${componentCls}-mask-input`]: {
           color: 'transparent',
-          caretColor: 'var(--ant-color-text)',
+          caretColor: token.colorText,
         },
         [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
           '-webkit-appearance': 'none',
@@ -63,8 +63,7 @@ export default genStyleHooks(
   ['Input', 'OTP'],
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
-
-    return [genOTPStyle(inputToken)];
+    return genOTPStyle(inputToken);
   },
   initComponentToken,
 );

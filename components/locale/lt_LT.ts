@@ -131,9 +131,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Peržiūrėti',
-  },
   QRCode: {
     expired: 'QR kodo galiojimas baigėsi',
     refresh: 'Atnaujinti',

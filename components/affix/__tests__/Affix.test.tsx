@@ -30,7 +30,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
   }, []);
   return (
     <div ref={container} className="container">
-      <Affix className="fixed" target={() => container.current} {...props}>
+      <Affix className="placeholder" target={() => container.current} {...props}>
         <Button type="primary">Fixed at the top of container</Button>
       </Affix>
     </div>
@@ -45,14 +45,14 @@ describe('Affix Render', () => {
 
   const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
   beforeAll(() => {
     domMock.mockImplementation(function fn(this: HTMLElement) {
       return classRect[this.className] || { top: 0, bottom: 0 };
     });
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
@@ -65,7 +65,7 @@ describe('Affix Render', () => {
   });
 
   const movePlaceholder = async (top: number) => {
-    classRect.fixed = { top, bottom: top } as DOMRect;
+    classRect.placeholder = { top, bottom: top } as DOMRect;
     if (events.scroll == null) {
       throw new Error('scroll should be set');
     }
@@ -184,7 +184,7 @@ describe('Affix Render', () => {
     });
 
     // Trigger inner and outer element for the two <ResizeObserver>s.
-    ['.ant-btn', '.fixed'].forEach((selector) => {
+    ['.ant-btn', '.placeholder'].forEach((selector) => {
       it(`trigger listener when size change: ${selector}`, async () => {
         const updateCalled = jest.fn();
         const { container } = render(

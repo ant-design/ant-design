@@ -58,7 +58,9 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         node.tagName === 'Table' &&
         /^components/.test(filename)
       ) {
-        if (!node.properties) return;
+        if (!node.properties) {
+          return;
+        }
         node.properties.className ??= [];
         (node.properties.className as string[]).push('component-api-table');
       } else if (node.type === 'element' && (node.tagName === 'Link' || node.tagName === 'a')) {

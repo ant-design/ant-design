@@ -1,13 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Breadcrumb filter React.Fragment 1`] = `
 <nav
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -20,9 +18,7 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
     >
       :
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -61,9 +57,7 @@ exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -79,9 +73,7 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -94,9 +86,7 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -112,9 +102,7 @@ exports[`Breadcrumb should render a menu 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#/index"
@@ -128,9 +116,7 @@ exports[`Breadcrumb should render a menu 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
@@ -167,9 +153,7 @@ exports[`Breadcrumb should render a menu 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#/index/first/second"
@@ -183,9 +167,7 @@ exports[`Breadcrumb should render a menu 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#/index/first/second/third"
@@ -200,9 +182,7 @@ exports[`Breadcrumb should render correct 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#/"
@@ -218,9 +198,7 @@ exports[`Breadcrumb should render correct 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -236,9 +214,7 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -252,9 +228,7 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
       /
     </li>
     <span>
-      <li
-        class=""
-      >
+      <li>
         <span
           class="ant-breadcrumb-link"
         >
@@ -268,9 +242,7 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
         /
       </li>
     </span>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -286,9 +258,7 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -301,9 +271,7 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -316,9 +284,7 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -342,9 +308,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
   data-custom="custom"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
         data-custom="custom-item"
@@ -358,9 +322,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -376,9 +338,7 @@ exports[`Breadcrumb should support string \`0\` and number \`0\` 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -391,9 +351,7 @@ exports[`Breadcrumb should support string \`0\` and number \`0\` 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >

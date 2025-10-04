@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
-import get from '@rc-component/util/lib/utils/get';
-import set from '@rc-component/util/lib/utils/set';
+import { get, set } from '@rc-component/util';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 import Prism from 'prismjs';
 
 import Markers from './Markers';
@@ -14,17 +12,19 @@ export interface SemanticPreviewInjectionProps {
   classNames?: Record<string, string>;
 }
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   container: css`
     position: relative;
   `,
   colWrap: css`
-    border-right: 1px solid ${token.colorBorderSecondary};
+    border-inline-end: 1px solid ${cssVar.colorBorderSecondary};
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ${token.paddingMD}px;
+    padding: ${cssVar.paddingMD};
     overflow: hidden;
+    position: relative;
+    z-index: 0;
   `,
   colWrapPaddingLess: css`
     padding: 0;
@@ -39,13 +39,13 @@ const useStyle = createStyles(({ token }) => ({
   `,
   listItem: css`
     cursor: pointer;
-    padding: ${token.paddingSM}px;
-    transition: background-color ${token.motionDurationFast} ease;
+    padding: ${cssVar.paddingSM};
+    transition: background-color ${cssVar.motionDurationFast} ease;
     &:hover {
-      background-color: ${token.controlItemBgHover};
+      background-color: ${cssVar.controlItemBgHover};
     }
     &:not(:first-of-type) {
-      border-top: 1px solid ${token.colorBorderSecondary};
+      border-top: 1px solid ${cssVar.colorBorderSecondary};
     }
   `,
 }));
@@ -110,6 +110,9 @@ function HighlightExample(props: {
   );
 }
 
+const getMarkClassName = (semanticKey: string) =>
+  `semantic-mark-${semanticKey}`.replace(/\./g, '-');
+
 export interface SemanticPreviewProps {
   componentName: string;
   semantics: { name: string; desc: string; version?: string }[];
@@ -117,6 +120,7 @@ export interface SemanticPreviewProps {
   children: React.ReactElement<any>;
   height?: number;
   padding?: false;
+  style?: React.CSSProperties;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -125,16 +129,11 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     children,
     height,
     padding,
+    style,
     componentName = 'Component',
     itemsAPI,
   } = props;
   const { token } = theme.useToken();
-
-  // ======================= Semantic =======================
-  const getMarkClassName = React.useCallback(
-    (semanticKey: string) => `semantic-mark-${semanticKey}`.replace(/\./g, '-'),
-    [],
-  );
 
   const semanticClassNames = React.useMemo<Record<string, string>>(() => {
     let classNames: Record<string, string> = {};
@@ -166,32 +165,33 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     const clone = set(
       semanticClassNames,
       hoverCell,
-      classnames(get(semanticClassNames, hoverCell), getMarkClassName('active')),
+      clsx(get(semanticClassNames, hoverCell), getMarkClassName('active')),
     );
 
     return clone;
   }, [semanticClassNames, mergedSemantic]);
 
   // ======================== Render ========================
-  const cloneNode = React.cloneElement(children, {
+  const cloneNode = React.cloneElement<SemanticPreviewInjectionProps>(children, {
     classNames: hoveredSemanticClassNames,
-  } as SemanticPreviewInjectionProps);
+  });
 
   return (
-    <div className={classnames(styles.container)} ref={containerRef}>
+    <div className={clsx(styles.container)} ref={containerRef}>
       <Row style={{ minHeight: height }}>
         <Col
           span={16}
-          className={classnames(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
+          className={clsx(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
+          style={style}
         >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
         </Col>
         <Col span={8}>
-          <ul className={classnames(styles.listWrap)}>
+          <ul className={clsx(styles.listWrap)}>
             {semantics.map<React.ReactNode>((semantic) => (
               <li
                 key={semantic.name}
-                className={classnames(styles.listItem)}
+                className={clsx(styles.listItem)}
                 onMouseEnter={() => setHoverSemantic(semantic.name)}
                 onMouseLeave={() => setHoverSemantic(null)}
               >
@@ -250,7 +250,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           </ul>
         </Col>
       </Row>
-
       <Markers
         containerRef={containerRef}
         targetClassName={mergedSemantic ? getMarkClassName(mergedSemantic) : null}

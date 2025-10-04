@@ -4,10 +4,11 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import omit from '@rc-component/util/lib/omit';
-import cls from 'classnames';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Circle from './Circle';
@@ -17,6 +18,10 @@ import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 export type SemanticName = 'root' | 'body' | 'rail' | 'track' | 'indicator';
+
+export type ProgressClassNamesType = SemanticClassNamesType<ProgressProps, SemanticName>;
+
+export type ProgressStylesType = SemanticStylesType<ProgressProps, SemanticName>;
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -37,12 +42,15 @@ export interface SuccessProps {
 
 export type ProgressAriaProps = Pick<React.AriaAttributes, 'aria-label' | 'aria-labelledby'>;
 
+export type GapPlacement = 'top' | 'bottom' | 'start' | 'end';
+export type GapPosition = 'top' | 'bottom' | 'left' | 'right';
+
 export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: ProgressClassNamesType;
+  styles?: ProgressStylesType;
 
   type?: ProgressType;
   percent?: number;
@@ -60,7 +68,9 @@ export interface ProgressProps extends ProgressAriaProps {
   success?: SuccessProps;
   style?: React.CSSProperties;
   gapDegree?: number;
-  gapPosition?: 'top' | 'bottom' | 'left' | 'right';
+  gapPlacement?: GapPlacement;
+  /** @deprecated please use `gapPlacement` instead */
+  gapPosition?: GapPosition;
   size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
   steps?: number | { count: number; gap: number };
   percentPosition?: PercentPositionType;
@@ -106,7 +116,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
-    return parseInt(
+    return Number.parseInt(
       successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
@@ -132,11 +142,23 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const mergedProps: ProgressProps = {
+    ...props,
+    percent,
+    type,
+    size,
+    showInfo,
+    percentPosition,
+  };
+
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ProgressClassNamesType,
+    ProgressStylesType,
+    ProgressProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ========================= Info =========================
   const isLineType = type === 'line';
@@ -163,7 +185,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
     return (
       <span
-        className={cls(
+        className={clsx(
           `${prefixCls}-indicator`,
           {
             [`${prefixCls}-indicator-bright`]: isBrightInnerColor,
@@ -182,10 +204,13 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
-
-    warning.deprecated(!('width' in props), 'width', 'size');
-
-    warning.deprecated(!props.trailColor, 'trailColor', 'railColor');
+    [
+      ['width', 'size'],
+      ['trailColor', 'railColor'],
+      ['gapPosition', 'gapPlacement'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
 
     if (type === 'circle' || type === 'dashboard') {
       if (Array.isArray(size)) {
@@ -207,8 +232,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   // ======================== Render ========================
   const sharedProps = {
     ...props,
-    classNames: mergedClassNames,
-    styles: mergedStyles,
+    classNames: mergedClassNames as Record<SemanticName, string>,
+    styles: mergedStyles as Record<SemanticName, React.CSSProperties>,
   };
 
   let progress: React.ReactNode;
@@ -250,7 +275,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     );
   }
 
-  const classString = cls(
+  const classString = clsx(
     prefixCls,
     `${prefixCls}-status-${progressStatus}`,
     {
@@ -288,6 +313,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         'width',
         'gapDegree',
         'gapPosition',
+        'gapPlacement',
         'strokeLinecap',
         'success',
       ])}

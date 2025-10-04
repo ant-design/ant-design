@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useClosable from '../_util/hooks/useClosable';
 import { withPureRenderTheme } from '../_util/PurePanel';
@@ -33,13 +33,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const [mergedClosable, mergedCloseIcon] = useClosable({ closable, closeIcon }, null, {
     closable: true,
     closeIconRender: (icon) =>
-      React.isValidElement(icon)
-        ? cloneElement(icon, {
-            className: classNames(
-              (icon as React.ReactElement<{ className?: string }>).props.className,
-              `${prefixCls}-close-icon`,
-            ),
-          })
+      React.isValidElement<{ className?: string }>(icon)
+        ? cloneElement(icon, { className: clsx(icon.props?.className, `${prefixCls}-close-icon`) })
         : icon,
   });
 
@@ -47,12 +42,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     <PopoverRawPurePanel
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(
-        className,
-        `${prefixCls}-pure`,
-        type && `${prefixCls}-${type}`,
-        cssVarCls,
-      )}
+      className={clsx(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`, cssVarCls)}
       style={style}
     >
       <TourPanel

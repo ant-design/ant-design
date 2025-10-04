@@ -1,6 +1,6 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import classNames from 'classnames';
+import { toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -89,7 +89,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const cls = classNames(
+  const cls = clsx(
     groupPrefixCls,
     {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
@@ -117,17 +117,17 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     const mergeStyle = max?.style || maxStyle;
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
     const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
-
-    const mergeProps = {
+        
+    const popoverProps: PopoverProps = {
       content: childrenHidden,
       ...max?.popover,
-      classNames: { root: classNames(`${groupPrefixCls}-popover`, max?.popover?.classNames?.root) },
       placement: mergePopoverPlacement,
       trigger: mergePopoverTrigger,
+      rootClassName: clsx(`${groupPrefixCls}-popover`, max?.popover?.rootClassName),
     };
 
     childrenShow.push(
-      <Popover key="avatar-popover-key" destroyOnHidden {...mergeProps}>
+      <Popover key="avatar-popover-key" destroyOnHidden {...popoverProps}>
         <Avatar style={mergeStyle}>{`+${numOfChildren - mergeCount}`}</Avatar>
       </Popover>,
     );

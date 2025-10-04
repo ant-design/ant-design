@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import classNames from 'classnames';
+import { useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import toList from '../_util/toList';
 import { useComponentConfig } from '../config-provider/context';
@@ -310,7 +310,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   return (
     <div
       ref={setContainer}
-      className={classNames(className, contextClassName, rootClassName)}
+      className={clsx(className, contextClassName, rootClassName)}
       style={mergedStyle}
     >
       {childNode}

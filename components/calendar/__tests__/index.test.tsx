@@ -6,7 +6,7 @@ import React from 'react';
 import type { PickerPanelProps } from '@rc-component/picker';
 import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
 import type { Locale } from '@rc-component/picker/lib/interface';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 import MockDate from 'mockdate';
 
 import Calendar from '..';
@@ -19,6 +19,8 @@ import Button from '../../radio/radioButton';
 import Select from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
+
+const { resetWarned } = warning;
 
 const ref: {
   calendarProps?: PickerPanelProps;
@@ -582,11 +584,11 @@ describe('Calendar', () => {
       item: 'custom-item',
     };
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'green' },
-      body: { backgroundColor: 'blue' },
-      content: { backgroundColor: 'yellow' },
-      item: { backgroundColor: 'black' },
+      root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+      header: { backgroundColor: 'rgba(83, 99, 116, 0.8)' },
+      body: { backgroundColor: 'rgba(21, 83, 41, 0.8)' },
+      content: { backgroundColor: 'rgba(255, 149, 0, 0.8)' },
+      item: { backgroundColor: 'rgba(255, 81, 0, 0.8)' },
     };
     const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
     const root = container.querySelector('.ant-picker-calendar');
@@ -604,5 +606,56 @@ describe('Calendar', () => {
     expect(body).toHaveClass(customClassNames.body);
     expect(content).toHaveClass(customClassNames.content);
     expect(item).toHaveClass(customClassNames.item);
+  });
+
+  it('support classNames and styles as functions', () => {
+    const { container } = render(
+      <Calendar
+        fullscreen={false}
+        mode="year"
+        classNames={(info) => ({
+          root: info.props.fullscreen ? 'fullscreen-calendar' : 'mini-calendar',
+          header: `calendar-header-${info.props.mode}`,
+          body: 'dynamic-calendar-body',
+          content: 'dynamic-calendar-content',
+          item: 'dynamic-calendar-item',
+        })}
+        styles={(info) => ({
+          root: {
+            backgroundColor: info.props.fullscreen ? 'white' : 'lightblue',
+            width: info.props.fullscreen ? '100%' : '300px',
+          },
+          header: {
+            fontSize: info.props.fullscreen ? '16px' : '14px',
+            color: info.props.mode === 'year' ? 'red' : 'blue',
+          },
+          body: { padding: '12px' },
+          content: { minHeight: '200px' },
+          item: { borderRadius: '4px' },
+        })}
+      />,
+    );
+
+    const root = container.querySelector('.ant-picker-calendar');
+    const header = container.querySelector('.ant-picker-calendar-header');
+    const body = container.querySelector('.ant-picker-body');
+    const content = container.querySelector('.ant-picker-content');
+    const item = container.querySelector('.ant-picker-cell');
+
+    expect(root).toHaveClass('mini-calendar');
+    expect(header).toHaveClass('calendar-header-year');
+    expect(body).toHaveClass('dynamic-calendar-body');
+    expect(content).toHaveClass('dynamic-calendar-content');
+    expect(item).toHaveClass('dynamic-calendar-item');
+
+    expect(root).toHaveAttribute('style');
+    const rootStyle = root?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('width: 300px');
+
+    expect(header).toHaveAttribute('style');
+    const headerStyle = header?.getAttribute('style');
+    expect(headerStyle).toContain('font-size: 14px');
+    expect(headerStyle).toContain('color: red');
   });
 });

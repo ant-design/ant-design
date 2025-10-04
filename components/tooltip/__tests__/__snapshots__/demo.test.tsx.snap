@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
 Array [
@@ -968,60 +968,124 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 exports[`renders components/tooltip/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
-    class="css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
+    class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
       class="ant-tooltip-arrow"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-tooltip-container"
+      role="tooltip"
     >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        Hello, Pink Pure Panel!
-      </div>
+      Hello, Pink Pure Panel!
     </div>
   </div>,
   <div
-    class="css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
+    class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
     style="--antd-arrow-background-color:#f50"
   >
     <div
       class="ant-tooltip-arrow"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-tooltip-container"
+      role="tooltip"
+      style="background:#f50;--ant-tooltip-color:#FFF"
     >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-        style="background:#f50"
-      >
-        Hello, Customize Color Pure Panel!
-      </div>
+      Hello, Customize Color Pure Panel!
     </div>
   </div>,
   <div
-    class="css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
+    class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
     <div
       class="ant-tooltip-arrow"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-tooltip-container"
+      role="tooltip"
       style="width:200px"
     >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        Hello, Pure Panel!
-      </div>
+      Hello, Pure Panel!
     </div>
   </div>,
 ]
+`;
+
+exports[`renders components/tooltip/demo/smooth-transition.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-justify-center ant-flex-gap-small"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-justify-center ant-flex-gap-small"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/tooltip/demo/wrap-custom-component.tsx correctly 1`] = `

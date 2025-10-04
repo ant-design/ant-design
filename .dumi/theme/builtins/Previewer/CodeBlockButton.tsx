@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
-import { Tooltip, App } from 'antd';
+import React, { Suspense, useState } from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
+import { App, Tooltip } from 'antd';
 import { FormattedMessage } from 'dumi';
+
+import useLocale from '../../../hooks/useLocale';
+import HituIcon from '../../icons/HituIcon';
+
+const locales = {
+  cn: {
+    message: '此功能仅在内网环境可用',
+  },
+  en: {
+    message: 'This feature is only available in the internal network environment',
+  },
+};
 
 interface CodeBlockButtonProps {
   title?: string;
@@ -12,6 +24,8 @@ interface CodeBlockButtonProps {
 const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies = {}, jsx }) => {
   const { message } = App.useApp();
   const [loading, setLoading] = useState(false);
+
+  const [locale] = useLocale(locales);
 
   const codeBlockPrefillConfig = {
     title: `${title} - antd@${dependencies.antd}`,
@@ -25,16 +39,16 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
     json: JSON.stringify({ name: 'antd-demo', dependencies }, null, 2),
   };
 
-  const openHituCodeBlockFn = () => {
+  const openHituCodeBlockFn = React.useCallback(() => {
     setLoading(false);
     // @ts-ignore
     if (window.openHituCodeBlock) {
       // @ts-ignore
       window.openHituCodeBlock(JSON.stringify(codeBlockPrefillConfig));
     } else {
-      message.error('此功能仅在内网环境可用');
+      message.error(locale.message);
     }
-  };
+  }, [codeBlockPrefillConfig, message, locale.message]);
 
   const handleClick = () => {
     const scriptId = 'hitu-code-block-js';
@@ -65,16 +79,17 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
         {loading ? (
           <LoadingOutlined className="code-box-codeblock" />
         ) : (
-          <img
-            alt="codeblock"
-            src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
-            className="code-box-codeblock"
-            onClick={handleClick}
-          />
+          <HituIcon className="code-box-codeblock" onClick={handleClick} />
         )}
       </div>
     </Tooltip>
   );
 };
 
-export default CodeBlockButton;
+const SuspenseCodeBlockButton: React.FC<React.ComponentProps<typeof CodeBlockButton>> = (props) => (
+  <Suspense fallback={null}>
+    <CodeBlockButton {...props} />
+  </Suspense>
+);
+
+export default SuspenseCodeBlockButton;

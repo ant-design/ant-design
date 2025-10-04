@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
@@ -14,7 +14,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    classNames: skeletonAvatarClassNames,
+    classNames,
     rootClassName,
     active,
     style,
@@ -27,13 +27,13 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-element`,
     {
       [`${prefixCls}-active`]: active,
     },
-    skeletonAvatarClassNames?.root,
+    classNames?.root,
     className,
     rootClassName,
     hashId,
@@ -44,7 +44,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-avatar`}
-        className={skeletonAvatarClassNames?.content}
+        className={classNames?.content}
         style={{ ...styles?.content, ...style }}
         shape={shape}
         size={size}

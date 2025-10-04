@@ -1,13 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -20,9 +18,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -39,9 +35,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -58,9 +52,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -76,9 +68,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -91,9 +81,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -110,9 +98,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
@@ -152,9 +138,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -168,9 +152,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -202,9 +184,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -242,9 +222,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#/home"
@@ -258,9 +236,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
@@ -300,9 +276,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -315,9 +289,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -334,9 +306,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
@@ -376,9 +346,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -394,9 +362,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -409,9 +375,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -425,9 +389,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -441,9 +403,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
     >
       &gt;
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -459,9 +419,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -474,9 +432,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`
     >
       :
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -490,9 +446,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -506,9 +460,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -519,14 +471,180 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`
 </nav>
 `;
 
+exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <nav
+    aria-label="Breadcrumb with classNames Object"
+    class="ant-breadcrumb demo-breadcrumb-root css-var-test-id"
+  >
+    <ol>
+      <li
+        class="demo-breadcrumb-item"
+      >
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Ant Design
+        </span>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator demo-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li
+        class="demo-breadcrumb-item"
+      >
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href=""
+          >
+            Component
+          </a>
+        </span>
+      </li>
+    </ol>
+  </nav>
+  <nav
+    aria-label="Breadcrumb with classNames Function"
+    class="ant-breadcrumb demo-breadcrumb-root--long css-var-test-id"
+  >
+    <ol>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Ant Design
+        </span>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href=""
+          >
+            Component
+          </a>
+        </span>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Breadcrumb
+        </span>
+      </li>
+    </ol>
+  </nav>
+  <nav
+    aria-label="Breadcrumb with styles Object"
+    class="ant-breadcrumb css-var-test-id"
+    style="border:1px solid #f0f0f0;padding:8px;border-radius:4px"
+  >
+    <ol>
+      <li
+        style="color:#1890ff"
+      >
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Ant Design
+        </span>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+        style="color:rgba(0, 0, 0, 0.45)"
+      >
+        /
+      </li>
+      <li
+        style="color:#1890ff"
+      >
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href=""
+          >
+            Component
+          </a>
+        </span>
+      </li>
+    </ol>
+  </nav>
+  <nav
+    aria-label="Breadcrumb with styles Function"
+    class="ant-breadcrumb css-var-test-id"
+    style="background-color:#f0f9ff"
+  >
+    <ol>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Ant Design
+        </span>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href=""
+          >
+            Component
+          </a>
+        </span>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Breadcrumb
+        </span>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
+
 exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -558,9 +676,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""
@@ -595,9 +711,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -613,9 +727,7 @@ exports[`renders components/breadcrumb/demo/withParams.tsx correctly 1`] = `
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -628,9 +740,7 @@ exports[`renders components/breadcrumb/demo/withParams.tsx correctly 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href=""

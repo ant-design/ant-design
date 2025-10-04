@@ -8,7 +8,7 @@ const output = '.dumi/preset';
 // Collect components
 const componentNames = globSync(
   path
-    .join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md')
+    .join(process.cwd(), 'components/!(version|icon|col|row)/index?(.legacy).zh-CN.md')
     .split(path.sep)
     .join('/'),
 )
@@ -61,6 +61,7 @@ const miscKeys = [
   ' locale ',
   ' RTL ',
   '<img',
+  'Icon',
   '🇧🇪',
   '🇨🇦',
   '🇪🇸',

@@ -1,9 +1,8 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
@@ -38,7 +37,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const searchIconColor = '#ced4d9';
   return {
     header: css`
@@ -46,11 +45,11 @@ const useStyle = createStyles(({ token, css }) => {
       top: 0;
       z-index: 1000;
       max-width: 100%;
-      background: ${token.colorBgContainer};
-      box-shadow: ${token.boxShadowTertiary};
+      background: ${cssVar.colorBgContainer};
+      box-shadow: ${cssVar.boxShadowTertiary};
       backdrop-filter: blur(8px);
 
-      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+      @media only screen and (max-width: ${cssVar.mobileMaxWidth}) {
         text-align: center;
         border: none;
       }
@@ -85,14 +84,14 @@ const useStyle = createStyles(({ token, css }) => {
           color: ${searchIconColor};
           background-color: rgba(150, 150, 150, 0.06);
           border-color: rgba(100, 100, 100, 0.2);
-          border-radius: ${token.borderRadiusSM}px;
+          border-radius: ${cssVar.borderRadiusSM};
           position: static;
           top: unset;
           transform: unset;
         }
 
         .dumi-default-search-popover {
-          inset-inline-start: ${token.paddingSM}px;
+          inset-inline-start: ${cssVar.paddingSM};
           inset-inline-end: unset;
           z-index: 1;
           &::before {
@@ -110,12 +109,16 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-      column-gap: ${token.paddingSM}px;
-      padding-inline-end: ${token.padding}px;
+      column-gap: ${cssVar.paddingSM};
+      padding-inline-end: ${cssVar.padding};
 
       > * {
         flex: none;
         margin: 0;
+      }
+
+      .ant-btn {
+        font-family: sans-serif;
       }
     `,
     dataDirectionIcon: css`
@@ -135,7 +138,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     link: css`
       margin-inline-start: 10px;
-      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+      @media only screen and (max-width: ${cssVar.mobileMaxWidth}) {
         margin-inline-start: 0;
       }
     `,
@@ -276,9 +279,7 @@ const Header: React.FC = () => {
     responsive = 'narrow';
   }
 
-  const headerClassName = classNames(styles.header, 'clearfix', {
-    'home-header': isHome,
-  });
+  const headerClassName = clsx(styles.header, 'clearfix', { 'home-header': isHome });
 
   const sharedProps: SharedProps = {
     isZhCN,

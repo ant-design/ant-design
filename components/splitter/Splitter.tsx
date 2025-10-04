@@ -1,8 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import cls from 'classnames';
+import { useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import useOrientation from '../_util/hooks/useOrientation';
@@ -14,7 +14,12 @@ import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
-import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
+import type {
+  SplitterClassNamesType,
+  SplitterProps,
+  SplitterSemanticDraggerClassNames,
+  SplitterStylesType,
+} from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
@@ -64,16 +69,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Splitter');
 
-    let existSize = false;
-    let existUndefinedSize = false;
-
-    items.forEach((item) => {
-      if (item.size !== undefined) {
-        existSize = true;
-      } else {
-        existUndefinedSize = true;
-      }
-    });
+    const existSize = items.some((item) => item.size !== undefined);
+    const existUndefinedSize = items.some((item) => item.size === undefined);
 
     if (existSize && existUndefinedSize && !onResize) {
       warning(
@@ -145,10 +142,22 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeEnd?.(nextSizes);
   });
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: SplitterProps = {
+    ...props,
+    vertical: isVertical,
+    orientation: mergedOrientation,
+  };
+
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SplitterClassNamesType,
+    SplitterStylesType,
+    SplitterProps
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       // Convert `classNames.dragger: 'a'` to
       // `classNames.dragger: { default: 'a' }`
@@ -158,7 +167,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     },
   );
 
-  const containerClassName = cls(
+  const containerClassName = clsx(
     prefixCls,
     className,
     `${prefixCls}-${mergedOrientation}`,
@@ -200,7 +209,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         {items.map((item, idx) => {
           const panelProps = {
             ...item,
-            className: cls(mergedClassNames.panel, item.className),
+            className: clsx(mergedClassNames.panel, item.className),
             style: { ...mergedStyles.panel, ...item.style },
           };
 
@@ -237,6 +246,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
                 startCollapsible={resizableInfo.startCollapsible}
                 endCollapsible={resizableInfo.endCollapsible}
+                showStartCollapsibleIcon={resizableInfo.showStartCollapsibleIcon}
+                showEndCollapsibleIcon={resizableInfo.showEndCollapsibleIcon}
                 onOffsetStart={onInternalResizeStart}
                 onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
                   let offset = isVertical ? offsetY : offsetX;
@@ -262,7 +273,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
-          <div aria-hidden className={cls(maskCls, `${maskCls}-${mergedOrientation}`)} />
+          <div aria-hidden className={clsx(maskCls, `${maskCls}-${mergedOrientation}`)} />
         )}
       </div>
     </ResizeObserver>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 
@@ -7,8 +7,7 @@ import type { DirectionType } from '../config-provider';
 
 export interface TransferOperationProps {
   className?: string;
-  leftArrowText?: string;
-  rightArrowText?: string;
+  actions: React.ReactNode[];
   moveToLeft?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   moveToRight?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   leftActive?: boolean;
@@ -19,42 +18,80 @@ export interface TransferOperationProps {
   oneWay?: boolean;
 }
 
+type ButtonElementType = React.ReactElement<{
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+}>;
+
+function getArrowIcon(type: 'left' | 'right', direction?: DirectionType) {
+  const isRight = type === 'right';
+  if (direction !== 'rtl') {
+    return isRight ? <RightOutlined /> : <LeftOutlined />;
+  }
+  return isRight ? <LeftOutlined /> : <RightOutlined />;
+}
+
+interface ActionProps {
+  type: 'left' | 'right';
+  actions: React.ReactNode[];
+  moveToLeft?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  moveToRight?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  leftActive?: boolean;
+  rightActive?: boolean;
+  direction?: DirectionType;
+  disabled?: boolean;
+}
+
+const Action: React.FC<ActionProps> = ({
+  type,
+  actions,
+  moveToLeft,
+  moveToRight,
+  leftActive,
+  rightActive,
+  direction,
+  disabled,
+}) => {
+  const isRight = type === 'right';
+  const button = isRight ? actions[0] : actions[1];
+  const moveHandler = isRight ? moveToRight : moveToLeft;
+  const active = isRight ? rightActive : leftActive;
+  const icon = getArrowIcon(type, direction);
+
+  if (React.isValidElement(button)) {
+    const element = button as ButtonElementType;
+    const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
+      element?.props?.onClick?.(event);
+      moveHandler?.(event);
+    };
+    return React.cloneElement(element, {
+      disabled: disabled || !active,
+      onClick,
+    });
+  }
+  return (
+    <Button
+      type="primary"
+      size="small"
+      disabled={disabled || !active}
+      onClick={(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) =>
+        moveHandler?.(event)
+      }
+      icon={icon}
+    >
+      {button}
+    </Button>
+  );
+};
+
 const Actions: React.FC<TransferOperationProps> = (props) => {
-  const {
-    disabled,
-    moveToLeft,
-    moveToRight,
-    leftArrowText = '',
-    rightArrowText = '',
-    leftActive,
-    rightActive,
-    className,
-    style,
-    direction,
-    oneWay,
-  } = props;
+  const { className, style, oneWay, actions, ...restProps } = props;
+
   return (
     <div className={className} style={style}>
-      <Button
-        type="primary"
-        size="small"
-        disabled={disabled || !rightActive}
-        onClick={moveToRight}
-        icon={direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />}
-      >
-        {rightArrowText}
-      </Button>
-      {!oneWay && (
-        <Button
-          type="primary"
-          size="small"
-          disabled={disabled || !leftActive}
-          onClick={moveToLeft}
-          icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
-        >
-          {leftArrowText}
-        </Button>
-      )}
+      <Action type="right" actions={actions} {...restProps} />
+      {!oneWay && <Action type="left" actions={actions} {...restProps} />}
+      {actions.slice(oneWay ? 1 : 2)}
     </div>
   );
 };

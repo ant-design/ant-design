@@ -1,14 +1,15 @@
 import React from 'react';
 import RCTour from '@rc-component/tour';
 import type { TourProps as RcTourProps } from '@rc-component/tour';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import getPlacements from '../_util/placements';
 import zIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
-import type { TourProps } from './interface';
+import type { TourClassNamesType, TourProps, TourStylesType } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -24,12 +25,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     actionsRender,
     steps,
     closeIcon,
-    classNames: tourClassNames,
+    classNames,
     styles,
     className,
     style,
     ...restProps
   } = props;
+
   const {
     getPrefixCls,
     direction,
@@ -39,6 +41,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('tour');
+
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
@@ -47,12 +50,26 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     () =>
       steps?.map((step) => ({
         ...step,
-        className: classNames(step.className, {
+        className: clsx(step.className, {
           [`${prefixCls}-primary`]: (step.type ?? type) === 'primary',
         }),
       })),
     [steps, type],
   );
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TourProps = {
+    ...props,
+    steps: mergedSteps,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TourClassNamesType,
+    TourStylesType,
+    TourProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
     getPlacements({
@@ -63,55 +80,29 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       borderRadius: token.borderRadius,
     });
 
-  const customClassName = classNames(
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
+  const customClassName = clsx(
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
     rootClassName,
     contextClassName,
-    contextClassNames.root,
-    tourClassNames?.root,
+    mergedClassNames.root,
     className,
   );
 
-  const mergedClassNames = {
-    mask: classNames(contextClassNames.mask, tourClassNames?.mask),
-    actions: classNames(contextClassNames.actions, tourClassNames?.actions),
-    description: classNames(contextClassNames.description, tourClassNames?.description),
-    header: classNames(contextClassNames.header, tourClassNames?.header),
-    title: classNames(contextClassNames.title, tourClassNames?.title),
-    section: classNames(contextClassNames.section, tourClassNames?.section),
-    footer: classNames(contextClassNames.footer, tourClassNames?.footer),
-    indicator: classNames(contextClassNames.indicator, tourClassNames?.indicator),
-    indicators: classNames(contextClassNames.indicators, tourClassNames?.indicators),
-    cover: classNames(contextClassNames.cover, tourClassNames?.cover),
-  };
-
-  const mergedStyles = {
+  const semanticStyles = {
+    ...mergedStyles,
     mask: {
-      ...contextStyles.root,
+      ...mergedStyles.root,
+      ...mergedStyles.mask,
       ...contextStyle,
-      ...contextStyles?.mask,
-      ...styles?.root,
       ...style,
-      ...styles?.mask,
     },
-    actions: { ...contextStyles.actions, ...styles?.actions },
-    description: { ...contextStyles.description, ...styles?.description },
-    header: { ...contextStyles.header, ...styles?.header },
-    title: { ...contextStyles.title, ...styles?.title },
-    section: { ...contextStyles.section, ...styles?.section },
-    footer: { ...contextStyles.footer, ...styles?.footer },
-    indicator: { ...contextStyles.indicator, ...styles?.indicator },
-    indicators: { ...contextStyles.indicators, ...styles?.indicators },
-    cover: { ...contextStyles.cover, ...styles?.cover },
   };
 
   const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => (
     <TourPanel
-      styles={mergedStyles}
+      styles={semanticStyles}
       classNames={mergedClassNames}
       type={type}
       stepProps={stepProps}
@@ -128,7 +119,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
-        styles={mergedStyles}
+        styles={semanticStyles}
         classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
         zIndex={zIndex}

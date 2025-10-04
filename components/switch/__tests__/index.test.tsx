@@ -98,8 +98,8 @@ describe('Switch', () => {
       content: 'custom-content',
     };
     const customStyles = {
-      root: { color: 'red' },
-      content: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      content: { color: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Switch
@@ -115,7 +115,7 @@ describe('Switch', () => {
     expect(root).toHaveClass('custom-root');
     expect(content).toHaveClass('custom-content');
 
-    expect(root).toHaveStyle('color: red');
-    expect(content).toHaveStyle('color: blue');
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(content).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });

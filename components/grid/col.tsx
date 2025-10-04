@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
@@ -34,6 +34,10 @@ export interface ColProps
 }
 
 function parseFlex(flex: FlexType): string {
+  if (flex === 'auto') {
+    return '1 1 auto';
+  }
+
   if (typeof flex === 'number') {
     return `${flex} ${flex} auto`;
   }
@@ -101,7 +105,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   });
 
   // ==================== Normal =====================
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-${span}`]: span !== undefined,
@@ -118,8 +122,9 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = {};
   // Horizontal gutter use padding
-  if (gutter && gutter[0] > 0) {
-    const horizontalGutter = gutter[0] / 2;
+  if (gutter?.[0]) {
+    const horizontalGutter =
+      typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
     mergedStyle.paddingInline = horizontalGutter;
   }
 

@@ -78,6 +78,7 @@ const localeValues: Locale = {
     copy: 'Kopyala',
     copied: 'Kopyalandı',
     expand: 'Genişlet',
+    collapse: 'Daralt',
   },
   Form: {
     optional: '(opsiyonel)',
@@ -128,9 +129,6 @@ const localeValues: Locale = {
         mismatch: '${label} şu kalıpla eşleşmeli: ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Önizleme',
   },
 };
 

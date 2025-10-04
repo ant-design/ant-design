@@ -9,59 +9,55 @@ export default () => {
     <Global
       styles={css`
         @font-face {
-          font-weight: normal;
-          font-family: AlibabaPuHuiTi;
-          src:
-            url('//at.alicdn.com/t/webfont_6e11e43nfj.woff2') format('woff2'),
-            url('//at.alicdn.com/t/webfont_6e11e43nfj.woff') format('woff'),
-            /* chrome、firefox */ url('//at.alicdn.com/t/webfont_6e11e43nfj.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+          font-family: 'AlibabaSans';
+          font-style: normal;
+          font-weight: 300;
           font-display: swap;
+          src: url('//mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*1GSgSYDD_aIAAAAAQsAAAAgAegCCAQ/AlibabaSans-Light.woff2')
+            format('woff2');
         }
-
         @font-face {
-          font-weight: bold;
-          font-family: AlibabaPuHuiTi;
-          src:
-            url('//at.alicdn.com/t/webfont_exesdog9toj.woff2') format('woff2'),
-            url('//at.alicdn.com/t/webfont_exesdog9toj.woff') format('woff'),
-            /* chrome、firefox */ url('//at.alicdn.com/t/webfont_exesdog9toj.ttf')
-              format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+          font-family: 'AlibabaSans';
+          font-style: normal;
+          font-weight: 400;
           font-display: swap;
+          src: url('//mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*2zEUQqnPNesAAAAAQtAAAAgAegCCAQ/AlibabaSans-Regular.woff2')
+            format('woff2');
         }
-
-        // 组件丰富，选用自如定制主题随心所欲设计语言与研发框架1234567890 QWERTYUIOPLKJHGFDSAZXCVBNM,.mnbvcxzasdfghjklpoiuytrewq
-        /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
         @font-face {
-          font-weight: 900;
-          font-family: 'AliPuHui';
-          src:
-            url('//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2')
-              format('woff2'),
-            url('//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff') format('woff');
+          font-family: 'AlibabaSans';
+          font-style: normal;
+          font-weight: 500;
           font-display: swap;
+          src: url('//mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Medium.woff2')
+            format('woff2');
+        }
+        @font-face {
+          font-family: 'AlibabaSans';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url('//mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Bold.woff2')
+            format('woff2');
+        }
+        @font-face {
+          font-family: 'AlibabaSans';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url('//mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Heavy.woff2')
+            format('woff2');
         }
 
         html {
           direction: initial;
-
-          @supports (overflow-x: clip) {
-            overflow-x: clip;
-          }
-
           &.rtl {
             direction: rtl;
           }
         }
 
         body {
-          @supports (overflow-x: clip) {
-            overflow-x: clip;
-          }
-
-          @supports not (overflow-x: clip) {
-            overflow-x: hidden;
-          }
-
+          overflow-x: hidden;
           color: ${token.colorText};
           font-size: ${token.fontSize}px;
           font-family: ${token.fontFamily};

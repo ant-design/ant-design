@@ -1,14 +1,14 @@
 import * as React from 'react';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
+import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useLocale } from '../locale';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
 import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
@@ -41,18 +41,38 @@ export type PreviewConfig = OriginPreviewConfig &
     onVisibleChange?: (visible: boolean, prevVisible: boolean) => void;
     /** @deprecated Use `classNames.cover` instead */
     maskClassName?: string;
-    /** @deprecated Use `cover` instead */
-    mask?: React.ReactNode;
+    mask?: MaskType | React.ReactNode;
   };
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export interface ImageProps extends Omit<RcImageProps, 'preview'> {
+export type ImageSemanticName = 'root' | 'image' | 'cover';
+
+export type PopupSemantic = 'root' | 'mask' | 'body' | 'footer' | 'actions';
+
+export type ImageClassNamesType = SemanticClassNamesType<
+  ImageProps,
+  ImageSemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  }
+>;
+export type ImageStylesType = SemanticStylesType<
+  ImageProps,
+  ImageSemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  }
+>;
+
+export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
+  classNames?: ImageClassNamesType;
+  styles?: ImageStylesType;
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -63,8 +83,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
     rootClassName,
     style,
     styles,
-    classNames: imageClassNames,
+    classNames,
     wrapperStyle,
+    fallback,
     ...otherProps
   } = props;
 
@@ -78,10 +99,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
     preview: contextPreview,
     styles: contextStyles,
     classNames: contextClassNames,
+    fallback: contextFallback,
   } = useComponentConfig('image');
-
-  // ============================== Locale ==============================
-  const [imageLocale] = useLocale('Image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
 
@@ -95,9 +114,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
+  const mergedRootClassName = clsx(rootClassName, hashId, cssVarCls, rootCls);
 
-  const mergedClassName = classnames(className, hashId, contextClassName);
+  const mergedClassName = clsx(className, hashId, contextClassName);
 
   // ============================= Preview ==============================
   const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
@@ -115,20 +134,20 @@ const Image: CompositionImage<ImageProps> = (props) => {
     getContextPopupContainer,
     icons,
 
-    // Image only: fallback cover
-    <div className={`${prefixCls}-cover-info`}>
-      <EyeOutlined />
-      {imageLocale?.preview}
-    </div>,
+    true,
   );
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: ImageProps = {
+    ...props,
+    preview: mergedPreviewConfig,
+  };
 
   // ============================= Semantic =============================
   const mergedLegacyClassNames = React.useMemo(
     () => ({
-      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
-      popup: {
-        root: classnames(contextPreviewRootClassName, previewRootClassName),
-      },
+      cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
+      popup: { root: clsx(contextPreviewRootClassName, previewRootClassName) },
     }),
     [
       previewRootClassName,
@@ -138,24 +157,42 @@ const Image: CompositionImage<ImageProps> = (props) => {
     ],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, imageClassNames, mergedLegacyClassNames],
-    [
-      contextStyles,
-      {
-        root: wrapperStyle,
-      },
-      styles,
-    ],
+  const { mask: mergedMask, blurClassName } = mergedPreviewConfig ?? {};
+
+  const mergedPopupClassNames = React.useMemo(
+    () => ({
+      mask: clsx(
+        {
+          [`${prefixCls}-preview-mask-hidden`]: !mergedMask,
+        },
+        blurClassName,
+      ),
+    }),
+    [mergedMask, prefixCls, blurClassName],
+  );
+
+  const internalClassNames = React.useMemo(
+    () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
+    [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
+  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ImageClassNamesType,
+    ImageStylesType,
+    ImageProps
+  >(
+    internalClassNames,
+    [contextStyles, { root: wrapperStyle }, styles],
     {
-      popup: {
-        _default: 'root',
-      },
+      props: mergedProps,
+    },
+    {
+      popup: { _default: 'root' },
     },
   );
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
-
+  const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
   // ============================== Render ==============================
   return (
     <RcImage
@@ -164,6 +201,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
+      fallback={mergedFallback}
       {...otherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}

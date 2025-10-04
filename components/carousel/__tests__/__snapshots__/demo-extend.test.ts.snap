@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/carousel/demo/arrows.tsx extend context correctly 1`] = `
 Array [
@@ -21,7 +21,7 @@ Array [
       >
         <div
           class="slick-track"
-          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
         >
           <div
             aria-hidden="false"
@@ -168,7 +168,7 @@ Array [
       >
         <div
           class="slick-track"
-          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
         >
           <div
             aria-hidden="false"
@@ -260,7 +260,7 @@ Array [
         type="button"
       />
       <ul
-        class="slick-dots slick-dots-left"
+        class="slick-dots slick-dots-start"
         style="display: block;"
       >
         <li
@@ -312,7 +312,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -548,7 +548,7 @@ exports[`renders components/carousel/demo/basic.tsx extend context correctly 1`]
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -784,7 +784,7 @@ exports[`renders components/carousel/demo/component-token.tsx extend context cor
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -1021,7 +1021,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -1380,7 +1380,7 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
 
 exports[`renders components/carousel/demo/fade.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/carousel/demo/position.tsx extend context correctly 1`] = `
+exports[`renders components/carousel/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
@@ -1441,7 +1441,7 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="left"
+          value="start"
         />
         <span
           class="ant-radio-button-inner"
@@ -1450,7 +1450,7 @@ Array [
       <span
         class="ant-radio-button-label"
       >
-        Left
+        Start
       </span>
     </label>
     <label
@@ -1463,7 +1463,7 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="right"
+          value="end"
         />
         <span
           class="ant-radio-button-inner"
@@ -1472,7 +1472,7 @@ Array [
       <span
         class="ant-radio-button-label"
       >
-        Right
+        End
       </span>
     </label>
   </div>,
@@ -1488,7 +1488,7 @@ Array [
       >
         <div
           class="slick-track"
-          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
         >
           <div
             aria-hidden="true"
@@ -1710,4 +1710,4 @@ Array [
 ]
 `;
 
-exports[`renders components/carousel/demo/position.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/carousel/demo/placement.tsx extend context correctly 2`] = `[]`;

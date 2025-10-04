@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Progress from '..';
-import type { ProgressProps } from '..';
 import { render } from '../../../tests/utils';
+import type { SemanticName } from '../progress';
 
 describe('Progress.Semantic', () => {
   it('Line', () => {
-    const classNames: Required<ProgressProps['classNames']> = {
+    const classNames: Record<SemanticName, string> = {
       root: 'my-root',
       body: 'my-body',
       rail: 'my-rail',
@@ -15,11 +15,11 @@ describe('Progress.Semantic', () => {
     };
 
     const styles = {
-      root: { backgroundColor: 'red' },
-      body: { backgroundColor: 'blue' },
-      rail: { backgroundColor: 'green' },
-      track: { backgroundColor: 'yellow' },
-      indicator: { backgroundColor: 'purple' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      body: { backgroundColor: 'rgb(0, 0, 255)' },
+      rail: { backgroundColor: 'rgb(0, 255, 0)' },
+      track: { backgroundColor: 'rgb(255, 255, 0)' },
+      indicator: { backgroundColor: 'rgb(128, 0, 128)' },
     };
 
     const { container } = render(
@@ -40,18 +40,19 @@ describe('Progress.Semantic', () => {
   });
 
   it('Steps', () => {
-    const classNames = {
+    const classNames: Record<SemanticName, string> = {
       root: 'my-root',
       body: 'my-body',
       track: 'my-track',
       indicator: 'my-indicator',
-    } as Required<NonNullable<ProgressProps['classNames']>>;
+      rail: 'my-rail',
+    };
 
     const styles = {
-      root: { backgroundColor: 'red' },
-      body: { backgroundColor: 'blue' },
-      track: { backgroundColor: 'yellow' },
-      indicator: { backgroundColor: 'purple' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      body: { backgroundColor: 'rgb(0, 0, 255)' },
+      track: { backgroundColor: 'rgb(255, 255, 0)' },
+      indicator: { backgroundColor: 'rgb(128, 0, 128)' },
     };
 
     const { container } = render(
@@ -76,7 +77,7 @@ describe('Progress.Semantic', () => {
   });
 
   it('Circle', () => {
-    const classNames: Required<ProgressProps['classNames']> = {
+    const classNames: Record<SemanticName, string> = {
       root: 'my-root',
       body: 'my-body',
       rail: 'my-rail',
@@ -85,11 +86,11 @@ describe('Progress.Semantic', () => {
     };
 
     const styles = {
-      root: { backgroundColor: 'red' },
-      body: { backgroundColor: 'blue' },
-      rail: { backgroundColor: 'green' },
-      track: { backgroundColor: 'yellow' },
-      indicator: { backgroundColor: 'purple' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      body: { backgroundColor: 'rgb(0, 0, 255)' },
+      rail: { backgroundColor: 'rgb(0, 255, 0)' },
+      track: { backgroundColor: 'rgb(255, 255, 0)' },
+      indicator: { backgroundColor: 'rgb(128, 0, 128)' },
     };
 
     const { container } = render(

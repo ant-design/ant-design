@@ -4,6 +4,7 @@ import { Image } from 'antd';
 const App: React.FC = () => (
   <Image
     width={200}
+    alt="basic image"
     preview={{
       imageRender: () => (
         <video

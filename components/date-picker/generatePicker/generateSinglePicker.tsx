@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import RCPicker from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
 import type { PickerMode } from '@rc-component/picker/lib/interface';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -38,6 +36,7 @@ import {
   YEARPICKER,
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
+import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
@@ -70,6 +69,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupClassName,
         popupStyle,
         rootClassName,
+        suffixIcon,
         ...restProps
       } = props;
 
@@ -93,14 +93,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         });
       }
 
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-        pickerType,
-        classNames,
-        styles,
-        popupClassName || dropdownClassName,
-        popupStyle,
-      );
-
       const {
         getPrefixCls,
         direction,
@@ -110,7 +102,35 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       } = useContext(ConfigContext);
 
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
+
+      // ===================== Size =====================
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+      // ===================== Disabled =====================
+      const disabled = React.useContext(DisabledContext);
+      const mergedDisabled = customDisabled ?? disabled;
+
+      // =========== Merged Props for Semantic ===========
+      const mergedProps = {
+        ...props,
+        size: mergedSize,
+        disabled: mergedDisabled,
+        status: customStatus,
+        variant: customVariant,
+      } as P;
+
+      // ========================= Style ==========================
+      // Use original useMergedPickerSemantic for proper popup handling
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<P>(
+        pickerType,
+        classNames,
+        styles,
+        popupClassName || dropdownClassName,
+        popupStyle,
+        mergedProps,
+      );
+
       const innerRef = React.useRef<PickerRef>(null);
 
       const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
@@ -118,7 +138,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const rootCls = useCSSVarCls(prefixCls);
       const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-      const mergedRootClassName = cls(hashId, cssVarCls, rootCls, rootClassName);
+      const mergedRootClassName = clsx(hashId, cssVarCls, rootCls, rootClassName);
 
       useImperativeHandle(ref, () => innerRef.current!);
 
@@ -148,24 +168,13 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ================== components ==================
       const mergedComponents = useComponents(components);
 
-      // ===================== Size =====================
-      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-      // ===================== Disabled =====================
-      const disabled = React.useContext(DisabledContext);
-      const mergedDisabled = customDisabled ?? disabled;
-
       // ===================== FormItemInput =====================
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const suffixNode = (
-        <>
-          {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-          {hasFeedback && feedbackIcon}
-        </>
+      const mergedSuffixIcon = (
+        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
       );
-
       const [contextLocale] = useLocale('DatePicker', enUS);
 
       const locale = { ...contextLocale, ...props.locale! };
@@ -176,7 +185,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
-            suffixIcon={suffixNode}
+            suffixIcon={mergedSuffixIcon}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
@@ -196,7 +205,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             // Style
             prefixCls={prefixCls}
             rootClassName={mergedRootClassName}
-            className={cls(
+            className={clsx(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
                 [`${prefixCls}-${variant}`]: enableVariantCls,

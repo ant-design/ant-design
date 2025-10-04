@@ -24,12 +24,15 @@ tag: 5.21.0
 <code src="./demo/control.tsx">受控模式</code>
 <code src="./demo/vertical.tsx">垂直方向</code>
 <code src="./demo/collapsible.tsx">可折叠</code>
+<code src="./demo/collapsibleIcon.tsx" version="5.27.0">可折叠图标显示</code>
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂组合</code>
 <code src="./demo/lazy.tsx" version="5.23.0">延迟渲染模式</code>
 <code src="./demo/customize.tsx" version="6.0.0">自定义样式</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/debug.tsx" debug>调试</code>
+<code src="./demo/size-mix.tsx" debug>尺寸混合</code>
 
 ## API
 
@@ -41,13 +44,13 @@ tag: 5.21.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
 | orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
@@ -57,7 +60,7 @@ tag: 5.21.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
+| collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
 | defaultSize | 初始面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | max | 最大阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | min | 最小阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |

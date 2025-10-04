@@ -2,14 +2,14 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import isValidNode from '../_util/isValidNode';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { SemanticName, TourStepProps } from './interface';
+import type { TourSemanticName, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -18,8 +18,8 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<TourSemanticName, string>>;
+  styles?: Partial<Record<TourSemanticName, React.CSSProperties>>;
   actionsRender?: TourStepProps['actionsRender'];
 }
 
@@ -81,14 +81,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   };
 
   const headerNode = isValidNode(title) ? (
-    <div
-      className={classNames(`${prefixCls}-header`, tourClassNames?.header)}
-      style={styles?.header}
-    >
-      <div
-        className={classNames(`${prefixCls}-title`, tourClassNames?.title)}
-        style={styles?.title}
-      >
+    <div className={clsx(`${prefixCls}-header`, tourClassNames?.header)} style={styles?.header}>
+      <div className={clsx(`${prefixCls}-title`, tourClassNames?.title)} style={styles?.title}>
         {title}
       </div>
     </div>
@@ -96,7 +90,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const descriptionNode = isValidNode(description) ? (
     <div
-      className={classNames(`${prefixCls}-description`, tourClassNames?.description)}
+      className={clsx(`${prefixCls}-description`, tourClassNames?.description)}
       style={styles?.description}
     >
       {description}
@@ -104,7 +98,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   ) : null;
 
   const coverNode = isValidNode(cover) ? (
-    <div className={classNames(`${prefixCls}-cover`, tourClassNames?.cover)} style={styles?.cover}>
+    <div className={clsx(`${prefixCls}-cover`, tourClassNames?.cover)} style={styles?.cover}>
       {cover}
     </div>
   ) : null;
@@ -118,7 +112,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
       (stepItem, index) => (
         <span
           key={stepItem}
-          className={classNames(
+          className={clsx(
             index === current && `${prefixCls}-indicator-active`,
             `${prefixCls}-indicator`,
             tourClassNames?.indicator,
@@ -144,7 +138,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
           {...secondaryBtnProps}
           {...prevButtonProps}
           onClick={prevBtnClick}
-          className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
+          className={clsx(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
         >
           {prevButtonProps?.children ?? contextLocaleTour?.Previous}
         </Button>
@@ -154,7 +148,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
         type={mainBtnType}
         {...nextButtonProps}
         onClick={nextBtnClick}
-        className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
+        className={clsx(`${prefixCls}-next-btn`, nextButtonProps?.className)}
       >
         {nextButtonProps?.children ??
           (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
@@ -163,29 +157,26 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   );
 
   return (
-    <div className={`${prefixCls}-pannel`}>
+    <div className={`${prefixCls}-panel`}>
       <div
-        className={classNames(`${prefixCls}-section`, tourClassNames?.section)}
+        className={clsx(`${prefixCls}-section`, tourClassNames?.section)}
         style={styles?.section}
       >
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
-        <div
-          className={classNames(`${prefixCls}-footer`, tourClassNames?.footer)}
-          style={styles?.footer}
-        >
+        <div className={clsx(`${prefixCls}-footer`, tourClassNames?.footer)} style={styles?.footer}>
           {total > 1 && (
             <div
-              className={classNames(`${prefixCls}-indicators`, tourClassNames?.indicators)}
+              className={clsx(`${prefixCls}-indicators`, tourClassNames?.indicators)}
               style={styles?.indicators}
             >
               {mergedIndicatorNode}
             </div>
           )}
           <div
-            className={classNames(`${prefixCls}-actions`, tourClassNames?.actions)}
+            className={clsx(`${prefixCls}-actions`, tourClassNames?.actions)}
             style={styles?.actions}
           >
             {actionsRender

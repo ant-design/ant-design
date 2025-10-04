@@ -168,42 +168,6 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-          .code-expand-icon-show,
-          .code-expand-icon-hide {
-            position: absolute;
-            top: 0;
-            inset-inline-start: 0;
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            box-shadow: none;
-            transition: all 0.4s;
-            user-select: none;
-
-            ${antCls}-row-rtl & {
-              inset-inline-end: 0;
-              inset-inline-start: auto;
-            }
-          }
-
-          .code-expand-icon-show {
-            opacity: 0.55;
-            pointer-events: auto;
-
-            &:hover {
-              opacity: 1;
-            }
-          }
-
-          .code-expand-icon${antCls}-tooltip-open .code-expand-icon-show {
-            opacity: 1;
-          }
-
-          .code-expand-icon-hide {
-            opacity: 0;
-            pointer-events: none;
-          }
-
           .highlight-wrapper {
             display: none;
             border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;

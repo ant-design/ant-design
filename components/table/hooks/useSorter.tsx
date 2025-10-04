@@ -2,7 +2,7 @@ import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { AnyObject } from '../../_util/type';
 import type { Locale } from '../../locale';
@@ -143,21 +143,17 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
       } else {
         const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
           <CaretUpOutlined
-            className={classNames(`${prefixCls}-column-sorter-up`, {
-              active: sortOrder === ASCEND,
-            })}
+            className={clsx(`${prefixCls}-column-sorter-up`, { active: sortOrder === ASCEND })}
           />
         );
         const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
           <CaretDownOutlined
-            className={classNames(`${prefixCls}-column-sorter-down`, {
-              active: sortOrder === DESCEND,
-            })}
+            className={clsx(`${prefixCls}-column-sorter-down`, { active: sortOrder === DESCEND })}
           />
         );
         sorter = (
           <span
-            className={classNames(`${prefixCls}-column-sorter`, {
+            className={clsx(`${prefixCls}-column-sorter`, {
               [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
             })}
           >
@@ -185,7 +181,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           : { title: sortTip };
       newColumn = {
         ...newColumn,
-        className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
+        className: clsx(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
           const columnSortersClass = `${prefixCls}-column-sorters`;
           const renderColumnTitleWrapper = (
@@ -252,7 +248,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
           cell['aria-description'] = a11yLocale?.sortable;
           cell['aria-label'] = displayTitle || '';
-          cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.className = clsx(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
           if (column.ellipsis) {
             cell.title = (renderTitle ?? '').toString();

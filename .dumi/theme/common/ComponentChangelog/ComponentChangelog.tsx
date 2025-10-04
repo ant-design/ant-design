@@ -3,8 +3,8 @@ import { BugOutlined } from '@ant-design/icons';
 import { Button, Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
+import useSWR from 'swr';
 
-import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import { matchDeprecated } from '../../utils';
@@ -18,19 +18,19 @@ interface ChangelogInfo {
   releaseDate: string;
 }
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, token, css }) => ({
   listWrap: css`
     > li {
       line-height: 2;
     }
   `,
   linkRef: css`
-    margin-inline-start: ${token.marginXS}px;
+    margin-inline-start: ${cssVar.marginXS};
   `,
   bug: css`
-    font-size: ${token.fontSize}px;
+    font-size: ${cssVar.fontSize};
     color: #aaa;
-    margin-inline-start: ${token.marginXS}px;
+    margin-inline-start: ${cssVar.marginXS};
     display: inline-block;
     vertical-align: inherit;
     cursor: pointer;
@@ -39,22 +39,22 @@ const useStyle = createStyles(({ token, css }) => ({
     }
   `,
   bugReasonTitle: css`
-    padding: ${token.paddingXXS}px ${token.paddingXS}px;
+    padding: ${cssVar.paddingXXS} ${cssVar.paddingXS};
   `,
   bugReasonList: css`
     width: 100%;
     max-width: 100%;
     li {
-      padding: ${token.paddingXXS}px ${token.paddingXS}px;
+      padding: ${cssVar.paddingXXS} ${cssVar.paddingXS};
       a {
         display: flex;
         align-items: center;
-        gap: ${token.marginXXS}px;
+        gap: ${cssVar.marginXXS};
       }
     }
   `,
   extraLink: css`
-    font-size: ${token.fontSize}px;
+    font-size: ${cssVar.fontSize};
   `,
   drawerContent: {
     position: 'relative',
@@ -189,6 +189,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
           <RefLinks refs={refs} contributors={contributors} />
           <br />
           <img
+            draggable={false}
             src={imgElement?.getAttribute('src') || ''}
             alt={imgElement?.getAttribute('alt') || ''}
             width={imgElement?.getAttribute('width') || ''}
@@ -211,17 +212,23 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
   const logFileName = `components-changelog-${lang}.json`;
 
-  const data = useFetch({
-    key: `component-changelog-${lang}`,
-    request: () => import(`../../../preset/${logFileName}`),
-  });
-  return React.useMemo(() => {
-    const component = componentPath.replace(/-/g, '');
-    const componentName = Object.keys(data).find(
-      (name) => name.toLowerCase() === component.toLowerCase(),
-    );
-    return data[componentName as keyof typeof data] as ChangelogInfo[];
-  }, [data, componentPath]);
+  const { data, error, isLoading } = useSWR(
+    `component-changelog-${lang}`,
+    () => import(`../../../preset/${logFileName}`),
+  );
+
+  if (error || isLoading) {
+    return [];
+  }
+
+  const component = componentPath.replace(/-/g, '');
+  const componentName = Object.keys(data).find(
+    (name) => name.toLowerCase() === component.toLowerCase(),
+  );
+  if (!componentName) {
+    return [];
+  }
+  return data?.[componentName] || [];
 };
 
 const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) => {

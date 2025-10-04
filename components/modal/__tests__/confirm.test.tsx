@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import { warning } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import { resetWarned } from '@rc-component/util/lib/warning';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import App from '../../app';
-import ConfigProvider, { defaultPrefixCls, GlobalConfigProps } from '../../config-provider';
+import type { GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
+
+const { resetWarned } = warning;
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -843,7 +846,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       await waitFakeTimer();
 
-      expect(document.querySelector(`.ant-modal-section`)).toMatchSnapshot();
+      expect(document.querySelector(`.ant-modal-container`)).toMatchSnapshot();
     });
   });
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classnames from 'classnames';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
@@ -64,9 +64,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     return parsePagination(convertPagination);
   }, [pagination]);
 
-  const [pageSize, setPageSize] = useMergedState<number>(10, {
-    value: mergedPagination?.pageSize,
-  });
+  const [pageSize, setPageSize] = useControlledState<number>(10, mergedPagination?.pageSize);
 
   React.useEffect(() => {
     if (mergedPagination) {
@@ -120,7 +118,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
   return (
     <>
       <ul
-        className={classnames(`${prefixCls}-content`, classNames.list, {
+        className={clsx(`${prefixCls}-content`, classNames.list, {
           [`${prefixCls}-content-show-remove`]: showRemove,
         })}
         style={styles.list}
@@ -130,8 +128,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
           <ListItem
             key={item.key}
             prefixCls={prefixCls}
-            className={classNames.listItem}
-            style={styles.listItem}
+            classNames={classNames}
+            styles={styles}
             item={item}
             renderedText={renderedText}
             renderedEl={renderedEl}

@@ -1,15 +1,15 @@
 import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type { QRCodeProps, QRProps } from './interface';
+import type { QRCodeClassNamesType, QRCodeProps, QRCodeStylesType, QRProps } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
@@ -34,8 +34,9 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
     statusRender,
-    classNames: qrcodeClassNames,
+    classNames,
     styles,
+    boostLevel /* 👈 5.28.0+ */,
     ...rest
   } = props;
 
@@ -47,10 +48,24 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('qrcode');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, qrcodeClassNames],
-    [contextStyles, styles],
-  );
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: QRCodeProps = {
+    ...props,
+    bgColor,
+    type,
+    size,
+    status,
+    bordered,
+    errorLevel,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    QRCodeClassNamesType,
+    QRCodeStylesType,
+    QRCodeProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
@@ -81,6 +96,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    boostLevel,
     ...a11yProps,
   };
 
@@ -102,7 +118,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const rootClassNames = cls(
+  const rootClassNames = clsx(
     prefixCls,
     className,
     rootClassName,
@@ -127,7 +143,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   return (
     <div {...restProps} className={rootClassNames} style={rootStyle}>
       {status !== 'active' && (
-        <div className={cls(`${prefixCls}-cover`, mergedClassNames.cover)} style={mergedStyles.cover}>
+        <div
+          className={clsx(`${prefixCls}-cover`, mergedClassNames.cover)}
+          style={mergedStyles.cover}
+        >
           <QRcodeStatus
             prefixCls={prefixCls}
             locale={locale}

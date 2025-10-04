@@ -5,7 +5,11 @@ import type {
   SubMenuType as RcSubMenuType,
 } from '@rc-component/menu/lib/interface';
 
-export interface MenuItemType extends RcMenuItemType {
+export type DataAttributes = {
+  [Key in `data-${string}`]: unknown;
+};
+
+export interface MenuItemType extends RcMenuItemType, DataAttributes {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/descriptions/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -2231,7 +2231,9 @@ Array [
               colspan="1"
               style="background: red;"
             >
-              <span>
+              <span
+                style="background: red;"
+              >
                 Product
               </span>
             </th>
@@ -2240,7 +2242,9 @@ Array [
               colspan="1"
               style="background: green;"
             >
-              <span>
+              <span
+                style="background: green;"
+              >
                 Cloud Database
               </span>
             </td>
@@ -2253,7 +2257,9 @@ Array [
               colspan="1"
               style="background: red;"
             >
-              <span>
+              <span
+                style="background: red;"
+              >
                 Billing Mode
               </span>
             </th>
@@ -2262,7 +2268,9 @@ Array [
               colspan="1"
               style="background: green;"
             >
-              <span>
+              <span
+                style="background: green;"
+              >
                 Prepaid
               </span>
             </td>
@@ -2275,7 +2283,9 @@ Array [
               colspan="1"
               style="background: red; color: orange;"
             >
-              <span>
+              <span
+                style="background: red;"
+              >
                 Automatic Renewal
               </span>
             </th>
@@ -2284,7 +2294,9 @@ Array [
               colspan="1"
               style="background: green; color: blue;"
             >
-              <span>
+              <span
+                style="background: green;"
+              >
                 YES
               </span>
             </td>
@@ -2297,6 +2309,196 @@ Array [
 `;
 
 exports[`renders components/descriptions/demo/style.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-descriptions acss-nk32ej ant-descriptions-small ant-descriptions-bordered css-var-test-id"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color: rgb(0, 0, 0);"
+            >
+              <span
+                style="color: rgb(0, 0, 0);"
+              >
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color: rgb(0, 0, 0);"
+            >
+              <span
+                style="color: rgb(0, 0, 0);"
+              >
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color: rgb(0, 0, 0);"
+            >
+              <span
+                style="color: rgb(0, 0, 0);"
+              >
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="ant-descriptions acss-nk32ej ant-descriptions-bordered css-var-test-id"
+    style="border-radius: 8px; border: 1px solid rgb(205, 193, 255);"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color: rgb(162, 148, 249);"
+            >
+              <span
+                style="color: rgb(162, 148, 249);"
+              >
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color: rgb(162, 148, 249);"
+            >
+              <span
+                style="color: rgb(162, 148, 249);"
+              >
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color: rgb(162, 148, 249);"
+            >
+              <span
+                style="color: rgb(162, 148, 249);"
+              >
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/descriptions/demo/text.tsx extend context correctly 1`] = `
 <div
@@ -2614,7 +2816,6 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                             <table
                               style="table-layout: auto;"
                             >
-                              <colgroup />
                               <thead
                                 class="ant-table-thead"
                               >

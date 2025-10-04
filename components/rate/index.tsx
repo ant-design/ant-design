@@ -1,13 +1,14 @@
 import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
-import classNames from 'classnames';
-import RcRate from 'rc-rate';
-import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
-import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
+import RcRate from '@rc-component/rate';
+import type { RateRef, RateProps as RcRateProps } from '@rc-component/rate/lib/Rate';
+import type { StarProps as RcStarProps } from '@rc-component/rate/lib/Star';
+import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
-import Tooltip, { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
 
 const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
@@ -17,6 +18,7 @@ const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
   tooltips?: (TooltipProps | string)[];
+  size?: 'small' | 'middle' | 'large';
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
@@ -28,6 +30,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     tooltips,
     character = <StarFilled />,
     disabled: customDisabled,
+    size = 'middle',
     ...rest
   } = props;
 
@@ -70,7 +73,14 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       characterRender={characterRender}
       disabled={mergedDisabled}
       {...rest}
-      className={classNames(className, rootClassName, hashId, cssVarCls, contextClassName)}
+      className={clsx(
+        `${ratePrefixCls}-${size}`,
+        className,
+        rootClassName,
+        hashId,
+        cssVarCls,
+        contextClassName,
+      )}
       style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}

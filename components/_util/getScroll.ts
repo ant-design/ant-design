@@ -4,6 +4,7 @@ export function isWindow(obj: any): obj is Window {
 
 const getScroll = (target: HTMLElement | Window | Document | null): number => {
   if (typeof window === 'undefined') {
+    /* istanbul ignore next */
     return 0;
   }
   let result = 0;

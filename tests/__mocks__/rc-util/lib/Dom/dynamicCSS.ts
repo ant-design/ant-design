@@ -1,4 +1,9 @@
-import { injectCSS, updateCSS, clearContainerCache, removeCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import {
+  injectCSS,
+  updateCSS,
+  clearContainerCache,
+  removeCSS,
+} from '@rc-component/util/lib/Dom/dynamicCSS';
 
 const fixCSS = (css: string) => {
   return css.replace(/@container\s+[^)]*\)/g, '@supports (display: not-exist)');
@@ -12,9 +17,4 @@ const mockUpdateCSS: typeof updateCSS = (css, ...rest) => {
   return updateCSS(fixCSS(css), ...rest);
 };
 
-export {
-  mockInjectCSS as injectCSS,
-  mockUpdateCSS as updateCSS,
-  clearContainerCache,
-  removeCSS
-};
+export { mockInjectCSS as injectCSS, mockUpdateCSS as updateCSS, clearContainerCache, removeCSS };

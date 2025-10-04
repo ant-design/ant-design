@@ -1,13 +1,16 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
-import classNames from 'classnames';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import useMergedMask from '../_util/hooks/useMergedMask';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
-import { Breakpoint } from '../_util/responsiveObserver';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -16,7 +19,7 @@ import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
-import type { ModalProps, MousePosition } from './interface';
+import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -54,8 +57,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     style,
     width = 520,
     footer,
-    classNames: modalClassNames,
-    styles: modalStyles,
+    classNames,
+    styles,
     children,
     loading,
     confirmLoading,
@@ -67,6 +70,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps,
     destroyOnHidden,
     destroyOnClose,
+    panelRef = null,
+    closable,
+    mask: modalMask,
     ...restProps
   } = props;
 
@@ -81,18 +87,33 @@ const Modal: React.FC<ModalProps> = (props) => {
     centered: contextCentered,
     cancelButtonProps: contextCancelButtonProps,
     okButtonProps: contextOkButtonProps,
+    mask: contextMask,
   } = useComponentConfig('modal');
+
   const { modal: modalContext } = React.useContext(ConfigContext);
+
+  const [closableAfterclose, onClose] = React.useMemo(() => {
+    if (typeof closable === 'boolean') {
+      return [undefined, undefined];
+    }
+    return [closable?.afterClose, closable?.onClose];
+  }, [closable]);
+  const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (confirmLoading) {
       return;
     }
     onCancel?.(e);
+    onClose?.();
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     onOk?.(e);
+    onClose?.();
   };
 
   if (process.env.NODE_ENV !== 'production') {
@@ -107,13 +128,11 @@ const Modal: React.FC<ModalProps> = (props) => {
     });
   }
 
-  const prefixCls = getPrefixCls('modal', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
   // Style
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const wrapClassNameExtended = classNames(wrapClassName, {
+  const wrapClassNameExtended = clsx(wrapClassName, {
     [`${prefixCls}-centered`]: centered ?? contextCentered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
@@ -129,7 +148,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       />
     ) : null;
 
-  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
+  const [rawClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
     pickClosable(props),
     pickClosable(modalContext),
     {
@@ -139,12 +158,38 @@ const Modal: React.FC<ModalProps> = (props) => {
     },
   );
 
+  const mergedClosable = rawClosable
+    ? {
+        disabled: closeBtnIsDisabled,
+        closeIcon: mergedCloseIcon,
+        afterClose: closableAfterclose,
+        ...ariaProps,
+      }
+    : false;
   // ============================ Refs ============================
-  // Select `ant-modal-section` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-section`);
+  // Select `ant-modal-container` by `panelRef`
+  const innerPanelRef = usePanelRef(`.${prefixCls}-container`);
+  const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
+
+  const mergedProps: ModalProps = {
+    ...props,
+    width,
+    panelRef,
+    focusTriggerAfterClose,
+    mask: mergedMask,
+    zIndex,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ModalClassNamesType,
+    ModalStylesType,
+    ModalProps
+  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<
@@ -180,60 +225,26 @@ const Modal: React.FC<ModalProps> = (props) => {
           zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={classNames(
-            hashId,
-            rootClassName,
-            cssVarCls,
-            rootCls,
-            contextClassNames.root,
-            modalClassNames?.root,
-          )}
-          rootStyle={{
-            ...contextStyles.root,
-            ...modalStyles?.root,
-          }}
+          rootClassName={clsx(hashId, rootClassName, cssVarCls, rootCls, mergedClassNames.root)}
+          rootStyle={mergedStyles.root}
           footer={dialogFooter}
           visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
           onClose={handleCancel as any}
-          closable={
-            mergedClosable
-              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon, ...ariaProps }
-              : mergedClosable
-          }
+          closable={mergedClosable}
           closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, contextClassName)}
-          style={{
-            ...contextStyle,
-            ...style,
-            ...responsiveWidthVars,
-          }}
+          mask={mergedMask}
+          className={clsx(hashId, className, contextClassName)}
+          style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{
-            mask: classNames(contextClassNames.mask, modalClassNames?.mask),
-            section: classNames(contextClassNames.section, modalClassNames?.section),
-            wrapper: classNames(
-              wrapClassNameExtended,
-              contextClassNames.wrapper,
-              modalClassNames?.wrapper,
-            ),
-            header: classNames(contextClassNames.header, modalClassNames?.header),
-            title: classNames(contextClassNames.title, modalClassNames?.title),
-            body: classNames(contextClassNames.body, modalClassNames?.body),
-            footer: classNames(contextClassNames.footer, modalClassNames?.footer),
+            ...mergedClassNames,
+            wrapper: clsx(mergedClassNames.wrapper, wrapClassNameExtended),
           }}
-          styles={{
-            mask: { ...contextStyles.mask, ...modalStyles?.mask },
-            section: { ...contextStyles.section, ...modalStyles?.section },
-            wrapper: { ...contextStyles.wrapper, ...modalStyles?.wrapper },
-            header: { ...contextStyles.header, ...modalStyles?.header },
-            title: { ...contextStyles.title, ...modalStyles?.title },
-            body: { ...contextStyles.body, ...modalStyles?.body },
-            footer: { ...contextStyles.footer, ...modalStyles?.footer },
-          }}
-          panelRef={panelRef}
+          styles={mergedStyles}
+          panelRef={mergedPanelRef}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           {loading ? (

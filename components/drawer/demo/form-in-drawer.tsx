@@ -22,7 +22,7 @@ const App: React.FC = () => {
       </Button>
       <Drawer
         title="Create a new account"
-        width={720}
+        size={720}
         onClose={onClose}
         open={open}
         styles={{

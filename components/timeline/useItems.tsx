@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import classNames from 'classnames';
+import { toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline';
 
@@ -37,6 +37,7 @@ export default function useItems(
         style,
         icon,
         dot,
+        placement,
         position,
         loading,
         ...restProps
@@ -48,7 +49,7 @@ export default function useItems(
       // Color
       if (color) {
         if (['blue', 'red', 'green', 'gray'].includes(color)) {
-          mergedClassName = classNames(className, `${itemCls}-color-${color}`);
+          mergedClassName = clsx(className, `${itemCls}-color-${color}`);
         } else {
           mergedStyle = {
             '--steps-item-icon-dot-color': color,
@@ -57,10 +58,13 @@ export default function useItems(
         }
       }
 
-      // Position
-      const mergedPosition =
-        position ?? (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
-      mergedClassName = classNames(mergedClassName, `${itemCls}-position-${mergedPosition}`);
+      // Placement
+      const mergedPlacement =
+        placement ??
+        position ??
+        (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
+
+      mergedClassName = clsx(mergedClassName, `${itemCls}-placement-${mergedPlacement}`);
 
       // Icon
       let mergedIcon = icon ?? dot;

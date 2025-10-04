@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/switch/demo/basic.tsx extend context correctly 1`] = `
 <button
@@ -208,6 +208,61 @@ Array [
 `;
 
 exports[`renders components/switch/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/switch/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <button
+    aria-checked="false"
+    class="ant-switch ant-switch-small acss-354296 css-var-test-id"
+    role="switch"
+    style="background: rgb(245, 210, 210);"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        on
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        off
+      </span>
+    </span>
+  </button>
+  <button
+    aria-checked="false"
+    class="ant-switch acss-354296 css-var-test-id"
+    role="switch"
+    style="background-color: rgb(189, 227, 195);"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/switch/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = `
 <div

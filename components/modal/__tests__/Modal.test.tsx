@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -92,14 +93,16 @@ describe('Modal', () => {
     };
     const { container } = render(<Demo />);
     const triggerEle = container.querySelectorAll('#trigger')[0];
-    const clickEvent = createEvent.click(triggerEle) as any;
-    clickEvent.pageX = 100;
-    clickEvent.pageY = 100;
+    const clickEvent = createEvent.click(triggerEle);
+
+    Object.defineProperty(clickEvent, 'pageX', { value: 100 });
+    Object.defineProperty(clickEvent, 'pageY', { value: 100 });
+
     fireEvent(triggerEle, clickEvent);
 
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
-    ).toBeTruthy();
+    ).toBe('100px 100px');
   });
 
   it('custom mouse position', () => {
@@ -360,5 +363,92 @@ describe('Modal', () => {
     render(<Modal open closable={{ 'aria-label': 'xxx' }} />);
     const element = document.body.querySelector('.ant-modal-close');
     expect(element).toHaveAttribute('aria-label', 'xxx');
+  });
+
+  describe('closable onClose and afterClose ', () => {
+    const mockFn = {
+      afterClose: jest.fn(),
+      closableAfterClose: jest.fn(),
+      onClose: jest.fn(),
+    };
+
+    beforeEach(() => jest.clearAllMocks());
+
+    const ModalTester: React.FC<ModalProps> = (props) => {
+      const [open, setOpen] = React.useState(true);
+      const close = () => {
+        setOpen(false);
+      };
+      return (
+        <div>
+          <Modal
+            {...props}
+            open={open}
+            onCancel={close}
+            onOk={close}
+            visible={open}
+            afterClose={mockFn.afterClose}
+            transitionName=""
+            maskTransitionName=""
+            closable={{ onClose: mockFn.onClose, afterClose: mockFn.closableAfterClose }}
+          >
+            Here is content of Modal
+          </Modal>
+        </div>
+      );
+    };
+    it('closable.onClose and afterClose', async () => {
+      render(<ModalTester />);
+      const button = document.body.querySelector('.ant-btn');
+      fireEvent.click(button!);
+      expect(mockFn.onClose).toHaveBeenCalled();
+      expect(mockFn.afterClose).toHaveBeenCalledTimes(1);
+      expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Modal mask blur className', () => {
+    const testCases: [
+      mask?: MaskType,
+      contextMask?: MaskType,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(testCases)(
+      'modalMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+            <Modal open mask={modalMask} />
+          </ConfigProvider>,
+        );
+
+        const maskElement = document.querySelector('.ant-modal-mask');
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-modal-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+        }
+      },
+    );
   });
 });

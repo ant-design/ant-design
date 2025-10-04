@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Collapse Collapse.Panel usage 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-borderless css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -89,7 +89,7 @@ exports[`Collapse Collapse.Panel usage 1`] = `
 
 exports[`Collapse could override default openMotion 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -146,7 +146,7 @@ exports[`Collapse could override default openMotion 1`] = `
 
 exports[`Collapse should render extra node of panel 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -251,7 +251,7 @@ exports[`Collapse should render extra node of panel 1`] = `
 
 exports[`Collapse should support remove expandIcon 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"

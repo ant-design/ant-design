@@ -47,16 +47,16 @@ describe('Steps.Semantic', () => {
     };
 
     const styles: Record<SemanticName, Record<string, any>> = {
-      root: { color: 'red' },
-      item: { color: 'blue' },
-      itemWrapper: { color: 'green' },
-      itemIcon: { color: 'yellow' },
-      itemSection: { color: 'purple' },
-      itemHeader: { color: 'orange' },
-      itemTitle: { color: 'pink' },
-      itemSubtitle: { color: 'cyan' },
-      itemContent: { color: 'magenta' },
-      itemRail: { color: 'lime' },
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
+      itemWrapper: { color: 'rgb(0, 255, 0)' },
+      itemIcon: { color: 'rgb(255, 255, 0)' },
+      itemSection: { color: 'rgb(128, 0, 128)' },
+      itemHeader: { color: 'rgb(255, 165, 0)' },
+      itemTitle: { color: 'rgb(255, 192, 203)' },
+      itemSubtitle: { color: 'rgb(0, 255, 255)' },
+      itemContent: { color: 'rgb(255, 0, 255)' },
+      itemRail: { color: 'rgb(0, 255, 0)' },
     };
 
     const { container } = render(
@@ -76,5 +76,35 @@ describe('Steps.Semantic', () => {
       expect(element).toHaveClass(oriClassName);
       expect(element).toHaveStyle(style);
     });
+  });
+
+  it('semantic structure with function classNames and styles', () => {
+    const classNamesFn: StepsProps['classNames'] = (info) => {
+      if (info.props.type === 'navigation') {
+        return { root: 'custom-navigation-root' };
+      }
+      return { root: 'custom-default-root' };
+    };
+
+    const stylesFn: StepsProps['styles'] = (info) => {
+      if (info.props.current === 1) {
+        return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
+      }
+      return { root: { backgroundColor: 'rgb(0, 255, 0)' } };
+    };
+
+    const { container } = render(
+      renderSteps({
+        type: 'navigation',
+        current: 1,
+        classNames: classNamesFn,
+        styles: stylesFn,
+      }),
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.custom-navigation-root');
+    expect(rootElement).toBeTruthy();
+    expect(rootElement).toHaveClass('ant-steps');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
 });

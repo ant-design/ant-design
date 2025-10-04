@@ -51,11 +51,41 @@ export function fillWindowEnv(window: Window | DOMWindow) {
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
   win.AnimationEvent = win.AnimationEvent || win.Event;
   win.TransitionEvent = win.TransitionEvent || win.Event;
-
   // ref: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   // ref: https://github.com/jsdom/jsdom/issues/2524
   Object.defineProperty(win, 'TextEncoder', { writable: true, value: util.TextEncoder });
   Object.defineProperty(win, 'TextDecoder', { writable: true, value: util.TextDecoder });
+
+  // Mock getComputedStyle to handle pseudoElt parameter
+  const originalGetComputedStyle = win.getComputedStyle;
+  win.getComputedStyle = (elt: Element, pseudoElt?: string | null | undefined) => {
+    if (pseudoElt) {
+      // Return a mock style object for pseudo-elements
+      return {
+        getPropertyValue: (prop: string) => {
+          // Return default values for common properties
+          const defaults: Record<string, string> = {
+            width: '0px',
+            height: '0px',
+            padding: '0px',
+            margin: '0px',
+            border: '0px',
+            'background-color': 'transparent',
+            color: 'rgb(0, 0, 0)',
+            'font-size': '16px',
+            'line-height': 'normal',
+            display: 'block',
+            position: 'static',
+            overflow: 'visible',
+            'overflow-x': 'visible',
+            'overflow-y': 'visible',
+          };
+          return defaults[prop] || '';
+        },
+      } as CSSStyleDeclaration;
+    }
+    return originalGetComputedStyle.call(win, elt, pseudoElt);
+  };
 }
 
 if (typeof window !== 'undefined') {

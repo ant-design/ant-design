@@ -1,19 +1,18 @@
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import ConfigProvider from 'antd/es/config-provider';
+import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import { Helmet, useOutlet, useSiteData } from 'dumi';
+import { Helmet, useOutlet, useSearchParams, useSiteData } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
-
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
@@ -38,6 +37,9 @@ const DocLayout: React.FC = () => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null!);
   const { direction } = React.use(SiteContext);
   const { loading } = useSiteData();
+  const { token } = theme.useToken();
+  const [searchParams] = useSearchParams();
+  const hideLayout = searchParams.get('layout') === 'false';
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -70,10 +72,7 @@ const DocLayout: React.FC = () => {
   }, [location]);
 
   const content = React.useMemo<React.ReactNode>(() => {
-    if (
-      ['', '/'].some((path) => path === pathname) ||
-      ['/index'].some((path) => pathname.startsWith(path))
-    ) {
+    if (['', '/'].includes(pathname) || ['/index'].some((path) => pathname.startsWith(path))) {
       return (
         <IndexLayout title={locale.title} desc={locale.description}>
           {outlet}
@@ -83,7 +82,7 @@ const DocLayout: React.FC = () => {
     if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
     }
-    if (pathname.startsWith('/theme-editor')) {
+    if (pathname.startsWith('/theme-editor') || pathname.startsWith('/theme-market')) {
       return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
@@ -95,7 +94,7 @@ const DocLayout: React.FC = () => {
         <html
           lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
-          className={classNames({ rtl: direction === 'rtl' })}
+          className={clsx({ rtl: direction === 'rtl' })}
         />
         <link
           sizes="144x144"
@@ -108,9 +107,17 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
+      <ConfigProvider
+        direction={direction}
+        locale={lang === 'cn' ? zhCN : undefined}
+        theme={{
+          token: {
+            fontFamily: `AlibabaSans, ${token.fontFamily}`,
+          },
+        }}
+      >
         <GlobalStyles />
-        <Header />
+        {!hideLayout && <Header />}
         {content}
       </ConfigProvider>
     </>

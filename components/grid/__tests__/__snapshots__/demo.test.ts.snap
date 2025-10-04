@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/grid/demo/basic.tsx correctly 1`] = `
 Array [
@@ -635,7 +635,7 @@ Array [
     </div>
     <div
       class="ant-col css-var-test-id"
-      style="flex:auto"
+      style="flex:1 1 auto"
     >
       Fill Rest
     </div>
@@ -687,7 +687,7 @@ Array [
     </div>
     <div
       class="ant-col css-var-test-id"
-      style="flex:auto;min-width:0"
+      style="flex:1 1 auto;min-width:0"
     >
       auto with no-wrap
     </div>
@@ -912,6 +912,67 @@ Array [
     <div
       class="ant-col ant-col-6 gutter-row css-var-test-id"
       style="padding-inline:8px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Gutter(string)
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-row css-var-test-id"
+    style="margin-inline:calc(2rem / -2)"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline:calc(2rem / 2)"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline:calc(2rem / 2)"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline:calc(2rem / 2)"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline:calc(2rem / 2)"
     >
       <div
         style="background:#0092ff;padding:8px 0"

@@ -131,9 +131,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Náhled',
-  },
   QRCode: {
     expired: 'QR kód vypršel',
     refresh: 'Obnovit',

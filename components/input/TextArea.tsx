@@ -5,9 +5,11 @@ import type {
   TextAreaRef as RcTextAreaRef,
 } from '@rc-component/textarea';
 import RcTextArea from '@rc-component/textarea';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -24,11 +26,14 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'textarea' | 'count';
 
-export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
+export type TextAreaClassNamesType = SemanticClassNamesType<TextAreaProps, SemanticName>;
+
+export type TextAreaStylesType = SemanticStylesType<TextAreaProps, SemanticName>;
+
+export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNames' | 'styles'> {
   /** @deprecated Use `variant` instead */
   bordered?: boolean;
   size?: SizeType;
@@ -39,8 +44,8 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TextAreaClassNamesType;
+  styles?: TextAreaStylesType;
 }
 
 export interface TextAreaRef {
@@ -97,10 +102,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TextAreaClassNamesType,
+    TextAreaStylesType,
+    TextAreaProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props,
+  });
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);
@@ -171,7 +179,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       styles={mergedStyles}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={cls(
+      className={clsx(
         cssVarCls,
         rootCls,
         className,
@@ -184,7 +192,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       )}
       classNames={{
         ...mergedClassNames,
-        textarea: cls(
+        textarea: clsx(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -193,13 +201,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           mergedClassNames.textarea,
           isMouseDown && `${prefixCls}-mouse-active`,
         ),
-        variant: cls(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
         ),
-        affixWrapper: cls(
+        affixWrapper: clsx(
           `${prefixCls}-textarea-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',

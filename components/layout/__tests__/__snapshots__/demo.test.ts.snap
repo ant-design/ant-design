@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
 <div
@@ -180,7 +180,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
           data-menu-list="true"
           role="menu"
-          style="border-right:0"
+          style="border-inline-end:0"
           tabindex="0"
         >
           <li
@@ -188,9 +188,11 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub1-popup"
               aria-expanded="true"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub1"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -226,11 +228,13 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
+              id="rc-menu-uuid-sub1-popup"
               role="menu"
             >
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -244,6 +248,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -257,6 +262,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-3"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -270,6 +276,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-4"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -287,9 +294,11 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub2-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub2"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -328,9 +337,11 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub3-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub3"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -380,9 +391,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
         style="margin:16px 0"
       >
         <ol>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -395,9 +404,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           >
             /
           </li>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -410,9 +417,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           >
             /
           </li>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -455,6 +460,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -487,6 +493,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -519,6 +526,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-3"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -623,6 +631,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -666,9 +675,11 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -711,9 +722,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       style="margin:16px 0"
     >
       <ol>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -726,9 +735,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         >
           /
         </li>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -741,9 +748,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         >
           /
         </li>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -794,6 +799,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -826,6 +832,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -858,6 +865,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-3"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -890,6 +898,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-4"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -922,6 +931,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-5"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -954,6 +964,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-6"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -986,6 +997,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-7"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1018,6 +1030,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-8"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1310,6 +1323,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1342,6 +1356,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1374,6 +1389,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-3"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1406,6 +1422,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-4"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1497,6 +1514,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1529,6 +1547,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1563,9 +1582,11 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           role="none"
         >
           <div
+            aria-controls="rc-menu-uuid-sub1-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            data-menu-id="rc-menu-uuid-sub1"
             role="menuitem"
             style="padding-left:24px"
             tabindex="-1"
@@ -1604,9 +1625,11 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           role="none"
         >
           <div
+            aria-controls="rc-menu-uuid-sub2-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            data-menu-id="rc-menu-uuid-sub2"
             role="menuitem"
             style="padding-left:24px"
             tabindex="-1"
@@ -1643,6 +1666,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-9"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1719,9 +1743,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         style="margin:16px 0"
       >
         <ol>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -1734,9 +1756,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           >
             /
           </li>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -1786,6 +1806,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -1985,9 +2006,11 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -2030,9 +2053,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       style="margin:16px 0"
     >
       <ol>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -2045,9 +2066,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         >
           /
         </li>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -2060,9 +2079,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         >
           /
         </li>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -2111,6 +2128,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -2154,9 +2172,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -2198,9 +2218,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       style="margin:16px 0"
     >
       <ol>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -2213,9 +2231,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         >
           /
         </li>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -2228,9 +2244,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         >
           /
         </li>
-        <li
-          class=""
-        >
+        <li>
           <span
             class="ant-breadcrumb-link"
           >
@@ -2262,9 +2276,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-sub1-popup"
                 aria-expanded="true"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-sub1"
                 role="menuitem"
                 style="padding-left:24px"
                 tabindex="-1"
@@ -2300,11 +2316,13 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
+                id="rc-menu-uuid-sub1-popup"
                 role="menu"
               >
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-1"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2318,6 +2336,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-2"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2331,6 +2350,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-3"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2344,6 +2364,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-4"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2361,9 +2382,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-sub2-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-sub2"
                 role="menuitem"
                 style="padding-left:24px"
                 tabindex="-1"
@@ -2402,9 +2425,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-sub3-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-sub3"
                 role="menuitem"
                 style="padding-left:24px"
                 tabindex="-1"
@@ -2487,6 +2512,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -2530,9 +2556,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -2580,7 +2608,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
           data-menu-list="true"
           role="menu"
-          style="height:100%;border-right:0"
+          style="height:100%;border-inline-end:0"
           tabindex="0"
         >
           <li
@@ -2588,9 +2616,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub1-popup"
               aria-expanded="true"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub1"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -2626,11 +2656,13 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
+              id="rc-menu-uuid-sub1-popup"
               role="menu"
             >
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2644,6 +2676,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2657,6 +2690,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-3"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2670,6 +2704,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-4"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2687,9 +2722,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub2-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub2"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -2728,9 +2765,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub3-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub3"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -2780,9 +2819,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         style="margin:16px 0"
       >
         <ol>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -2795,9 +2832,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           >
             /
           </li>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >
@@ -2810,9 +2845,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           >
             /
           </li>
-          <li
-            class=""
-          >
+          <li>
             <span
               class="ant-breadcrumb-link"
             >

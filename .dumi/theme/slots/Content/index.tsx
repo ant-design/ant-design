@@ -1,28 +1,33 @@
 import React, { Suspense, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import ComponentMeta from '../../builtins/ComponentMeta';
+import EditButton from '../../common/EditButton';
+import PrevAndNext from '../../common/PrevAndNext';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
-import SiteContext from '../SiteContext';
-import DocAnchor, { useStyle } from './DocAnchor';
-import Contributors from './Contributors';
-import ColumnCard from './ColumnCard';
-import DocMeta from './DocMeta';
 import Footer from '../Footer';
-import PrevAndNext from '../../common/PrevAndNext';
-import EditButton from '../../common/EditButton';
+import SiteContext from '../SiteContext';
+import ColumnCard from './ColumnCard';
+import Contributors from './Contributors';
+import DocAnchor, { useStyle } from './DocAnchor';
+import DocMeta from './DocMeta';
 
 const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
   Array.from({ length: num }).map<React.ReactNode>((_, i) => (
     <Skeleton.Avatar size="small" active key={i} style={{ marginInlineStart: i === 0 ? 0 : -8 }} />
   ));
 
-const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
+export interface ContentProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const Content: React.FC<ContentProps> = ({ children, className }) => {
   const meta = useRouteMeta();
   const { pathname, hash } = useLocation();
   const { direction } = React.use(SiteContext);
@@ -50,9 +55,9 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <DemoContext value={contextValue}>
-      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24} className={className}>
         <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
-        <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
+        <article className={clsx(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Flex justify="space-between">
               <Typography.Title style={{ fontSize: 32, position: 'relative' }}>

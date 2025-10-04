@@ -3,8 +3,8 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import type { Meta } from '@rc-component/form/lib/interface';
-import classNames from 'classnames';
+import type { Meta, NamePath } from '@rc-component/form/lib/interface';
+import { clsx } from 'clsx';
 
 import type { FeedbackIcons, ValidateStatus } from '.';
 import { FormContext, FormItemInputContext } from '../context';
@@ -27,9 +27,10 @@ export interface StatusProviderProps {
   warnings: React.ReactNode[];
   hasFeedback?: boolean | { icons?: FeedbackIcons };
   noStyle?: boolean;
+  name?: NamePath;
 }
 
-export default function StatusProvider({
+function StatusProvider({
   children,
   errors,
   warnings,
@@ -38,6 +39,7 @@ export default function StatusProvider({
   prefixCls,
   meta,
   noStyle,
+  name,
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
   const { feedbackIcons } = React.useContext(FormContext);
@@ -56,6 +58,7 @@ export default function StatusProvider({
     status: parentStatus,
     hasFeedback: parentHasFeedback,
     feedbackIcon: parentFeedbackIcon,
+    name: parentName,
   } = React.useContext(FormItemInputContext);
 
   // ====================== Context =======================
@@ -70,7 +73,7 @@ export default function StatusProvider({
       feedbackIcon =
         customIconNode !== false && IconNode ? (
           <span
-            className={classNames(
+            className={clsx(
               `${itemPrefixCls}-feedback-icon`,
               `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
             )}
@@ -87,6 +90,7 @@ export default function StatusProvider({
       hasFeedback: !!hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
+      name,
     };
 
     // No style will follow parent context
@@ -95,6 +99,7 @@ export default function StatusProvider({
       context.isFormItemInput = parentIsFormItemInput;
       context.hasFeedback = !!(hasFeedback ?? parentHasFeedback);
       context.feedbackIcon = hasFeedback !== undefined ? context.feedbackIcon : parentFeedbackIcon;
+      context.name = name ?? parentName;
     }
 
     return context;
@@ -107,3 +112,5 @@ export default function StatusProvider({
     </FormItemInputContext.Provider>
   );
 }
+
+export default StatusProvider;

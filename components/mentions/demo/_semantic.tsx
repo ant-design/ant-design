@@ -1,26 +1,29 @@
 import React from 'react';
 import { UnstableContext } from '@rc-component/mentions';
+import type { UnstableContextProps } from '@rc-component/mentions/lib/context';
+import type { MentionProps } from 'antd';
 import { Mentions } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
-    root: '图标元素',
-    textarea: '输入框元素',
-    popup: '弹出框元素',
+    root: '根元素，设置行内flex布局、相对定位、内边距和边框样式',
+    textarea: '文本域元素，设置字体、行高、文本输入和背景样式',
+    popup: '弹出框元素，设置绝对定位、层级、背景色、圆角、阴影和下拉选项样式',
   },
   en: {
-    root: 'Root element',
-    textarea: 'Input element',
-    popup: 'Popup element',
+    root: 'Root element, set inline flex layout, relative positioning, padding and border styles',
+    textarea: 'Textarea element, set font, line height, text input and background styles',
+    popup:
+      'Popup element, set absolute positioning, z-index, background color, border radius, shadow and dropdown options styles',
   },
 };
 
-const Block: React.FC<any> = (props) => {
+const Block: React.FC<MentionProps> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-  const memoizedValue = React.useMemo(() => ({ open: true }), []);
+  const memoizedValue = React.useMemo<UnstableContextProps>(() => ({ open: true }), []);
   return (
     <div ref={divRef} style={{ position: 'absolute', height: 170, overflow: 'hidden' }}>
       <UnstableContext.Provider value={memoizedValue}>
@@ -29,7 +32,7 @@ const Block: React.FC<any> = (props) => {
           placement="bottom"
           style={{ width: '100%' }}
           value="@"
-          getPopupContainer={() => divRef.current}
+          getPopupContainer={() => divRef.current!}
           styles={{
             popup: {
               zIndex: 1,
@@ -47,6 +50,10 @@ const Block: React.FC<any> = (props) => {
             {
               value: 'thinkasany',
               label: 'thinkasany',
+            },
+            {
+              value: 'Meet-student',
+              label: 'Meet-student',
             },
           ]}
         />

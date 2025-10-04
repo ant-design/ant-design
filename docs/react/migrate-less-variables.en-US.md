@@ -141,7 +141,7 @@ export default App;
 | --- | --- | --- |
 | `@btn-font-weight` | `fontWeight` | - |
 | `@btn-border-radius-base` | `borderRadius` | Global Token |
-| `@btn-border-radius-sm` | `borderRadisuSM` | Global Token |
+| `@btn-border-radius-sm` | `borderRadiusSM` | Global Token |
 | `@btn-border-width` | `lineWidth` | Global Token |
 | `@btn-border-style` | `lineStyle` | Global Token |
 | `@btn-shadow` | `defaultShadow` | - |
@@ -606,8 +606,8 @@ export default App;
 | `@radio-button-hover-color` | `colorPrimaryHover` | Global Token |
 | `@radio-button-active-color` | `colorPrimaryActive` | Global Token |
 | `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
-| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
-| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckedBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckedColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ### Rate
@@ -894,7 +894,7 @@ export default App;
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | Deprecated |
 
-### Tree 树形控件
+### Tree
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

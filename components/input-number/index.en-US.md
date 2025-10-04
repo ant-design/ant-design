@@ -30,6 +30,7 @@ When a numeric value needs to be provided.
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/focus.tsx" version="5.22.0">Focus</code>
+<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
@@ -42,28 +43,30 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
-| autoFocus | If get focus when component mounted | boolean | false | - |
+| autoFocus | If the component gets focus when mounted | boolean | false | - |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
-| changeOnWheel | Allow control with mouse wheel | boolean | - | 5.14.0 |
-| controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
+| changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
+| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
-| placeholder | placeholder | string | - |  |
+| placeholder | Placeholder | string | - |  |
 | defaultValue | The initial value | number | - | - |
-| disabled | If disable the input | boolean | false | - |
+| disabled | If the input is disabled | boolean | false | - |
 | formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
-| keyboard | If enable keyboard behavior | boolean | true | 4.12.0 |
+| keyboard | If keyboard behavior is enabled | boolean | true | 4.12.0 |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
-| readOnly | If readonly the input | boolean | false | - |
+| readOnly | If the input is readonly | boolean | false | - |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
 | suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
-| value | The current value | number | - | - |
+| value | The current value of the component | number | - | - |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
@@ -93,11 +96,11 @@ Per issues [#21158](https://github.com/ant-design/ant-design/issues/21158), [#17
 
 ### Why `value` can exceed `min` or `max` in control?
 
-Developer handle data by their own in control. It will make data out of sync if InputNumber change display value. It also cause potential data issues when use in form.
+Developer handle data by their own in control. It will make data out of sync if InputNumber changes display value. It also cause potential data issues when use in form.
 
 ### Why dynamic change `min` or `max` which makes `value` out of range will not trigger `onChange`?
 
-`onChange` is user trigger event. Auto trigger will makes form lib can not detect data modify source.
+`onChange` is user trigger event. Auto-triggering would prevent form libraries from detecting the data modification source.
 
 ### Why `onBlur` or other event can not get correct value?
 
@@ -107,4 +110,4 @@ InputNumber's value is wrapped by internal logic. The `event.target.value` you g
 
 > The use of the `type` attribute is deprecated
 
-The InputNumber component allows you to use all the attributes of the input element and ultimately pass them to the input element, This attribute will also be added to the input element when you pass in `type='number'`, which will cause the input element to trigger native properties (allowing the mouse wheel to change the value), As a result `changeOnWheel` cannot control whether the mouse wheel changes the value.
+The InputNumber component allows you to use all the attributes of the input element and ultimately pass them to the input element, This attribute will also be added to the input element when you pass in `type='number'`, which will activate native behavior (allowing the mouse wheel to change the value), As a result `changeOnWheel` cannot control whether the mouse wheel changes the value.

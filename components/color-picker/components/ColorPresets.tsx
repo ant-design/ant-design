@@ -1,8 +1,7 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
@@ -43,10 +42,7 @@ const genCollapsePanelKey = (preset: PresetsItem, index: number) => {
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
   const [, token] = useToken();
-  const [presetsValue] = useMergedState(genPresetColor(presets), {
-    value: genPresetColor(presets),
-    postState: genPresetColor,
-  });
+  const presetsValue = useMemo(() => genPresetColor(presets), [presets]);
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
   const activeKeys = useMemo(
@@ -80,7 +76,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
                 key={`preset-${index}-${presetColor.toHexString()}`}
                 color={colorInst.toCssString()}
                 prefixCls={prefixCls}
-                className={classNames(`${colorPresetsPrefixCls}-color`, {
+                className={clsx(`${colorPresetsPrefixCls}-color`, {
                   [`${colorPresetsPrefixCls}-color-checked`]:
                     presetColor.toCssString() === color?.toCssString(),
                   [`${colorPresetsPrefixCls}-color-bright`]: isBright(

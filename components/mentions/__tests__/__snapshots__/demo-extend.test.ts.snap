@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/mentions/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
@@ -248,7 +248,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
   class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -288,7 +288,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -330,7 +330,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -502,6 +502,35 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
 `;
 
 exports[`renders components/mentions/demo/status.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/mentions/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var acss-3jrxlv"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Object"
+      rows="1"
+      style="font-size: 14px;"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var acss-3jrxlv"
+    style="border: 1px solid rgb(114, 46, 209);"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Function"
+      rows="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/mentions/demo/variant.tsx extend context correctly 1`] = `
 <div

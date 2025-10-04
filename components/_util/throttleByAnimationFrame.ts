@@ -1,7 +1,7 @@
 import raf from '@rc-component/util/lib/raf';
 
 function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
-  let requestId: number | null;
+  let requestId: number | null = null;
 
   const later = (args: T) => () => {
     requestId = null;
@@ -9,7 +9,7 @@ function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
   };
 
   const throttled = (...args: T) => {
-    if (requestId == null) {
+    if (requestId === null) {
       requestId = raf(later(args));
     }
   };

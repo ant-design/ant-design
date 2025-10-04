@@ -1,6 +1,5 @@
 import React from 'react';
 
-import type { DatePickerProps } from '..';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
 
@@ -8,7 +7,7 @@ describe('DatePicker.Semantic', () => {
   describe('inline', () => {
     function test(name: string, renderFn: (props: any) => React.ReactElement) {
       it(name, () => {
-        const classNames: Required<NonNullable<DatePickerProps['classNames']>> = {
+        const classNames = {
           root: 'my-root',
           prefix: 'my-prefix',
           input: 'my-input',
@@ -17,11 +16,11 @@ describe('DatePicker.Semantic', () => {
         };
 
         const styles = {
-          root: { backgroundColor: 'red' },
-          prefix: { backgroundColor: 'blue' },
-          input: { backgroundColor: 'green' },
-          suffix: { backgroundColor: 'yellow' },
-          popup: { root: { backgroundColor: 'purple' } },
+          root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+          prefix: { backgroundColor: 'rgba(40, 167, 69, 0.9)' },
+          input: { backgroundColor: 'rgba(255, 193, 7, 0.7)' },
+          suffix: { backgroundColor: 'rgba(220, 53, 69, 0.6)' },
+          popup: { root: { backgroundColor: 'rgba(108, 117, 125, 0.85)' } },
         };
 
         render(renderFn({ classNames, styles, prefix: 'bamboo', open: true }));
@@ -69,11 +68,11 @@ describe('DatePicker.Semantic', () => {
 
         const styles = {
           popup: {
-            header: { backgroundColor: 'red' },
-            body: { backgroundColor: 'blue' },
-            content: { backgroundColor: 'green' },
-            item: { backgroundColor: 'yellow' },
-            footer: { backgroundColor: 'purple' },
+            header: { backgroundColor: 'rgb(255, 0, 0)' },
+            body: { backgroundColor: 'rgb(0, 0, 255)' },
+            content: { backgroundColor: 'rgb(0, 255, 0)' },
+            item: { backgroundColor: 'rgb(255, 255, 0)' },
+            footer: { backgroundColor: 'rgb(128, 0, 128)' },
           },
         };
 
@@ -126,5 +125,53 @@ describe('DatePicker.Semantic', () => {
       (props) => <DatePicker.RangePicker {...props} picker="time" />,
       true,
     );
+  });
+
+  it('should support semantic styles', () => {
+    const styles = {
+      root: { backgroundColor: 'red' },
+      input: { color: 'blue' },
+      suffix: { fontSize: '20px' },
+    };
+    const { container } = render(<DatePicker styles={styles} />);
+    const rootElement = container.querySelector('.ant-picker');
+    const inputElement = container.querySelector('.ant-picker-input input');
+    const suffixElement = container.querySelector('.ant-picker-suffix');
+
+    expect(rootElement).toHaveStyle('background-color: rgb(255, 0, 0)');
+    expect(inputElement).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffixElement).toHaveStyle('font-size: 20px');
+  });
+
+  it('should support semantic classNames as function', () => {
+    const classNamesFn = (info: { props: Record<string, unknown> }) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-root' };
+      }
+      return { root: 'enabled-root' };
+    };
+
+    const { container, rerender } = render(<DatePicker classNames={classNamesFn} />);
+    expect(container.querySelector('.enabled-root')).toBeTruthy();
+
+    rerender(<DatePicker disabled classNames={classNamesFn} />);
+    expect(container.querySelector('.disabled-root')).toBeTruthy();
+  });
+
+  it('should support semantic styles as function', () => {
+    const stylesFn = (info: { props: Record<string, unknown> }) => {
+      if (info.props.size === 'large') {
+        return { root: { fontSize: '18px' } };
+      }
+      return { root: { fontSize: '14px' } };
+    };
+
+    const { container, rerender } = render(<DatePicker styles={stylesFn} />);
+    const rootElement = container.querySelector('.ant-picker');
+    expect(rootElement).toHaveStyle('font-size: 14px');
+
+    rerender(<DatePicker size="large" styles={stylesFn} />);
+    const largeRootElement = container.querySelector('.ant-picker');
+    expect(largeRootElement).toHaveStyle('font-size: 18px');
   });
 });

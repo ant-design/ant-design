@@ -1,23 +1,25 @@
 import * as React from 'react';
-import type { PickerProps } from '@rc-component/picker';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
+import type { AnyObject } from '../../_util/type';
 import { useComponentConfig } from '../../config-provider/context';
-import type { PickerClassNames } from '../generatePicker/interface';
+import type { RequiredSemanticPicker } from '../generatePicker/interface';
 
-const useMergedPickerSemantic = (
+const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
   pickerType: 'timePicker' | 'datePicker',
-  classNames?: PickerClassNames,
-  styles?: PickerProps['styles'],
+  classNames?: P['classNames'],
+  styles?: P['styles'],
   popupClassName?: string,
   popupStyle?: React.CSSProperties,
+  mergedProps?: P,
 ) => {
   const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames as PickerProps['classNames'], classNames as PickerProps['classNames']],
-    [contextStyles as PickerProps['styles'], styles],
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<P['classNames'], P['styles'], P>(
+    [contextClassNames as P['classNames'], classNames],
+    [contextStyles as P['styles'], styles],
+    { props: mergedProps as P },
     {
       popup: {
         _default: 'root',
@@ -31,24 +33,18 @@ const useMergedPickerSemantic = (
       ...mergedClassNames,
       popup: {
         ...mergedClassNames.popup,
-        root: cls(mergedClassNames.popup?.root, popupClassName),
+        root: clsx(mergedClassNames.popup?.root, popupClassName),
       },
     };
 
     // Styles
     const filledStyles = {
       ...mergedStyles,
-      popup: {
-        ...mergedStyles.popup,
-        root: {
-          ...mergedStyles.popup?.root,
-          ...popupStyle,
-        },
-      },
+      popup: { ...mergedStyles.popup, root: { ...mergedStyles.popup?.root, ...popupStyle } },
     };
 
     // Return
-    return [filledClassNames, filledStyles] as const;
+    return [filledClassNames, filledStyles] as unknown as RequiredSemanticPicker;
   }, [mergedClassNames, mergedStyles, popupClassName, popupStyle]);
 };
 

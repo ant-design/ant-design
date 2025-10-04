@@ -277,7 +277,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             width: '100%',
             height: dotHeight,
             content: '""',
-            background: colorBgContainer,
+            background: 'transparent',
             borderRadius: dotHeight,
             opacity: 1,
             outline: 'none',
@@ -321,6 +321,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
               opacity: 1,
             },
             '&::after': {
+              background: colorBgContainer,
               transform: 'translate3d(0, 0, 0)',
               transition: `transform var(${DotDuration}) ease-out`,
             },
@@ -370,12 +371,12 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
         margin: 0,
         transform: 'translateY(-50%)',
 
-        '&-left': {
+        '&-start': {
           insetInlineEnd: 'auto',
           insetInlineStart: dotOffset,
         },
 
-        '&-right': {
+        '&-end': {
           insetInlineEnd: dotOffset,
           insetInlineStart: 'auto',
         },
@@ -416,13 +417,6 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
     {
       [`${componentCls}-rtl`]: {
         direction: 'rtl',
-
-        // Dots
-        '.slick-dots': {
-          [`${componentCls}-rtl&`]: {
-            flexDirection: 'row-reverse',
-          },
-        },
       },
     },
     {

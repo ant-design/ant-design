@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import isVisible from '@rc-component/util/lib/Dom/isVisible';
 import { composeRef, getNodeRef, supportRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
@@ -20,19 +20,20 @@ export interface WaveProps {
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component, colorSource } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-  const containerRef = useRef<HTMLElement>(null!);
+
+  const containerRef = useRef<HTMLElement | null>(null);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component, colorSource);
+  const showWave = useWave(containerRef, clsx(prefixCls, hashId), component, colorSource);
 
   // ============================== Effect ==============================
   React.useEffect(() => {
     const node = containerRef.current;
-    if (!node || node.nodeType !== 1 || disabled) {
+    if (!node || node.nodeType !== window.Node.ELEMENT_NODE || disabled) {
       return;
     }
 
@@ -45,7 +46,8 @@ const Wave: React.FC<WaveProps> = (props) => {
         !node.getAttribute ||
         node.getAttribute('disabled') ||
         (node as HTMLInputElement).disabled ||
-        node.className.includes('disabled') ||
+        (node.className.includes('disabled') && !node.className.includes('disabled:')) ||
+        node.getAttribute('aria-disabled') === 'true' ||
         node.className.includes('-leave')
       ) {
         return;

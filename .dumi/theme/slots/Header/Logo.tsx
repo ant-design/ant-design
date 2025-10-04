@@ -5,8 +5,9 @@ import { useLocation } from 'dumi';
 import Link from '../../common/Link';
 import * as utils from '../../utils';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { headerHeight } = token;
+  const { colorTextHeading, mobileMaxWidth } = cssVar;
 
   return {
     logo: css`
@@ -16,14 +17,13 @@ const useStyle = createStyles(({ token, css }) => {
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      font-family: AlibabaPuHuiTi, ${fontFamily}, sans-serif;
       line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      column-gap: ${token.marginSM}px;
+      column-gap: ${cssVar.marginSM};
 
       &:hover {
         color: ${colorTextHeading};
@@ -36,7 +36,7 @@ const useStyle = createStyles(({ token, css }) => {
         vertical-align: middle;
       }
 
-      @media only screen and (max-width: ${mobileMaxWidth}px) {
+      @media only screen and (max-width: ${mobileMaxWidth}) {
         padding-inline-start: 0;
         padding-inline-end: 0;
       }

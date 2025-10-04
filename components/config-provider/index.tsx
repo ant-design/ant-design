@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createTheme, StyleContext as CssInJsStyleContext } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
+import { merge } from '@rc-component/util';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
-import { merge } from '@rc-component/util/lib/utils/set';
 
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
@@ -14,9 +14,11 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
+import UniqueProvider from '../tooltip/UniqueProvider';
 import type {
   AlertConfig,
   BadgeConfig,
+  BreadcrumbConfig,
   ButtonConfig,
   CardConfig,
   CardMetaConfig,
@@ -31,13 +33,13 @@ import type {
   DrawerConfig,
   EmptyConfig,
   FlexConfig,
+  FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
   InputConfig,
-  InputSearchConfig,
   InputNumberConfig,
-  OTPConfig,
+  InputSearchConfig,
   ListConfig,
   MasonryConfig,
   MentionsConfig,
@@ -45,10 +47,12 @@ import type {
   MessageConfig,
   ModalConfig,
   NotificationConfig,
+  OTPConfig,
   PaginationConfig,
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
   RibbonConfig,
@@ -66,9 +70,9 @@ import type {
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
+  UploadConfig,
   Variant,
   WaveConfig,
-  QRcodeConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -111,11 +115,11 @@ export const warnContext: (componentName: string) => void =
 
 export {
   ConfigConsumer,
-  ConfigContext,
-  defaultPrefixCls,
-  defaultIconPrefixCls,
   type ConfigConsumerProps,
+  ConfigContext,
   type CSPConfig,
+  defaultIconPrefixCls,
+  defaultPrefixCls,
   type DirectionType,
   type RenderEmptyHandler,
   type ThemeConfig,
@@ -218,9 +222,10 @@ export interface ConfigProviderProps {
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
-  breadcrumb?: ComponentStyleConfig;
   masonry?: MasonryConfig;
+  breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: CheckboxConfig;
   descriptions?: ComponentStyleConfig;
@@ -240,7 +245,7 @@ export interface ConfigProviderProps {
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
@@ -408,6 +413,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     popover,
     popconfirm,
     qrcode,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -518,6 +524,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     popover,
     popconfirm,
     qrcode,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -628,6 +635,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // =================================== Motion ===================================
   childNode = <MotionWrapper>{childNode}</MotionWrapper>;
+
+  // ================================ Tooltip Unique ===============================
+  if (tooltip?.unique) {
+    childNode = <UniqueProvider>{childNode}</UniqueProvider>;
+  }
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {

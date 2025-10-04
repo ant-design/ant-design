@@ -15,7 +15,7 @@ const App: React.FC = () => (
       items={[
         {
           key: '1',
-          label: 'This panel can only be collapsed by clicking text',
+          label: 'This panel can be collapsed by clicking text or icon',
           children: <p>{text}</p>,
         },
       ]}

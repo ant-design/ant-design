@@ -1,8 +1,9 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
 import useMultipleSelect from '../_util/hooks/useMultipleSelect';
 import type { InputStatus } from '../_util/statusUtils';
@@ -11,6 +12,7 @@ import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import { useLocale } from '../locale';
@@ -24,9 +26,9 @@ import type { TransferCustomListBodyProps, TransferListProps } from './Section';
 import Section from './Section';
 import useStyle from './style';
 
-export type { TransferListProps } from './Section';
 export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
+export type { TransferListProps } from './Section';
 
 export type SemanticName =
   | 'root'
@@ -35,9 +37,14 @@ export type SemanticName =
   | 'title'
   | 'body'
   | 'list'
-  | 'listItem'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
   | 'footer'
   | 'actions';
+
+export type TransferClassNamesType = SemanticClassNamesType<TransferProps, SemanticName>;
+export type TransferStylesType = SemanticStylesType<TransferProps, SemanticName>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -99,8 +106,8 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   /** @deprecated Please use `styles.actions` instead. */
   operationStyle?: CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TransferClassNamesType;
+  styles?: TransferStylesType;
 
   disabled?: boolean;
   dataSource?: RecordType[];
@@ -117,7 +124,7 @@ export interface TransferProps<RecordType = any> {
   titles?: React.ReactNode[];
   /** @deprecated Please use `actions` instead. */
   operations?: string[];
-  actions?: string[];
+  actions?: React.ReactNode[];
   showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
@@ -188,6 +195,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     styles: contextStyles,
     selectionsIcon: contextSelectionsIcon,
   } = useComponentConfig('transfer');
+
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: TransferProps<RecordType> = {
+    ...props,
+    disabled: mergedDisabled,
+  };
 
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
@@ -438,20 +454,24 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const leftActive =
     rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
       .length > 0;
+
   const rightActive =
     leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
       .length > 0;
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TransferClassNamesType,
+    TransferStylesType,
+    TransferProps<RecordType>
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
-  const cls = classnames(
+  const cls = clsx(
     prefixCls,
     {
-      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-disabled`]: mergedDisabled,
       [`${prefixCls}-customize-list`]: !!children,
       [`${prefixCls}-rtl`]: dir === 'rtl',
     },
@@ -509,7 +529,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         renderList={children as any}
         footer={footer as any}
         onScroll={handleLeftScroll}
-        disabled={disabled}
+        disabled={mergedDisabled}
         direction={dir === 'rtl' ? 'right' : 'left'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
@@ -518,18 +538,17 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         {...listLocale}
       />
       <Actions
-        className={classnames(`${prefixCls}-actions`, mergedClassNames.actions)}
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
-        rightArrowText={mergedActions[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftArrowText={mergedActions[1]}
+        actions={mergedActions}
         moveToLeft={moveToLeft}
         style={{
           ...operationStyle,
           ...mergedStyles.actions,
         }}
-        disabled={disabled}
+        disabled={mergedDisabled}
         direction={dir}
         oneWay={oneWay}
       />
@@ -552,7 +571,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         renderList={children as any}
         footer={footer as any}
         onScroll={handleRightScroll}
-        disabled={disabled}
+        disabled={mergedDisabled}
         direction={dir === 'rtl' ? 'left' : 'right'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[1]}
