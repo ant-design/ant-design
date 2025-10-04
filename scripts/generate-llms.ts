@@ -1,6 +1,6 @@
+import { globSync } from 'node:fs';
 import path from 'path';
 import fs from 'fs-extra';
-import { glob } from 'glob';
 
 async function generateLLms() {
   const cwd = process.cwd();
@@ -12,7 +12,8 @@ async function generateLLms() {
   // Ensure siteDir
   await fs.ensureDir(siteDir);
 
-  const docs = await glob(`{${docsDir.join(',')}}/**/*.md`);
+  const docs = globSync(`{${docsDir.join(',')}}/**/*.md`);
+
   const filteredDocs = docs.filter((doc) => doc.includes(matchSuffix));
 
   const docsIndex: Array<{ title: string; url: string }> = [];
@@ -77,6 +78,7 @@ async function generateLLms() {
   await fs.writeFile(path.join(siteDir, 'llms-full.txt'), docsBodyContent);
   console.log('Generated llms.txt and llms-full.txt');
 }
+
 (async () => {
   if (require.main === module) {
     await generateLLms();

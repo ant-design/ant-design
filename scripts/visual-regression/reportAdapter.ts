@@ -1,19 +1,19 @@
-import fs from 'fs-extra';
-import fg from 'fast-glob';
+import { globSync } from 'node:fs';
 import path from 'path';
-import { PNG } from 'pngjs';
 // locked to v2.2.0
 import {
   getReportHtmlAfterPopulatingData,
   getReportJsonWithTotalStats,
 } from 'cypress-image-diff-html-report/dist/common/utils';
+import fs from 'fs-extra';
+import { PNG } from 'pngjs';
+
 import type { IBadCase } from './build';
 
 const ROOT = path.resolve(__dirname, '../../');
 const REPORT_DIR = path.join(ROOT, 'visualRegressionReport');
 
-const components = fg
-  .sync('components/*/index.ts[x]', { cwd: ROOT })
+const components = globSync('components/*/index.ts[x]', { cwd: ROOT })
   .reduce((acc, file) => {
     const basePath = path.dirname(file);
     if (

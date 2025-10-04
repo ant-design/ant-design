@@ -1,15 +1,15 @@
 import type http from 'http';
 import type https from 'https';
+import { globSync } from 'node:fs';
 import { join } from 'path';
 import { load } from 'cheerio';
-import { globSync } from 'glob';
 import { createServer } from 'http-server';
 import fetch from 'isomorphic-fetch';
 import uniq from 'lodash/uniq';
 import portfinder from 'portfinder';
 
 const components = uniq(
-  globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>
+  globSync('components/!(overview)/*.md', { cwd: join(process.cwd()) }).map((path) =>
     path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, ''),
   ),
 ).filter((component) => !component.includes('_util'));

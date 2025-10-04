@@ -1,7 +1,7 @@
 // Collect from `changelog.md` to get all components changelog
+import { globSync } from 'node:fs';
 import path from 'path';
 import fs from 'fs-extra';
-import { globSync } from 'glob';
 
 const output = '.dumi/preset';
 

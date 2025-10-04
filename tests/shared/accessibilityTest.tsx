@@ -1,6 +1,6 @@
+import { globSync } from 'node:fs';
 import React from 'react';
 import { render } from '@testing-library/react';
-import { globSync } from 'glob';
 import { axe } from 'jest-axe';
 
 class AxeQueueManager {

@@ -1,15 +1,14 @@
-import fg from 'fast-glob';
-import fs from 'fs-extra';
+import { globSync } from 'node:fs';
 import path from 'path';
+import fs from 'fs-extra';
 import cloneDeep from 'lodash/cloneDeep';
 import isPlainObject from 'lodash/isPlainObject';
 
 import rootPkg from '../package.json';
 
-const examples = fg.sync(['examples/examples/**/package.json'], {
+const examples = globSync(['examples/examples/**/package.json'], {
   cwd: process.cwd(),
-  onlyFiles: true,
-  ignore: ['**/node_modules/**', '.git'],
+  exclude: ['**/node_modules/**', '.git'],
 });
 
 const _order = ['dependencies', 'devDependencies', 'peerDependencies'] as const;
