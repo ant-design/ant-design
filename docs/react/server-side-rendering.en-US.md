@@ -12,17 +12,16 @@ There are two options for server-side rendering styles, each with advantages and
 
 ## Inline Style
 
-Use `@ant-design/cssinjs` to extract style:
+Use `extractStyle` to extract style:
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-import type Entity from '@ant-design/cssinjs/es/Cache';
+import { createCache, extractStyle, StyleProvider } from 'antd';
 import { renderToString } from 'react-dom/server';
 
 const App = () => {
   // SSR Render
-  const cache = React.useMemo<Entity>(() => createCache(), []);
+  const cache = React.useMemo(() => createCache(), []);
   const html = renderToString(
     <StyleProvider cache={cache}>
       <MyApp />
@@ -155,7 +154,7 @@ Take Next.js for example（[example](https://github.com/ant-design/ant-design-ex
 Then, you just need to import this file into the `pages/_app.tsx` file:
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 import type { AppProps } from 'next/app';
 
 import '../public/antd.min.css'; // add this line
@@ -240,8 +239,8 @@ More about static-style-extract, see [static-style-extract](https://github.com/a
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { extractStyle } from '@ant-design/cssinjs';
 import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { extractStyle } from 'antd';
 
 export interface DoExtraStyleOptions {
   cache: Entity;
@@ -287,7 +286,7 @@ Export on demand using the above tools in `_document.tsx`
 
 ```tsx
 // _document.tsx
-import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { createCache, StyleProvider } from 'antd';
 import type { DocumentContext } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
