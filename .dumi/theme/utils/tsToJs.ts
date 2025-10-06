@@ -1,4 +1,4 @@
-import { format } from '@prettier/sync';
+import prettierSync from '@prettier/sync';
 import * as ts from 'typescript';
 
 /**
@@ -31,7 +31,7 @@ export default function tsToJs(tsCode: string): string {
 
   try {
     // 使用 Prettier 同步格式化代码
-    const formatted = format(result.outputText, {
+    const formatted = prettierSync.format(result.outputText, {
       // Prettier 格式化选项
       parser: 'babel',
       printWidth: 100,
