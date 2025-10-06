@@ -68,6 +68,7 @@ const AntdPhoneInput = forwardRef<GetRef<typeof Input>, PhoneInputProps>(
         }
         value={inputValue}
         onChange={handlePhoneValueChange}
+        aria-label="Phone number"
         {...props}
       />
     );
@@ -79,7 +80,7 @@ AntdPhoneInput.displayName = 'AntdPhoneInput';
 const App: React.FC = () => {
   const [value, setValue] = useState('');
 
-  return <AntdPhoneInput value={value} onChange={setValue} aria-label="Phone number" />;
+  return <AntdPhoneInput value={value} onChange={setValue} />;
 };
 
 export default App;
