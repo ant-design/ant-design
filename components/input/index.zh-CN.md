@@ -23,6 +23,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>面性变体 Debug</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>
+<code src="./demo/phone-number.tsx">电话号码输入框</code>
 <code src="./demo/compact-style.tsx">紧凑模式</code>
 <code src="./demo/group.tsx" debug>输入框组合</code>
 <code src="./demo/search-input.tsx">搜索框</code>
@@ -148,10 +149,10 @@ interface CountConfig {
 
 #### VisibilityToggle
 
-| 参数            | 说明                 | 类型                | 默认值 | 版本 |
-| --------------- | -------------------- | ------------------- | ------ | ---- |
-| visible         | 用于手动控制密码显隐 | boolean             | false  | 4.24 |
-| onVisibleChange | 显隐密码的回调       | (visible) => void   | -      | 4.24 |
+| 参数            | 说明                 | 类型              | 默认值 | 版本 |
+| --------------- | -------------------- | ----------------- | ------ | ---- |
+| visible         | 用于手动控制密码显隐 | boolean           | false  | 4.24 |
+| onVisibleChange | 显隐密码的回调       | (visible) => void | -      | 4.24 |
 
 #### Input Methods
 
