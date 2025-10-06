@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 import React, { useEffect, useMemo } from 'react';
-import { Button, Tabs, Typography } from 'antd';
+import { Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
@@ -153,9 +153,10 @@ const CodePreview: React.FC<CodePreviewProps> = ({
             ) : (
               toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])
             )}
-            <Button type="text" className={styles.copyButton}>
+            {/* button 嵌套 button 会导致水合失败，这里需要用 div 标签，不能用 button */}
+            <div className={styles.copyButton}>
               <Typography.Text className={styles.copyIcon} copyable={{ text: sourceCodes[lang] }} />
-            </Button>
+            </div>
           </div>
         ),
       })),
