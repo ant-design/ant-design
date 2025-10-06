@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, notification, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, notification } from 'antd';
 import { createStyles } from 'antd-style';
 
 const COLOR_BG = 'linear-gradient(135deg,#6253e1, #04befe)';

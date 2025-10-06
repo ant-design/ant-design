@@ -22,7 +22,7 @@ import { initPanelComponentToken, initPickerPanelToken, prepareComponentToken } 
 import genVariantsStyle from './variants';
 
 export type { ComponentToken, PanelComponentToken, PickerPanelToken };
-export { initPickerPanelToken, initPanelComponentToken, genPanelStyle };
+export { genPanelStyle, initPanelComponentToken, initPickerPanelToken };
 
 const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObject => {
   return {

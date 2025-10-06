@@ -91,7 +91,7 @@ jobs:
           bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
-        uses: peter-evans/commit-comment@v3
+        uses: peter-evans/commit-comment@v4
         with:
           body: |
             - Documentation site for this release: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh

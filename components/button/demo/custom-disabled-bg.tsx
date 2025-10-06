@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Flex } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" wrap>

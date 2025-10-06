@@ -7,7 +7,7 @@ import { omit } from '@rc-component/util';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
-import type { FormInstance, RequiredMark, FormSemanticName, FormLayout } from './Form';
+import type { FormInstance, FormLayout, FormSemanticName, RequiredMark } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { FormLabelAlign, NamePath } from './interface';
 

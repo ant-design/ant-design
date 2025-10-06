@@ -1,4 +1,4 @@
-import { isValidWaveColor, getTargetWaveColor } from '../wave/util';
+import { getTargetWaveColor, isValidWaveColor } from '../wave/util';
 
 describe('wave util', () => {
   describe('isValidWaveColor', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Switch, Space, Flex } from 'antd';
+import { Flex, Space, Switch } from 'antd';
 import type { SwitchProps } from 'antd';
 import { createStyles } from 'antd-style';
 

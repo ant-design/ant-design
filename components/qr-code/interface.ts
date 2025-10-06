@@ -6,7 +6,7 @@ import type { Locale } from '../locale';
 
 type ImageSettings = QRProps['imageSettings'];
 
-export type { QRProps, ImageSettings };
+export type { ImageSettings, QRProps };
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
 
