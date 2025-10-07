@@ -36,12 +36,12 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
 
 export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
 
-export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
+export type SubMenuSemanticName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
 type CustomizationType<T = string> = Partial<
   Record<SemanticName, T> & {
     popup?: T | { root?: T };
-    subMenu?: Partial<Record<SubMenuName, T>>;
+    subMenu?: Partial<Record<SubMenuSemanticName, T>>;
   }
 >;
 export type MenuClassNamesType =

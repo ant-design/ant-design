@@ -3,7 +3,13 @@ import type {
   TourProps as RCTourProps,
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 
 export type TourSemanticName =
   | 'root'
@@ -51,8 +57,8 @@ export interface TourStepProps extends RCTourStepProps {
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: Partial<Record<TourSemanticName, string>>;
-  styles?: Partial<Record<TourSemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<TourSemanticName>;
+  styles?: SemanticStyles<TourSemanticName>;
 }
 
 export interface TourLocale {

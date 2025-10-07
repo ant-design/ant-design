@@ -15,20 +15,16 @@ export const NotificationPlacements = [
   'bottomLeft',
   'bottomRight',
 ] as const;
+
 export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export type SemanticName = 'root' | 'title' | 'description' | 'actions' | 'icon';
+export type NotificationSemantic = 'root' | 'title' | 'description' | 'actions' | 'icon';
 
-export type NotificationClassNamesType = SemanticClassNamesType<ArgsProps, SemanticName>;
-export type NotificationStylesType = SemanticStylesType<ArgsProps, SemanticName>;
+export type NotificationClassNamesType = SemanticClassNamesType<ArgsProps, NotificationSemantic>;
 
-// Resolved types for mergeSemantic result (function already resolved)
-// Extract the resolved type from NotificationClassNamesType by removing function variant
-export type ResolvedNotificationClassNamesType = Partial<Record<SemanticName, string>>;
-
-export type ResolvedNotificationStylesType = Partial<Record<SemanticName, React.CSSProperties>>;
+export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemantic>;
 
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */

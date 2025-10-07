@@ -4,6 +4,7 @@ import { Circle as RCCircle } from '@rc-component/progress';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
 import type { GapPosition, ProgressGradient, ProgressProps, SemanticName } from './progress';
@@ -20,8 +21,8 @@ export interface CircleProps extends Omit<ProgressProps, 'classNames' | 'styles'
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
-  classNames: Record<SemanticName, string>;
-  styles: Record<SemanticName, React.CSSProperties>;
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
 }
 
 const Circle: React.FC<CircleProps> = (props) => {

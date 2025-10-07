@@ -1,7 +1,8 @@
 import { createContext } from 'react';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import type { DirectionType } from '../config-provider';
-import type { SemanticName, SubMenuName } from './menu';
+import type { SemanticName, SubMenuSemanticName } from './menu';
 
 export type MenuTheme = 'light' | 'dark';
 
@@ -13,18 +14,14 @@ export interface MenuContextProps {
   firstLevel: boolean;
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
-  classNames: Required<
-    Record<SemanticName, string> & {
-      popup: { root: string };
-      subMenu: Required<Record<SubMenuName, string>>;
-    }
-  >;
-  styles: Required<
-    Record<SemanticName, React.CSSProperties> & {
-      subMenu: Required<Record<SubMenuName, React.CSSProperties>>;
-      popup: { root: React.CSSProperties };
-    }
-  >;
+  classNames: SemanticClassNames<SemanticName> & {
+    popup: SemanticClassNames<'root'>;
+    subMenu: SemanticClassNames<SubMenuSemanticName>;
+  };
+  styles: SemanticStyles<SemanticName> & {
+    popup: SemanticStyles<'root'>;
+    subMenu: SemanticStyles<SubMenuSemanticName>;
+  };
 }
 
 const MenuContext = createContext<MenuContextProps>({

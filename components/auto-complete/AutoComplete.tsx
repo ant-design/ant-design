@@ -4,7 +4,12 @@ import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -19,6 +24,7 @@ import type {
 import Select from '../select';
 
 export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input';
+
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
 const { Option } = Select;
@@ -27,22 +33,19 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
+
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export type AutoCompleteClassNamesType = SemanticClassNamesType<
   AutoCompleteProps,
   AutoCompleteSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
 
 export type AutoCompleteStylesType = SemanticStylesType<
   AutoCompleteProps,
   AutoCompleteSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
 
 export interface AutoCompleteProps<

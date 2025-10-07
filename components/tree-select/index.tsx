@@ -13,7 +13,12 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -54,13 +59,15 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 type SemanticName = 'root' | 'prefix' | 'input' | 'suffix';
+
 type PopupSemantic = 'item' | 'itemTitle' | 'root';
 
 export type TreeSelectClassNamesType = SemanticClassNamesType<TreeSelectProps, SemanticName> & {
-  popup?: Partial<Record<PopupSemantic, string>>;
+  popup?: SemanticClassNames<PopupSemantic>;
 };
+
 export type TreeSelectStylesType = SemanticStylesType<TreeSelectProps, SemanticName> & {
-  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  popup?: SemanticStyles<PopupSemantic>;
 };
 
 interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>

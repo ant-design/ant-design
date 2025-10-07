@@ -2,6 +2,7 @@ import React from 'react';
 import Masonry from 'antd/es/masonry';
 
 import ConfigProvider from '..';
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
 import { fireEvent, render } from '../../../tests/utils';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -421,7 +422,7 @@ describe('ConfigProvider support style and className props', () => {
     const titleStyle = { background: 'rgba(0, 255, 17, 0.8)' };
     const paragraphStyle = { background: 'rgba(255, 111, 0, 0.8)' };
 
-    const customStyles: Record<SkeletonSemanticName, React.CSSProperties> = {
+    const customStyles: SemanticStyles<SkeletonSemanticName> = {
       root: rootStyle,
       header: headerStyle,
       section: sectionStyle,
@@ -430,7 +431,7 @@ describe('ConfigProvider support style and className props', () => {
       paragraph: paragraphStyle,
     };
 
-    const customClassNames: Record<SkeletonSemanticName, string> = {
+    const customClassNames: Required<SemanticClassNames<SkeletonSemanticName>> = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',

@@ -5,6 +5,7 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import CSSMotion from '@rc-component/motion';
 import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -21,8 +22,8 @@ export interface ListItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<SemanticName>;
+  styles?: SemanticStyles<SemanticName>;
   locale: UploadLocale;
   file: UploadFile;
   items: UploadFile[];
