@@ -85,10 +85,12 @@ export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'p
 
 export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
 
-export type RequiredSemanticPicker = readonly [
-  classNames: SemanticClassNames<SemanticName> & { popup: SemanticClassNames<PopupSemantic> },
-  styles: SemanticStyles<SemanticName> & { popup: SemanticStyles<PopupSemantic> },
-];
+export type RequiredSemanticPicker = Readonly<
+  [
+    classNames: SemanticClassNames<SemanticName> & { popup: SemanticClassNames<PopupSemantic> },
+    styles: SemanticStyles<SemanticName> & { popup: SemanticStyles<PopupSemantic> },
+  ]
+>;
 
 export type InjectDefaultProps<Props> = Omit<
   Props,

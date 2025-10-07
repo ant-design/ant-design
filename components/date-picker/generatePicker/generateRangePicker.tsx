@@ -120,7 +120,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const locale = { ...contextLocale, ...props.locale! };
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root.zIndex as number);
+    const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);
 
     return (
       <ContextIsolator space>

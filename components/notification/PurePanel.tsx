@@ -21,12 +21,13 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { IconType, SemanticName } from './interface';
+import type { IconType, NotificationSemantic } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
 
-export type PurePanelClassNamesType = SemanticClassNamesType<PurePanelProps, SemanticName>;
-export type PurePanelStylesType = SemanticStylesType<PurePanelProps, SemanticName>;
+export type PurePanelClassNamesType = SemanticClassNamesType<PurePanelProps, NotificationSemantic>;
+
+export type PurePanelStylesType = SemanticStylesType<PurePanelProps, NotificationSemantic>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -55,8 +56,8 @@ export interface PureContentProps {
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: SemanticClassNames<NotificationSemantic>;
+  styles: SemanticStyles<NotificationSemantic>;
 }
 
 const typeToIcon = {
