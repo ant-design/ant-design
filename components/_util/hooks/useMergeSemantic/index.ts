@@ -12,6 +12,26 @@ export type SemanticSchema = {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
+export type SemanticClassNames<Name extends string> = Partial<Record<Name, string>>;
+
+export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
+
+export type SemanticClassNamesType<
+  Props extends AnyObject,
+  SemanticName extends string,
+  NestedStructure extends AnyObject = AnyObject,
+> =
+  | (Readonly<SemanticClassNames<SemanticName>> & NestedStructure)
+  | (((info: { props: Props }) => Readonly<SemanticClassNames<SemanticName>>) & NestedStructure);
+
+export type SemanticStylesType<
+  Props extends AnyObject,
+  SemanticName extends string,
+  NestedStructure extends AnyObject = AnyObject,
+> =
+  | (Readonly<SemanticStyles<SemanticName>> & NestedStructure)
+  | (((info: { props: Props }) => Readonly<SemanticStyles<SemanticName>>) & NestedStructure);
+
 // ========================= ClassNames =========================
 export function mergeClassNames<
   T extends string,
@@ -96,8 +116,8 @@ type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 
 /**
- * Merge classNames and styles from multiple sources.
- * When `schema` is provided, it will **must** provide the nest object structure.
+ * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
+ * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
  */
 const useMergeSemantic = <
   ClassNamesType extends AnyObject,
@@ -137,21 +157,3 @@ const useMergeSemantic = <
 };
 
 export default useMergeSemantic;
-
-export type SemanticClassNamesType<
-  Props,
-  SemanticName extends string,
-  NestedStructure extends AnyObject = object,
-> =
-  | (Partial<Record<SemanticName, string>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined) &
-      NestedStructure);
-
-export type SemanticStylesType<
-  Props,
-  SemanticName extends string,
-  NestedStructure extends AnyObject = object,
-> =
-  | (Partial<Record<SemanticName, React.CSSProperties>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined) &
-      NestedStructure);
