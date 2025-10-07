@@ -28,8 +28,6 @@ import type {
   MessageInstance,
   MessageType,
   NoticeType,
-  ResolvedMessageClassNamesType,
-  ResolvedMessageStylesType,
   SemanticName,
   TypeOpen,
 } from './interface';
@@ -50,8 +48,8 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   message?: MessageConfig;
-  classNames: ResolvedMessageClassNamesType;
-  styles: ResolvedMessageStylesType;
+  classNames?: SemanticClassNames<SemanticName>;
+  styles?: SemanticStyles<SemanticName>;
 }
 
 const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({

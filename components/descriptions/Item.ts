@@ -17,6 +17,7 @@ export interface DescriptionsItemProps {
   classNames?: SemanticClassNames<SemanticName>;
   styles?: SemanticStyles<SemanticName>;
   span?: number | 'filled' | { [key in Breakpoint]?: number };
+  children?: React.ReactNode;
 }
 
 // JSX Structure Syntactic Sugar. Never reach the render code.
