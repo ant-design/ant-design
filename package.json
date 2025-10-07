@@ -156,7 +156,6 @@
     "rc-tree-select": "~5.27.0",
     "rc-upload": "~4.9.2",
     "rc-util": "^5.44.4",
-    "react-international-phone": "^4.6.0",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
   },
@@ -303,6 +302,7 @@
     "react-highlight-words": "^0.21.0",
     "react-icons": "^5.4.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-international-phone": "^4.6.0",
     "react-intersection-observer": "^9.13.1",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^7.0.1",
