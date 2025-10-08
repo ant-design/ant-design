@@ -23,7 +23,7 @@ demo:
 <code src="./demo/animated.tsx">动画效果</code>
 <code src="./demo/card.tsx" background="grey">在卡片中使用</code>
 <code src="./demo/timer.tsx" version="5.25.0">计时器</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API

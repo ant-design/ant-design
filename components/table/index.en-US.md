@@ -108,7 +108,7 @@ const columns = [
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
 <code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
-<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/selections-debug.tsx" debug>selections with icon</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>

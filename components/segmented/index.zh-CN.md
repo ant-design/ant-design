@@ -32,7 +32,7 @@ demo:
 <code src="./demo/with-icon.tsx">设置图标</code>
 <code src="./demo/icon-only.tsx">只设置图标</code>
 <code src="./demo/with-name.tsx" version="5.23.0">配合 name 使用</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
 <code src="./demo/size-consistent.tsx" debug>统一高度</code>
 <code src="./demo/componentToken.tsx" debug>自定义组件 Token</code>

@@ -29,7 +29,7 @@ tag: 5.21.0
 <code src="./demo/group.tsx">复杂组合</code>
 <code src="./demo/lazy.tsx" version="5.23.0">延迟渲染模式</code>
 <code src="./demo/customize.tsx" version="6.0.0">自定义样式</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/debug.tsx" debug>调试</code>
 <code src="./demo/size-mix.tsx" debug>尺寸混合</code>

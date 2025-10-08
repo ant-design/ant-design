@@ -22,7 +22,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <code src="./demo/lunar.tsx" clientOnly>农历日历</code>
 <code src="./demo/week.tsx" clientOnly version="5.23.0">周数</code>
 <code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
-<code src="./demo/style-class.tsx" clientOnly version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" clientOnly version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API

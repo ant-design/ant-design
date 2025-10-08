@@ -25,7 +25,7 @@ tag: 6.0.0
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/image.tsx">图片</code>
 <code src="./demo/dynamic.tsx">动态更新</code>
-<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
 <code src="./demo/fresh.tsx" debug>持续更新</code>
 
 ## API

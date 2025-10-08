@@ -24,7 +24,7 @@ demo:
 <code src="./demo/loading.tsx">Message with loading indicator</code>
 <code src="./demo/thenable.tsx">Promise interface</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
-<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/info.tsx">Static method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>

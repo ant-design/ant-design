@@ -32,7 +32,7 @@ demo:
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
 <code src="./demo/wrap-custom-component.tsx">自定义子组件</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义语义化结构样式</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 

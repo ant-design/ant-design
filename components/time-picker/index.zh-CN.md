@@ -32,7 +32,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/suffix.tsx">前后缀</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API

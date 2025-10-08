@@ -25,7 +25,7 @@ demo:
 <code src="./demo/loading.tsx">加载中</code>
 <code src="./demo/thenable.tsx">Promise 接口</code>
 <code src="./demo/custom-style.tsx">自定义样式</code>
-<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
