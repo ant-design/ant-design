@@ -28,10 +28,12 @@ import useShowSizeChanger from './useShowSizeChanger';
 export type SemanticName = 'root' | 'item';
 
 export type PaginationSemanticName = SemanticName;
+
 export type PaginationClassNamesType = SemanticClassNamesType<
   PaginationProps,
   PaginationSemanticName
 >;
+
 export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticName>;
 
 export interface PaginationProps

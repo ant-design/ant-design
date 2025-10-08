@@ -5,6 +5,7 @@ import type { FormProviderProps as RcFormProviderProps } from '@rc-component/for
 import type { Meta } from '@rc-component/form/lib/interface';
 import { omit } from '@rc-component/util';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, FormLayout, FormSemanticName, RequiredMark } from './Form';
@@ -13,8 +14,8 @@ import type { FormLabelAlign, NamePath } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
-  classNames?: Partial<Record<FormSemanticName, string>>;
-  styles?: Partial<Record<FormSemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<FormSemanticName>;
+  styles?: SemanticStyles<FormSemanticName>;
   layout: FormLayout;
   name?: string;
   colon?: boolean;

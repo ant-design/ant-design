@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+
 export type ElementSemanticName = 'root' | 'content';
 
 export interface SkeletonElementProps {
@@ -11,8 +13,8 @@ export interface SkeletonElementProps {
   size?: 'large' | 'small' | 'default' | number;
   shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
-  classNames?: Record<ElementSemanticName, string>;
-  styles?: Record<ElementSemanticName, React.CSSProperties>;
+  classNames?: SemanticClassNames<ElementSemanticName>;
+  styles?: SemanticStyles<ElementSemanticName>;
 }
 
 const Element: React.FC<SkeletonElementProps> = (props) => {

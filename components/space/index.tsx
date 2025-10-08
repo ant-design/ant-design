@@ -19,9 +19,11 @@ import useStyle from './style';
 export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
+
 type SemanticName = 'root' | 'item' | 'separator';
 
 export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>;
+
 export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>;
 
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {

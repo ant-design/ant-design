@@ -82,6 +82,7 @@ export function mergeStyles<StylesType extends AnyObject>(
     return acc;
   }, {});
 }
+
 function useSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) {
@@ -96,7 +97,6 @@ function fillObjectBySchema<T extends AnyObject>(obj: T, schema: SemanticSchema)
     if (key !== '_default') {
       const nestSchema = (schema as any)[key] as SemanticSchema;
       const nextValue = newObj[key] || {};
-
       newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
     }
   });

@@ -6,7 +6,12 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
@@ -67,24 +72,26 @@ export type { ColumnsType, TablePaginationConfig };
 const EMPTY_LIST: AnyObject[] = [];
 
 export type TableSemanticName = 'section' | 'title' | 'footer' | 'content' | 'root';
+
 export type ComponentsSemantic = 'wrapper' | 'cell' | 'row';
 
 export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
   TableProps<RecordType>,
   TableSemanticName,
   {
-    body?: Partial<Record<ComponentsSemantic, string>>;
-    header?: Partial<Record<ComponentsSemantic, string>>;
-    pagination?: Partial<Record<PaginationSemanticType, string>>;
+    body?: SemanticClassNames<ComponentsSemantic>;
+    header?: SemanticClassNames<ComponentsSemantic>;
+    pagination?: SemanticClassNames<PaginationSemanticType>;
   }
 >;
+
 export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
   TableProps<RecordType>,
   TableSemanticName,
   {
-    body?: Partial<Record<ComponentsSemantic, React.CSSProperties>>;
-    header?: Partial<Record<ComponentsSemantic, React.CSSProperties>>;
-    pagination?: Partial<Record<PaginationSemanticType, React.CSSProperties>>;
+    body?: SemanticStyles<ComponentsSemantic>;
+    header?: SemanticStyles<ComponentsSemantic>;
+    pagination?: SemanticStyles<PaginationSemanticType>;
   }
 >;
 
@@ -148,11 +155,11 @@ export interface TableProps<RecordType = AnyObject>
 type SemanticType = {
   classNames: Required<RcTableProps['classNames']> & {
     root: string;
-    pagination: Required<Record<PaginationSemanticType, string>>;
+    pagination: SemanticClassNames<PaginationSemanticType>;
   };
   styles: Required<RcTableProps['styles']> & {
     root: React.CSSProperties;
-    pagination: Required<Record<PaginationSemanticType, React.CSSProperties>>;
+    pagination: SemanticStyles<PaginationSemanticType>;
   };
 };
 

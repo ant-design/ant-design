@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Skeleton from '..';
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
@@ -191,7 +192,7 @@ describe('Skeleton', () => {
     const titleStyle = { background: 'red' };
     const paragraphStyle = { background: 'orange' };
 
-    const customStyles: Record<SemanticName, React.CSSProperties> = {
+    const customStyles: SemanticStyles<SemanticName> = {
       root: rootStyle,
       header: headerStyle,
       section: sectionStyle,
@@ -200,7 +201,7 @@ describe('Skeleton', () => {
       paragraph: paragraphStyle,
     };
 
-    const customClassNames: Record<SemanticName, string> = {
+    const customClassNames: Required<SemanticClassNames<SemanticName>> = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',
