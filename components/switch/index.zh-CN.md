@@ -25,7 +25,7 @@ demo:
 <code src="./demo/loading.tsx">加载中</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
 
-<code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 
