@@ -52,7 +52,6 @@ export default antfu(
       'react/no-comment-textnodes': 'off',
       'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'react-dom/no-missing-button-type': 'off',
-      'react-dom/no-flush-sync': 'off',
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-named-imports': 'off',
       'perfectionist/sort-named-exports': 'off',

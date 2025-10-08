@@ -8,6 +8,7 @@ import { createRoot } from 'react-dom/client';
 export const renderReactToHTMLString = (node: React.ReactNode) => {
   const div = document.createElement('div');
   const root = createRoot(div);
+  // eslint-disable-next-line react-dom/no-flush-sync
   flushSync(() => {
     root.render(node);
   });
