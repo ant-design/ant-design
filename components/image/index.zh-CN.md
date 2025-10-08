@@ -27,7 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/toolbarRender.tsx">自定义工具栏</code>
 <code src="./demo/imageRender.tsx">自定义预览内容</code>
 <code src="./demo/mask.tsx">预览遮罩</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/preview-mask.tsx" debug>自定义预览文本</code>
 <code src="./demo/coverPlacement.tsx" debug>自定义预览遮罩位置</code>
 <code src="./demo/nested.tsx">嵌套</code>

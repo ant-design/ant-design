@@ -32,7 +32,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/presets.tsx">Preset Colors</code>
 <code src="./demo/presets-line-gradient.tsx" debug>Preset Line Gradient</code>
 <code src="./demo/panel-render.tsx">Custom Render Panel</code>
-<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
