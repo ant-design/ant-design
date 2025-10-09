@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Slider, Switch, Typography } from 'antd';
+import { Slider, Switch, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;
 
@@ -86,17 +86,13 @@ const App: React.FC = () => {
 
       <div style={{ display }}>
         <Text style={{ width: 100 }} ellipsis={{ tooltip: 'I am ellipsis now!' }}>
-          默认display none 样式的超长文字， 悬停tooltip失效了
+          默认 display none 样式的超长文字， 悬停 tooltip 失效了
         </Text>
       </div>
 
       <Typography.Paragraph
         style={{ width: 300 }}
-        ellipsis={{
-          rows: 3,
-          expandable: true,
-          symbol: <Button>Open</Button>,
-        }}
+        ellipsis={{ rows: 3, expandable: true, symbol: <span>Open</span> }}
       >
         {templateStr.slice(0, 60)}
         <span style={{ fontSize: '5em' }}>ANTD</span>
