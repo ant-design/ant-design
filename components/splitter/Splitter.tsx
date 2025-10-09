@@ -140,6 +140,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
+    const collapsed = nextSizes.map((size) => Math.abs(size) < Number.EPSILON);
+    props.onCollapse?.(collapsed, nextSizes);
   });
 
   // =========== Merged Props for Semantic ==========

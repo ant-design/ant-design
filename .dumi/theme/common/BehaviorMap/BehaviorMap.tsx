@@ -1,12 +1,25 @@
 import React, { useEffect, useRef } from 'react';
+import { RightCircleOutlined } from '@ant-design/icons';
+import { Flex } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
+import { renderReactToHTMLString } from '../../../theme/utils/renderReactToHTML';
 
-const dataTransform = (data: BehaviorMapItem) => {
-  const changeData = (d: any, level = 0) => {
-    const clonedData: any = { ...d };
+interface BehaviorMapItem {
+  id: string;
+  label: string;
+  targetType?: 'mvp' | 'extension';
+  children?: BehaviorMapItem[];
+  link?: string;
+  collapsed?: boolean;
+  type?: 'behavior-start-node' | 'behavior-sub-node';
+}
+
+const dataTransform = (rootData: BehaviorMapItem) => {
+  const changeData = (data: BehaviorMapItem, level = 0) => {
+    const clonedData: BehaviorMapItem = { ...data };
     switch (level) {
       case 0:
         clonedData.type = 'behavior-start-node';
@@ -19,21 +32,12 @@ const dataTransform = (data: BehaviorMapItem) => {
         clonedData.type = 'behavior-sub-node';
         break;
     }
-
-    if (d.children) {
-      clonedData.children = d.children.map((child: any) => changeData(child, level + 1));
+    if (Array.isArray(data.children)) {
+      clonedData.children = data.children.map((child) => changeData(child, level + 1));
     }
     return clonedData;
   };
-  return changeData(data);
-};
-
-type BehaviorMapItem = {
-  id: string;
-  label: string;
-  targetType?: 'mvp' | 'extension';
-  children?: BehaviorMapItem[];
-  link?: string;
+  return changeData(rootData);
 };
 
 const useStyle = createStyles(({ cssVar }) => ({
@@ -100,9 +104,9 @@ const locales = {
   },
 };
 
-export type BehaviorMapProps = {
+export interface BehaviorMapProps {
   data: BehaviorMapItem;
-};
+}
 
 const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -228,25 +232,11 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
                   y: -8,
                   cursor: 'pointer',
                   // DOM's html
-                  html: `
-                <div style="width: 16px; height: 16px;">
-                  <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                      <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                          <g id="DatePicker" transform="translate(-890.000000, -441.000000)" fill-rule="nonzero">
-                              <g id="编组-30" transform="translate(288.000000, 354.000000)">
-                                  <g id="编组-7备份-7" transform="translate(522.000000, 79.000000)">
-                                      <g id="right-circle-outlinedd" transform="translate(80.000000, 8.000000)">
-                                          <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
-                                          <path d="M10.4171875,7.8984375 L6.5734375,5.1171875 C6.490625,5.0578125 6.375,5.115625 6.375,5.21875 L6.375,5.9515625 C6.375,6.1109375 6.4515625,6.2625 6.58125,6.35625 L8.853125,8 L6.58125,9.64375 C6.4515625,9.7375 6.375,9.8875 6.375,10.0484375 L6.375,10.78125 C6.375,10.8828125 6.490625,10.9421875 6.5734375,10.8828125 L10.4171875,8.1015625 C10.4859375,8.0515625 10.4859375,7.9484375 10.4171875,7.8984375 Z" id="路径" fill="#BFBFBF"></path>
-                                          <path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M8,13.8125 C4.790625,13.8125 2.1875,11.209375 2.1875,8 C2.1875,4.790625 4.790625,2.1875 8,2.1875 C11.209375,2.1875 13.8125,4.790625 13.8125,8 C13.8125,11.209375 11.209375,13.8125 8,13.8125 Z" id="形状" fill="#BFBFBF"></path>
-                                      </g>
-                                  </g>
-                              </g>
-                          </g>
-                      </g>
-                  </svg>
-                </div>
-              `,
+                  html: renderReactToHTMLString(
+                    <Flex align="center" justify="center">
+                      <RightCircleOutlined style={{ color: '#BFBFBF' }} />
+                    </Flex>,
+                  ),
                 },
                 // 在 G6 3.3 及之后的版本中，必须指定 name，可以是任意字符串，但需要在同一个自定义元素类型中保持唯一性
                 name: 'sub-node-link',
@@ -265,25 +255,11 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
               hover: {
                 stroke: '#1677ff',
                 'sub-node-link': {
-                  html: `
-                <div style="width: 16px; height: 16px;">
-                  <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                      <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                          <g id="DatePicker" transform="translate(-890.000000, -441.000000)" fill-rule="nonzero">
-                              <g id="编组-30" transform="translate(288.000000, 354.000000)">
-                                  <g id="编组-7备份-7" transform="translate(522.000000, 79.000000)">
-                                      <g id="right-circle-outlinedd" transform="translate(80.000000, 8.000000)">
-                                          <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
-                                          <path d="M10.4171875,7.8984375 L6.5734375,5.1171875 C6.490625,5.0578125 6.375,5.115625 6.375,5.21875 L6.375,5.9515625 C6.375,6.1109375 6.4515625,6.2625 6.58125,6.35625 L8.853125,8 L6.58125,9.64375 C6.4515625,9.7375 6.375,9.8875 6.375,10.0484375 L6.375,10.78125 C6.375,10.8828125 6.490625,10.9421875 6.5734375,10.8828125 L10.4171875,8.1015625 C10.4859375,8.0515625 10.4859375,7.9484375 10.4171875,7.8984375 Z" id="路径" fill="#1677ff"></path>
-                                          <path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M8,13.8125 C4.790625,13.8125 2.1875,11.209375 2.1875,8 C2.1875,4.790625 4.790625,2.1875 8,2.1875 C11.209375,2.1875 13.8125,4.790625 13.8125,8 C13.8125,11.209375 11.209375,13.8125 8,13.8125 Z" id="形状" fill="#1677ff"></path>
-                                      </g>
-                                  </g>
-                              </g>
-                          </g>
-                      </g>
-                  </svg>
-                </div>
-              `,
+                  html: renderReactToHTMLString(
+                    <Flex align="center" justify="center">
+                      <RightCircleOutlined style={{ color: '#1677ff' }} />
+                    </Flex>,
+                  ),
                 },
               },
             },
