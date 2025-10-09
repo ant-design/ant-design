@@ -51,6 +51,7 @@ export interface SplitterProps {
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;
+  onCollapse?: (collapsed: boolean[], sizes: number[]) => void;
   lazy?: boolean;
 }
 
