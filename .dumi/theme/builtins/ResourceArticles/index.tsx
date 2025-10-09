@@ -6,7 +6,7 @@ import { FormattedMessage } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
-import { useSiteData } from '../../../pages/index/components/util';
+import { useAntdSiteConfig } from '../../../pages/index/components/util';
 
 const useStyle = createStyles(({ cssVar, token, css }) => {
   const { antCls } = token;
@@ -147,7 +147,7 @@ const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
 
 const ResourceArticles: React.FC = () => {
   const { styles } = useStyle();
-  const { data, error, isLoading } = useSiteData();
+  const { data, error, isLoading } = useAntdSiteConfig();
   if (isLoading) {
     return <Skeleton active />;
   }

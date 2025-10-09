@@ -8,7 +8,12 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Circle from './Circle';
@@ -232,8 +237,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   // ======================== Render ========================
   const sharedProps = {
     ...props,
-    classNames: mergedClassNames as Record<SemanticName, string>,
-    styles: mergedStyles as Record<SemanticName, React.CSSProperties>,
+    classNames: mergedClassNames as SemanticClassNames<SemanticName>,
+    styles: mergedStyles as SemanticStyles<SemanticName>,
   };
 
   let progress: React.ReactNode;

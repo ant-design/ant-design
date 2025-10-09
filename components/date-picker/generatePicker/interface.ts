@@ -10,7 +10,9 @@ import type {
 } from '@rc-component/picker/lib/interface';
 
 import type {
+  SemanticClassNames,
   SemanticClassNamesType,
+  SemanticStyles,
   SemanticStylesType,
 } from '../../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../../_util/statusUtils';
@@ -26,16 +28,13 @@ type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 export type DatePickerClassNamesType<P> = SemanticClassNamesType<
   InjectDefaultProps<P>,
   SemanticName,
-  {
-    popup?: string | Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: string | SemanticClassNames<PopupSemantic> }
 >;
+
 export type DatePickerStylesType<P> = SemanticStylesType<
   InjectDefaultProps<P>,
   SemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
 
 export type PickerLocale = {
@@ -86,14 +85,12 @@ export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'p
 
 export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
 
-export type RequiredSemanticPicker = readonly [
-  classNames: Required<Record<SemanticName, string>> & {
-    popup: Required<Record<PopupSemantic, string>>;
-  },
-  styles: Required<Record<SemanticName, React.CSSProperties>> & {
-    popup: Required<Record<PopupSemantic, React.CSSProperties>>;
-  },
-];
+export type RequiredSemanticPicker = Readonly<
+  [
+    classNames: SemanticClassNames<SemanticName> & { popup: SemanticClassNames<PopupSemantic> },
+    styles: SemanticStyles<SemanticName> & { popup: SemanticStyles<PopupSemantic> },
+  ]
+>;
 
 export type InjectDefaultProps<Props> = Omit<
   Props,

@@ -132,7 +132,7 @@ const Timeline: CompoundedComponent = (props) => {
   // But this is safe to keep here since web will do nothing
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const stepsClassNames: StepsProps['classNames'] = React.useMemo(
+  const stepsClassNames = React.useMemo<StepsProps['classNames']>(
     () => ({
       item: `${prefixCls}-item`,
       itemTitle: `${prefixCls}-item-title`,

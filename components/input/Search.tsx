@@ -4,7 +4,12 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import type { ButtonSemanticName } from '../button/button';
@@ -17,11 +22,13 @@ import Input from './Input';
 type SemanticName = 'root' | 'input' | 'prefix' | 'suffix' | 'count';
 
 export type InputSearchClassNamesType = SemanticClassNamesType<SearchProps, SemanticName> & {
-  button?: Partial<Record<ButtonSemanticName, string>>;
+  button?: SemanticClassNames<ButtonSemanticName>;
 };
+
 export type InputSearchStylesType = SemanticStylesType<SearchProps, SemanticName> & {
-  button?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+  button?: SemanticStyles<ButtonSemanticName>;
 };
+
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
   onSearch?: (

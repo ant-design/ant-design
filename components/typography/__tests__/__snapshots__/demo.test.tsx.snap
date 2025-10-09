@@ -1540,7 +1540,7 @@ Array [
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
       style="width:100px"
     >
-      默认display none 样式的超长文字， 悬停tooltip失效了
+      默认 display none 样式的超长文字， 悬停 tooltip 失效了
     </span>
   </div>,
   <div

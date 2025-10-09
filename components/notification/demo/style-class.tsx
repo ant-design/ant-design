@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Space, notification } from 'antd';
+import { Button, notification, Space } from 'antd';
 import type { NotificationArgsProps } from 'antd';
 import { createStyles } from 'antd-style';
 

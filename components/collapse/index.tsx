@@ -1,10 +1,10 @@
 import Collapse from './Collapse';
 
 export type {
-  CollapseProps,
   CollapseClassNamesType,
-  CollapseStylesType,
+  CollapseProps,
   CollapseSemanticName,
+  CollapseStylesType,
 } from './Collapse';
 export type { CollapsePanelProps } from './CollapsePanel';
 

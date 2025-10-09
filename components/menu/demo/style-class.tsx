@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Flex } from 'antd';
+import { Flex, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 
 const items: Required<MenuProps>['items'] = [

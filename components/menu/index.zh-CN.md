@@ -31,7 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/submenu-theme.tsx">子菜单主题</code>
 <code src="./demo/switch-mode.tsx">切换菜单类型</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/style-debug.tsx" debug>Style debug</code>
 <code src="./demo/menu-v4.tsx" debug>v4 版本 Menu</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>

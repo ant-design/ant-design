@@ -10,6 +10,7 @@ import type {
 } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -17,17 +18,13 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  classNames?: Partial<Record<PopoverSemanticName, string>>;
-  styles?: Partial<Record<PopoverSemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<PopoverSemanticName>;
+  styles?: SemanticStyles<PopoverSemanticName>;
 }
 
-export const Overlay: React.FC<OverlayProps> = ({
-  title,
-  content,
-  prefixCls,
-  classNames,
-  styles,
-}) => {
+export const Overlay: React.FC<OverlayProps> = (props) => {
+  const { title, content, prefixCls, classNames, styles } = props;
+
   if (!title && !content) {
     return null;
   }

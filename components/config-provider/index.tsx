@@ -115,11 +115,11 @@ export const warnContext: (componentName: string) => void =
 
 export {
   ConfigConsumer,
-  ConfigContext,
-  defaultPrefixCls,
-  defaultIconPrefixCls,
   type ConfigConsumerProps,
+  ConfigContext,
   type CSPConfig,
+  defaultIconPrefixCls,
+  defaultPrefixCls,
   type DirectionType,
   type RenderEmptyHandler,
   type ThemeConfig,

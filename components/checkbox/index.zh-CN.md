@@ -24,7 +24,7 @@ demo:
 <code src="./demo/group.tsx">Checkbox 组</code>
 <code src="./demo/check-all.tsx">全选</code>
 <code src="./demo/layout.tsx">布局</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/debug-line.tsx" debug>同行布局</code>
 <code src="./demo/debug-disable-popover.tsx" debug>禁用下的 Tooltip</code>
 <code src="./demo/custom-line-width.tsx" debug>自定义 lineWidth</code>

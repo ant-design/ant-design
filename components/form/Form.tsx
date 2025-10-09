@@ -274,6 +274,6 @@ if (process.env.NODE_ENV !== 'production') {
   Form.displayName = 'Form';
 }
 
-export { List, useForm, useWatch, type FormInstance };
+export { type FormInstance, List, useForm, useWatch };
 
 export default Form;

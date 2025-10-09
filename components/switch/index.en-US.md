@@ -23,8 +23,7 @@ demo:
 <code src="./demo/size.tsx">Two sizes</code>
 <code src="./demo/loading.tsx">Loading</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
-
-<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 

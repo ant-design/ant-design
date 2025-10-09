@@ -29,7 +29,7 @@ demo:
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 <code src="./demo/multiple.tsx">多点组合</code>
 <code src="./demo/editable.tsx" version="5.20.0">动态增减节点</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API

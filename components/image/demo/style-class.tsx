@@ -35,6 +35,7 @@ const App: React.FC = () => {
         },
       };
     }
+    return {};
   };
 
   const sharedProps: ImageProps = {
@@ -43,6 +44,7 @@ const App: React.FC = () => {
     alt: '示例图片',
     classNames,
   };
+
   return (
     <Flex gap="middle">
       <Image {...sharedProps} styles={styles} />

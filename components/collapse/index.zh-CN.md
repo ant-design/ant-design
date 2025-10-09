@@ -69,7 +69,7 @@ const items: CollapseProps['items'] = [
 <code src="./demo/extra.tsx">额外节点</code>
 <code src="./demo/ghost.tsx">幽灵折叠面板</code>
 <code src="./demo/collapsible.tsx">可折叠触发区域</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API

@@ -30,7 +30,7 @@ demo:
 <code src="./demo/title.tsx">标题</code>
 <code src="./demo/title-span.tsx">标题占比</code>
 <code src="./demo/semantic.tsx">语义化自定义</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
