@@ -244,9 +244,13 @@ describe('Typography copy', () => {
       const Test = () => {
         const [dynamicText, setDynamicText] = React.useState(originText);
         React.useEffect(() => {
-          setTimeout(() => {
+          const timer = setTimeout(() => {
             setDynamicText(nextText);
           }, 500);
+
+          return () => {
+            clearTimeout(timer);
+          };
         }, []);
         return (
           <Base component="p" copyable>

@@ -612,7 +612,6 @@ Array [
                   <table
                     style="table-layout:auto"
                   >
-                    <colgroup />
                     <thead
                       class="ant-table-thead"
                     >
@@ -747,6 +746,7 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
   >
     <img
       alt="empty"
+      draggable="false"
       src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     />
   </div>

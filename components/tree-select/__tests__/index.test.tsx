@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, ConfigProvider, Input, Space, TreeNodeProps } from 'antd';
+import { Button, ConfigProvider, Input, Space } from 'antd';
+import type { TreeNodeProps } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';

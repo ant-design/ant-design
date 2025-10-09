@@ -2,8 +2,8 @@ import React from 'react';
 import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -16,7 +16,7 @@ const locales = {
   },
 };
 
-const BlockCollapse: React.FC = (props) => {
+const BlockCollapse: React.FC<NonNullable<CollapseProps['items']>[number]> = (props) => {
   const items: CollapseProps['items'] = [
     {
       key: '1',
@@ -25,10 +25,9 @@ const BlockCollapse: React.FC = (props) => {
       ...props,
     },
   ];
-
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <Collapse {...props} items={items} defaultActiveKey={['1']} />
+      <Collapse items={items} defaultActiveKey={['1']} />
     </div>
   );
 };

@@ -37,6 +37,7 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
    */
   htmlType?: ButtonHTMLType;
   'aria-label'?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
+  disabled?: boolean;
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {

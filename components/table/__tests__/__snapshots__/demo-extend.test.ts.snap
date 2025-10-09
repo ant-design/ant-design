@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -349,7 +348,6 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -565,7 +563,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -3465,7 +3462,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -12092,7 +12088,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout: fixed; min-width: 100%;"
             >
               <colgroup>
                 <col
@@ -12149,35 +12145,35 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Address
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -13471,7 +13467,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; width: calc(50% + 700px); min-width: 100%;"
+              style="table-layout: fixed; min-width: 100%; width: calc(50% + 700px);"
             >
               <colgroup>
                 <col
@@ -13880,13 +13876,13 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -14060,12 +14056,12 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       <div
                         aria-describedby="test-id"
@@ -14145,61 +14141,61 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Street
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Building
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Door No.
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Company Address
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Company Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Gender
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -15046,7 +15042,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16088,7 +16083,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16350,7 +16344,6 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16678,6 +16671,1394 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
 
 exports[`renders components/table/demo/jsx.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/measure-row-render.tsx extend context correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-header ant-table-sticky-holder"
+            style="overflow: hidden; top: 0px;"
+          >
+            <table
+              style="table-layout: fixed; min-width: 100%;"
+            >
+              <colgroup>
+                <col
+                  style="width: 30%;"
+                />
+                <col
+                  style="width: 20%;"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="search"
+                          class="anticon anticon-search"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="search"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div
+                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <div
+                            style="padding: 8px;"
+                          >
+                            <input
+                              class="ant-input ant-input-outlined"
+                              placeholder="Search name"
+                              style="margin-bottom: 8px; display: block;"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                                  style="width: 90px;"
+                                  type="button"
+                                >
+                                  <span
+                                    class="ant-btn-icon"
+                                  >
+                                    <span
+                                      aria-label="search"
+                                      class="anticon anticon-search"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="search"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                  <span>
+                                    Search
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                                  style="width: 90px;"
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    Filter
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    close
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div
+                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <ul
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                            data-menu-list="true"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              aria-describedby="test-id"
+                              class="ant-dropdown-menu-item"
+                              data-menu-id="rc-menu-uuid-test-Joe"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox ant-wave-target"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </span>
+                            </li>
+                            <div
+                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            >
+                              <div
+                                class="ant-tooltip-arrow"
+                                style="position: absolute; top: 0px; left: 0px;"
+                              />
+                              <div
+                                class="ant-tooltip-content"
+                              >
+                                <div
+                                  class="ant-tooltip-inner"
+                                  id="test-id"
+                                  role="tooltip"
+                                />
+                              </div>
+                            </div>
+                            <li
+                              aria-describedby="test-id"
+                              class="ant-dropdown-menu-item"
+                              data-menu-id="rc-menu-uuid-test-Category 1"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox ant-wave-target"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Category 1
+                                </span>
+                              </span>
+                            </li>
+                            <div
+                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            >
+                              <div
+                                class="ant-tooltip-arrow"
+                                style="position: absolute; top: 0px; left: 0px;"
+                              />
+                              <div
+                                class="ant-tooltip-content"
+                              >
+                                <div
+                                  class="ant-tooltip-inner"
+                                  id="test-id"
+                                  role="tooltip"
+                                />
+                              </div>
+                            </div>
+                            <li
+                              aria-describedby="test-id"
+                              class="ant-dropdown-menu-item"
+                              data-menu-id="rc-menu-uuid-test-Category 2"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox ant-wave-target"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Category 2
+                                </span>
+                              </span>
+                            </li>
+                            <div
+                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            >
+                              <div
+                                class="ant-tooltip-arrow"
+                                style="position: absolute; top: 0px; left: 0px;"
+                              />
+                              <div
+                                class="ant-tooltip-content"
+                              >
+                                <div
+                                  class="ant-tooltip-inner"
+                                  id="test-id"
+                                  role="tooltip"
+                                />
+                              </div>
+                            </div>
+                          </ul>
+                          <div
+                            aria-hidden="true"
+                            style="display: none;"
+                          />
+                          <div
+                            class="ant-table-filter-dropdown-btns"
+                          >
+                            <button
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                              disabled=""
+                              type="button"
+                            >
+                              <span>
+                                Reset
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                              type="button"
+                            >
+                              <span>
+                                OK
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    aria-label="Address"
+                    class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
+                    tabindex="0"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        <div
+                          aria-describedby="test-id"
+                          class="ant-table-column-sorters ant-tooltip-open"
+                        >
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Address
+                          </span>
+                          <span
+                            class="ant-table-column-sorter ant-table-column-sorter-full"
+                          >
+                            <span
+                              aria-hidden="true"
+                              class="ant-table-column-sorter-inner"
+                            >
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position: absolute; bottom: 0px; left: 0px;"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              id="test-id"
+                              role="tooltip"
+                            >
+                              Click to sort descending
+                            </div>
+                          </div>
+                        </div>
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="search"
+                          class="anticon anticon-search"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="search"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div
+                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <div
+                            style="padding: 8px;"
+                          >
+                            <input
+                              class="ant-input ant-input-outlined"
+                              placeholder="Search address"
+                              style="margin-bottom: 8px; display: block;"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                                  style="width: 90px;"
+                                  type="button"
+                                >
+                                  <span
+                                    class="ant-btn-icon"
+                                  >
+                                    <span
+                                      aria-label="search"
+                                      class="anticon anticon-search"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="search"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                  <span>
+                                    Search
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                                  style="width: 90px;"
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    Filter
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    close
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div
+            class="ant-table-body"
+          >
+            <table
+              style="table-layout: fixed;"
+            >
+              <colgroup>
+                <col
+                  style="width: 30%;"
+                />
+                <col
+                  style="width: 20%;"
+                />
+              </colgroup>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  tabindex="-1"
+                >
+                  <th
+                    class="ant-table-measure-cell"
+                  >
+                    <div
+                      class="ant-table-measure-cell-content"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <div
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <div
+                              style="padding: 8px;"
+                            >
+                              <input
+                                class="ant-input ant-input-outlined"
+                                placeholder="Search name"
+                                style="margin-bottom: 8px; display: block;"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                              >
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                                    style="width: 90px;"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="ant-btn-icon"
+                                    >
+                                      <span
+                                        aria-label="search"
+                                        class="anticon anticon-search"
+                                        role="img"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="search"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                    <span>
+                                      Search
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                                    style="width: 90px;"
+                                    type="button"
+                                  >
+                                    <span>
+                                      Reset
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
+                  >
+                    <div
+                      class="ant-table-measure-cell-content"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <div
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
+                            >
+                              <li
+                                aria-describedby="test-id"
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    id="test-id"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                              <li
+                                aria-describedby="test-id"
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Category 1"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Category 1
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    id="test-id"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                              <li
+                                aria-describedby="test-id"
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Category 2"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Category 2
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    id="test-id"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
+                  >
+                    <div
+                      class="ant-table-measure-cell-content"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          <div
+                            aria-describedby="test-id"
+                            class="ant-table-column-sorters ant-tooltip-open"
+                          >
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Address
+                            </span>
+                            <span
+                              class="ant-table-column-sorter ant-table-column-sorter-full"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="ant-table-column-sorter-inner"
+                              >
+                                <span
+                                  aria-label="caret-up"
+                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-up"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  aria-label="caret-down"
+                                  class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          >
+                            <div
+                              class="ant-tooltip-arrow"
+                              style="position: absolute; bottom: 0px; left: 0px;"
+                            />
+                            <div
+                              class="ant-tooltip-content"
+                            >
+                              <div
+                                class="ant-tooltip-inner"
+                                id="test-id"
+                                role="tooltip"
+                              >
+                                Click to sort descending
+                              </div>
+                            </div>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <div
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <div
+                              style="padding: 8px;"
+                            >
+                              <input
+                                class="ant-input ant-input-outlined"
+                                placeholder="Search address"
+                                style="margin-bottom: 8px; display: block;"
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                              >
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                                    style="width: 90px;"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="ant-btn-icon"
+                                    >
+                                      <span
+                                        aria-label="search"
+                                        class="anticon anticon-search"
+                                        role="img"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="search"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                    <span>
+                                      Search
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                                    style="width: 90px;"
+                                    type="button"
+                                  >
+                                    <span>
+                                      Reset
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Red
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 2 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/measure-row-render.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/multiple-sorter.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -16700,7 +18081,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17184,7 +18564,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -18422,7 +19801,6 @@ Array [
                                   <table
                                     style="table-layout: auto;"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19315,7 +20693,6 @@ Array [
                                   <table
                                     style="table-layout: auto;"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20208,7 +21585,6 @@ Array [
                                   <table
                                     style="table-layout: auto;"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -21612,7 +22988,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -21983,7 +23358,6 @@ Array [
               <table
                 style="table-layout: fixed;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -23146,7 +24520,6 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -28216,7 +29589,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28422,7 +29794,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >

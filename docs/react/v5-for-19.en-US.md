@@ -6,15 +6,15 @@ tag: New
 
 <!-- prettier-ignore -->
 :::info{title="Compatibility Interface"}
-antd v5 compatibility with React 16 ~ 18 by default. For React 19, you can use the following compatibility methods to adapt.
-:::
+antd v5 is compatible with React 16 ~ 18 by default, and most features are also compatible with React 19. A few issues are listed below, and the following compatibility methods can be used for adaptation. This method and interface will be removed in v6.
+::::
 
 ### React 19 Compatibility Issues
 
-Since React 19 adjusted the export method of `react-dom`, antd cannot directly use the `ReactDOM.render` method. Therefore, using antd will encounter the following problems:
+Due to React 19 adjusting the export method of `react-dom`, antd cannot directly use the `ReactDOM.render` method. Therefore, using antd will encounter the following issues:
 
-- Wave effect does not show
-- Static methods of `Modal`, `Notification`, `Message` not working
+- Wave effect does not work properly
+- `Modal`、`Notification`、`Message` and other components' static methods are invalid (hooks invocation methods are not affected).
 
 Therefore, you need to use a compatibility configuration to make antd work properly in React 19.
 

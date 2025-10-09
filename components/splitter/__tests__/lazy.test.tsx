@@ -5,7 +5,7 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
-import { PanelProps, SplitterProps } from '../interface';
+import type { PanelProps, SplitterProps } from '../interface';
 
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>

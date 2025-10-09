@@ -758,6 +758,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
             >
               <img
                 alt="tour.png"
+                draggable="false"
                 src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
               />
             </div>

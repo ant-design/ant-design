@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
-import { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 export interface DividerProps {

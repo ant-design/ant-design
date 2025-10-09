@@ -45,7 +45,7 @@ const App: React.FC = () => {
         className: 'antd-demo-dynamic-option',
         label: (
           <>
-            <img src={avatar} alt={login} />
+            <img draggable={false} src={avatar} alt={login} />
             <span>{login}</span>
           </>
         ),

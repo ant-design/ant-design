@@ -110,6 +110,7 @@ const columns = [
 <code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
 <code src="./demo/selections-debug.tsx" debug>selections with icon</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
 
 ## API
 

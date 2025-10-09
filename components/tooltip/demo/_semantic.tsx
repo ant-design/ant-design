@@ -1,8 +1,9 @@
 import React from 'react';
 import { Tooltip } from 'antd';
+import type { TooltipProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -15,9 +16,9 @@ const locales = {
   },
 };
 
-const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
+const BlockList: React.FC<React.PropsWithChildren<TooltipProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-
+  const { children, ...rest } = props;
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Tooltip
@@ -25,9 +26,11 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
         open
         placement="top"
         autoAdjustOverflow={false}
-        getPopupContainer={() => divRef.current}
-        {...props}
-      />
+        getPopupContainer={() => divRef.current!}
+        {...rest}
+      >
+        {children}
+      </Tooltip>
     </div>
   );
 };
