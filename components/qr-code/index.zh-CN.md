@@ -30,7 +30,7 @@ tag: 5.1.0
 <code src="./demo/download.tsx">下载二维码</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>
 <code src="./demo/Popover.tsx">高级用法</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 

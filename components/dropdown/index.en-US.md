@@ -32,7 +32,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/context-menu.tsx">Context Menu</code>
 <code src="./demo/loading.tsx">Loading</code>
 <code src="./demo/selectable.tsx">Selectable Menu</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Custom styles and classes for various semantic structures</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/menu-full.tsx" debug>Menu full styles</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/icon-debug.tsx" debug>Icon debug</code>

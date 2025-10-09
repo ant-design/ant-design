@@ -20,7 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 <code src="./demo/simple.tsx">选择图片</code>
 <code src="./demo/customize.tsx">自定义</code>
 <code src="./demo/config-provider.tsx">全局化配置</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/description.tsx">无描述</code>
 
 ## API

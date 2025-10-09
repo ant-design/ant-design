@@ -36,7 +36,7 @@ demo:
 <code src="./demo/progress-color.tsx">自定义进度条颜色</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 
