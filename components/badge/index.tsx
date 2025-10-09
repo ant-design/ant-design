@@ -151,12 +151,14 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     }
 
     const horizontalOffset = Number.parseInt(offset[0] as string, 10);
+
     const offsetStyle: React.CSSProperties = {
       marginTop: offset[1],
-      insetInlineEnd: direction === 'rtl' ? horizontalOffset : -horizontalOffset,
+      insetInlineEnd: -horizontalOffset,
     };
+
     return { ...offsetStyle, ...contextStyle, ...style };
-  }, [direction, offset, style, contextStyle]);
+  }, [offset, style, contextStyle]);
 
   // =============================== Render ===============================
   // >>> Title
