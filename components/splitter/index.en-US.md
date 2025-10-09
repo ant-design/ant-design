@@ -48,6 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
+| onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 |
 | orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  |
