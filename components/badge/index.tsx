@@ -155,7 +155,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
       insetInlineEnd: -Number.parseInt(offset[0] as string, 10),
     };
     return { ...offsetStyle, ...contextStyle, ...style };
-  }, [offset, style, contextStyle]);
+  }, [direction, offset, style, contextStyle]);
 
   // =============================== Render ===============================
   // >>> Title
