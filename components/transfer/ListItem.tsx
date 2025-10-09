@@ -3,15 +3,15 @@ import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem, SemanticName } from '.';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   prefixCls: string;
-  classNames: Partial<Record<SemanticName, string>>;
-  styles: Partial<Record<SemanticName, React.CSSProperties>>;
-
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;

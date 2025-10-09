@@ -1,4 +1,5 @@
 import type * as React from 'react';
+
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
@@ -6,10 +7,8 @@ export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 export type SemanticName = 'root' | 'icon' | 'content';
 
 export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, SemanticName>;
-export type ArgsStylesType = SemanticStylesType<ArgsProps, SemanticName>;
 
-export type ResolvedMessageClassNamesType = Partial<Record<SemanticName, string>>;
-export type ResolvedMessageStylesType = Partial<Record<SemanticName, React.CSSProperties>>;
+export type ArgsStylesType = SemanticStylesType<ArgsProps, SemanticName>;
 
 export interface ConfigOptions {
   top?: string | number;

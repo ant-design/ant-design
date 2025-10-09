@@ -1,5 +1,7 @@
 import React from 'react';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+
 export type SemanticName = 'label' | 'content';
 
 export interface DescriptionsContextProps {
@@ -7,8 +9,8 @@ export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  styles: Required<Record<SemanticName, React.CSSProperties>>;
-  classNames: Required<Record<SemanticName, string>>;
+  styles: SemanticStyles<SemanticName>;
+  classNames: SemanticClassNames<SemanticName>;
 }
 
 const DescriptionsContext = React.createContext<DescriptionsContextProps>(null!);

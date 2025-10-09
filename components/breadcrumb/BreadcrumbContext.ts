@@ -1,9 +1,12 @@
 import React from 'react';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+
 export type SemanticName = 'root' | 'item' | 'separator';
+
 export interface BreadcrumbContextProps {
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
+  classNames?: SemanticClassNames<SemanticName>;
+  styles?: SemanticStyles<SemanticName>;
 }
 
 const BreadcrumbContext = React.createContext<BreadcrumbContextProps>({});

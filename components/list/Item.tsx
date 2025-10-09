@@ -2,6 +2,7 @@ import type { CSSProperties, FC, HTMLAttributes, ReactElement, ReactNode } from 
 import React, { Children, useContext } from 'react';
 import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
@@ -11,11 +12,11 @@ type SemanticName = 'actions' | 'extra';
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
+  classNames?: SemanticClassNames<SemanticName>;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: SemanticStyles<SemanticName>;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;

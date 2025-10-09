@@ -8,7 +8,12 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -68,31 +73,24 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
+  classNames?: SemanticClassNames<SemanticName> & { popup?: SemanticClassNames<PopupSemantic> };
+  styles?: SemanticStyles<SemanticName> & { popup?: SemanticStyles<PopupSemantic> };
 }
 
 type SemanticName = 'root' | 'prefix' | 'suffix';
+
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
 export type SelectClassNamesType = SemanticClassNamesType<
   SelectProps,
   SemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
 
 export type SelectStylesType = SemanticStylesType<
   SelectProps,
   SemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
 
 export interface SelectProps<

@@ -1,5 +1,10 @@
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import type { Orientation } from '../_util/hooks/useOrientation';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================
@@ -15,17 +20,13 @@ export interface SplitterSemanticDraggerClassNames {
 export type SplitterClassNamesType = SemanticClassNamesType<
   SplitterProps,
   SplitterSemanticName,
-  {
-    dragger?: string | Partial<Record<DraggerSemantic, string>>;
-  }
+  { dragger?: string | SemanticClassNames<DraggerSemantic> }
 >;
 
 export type SplitterStylesType = SemanticStylesType<
   SplitterProps,
   SplitterSemanticName,
-  {
-    dragger?: React.CSSProperties | Partial<Record<DraggerSemantic, React.CSSProperties>>;
-  }
+  { dragger?: React.CSSProperties | SemanticStyles<DraggerSemantic> }
 >;
 
 export interface SplitterProps {

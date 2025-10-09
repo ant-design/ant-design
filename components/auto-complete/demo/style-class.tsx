@@ -25,6 +25,7 @@ const stylesFn: AutoCompleteProps['styles'] = ({ props }) => {
       },
     };
   }
+  return {};
 };
 
 const options: AutoCompleteProps['options'] = [

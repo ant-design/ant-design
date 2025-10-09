@@ -27,7 +27,7 @@ group:
 <code src="./demo/customize-style.tsx" debug>Style Customization</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/variant.tsx">Variant</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic structure styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 

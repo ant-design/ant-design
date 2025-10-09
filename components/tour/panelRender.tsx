@@ -4,6 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import isValidNode from '../_util/isValidNode';
 import type { ButtonProps } from '../button';
 import Button from '../button';
@@ -18,8 +19,8 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  classNames?: Partial<Record<TourSemanticName, string>>;
-  styles?: Partial<Record<TourSemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<TourSemanticName>;
+  styles?: SemanticStyles<TourSemanticName>;
   actionsRender?: TourStepProps['actionsRender'];
 }
 

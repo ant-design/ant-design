@@ -9,7 +9,12 @@ import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/inte
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -37,22 +42,20 @@ type PopupSemantic = 'root';
 export type TabsClassNamesType = SemanticClassNamesType<
   TabsProps,
   TabsSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
 
 export type TabsStylesType = SemanticStylesType<
   TabsProps,
   TabsSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
+
 export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactiveTabPane?: boolean;
 }
+
 export interface TabsRef {
   nativeElement: React.ComponentRef<typeof RcTabs> | null;
 }

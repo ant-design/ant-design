@@ -1,11 +1,9 @@
 import React from 'react';
 
 import Steps from '..';
-import type { StepsProps } from '..';
-import type { GetProp } from '../../_util/type';
+import type { StepsProps, StepsSemanticName } from '..';
+import type { SemanticClassNames } from '../../_util/hooks/useMergeSemantic';
 import { render } from '../../../tests/utils';
-
-type SemanticName = keyof GetProp<StepsProps, 'classNames'>;
 
 describe('Steps.Semantic', () => {
   const renderSteps = (props: Partial<StepsProps>) => (
@@ -20,7 +18,7 @@ describe('Steps.Semantic', () => {
   );
 
   it('semantic structure', () => {
-    const classNames: Record<SemanticName, string> = {
+    const classNames: SemanticClassNames<StepsSemanticName> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -33,7 +31,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: Record<SemanticName, string> = {
+    const classNamesTargets: Required<SemanticClassNames<StepsSemanticName>> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -46,7 +44,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: Record<SemanticName, Record<string, any>> = {
+    const styles: Record<StepsSemanticName, Record<string, any>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -59,17 +57,12 @@ describe('Steps.Semantic', () => {
       itemRail: { color: 'rgb(0, 255, 0)' },
     };
 
-    const { container } = render(
-      renderSteps({
-        classNames,
-        styles,
-      }),
-    );
+    const { container } = render(renderSteps({ classNames, styles }));
 
     Object.keys(classNames).forEach((key) => {
-      const className = classNames[key as SemanticName];
-      const oriClassName = classNamesTargets[key as SemanticName];
-      const style = styles[key as SemanticName];
+      const className = classNames[key as StepsSemanticName];
+      const oriClassName = classNamesTargets[key as StepsSemanticName];
+      const style = styles[key as StepsSemanticName];
 
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
