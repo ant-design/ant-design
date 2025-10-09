@@ -834,6 +834,26 @@ describe('Splitter', () => {
       expect(onResize).toHaveBeenCalledWith([440, 0]);
       expect(onResizeEnd).toHaveBeenCalledWith([440, 0]);
     });
+
+    it('should trigger onCollapse when collapse button clicked', async () => {
+      const onCollapse = jest.fn();
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          onCollapse={onCollapse}
+        />,
+      );
+
+      await resizeSplitter();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(onCollapse).toHaveBeenCalledTimes(1);
+      expect(onCollapse).toHaveBeenCalledWith([true, false], [0, 100]);
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onCollapse).toHaveBeenCalledTimes(2);
+      expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
+    });
   });
 
   it('auto resize', async () => {
