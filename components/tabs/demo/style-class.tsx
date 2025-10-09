@@ -35,7 +35,7 @@ const stylesFn: TabsProps['styles'] = (info) => {
   }
   return {
     root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' },
-    header: { textAlign: 'left' },
+    header: { textAlign: 'start' },
     content: { padding: 8 },
   };
 };

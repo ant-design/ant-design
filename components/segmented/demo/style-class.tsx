@@ -48,7 +48,7 @@ const App: React.FC = () => {
           color: '#77BEF0',
         },
         item: {
-          textAlign: 'left',
+          textAlign: 'start',
         },
       };
     }
