@@ -183,7 +183,7 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="margin-top: 10px; left: 10px;"
+    style="margin-top: 10px; inset-inline-end: -10px;"
     title="5"
   >
     <bdi>
@@ -488,7 +488,7 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
   </a>
   <span
     class="ant-scroll-number-custom-component custom"
-    style="margin-top: 20px; right: -10px; color: rgb(245, 34, 45);"
+    style="margin-top: 20px; inset-inline-end: -10px; color: rgb(245, 34, 45);"
   />
 </span>
 `;
