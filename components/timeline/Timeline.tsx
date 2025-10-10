@@ -77,7 +77,7 @@ export interface TimelineProps {
   children?: React.ReactNode;
 
   /** @deprecated Please add pending item in `items` directly */
-  pending?: React.ReactNode;
+  pending?: React.ReactNode | TimelineItemType | boolean;
   /** @deprecated Please add pending item in `items` directly */
   pendingDot?: React.ReactNode;
   reverse?: boolean;

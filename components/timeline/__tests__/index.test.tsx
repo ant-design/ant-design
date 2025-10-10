@@ -85,6 +85,173 @@ describe('TimeLine', () => {
     });
   });
 
+  describe('pending as object', () => {
+    it('should accept pending as object with content', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingObject = {
+        content: 'Pending task...',
+        icon: <i>pending-icon</i>,
+        className: 'custom-pending',
+      };
+
+      const { container, getByText } = render(
+        <TimeLine 
+          pending={pendingObject}
+          items={[
+            { content: 'Task 1' },
+            { content: 'Task 2' },
+          ]}
+        />,
+      );
+
+      // Should have 3 items (2 regular + 1 pending)
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(3);
+
+      // Should render pending content
+      expect(getByText('Pending task...')).toBeInTheDocument();
+      expect(getByText('pending-icon')).toBeInTheDocument();
+
+      // Should have custom class
+      const items = container.querySelectorAll('.ant-timeline-item');
+      const pendingItem = items[items.length - 1];
+      expect(pendingItem).toHaveClass('custom-pending');
+
+      errSpy.mockRestore();
+    });
+
+    it('should accept pending as object with legacy properties', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingObject = {
+        children: 'Legacy pending...',
+        dot: <i>legacy-dot</i>,
+        label: 'Pending Label',
+        position: 'right' as const,
+        color: 'blue' as const,
+      };
+
+      const { container, getByText } = render(
+        <TimeLine 
+          pending={pendingObject}
+          items={[
+            { content: 'Task 1' },
+          ]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(2);
+      expect(getByText('Legacy pending...')).toBeInTheDocument();
+      expect(getByText('legacy-dot')).toBeInTheDocument();
+      expect(getByText('Pending Label')).toBeInTheDocument();
+
+      errSpy.mockRestore();
+    });
+
+    it('should handle pending as object with loading state', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingObject = {
+        content: 'Loading task...',
+        loading: true,
+        style: { backgroundColor: '#f0f0f0' },
+      };
+
+      const { container, getByText } = render(
+        <TimeLine 
+          pending={pendingObject}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(2);
+      expect(getByText('Loading task...')).toBeInTheDocument();
+
+      // Should have process status (loading state)
+      const items = container.querySelectorAll('.ant-timeline-item');
+      const pendingItem = items[items.length - 1];
+      expect(pendingItem).toHaveClass('ant-steps-item-process');
+
+      errSpy.mockRestore();
+    });
+
+    it('should maintain backward compatibility with React.ReactNode', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingContent = <div>React Node Pending</div>;
+
+      const { container, getByText } = render(
+        <TimeLine 
+          pending={pendingContent}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(2);
+      expect(getByText('React Node Pending')).toBeInTheDocument();
+
+      errSpy.mockRestore();
+    });
+
+    it('should maintain backward compatibility with boolean true', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <TimeLine 
+          pending={true}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(2);
+
+      // Should have pending item with loading icon
+      const items = container.querySelectorAll('.ant-timeline-item');
+      const pendingItem = items[items.length - 1];
+      expect(pendingItem).toHaveClass('ant-steps-item-process');
+
+      errSpy.mockRestore();
+    });
+
+    it('should prioritize object properties over pendingDot prop', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingObject = {
+        content: 'Object pending',
+        icon: <i>object-icon</i>,
+      };
+
+      const { container, getByText } = render(
+        <TimeLine 
+          pending={pendingObject}
+          pendingDot={<i>dot-prop</i>}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      // Should use object icon over pendingDot prop
+      expect(getByText('object-icon')).toBeInTheDocument();
+      expect(() => getByText('dot-prop')).toThrow();
+
+      errSpy.mockRestore();
+    });
+
+    it('should fall back to pendingDot when object has no icon', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingObject = {
+        content: 'Object pending without icon',
+      };
+
+      const { container, getByText } = render(
+        <TimeLine 
+          pending={pendingObject}
+          pendingDot={<i>fallback-dot</i>}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      // Should use pendingDot as fallback
+      expect(getByText('fallback-dot')).toBeInTheDocument();
+
+      errSpy.mockRestore();
+    });
+  });
+
   it('loading status', () => {
     const { container } = renderFactory({
       items: [

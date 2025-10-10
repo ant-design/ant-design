@@ -84,11 +84,29 @@ export default function useItems(
     });
 
     if (pending) {
-      mergedItems.push({
-        icon: pendingDot ?? <LoadingOutlined />,
-        content: pending,
-        status: 'process',
-      } as TimelineItemType);
+      // Handle object format pending
+      if (typeof pending === 'object' && pending !== null && !React.isValidElement(pending)) {
+        const pendingItem = pending as TimelineItemType;
+        mergedItems.push({
+          icon: pendingItem.icon ?? pendingItem.dot ?? pendingDot ?? <LoadingOutlined />,
+          content: pendingItem.content ?? pendingItem.children,
+          title: pendingItem.title ?? pendingItem.label,
+          status: pendingItem.loading ? 'process' : 'process',
+          className: pendingItem.className,
+          style: pendingItem.style,
+          color: pendingItem.color,
+          placement: pendingItem.placement ?? pendingItem.position,
+          ...pendingItem,
+        } as TimelineItemType);
+      } else {
+        // Handle legacy React.ReactNode or boolean format
+        const pendingContent = typeof pending === 'boolean' ? null : pending;
+        mergedItems.push({
+          icon: pendingDot ?? <LoadingOutlined />,
+          content: pendingContent,
+          status: 'process',
+        } as TimelineItemType);
+      }
     }
 
     return mergedItems;
