@@ -73,7 +73,7 @@ dayjs.extend(customParseFormat)
 | ~~popupClassName~~ | The className of panel, please use `classNames.popup` instead | string | - |  |
 | ~~popupStyle~~ | The style of panel, please use `styles.popup` instead | CSSProperties | - |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
-| previewValue | When the user selects the time hover option, the value of the input field undergoes a temporary change | false | hover | hover | 6.0.0 |
+| previewValue | When the user selects the time hover option, the value of the input field undergoes a temporary change | false \| hover | hover | 6.0.0 |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
