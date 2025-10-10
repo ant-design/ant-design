@@ -225,7 +225,7 @@
     "@types/warning": "^3.0.3",
     "adm-zip": "^0.5.16",
     "ali-oss": "^6.21.0",
-    "antd-img-crop": "^4.23.0",
+    "antd-img-crop": "~4.25.0",
     "antd-style": "^3.7.1",
     "antd-token-previewer": "^2.0.8",
     "axios": "^1.7.7",
