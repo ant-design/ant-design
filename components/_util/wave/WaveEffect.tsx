@@ -2,7 +2,7 @@ import * as React from 'react';
 import CSSMotion from '@rc-component/motion';
 import raf from '@rc-component/util/lib/raf';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
 import { unstableSetRender } from '../../config-provider/UnstableContext';
@@ -139,7 +139,7 @@ const WaveEffect = (props: WaveEffectProps) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={composeRef(divRef, ref)}
-          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
+          className={clsx(className, motionClassName, { 'wave-quick': isSmallComponent })}
           style={waveStyle}
         />
       )}

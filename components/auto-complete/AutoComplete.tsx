@@ -1,10 +1,15 @@
 import * as React from 'react';
 import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -19,6 +24,7 @@ import type {
 import Select from '../select';
 
 export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input';
+
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
 const { Option } = Select;
@@ -27,22 +33,19 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
+
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export type AutoCompleteClassNamesType = SemanticClassNamesType<
   AutoCompleteProps,
   AutoCompleteSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
 
 export type AutoCompleteStylesType = SemanticStylesType<
   AutoCompleteProps,
   AutoCompleteSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
 
 export interface AutoCompleteProps<
@@ -195,25 +198,25 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     AutoCompleteStylesType,
     AutoCompleteProps
   >(
-    [undefined, classNames],
-    [undefined, styles],
+    [classNames],
+    [styles],
+    {
+      props: mergedProps,
+    },
     {
       popup: {
         _default: 'root',
       },
     },
-    {
-      props: mergedProps,
-    },
   );
 
   const finalClassNames = React.useMemo(
     () => ({
-      root: cls(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
+      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
       prefix: mergedClassNames.prefix,
       input: mergedClassNames.input,
       popup: {
-        root: cls(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
+        root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
         list: mergedClassNames.popup?.list,
         listItem: mergedClassNames.popup?.listItem,
       },

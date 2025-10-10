@@ -2,7 +2,7 @@ import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
 import type { ColProps } from 'antd/es/grid';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import type { FormInstance } from '..';
@@ -1885,7 +1885,7 @@ describe('Form', () => {
       value,
     }) => {
       const { status } = useStatus();
-      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
+      return <div className={clsx(className, `custom-input-status-${status}`)}>{value}</div>;
     };
 
     const Demo: React.FC = () => {

@@ -6,7 +6,7 @@ import type { AutoSizeType } from '@rc-component/textarea';
 import { omit, toArray, useControlledState } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { isStyleSupport } from '../../_util/styleChecker';
 import { ConfigContext } from '../../config-provider';
@@ -432,7 +432,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           isEllipsis={isMergedEllipsis}
         >
           <Typography
-            className={classNames(
+            className={clsx(
               {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,

@@ -3,9 +3,15 @@ import { INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
 import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
@@ -65,6 +71,30 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
+export type TableSemanticName = 'section' | 'title' | 'footer' | 'content' | 'root';
+
+export type ComponentsSemantic = 'wrapper' | 'cell' | 'row';
+
+export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
+  TableProps<RecordType>,
+  TableSemanticName,
+  {
+    body?: SemanticClassNames<ComponentsSemantic>;
+    header?: SemanticClassNames<ComponentsSemantic>;
+    pagination?: SemanticClassNames<PaginationSemanticType>;
+  }
+>;
+
+export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
+  TableProps<RecordType>,
+  TableSemanticName,
+  {
+    body?: SemanticStyles<ComponentsSemantic>;
+    header?: SemanticStyles<ComponentsSemantic>;
+    pagination?: SemanticStyles<PaginationSemanticType>;
+  }
+>;
+
 interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
     current?: number;
@@ -93,14 +123,8 @@ export interface TableProps<RecordType = AnyObject>
     | 'classNames'
     | 'styles'
   > {
-  classNames?: RcTableProps['classNames'] & {
-    root?: string;
-    pagination?: Partial<Record<PaginationSemanticType, string>>;
-  };
-  styles?: RcTableProps['styles'] & {
-    root?: React.CSSProperties;
-    pagination?: Partial<Record<PaginationSemanticType, React.CSSProperties>>;
-  };
+  classNames?: TableClassNamesType<RecordType>;
+  styles?: TableStylesType<RecordType>;
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
@@ -131,11 +155,11 @@ export interface TableProps<RecordType = AnyObject>
 type SemanticType = {
   classNames: Required<RcTableProps['classNames']> & {
     root: string;
-    pagination: Required<Record<PaginationSemanticType, string>>;
+    pagination: SemanticClassNames<PaginationSemanticType>;
   };
   styles: Required<RcTableProps['styles']> & {
     root: React.CSSProperties;
-    pagination: Required<Record<PaginationSemanticType, React.CSSProperties>>;
+    pagination: SemanticStyles<PaginationSemanticType>;
   };
 };
 
@@ -216,9 +240,23 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     styles: contextStyles,
   } = useComponentConfig('table');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const mergedSize = useSize(customizeSize);
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: TableProps<RecordType> = {
+    ...props,
+    size: mergedSize,
+    bordered,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TableClassNamesType<RecordType>,
+    TableStylesType<RecordType>,
+    TableProps<RecordType>
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       pagination: {
         _default: 'root',
@@ -232,7 +270,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     },
   ) as [SemanticType['classNames'], SemanticType['styles']];
 
-  const mergedSize = useSize(customizeSize);
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const [globalLocale] = useLocale('global', defaultLocale.global);
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
@@ -394,7 +431,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
-    rootClassName: cls(rootClassName, rootCls),
+    rootClassName: clsx(rootClassName, rootCls),
   });
   const mergedData = getFilterData(sortedData, filterStates, childrenColumnName);
 
@@ -486,18 +523,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    let mergedRowClassName: string;
-    if (typeof rowClassName === 'function') {
-      mergedRowClassName = cls(rowClassName(record, index, indent));
-    } else {
-      mergedRowClassName = cls(rowClassName);
-    }
-
-    return cls(
+    const resolvedRowClassName =
+      typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName;
+    return clsx(
       {
         [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
       },
-      mergedRowClassName,
+      resolvedRowClassName,
     );
   };
 
@@ -546,7 +578,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         {...mergedPagination}
         classNames={mergedClassNames.pagination}
         styles={mergedStyles.pagination}
-        className={cls(
+        className={clsx(
           `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
           mergedPagination.className,
         )}
@@ -599,7 +631,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  const wrappercls = cls(
+  const wrappercls = clsx(
     cssVarCls,
     rootCls,
     `${prefixCls}-wrapper`,
@@ -670,7 +702,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={cls(
+          className={clsx(
             {
               [`${prefixCls}-middle`]: mergedSize === 'middle',
               [`${prefixCls}-small`]: mergedSize === 'small',

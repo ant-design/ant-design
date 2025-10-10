@@ -2,7 +2,7 @@ import React from 'react';
 import { RightOutlined, YuqueOutlined, ZhihuOutlined } from '@ant-design/icons';
 import { Button, Card, Divider } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 import JuejinIcon from '../../../theme/icons/JuejinIcon';
@@ -141,7 +141,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <ZhihuOutlined className={classNames(logo, 'zhihu-logo')} />
+                  <ZhihuOutlined className={clsx(logo, 'zhihu-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"
@@ -175,7 +175,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <YuqueOutlined className={classNames(logo, 'yuque-logo')} />
+                  <YuqueOutlined className={clsx(logo, 'yuque-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"
@@ -209,7 +209,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <JuejinIcon className={classNames(logo, 'juejin-logo')} />
+                  <JuejinIcon className={clsx(logo, 'juejin-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 export interface ProgressIconProps {
   prefixCls: string;
@@ -28,9 +28,9 @@ export default function ProgressIcon(props: ProgressIconProps) {
         aria-valuenow={percent}
       >
         <title>Progress</title>
-        <circle className={cls(circleCls, `${circleCls}-rail`)} />
+        <circle className={clsx(circleCls, `${circleCls}-rail`)} />
         <circle
-          className={cls(circleCls, `${circleCls}-ptg`)}
+          className={clsx(circleCls, `${circleCls}-ptg`)}
           strokeDasharray={dashArray}
           transform="rotate(-90 50 50)"
         />

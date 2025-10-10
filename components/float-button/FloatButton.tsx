@@ -1,7 +1,7 @@
 import React from 'react';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -128,7 +128,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     FloatButtonClassNamesType,
     FloatButtonStylesType,
     FloatButtonProps
-  >([floatButtonClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([floatButtonClassNames, contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
@@ -148,7 +148,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const badgeNode = 'badge' in props && (
     <Badge
       {...badgeProps}
-      className={cls(badgeProps.className, `${prefixCls}-badge`, {
+      className={clsx(badgeProps.className, `${prefixCls}-badge`, {
         [`${prefixCls}-badge-dot`]: badgeProps.dot,
       })}
     />
@@ -176,7 +176,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       {...restProps}
       ref={ref}
       // Styles
-      className={cls(
+      className={clsx(
         hashId,
         cssVarCls,
         rootCls,

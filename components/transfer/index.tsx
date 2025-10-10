@@ -1,6 +1,6 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -454,6 +454,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const leftActive =
     rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
       .length > 0;
+
   const rightActive =
     leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
       .length > 0;
@@ -463,11 +464,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     TransferClassNamesType,
     TransferStylesType,
     TransferProps<RecordType>
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
-  const cls = classnames(
+  const cls = clsx(
     prefixCls,
     {
       [`${prefixCls}-disabled`]: mergedDisabled,
@@ -537,7 +538,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         {...listLocale}
       />
       <Actions
-        className={classnames(`${prefixCls}-actions`, mergedClassNames.actions)}
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
         moveToRight={moveToRight}
         leftActive={leftActive}

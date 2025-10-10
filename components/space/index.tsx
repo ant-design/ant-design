@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { toArray } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -19,9 +19,11 @@ import useStyle from './style';
 export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
+
 type SemanticName = 'root' | 'item' | 'separator';
 
 export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>;
+
 export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>;
 
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -108,11 +110,11 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     SpaceClassNamesType,
     SpaceStylesType,
     SpaceProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
-  const rootClassNames = cls(
+  const rootClassNames = clsx(
     prefixCls,
     contextClassName,
     hashId,
@@ -129,7 +131,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     mergedClassNames.root,
   );
 
-  const itemClassName = cls(`${prefixCls}-item`, mergedClassNames.item);
+  const itemClassName = clsx(`${prefixCls}-item`, mergedClassNames.item);
 
   // Calculate latest one
   let latestIndex = 0;

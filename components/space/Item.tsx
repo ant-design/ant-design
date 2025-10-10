@@ -1,6 +1,7 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
 
@@ -11,20 +12,13 @@ export interface ItemProps {
   index: number;
   separator?: React.ReactNode;
   style?: React.CSSProperties;
-  classNames: Partial<Record<'separator', string>>;
-  styles: Partial<Record<'separator', React.CSSProperties>>;
+  classNames: SemanticClassNames<'separator'>;
+  styles: SemanticStyles<'separator'>;
 }
 
-const Item: React.FC<ItemProps> = ({
-  className,
-  prefix,
-  index,
-  children,
-  separator,
-  style,
-  classNames,
-  styles,
-}) => {
+const Item: React.FC<ItemProps> = (props) => {
+  const { className, prefix, index, children, separator, style, classNames, styles } = props;
+
   const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
   if (children === null || children === undefined) {
@@ -38,7 +32,7 @@ const Item: React.FC<ItemProps> = ({
       </div>
       {index < latestIndex && separator && (
         <span
-          className={cls(`${prefix}-item-separator`, classNames.separator)}
+          className={clsx(`${prefix}-item-separator`, classNames.separator)}
           style={styles.separator}
         >
           {separator}

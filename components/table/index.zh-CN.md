@@ -110,6 +110,7 @@ const columns = [
 <code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
@@ -123,6 +124,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
@@ -142,6 +144,7 @@ const columns = [
 | size | 表格大小 | `large` \| `middle` \| `small` | `large` |  |
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | summary | 总结栏 | (currentData) => ReactNode | - |  |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
 | title | 表格标题 | function(currentPageData) | - |  |

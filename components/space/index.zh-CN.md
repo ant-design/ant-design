@@ -37,7 +37,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/compact-nested.tsx" debug>紧凑布局嵌套</code>
 <code src="./demo/debug.tsx" debug>多样的 Child</code>
 <code src="./demo/gap-in-line.tsx" debug>Flex gap 样式</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 

@@ -6,10 +6,15 @@ import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
 import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
 import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/interface';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -37,22 +42,20 @@ type PopupSemantic = 'root';
 export type TabsClassNamesType = SemanticClassNamesType<
   TabsProps,
   TabsSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
 
 export type TabsStylesType = SemanticStylesType<
   TabsProps,
   TabsSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
+
 export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactiveTabPane?: boolean;
 }
+
 export interface TabsRef {
   nativeElement: React.ComponentRef<typeof RcTabs> | null;
 }
@@ -225,12 +228,12 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
-    },
-    {
-      props: mergedProps,
     },
   );
 
@@ -241,7 +244,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       getPopupContainer={getPopupContainer}
       {...restProps}
       items={mergedItems}
-      className={cls(
+      className={clsx(
         {
           [`${prefixCls}-${size}`]: size,
           [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type!),
@@ -258,7 +261,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       )}
       classNames={{
         ...mergedClassNames,
-        popup: cls(popupClassName, hashId, cssVarCls, rootCls, mergedClassNames.popup?.root),
+        popup: clsx(popupClassName, hashId, cssVarCls, rootCls, mergedClassNames.popup?.root),
       }}
       styles={mergedStyles}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import type { ProgressProps, SemanticName } from './progress';
 import { getSize } from './utils';
 
@@ -10,8 +11,8 @@ interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'
   railColor?: string;
   /** @deprecated Please use `railColor` instead */
   trailColor?: string;
-  classNames: Record<SemanticName, string>;
-  styles: Record<SemanticName, React.CSSProperties>;
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
 }
 
 const Steps: React.FC<ProgressStepsProps> = (props) => {
@@ -43,7 +44,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     styledSteps[i] = (
       <div
         key={i}
-        className={cls(
+        className={clsx(
           `${prefixCls}-steps-item`,
           {
             [`${prefixCls}-steps-item-active`]: i <= current - 1,
@@ -60,7 +61,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     );
   }
   return (
-    <div className={cls(`${prefixCls}-steps-body`, classNames.body)} style={styles.body}>
+    <div className={clsx(`${prefixCls}-steps-body`, classNames.body)} style={styles.body}>
       {styledSteps}
       {children}
     </div>

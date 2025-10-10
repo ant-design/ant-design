@@ -6,7 +6,7 @@ import type {
   InternalNamePath,
   ValidateErrorEntity,
 } from '@rc-component/form/lib/interface';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -147,11 +147,11 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     FormClassNamesType,
     FormStylesType,
     FormProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
-  const formClassName = cls(
+  const formClassName = clsx(
     prefixCls,
     `${prefixCls}-${layout}`,
     {
@@ -274,6 +274,6 @@ if (process.env.NODE_ENV !== 'production') {
   Form.displayName = 'Form';
 }
 
-export { List, useForm, useWatch, type FormInstance };
+export { type FormInstance, List, useForm, useWatch };
 
 export default Form;

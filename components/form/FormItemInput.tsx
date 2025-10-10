@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import { get, set } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -87,7 +87,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     return mergedWrapper;
   }, [wrapperCol, formContext]);
 
-  const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
+  const className = clsx(`${baseClassName}-control`, mergedWrapperCol.className);
 
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => {
@@ -108,7 +108,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
       <div
-        className={classNames(`${baseClassName}-control-input-content`, contextClassNames?.content)}
+        className={clsx(`${baseClassName}-control-input-content`, contextClassNames?.content)}
         style={contextStyles?.content}
       >
         {children}

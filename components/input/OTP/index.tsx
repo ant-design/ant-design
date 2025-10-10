@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { useEvent } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../../_util/hooks/useMergeSemantic';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -17,10 +21,6 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
-import type {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'input' | 'separator';
 
@@ -84,7 +84,7 @@ const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
     return null;
   }
   return (
-    <span className={cls(`${prefixCls}-separator`, semanticClassName)} style={semanticStyle}>
+    <span className={clsx(`${prefixCls}-separator`, semanticClassName)} style={semanticStyle}>
       {separatorNode}
     </span>
   );
@@ -143,7 +143,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     OTPClassNamesType,
     OTPStylesType,
     OTPProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,
@@ -288,7 +290,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     <div
       {...domAttrs}
       ref={containerRef}
-      className={cls(
+      className={clsx(
         className,
         prefixCls,
         {
@@ -317,7 +319,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 index={index}
                 size={mergedSize}
                 htmlSize={1}
-                className={cls(mergedClassNames.input, `${prefixCls}-input`)}
+                className={clsx(mergedClassNames.input, `${prefixCls}-input`)}
                 style={mergedStyles.input}
                 onChange={onInputChange}
                 value={singleValue}
@@ -330,7 +332,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                   separator={separator}
                   index={index}
                   prefixCls={prefixCls}
-                  className={cls(mergedClassNames.separator)}
+                  className={clsx(mergedClassNames.separator)}
                   style={mergedStyles.separator}
                 />
               )}

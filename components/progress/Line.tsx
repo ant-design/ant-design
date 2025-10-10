@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
@@ -19,8 +20,8 @@ interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: Record<SemanticName, string>;
-  styles: Record<SemanticName, React.CSSProperties>;
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
 }
 
 /**
@@ -146,26 +147,20 @@ const Line: React.FC<LineProps> = (props) => {
   // ======================== Render ========================
   return (
     <div
-      className={cls(`${prefixCls}-body`, classNames.body, {
+      className={clsx(`${prefixCls}-body`, classNames.body, {
         [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
       })}
-      style={{
-        width: width > 0 ? width : '100%',
-        ...styles.body,
-      }}
+      style={{ width: width > 0 ? width : '100%', ...styles.body }}
     >
       {/************** Rail **************/}
       <div
-        className={cls(`${prefixCls}-rail`, classNames.rail)}
-        style={{
-          ...railStyle,
-          ...styles.rail,
-        }}
+        className={clsx(`${prefixCls}-rail`, classNames.rail)}
+        style={{ ...railStyle, ...styles.rail }}
       >
         {/************* Track *************/}
         {/* Percent */}
         <div
-          className={cls(trackCls, classNames.track)}
+          className={clsx(trackCls, classNames.track)}
           style={{
             ...percentTrackStyle,
             ...styles.track,
@@ -177,7 +172,7 @@ const Line: React.FC<LineProps> = (props) => {
         {/* Success */}
         {successPercent !== undefined && (
           <div
-            className={cls(trackCls, `${trackCls}-success`, classNames.track)}
+            className={clsx(trackCls, `${trackCls}-success`, classNames.track)}
             style={{
               ...successTrackStyle,
               ...styles.track,

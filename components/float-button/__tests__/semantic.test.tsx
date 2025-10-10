@@ -3,17 +3,18 @@ import type { GetProp } from 'antd/es/_util/type';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps, FloatButtonProps } from '..';
+import type { SemanticClassNames } from '../../_util/hooks/useMergeSemantic';
 import { render } from '../../../tests/utils';
 import type { FloatButtonSemanticName } from '../FloatButton';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {
-    const initialClassNames: Record<FloatButtonSemanticName, string> = {
+    const initialClassNames: SemanticClassNames<FloatButtonSemanticName> = {
       root: 'custom-root',
       icon: 'custom-icon',
       content: 'custom-content',
     };
-    const updatedClassNames: Record<FloatButtonSemanticName, string> = {
+    const updatedClassNames: SemanticClassNames<FloatButtonSemanticName> = {
       root: 'custom-root-2',
       icon: 'custom-icon-2',
       content: 'custom-content-2',
@@ -23,7 +24,7 @@ describe('FloatButton.Semantic', () => {
       icon: { color: 'rgb(0, 0, 255)' },
       content: { color: 'rgb(0, 255, 0)' },
     };
-    const classNamesTargets: Record<FloatButtonSemanticName, string> = {
+    const classNamesTargets: Required<SemanticClassNames<FloatButtonSemanticName>> = {
       root: 'ant-float-btn',
       icon: 'ant-float-btn-icon',
       content: 'ant-float-btn-content',

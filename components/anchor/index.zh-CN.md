@@ -31,7 +31,7 @@ group:
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
 <code src="./demo/replace.tsx" iframe="200">替换历史中的 href</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
-<code src="./demo/style-class.tsx" iframe="200" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" iframe="200" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" iframe="800" debug>组件 Token</code>
 
 ## API

@@ -7,8 +7,8 @@ import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interfac
 import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
 import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
 import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
-import { useMergedState } from '@rc-component/util';
-import classNames from 'classnames';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
 import type { AnyObject } from '../../_util/type';
@@ -117,16 +117,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   // ========================= Keys =========================
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
-    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
-    {
-      value: selectedRowKeys,
-    },
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
+    defaultSelectedRowKeys || EMPTY_LIST,
+    selectedRowKeys,
   );
-  // const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
-  //   selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
-  //   selectedRowKeys,
-  // );
 
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
@@ -695,7 +689,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         prevCol.fixed = mergedFixed;
       }
 
-      const columnCls = classNames(`${prefixCls}-selection-col`, {
+      const columnCls = clsx(`${prefixCls}-selection-col`, {
         [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
       });
 

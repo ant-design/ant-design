@@ -7,9 +7,10 @@ import type {
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useOrientation from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
@@ -48,8 +49,14 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
+export type SegmentedClassNamesType = SemanticClassNamesType<SegmentedProps, SemanticName>;
+export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SemanticName>;
+
 export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options' | 'itemRender'> {
+  extends Omit<
+    RCSegmentedProps<ValueType>,
+    'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
+  > {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
@@ -58,8 +65,8 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   size?: SizeType;
   vertical?: boolean;
   orientation?: Orientation;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: SegmentedClassNamesType;
+  styles?: SegmentedStylesType;
   shape?: 'default' | 'round';
 }
 
@@ -78,7 +85,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     shape = 'default',
     name = defaultName,
     styles,
-    classNames: segmentedClassNames,
+    classNames,
     ...restProps
   } = props;
 
@@ -91,10 +98,20 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     styles: contextStyles,
   } = useComponentConfig('segmented');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, segmentedClassNames],
-    [contextStyles, styles],
-  );
+  const mergedProps: SegmentedProps = {
+    ...props,
+    options,
+    size: customSize,
+    shape,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SegmentedClassNamesType,
+    SegmentedStylesType,
+    SegmentedProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
@@ -114,7 +131,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
             label: (
               <>
                 <span
-                  className={classNames(`${prefixCls}-item-icon`, mergedClassNames.icon)}
+                  className={clsx(`${prefixCls}-item-icon`, mergedClassNames.icon)}
                   style={mergedStyles.icon}
                 >
                   {icon}
@@ -126,12 +143,12 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
         }
         return option;
       }),
-    [options, prefixCls],
+    [options, prefixCls, mergedClassNames.icon, mergedStyles.icon],
   );
 
   const [, mergedVertical] = useOrientation(orientation, vertical);
 
-  const cls = classNames(
+  const cls = clsx(
     className,
     rootClassName,
     contextClassName,

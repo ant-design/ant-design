@@ -1,9 +1,9 @@
 import React from 'react';
-import raf from '@rc-component/util/lib/raf';
-import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from '@rc-component/slider';
 import RcSlider from '@rc-component/slider';
 import type { SliderRef } from '@rc-component/slider/lib/Slider';
+import raf from '@rc-component/util/lib/raf';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -140,7 +140,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     // Deprecated Props
     tooltip = {},
     onChangeComplete,
-    classNames: sliderClassNames,
+    classNames,
     styles,
     vertical,
     orientation,
@@ -171,7 +171,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     SliderClassNamesType,
     SliderStylesType,
     SliderSingleProps | SliderRangeProps
-  >([contextClassNames, sliderClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
@@ -226,7 +226,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const rootClassNames = classNames(
+  const rootClassNames = clsx(
     className,
     contextClassName,
     mergedClassNames.root,

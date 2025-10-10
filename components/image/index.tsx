@@ -1,10 +1,16 @@
 import * as React from 'react';
 import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -47,10 +53,28 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export interface ImageProps extends Omit<RcImageProps, 'preview'> {
+export type ImageSemanticName = 'root' | 'image' | 'cover';
+
+export type PopupSemantic = 'root' | 'mask' | 'body' | 'footer' | 'actions';
+
+export type ImageClassNamesType = SemanticClassNamesType<
+  ImageProps,
+  ImageSemanticName,
+  { popup?: SemanticClassNames<PopupSemantic> }
+>;
+
+export type ImageStylesType = SemanticStylesType<
+  ImageProps,
+  ImageSemanticName,
+  { popup?: SemanticStyles<PopupSemantic> }
+>;
+
+export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
+  classNames?: ImageClassNamesType;
+  styles?: ImageStylesType;
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -61,7 +85,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     rootClassName,
     style,
     styles,
-    classNames: imageClassNames,
+    classNames,
     wrapperStyle,
     fallback,
     ...otherProps
@@ -92,9 +116,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
+  const mergedRootClassName = clsx(rootClassName, hashId, cssVarCls, rootCls);
 
-  const mergedClassName = classnames(className, hashId, contextClassName);
+  const mergedClassName = clsx(className, hashId, contextClassName);
 
   // ============================= Preview ==============================
   const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
@@ -115,13 +139,17 @@ const Image: CompositionImage<ImageProps> = (props) => {
     true,
   );
 
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: ImageProps = {
+    ...props,
+    preview: mergedPreviewConfig,
+  };
+
   // ============================= Semantic =============================
   const mergedLegacyClassNames = React.useMemo(
     () => ({
-      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
-      popup: {
-        root: classnames(contextPreviewRootClassName, previewRootClassName),
-      },
+      cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
+      popup: { root: clsx(contextPreviewRootClassName, previewRootClassName) },
     }),
     [
       previewRootClassName,
@@ -132,25 +160,34 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 
   const { mask: mergedMask, blurClassName } = mergedPreviewConfig ?? {};
+
   const mergedPopupClassNames = React.useMemo(
     () => ({
-      mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+      mask: clsx(
+        {
+          [`${prefixCls}-preview-mask-hidden`]: !mergedMask,
+        },
+        blurClassName,
+      ),
     }),
     [mergedMask, prefixCls, blurClassName],
   );
+
   const internalClassNames = React.useMemo(
-    () => [
-      contextClassNames,
-      imageClassNames,
-      mergedLegacyClassNames,
-      { popup: mergedPopupClassNames },
-    ],
-    [contextClassNames, imageClassNames, mergedLegacyClassNames, mergedPopupClassNames],
+    () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
+    [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ImageClassNamesType,
+    ImageStylesType,
+    ImageProps
+  >(
     internalClassNames,
     [contextStyles, { root: wrapperStyle }, styles],
+    {
+      props: mergedProps,
+    },
     {
       popup: { _default: 'root' },
     },

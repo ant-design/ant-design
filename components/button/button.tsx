@@ -1,7 +1,7 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { omit, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -347,14 +347,11 @@ const InternalCompoundedButton = React.forwardRef<
   >(
     [_skipSemantic ? undefined : contextClassNames, classNames],
     [_skipSemantic ? undefined : contextStyles, styles],
-    undefined,
-    {
-      props: mergedProps,
-    },
+    { props: mergedProps },
   );
 
   // ========================= Render =========================
-  const classes = cls(
+  const classes = clsx(
     prefixCls,
     hashId,
     cssVarCls,
@@ -425,9 +422,7 @@ const InternalCompoundedButton = React.forwardRef<
     return (
       <a
         {...linkButtonRestProps}
-        className={cls(classes, {
-          [`${prefixCls}-disabled`]: mergedDisabled,
-        })}
+        className={clsx(classes, { [`${prefixCls}-disabled`]: mergedDisabled })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}

@@ -1,17 +1,17 @@
 import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem, SemanticName } from '.';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   prefixCls: string;
-  classNames: Partial<Record<SemanticName, string>>;
-  styles: Partial<Record<SemanticName, React.CSSProperties>>;
-
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
@@ -37,7 +37,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     showRemove,
   } = props;
 
-  const classes = cls(`${prefixCls}-content-item`, classNames.item, {
+  const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
   });
@@ -57,7 +57,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   const labelNode = (
     <span
-      className={cls(`${prefixCls}-content-item-text`, classNames.itemContent)}
+      className={clsx(`${prefixCls}-content-item-text`, classNames.itemContent)}
       style={styles.itemContent}
     >
       {renderedEl}
@@ -87,7 +87,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   return (
     <li {...liProps}>
       <Checkbox
-        className={cls(`${prefixCls}-checkbox`, classNames.itemIcon)}
+        className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
         style={styles.itemIcon}
         checked={checked}
         disabled={disabled || item.disabled}

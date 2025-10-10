@@ -9,9 +9,15 @@ import type {
 import RcCascader from '@rc-component/cascader';
 import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -110,6 +116,18 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
   return optionList;
 };
 
+export type CascaderClassNamesType = SemanticClassNamesType<
+  CascaderProps,
+  SemanticName,
+  { popup?: SemanticClassNames<PopupSemantic> }
+>;
+
+export type CascaderStylesType = SemanticStylesType<
+  CascaderProps,
+  SemanticName,
+  { popup?: SemanticStyles<PopupSemantic> }
+>;
+
 export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
@@ -156,13 +174,10 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
+  classNames?: CascaderClassNamesType;
+  styles?: CascaderStylesType;
 }
+
 export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
@@ -224,16 +239,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     styles: contextStyles,
   } = useComponentConfig('cascader');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
-
   const { popupOverflow } = React.useContext(ConfigContext);
 
   // =================== Form =====================
@@ -294,27 +299,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     <DefaultRenderEmpty componentName="Cascader" />
   );
 
-  // =================== Dropdown ====================
-  const mergedPopupClassName = cls(
-    popupClassName || dropdownClassName,
-    `${cascaderPrefixCls}-dropdown`,
-    {
-      [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
-    },
-    rootClassName,
-    rootCls,
-    mergedClassNames.popup?.root,
-    mergedClassNames.root,
-    cascaderRootCls,
-    hashId,
-    cssVarCls,
-  );
-
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
+
   const mergedOnOpenChange = onOpenChange || onPopupVisibleChange || onDropdownVisibleChange;
-  const mergedPopupStyle = { ...mergedStyles.popup?.root, ...dropdownStyle };
 
   // ==================== Search =====================
   const mergedShowSearch = React.useMemo(() => {
@@ -371,14 +360,55 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: CascaderProps<any> = {
+    ...props,
+    variant,
+    size: mergedSize,
+    status: mergedStatus,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CascaderClassNamesType,
+    CascaderStylesType,
+    CascaderProps<any>
+  >(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
+  // =================== Dropdown ====================
+  const mergedPopupStyle = { ...mergedStyles.popup?.root, ...dropdownStyle };
+
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
+
+  const mergedPopupClassName = clsx(
+    popupClassName || dropdownClassName,
+    `${cascaderPrefixCls}-dropdown`,
+    {
+      [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
+    },
+    rootClassName,
+    rootCls,
+    mergedClassNames.popup?.root,
+    cascaderRootCls,
+    hashId,
+    cssVarCls,
+  );
 
   // ==================== Render =====================
   return (
     <RcCascader
       prefixCls={prefixCls}
-      className={cls(
+      className={clsx(
         !customizePrefixCls && cascaderPrefixCls,
         {
           [`${prefixCls}-lg`]: mergedSize === 'large',

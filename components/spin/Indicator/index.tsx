@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../../_util/reactNode';
 import Looper from './Looper';
@@ -18,7 +18,7 @@ export default function Indicator(props: IndicatorProps) {
 
   if (indicator && React.isValidElement(indicator)) {
     return cloneElement(indicator, (currentProps) => ({
-      className: classNames(currentProps.className, dotClassName, className),
+      className: clsx(currentProps.className, dotClassName, className),
       style: { ...currentProps.style, ...style },
       percent,
     }));

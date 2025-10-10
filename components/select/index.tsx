@@ -5,10 +5,15 @@ import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import type { OptionProps } from '@rc-component/select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
 import { omit } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -68,31 +73,24 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
+  classNames?: SemanticClassNames<SemanticName> & { popup?: SemanticClassNames<PopupSemantic> };
+  styles?: SemanticStyles<SemanticName> & { popup?: SemanticStyles<PopupSemantic> };
 }
 
 type SemanticName = 'root' | 'prefix' | 'suffix';
+
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
 export type SelectClassNamesType = SemanticClassNamesType<
   SelectProps,
   SemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
 
 export type SelectStylesType = SemanticStylesType<
   SelectProps,
   SemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
 
 export interface SelectProps<
@@ -290,16 +288,16 @@ const InternalSelect = <
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
     },
-    {
-      props: mergedProps,
-    },
   );
 
-  const mergedPopupClassName = cls(
+  const mergedPopupClassName = clsx(
     mergedClassNames.popup?.root,
     popupClassName,
     dropdownClassName,
@@ -317,7 +315,7 @@ const InternalSelect = <
     ...(popupStyle ?? dropdownStyle),
   };
 
-  const mergedClassName = cls(
+  const mergedClassName = clsx(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',

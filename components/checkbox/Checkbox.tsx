@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { composeRef } from '@rc-component/util/lib/ref';
-import cls from 'classnames';
 import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
@@ -110,7 +110,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     CheckboxClassNamesType,
     CheckboxStylesType,
     CheckboxProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
@@ -168,7 +168,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checkboxProps.name = checkboxGroup.name;
     checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
-  const classString = cls(
+  const classString = clsx(
     `${prefixCls}-wrapper`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -184,7 +184,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     rootCls,
     hashId,
   );
-  const checkboxClass = cls(
+  const checkboxClass = clsx(
     mergedClassNames.icon,
     { [`${prefixCls}-indeterminate`]: indeterminate },
     TARGET_CLS,
@@ -216,7 +216,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
         />
         {children !== undefined && children !== null && (
           <span
-            className={cls(`${prefixCls}-label`, mergedClassNames.label)}
+            className={clsx(`${prefixCls}-label`, mergedClassNames.label)}
             style={mergedStyles.label}
           >
             {children}

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
@@ -255,7 +255,7 @@ const Header: React.FC = () => {
   );
 
   const getPopupStyle = useMemo<React.CSSProperties>(
-    () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'right' } : {}),
+    () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'end' } : {}),
     [direction],
   );
 
@@ -279,9 +279,7 @@ const Header: React.FC = () => {
     responsive = 'narrow';
   }
 
-  const headerClassName = classNames(styles.header, 'clearfix', {
-    'home-header': isHome,
-  });
+  const headerClassName = clsx(styles.header, 'clearfix', { 'home-header': isHome });
 
   const sharedProps: SharedProps = {
     isZhCN,

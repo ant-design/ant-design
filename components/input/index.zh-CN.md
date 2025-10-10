@@ -38,7 +38,7 @@ demo:
 <code src="./demo/advance-count.tsx" version=">= 5.10.0">定制计数能力</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/focus.tsx">聚焦</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
 <code src="./demo/align.tsx" debug>文本对齐</code>
 <code src="./demo/textarea-resize.tsx" debug>文本域</code>

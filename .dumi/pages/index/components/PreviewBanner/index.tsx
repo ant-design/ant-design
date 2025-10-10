@@ -1,7 +1,7 @@
 import React, { Suspense, use } from 'react';
 import { Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -135,14 +135,14 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
         alt="bg"
         src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
         draggable={false}
-        className={classNames(styles.bgImg, styles.bgImgTop)}
+        className={clsx(styles.bgImg, styles.bgImgTop)}
       />
       {/* Image Right Top */}
       <img
         alt="bg"
         src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
         draggable={false}
-        className={classNames(styles.bgImg, styles.bgImgBottom)}
+        className={clsx(styles.bgImg, styles.bgImgBottom)}
       />
 
       <div className={styles.holder}>

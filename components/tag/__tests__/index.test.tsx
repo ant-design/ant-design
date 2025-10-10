@@ -438,4 +438,107 @@ describe('Tag', () => {
     );
     expect(getByRole('button')).toHaveAttribute('aria-label', 'Remove This Filter');
   });
+
+  it('support classNames and styles as objects', () => {
+    const { container } = render(
+      <Tag
+        icon={<CheckCircleOutlined />}
+        classNames={{
+          root: 'custom-tag-root',
+          icon: 'custom-tag-icon',
+          content: 'custom-tag-content',
+        }}
+        styles={{
+          root: {
+            backgroundColor: 'lightblue',
+            border: '2px solid blue',
+          },
+          icon: {
+            color: 'red',
+            fontSize: '16px',
+          },
+          content: {
+            backgroundColor: 'yellow',
+            color: 'green',
+          },
+        }}
+      >
+        Test Tag
+      </Tag>,
+    );
+
+    const tagElement = container.querySelector('.ant-tag');
+    const iconElement = container.querySelector('.custom-tag-icon');
+    const contentElement = container.querySelector('.custom-tag-content');
+
+    expect(tagElement).toHaveClass('custom-tag-root');
+    expect(tagElement).toHaveAttribute('style');
+    const rootStyle = tagElement?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('border: 2px solid blue');
+
+    expect(iconElement).toHaveAttribute('style');
+    const iconStyle = iconElement?.getAttribute('style');
+    expect(iconStyle).toContain('color: red');
+    expect(iconStyle).toContain('font-size: 16px');
+
+    expect(contentElement).toHaveClass('custom-tag-content');
+    expect(contentElement).toHaveAttribute('style');
+    const contentStyle = contentElement?.getAttribute('style');
+    expect(contentStyle).toContain('background-color: yellow');
+    expect(contentStyle).toContain('color: green');
+  });
+
+  it('support classNames and styles as functions', () => {
+    const { container } = render(
+      <Tag
+        color="blue"
+        variant="filled"
+        disabled={false}
+        icon={<CheckCircleOutlined />}
+        classNames={(info) => ({
+          root: info.props.variant === 'filled' ? 'filled-tag' : 'outlined-tag',
+          icon: `icon-${info.props.color}`,
+          content: `content-${info.props.disabled ? 'disabled' : 'enabled'}`,
+        })}
+        styles={(info) => ({
+          root: {
+            backgroundColor: info.props.color === 'blue' ? 'lightblue' : 'lightgreen',
+            borderRadius: info.props.variant === 'filled' ? '8px' : '4px',
+          },
+          icon: {
+            color: info.props.color === 'blue' ? 'blue' : 'green',
+            fontSize: '18px',
+          },
+          content: {
+            fontWeight: info.props.disabled ? 'normal' : 'bold',
+            color: info.props.color === 'blue' ? 'darkblue' : 'darkgreen',
+          },
+        })}
+      >
+        Function Tag
+      </Tag>,
+    );
+
+    const tagElement = container.querySelector('.ant-tag');
+    const iconElement = container.querySelector('.icon-blue');
+    const contentElement = container.querySelector('.content-enabled');
+
+    expect(tagElement).toHaveClass('filled-tag');
+    expect(tagElement).toHaveAttribute('style');
+    const rootStyle = tagElement?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('border-radius: 8px');
+
+    expect(iconElement).toHaveAttribute('style');
+    const iconStyle = iconElement?.getAttribute('style');
+    expect(iconStyle).toContain('color: blue');
+    expect(iconStyle).toContain('font-size: 18px');
+
+    expect(contentElement).toHaveClass('content-enabled');
+    expect(contentElement).toHaveAttribute('style');
+    const contentStyle = contentElement?.getAttribute('style');
+    expect(contentStyle).toContain('font-weight: bold');
+    expect(contentStyle).toContain('color: darkblue');
+  });
 });

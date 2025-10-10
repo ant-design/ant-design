@@ -1,7 +1,8 @@
 import type { CSSProperties, FC, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import React, { Children, useContext } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
@@ -11,11 +12,11 @@ type SemanticName = 'actions' | 'extra';
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
+  classNames?: SemanticClassNames<SemanticName>;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: SemanticStyles<SemanticName>;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
@@ -45,7 +46,7 @@ export const Meta: FC<ListItemMetaProps> = ({
   const { getPrefixCls } = useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
-  const classString = classNames(`${prefixCls}-item-meta`, className);
+  const classString = clsx(`${prefixCls}-item-meta`, className);
 
   const content = (
     <div className={`${prefixCls}-item-meta-content`}>
@@ -78,7 +79,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   const { getPrefixCls, list } = useContext(ConfigContext);
 
   const moduleClass = (moduleName: ListItemClassNamesModule) =>
-    classNames(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
+    clsx(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
 
   const moduleStyle = (moduleName: ListItemStylesModule): React.CSSProperties => ({
     ...list?.item?.styles?.[moduleName],
@@ -105,7 +106,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul
-      className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
+      className={clsx(`${prefixCls}-item-action`, moduleClass('actions'))}
       key="actions"
       style={moduleStyle('actions')}
     >
@@ -123,7 +124,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
     <Element
       {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
       {...(!grid ? { ref } : {})}
-      className={classNames(
+      className={clsx(
         `${prefixCls}-item`,
         {
           [`${prefixCls}-item-no-flex`]: !isFlexMode(),
@@ -138,7 +139,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {actionsContent}
             </div>,
             <div
-              className={classNames(`${prefixCls}-item-extra`, moduleClass('extra'))}
+              className={clsx(`${prefixCls}-item-extra`, moduleClass('extra'))}
               key="extra"
               style={moduleStyle('extra')}
             >

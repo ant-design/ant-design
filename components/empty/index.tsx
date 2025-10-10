@@ -1,7 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -16,7 +17,14 @@ export interface TransferLocale {
   description: string;
 }
 
-export type SemanticName = 'root' | 'image' | 'description' | 'footer';
+export type EmptySemanticName = 'root' | 'image' | 'description' | 'footer';
+
+export type EmptyClassNamesType = SemanticClassNamesType<EmptyProps, EmptySemanticName>;
+export type EmptyStylesType = SemanticStylesType<EmptyProps, EmptySemanticName>;
+
+// For backward compatibility
+export type SemanticName = EmptySemanticName;
+
 export interface EmptyProps {
   prefixCls?: string;
   className?: string;
@@ -27,8 +35,8 @@ export interface EmptyProps {
   image?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: EmptyClassNamesType;
+  styles?: EmptyStylesType;
 }
 
 type CompoundedComponent = React.FC<EmptyProps> & {
@@ -46,7 +54,7 @@ const Empty: CompoundedComponent = (props) => {
     children,
     imageStyle,
     style,
-    classNames: emptyClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -60,17 +68,21 @@ const Empty: CompoundedComponent = (props) => {
     image: contextImage,
   } = useComponentConfig('empty');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, emptyClassNames],
-    [contextStyles, styles],
-  );
-
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    EmptyClassNamesType,
+    EmptyStylesType,
+    EmptyProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props,
+  });
 
   const [locale] = useLocale('Empty');
 
   const des = typeof description !== 'undefined' ? description : locale?.description;
+
   const alt = typeof des === 'string' ? des : 'empty';
 
   const mergedImage = image ?? contextImage ?? defaultEmptyImg;
@@ -94,7 +106,7 @@ const Empty: CompoundedComponent = (props) => {
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         hashId,
         cssVarCls,
         prefixCls,
@@ -111,14 +123,14 @@ const Empty: CompoundedComponent = (props) => {
       {...restProps}
     >
       <div
-        className={classNames(`${prefixCls}-image`, mergedClassNames.image)}
+        className={clsx(`${prefixCls}-image`, mergedClassNames.image)}
         style={{ ...imageStyle, ...mergedStyles.image }}
       >
         {imageNode}
       </div>
       {des && (
         <div
-          className={classNames(`${prefixCls}-description`, mergedClassNames.description)}
+          className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
           style={mergedStyles.description}
         >
           {des}
@@ -126,7 +138,7 @@ const Empty: CompoundedComponent = (props) => {
       )}
       {children && (
         <div
-          className={classNames(`${prefixCls}-footer`, mergedClassNames.footer)}
+          className={clsx(`${prefixCls}-footer`, mergedClassNames.footer)}
           style={mergedStyles.footer}
         >
           {children}

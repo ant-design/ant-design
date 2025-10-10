@@ -1,6 +1,6 @@
 import React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -255,15 +255,15 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(affixPrefixCls);
 
-  const rootCls = classNames(rootClassName, hashId, affixPrefixCls, cssVarCls);
+  const rootCls = clsx(rootClassName, hashId, affixPrefixCls, cssVarCls);
 
-  const mergedCls = classNames({ [rootCls]: affixStyle });
+  const mergedCls = clsx({ [rootCls]: affixStyle });
 
   return (
     <ResizeObserver onResize={updatePosition}>
       <div
         style={{ ...contextStyle, ...style }}
-        className={classNames(className, contextClassName)}
+        className={clsx(className, contextClassName)}
         ref={placeholderNodeRef}
         {...restProps}
       >

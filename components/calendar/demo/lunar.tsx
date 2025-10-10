@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, Col, Radio, Row, Select } from 'antd';
 import type { CalendarProps } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import { HolidayUtil, Lunar } from 'lunar-typescript';
@@ -122,14 +122,14 @@ const App: React.FC = () => {
     if (info.type === 'date') {
       return React.cloneElement(info.originNode, {
         ...(info.originNode as React.ReactElement<any>).props,
-        className: classNames(styles.dateCell, {
+        className: clsx(styles.dateCell, {
           [styles.current]: selectDate.isSame(date, 'date'),
           [styles.today]: date.isSame(dayjs(), 'date'),
         }),
         children: (
           <div className={styles.text}>
             <span
-              className={classNames({
+              className={clsx({
                 [styles.weekend]: isWeekend,
                 gray: !panelDateDate.isSame(date, 'month'),
               })}
@@ -151,7 +151,7 @@ const App: React.FC = () => {
       const month = d2.getMonthInChinese();
       return (
         <div
-          className={classNames(styles.monthCell, {
+          className={clsx(styles.monthCell, {
             [styles.monthCellCurrent]: selectDate.isSame(date, 'month'),
           })}
         >

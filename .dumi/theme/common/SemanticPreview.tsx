@@ -3,7 +3,7 @@ import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import { get, set } from '@rc-component/util';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 import Prism from 'prismjs';
 
 import Markers from './Markers';
@@ -165,7 +165,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     const clone = set(
       semanticClassNames,
       hoverCell,
-      classnames(get(semanticClassNames, hoverCell), getMarkClassName('active')),
+      clsx(get(semanticClassNames, hoverCell), getMarkClassName('active')),
     );
 
     return clone;
@@ -177,21 +177,21 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   });
 
   return (
-    <div className={classnames(styles.container)} ref={containerRef}>
+    <div className={clsx(styles.container)} ref={containerRef}>
       <Row style={{ minHeight: height }}>
         <Col
           span={16}
-          className={classnames(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
+          className={clsx(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
           style={style}
         >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
         </Col>
         <Col span={8}>
-          <ul className={classnames(styles.listWrap)}>
+          <ul className={clsx(styles.listWrap)}>
             {semantics.map<React.ReactNode>((semantic) => (
               <li
                 key={semantic.name}
-                className={classnames(styles.listItem)}
+                className={clsx(styles.listItem)}
                 onMouseEnter={() => setHoverSemantic(semantic.name)}
                 onMouseLeave={() => setHoverSemantic(null)}
               >

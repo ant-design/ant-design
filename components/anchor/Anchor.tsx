@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { useEvent } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -109,8 +114,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<SemanticName>;
+  styles?: SemanticStyles<SemanticName>;
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {
@@ -290,22 +295,20 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   );
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo<AnchorProps>(() => {
-    return {
-      ...props,
-      direction: anchorDirection,
-    };
-  }, [props, anchorDirection]);
+  const mergedProps: AnchorProps = {
+    ...props,
+    direction: anchorDirection,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     AnchorClassNamesType,
     AnchorStylesType,
     AnchorProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
-  const wrapperClass = cls(
+  const wrapperClass = clsx(
     hashId,
     cssVarCls,
     rootCls,
@@ -320,11 +323,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     mergedClassNames.root,
   );
 
-  const anchorClass = cls(prefixCls, {
+  const anchorClass = clsx(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = cls(`${prefixCls}-ink`, mergedClassNames.indicator, {
+  const inkClass = clsx(`${prefixCls}-ink`, mergedClassNames.indicator, {
     [`${prefixCls}-ink-visible`]: activeLink,
   });
 

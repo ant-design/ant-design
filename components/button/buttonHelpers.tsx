@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
@@ -75,7 +75,7 @@ function splitCNCharsBySpace(
 
   return cloneElement(child, (oriProps) => ({
     ...oriProps,
-    className: classNames(oriProps.className, className) || undefined,
+    className: clsx(oriProps.className, className) || undefined,
     style: { ...oriProps.style, ...style },
   }));
 }

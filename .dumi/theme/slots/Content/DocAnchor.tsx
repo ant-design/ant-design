@@ -2,7 +2,7 @@ import React from 'react';
 import { Anchor } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import type { AnchorLinkItemProps } from 'antd/es/anchor/Anchor';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { useRouteMeta, useTabMeta } from 'dumi';
 
 export const useStyle = createStyles(({ cssVar, token, css }) => {
@@ -87,7 +87,7 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
         key: child.id,
         href: `#${child.id}`,
         title: (
-          <span className={classNames({ 'toc-debug': debugDemos.includes(child.id) })}>
+          <span className={clsx({ 'toc-debug': debugDemos.includes(child.id) })}>
             {child?.title}
           </span>
         ),

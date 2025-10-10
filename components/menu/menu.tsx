@@ -4,9 +4,10 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from '@rc-component/menu';
 import RcMenu from '@rc-component/menu';
 import { omit, useEvent } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -36,21 +37,25 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
 
 export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
 
-export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
+export type SubMenuSemanticName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
-type CustomizationType<T = string> = Partial<
-  Record<SemanticName, T> & {
-    popup?: T | { root?: T };
-    subMenu?: Partial<Record<SubMenuName, T>>;
-  }
->;
+type MenuClassNamesSchemaType = SemanticClassNames<SemanticName> & {
+  popup?: SemanticClassNames<'root'> | string;
+  subMenu?: SemanticClassNames<SubMenuSemanticName>;
+};
+
+type MenuStylesSchemaType = SemanticStyles<SemanticName> & {
+  popup?: SemanticStyles<'root'> | React.CSSProperties;
+  subMenu?: SemanticStyles<SubMenuSemanticName>;
+};
+
 export type MenuClassNamesType =
-  | CustomizationType
-  | ((info: { props: MenuProps }) => CustomizationType);
+  | MenuClassNamesSchemaType
+  | ((info: { props: MenuProps }) => MenuClassNamesSchemaType);
 
 export type MenuStylesType =
-  | CustomizationType<React.CSSProperties>
-  | ((info: { props: MenuProps }) => CustomizationType<React.CSSProperties>);
+  | MenuStylesSchemaType
+  | ((info: { props: MenuProps }) => MenuStylesSchemaType);
 
 export interface MenuProps
   extends Omit<
@@ -163,15 +168,15 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
+      props: mergedProps,
+    },
+    {
       popup: {
         _default: 'root',
       },
       subMenu: {
         _default: 'item',
       },
-    },
-    {
-      props: mergedProps,
     },
   );
 
@@ -184,7 +189,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
-  const menuClassName = cls(`${prefixCls}-${theme}`, contextClassName, className);
+  const menuClassName = clsx(`${prefixCls}-${theme}`, contextClassName, className);
 
   // ====================== ExpandIcon ========================
   const mergedExpandIcon = React.useMemo<MenuProps['expandIcon']>(() => {
@@ -199,7 +204,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     }
     const mergedIcon = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;
     return cloneElement(mergedIcon, {
-      className: cls(
+      className: clsx(
         `${prefixCls}-submenu-expand-icon`,
         React.isValidElement<{ className?: string }>(mergedIcon)
           ? mergedIcon.props?.className
@@ -239,7 +244,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={cls(
+          overflowedIndicatorPopupClassName={clsx(
             prefixCls,
             `${prefixCls}-${theme}`,
             overflowedIndicatorPopupClassName,
@@ -264,7 +269,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
           ref={ref}
-          rootClassName={cls(
+          rootClassName={clsx(
             rootClassName,
             hashId,
             overrideObj.rootClassName,

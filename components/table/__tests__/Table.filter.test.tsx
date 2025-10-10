@@ -2999,7 +2999,7 @@ describe('Table.filter', () => {
     expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
       true,
     );
-
+    fireEvent.click(container.querySelector('.ant-btn-primary')!);
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 

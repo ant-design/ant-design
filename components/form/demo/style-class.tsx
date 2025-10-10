@@ -19,12 +19,12 @@ const App: React.FC = () => {
 
   const stylesObject: FormProps['styles'] = {
     label: {
-      textAlign: 'right',
+      textAlign: 'end',
       color: '#333',
       fontWeight: 500,
     },
     content: {
-      paddingLeft: 12,
+      paddingInlineStart: 12,
     },
   };
 
@@ -35,11 +35,11 @@ const App: React.FC = () => {
           border: '1px solid #1677FF',
         },
         label: {
-          textAlign: 'right',
+          textAlign: 'end',
           color: '#1677FF',
         },
         content: {
-          paddingLeft: 12,
+          paddingInlineStart: 12,
         },
       };
     }

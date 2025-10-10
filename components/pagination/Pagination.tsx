@@ -9,11 +9,10 @@ import type {
 } from '@rc-component/pagination';
 import RcPagination from '@rc-component/pagination';
 import enUS from '@rc-component/pagination/lib/locale/en_US';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -29,10 +28,12 @@ import useShowSizeChanger from './useShowSizeChanger';
 export type SemanticName = 'root' | 'item';
 
 export type PaginationSemanticName = SemanticName;
+
 export type PaginationClassNamesType = SemanticClassNamesType<
   PaginationProps,
   PaginationSemanticName
 >;
+
 export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticName>;
 
 export interface PaginationProps
@@ -111,7 +112,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     PaginationClassNamesType,
     PaginationStylesType,
     PaginationProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
@@ -174,7 +175,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           propSizeChangerOnChange?.(nextSize, option);
         }}
         size={isSmall ? 'small' : 'middle'}
-        className={cls(sizeChangerClassName, propSizeChangerClassName)}
+        className={clsx(sizeChangerClassName, propSizeChangerClassName)}
       />
     );
   };
@@ -233,7 +234,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
 
-  const extendedClassName = cls(
+  const extendedClassName = clsx(
     {
       [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-mini`]: isSmall,

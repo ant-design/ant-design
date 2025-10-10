@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { toArray } from '@rc-component/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -89,7 +89,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const cls = classNames(
+  const cls = clsx(
     groupPrefixCls,
     {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
@@ -117,13 +117,13 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     const mergeStyle = max?.style || maxStyle;
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
     const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
-
+        
     const popoverProps: PopoverProps = {
       content: childrenHidden,
       ...max?.popover,
       placement: mergePopoverPlacement,
       trigger: mergePopoverTrigger,
-      rootClassName: classNames(`${groupPrefixCls}-popover`, max?.popover?.rootClassName),
+      rootClassName: clsx(`${groupPrefixCls}-popover`, max?.popover?.rootClassName),
     };
 
     childrenShow.push(

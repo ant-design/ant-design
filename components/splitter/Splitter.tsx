@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
 import { useEvent } from '@rc-component/util';
-import cls from 'classnames';
+import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import useOrientation from '../_util/hooks/useOrientation';
@@ -15,9 +15,9 @@ import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
 import type {
+  SplitterClassNamesType,
   SplitterProps,
   SplitterSemanticDraggerClassNames,
-  SplitterClassNamesType,
   SplitterStylesType,
 } from './interface';
 import { InternalPanel } from './Panel';
@@ -140,6 +140,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
+    const collapsed = nextSizes.map((size) => Math.abs(size) < Number.EPSILON);
+    props.onCollapse?.(collapsed, nextSizes);
   });
 
   // =========== Merged Props for Semantic ==========
@@ -157,6 +159,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   >(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    { props: mergedProps },
     {
       // Convert `classNames.dragger: 'a'` to
       // `classNames.dragger: { default: 'a' }`
@@ -164,10 +167,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         _default: 'default',
       },
     },
-    { props: mergedProps },
   );
 
-  const containerClassName = cls(
+  const containerClassName = clsx(
     prefixCls,
     className,
     `${prefixCls}-${mergedOrientation}`,
@@ -209,7 +211,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         {items.map((item, idx) => {
           const panelProps = {
             ...item,
-            className: cls(mergedClassNames.panel, item.className),
+            className: clsx(mergedClassNames.panel, item.className),
             style: { ...mergedStyles.panel, ...item.style },
           };
 
@@ -273,7 +275,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
-          <div aria-hidden className={cls(maskCls, `${maskCls}-${mergedOrientation}`)} />
+          <div aria-hidden className={clsx(maskCls, `${maskCls}-${mergedOrientation}`)} />
         )}
       </div>
     </ResizeObserver>

@@ -3,8 +3,8 @@ category: Components
 subtitle: 瀑布流
 group: 布局
 title: Masonry
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*cELTRrM5HpAAAAAAOGAAAAgAegCCAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*2CxJRYJmfbIAAAAAPqAAAAgAegCCAQ/original
 demo:
   cols: 1
 tag: 6.0.0
@@ -25,7 +25,7 @@ tag: 6.0.0
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/image.tsx">图片</code>
 <code src="./demo/dynamic.tsx">动态更新</code>
-<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
 <code src="./demo/fresh.tsx" debug>持续更新</code>
 
 ## API

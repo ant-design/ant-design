@@ -30,7 +30,7 @@ When a numeric value needs to be provided.
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/focus.tsx" version="5.22.0">Focus</code>
-<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
