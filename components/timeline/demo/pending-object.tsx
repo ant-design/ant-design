@@ -1,10 +1,10 @@
 import React from 'react';
-import { Timeline } from 'antd';
-import { LoadingOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import { Timeline, Divider } from 'antd';
+import { LoadingOutlined, ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => (
   <div>
-    <h4>Pending as Object with Custom Properties</h4>
+    <h4>🆕 Pending as Object with Custom Properties</h4>
     <Timeline
       items={[
         { content: 'Create a services site 2015-09-01' },
@@ -15,11 +15,13 @@ const App: React.FC = () => (
         content: 'Recording with custom icon...',
         icon: <ClockCircleOutlined style={{ color: 'red' }} />,
         className: 'custom-pending-item',
-        style: { fontWeight: 'bold' },
+        style: { fontWeight: 'bold', color: 'red' },
       }}
     />
 
-    <h4>Pending as Object with Loading State</h4>
+    <Divider />
+    
+    <h4>🆕 Pending as Object with Loading State</h4>
     <Timeline
       items={[
         { content: 'Create a services site 2015-09-01' },
@@ -29,29 +31,55 @@ const App: React.FC = () => (
         content: 'Processing...',
         loading: true,
         color: 'blue',
+        title: 'Current Task',
       }}
     />
 
-    <h4>Pending as Object with Legacy Properties</h4>
+    <Divider />
+
+    <h4>🆕 Pending as Object with Legacy Properties</h4>
     <Timeline
       items={[
         { content: 'Create a services site 2015-09-01' },
       ]}
       pending={{
         children: 'Using legacy children prop',
-        dot: <LoadingOutlined />,
+        dot: <CheckCircleOutlined style={{ color: 'orange' }} />,
         label: 'Legacy Label',
         position: 'right' as const,
       }}
     />
 
-    <h4>Backward Compatibility - React Node</h4>
+    <Divider />
+
+    <h4>✅ Backward Compatibility - React Node</h4>
     <Timeline
       items={[
         { content: 'Create a services site 2015-09-01' },
       ]}
       pending={<span style={{ color: 'green' }}>React Node Pending</span>}
       pendingDot={<LoadingOutlined style={{ color: 'green' }} />}
+    />
+
+    <Divider />
+
+    <h4>✅ Backward Compatibility - Boolean True</h4>
+    <Timeline
+      items={[
+        { content: 'Create a services site 2015-09-01' },
+      ]}
+      pending={true}
+      pendingDot={<LoadingOutlined style={{ color: 'blue' }} />}
+    />
+
+    <Divider />
+
+    <h4>✅ Backward Compatibility - String</h4>
+    <Timeline
+      items={[
+        { content: 'Create a services site 2015-09-01' },
+      ]}
+      pending="String pending content"
     />
   </div>
 );

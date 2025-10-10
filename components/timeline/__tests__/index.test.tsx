@@ -250,6 +250,92 @@ describe('TimeLine', () => {
 
       errSpy.mockRestore();
     });
+
+    it('should handle empty object as pending', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const pendingObject = {};
+
+      const { container } = render(
+        <TimeLine 
+          pending={pendingObject}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(2);
+
+      errSpy.mockRestore();
+    });
+
+    it('should handle null pending gracefully', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <TimeLine 
+          pending={null}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(1);
+
+      errSpy.mockRestore();
+    });
+
+    it('should handle undefined pending gracefully', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <TimeLine 
+          pending={undefined}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(1);
+
+      errSpy.mockRestore();
+    });
+
+    it('should handle false pending gracefully', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <TimeLine 
+          pending={false}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(1);
+
+      errSpy.mockRestore();
+    });
+
+    it('should spread all object properties to the pending item', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customProps = {
+        'data-testid': 'custom-pending',
+        id: 'pending-item',
+        role: 'listitem',
+      };
+      
+      const pendingObject = {
+        content: 'Pending with custom props',
+        ...customProps,
+      };
+
+      const { container } = render(
+        <TimeLine 
+          pending={pendingObject}
+          items={[{ content: 'Task 1' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(2);
+      
+      errSpy.mockRestore();
+    });
   });
 
   it('loading status', () => {
