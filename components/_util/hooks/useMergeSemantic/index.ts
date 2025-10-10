@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { AnyObject } from '../../type';
+import type { AnyObject, EmptyObject } from '../../type';
 import type { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
@@ -19,7 +19,7 @@ export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSS
 export type SemanticClassNamesType<
   Props extends AnyObject,
   SemanticName extends string,
-  NestedStructure extends AnyObject = AnyObject,
+  NestedStructure extends AnyObject = EmptyObject,
 > =
   | (Readonly<SemanticClassNames<SemanticName>> & NestedStructure)
   | (((info: { props: Props }) => Readonly<SemanticClassNames<SemanticName>>) & NestedStructure);
@@ -27,7 +27,7 @@ export type SemanticClassNamesType<
 export type SemanticStylesType<
   Props extends AnyObject,
   SemanticName extends string,
-  NestedStructure extends AnyObject = AnyObject,
+  NestedStructure extends AnyObject = EmptyObject,
 > =
   | (Readonly<SemanticStyles<SemanticName>> & NestedStructure)
   | (((info: { props: Props }) => Readonly<SemanticStyles<SemanticName>>) & NestedStructure);

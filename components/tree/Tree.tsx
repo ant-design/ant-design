@@ -114,7 +114,10 @@ interface DraggableConfig {
 
 export type TreeSemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
 export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticName>;
-export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticName>;
+export type TreeStylesType = SemanticStylesType<
+  TreeProps,
+  'root' | 'item' | 'itemIcon' | 'itemTitle'
+>;
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<
