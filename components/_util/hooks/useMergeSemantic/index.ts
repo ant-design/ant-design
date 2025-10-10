@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { AnyObject } from '../../type';
+import type { AnyObject, EmptyObject } from '../../type';
 import type { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
@@ -16,21 +16,19 @@ export type SemanticClassNames<Name extends string> = Partial<Record<Name, strin
 
 export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
 
+export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T | undefined);
+
 export type SemanticClassNamesType<
   Props extends AnyObject,
   SemanticName extends string,
-  NestedStructure extends AnyObject = AnyObject,
-> =
-  | (Readonly<SemanticClassNames<SemanticName>> & NestedStructure)
-  | (((info: { props: Props }) => Readonly<SemanticClassNames<SemanticName>>) & NestedStructure);
+  NestedStructure extends EmptyObject = EmptyObject,
+> = Resolvable<Readonly<SemanticClassNames<SemanticName>>, Props> & NestedStructure;
 
 export type SemanticStylesType<
   Props extends AnyObject,
   SemanticName extends string,
-  NestedStructure extends AnyObject = AnyObject,
-> =
-  | (Readonly<SemanticStyles<SemanticName>> & NestedStructure)
-  | (((info: { props: Props }) => Readonly<SemanticStyles<SemanticName>>) & NestedStructure);
+  NestedStructure extends EmptyObject = EmptyObject,
+> = Resolvable<Readonly<SemanticStyles<SemanticName>>, Props> & NestedStructure;
 
 // ========================= ClassNames =========================
 export function mergeClassNames<
