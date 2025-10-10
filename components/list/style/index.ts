@@ -92,10 +92,21 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     marginLG,
     borderRadiusLG,
   } = token;
+
+  const innerCornerBorderRadius = unit(token.calc(borderRadiusLG).sub(token.lineWidth).equal());
+
   return {
     [listBorderedCls]: {
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
+      [`${componentCls}-header`]: {
+        borderRadius: `${innerCornerBorderRadius} ${innerCornerBorderRadius} 0 0`,
+      },
+
+      [`${componentCls}-footer`]: {
+        borderRadius: `0 0 ${innerCornerBorderRadius} ${innerCornerBorderRadius}`,
+      },
+
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
       },
