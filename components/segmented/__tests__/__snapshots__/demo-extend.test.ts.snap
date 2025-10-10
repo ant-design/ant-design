@@ -2079,7 +2079,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        style="text-align: left;"
+        style="text-align: start;"
       >
         <input
           checked=""
@@ -2123,7 +2123,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
       </label>
       <label
         class="ant-segmented-item"
-        style="text-align: left;"
+        style="text-align: start;"
       >
         <input
           class="ant-segmented-item-input"
@@ -2166,7 +2166,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
       </label>
       <label
         class="ant-segmented-item"
-        style="text-align: left;"
+        style="text-align: start;"
       >
         <input
           class="ant-segmented-item-input"

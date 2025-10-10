@@ -2182,7 +2182,7 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] =
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="margin-top: 10px; right: -10px;"
+    style="margin-top: 10px; inset-inline-end: -10px;"
     title="5"
   >
     <bdi>

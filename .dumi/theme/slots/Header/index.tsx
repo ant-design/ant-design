@@ -255,7 +255,7 @@ const Header: React.FC = () => {
   );
 
   const getPopupStyle = useMemo<React.CSSProperties>(
-    () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'right' } : {}),
+    () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'end' } : {}),
     [direction],
   );
 

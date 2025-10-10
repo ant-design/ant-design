@@ -18,7 +18,7 @@ const AdvancedSearchForm = () => {
 
   const getFields = () => {
     const count = expand ? 10 : 6;
-    const children = [];
+    const children: React.ReactNode[] = [];
     for (let i = 0; i < count; i++) {
       children.push(
         <Col span={8} key={i}>
@@ -68,7 +68,7 @@ const AdvancedSearchForm = () => {
   return (
     <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>{getFields()}</Row>
-      <div style={{ textAlign: 'right' }}>
+      <div style={{ textAlign: 'end' }}>
         <Space size="small">
           <Button type="primary" htmlType="submit">
             Search
