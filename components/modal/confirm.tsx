@@ -63,6 +63,8 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
 export default function confirm(config: ModalFuncProps) {
   const global = globalConfig();
 
+  const nodeRef = React.createRef<any>();
+
   if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
     warnContext('Modal');
   }
@@ -84,10 +86,12 @@ export default function confirm(config: ModalFuncProps) {
       }
     }
 
-    unmount();
+    if (nodeRef.current) {
+      unmount(nodeRef.current);
+    }
   }
 
-  function renderDialog(props: any) {
+  function scheduleRender(props: any) {
     clearTimeout(timeoutId);
 
     /**
@@ -102,12 +106,12 @@ export default function confirm(config: ModalFuncProps) {
 
       const dom = <ConfirmDialogWrapper {...props} />;
 
-      render(
+      nodeRef.current = (
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
           {global.holderRender ? global.holderRender(dom) : dom}
-        </ConfigProvider>,
-        container,
+        </ConfigProvider>
       );
+      render(nodeRef.current, container);
     });
   }
 
@@ -124,7 +128,7 @@ export default function confirm(config: ModalFuncProps) {
       },
     };
 
-    renderDialog(currentConfig);
+    scheduleRender(currentConfig);
   }
 
   function update(configUpdate: ConfigUpdate) {
@@ -136,10 +140,10 @@ export default function confirm(config: ModalFuncProps) {
         ...configUpdate,
       };
     }
-    renderDialog(currentConfig);
+    scheduleRender(currentConfig);
   }
 
-  renderDialog(currentConfig);
+  scheduleRender(currentConfig);
 
   destroyFns.push(close);
 
