@@ -7,6 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -20,7 +21,6 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import { useComponentConfig } from '../config-provider/context';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
