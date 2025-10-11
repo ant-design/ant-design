@@ -27,6 +27,25 @@ const items: DescriptionsProps['items'] = [
   },
 ];
 
+const styles: DescriptionsProps['styles'] = {
+  label: {
+    color: '#000',
+  },
+};
+
+const stylesFn: DescriptionsProps['styles'] = (info) => {
+  if (info.props.size === 'default') {
+    return {
+      root: {
+        borderRadius: 8,
+        border: '1px solid #CDC1FF',
+      },
+      label: { color: '#A294F9' },
+    } satisfies DescriptionsProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyle();
 
@@ -35,21 +54,6 @@ const App: React.FC = () => {
     items,
     bordered: true,
     classNames,
-  };
-
-  const styles = { label: { color: '#000' } };
-
-  const stylesFn: DescriptionsProps['styles'] = (info) => {
-    if (info.props.size === 'default') {
-      return {
-        root: {
-          borderRadius: 8,
-          border: '1px solid #CDC1FF',
-        },
-        label: { color: '#A294F9' },
-      };
-    }
-    return {};
   };
 
   return (

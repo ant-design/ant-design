@@ -10,9 +10,13 @@ const classNamesObject: FloatButtonProps['classNames'] = {
 
 const classNamesFn: FloatButtonProps['classNames'] = (info) => {
   if (info.props.type === 'primary') {
-    return { root: 'demo-float-btn-root--primary' };
+    return {
+      root: 'demo-float-btn-root--primary',
+    } satisfies FloatButtonProps['classNames'];
   }
-  return { root: 'demo-float-btn-root--default' };
+  return {
+    root: 'demo-float-btn-root--default',
+  } satisfies FloatButtonProps['classNames'];
 };
 
 const stylesObject: FloatButtonProps['styles'] = {
@@ -23,9 +27,14 @@ const stylesObject: FloatButtonProps['styles'] = {
 
 const stylesFn: FloatButtonProps['styles'] = (info) => {
   if (info.props.shape === 'square') {
-    return { root: { backgroundColor: '#fffbe6', borderColor: '#d9d9d9' } };
+    return {
+      root: { backgroundColor: '#fffbe6', borderColor: '#d9d9d9' },
+    } satisfies FloatButtonProps['styles'];
+  } else {
+    return {
+      root: { backgroundColor: '#fafafa', borderColor: '#ffe58f' },
+    } satisfies FloatButtonProps['styles'];
   }
-  return { root: { backgroundColor: '#fafafa', borderColor: '#ffe58f' } };
 };
 
 const App: React.FC = () => (
