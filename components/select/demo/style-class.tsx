@@ -12,14 +12,8 @@ const useStyles = createStyles(() => ({
 }));
 
 const options: SelectProps['options'] = [
-  {
-    value: 'GuangZhou',
-    label: 'GuangZhou',
-  },
-  {
-    value: 'ShenZhen',
-    label: 'ShenZhen',
-  },
+  { value: 'GuangZhou', label: 'GuangZhou' },
+  { value: 'ShenZhen', label: 'ShenZhen' },
 ];
 
 const stylesObject: SelectProps['styles'] = {
@@ -46,7 +40,7 @@ const stylesFn: SelectProps['styles'] = (info) => {
           border: '1px solid #722ed1',
         },
       },
-    };
+    } satisfies SelectProps['styles'];
   }
   return {};
 };
@@ -60,9 +54,8 @@ const App: React.FC = () => {
   };
   return (
     <Flex vertical gap="middle">
-      <Select {...sharedProps} placeholder="Object" styles={stylesObject} />
-
-      <Select {...sharedProps} variant="filled" placeholder="Function" styles={stylesFn} />
+      <Select {...sharedProps} styles={stylesObject} placeholder="Object" />
+      <Select {...sharedProps} styles={stylesFn} placeholder="Function" variant="filled" />
     </Flex>
   );
 };

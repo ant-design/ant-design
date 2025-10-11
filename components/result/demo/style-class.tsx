@@ -13,9 +13,13 @@ const classNamesObject: ResultProps['classNames'] = {
 
 const classNamesFn: ResultProps['classNames'] = (info) => {
   if (info.props.status === 'success') {
-    return { root: 'demo-result-root--success' };
+    return {
+      root: 'demo-result-root--success',
+    } satisfies ResultProps['classNames'];
   }
-  return { root: 'demo-result-root--default' };
+  return {
+    root: 'demo-result-root--default',
+  } satisfies ResultProps['classNames'];
 };
 
 const stylesObject: ResultProps['styles'] = {
@@ -32,12 +36,13 @@ const stylesFn: ResultProps['styles'] = (info) => {
     return {
       root: { backgroundColor: '#fff2f0', borderColor: '#ff4d4f' },
       title: { color: '#ff4d4f' },
-    };
+    } satisfies ResultProps['styles'];
+  } else {
+    return {
+      root: { backgroundColor: '#f6ffed', borderColor: '#52c41a' },
+      title: { color: '#52c41a' },
+    } satisfies ResultProps['styles'];
   }
-  return {
-    root: { backgroundColor: '#f6ffed', borderColor: '#52c41a' },
-    title: { color: '#52c41a' },
-  };
 };
 
 const App: React.FC = () => {

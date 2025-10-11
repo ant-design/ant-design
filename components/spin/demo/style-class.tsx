@@ -15,13 +15,13 @@ const stylesObject: SpinProps['styles'] = {
   },
 };
 
-const stylesFn: SpinProps['styles'] = ({ props: { size } }) => {
-  if (size === 'small') {
+const stylesFn: SpinProps['styles'] = ({ props }) => {
+  if (props.size === 'small') {
     return {
       indicator: {
         color: '#722ed1',
       },
-    };
+    } satisfies SpinProps['styles'];
   }
   return {};
 };
@@ -32,16 +32,13 @@ const App: React.FC = () => {
   const sharedProps: SpinProps = {
     spinning: true,
     percent: 0,
-    classNames: {
-      root: styles.root,
-    },
+    classNames: { root: styles.root },
   };
 
   return (
     <Flex align="center" gap="middle">
       <Spin {...sharedProps} styles={stylesObject} />
-
-      <Spin {...sharedProps} size="small" styles={stylesFn} />
+      <Spin {...sharedProps} styles={stylesFn} size="small" />
     </Flex>
   );
 };

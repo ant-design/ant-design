@@ -10,9 +10,14 @@ const classNamesObject: SpaceProps['classNames'] = {
 
 const classNamesFn: SpaceProps['classNames'] = (info) => {
   if (info.props.orientation === 'vertical') {
-    return { root: 'demo-space-root--vertical' };
+    return {
+      root: 'demo-space-root--vertical',
+    } satisfies SpaceProps['classNames'];
+  } else {
+    return {
+      root: 'demo-space-root--horizontal',
+    } satisfies SpaceProps['classNames'];
   }
-  return { root: 'demo-space-root--horizontal' };
 };
 
 const stylesObject: SpaceProps['styles'] = {
@@ -23,9 +28,21 @@ const stylesObject: SpaceProps['styles'] = {
 
 const stylesFn: SpaceProps['styles'] = (info) => {
   if (info.props.size === 'large') {
-    return { root: { backgroundColor: '#e6f7ff', borderColor: '#1890ff', padding: 8 } };
+    return {
+      root: {
+        backgroundColor: '#e6f7ff',
+        borderColor: '#1890ff',
+        padding: 8,
+      },
+    } satisfies SpaceProps['styles'];
+  } else {
+    return {
+      root: {
+        backgroundColor: '#fff7e6',
+        borderColor: '#fa8c16',
+      },
+    } satisfies SpaceProps['styles'];
   }
-  return { root: { backgroundColor: '#fff7e6', borderColor: '#fa8c16' } };
 };
 
 const App: React.FC = () => {
@@ -36,7 +53,6 @@ const App: React.FC = () => {
         <Button>Styled Button 2</Button>
         <Button>Styled Button 3</Button>
       </Space>
-
       <Space size="large" styles={stylesFn} classNames={classNamesFn}>
         <Button>Large Space Button 1</Button>
         <Button>Large Space Button 2</Button>

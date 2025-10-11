@@ -10,7 +10,7 @@ const classNames: ProgressProps['classNames'] = {
 
 const stylesFn: ProgressProps['styles'] = (info) => {
   const percent = info?.props?.percent ?? 0;
-  const hue = 200 - (200 * percent) / 100; // 蓝 → 紫
+  const hue = 200 - (200 * percent) / 100;
   return {
     track: {
       backgroundImage: `
@@ -23,10 +23,10 @@ const stylesFn: ProgressProps['styles'] = (info) => {
       transition: 'all 0.3s ease',
     },
     rail: {
-      background: 'rgba(0, 0, 0, 0.1)',
+      backgroundColor: 'rgba(0, 0, 0, 0.1)',
       borderRadius: 8,
     },
-  };
+  } satisfies ProgressProps['styles'];
 };
 
 const App: React.FC = () => (

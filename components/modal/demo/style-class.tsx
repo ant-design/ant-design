@@ -3,6 +3,25 @@ import { Button, Flex, Modal } from 'antd';
 import type { ModalProps } from 'antd';
 import { createStyles } from 'antd-style';
 
+const lineStyle: React.CSSProperties = {
+  lineHeight: '28px',
+};
+
+const sharedContent = (
+  <>
+    <div style={lineStyle}>
+      Following the Ant Design specification, we developed a React UI library antd that contains a
+      set of high quality components and demos for building rich, interactive user interfaces.
+    </div>
+    <div style={lineStyle}>🌈 Enterprise-class UI designed for web applications.</div>
+    <div style={lineStyle}>📦 A set of high-quality React components out of the box.</div>
+    <div style={lineStyle}>🛡 Written in TypeScript with predictable static types.</div>
+    <div style={lineStyle}>⚙️ Whole package of design resources and development tools.</div>
+    <div style={lineStyle}>🌍 Internationalization support for dozens of languages.</div>
+    <div style={lineStyle}>🎨 Powerful theme customization in every detail.</div>
+  </>
+);
+
 const useStyles = createStyles(() => ({
   container: {
     borderRadius: 10,
@@ -35,7 +54,7 @@ const stylesFn: ModalProps['styles'] = (info) => {
         padding: '16px 10px',
         backgroundColor: '#fafafa',
       },
-    };
+    } satisfies ModalProps['styles'];
   }
   return {};
 };
@@ -44,21 +63,6 @@ const App: React.FC = () => {
   const [modalOpen, setOpen] = useState(false);
   const [modalFnOpen, setFnOpen] = useState(false);
   const { styles: classNames } = useStyles();
-  const lineStyle = { lineHeight: '28px' };
-  const sharedContent = (
-    <>
-      <div style={lineStyle}>
-        Following the Ant Design specification, we developed a React UI library antd that contains a
-        set of high quality components and demos for building rich, interactive user interfaces.
-      </div>
-      <div style={lineStyle}>🌈 Enterprise-class UI designed for web applications.</div>
-      <div style={lineStyle}>📦 A set of high-quality React components out of the box.</div>
-      <div style={lineStyle}>🛡 Written in TypeScript with predictable static types.</div>
-      <div style={lineStyle}>⚙️ Whole package of design resources and development tools.</div>
-      <div style={lineStyle}>🌍 Internationalization support for dozens of languages.</div>
-      <div style={lineStyle}>🎨 Powerful theme customization in every detail.</div>
-    </>
-  );
 
   const sharedProps: ModalProps = {
     centered: true,
@@ -105,10 +109,7 @@ const App: React.FC = () => {
         footer={footer}
         title="Custom Function Modal"
         styles={stylesFn}
-        mask={{
-          enabled: true,
-          blur: true,
-        }}
+        mask={{ enabled: true, blur: true }}
         open={modalFnOpen}
         onOk={() => setFnOpen(false)}
         onCancel={() => setFnOpen(false)}
