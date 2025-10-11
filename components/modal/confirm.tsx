@@ -63,8 +63,6 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
 export default function confirm(config: ModalFuncProps) {
   const global = globalConfig();
 
-  const nodeRef = React.createRef<any>();
-
   if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
     warnContext('Modal');
   }
@@ -86,9 +84,7 @@ export default function confirm(config: ModalFuncProps) {
       }
     }
 
-    if (nodeRef.current) {
-      unmount(nodeRef.current);
-    }
+    unmount(container);
   }
 
   function scheduleRender(props: any) {
@@ -106,12 +102,12 @@ export default function confirm(config: ModalFuncProps) {
 
       const dom = <ConfirmDialogWrapper {...props} />;
 
-      nodeRef.current = (
+      render(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
-          {global.holderRender ? global.holderRender(dom) : dom}
-        </ConfigProvider>
+          {typeof global.holderRender === 'function' ? global.holderRender(dom) : dom}
+        </ConfigProvider>,
+        container,
       );
-      render(nodeRef.current, container);
     });
   }
 
