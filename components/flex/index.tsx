@@ -9,7 +9,7 @@ import type { FlexProps } from './interface';
 import useStyle from './style';
 import createFlexClassNames from './utils';
 
-const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
+const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
@@ -19,6 +19,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     gap,
     vertical = false,
     component: Component = 'div',
+    children,
     ...othersProps
   } = props;
 
@@ -65,7 +66,9 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
       className={mergedCls}
       style={mergedStyle}
       {...omit(othersProps, ['justify', 'wrap', 'align'])}
-    />,
+    >
+      {children}
+    </Component>,
   );
 });
 
