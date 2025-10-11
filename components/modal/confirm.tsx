@@ -84,7 +84,9 @@ export default function confirm(config: ModalFuncProps) {
       }
     }
 
-    unmount(container);
+    unmount(container).then(() => {
+      // Do nothing
+    });
   }
 
   function scheduleRender(props: any) {
