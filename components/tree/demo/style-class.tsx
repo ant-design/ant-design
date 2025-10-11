@@ -15,6 +15,7 @@ const useStyles = createStyles(() => ({
     fontSize: 14,
   },
 }));
+
 const treeData: TreeProps['treeData'] = [
   {
     title: 'parent 1',
@@ -60,7 +61,7 @@ const stylesFn: TreeProps['styles'] = (info) => {
         border: `2px solid #E5D9F2`,
         borderRadius: 4,
       },
-    };
+    } satisfies TreeProps['styles'];
   }
   return {};
 };
@@ -73,7 +74,6 @@ const App: React.FC = () => {
     autoExpandParent: true,
     checkable: true,
   };
-
   return (
     <Flex vertical gap="middle">
       <Tree {...sharedProps} treeData={treeData} styles={styles} />

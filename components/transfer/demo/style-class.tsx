@@ -8,7 +8,7 @@ const useStyles = createStyles(({ token }) => ({
   header: { color: token.colorPrimary },
 }));
 
-const mockData: TransferProps['dataSource'] = Array.from({ length: 20 }).map((_, i) => ({
+const mockData = Array.from({ length: 20 }).map<any>((_, i) => ({
   key: i.toString(),
   title: `content${i + 1}`,
   description: `description of content${i + 1}`,
@@ -27,7 +27,7 @@ const stylesFn: TransferProps['styles'] = (info) => {
     return {
       section: { backgroundColor: '#f6ffed', borderColor: '#b7eb8f' },
       header: { color: '#8DBCC7', fontWeight: 'normal' },
-    };
+    } satisfies TransferProps['styles'];
   }
   return {};
 };

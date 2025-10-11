@@ -10,6 +10,37 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const styleObject: TreeSelectProps['styles'] = {
+  input: {
+    backgroundColor: '#f6ffed',
+    fontSize: '16px',
+  },
+  suffix: {
+    color: '#1890ff',
+  },
+  popup: {
+    root: {
+      border: '1px solid #1890ff',
+    },
+  },
+};
+
+const styleFunction: TreeSelectProps['styles'] = (info) => {
+  if (info.props.size === 'middle') {
+    return {
+      suffix: {
+        color: '#722ed1',
+      },
+      popup: {
+        item: {
+          color: '#722ed1',
+        },
+      },
+    } satisfies TreeSelectProps['styles'];
+  }
+  return {};
+};
+
 const treeData: TreeSelectProps['treeData'] = [
   {
     value: 'parent 1',
@@ -44,37 +75,6 @@ const treeData: TreeSelectProps['treeData'] = [
 ];
 
 const App: React.FC = () => {
-  const styleObject: TreeSelectProps['styles'] = {
-    input: {
-      backgroundColor: '#f6ffed',
-      fontSize: '16px',
-    },
-    suffix: {
-      color: '#1890ff',
-    },
-    popup: {
-      root: {
-        border: '1px solid #1890ff',
-      },
-    },
-  };
-
-  const styleFunction: TreeSelectProps['styles'] = (info) => {
-    if (info.props.size === 'middle') {
-      return {
-        suffix: {
-          color: '#722ed1',
-        },
-        popup: {
-          item: {
-            color: '#722ed1',
-          },
-        },
-      };
-    }
-    return {};
-  };
-
   const { styles: classNames } = useStyles();
 
   const sharedProps: TreeSelectProps = {
@@ -84,9 +84,8 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="large">
-      <TreeSelect {...sharedProps} placeholder="Object" styles={styleObject} />
-
-      <TreeSelect {...sharedProps} placeholder="Function" size="middle" styles={styleFunction} />
+      <TreeSelect {...sharedProps} styles={styleObject} placeholder="Object" />
+      <TreeSelect {...sharedProps} styles={styleFunction} placeholder="Function" size="middle" />
     </Flex>
   );
 };

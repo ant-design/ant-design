@@ -3,6 +3,24 @@ import { Button, Divider, Flex, Space, Tour } from 'antd';
 import type { TourProps, TourStepProps } from 'antd';
 import { createStyles } from 'antd-style';
 
+const btnProps: {
+  nextButtonProps: TourStepProps['nextButtonProps'];
+  prevButtonProps: TourStepProps['prevButtonProps'];
+} = {
+  nextButtonProps: {
+    style: {
+      border: '1px solid #CDC1FF',
+      color: '#CDC1FF',
+    },
+  },
+  prevButtonProps: {
+    style: {
+      backgroundColor: '#CDC1FF',
+      color: '#fff',
+    },
+  },
+};
+
 const useStyles = createStyles(() => ({
   root: {
     borderRadius: 4,
@@ -12,32 +30,46 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+const stylesObject: TourProps['styles'] = {
+  mask: {
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  section: {
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    border: '2px solid #4096ff',
+  },
+  cover: {
+    borderRadius: '12px 12px 0 0',
+  },
+};
+
+const stylesFunction: TourProps['styles'] = (info) => {
+  if (info.props.type === 'primary') {
+    return {
+      mask: {
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+      },
+      section: {
+        backgroundColor: 'rgb(205,193,255, 0.8)',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+      },
+      cover: {
+        borderRadius: '12px 12px 0 0',
+      },
+    } satisfies TourProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
+  const ref1 = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const ref2 = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const ref3 = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   const [open, setOpen] = useState<boolean>(false);
   const [openFn, setOpenFn] = useState<boolean>(false);
-  const { styles: classNames } = useStyles();
 
-  const btnProps: {
-    nextButtonProps: TourStepProps['nextButtonProps'];
-    prevButtonProps: TourStepProps['prevButtonProps'];
-  } = {
-    nextButtonProps: {
-      style: {
-        border: '1px solid #CDC1FF',
-        color: '#CDC1FF',
-      },
-    },
-    prevButtonProps: {
-      style: {
-        backgroundColor: '#CDC1FF',
-        color: '#fff',
-      },
-    },
-  };
+  const { styles: classNames } = useStyles();
 
   const steps: TourProps['steps'] = [
     {
@@ -49,53 +81,22 @@ const App: React.FC = () => {
           src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
         />
       ),
-      target: () => ref1.current,
+      target: () => ref1.current || document.body,
       prevButtonProps: {},
     },
     {
       title: 'Save',
       description: 'Save your changes.',
-      target: () => ref2.current,
+      target: () => ref2.current || document.body,
     },
     {
       title: 'Other Actions',
       description: 'Click to see other actions.',
-      target: () => ref3.current,
+      target: () => ref3.current || document.body,
     },
   ];
 
-  const stylesObject: TourProps['styles'] = {
-    mask: {
-      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    },
-    section: {
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-      border: '2px solid #4096ff',
-    },
-    cover: {
-      borderRadius: '12px 12px 0 0',
-    },
-  };
-
-  const stylesFunction: TourProps['styles'] = (info) => {
-    if (info.props.type === 'primary') {
-      return {
-        mask: {
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        },
-        section: {
-          backgroundColor: 'rgb(205,193,255, 0.8)',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-        },
-        cover: {
-          borderRadius: '12px 12px 0 0',
-        },
-      };
-    }
-    return {};
-  };
-
-  const sharedProps = {
+  const sharedProps: TourProps = {
     steps,
     classNames,
     arrow: false,

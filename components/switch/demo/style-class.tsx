@@ -19,7 +19,9 @@ const stylesObject: SwitchProps['styles'] = {
 const stylesFn: SwitchProps['styles'] = (info) => {
   if (info.props.size === 'default') {
     return {
-      root: { backgroundColor: '#BDE3C3' },
+      root: {
+        backgroundColor: '#BDE3C3',
+      },
     } satisfies SwitchProps['styles'];
   }
   return {};
