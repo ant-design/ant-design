@@ -16,7 +16,7 @@ export type SemanticClassNames<Name extends string> = Partial<Record<Name, strin
 
 export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
 
-export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T | undefined);
+export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T);
 
 export type SemanticClassNamesType<
   Props extends AnyObject,
@@ -37,7 +37,7 @@ export function mergeClassNames<
 >(schema: SemanticSchema | undefined, ...classNames: (SemanticClassNames | undefined)[]) {
   const mergedSchema = schema || {};
 
-  return classNames.reduce((acc: any, cur) => {
+  return classNames.reduce<SemanticClassNames>((acc: any, cur) => {
     // Loop keys of the current classNames
     Object.keys(cur || {}).forEach((key) => {
       const keySchema = mergedSchema[key as keyof SemanticSchema] as SemanticSchema;
@@ -50,8 +50,10 @@ export function mergeClassNames<
         } else {
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
-          acc[key] = acc[key] || {};
-          acc[key][defaultField!] = clsx(acc[key][defaultField!], curVal);
+          if (defaultField) {
+            acc[key] = acc[key] || {};
+            acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
+          }
         }
       } else {
         // Flatten fill
@@ -59,7 +61,7 @@ export function mergeClassNames<
       }
     });
     return acc;
-  }, {} as SemanticClassNames) as SemanticClassNames;
+  }, {} as SemanticClassNames);
 }
 
 function useSemanticClassNames<ClassNamesType extends AnyObject>(
