@@ -80,7 +80,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       borderRadius: token.borderRadius,
     });
 
-  const customClassName = clsx(
+  const mergedRootClassName = clsx(
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
@@ -123,7 +123,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
         zIndex={zIndex}
-        rootClassName={customClassName}
+        rootClassName={mergedRootClassName}
         prefixCls={prefixCls}
         animated
         renderPanel={mergedRenderPanel}

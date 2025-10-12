@@ -390,18 +390,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     // @ts-ignore
     <RcSlider
       {...restProps}
-      classNames={{
-        handle: mergedClassNames.handle,
-        rail: mergedClassNames.rail,
-        track: mergedClassNames.track,
-        tracks: mergedClassNames.tracks,
-      }}
-      styles={{
-        handle: mergedStyles.handle,
-        rail: mergedStyles.rail,
-        track: mergedStyles.track,
-        tracks: mergedStyles.tracks,
-      }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       step={restProps.step}
       range={range}
       className={rootClassNames}

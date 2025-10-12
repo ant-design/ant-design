@@ -261,8 +261,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       <RcPagination
         {...iconsProps}
         {...restProps}
-        styles={{ item: mergedStyles.item }}
-        classNames={{ item: mergedClassNames.item }}
+        styles={mergedStyles}
+        classNames={mergedClassNames}
         style={mergedStyle}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
