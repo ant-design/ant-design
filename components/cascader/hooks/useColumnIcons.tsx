@@ -17,7 +17,7 @@ const useColumnIcons = (prefixCls: string, rtl: boolean, expandIcon?: React.Reac
 
   return React.useMemo<Readonly<[React.ReactNode, React.ReactNode]>>(
     () => [mergedExpandIcon, loadingIcon] as const,
-    [mergedExpandIcon],
+    [mergedExpandIcon, loadingIcon],
   );
 };
 
