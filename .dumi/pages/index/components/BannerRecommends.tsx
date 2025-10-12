@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
+import { Alert, Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
@@ -151,7 +151,14 @@ const BannerRecommends: React.FC = () => {
   }
 
   if (error) {
-    return <div>{error.message}</div>;
+    return (
+      <Alert
+        showIcon
+        type="error"
+        message={error.message}
+        // description={error.stack}
+      />
+    );
   }
 
   const extras = data?.extras?.[lang];

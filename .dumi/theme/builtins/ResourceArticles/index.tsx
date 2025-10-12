@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
+import { Alert, Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
@@ -152,7 +152,14 @@ const ResourceArticles: React.FC = () => {
     return <Skeleton active />;
   }
   if (error) {
-    return <div>{error.message}</div>;
+    return (
+      <Alert
+        showIcon
+        type="error"
+        message={error.message}
+        // description={error.stack}
+      />
+    );
   }
   return (
     <div id="articles" className={styles.articles}>
