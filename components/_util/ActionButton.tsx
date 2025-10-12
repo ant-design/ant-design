@@ -60,7 +60,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         clearTimeout(timeoutId);
       }
     };
-  }, []);
+  }, [autoFocus]);
 
   const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
     if (!isThenable(returnValueOfOnOk)) {
