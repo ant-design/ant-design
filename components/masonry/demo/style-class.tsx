@@ -1,15 +1,16 @@
 import React from 'react';
 import { Card, Divider, Flex, Masonry, Typography } from 'antd';
 import type { MasonryProps } from 'antd';
+import type { MasonryItemType } from 'antd/es/masonry/MasonryItem';
 
 const { Title } = Typography;
 
-const heights = [120, 80, 100, 60, 140, 90, 110, 70];
-
-const items = heights.map((height, index) => ({
-  key: `item-${index}`,
-  data: height,
-}));
+const items = [120, 80, 100, 60, 140, 90, 110, 70].map<MasonryItemType<number>>(
+  (height, index) => ({
+    key: `item-${index}`,
+    data: height,
+  }),
+);
 
 const classNamesObject: MasonryProps['classNames'] = {
   root: 'custom-masonry-root',
@@ -21,7 +22,7 @@ const classNamesFn: MasonryProps['classNames'] = (info) => {
   return {
     root: `dynamic-masonry-${props.columns}-cols`,
     item: `dynamic-item-${props.gutter}px-gutter`,
-  };
+  } satisfies MasonryProps['classNames'];
 };
 
 const stylesObject: MasonryProps['styles'] = {
@@ -55,7 +56,7 @@ const stylesFn: MasonryProps['styles'] = (info) => {
       borderRadius: 6,
       overflow: 'hidden',
     },
-  };
+  } satisfies MasonryProps['styles'];
 };
 
 const App: React.FC = () => (
@@ -75,9 +76,7 @@ const App: React.FC = () => (
         styles={stylesObject}
       />
     </div>
-
     <Divider />
-
     <div>
       <Title level={4}>classNames and styles function</Title>
       <Masonry

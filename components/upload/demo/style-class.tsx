@@ -11,7 +11,7 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
-const stylesObject: UploadProps['styles'] = {
+const stylesObject: UploadProps<any>['styles'] = {
   item: {
     borderRadius: 2,
     backgroundColor: 'rgba(5, 5, 5, 0.06)',
@@ -19,7 +19,7 @@ const stylesObject: UploadProps['styles'] = {
   },
 };
 
-const stylesFn: UploadProps['styles'] = (info) => {
+const stylesFn: UploadProps<any>['styles'] = (info) => {
   if (info.props.multiple) {
     return {
       root: { border: '1px solid #5459AC' },
@@ -28,7 +28,7 @@ const stylesFn: UploadProps['styles'] = (info) => {
         backgroundColor: 'rgba(5, 5, 5, 0.06)',
         height: 30,
       },
-    };
+    } satisfies UploadProps<any>['styles'];
   }
   return {};
 };
@@ -36,7 +36,7 @@ const stylesFn: UploadProps['styles'] = (info) => {
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
 
-  const uploadProps: UploadProps = {
+  const uploadProps: UploadProps<any> = {
     classNames,
     action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
     onChange({ file, fileList }) {

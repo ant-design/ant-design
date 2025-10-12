@@ -3,6 +3,16 @@ import { Flex, Splitter, Typography } from 'antd';
 import type { SplitterProps } from 'antd';
 import { createStyles } from 'antd-style';
 
+const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => {
+  return (
+    <Flex justify="center" align="center" style={{ height: '100%' }}>
+      <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+        {props.text}
+      </Typography.Title>
+    </Flex>
+  );
+};
+
 const useStyle = createStyles(({ css, cssVar }) => ({
   boxShadow: css`
     box-shadow: ${cssVar.boxShadowSecondary};
@@ -13,29 +23,25 @@ const stylesObject: SplitterProps['styles'] = {
   root: { backgroundColor: '#fffbe6' },
 };
 
-const stylesFn: SplitterProps['styles'] = ({ props: { orientation } }) => {
-  if (orientation === 'horizontal') {
-    return { root: { borderWidth: 2, borderStyle: 'dashed', marginBottom: 10 } };
+const stylesFn: SplitterProps['styles'] = ({ props }) => {
+  if (props.orientation === 'horizontal') {
+    return {
+      root: {
+        borderWidth: 2,
+        borderStyle: 'dashed',
+        marginBottom: 10,
+      },
+    } satisfies SplitterProps['styles'];
   }
   return {};
 };
-
-const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
-  <Flex justify="center" align="center" style={{ height: '100%' }}>
-    <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
-      {props.text}
-    </Typography.Title>
-  </Flex>
-);
 
 const App: React.FC = () => {
   const { styles } = useStyle();
 
   const splitSharedProps: SplitterProps = {
     style: { height: 200 },
-    classNames: {
-      root: styles.boxShadow,
-    },
+    classNames: { root: styles.boxShadow },
   };
 
   return (
@@ -48,7 +54,6 @@ const App: React.FC = () => {
           <Desc text="Second" />
         </Splitter.Panel>
       </Splitter>
-
       <Splitter {...splitSharedProps} styles={stylesFn}>
         <Splitter.Panel>
           <Desc text="First" />

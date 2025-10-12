@@ -10,9 +10,13 @@ const classNamesObject: ButtonProps['classNames'] = {
 
 const classNamesFn: ButtonProps['classNames'] = (info) => {
   if (info.props.type === 'primary') {
-    return { root: 'demo-btn-root--primary' };
+    return {
+      root: 'demo-btn-root--primary',
+    } satisfies ButtonProps['classNames'];
   }
-  return { root: 'demo-btn-root--default' };
+  return {
+    root: 'demo-btn-root--default',
+  } satisfies ButtonProps['classNames'];
 };
 
 const stylesObject: ButtonProps['styles'] = {
@@ -23,9 +27,20 @@ const stylesObject: ButtonProps['styles'] = {
 
 const stylesFn: ButtonProps['styles'] = (info) => {
   if (info.props.disabled) {
-    return { root: { opacity: 0.5, cursor: 'not-allowed', borderColor: 'red' } };
+    return {
+      root: {
+        opacity: 0.5,
+        cursor: 'not-allowed',
+        borderColor: 'red',
+      },
+    } satisfies ButtonProps['styles'];
   }
-  return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
+  return {
+    root: {
+      backgroundColor: '#fafafa',
+      borderColor: '#d9d9d9',
+    },
+  } satisfies ButtonProps['styles'];
 };
 
 const App: React.FC = () => {

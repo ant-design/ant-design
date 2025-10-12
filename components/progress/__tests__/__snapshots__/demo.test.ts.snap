@@ -3997,7 +3997,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
+        style="background-color:rgba(0, 0, 0, 0.1);border-radius:8px;height:8px"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4029,7 +4029,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
+        style="background-color:rgba(0, 0, 0, 0.1);border-radius:8px;height:8px"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4061,7 +4061,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
+        style="background-color:rgba(0, 0, 0, 0.1);border-radius:8px;height:8px"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4093,7 +4093,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
+        style="background-color:rgba(0, 0, 0, 0.1);border-radius:8px;height:8px"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4125,7 +4125,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
+        style="background-color:rgba(0, 0, 0, 0.1);border-radius:8px;height:8px"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4157,7 +4157,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
+        style="background-color:rgba(0, 0, 0, 0.1);border-radius:8px;height:8px"
       >
         <div
           class="ant-progress-track demo-progress-track"

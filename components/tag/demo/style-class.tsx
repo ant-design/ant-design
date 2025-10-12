@@ -11,32 +11,33 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+const styles: TagProps['styles'] = {
+  root: {
+    backgroundColor: '#e6f7ff',
+  },
+  icon: {
+    color: '#52c41a',
+  },
+};
+
+const stylesFn: TagProps['styles'] = (info) => {
+  if (info.props.variant === 'filled') {
+    return {
+      root: {
+        backgroundColor: '#F5EFFF',
+      },
+      icon: {
+        color: '#8F87F1',
+      },
+      content: {
+        color: '#8F87F1',
+      },
+    } satisfies TagProps['styles'];
+  }
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-  const styles: TagProps['styles'] = {
-    root: {
-      backgroundColor: '#e6f7ff',
-    },
-    icon: {
-      color: '#52c41a',
-    },
-  };
-
-  const stylesFn: TagProps['styles'] = (info) => {
-    if (info.props.variant === 'filled') {
-      return {
-        root: {
-          backgroundColor: '#F5EFFF',
-        },
-        icon: {
-          color: '#8F87F1',
-        },
-        content: {
-          color: '#8F87F1',
-        },
-      };
-    }
-  };
   return (
     <Flex gap="middle">
       <Tag classNames={classNames} styles={styles} icon={<CheckCircleOutlined />}>

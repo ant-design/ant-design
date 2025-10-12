@@ -8,6 +8,7 @@ const useStyles = createStyles(() => ({
     padding: 10,
   },
 }));
+
 const styles: PopoverProps['styles'] = {
   container: {
     background: '#eee',
@@ -26,7 +27,7 @@ const stylesFn: PopoverProps['styles'] = (info) => {
       content: {
         color: '#fff',
       },
-    };
+    } satisfies PopoverProps['styles'];
   }
   return {};
 };

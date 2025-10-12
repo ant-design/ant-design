@@ -9,29 +9,29 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const stylesObject: ColorPickerProps['styles'] = {
+  popup: {
+    root: {
+      border: '1px solid #fff',
+    },
+  },
+};
+
+const stylesFn: ColorPickerProps['styles'] = (info) => {
+  if (info.props.size === 'large') {
+    return {
+      popup: {
+        root: {
+          border: '1px solid #722ed1',
+        },
+      },
+    } satisfies ColorPickerProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-
-  const stylesObject: ColorPickerProps['styles'] = {
-    popup: {
-      root: {
-        border: '1px solid #fff',
-      },
-    },
-  };
-  const stylesFn: ColorPickerProps['styles'] = (info) => {
-    if (info.props.size === 'large') {
-      return {
-        popup: {
-          root: {
-            border: '1px solid #722ed1',
-          },
-        },
-      };
-    }
-    return {};
-  };
-
   return (
     <Space size={[8, 16]} wrap>
       <Flex gap="small">

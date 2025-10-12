@@ -10,35 +10,35 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const stylesObject: TimePickerProps['styles'] = {
+  root: {
+    borderColor: '#d9d9d9',
+  },
+};
+
+const stylesFn: TimePickerProps['styles'] = (info) => {
+  if (info.props.size === 'large') {
+    return {
+      root: {
+        borderColor: '#722ed1',
+      },
+      suffix: {
+        color: '#722ed1',
+      },
+      popup: {
+        root: { border: '1px solid #722ed1', borderRadius: 8 },
+      },
+    } satisfies TimePickerProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-  const stylesObject: TimePickerProps['styles'] = {
-    root: {
-      borderColor: '#d9d9d9',
-    },
-  };
-
-  const stylesFn: TimePickerProps['styles'] = (info) => {
-    if (info.props.size === 'large') {
-      return {
-        root: {
-          borderColor: '#722ed1',
-        },
-        suffix: {
-          color: '#722ed1',
-        },
-        popup: {
-          root: { border: '1px solid #722ed1', borderRadius: 8 },
-        },
-      };
-    }
-    return {};
-  };
-
   return (
     <Flex vertical gap="middle">
-      <TimePicker placeholder="Object" classNames={classNames} styles={stylesObject} />
-      <TimePicker size="large" placeholder="Function" classNames={classNames} styles={stylesFn} />
+      <TimePicker classNames={classNames} styles={stylesObject} placeholder="Object" />
+      <TimePicker classNames={classNames} styles={stylesFn} placeholder="Function" size="large" />
     </Flex>
   );
 };

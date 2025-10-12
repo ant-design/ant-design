@@ -20,26 +20,10 @@ interface DataType {
 }
 
 const columns: TableProps<DataType>['columns'] = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Description',
-    dataIndex: 'description',
-    key: 'description',
-  },
+  { title: 'Name', dataIndex: 'name', key: 'name' },
+  { title: 'Age', dataIndex: 'age', key: 'age' },
+  { title: 'Address', dataIndex: 'address', key: 'address' },
+  { title: 'Description', dataIndex: 'description', key: 'description' },
 ];
 
 const dataSource: DataType[] = [
@@ -73,81 +57,78 @@ const dataSource: DataType[] = [
   },
 ];
 
+const styles: TableProps<DataType>['styles'] = {
+  root: {
+    padding: 10,
+    borderRadius: 8,
+  },
+  pagination: {
+    root: {
+      padding: 10,
+    },
+  },
+};
+
+const stylesFn: TableProps<DataType>['styles'] = (info) => {
+  if (info?.props?.size === 'middle') {
+    return {
+      root: {
+        color: '#e0e0e0',
+        borderRadius: 8,
+        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+      },
+      title: {
+        backgroundImage: 'linear-gradient(90deg, #6a5acd, #836fff)',
+        color: '#fff',
+        fontSize: '1.25rem',
+        fontWeight: 600,
+        padding: '12px 16px',
+      },
+      footer: {
+        color: '#9ca3af',
+      },
+      header: {
+        cell: {
+          fontWeight: 600,
+          fontSize: '0.95rem',
+          color: '#b8bdfd',
+          padding: '12px 16px',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+        },
+      },
+      pagination: {
+        root: {
+          padding: 10,
+        },
+        item: {
+          color: '#b8bdfd',
+        },
+      },
+    } satisfies TableProps<DataType>['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
 
-  const styles: TableProps['styles'] = {
-    root: {
-      padding: 10,
-      borderRadius: 8,
-    },
-    pagination: {
-      root: {
-        padding: 10,
-      },
-    },
-  };
-
-  const stylesFn: TableProps['styles'] = (info) => {
-    if (info?.props?.size === 'middle') {
-      return {
-        root: {
-          color: '#e0e0e0',
-          borderRadius: 8,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-        },
-        title: {
-          background: 'linear-gradient(90deg, #6a5acd, #836fff)',
-          color: '#fff',
-          fontSize: '1.25rem',
-          fontWeight: 600,
-          padding: '12px 16px',
-        },
-        footer: {
-          color: '#9ca3af',
-        },
-        header: {
-          cell: {
-            fontWeight: 600,
-            fontSize: '0.95rem',
-            color: '#b8bdfd',
-            padding: '12px 16px',
-            borderBottom: '1px solid rgba(255,255,255,0.08)',
-          },
-        },
-        pagination: {
-          root: {
-            padding: 10,
-          },
-          item: {
-            color: '#b8bdfd',
-          },
-        },
-      };
-    }
-    return {};
-  };
-
-  const sharedProps: TableProps = {
+  const sharedProps: TableProps<DataType> = {
     columns,
     dataSource,
     classNames,
-    pagination: {
-      pageSize: 3,
-      simple: true,
-    },
+    pagination: { pageSize: 3, simple: true },
   };
 
   return (
     <Flex vertical gap="middle">
-      <Table
+      <Table<DataType>
         {...sharedProps}
         styles={styles}
         title={() => 'Table Object Styles'}
         footer={() => 'Table Object Footer'}
         size="small"
       />
-      <Table
+      <Table<DataType>
         {...sharedProps}
         styles={stylesFn}
         title={() => 'Table Function Styles'}
