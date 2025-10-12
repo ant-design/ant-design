@@ -203,18 +203,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      classNames={{
-        header: mergedClassNames.header,
-        title: mergedClassNames.title,
-        body: mergedClassNames.body,
-        icon: mergedClassNames.icon,
-      }}
-      styles={{
-        header: mergedStyles.header,
-        title: mergedStyles.title,
-        body: mergedStyles.body,
-        icon: mergedStyles.icon,
-      }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       destroyOnHidden={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}

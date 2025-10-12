@@ -145,8 +145,8 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     <Wave component="Switch" disabled={mergedDisabled}>
       <RcSwitch
         {...restProps}
-        classNames={{ content: mergedClassNames.content }}
-        styles={{ content: mergedStyles.content }}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
         checked={checked}
         onChange={changeHandler}
         prefixCls={prefixCls}
