@@ -4,24 +4,23 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import isValidNode from '../_util/isValidNode';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourSemanticName, TourStepProps } from './interface';
+import type { TourProps, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
     closable?: Exclude<TourStepProps['closable'], boolean>;
   };
   current: number;
-  type: TourStepProps['type'];
-  indicatorsRender?: TourStepProps['indicatorsRender'];
-  classNames?: SemanticClassNames<TourSemanticName>;
-  styles?: SemanticStyles<TourSemanticName>;
-  actionsRender?: TourStepProps['actionsRender'];
+  type: TourProps['type'];
+  indicatorsRender?: TourProps['indicatorsRender'];
+  classNames?: TourProps['classNames'];
+  styles?: TourProps['styles'];
+  actionsRender?: TourProps['actionsRender'];
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
@@ -42,8 +41,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     prevButtonProps,
     type: stepType,
     closable,
-    classNames: tourClassNames,
-    styles,
+    classNames = {},
+    styles = {},
   } = stepProps;
 
   const mergedType = stepType ?? type;
@@ -82,8 +81,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   };
 
   const headerNode = isValidNode(title) ? (
-    <div className={clsx(`${prefixCls}-header`, tourClassNames?.header)} style={styles?.header}>
-      <div className={clsx(`${prefixCls}-title`, tourClassNames?.title)} style={styles?.title}>
+    <div className={clsx(`${prefixCls}-header`, classNames.header)} style={styles.header}>
+      <div className={clsx(`${prefixCls}-title`, classNames.title)} style={styles.title}>
         {title}
       </div>
     </div>
@@ -91,15 +90,15 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const descriptionNode = isValidNode(description) ? (
     <div
-      className={clsx(`${prefixCls}-description`, tourClassNames?.description)}
-      style={styles?.description}
+      className={clsx(`${prefixCls}-description`, classNames.description)}
+      style={styles.description}
     >
       {description}
     </div>
   ) : null;
 
   const coverNode = isValidNode(cover) ? (
-    <div className={clsx(`${prefixCls}-cover`, tourClassNames?.cover)} style={styles?.cover}>
+    <div className={clsx(`${prefixCls}-cover`, classNames.cover)} style={styles.cover}>
       {cover}
     </div>
   ) : null;
@@ -116,9 +115,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
           className={clsx(
             index === current && `${prefixCls}-indicator-active`,
             `${prefixCls}-indicator`,
-            tourClassNames?.indicator,
+            classNames.indicator,
           )}
-          style={styles?.indicator}
+          style={styles.indicator}
         />
       ),
     );
@@ -159,27 +158,21 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   return (
     <div className={`${prefixCls}-panel`}>
-      <div
-        className={clsx(`${prefixCls}-section`, tourClassNames?.section)}
-        style={styles?.section}
-      >
+      <div className={clsx(`${prefixCls}-section`, classNames.section)} style={styles.section}>
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
-        <div className={clsx(`${prefixCls}-footer`, tourClassNames?.footer)} style={styles?.footer}>
+        <div className={clsx(`${prefixCls}-footer`, classNames.footer)} style={styles.footer}>
           {total > 1 && (
             <div
-              className={clsx(`${prefixCls}-indicators`, tourClassNames?.indicators)}
-              style={styles?.indicators}
+              className={clsx(`${prefixCls}-indicators`, classNames.indicators)}
+              style={styles.indicators}
             >
               {mergedIndicatorNode}
             </div>
           )}
-          <div
-            className={clsx(`${prefixCls}-actions`, tourClassNames?.actions)}
-            style={styles?.actions}
-          >
+          <div className={clsx(`${prefixCls}-actions`, classNames.actions)} style={styles.actions}>
             {actionsRender
               ? actionsRender(defaultActionsNode, { current, total })
               : defaultActionsNode}
