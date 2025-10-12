@@ -11,9 +11,13 @@ const classNamesObject: BreadcrumbProps['classNames'] = {
 const classNamesFn: BreadcrumbProps['classNames'] = (info) => {
   const items = info.props.items || [];
   if (items.length > 2) {
-    return { root: 'demo-breadcrumb-root--long' };
+    return {
+      root: 'demo-breadcrumb-root--long',
+    } satisfies BreadcrumbProps['classNames'];
   }
-  return { root: 'demo-breadcrumb-root--short' };
+  return {
+    root: 'demo-breadcrumb-root--short',
+  } satisfies BreadcrumbProps['classNames'];
 };
 
 const stylesObject: BreadcrumbProps['styles'] = {
@@ -25,9 +29,17 @@ const stylesObject: BreadcrumbProps['styles'] = {
 const stylesFn: BreadcrumbProps['styles'] = (info) => {
   const items = info.props.items || [];
   if (items.length > 2) {
-    return { root: { backgroundColor: '#f0f9ff' } };
+    return {
+      root: {
+        backgroundColor: '#f0f9ff',
+      },
+    } satisfies BreadcrumbProps['styles'];
   }
-  return { root: { backgroundColor: '#ffffff' } };
+  return {
+    root: {
+      backgroundColor: '#fff',
+    },
+  } satisfies BreadcrumbProps['styles'];
 };
 
 const items = [

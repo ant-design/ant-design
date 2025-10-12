@@ -12,9 +12,14 @@ const classNamesObject: TabsProps['classNames'] = {
 
 const classNamesFn: TabsProps['classNames'] = (info) => {
   if (info.props.type === 'card') {
-    return { root: 'demo-tabs-root--card' };
+    return {
+      root: 'demo-tabs-root--card',
+    } satisfies TabsProps['classNames'];
+  } else {
+    return {
+      root: 'demo-tabs-root--line',
+    } satisfies TabsProps['classNames'];
   }
-  return { root: 'demo-tabs-root--line' };
 };
 
 const stylesObject: TabsProps['styles'] = {
@@ -31,13 +36,14 @@ const stylesFn: TabsProps['styles'] = (info) => {
       root: { backgroundColor: '#f0f2f5', borderColor: '#1890ff' },
       header: { textAlign: 'center' },
       content: { padding: 8 },
-    };
+    } satisfies TabsProps['styles'];
+  } else {
+    return {
+      root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' },
+      header: { textAlign: 'start' },
+      content: { padding: 8 },
+    } satisfies TabsProps['styles'];
   }
-  return {
-    root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' },
-    header: { textAlign: 'start' },
-    content: { padding: 8 },
-  };
 };
 
 const items = [

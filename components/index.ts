@@ -64,11 +64,7 @@ export type { EmptyProps } from './empty';
 export { default as Flex } from './flex';
 export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
-export type {
-  FloatButtonGroupProps,
-  FloatButtonProps,
-  FloatButtonRef,
-} from './float-button';
+export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef } from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,

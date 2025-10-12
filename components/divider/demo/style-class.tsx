@@ -10,9 +10,13 @@ const classNamesObject: DividerProps['classNames'] = {
 
 const classNamesFn: DividerProps['classNames'] = (info) => {
   if (info.props.titlePlacement === 'start') {
-    return { root: 'demo-divider-root--start' };
+    return {
+      root: 'demo-divider-root--start',
+    } satisfies DividerProps['classNames'];
   }
-  return { root: 'demo-divider-root--default' };
+  return {
+    root: 'demo-divider-root--default',
+  } satisfies DividerProps['classNames'];
 };
 
 const stylesObject: DividerProps['styles'] = {
@@ -23,9 +27,13 @@ const stylesObject: DividerProps['styles'] = {
 
 const stylesFn: DividerProps['styles'] = (info) => {
   if (info.props.size === 'small') {
-    return { root: { opacity: 0.6, cursor: 'default' } };
+    return {
+      root: { opacity: 0.6, cursor: 'default' },
+    } satisfies DividerProps['styles'];
   }
-  return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
+  return {
+    root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' },
+  } satisfies DividerProps['styles'];
 };
 
 const App: React.FC = () => (

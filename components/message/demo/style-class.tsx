@@ -11,8 +11,8 @@ const stylesObject: MessageArgsProps['styles'] = {
   icon: { fontSize: 20 },
 };
 
-const stylesFn: MessageArgsProps['styles'] = ({ props: { type } }) => {
-  if (type === 'success') {
+const stylesFn: MessageArgsProps['styles'] = ({ props }) => {
+  if (props.type === 'success') {
     return {
       root: {
         border: '1px solid #eee',
@@ -20,9 +20,8 @@ const stylesFn: MessageArgsProps['styles'] = ({ props: { type } }) => {
         borderRadius: 10,
         overflow: 'hidden',
       },
-    };
+    } satisfies MessageArgsProps['styles'];
   }
-
   return {};
 };
 
@@ -45,7 +44,7 @@ const App: React.FC = () => {
       content: 'This is a message with function classNames and styles',
       classNames: styles,
       styles: stylesFn,
-      duration: 10000000000,
+      duration: 60 * 1000,
     });
   };
 

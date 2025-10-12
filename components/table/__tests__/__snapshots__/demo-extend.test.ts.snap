@@ -30292,7 +30292,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
         >
           <div
             class="ant-table-title"
-            style="background: linear-gradient(90deg, #6a5acd, #836fff); color: rgb(255, 255, 255); font-size: 1.25rem; font-weight: 600; padding: 12px 16px;"
+            style="background-image: linear-gradient(90deg, #6a5acd, #836fff); color: rgb(255, 255, 255); font-size: 1.25rem; font-weight: 600; padding: 12px 16px;"
           >
             Table Function Styles
           </div>

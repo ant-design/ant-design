@@ -41,7 +41,7 @@ const stylesFn: SkeletonProps['styles'] = (info) => {
         height: 20,
         borderRadius: 20,
       },
-    };
+    } satisfies SkeletonProps['styles'];
   }
   return {};
 };
@@ -53,10 +53,7 @@ const App: React.FC = () => {
     <Flex gap="middle">
       <Skeleton classNames={classnames} styles={styles} avatar paragraph={false} />
       <Skeleton
-        classNames={{
-          ...classnames,
-          paragraph: paragraphStyles.paragraph,
-        }}
+        classNames={{ ...classnames, paragraph: paragraphStyles.paragraph }}
         styles={stylesFn}
         active
       />

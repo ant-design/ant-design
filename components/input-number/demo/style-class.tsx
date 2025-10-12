@@ -17,9 +17,14 @@ const stylesObject: InputNumberProps['styles'] = {
   },
 };
 
-const stylesFn: InputNumberProps['styles'] = ({ props: { size } }) => {
-  if (size === 'large') {
-    return { root: { backgroundColor: '#fafafa', borderColor: '#722ed1' } };
+const stylesFn: InputNumberProps['styles'] = ({ props }) => {
+  if (props.size === 'large') {
+    return {
+      root: {
+        backgroundColor: '#fafafa',
+        borderColor: '#722ed1',
+      },
+    } satisfies InputNumberProps['styles'];
   }
   return {};
 };
@@ -32,7 +37,7 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="middle">
       <InputNumber {...sharedProps} styles={stylesObject} placeholder="Object" />
-      <InputNumber {...sharedProps} placeholder="Function" size="large" styles={stylesFn} />
+      <InputNumber {...sharedProps} styles={stylesFn} placeholder="Function" size="large" />
     </Flex>
   );
 };

@@ -217,7 +217,7 @@ exports[`renders components/switch/demo/style-class.tsx extend context correctly
     aria-checked="false"
     class="ant-switch ant-switch-small acss-354296 css-var-test-id"
     role="switch"
-    style="background: rgb(245, 210, 210);"
+    style="background-color: rgb(245, 210, 210);"
     type="button"
   >
     <div

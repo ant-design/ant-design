@@ -11,23 +11,26 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const styles: CheckboxProps['styles'] = {
+  root: {
+    padding: 8,
+    borderRadius: 4,
+    borderColor: '#ccc',
+  },
+};
+
+const stylesFn: CheckboxProps['styles'] = (info) => {
+  if (info.props.checked) {
+    return {
+      root: { padding: 8, borderRadius: 4, borderColor: '#1890ff' },
+      label: { fontWeight: 'bold', color: '#333' },
+    } satisfies CheckboxProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-
-  const styles: CheckboxProps['styles'] = {
-    root: { padding: 8, borderRadius: 4, borderColor: '#ccc' },
-  };
-
-  const stylesFn: CheckboxProps['styles'] = (info) => {
-    if (info.props.checked) {
-      return {
-        root: { padding: 8, borderRadius: 4, borderColor: '#1890ff' },
-        label: { fontWeight: 'bold', color: '#333' },
-      };
-    }
-    return {};
-  };
-
   return (
     <Flex vertical gap="middle">
       <Checkbox classNames={classNames} styles={styles}>

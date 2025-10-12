@@ -15,7 +15,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
 }));
 
 const stylesObject: SliderSingleProps['styles'] = {
-  track: { background: 'linear-gradient(180deg, #91caff, #1677ff)' },
+  track: { backgroundImage: 'linear-gradient(180deg, #91caff, #1677ff)' },
   handle: { borderColor: '#1677ff', boxShadow: '0 2px 8px #1677ff' },
 };
 
@@ -23,9 +23,9 @@ const stylesFn: SliderSingleProps['styles'] = (info) => {
   if (info.props.orientation === 'vertical') {
     return {
       root: { height: 300 },
-      track: { background: 'linear-gradient(180deg, #722cc0, #722ed1)' },
+      track: { backgroundImage: 'linear-gradient(180deg, #722cc0, #722ed1)' },
       handle: { borderColor: '#722ed1', boxShadow: '0 2px 8px #722ed1' },
-    };
+    } satisfies SliderSingleProps['styles'];
   }
   return {};
 };
@@ -33,9 +33,7 @@ const stylesFn: SliderSingleProps['styles'] = (info) => {
 const App: React.FC = () => {
   const { styles } = useStyles();
   const sharedProps: SliderSingleProps = {
-    classNames: {
-      root: styles.root,
-    },
+    classNames: { root: styles.root },
     defaultValue: 30,
   };
   return (
@@ -43,10 +41,7 @@ const App: React.FC = () => {
       <Slider {...sharedProps} styles={stylesObject} />
       <Slider
         {...sharedProps}
-        classNames={{
-          root: styles.root,
-          handle: styles.handle,
-        }}
+        classNames={{ root: styles.root, handle: styles.handle }}
         orientation="vertical"
         reverse
         styles={stylesFn}
