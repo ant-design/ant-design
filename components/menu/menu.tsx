@@ -249,8 +249,14 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
             `${prefixCls}-${theme}`,
             overflowedIndicatorPopupClassName,
           )}
-          classNames={mergedClassNames}
-          styles={mergedStyles}
+          classNames={{
+            list: mergedClassNames.list,
+            listTitle: mergedClassNames.itemTitle,
+          }}
+          styles={{
+            list: mergedStyles.list,
+            listTitle: mergedStyles.itemTitle,
+          }}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
