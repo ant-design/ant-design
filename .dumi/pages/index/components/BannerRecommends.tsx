@@ -156,7 +156,7 @@ const BannerRecommends: React.FC = () => {
         showIcon
         type="error"
         message={error.message}
-        description={process.env.NODE_ENV === 'development' ? error.stack : undefined}
+        description={process.env.NODE_ENV !== 'production' ? error.stack : undefined}
       />
     );
   }
