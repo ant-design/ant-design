@@ -9,10 +9,13 @@ const useColumnIcons = (prefixCls: string, rtl: boolean, expandIcon?: React.Reac
     mergedExpandIcon = rtl ? <LeftOutlined /> : <RightOutlined />;
   }
 
-  const loadingIcon = (
-    <span className={`${prefixCls}-menu-item-loading-icon`}>
-      <LoadingOutlined spin />
-    </span>
+  const loadingIcon = React.useMemo(
+    () => (
+      <span className={`${prefixCls}-menu-item-loading-icon`}>
+        <LoadingOutlined spin />
+      </span>
+    ),
+    [prefixCls],
   );
 
   return React.useMemo<Readonly<[React.ReactNode, React.ReactNode]>>(
