@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 5.27.5
+
+`2025-10-14`
+
+- 🐞 修复 Tour 指定 `target` 为 Table 固定列头时定位错误的问题。[#55124](https://github.com/ant-design/ant-design/pull/55124) [@afc163](https://github.com/afc163)
+- 💄 修复 Card body 增加 `gap` 样式时有多余 padding 的问题。[#54974](https://github.com/ant-design/ant-design/pull/54974) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 💄 修复 DatePicker 文本颜色 token 错误的问题。[#55065](https://github.com/ant-design/ant-design/pull/55065) [@765477020](https://github.com/765477020)
+- 💄 修复 List 启用边框时会内容溢出的问题。[#55075](https://github.com/ant-design/ant-design/pull/55075) [@Jiyur](https://github.com/Jiyur)
+- ⌨️ 修复 Modal 缺失 `title` 属性的问题。[#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
+- ⚡️ 优化 Cascader loading 图标的渲染。[#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
+
+- TypeScript
+  - 🤖 修复 FloatButton `disabled` 属性类型缺失的问题。[#55156](https://github.com/ant-design/ant-design/pull/55156) [@deathemperor](https://github.com/deathemperor)
+
 ## 5.27.4
 
 `2025-09-17`
