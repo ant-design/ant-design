@@ -198,9 +198,9 @@ const GlobalLayout: React.FC = () => {
       cssVar: useCssVar,
       hashed: !useCssVar,
     };
-  }, [theme]);
+  }, [theme, useCssVar]);
 
-  const [styleCache] = React.useState(() => createCache());
+  const styleCache = React.useMemo(() => createCache(), []);
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(styleCache, {
