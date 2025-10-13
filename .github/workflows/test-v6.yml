@@ -122,8 +122,9 @@ jobs:
     needs: test-react-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: utooland/setup-utoo@v1
-      - run: ut install --ignore-scripts
+      - uses: utooland/setup-utoo@beta
+        with:
+          cache-utoo: true
 
       - uses: actions/download-artifact@v5
         with:
