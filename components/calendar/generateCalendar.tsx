@@ -202,12 +202,20 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
-              {cellRender ? cellRender(date, info) : dateCellRender?.(date)}
+              {typeof cellRender === 'function' ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
           </div>
         );
       },
-      [dateFullCellRender, dateCellRender, cellRender, fullCellRender],
+      [
+        today,
+        prefixCls,
+        calendarPrefixCls,
+        fullCellRender,
+        dateFullCellRender,
+        cellRender,
+        dateCellRender,
+      ],
     );
 
     const monthRender = React.useCallback(
@@ -232,12 +240,20 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               {months[generateConfig.getMonth(date)]}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
-              {cellRender ? cellRender(date, info) : monthCellRender?.(date)}
+              {typeof cellRender === 'function' ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
           </div>
         );
       },
-      [monthFullCellRender, monthCellRender, cellRender, fullCellRender],
+      [
+        today,
+        prefixCls,
+        calendarPrefixCls,
+        fullCellRender,
+        monthFullCellRender,
+        cellRender,
+        monthCellRender,
+      ],
     );
 
     const [contextLocale] = useLocale('Calendar', enUS);
