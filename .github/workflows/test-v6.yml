@@ -65,6 +65,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
+        with:
+          cache-utoo: true
       - run: ut install --ignore-scripts
 
       # dom test
