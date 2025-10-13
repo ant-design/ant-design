@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@beta
         with:
           cache-utoo: true
       - run: ut install --ignore-scripts
