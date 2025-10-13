@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: utooland/setup-utoo@beta
+      - uses: utooland/setup-utoo@v1
       - run: ut install --ignore-scripts
 
       # dom test
@@ -120,7 +120,7 @@ jobs:
     needs: test-react-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: utooland/setup-utoo@beta
+      - uses: utooland/setup-utoo@v1
       - uses: actions/download-artifact@v5
         with:
           pattern: coverage-artifacts-*
