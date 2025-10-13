@@ -25,7 +25,6 @@ tag: vVERSION
 - 💄 修复 List 启用边框时会内容溢出的问题。[#55075](https://github.com/ant-design/ant-design/pull/55075) [@Jiyur](https://github.com/Jiyur)
 - ⌨️ 修复 Modal 缺失 `title` 属性的问题。[#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
 - ⚡️ 优化 Cascader loading 图标的渲染。[#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
-
 - TypeScript
   - 🤖 修复 FloatButton `disabled` 属性类型缺失的问题。[#55156](https://github.com/ant-design/ant-design/pull/55156) [@deathemperor](https://github.com/deathemperor)
 
