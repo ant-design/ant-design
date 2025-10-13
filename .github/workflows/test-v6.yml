@@ -65,8 +65,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@beta
-        with:
-          cache-utoo: true
       - run: ut install --ignore-scripts
 
       # dom test
@@ -123,9 +121,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@beta
-        with:
-          cache-utoo: true
-
       - uses: actions/download-artifact@v5
         with:
           pattern: coverage-artifacts-*
