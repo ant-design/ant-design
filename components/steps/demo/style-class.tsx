@@ -19,8 +19,10 @@ const stylesObject: StepsProps['styles'] = {
 const stylesFn: StepsProps['styles'] = (info) => {
   if (info.props.type === 'navigation') {
     return {
-      root: { borderColor: '#1890ff' },
-    };
+      root: {
+        borderColor: '#1890ff',
+      },
+    } satisfies StepsProps['styles'];
   }
   return {};
 };
@@ -30,29 +32,18 @@ const App: React.FC = () => {
 
   const sharedProps: StepsProps = {
     items: [
-      {
-        title: 'Finished',
-        content: 'This is a content.',
-      },
-      {
-        title: 'In Progress',
-        content: 'This is a content.',
-      },
-      {
-        title: 'Waiting',
-        content: 'This is a content.',
-      },
+      { title: 'Finished', content: 'This is a content.' },
+      { title: 'In Progress', content: 'This is a content.' },
+      { title: 'Waiting', content: 'This is a content.' },
     ],
     current: 1,
-    classNames: {
-      root: styles.root,
-    },
+    classNames: { root: styles.root },
   };
 
   return (
     <Flex vertical gap="middle">
       <Steps {...sharedProps} styles={stylesObject} />
-      <Steps {...sharedProps} type="navigation" styles={stylesFn} />
+      <Steps {...sharedProps} styles={stylesFn} type="navigation" />
     </Flex>
   );
 };

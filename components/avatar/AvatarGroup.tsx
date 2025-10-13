@@ -117,7 +117,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     const mergeStyle = max?.style || maxStyle;
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
     const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
-        
+
     const popoverProps: PopoverProps = {
       content: childrenHidden,
       ...max?.popover,

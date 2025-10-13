@@ -10,6 +10,32 @@ const useStyle = createStyles(() => ({
   },
 }));
 
+const styleFn: SegmentedProps['styles'] = (info) => {
+  if (info.props.vertical) {
+    return {
+      root: {
+        border: '1px solid #77BEF0',
+        padding: 4,
+        width: 100,
+      },
+      icon: {
+        color: '#77BEF0',
+      },
+      item: {
+        textAlign: 'start',
+      },
+    } satisfies SegmentedProps['styles'];
+  }
+  return {};
+};
+
+const styles: SegmentedProps['styles'] = {
+  root: {
+    padding: 4,
+    width: 260,
+  },
+};
+
 const options: SegmentedProps['options'] = [
   {
     label: 'Boost',
@@ -34,32 +60,6 @@ const App: React.FC = () => {
   const segmentedSharedProps: SegmentedProps = {
     options,
     classNames,
-  };
-
-  const styleFn: SegmentedProps['styles'] = (info) => {
-    if (info.props.vertical) {
-      return {
-        root: {
-          border: '1px solid #77BEF0',
-          padding: 4,
-          width: 100,
-        },
-        icon: {
-          color: '#77BEF0',
-        },
-        item: {
-          textAlign: 'start',
-        },
-      };
-    }
-    return {};
-  };
-
-  const styles: SegmentedProps['styles'] = {
-    root: {
-      padding: 4,
-      width: 260,
-    },
   };
 
   return (

@@ -186,14 +186,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       name={name}
       className={cls}
       style={mergedStyle}
-      classNames={{
-        label: mergedClassNames.label,
-        item: mergedClassNames.item,
-      }}
-      styles={{
-        item: mergedStyles.item,
-        label: mergedStyles.label,
-      }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       itemRender={itemRender}
       options={extendedOptions}
       ref={ref}

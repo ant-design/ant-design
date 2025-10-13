@@ -51,7 +51,6 @@ export default antfu(
       'react/no-create-ref': 'off', // TODO: remove this
       'react/no-comment-textnodes': 'off',
       'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
-      'react-dom/no-missing-button-type': 'off',
       'perfectionist/sort-imports': 'off',
       'regexp/strict': 'off',
       /* turn off React 19 only rules */

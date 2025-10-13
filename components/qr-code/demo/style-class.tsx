@@ -11,29 +11,30 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+const stylesObject: QRCodeProps['styles'] = {
+  root: {
+    border: '2px solid #1890ff',
+    borderRadius: 8,
+    padding: 16,
+    backgroundColor: 'rgb(24, 144, 255, 0.1)',
+  },
+};
+
+const stylesFunction: QRCodeProps['styles'] = (info) => {
+  if (info.props.type === 'canvas') {
+    return {
+      root: {
+        border: '2px solid #ff4d4f',
+        borderRadius: 8,
+        padding: 16,
+        backgroundColor: 'rgba(255, 77, 79, 0.1)',
+      },
+    } satisfies QRCodeProps['styles'];
+  }
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-  const stylesObject: QRCodeProps['styles'] = {
-    root: {
-      border: '2px solid #1890ff',
-      borderRadius: '8px',
-      padding: '16px',
-      backgroundColor: 'rgb(24,144,255, 0.1)',
-    },
-  };
-
-  const stylesFunction: QRCodeProps['styles'] = (info) => {
-    if (info.props.type === 'canvas') {
-      return {
-        root: {
-          border: '2px solid #ff4d4f',
-          borderRadius: 8,
-          padding: 16,
-          backgroundColor: 'rgba(255, 77, 79, 0.1)',
-        },
-      };
-    }
-  };
 
   const sharedProps: QRCodeProps = {
     value: 'https://ant.design/',

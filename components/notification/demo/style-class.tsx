@@ -9,15 +9,14 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: NotificationArgsProps['styles'] = ({ props: { type } }) => {
-  if (type === 'error') {
+const styleFn: NotificationArgsProps['styles'] = ({ props }) => {
+  if (props.type === 'error') {
     return {
       root: {
-        background: `rgba(255,200,200,0.3)`,
+        backgroundColor: `rgba(255, 200, 200, 0.3)`,
       },
-    };
+    } satisfies NotificationArgsProps['styles'];
   }
-
   return {};
 };
 
@@ -29,19 +28,13 @@ const App: React.FC = () => {
     title: 'Notification Title',
     description: 'This is a notification description.',
     duration: null,
-    classNames: {
-      root: styles.root,
-    },
+    classNames: { root: styles.root },
   };
 
   const openDefault = () => {
     api.info({
       ...sharedProps,
-      styles: {
-        root: {
-          borderRadius: 8,
-        },
-      },
+      styles: { root: { borderRadius: 8 } },
     });
   };
 

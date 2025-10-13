@@ -14,37 +14,37 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const stylesObject: FormProps['styles'] = {
+  label: {
+    textAlign: 'end',
+    color: '#333',
+    fontWeight: 500,
+  },
+  content: {
+    paddingInlineStart: 12,
+  },
+};
+
+const stylesFunction: FormProps['styles'] = (info) => {
+  if (info.props.variant === 'filled') {
+    return {
+      root: {
+        border: '1px solid #1677FF',
+      },
+      label: {
+        textAlign: 'end',
+        color: '#1677FF',
+      },
+      content: {
+        paddingInlineStart: 12,
+      },
+    } satisfies FormProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-
-  const stylesObject: FormProps['styles'] = {
-    label: {
-      textAlign: 'end',
-      color: '#333',
-      fontWeight: 500,
-    },
-    content: {
-      paddingInlineStart: 12,
-    },
-  };
-
-  const stylesFunction: FormProps['styles'] = (info) => {
-    if (info.props.variant === 'filled') {
-      return {
-        root: {
-          border: '1px solid #1677FF',
-        },
-        label: {
-          textAlign: 'end',
-          color: '#1677FF',
-        },
-        content: {
-          paddingInlineStart: 12,
-        },
-      };
-    }
-    return {};
-  };
 
   const sharedProps: FormProps = {
     labelCol: { span: 4 },
@@ -87,8 +87,7 @@ const App: React.FC = () => {
       <Form {...sharedProps} styles={stylesObject}>
         {sharedFormContent}
       </Form>
-
-      <Form {...sharedProps} variant="filled" styles={stylesFunction}>
+      <Form {...sharedProps} styles={stylesFunction} variant="filled">
         {sharedFormContent}
       </Form>
     </>

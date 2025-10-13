@@ -12,18 +12,9 @@ const useStyles = createStyles(({ token }) => ({
 }));
 
 const options: MentionsProps['options'] = [
-  {
-    value: 'afc163',
-    label: 'afc163',
-  },
-  {
-    value: 'zombieJ',
-    label: 'zombieJ',
-  },
-  {
-    value: 'Meet-student',
-    label: 'Meet-student',
-  },
+  { value: 'afc163', label: 'afc163' },
+  { value: 'zombieJ', label: 'zombieJ' },
+  { value: 'Meet-student', label: 'Meet-student' },
 ];
 
 const stylesObject: MentionsProps['styles'] = {
@@ -41,7 +32,7 @@ const stylesFunction: MentionsProps['styles'] = (info) => {
       popup: {
         border: '1px solid #722ed1',
       },
-    };
+    } satisfies MentionsProps['styles'];
   }
 };
 
@@ -55,8 +46,8 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="middle">
-      <Mentions {...sharedProps} placeholder="Object" styles={stylesObject} />
-      <Mentions {...sharedProps} variant="filled" placeholder="Function" styles={stylesFunction} />
+      <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" />
+      <Mentions {...sharedProps} styles={stylesFunction} variant="filled" placeholder="Function" />
     </Flex>
   );
 };

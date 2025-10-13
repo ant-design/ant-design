@@ -1630,7 +1630,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     />
     <div
       class="ant-slider-track"
-      style="left: 0%; width: 30%; background: linear-gradient(180deg, #91caff, #1677ff);"
+      style="left: 0%; width: 30%; background-image: linear-gradient(180deg, #91caff, #1677ff);"
     />
     <div
       class="ant-slider-step"
@@ -1677,7 +1677,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     />
     <div
       class="ant-slider-track"
-      style="top: 0%; height: 30%; background: linear-gradient(180deg, #722cc0, #722ed1);"
+      style="top: 0%; height: 30%; background-image: linear-gradient(180deg, #722cc0, #722ed1);"
     />
     <div
       class="ant-slider-step"

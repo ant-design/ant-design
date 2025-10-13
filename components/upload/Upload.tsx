@@ -427,8 +427,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     }
     return (
       <UploadList
-        classNames={{ list: mergedClassNames.list, item: mergedClassNames.item }}
-        styles={{ list: mergedStyles.list, item: mergedStyles.item }}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
         prefixCls={prefixCls}
         listType={listType}
         items={mergedFileList}

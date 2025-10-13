@@ -11,22 +11,26 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const styles: RadioProps['styles'] = {
+  root: {
+    padding: 8,
+    borderRadius: 4,
+    borderColor: '#ccc',
+  },
+};
+
+const stylesFn: RadioProps['styles'] = (info) => {
+  if (info.props.checked) {
+    return {
+      root: { padding: 8, borderRadius: 4, borderColor: '#1890ff' },
+      label: { fontWeight: 'bold', color: '#333' },
+    } satisfies RadioProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-
-  const styles: RadioProps['styles'] = {
-    root: { padding: 8, borderRadius: 4, borderColor: '#ccc' },
-  };
-
-  const stylesFn: RadioProps['styles'] = (info) => {
-    if (info.props.checked) {
-      return {
-        root: { padding: 8, borderRadius: 4, borderColor: '#1890ff' },
-        label: { fontWeight: 'bold', color: '#333' },
-      };
-    }
-    return {};
-  };
   return (
     <Flex vertical gap="middle">
       <Radio classNames={classNames} styles={styles}>

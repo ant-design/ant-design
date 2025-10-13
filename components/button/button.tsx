@@ -28,10 +28,13 @@ import useStyle from './style';
 import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
+
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
 
 export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+
 export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
+
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;

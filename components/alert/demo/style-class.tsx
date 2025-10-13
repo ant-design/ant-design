@@ -21,7 +21,7 @@ const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
       icon: {
         color: '#52c41a',
       },
-    };
+    } satisfies AlertProps['styles'];
   }
 
   if (type === 'warning') {
@@ -33,7 +33,7 @@ const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
       icon: {
         color: '#faad14',
       },
-    };
+    } satisfies AlertProps['styles'];
   }
 
   return {};

@@ -175,6 +175,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closable = false,
     onConfirm,
     styles,
+    title,
     okButtonProps,
     cancelButtonProps,
   } = props;
@@ -229,7 +230,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         close?.({ triggerCancel: true });
         onConfirm?.(false);
       }}
-      title=""
+      title={title}
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}

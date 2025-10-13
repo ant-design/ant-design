@@ -75,7 +75,7 @@ const stylesFn: CascaderProps['styles'] = (info) => {
           color: '#1890ff',
         },
       },
-    };
+    } satisfies CascaderProps['styles'];
   }
   return {};
 };
@@ -96,7 +96,6 @@ const App: React.FC = () => {
         styles={stylesObject}
         prefix="🏠"
       />
-
       <Cascader
         options={options}
         onChange={onChange}

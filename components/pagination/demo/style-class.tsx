@@ -10,16 +10,15 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: PaginationProps['styles'] = ({ props: { size } }) => {
-  if (size === 'small') {
+const styleFn: PaginationProps['styles'] = ({ props }) => {
+  if (props.size === 'small') {
     return {
       item: {
-        background: `rgba(200,200,200,0.3)`,
+        backgroundColor: `rgba(200, 200, 200, 0.3)`,
         marginInlineEnd: 4,
       },
-    };
+    } satisfies PaginationProps['styles'];
   }
-
   return {};
 };
 
@@ -28,22 +27,12 @@ const App: React.FC = () => {
 
   const paginationSharedProps: PaginationProps = {
     total: 500,
-    classNames: {
-      root: styles.root,
-    },
+    classNames: { root: styles.root },
   };
 
   return (
     <Flex vertical gap="middle">
-      <Pagination
-        {...paginationSharedProps}
-        styles={{
-          item: {
-            borderRadius: 999,
-          },
-        }}
-      />
-
+      <Pagination {...paginationSharedProps} styles={{ item: { borderRadius: 999 } }} />
       <Pagination {...paginationSharedProps} size="small" styles={styleFn} />
     </Flex>
   );
