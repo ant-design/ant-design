@@ -166,5 +166,10 @@ export default function useClosable(
     }
 
     return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
-  }, [mergedClosableConfig, mergedFallbackCloseCollection]);
+  }, [
+    closeBtnIsDisabled,
+    contextLocale.close,
+    mergedClosableConfig,
+    mergedFallbackCloseCollection,
+  ]);
 }
