@@ -23,7 +23,7 @@ tag: vVERSION
 - 💄 Fix Card body extra padding when adding `gap` style. [#54974](https://github.com/ant-design/ant-design/pull/54974) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 💄 Fix DatePicker design token for text color. [#55065](https://github.com/ant-design/ant-design/pull/55065) [@765477020](https://github.com/765477020)
 - 💄 Fix List overflow problem when bordered. [#55075](https://github.com/ant-design/ant-design/pull/55075) [@Jiyur](https://github.com/Jiyur)
-- ⌨️ Fix Modal `title` attribute missing problem. [#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
+- ⌨️ Fix Modal.confirm `aria-labelledby` accessibility attribute missing problem. [#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
 - ⚡️ Improve Cascader rendering for loading icon. [#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
 - TypeScript
   - 🤖 Fix FloatButton type definition missing for `disabled` property. [#55156](https://github.com/ant-design/ant-design/pull/55156) [@deathemperor](https://github.com/deathemperor)
