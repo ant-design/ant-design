@@ -2,21 +2,25 @@ import React from 'react';
 import { SettingOutlined } from '@ant-design/icons';
 import { Cascader, Input, Select, Space } from 'antd';
 
-const { Option } = Select;
-
 const selectBefore = (
-  <Select defaultValue="http://">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
+  <Select
+    defaultValue="http://"
+    options={[
+      { value: 'http://', label: 'http://' },
+      { value: 'https://', label: 'https://' },
+    ]}
+  />
 );
 const selectAfter = (
-  <Select defaultValue=".com">
-    <Option value=".com">.com</Option>
-    <Option value=".jp">.jp</Option>
-    <Option value=".cn">.cn</Option>
-    <Option value=".org">.org</Option>
-  </Select>
+  <Select
+    defaultValue=".com"
+    options={[
+      { value: '.com', label: '.com' },
+      { value: '.jp', label: '.jp' },
+      { value: '.cn', label: '.cn' },
+      { value: '.org', label: '.org' },
+    ]}
+  />
 );
 
 const App: React.FC = () => (
