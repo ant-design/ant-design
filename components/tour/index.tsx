@@ -40,7 +40,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
           [`${prefixCls}-primary`]: (step.type ?? type) === 'primary',
         }),
       })),
-    [steps, type],
+    [prefixCls, steps, type],
   );
 
   const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
