@@ -74,7 +74,6 @@ exports[`antd exports modules correctly 1`] = `
   "message",
   "notification",
   "theme",
-  "unstableSetRender",
   "version",
 ]
 `;

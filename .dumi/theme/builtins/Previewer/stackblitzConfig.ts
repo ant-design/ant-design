@@ -122,7 +122,6 @@ const getStackblitzConfig = ({
     // main.tsx
     [`src/main.${_suffix}`]: `import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@ant-design/v5-patch-for-react-19';
 import Demo from './demo';
 
 createRoot(document.getElementById('container')${suffix === 'tsx' ? '!' : ''}).render(
