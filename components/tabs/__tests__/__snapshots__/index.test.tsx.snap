@@ -149,7 +149,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
           data-node-key="null"
-          style="margin-left: 0px;"
+          style="margin-inline-start: 0;"
         >
           <div
             aria-controls="rc-tabs-test-panel-null"
@@ -163,7 +163,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
           data-node-key="null"
-          style="margin-left: 0px;"
+          style="margin-inline-start: 0;"
         >
           <div
             aria-controls="rc-tabs-test-panel-null"
@@ -188,7 +188,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
-        style="margin-left: 0px; visibility: hidden; order: 1;"
+        style="margin-inline-start: 0; visibility: hidden; order: 1;"
         type="button"
       >
         <span
@@ -319,7 +319,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
-        style="margin-left: 0px; visibility: hidden; order: 1;"
+        style="margin-inline-start: 0; visibility: hidden; order: 1;"
         type="button"
       >
         <span
