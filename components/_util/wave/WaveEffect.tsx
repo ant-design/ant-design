@@ -102,7 +102,7 @@ const WaveEffect = (props: WaveEffectProps) => {
         resizeObserver?.disconnect();
       };
     }
-  }, []);
+  }, [target]);
 
   if (!enabled) {
     return null;
