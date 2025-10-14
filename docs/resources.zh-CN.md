@@ -41,6 +41,10 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
   - 官方
+- AntUIKit
+  - https://www.antuikit.com/antuikit.svg
+  - Ant Design System 
+  - https://www.antuikit.com
 - Figma 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 在 Figma 使用 Ant Design 进行设计
