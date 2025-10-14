@@ -66,7 +66,7 @@ jobs:
     needs: [upstream-workflow-summary]
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
       # We need get persist-index first
       - name: download image snapshot artifact
@@ -112,7 +112,7 @@ jobs:
           echo "✅ Uncompress Finished"
 
           rm package.json
-          bun add ali-oss --no-save
+          ut i ali-oss -g
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
