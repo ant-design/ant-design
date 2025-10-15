@@ -49,7 +49,6 @@ export default antfu(
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
-      'react/no-comment-textnodes': 'off',
       'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-named-imports': 'off',
@@ -59,7 +58,6 @@ export default antfu(
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
       'react/no-use-context': 'off',
-      'react-hooks-extra/no-unnecessary-use-prefix': 'off',
       'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
       /* turn off 升级 @antfu/eslint-config@6 带来的 warning */
       'react/no-unnecessary-use-prefix': 'off',
