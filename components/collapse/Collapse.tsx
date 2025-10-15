@@ -181,7 +181,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     () => ({
       ...initCollapseMotion(rootPrefixCls),
       motionAppear: false,
-      leavedClassName: `${prefixCls}-content-hidden`,
+      leavedClassName: `${prefixCls}-panel-hidden`,
     }),
     [rootPrefixCls, prefixCls],
   );
