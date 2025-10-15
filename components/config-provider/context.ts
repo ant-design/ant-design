@@ -322,7 +322,7 @@ export interface ConfigComponentProps {
 
 export interface ConfigConsumerProps extends ConfigComponentProps {
   getTargetContainer?: () => HTMLElement | Window | ShadowRoot;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement | ShadowRoot;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   iconPrefixCls: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
