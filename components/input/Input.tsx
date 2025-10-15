@@ -81,7 +81,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       ['addonAfter', 'Space.Compat'],
       ['addonBefore', 'Space.Compat'],
     ].forEach(([prop, newProp]) => {
-      deprecated(!(prop in props), prop, `Please use \`${newProp}\` instead.`);
+      deprecated(!(prop in props), prop, newProp);
     });
   }
 
