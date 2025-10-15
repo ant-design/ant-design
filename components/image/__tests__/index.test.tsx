@@ -90,7 +90,9 @@ describe('Image', () => {
       <>
         <div className="container" />
         <ConfigProvider
-          getPopupContainer={() => document.querySelector('.container')! as HTMLElement}
+          getPopupContainer={() =>
+            document.querySelector<HTMLDivElement>('.container') || document.body
+          }
         >
           <Image src={src} />
         </ConfigProvider>
