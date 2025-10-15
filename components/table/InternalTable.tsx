@@ -488,23 +488,27 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (position: string) => (
-      <Pagination
-        {...mergedPagination}
-        className={classNames(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
-          mergedPagination.className,
-        )}
-        size={paginationSize}
-      />
-    );
+    const renderPagination = (position: string) => {
+      const align = ({ left: 'start', right: 'end' }[position] || position) as
+        | 'start'
+        | 'center'
+        | 'end';
+      return (
+        <Pagination
+          {...mergedPagination}
+          align={mergedPagination.align || align}
+          className={classNames(`${prefixCls}-pagination`, mergedPagination.className)}
+          size={paginationSize}
+        />
+      );
+    };
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
       const topPos = position.find((p) => p.includes('top'));
       const bottomPos = position.find((p) => p.includes('bottom'));
-      const isDisable = position.every((p) => `${p}` === 'none');
-      if (!topPos && !bottomPos && !isDisable) {
+      const isDisabled = position.every((p) => `${p}` === 'none');
+      if (!topPos && !bottomPos && !isDisabled) {
         bottomPaginationNode = renderPagination(defaultPosition);
       }
       if (topPos) {
@@ -519,17 +523,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
-    };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
-  }
+  const spinProps: SpinProps | undefined = React.useMemo(() => {
+    if (typeof loading === 'boolean') {
+      return loading ? { spinning: loading } : undefined;
+    }
+    if (typeof loading === 'object') {
+      return { spinning: true, ...loading };
+    }
+    return undefined;
+  }, [loading]);
 
   const wrapperClassNames = classNames(
     cssVarCls,

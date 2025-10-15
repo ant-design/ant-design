@@ -413,6 +413,11 @@ describe('Table.pagination', () => {
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
   });
 
+  it('should support align props', () => {
+    const { container } = render(createTable({ pagination: { align: 'center' } }));
+    expect(container.querySelector('.ant-pagination-center')).toBeTruthy();
+  });
+
   /**
    * `pagination` is not designed to accept `true` value, but in practice, many people assign `true`
    * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
