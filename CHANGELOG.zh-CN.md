@@ -24,7 +24,7 @@ tag: vVERSION
 - 💄 修复 DatePicker 文本颜色 token 错误的问题。[#55065](https://github.com/ant-design/ant-design/pull/55065) [@765477020](https://github.com/765477020)
 - 💄 修复 List 启用边框时会内容溢出的问题。[#55075](https://github.com/ant-design/ant-design/pull/55075) [@Jiyur](https://github.com/Jiyur)
 - ⌨️ 修复 Modal.confirm 缺失 `aria-labelledby` 可访问性属性的问题。[#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
-- ⚡️ 优化 Cascader loading 图标的渲染。[#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ 优化 Cascader 加载中图标的渲染。[#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
 - TypeScript
   - 🤖 修复 FloatButton `disabled` 属性类型缺失的问题。[#55156](https://github.com/ant-design/ant-design/pull/55156) [@deathemperor](https://github.com/deathemperor)
 
