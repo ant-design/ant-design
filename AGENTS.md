@@ -272,6 +272,20 @@ export function TestComp(props) {
 - 新的属性需要声明可用的版本号
 - 属性命名符合 antd 的 API 命名规则
 
+### 文档锚点 ID 规范
+
+- 针对 Markdown 文件中的标题（# 到 ######）自动生成锚点 ID
+  - 所有中文标题（H1-H6）必须手动指定一个简洁、有意义的英文锚点。
+  - 格式: ## 中文标题 {#english-anchor-id}
+  - 英文标题通常不需要手动指定锚点，但如果需要，可以使用相同的格式。
+- 锚点 ID 必须符合正则表达式 `^[a-zA-Z][\w-:\.]*$`, 且长度不应超过 32 个字符。
+- 用于演示（demo）且包含 `-demo-` 的 id 不受前面的长度限制。
+- FAQ 章节下的所有标题锚点必须以 `faq-` 作为前缀。
+- 为确保在不同语言间切换时锚点依然有效，同一问题的中英文锚点应保持完全一致。
+  - 例如：
+    - 中文标题：`### 如何使用组件 {#how-to-use-component}`
+    - 英文标题：`### How to Use the Component {#how-to-use-component}`
+
 ### Changelog 规范
 
 - 在 CHANGELOG.en-US.md 和 CHANGELOG.zh-CN.md 书写每个版本的变更

@@ -73,7 +73,9 @@ describe('Image', () => {
     const { container, baseElement } = render(
       <>
         <div className="container" />
-        <ConfigProvider getPopupContainer={() => document.querySelector('.container')!}>
+        <ConfigProvider
+          getPopupContainer={() => document.querySelector<HTMLDivElement>('.container')!}
+        >
           <Image alt={alt} src={src} />
         </ConfigProvider>
       </>,
