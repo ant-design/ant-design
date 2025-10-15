@@ -519,17 +519,12 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
-    };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
-  }
+  const spinProps: SpinProps | undefined =
+    typeof loading === 'boolean'
+      ? { spinning: loading }
+      : typeof loading === 'object'
+        ? { spinning: true, ...loading }
+        : undefined;
 
   const wrapperClassNames = classNames(
     cssVarCls,
