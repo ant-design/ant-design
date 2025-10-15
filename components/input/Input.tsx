@@ -76,7 +76,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const { deprecated } = devUseWarning('Input');
-    deprecated(!('bordered' in props), 'bordered', 'variant');
+    [
+      ['bordered', 'variant'],
+      ['addonAfter', 'Space.Compat'],
+      ['addonBefore', 'Space.Compat'],
+    ].forEach(([prop, newProp]) => {
+      deprecated(!(prop in props), prop, `Please use \`${newProp}\` instead.`);
+    });
   }
 
   const {
