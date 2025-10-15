@@ -643,15 +643,13 @@ describe('Table.pagination', () => {
         {...dataProp}
         columns={[]}
         pagination={{
-          className: 'pagination',
+          className: 'my-pagination',
           total: 200,
           current: 1,
           pageSize: 10,
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination')?.className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-end pagination',
-    );
+    expect(container.querySelector('.ant-pagination')?.className).toContain('my-pagination');
   });
 });

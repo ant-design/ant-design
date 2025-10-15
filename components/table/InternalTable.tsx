@@ -607,17 +607,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
-  const { top: topPaginationNode, bottom: bottomPaginationNode } = React.useMemo(
-    getPaginationNodes,
-    [
-      pagination,
-      mergedPagination?.total,
-      mergedPagination?.position,
-      mergedPagination?.size,
-      mergedSize,
-      direction,
-    ],
-  );
+  const { top: topPaginationNode, bottom: bottomPaginationNode } = getPaginationNodes();
 
   return wrapCSSVar(
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
