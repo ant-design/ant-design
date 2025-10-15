@@ -651,7 +651,7 @@ describe('Table.pagination', () => {
       />,
     );
     expect(container.querySelector('.ant-pagination')?.className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
+      'ant-pagination ant-table-pagination ant-table-pagination-end pagination',
     );
   });
 });
