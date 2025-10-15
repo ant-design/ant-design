@@ -523,15 +523,17 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  const spinProps: SpinProps | undefined = React.useMemo(() => {
-    if (typeof loading === 'boolean') {
-      return loading ? { spinning: loading } : undefined;
-    }
-    if (typeof loading === 'object') {
-      return { spinning: true, ...loading };
-    }
-    return undefined;
-  }, [loading]);
+  let spinProps: SpinProps | undefined;
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
+    };
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
+  }
 
   const wrapperClassNames = classNames(
     cssVarCls,
