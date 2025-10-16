@@ -145,7 +145,8 @@ export function useInternalNotification(
         closeIcon,
         closable,
         ...restConfig
-      } = config;
+      } = extendsObject(notificationConfig, config);
+
       if (process.env.NODE_ENV !== 'production') {
         warning.deprecated(!btn, 'btn', 'actions');
       }
