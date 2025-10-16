@@ -22,7 +22,7 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>面性变体 Debug</code>
-<code src="./demo/addon.tsx">前置/后置标签</code>
+<code src="./demo/addon.tsx" debug>前置/后置标签</code>
 <code src="./demo/compact-style.tsx">紧凑模式</code>
 <code src="./demo/group.tsx" debug>输入框组合</code>
 <code src="./demo/search-input.tsx">搜索框</code>
@@ -52,10 +52,10 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| addonAfter | 带标签的 input，设置后置标签 | ReactNode | - |  |
-| addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
+| ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 `Space.Compat` 替换 | ReactNode | - |  |
+| ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 `Space.Compat` 替换 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
-| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | 4.5.0 |
+| ~~bordered~~ | 是否有边框，请使用 `variant` 替换 | boolean | true | 4.5.0 |
 | classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
@@ -148,10 +148,10 @@ interface CountConfig {
 
 #### VisibilityToggle
 
-| 参数            | 说明                 | 类型                | 默认值 | 版本 |
-| --------------- | -------------------- | ------------------- | ------ | ---- |
-| visible         | 用于手动控制密码显隐 | boolean             | false  | 4.24 |
-| onVisibleChange | 显隐密码的回调       | (visible) => void   | -      | 4.24 |
+| 参数            | 说明                 | 类型              | 默认值 | 版本 |
+| --------------- | -------------------- | ----------------- | ------ | ---- |
+| visible         | 用于手动控制密码显隐 | boolean           | false  | 4.24 |
+| onVisibleChange | 显隐密码的回调       | (visible) => void | -      | 4.24 |
 
 #### Input Methods
 
