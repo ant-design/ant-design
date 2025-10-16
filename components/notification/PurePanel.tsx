@@ -15,6 +15,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
+import { getCloseIconConfig } from './util';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -87,12 +88,12 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     description,
     btn,
     actions,
-    closable = true,
+    closable,
     closeIcon,
     className: notificationClassName,
     ...restProps
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, notification } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Notification');
@@ -100,6 +101,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   }
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
+
+  const realCloseIcon = getCloseIcon(noticePrefixCls, getCloseIconConfig(closeIcon, notification));
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -114,11 +117,11 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         prefixCls={prefixCls}
         eventKey="pure"
         duration={null}
-        closable={closable}
+        closable={closable ?? !!realCloseIcon}
         className={classNames({
           notificationClassName,
         })}
-        closeIcon={getCloseIcon(prefixCls, closeIcon)}
+        closeIcon={realCloseIcon}
         content={
           <PureContent
             prefixCls={noticePrefixCls}
