@@ -90,7 +90,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     actions,
     closable,
     closeIcon,
-    className: notificationClassName,
     ...restProps
   } = props;
   const { getPrefixCls, notification } = React.useContext(ConfigContext);
@@ -109,7 +108,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   return wrapCSSVar(
     <div
-      className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, cssVarCls, rootCls)}
+      className={classNames(
+        `${noticePrefixCls}-pure-panel`,
+        hashId,
+        className,
+        cssVarCls,
+        rootCls,
+        notification?.className,
+      )}
     >
       <PurePanelStyle prefixCls={prefixCls} />
       <Notice
@@ -118,9 +124,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         eventKey="pure"
         duration={null}
         closable={closable ?? !!realCloseIcon}
-        className={classNames({
-          notificationClassName,
-        })}
         closeIcon={realCloseIcon}
         content={
           <PureContent
