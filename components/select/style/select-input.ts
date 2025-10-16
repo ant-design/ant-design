@@ -5,47 +5,73 @@ import { resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
 import type { SelectToken } from './token';
 
-const genSelectInputVariantStyle = (
-  token: SelectToken,
-  variant: string,
-  colors: {
-    borderColor: string;
-    borderColorHover: string;
-    borderColorActive: string;
-    borderColorOutline: string;
+interface VariableColors {
+  border: string;
+  borderHover: string;
+  borderActive: string;
+  borderOutline: string;
 
-    background?: string;
-    backgroundHover?: string;
-    backgroundActive?: string;
-  },
-  patchStyle?: CSSObject,
-): CSSObject => {
+  background?: string;
+  backgroundHover?: string;
+  backgroundActive?: string;
+
+  color?: string;
+}
+
+const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors): CSSObject => {
   const { componentCls } = token;
-  const { borderColor, borderColorHover, borderColorActive, borderColorOutline } = colors;
+  const { border, borderHover, borderActive, borderOutline } = colors;
 
   const baseBG = colors.background || token.colorBgContainer;
 
   return {
-    [`&${componentCls}-${variant}`]: {
-      '--select-border-color': borderColor,
-      '--select-background': baseBG,
+    '--select-border-color': border,
+    '--select-background': baseBG,
+    '--select-color': colors.color || token.colorText,
 
-      [`&:not(${componentCls}-disabled)`]: {
-        '&:hover': {
-          '--select-border-color': borderColorHover,
-          '--select-background': colors.backgroundHover || baseBG,
-        },
-
-        [`&${componentCls}-focused`]: {
-          '--select-border-color': borderColorActive,
-          '--select-background': colors.backgroundActive || baseBG,
-
-          boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${borderColorOutline}`,
-        },
+    [`&:not(${componentCls}-disabled)`]: {
+      '&:hover': {
+        '--select-border-color': borderHover,
+        '--select-background': colors.backgroundHover || baseBG,
       },
 
-      ...patchStyle,
+      [`&${componentCls}-focused`]: {
+        '--select-border-color': borderActive,
+        '--select-background': colors.backgroundActive || baseBG,
+
+        boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${borderOutline}`,
+      },
     },
+  };
+};
+
+const genSelectInputVariantStyle = (
+  token: SelectToken,
+  variant: string,
+  colors: VariableColors,
+  errorColors: Partial<VariableColors> = {},
+  warningColors: Partial<VariableColors> = {},
+  patchStyle?: CSSObject,
+): CSSObject => {
+  const { componentCls } = token;
+
+  return {
+    [`&${componentCls}-${variant}`]: [
+      genSelectInputVariableStyle(token, colors),
+      {
+        [`&${componentCls}-status-error`]: genSelectInputVariableStyle(token, {
+          ...colors,
+          color: errorColors.color || token.colorError,
+          ...errorColors,
+        }),
+        [`&${componentCls}-status-warning`]: genSelectInputVariableStyle(token, {
+          ...colors,
+          color: warningColors.color || token.colorWarning,
+          ...warningColors,
+        }),
+      },
+      patchStyle,
+    ],
   };
 };
 
@@ -118,6 +144,12 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           position: 'relative',
           display: 'flex',
 
+          '&:after': {
+            content: '"\\a0"',
+            width: 0,
+            overflow: 'hidden',
+          },
+
           // >>> Value
 
           // >>> Placeholder
@@ -176,31 +208,65 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
       // ========================= Variant ==========================
       // >>> Outlined
-      genSelectInputVariantStyle(token, 'outlined', {
-        borderColor: token.colorBorder,
-        borderColorHover: token.hoverBorderColor,
-        borderColorActive: token.activeBorderColor,
-        borderColorOutline: token.activeOutlineColor,
-      }),
+      genSelectInputVariantStyle(
+        token,
+        'outlined',
+        {
+          border: token.colorBorder,
+          borderHover: token.hoverBorderColor,
+          borderActive: token.activeBorderColor,
+          borderOutline: token.activeOutlineColor,
+        },
+        // Error
+        {
+          border: token.colorError,
+          borderHover: token.colorErrorHover,
+          borderActive: token.colorError,
+          borderOutline: token.colorErrorOutline,
+        },
+        // Warning
+        {
+          border: token.colorWarning,
+          borderHover: token.colorWarningHover,
+          borderActive: token.colorWarning,
+          borderOutline: token.colorWarningOutline,
+        },
+      ),
 
       // >>> Filled
-      genSelectInputVariantStyle(token, 'filled', {
-        borderColor: 'transparent',
-        borderColorHover: 'transparent',
-        borderColorActive: token.activeBorderColor,
-        borderColorOutline: 'transparent',
+      genSelectInputVariantStyle(
+        token,
+        'filled',
+        {
+          border: 'transparent',
+          borderHover: 'transparent',
+          borderActive: token.activeBorderColor,
+          borderOutline: 'transparent',
 
-        background: token.colorFillTertiary,
-        backgroundHover: token.colorFillSecondary,
-        backgroundActive: token.colorBgContainer,
-      }),
+          background: token.colorFillTertiary,
+          backgroundHover: token.colorFillSecondary,
+          backgroundActive: token.colorBgContainer,
+        },
+        // Error
+        {
+          background: token.colorErrorBg,
+          backgroundHover: token.colorErrorBgHover,
+          borderActive: token.colorError,
+        },
+        // Warning
+        {
+          background: token.colorWarningBg,
+          backgroundHover: token.colorWarningBgHover,
+          borderActive: token.colorWarning,
+        },
+      ),
 
       // >>> Borderless
       genSelectInputVariantStyle(token, 'borderless', {
-        borderColor: 'transparent',
-        borderColorHover: 'transparent',
-        borderColorActive: 'transparent',
-        borderColorOutline: 'transparent',
+        border: 'transparent',
+        borderHover: 'transparent',
+        borderActive: 'transparent',
+        borderOutline: 'transparent',
 
         background: 'transparent',
       }),
@@ -210,10 +276,22 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         token,
         'underlined',
         {
-          borderColor: token.colorBorder,
-          borderColorHover: token.hoverBorderColor,
-          borderColorActive: token.activeBorderColor,
-          borderColorOutline: 'transparent',
+          border: token.colorBorder,
+          borderHover: token.hoverBorderColor,
+          borderActive: token.activeBorderColor,
+          borderOutline: 'transparent',
+        },
+        // Error
+        {
+          border: token.colorError,
+          borderHover: token.colorErrorHover,
+          borderActive: token.colorError,
+        },
+        // Warning
+        {
+          border: token.colorWarning,
+          borderHover: token.colorWarningHover,
+          borderActive: token.colorWarning,
         },
         {
           borderRadius: 0,
