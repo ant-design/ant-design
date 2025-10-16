@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
+import extendsObject from '../_util/extendsObject';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
@@ -17,7 +18,7 @@ import type {
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
-import { getMotion, getPlacementStyle, getCloseIconConfig } from './util';
+import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -60,13 +61,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     bottom,
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
-    maxCount,
     rtl,
-    onAllRemoved,
     stack,
-    duration,
+    duration = DEFAULT_DURATION,
     pauseOnHover = true,
-    showProgress,
+    ...restProps
   } = props;
   const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
   const [, token] = useToken();
@@ -84,27 +83,18 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
+    ...restProps,
     prefixCls,
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
-    duration: duration ?? DEFAULT_DURATION,
+    duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
-    maxCount,
     pauseOnHover,
-    showProgress,
-    onAllRemoved,
     renderNotifications,
-    stack:
-      stack === false
-        ? false
-        : {
-            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
-            offset: 8,
-            gap: token.margin,
-          },
+    stack: stack === false ? false : extendsObject({ offset: 8, gap: token.margin }, stack),
   });
 
   // ================================ Ref ================================
