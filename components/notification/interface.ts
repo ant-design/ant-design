@@ -27,6 +27,7 @@ type SharedProps = Pick<
   | 'duration'
   | 'showProgress'
   | 'pauseOnHover'
+  | 'closeIcon'
   | 'closable'
 >;
 
