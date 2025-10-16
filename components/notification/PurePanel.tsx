@@ -101,7 +101,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
 
-  const realCloseIcon = getCloseIcon(noticePrefixCls, getCloseIconConfig(closeIcon, notification));
+  const realCloseIcon = getCloseIcon(prefixCls, getCloseIconConfig(closeIcon, notification));
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
