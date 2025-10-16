@@ -4791,8 +4791,8 @@ Array [
 
 exports[`renders components/input/demo/align.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -5505,8 +5505,8 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
 
 exports[`renders components/input/demo/compact-style.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -5642,7 +5642,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
 
 exports[`renders components/input/demo/debug-addon.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -6021,8 +6021,8 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
 
 exports[`renders components/input/demo/filled-debug.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -9683,7 +9683,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -11176,8 +11176,8 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
 
 exports[`renders components/input/demo/search-input.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -11333,7 +11333,7 @@ Array [
 
 exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -11841,6 +11841,6 @@ exports[`renders components/input/demo/variant.tsx extend context correctly 1`] 
 
 exports[`renders components/input/demo/variant.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Please use \`Space.Compat\` instead.\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
