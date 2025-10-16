@@ -6,6 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
+import genSelectInputStyle from './select-input';
 import genSingleStyle from './single';
 import type { ComponentToken, SelectToken } from './token';
 import { prepareComponentToken } from './token';
@@ -13,60 +14,60 @@ import genVariantsStyle from './variants';
 
 export type { ComponentToken };
 
-// ============================= Selector =============================
-const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+// // ============================= Selector =============================
+// const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
+//   const { componentCls } = token;
 
-  return {
-    position: 'relative',
-    transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+//   return {
+//     position: 'relative',
+//     transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
-    input: {
-      cursor: 'pointer',
-    },
+//     input: {
+//       cursor: 'pointer',
+//     },
 
-    [`${componentCls}-show-search&`]: {
-      cursor: 'text',
+//     [`${componentCls}-show-search&`]: {
+//       cursor: 'text',
 
-      input: {
-        cursor: 'auto',
-        color: 'inherit',
-        height: '100%',
-      },
-    },
+//       input: {
+//         cursor: 'auto',
+//         color: 'inherit',
+//         height: '100%',
+//       },
+//     },
 
-    [`${componentCls}-disabled&`]: {
-      cursor: 'not-allowed',
+//     [`${componentCls}-disabled&`]: {
+//       cursor: 'not-allowed',
 
-      input: {
-        cursor: 'not-allowed',
-      },
-    },
-  };
-};
+//       input: {
+//         cursor: 'not-allowed',
+//       },
+//     },
+//   };
+// };
 
 // ============================== Styles ==============================
-// /* Reset search input style */
-const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+// // /* Reset search input style */
+// const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
+//   const { componentCls } = token;
 
-  return {
-    [`${componentCls}-selection-search-input`]: {
-      margin: 0,
-      padding: 0,
-      background: 'transparent',
-      border: 'none',
-      outline: 'none',
-      appearance: 'none',
-      fontFamily: 'inherit',
+//   return {
+//     [`${componentCls}-selection-search-input`]: {
+//       margin: 0,
+//       padding: 0,
+//       background: 'transparent',
+//       border: 'none',
+//       outline: 'none',
+//       appearance: 'none',
+//       fontFamily: 'inherit',
 
-      '&::-webkit-search-cancel-button': {
-        display: 'none',
-        appearance: 'none',
-      },
-    },
-  };
-};
+//       '&::-webkit-search-cancel-button': {
+//         display: 'none',
+//         appearance: 'none',
+//       },
+//     },
+//   };
+// };
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
@@ -83,14 +84,11 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      position: 'relative',
-      display: 'inline-flex',
-      cursor: 'pointer',
 
-      [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
-        ...genSelectorStyle(token),
-        ...getSearchInputWithoutBorderStyle(token),
-      },
+      // [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
+      //   // ...genSelectorStyle(token),
+      //   ...getSearchInputWithoutBorderStyle(token),
+      // },
 
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
@@ -106,53 +104,53 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
-      // ======================= Placeholder =======================
-      [`${componentCls}-selection-placeholder`]: {
-        ...textEllipsis,
-        flex: 1,
-        color: token.colorTextPlaceholder,
-        pointerEvents: 'none',
-      },
+      // // ======================= Placeholder =======================
+      // [`${componentCls}-selection-placeholder`]: {
+      //   ...textEllipsis,
+      //   flex: 1,
+      //   color: token.colorTextPlaceholder,
+      //   pointerEvents: 'none',
+      // },
 
-      // ========================== Arrow ==========================
-      [`${componentCls}-arrow`]: {
-        ...resetIcon(),
-        position: 'absolute',
-        top: '50%',
-        insetInlineStart: 'auto',
-        insetInlineEnd: inputPaddingHorizontalBase,
-        height: token.fontSizeIcon,
-        marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
-        color: token.colorTextQuaternary,
-        fontSize: token.fontSizeIcon,
-        lineHeight: 1,
-        textAlign: 'center',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        transition: `opacity ${token.motionDurationSlow} ease`,
+      // // ========================== Arrow ==========================
+      // [`${componentCls}-arrow`]: {
+      //   ...resetIcon(),
+      //   position: 'absolute',
+      //   top: '50%',
+      //   insetInlineStart: 'auto',
+      //   insetInlineEnd: inputPaddingHorizontalBase,
+      //   height: token.fontSizeIcon,
+      //   marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
+      //   color: token.colorTextQuaternary,
+      //   fontSize: token.fontSizeIcon,
+      //   lineHeight: 1,
+      //   textAlign: 'center',
+      //   pointerEvents: 'none',
+      //   display: 'flex',
+      //   alignItems: 'center',
+      //   transition: `opacity ${token.motionDurationSlow} ease`,
 
-        [iconCls]: {
-          verticalAlign: 'top',
-          transition: `transform ${token.motionDurationSlow}`,
+      //   [iconCls]: {
+      //     verticalAlign: 'top',
+      //     transition: `transform ${token.motionDurationSlow}`,
 
-          '> svg': {
-            verticalAlign: 'top',
-          },
+      //     '> svg': {
+      //       verticalAlign: 'top',
+      //     },
 
-          [`&:not(${componentCls}-suffix)`]: {
-            pointerEvents: 'auto',
-          },
-        },
+      //     [`&:not(${componentCls}-suffix)`]: {
+      //       pointerEvents: 'auto',
+      //     },
+      //   },
 
-        [`${componentCls}-disabled &`]: {
-          cursor: 'not-allowed',
-        },
+      //   [`${componentCls}-disabled &`]: {
+      //     cursor: 'not-allowed',
+      //   },
 
-        '> *:not(:last-child)': {
-          marginInlineEnd: 8, // FIXME: magic
-        },
-      },
+      //   '> *:not(:last-child)': {
+      //     marginInlineEnd: 8, // FIXME: magic
+      //   },
+      // },
 
       // ========================== Wrap ===========================
       [`${componentCls}-selection-wrap`]: {
@@ -250,11 +248,11 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
     // Base
     genBaseStyle(token),
 
-    // Single
-    genSingleStyle(token),
+    // // Single
+    // genSingleStyle(token),
 
-    // Multiple
-    genMultipleStyle(token),
+    // // Multiple
+    // genMultipleStyle(token),
 
     // Dropdown
     genDropdownStyle(token),
@@ -289,7 +287,11 @@ export default genStyleHooks(
       selectHeight: token.controlHeight,
     });
 
-    return [genSelectStyle(selectToken), genVariantsStyle(selectToken)];
+    return [
+      genSelectStyle(selectToken),
+      // genVariantsStyle(selectToken),
+      genSelectInputStyle(selectToken),
+    ];
   },
   prepareComponentToken,
   {

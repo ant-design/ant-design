@@ -67,12 +67,11 @@ export default function useIcons({
   } else if (loading) {
     mergedSuffixIcon = getSuffixIconNode(<LoadingOutlined spin />);
   } else {
-    const iconCls = `${prefixCls}-suffix`;
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
       if (open && showSearch) {
-        return getSuffixIconNode(<SearchOutlined className={iconCls} />);
+        return getSuffixIconNode(<SearchOutlined />);
       }
-      return getSuffixIconNode(<DownOutlined className={iconCls} />);
+      return getSuffixIconNode(<DownOutlined />);
     };
   }
 
