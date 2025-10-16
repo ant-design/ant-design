@@ -1,6 +1,6 @@
 import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
-import type { ArgsProps, GlobalConfigProps } from '../interface';
+import type { ArgsProps, NotificationConfig } from '../interface';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
@@ -24,7 +24,7 @@ describe('Notification.placement', () => {
     });
   }
 
-  function config(args: Partial<GlobalConfigProps>) {
+  function config(args: Partial<NotificationConfig>) {
     notification.config({
       ...args,
     });
