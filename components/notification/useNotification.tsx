@@ -65,6 +65,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     stack,
     duration = DEFAULT_DURATION,
     pauseOnHover = true,
+    closeIcon,
+    closable,
     ...restProps
   } = props;
   const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
@@ -88,8 +90,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
-    closable: true,
-    closeIcon: getCloseIcon(prefixCls),
+    closable,
+    closeIcon: getCloseIcon(prefixCls, closeIcon),
     duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     pauseOnHover,
