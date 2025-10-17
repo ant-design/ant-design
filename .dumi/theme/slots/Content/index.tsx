@@ -86,6 +86,10 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
                 filename={meta.frontmatter.filename}
                 version={meta.frontmatter.tag}
                 designUrl={meta.frontmatter.designUrl}
+                searchTitleKeywords={[meta.frontmatter.title, meta.frontmatter.subtitle].filter(
+                  Boolean,
+                )}
+                repo="ant-design/ant-design"
               />
             )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>
