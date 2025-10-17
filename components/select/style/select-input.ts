@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
+import genSelectInputMultipleStyle from './select-input-mulitple';
 import type { SelectToken } from './token';
 
 interface VariableColors {
@@ -18,6 +19,7 @@ interface VariableColors {
   color?: string;
 }
 
+/** Set CSS variables and hover/focus styles for a Select input based on provided colors. */
 const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors): CSSObject => {
   const { componentCls } = token;
   const { border, borderHover, borderActive, borderOutline } = colors;
@@ -45,6 +47,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   };
 };
 
+/** Generate variant-scoped variable styles and status overrides for a Select input. */
 const genSelectInputVariantStyle = (
   token: SelectToken,
   variant: string,
@@ -137,6 +140,13 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           flex: 'none',
         },
 
+        // ====================== Placeholder =======================
+        [`${componentCls}-placeholder`]: {
+          ...textEllipsis,
+          color: token.colorTextPlaceholder,
+          pointerEvents: 'none',
+        },
+
         // ======================== Content =========================
         [`${componentCls}-content`]: {
           flex: 'auto',
@@ -150,21 +160,8 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             overflow: 'hidden',
           },
 
-          // >>> Value
-
-          // >>> Placeholder
-          [`${componentCls}-placeholder`]: {
-            ...textEllipsis,
-            color: token.colorTextPlaceholder,
-            pointerEvents: 'none',
-          },
-
           // >>> Input
           [`${componentCls}-input`]: {
-            position: 'absolute',
-            insetInline: 0,
-            insetBlock: 'calc(var(--select-padding-vertical) * -1)',
-            lineHeight: 'calc(var(--select-font-height) + var(--select-padding-vertical) * 2)',
             outline: 'none',
             background: 'transparent',
             appearance: 'none',
@@ -187,10 +184,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           color: token.colorTextQuaternary,
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
-          marginTop: `calc((var(--select-font-height) - ${token.fontSizeIcon}) / 2)`,
         },
 
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          alignSelf: 'center',
+
           [iconCls]: {
             verticalAlign: 'top',
           },
@@ -205,6 +203,25 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           cursor: 'not-allowed',
         },
       },
+
+      // ============================================================
+      // ==                         Single                         ==
+      // ============================================================
+      {
+        '&-single': {
+          [`${componentCls}-input`]: {
+            position: 'absolute',
+            insetInline: 0,
+            insetBlock: 'calc(var(--select-padding-vertical) * -1)',
+            lineHeight: 'calc(var(--select-font-height) + var(--select-padding-vertical) * 2)',
+          },
+        },
+      },
+
+      // ============================================================
+      // ==                        Multiple                        ==
+      // ============================================================
+      genSelectInputMultipleStyle(token),
 
       // ========================= Variant ==========================
       // >>> Outlined

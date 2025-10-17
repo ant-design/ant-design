@@ -1,16 +1,13 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
-import genMultipleStyle from './multiple';
 import genSelectInputStyle from './select-input';
-import genSingleStyle from './single';
 import type { ComponentToken, SelectToken } from './token';
 import { prepareComponentToken } from './token';
-import genVariantsStyle from './variants';
 
 export type { ComponentToken };
 
@@ -71,7 +68,7 @@ export type { ComponentToken };
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
-  const { antCls, componentCls, inputPaddingHorizontalBase, iconCls } = token;
+  const { antCls, componentCls, inputPaddingHorizontalBase } = token;
 
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
@@ -282,7 +279,7 @@ export default genStyleHooks(
   (token, { rootPrefixCls }) => {
     const selectToken: SelectToken = mergeToken<SelectToken>(token, {
       rootPrefixCls,
-      inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(1).equal(),
+      inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(token.lineWidth).equal(),
       multipleSelectItemHeight: token.multipleItemHeight,
       selectHeight: token.controlHeight,
     });
