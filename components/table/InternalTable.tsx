@@ -538,16 +538,18 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   };
 
-  // 优化 SpinProps 构造逻辑，提升可读性和扩展性
-  const spinProps: SpinProps | undefined = React.useMemo(() => {
-    if (typeof loading === 'boolean') {
-      return { spinning: loading };
-    }
-    if (typeof loading === 'object' && loading !== null) {
-      return { spinning: true, ...loading };
-    }
-    return undefined;
-  }, [loading]);
+  // >>>>>>>>> Spinning
+  let spinProps: SpinProps | undefined;
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
+    };
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
+  }
 
   const wrapperClassNames = classNames(
     cssVarCls,
