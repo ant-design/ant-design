@@ -40,7 +40,7 @@ export const useIssueCount = (options: UseIssueCountOptions) => {
 
   const endpoint = proxyEndpoint || searchUrl;
 
-  const { data, error, isLoading } = useSWR<number>(endpoint ? endpoint : null, fetcher, swrConfig);
+  const { data, error, isLoading } = useSWR<number>(endpoint || null, fetcher, swrConfig);
 
   const issueNewUrl = `https://github.com/${repo}/issues/new/choose`;
 
