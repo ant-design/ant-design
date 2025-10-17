@@ -274,6 +274,10 @@ If you encounter the above error, please check the current project `tsconfig.jso
 
 The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
 
+## Why doesn't antd handle precision issues encountered with browser zoom?
+
+Different browsers have different rendering behaviors when zooming. Fixing a precision issue in one browser often leads to issues in others. Additionally, zoom-related precision issues typically occur at extreme zoom levels, which are uncommon in regular use. The inconsistency in rendering arises from how browsers calculate and render elements during zoom operations, including subpixel rendering, rounding differences, and layout recalculations. Addressing these issues requires a significant amount of browser-specific code, which can negatively impact performance and maintainability, and may also be broken by iterations in the browsers themselves.
+
 ## The antd component reported an error when using the App Router of Next.js
 
 If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, `Typography.Title`, etc., you may get the following error:
