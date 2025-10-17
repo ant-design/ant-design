@@ -84,7 +84,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 searchTitleKeywords={[meta.frontmatter.title, meta.frontmatter.subtitle].filter(
                   Boolean,
                 )}
-                repo={'ant-design/ant-design'}
+                repo="ant-design/ant-design"
               />
             )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>
