@@ -11,10 +11,12 @@ interface VariableColors {
   borderHover: string;
   borderActive: string;
   borderOutline: string;
+  borderDisabled?: string;
 
   background?: string;
   backgroundHover?: string;
   backgroundActive?: string;
+  backgroundDisabled?: string;
 
   color?: string;
 }
@@ -43,6 +45,11 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
 
         boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${borderOutline}`,
       },
+    },
+
+    [`&${componentCls}-disabled`]: {
+      '--select-border-color': colors.borderDisabled || colors.border,
+      '--select-background': colors.backgroundDisabled || colors.background,
     },
   };
 };
@@ -108,7 +115,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         ...resetComponent(token, true),
 
         display: 'inline-flex',
-        gap: calc(token.paddingXXS).mul(1.5).equal(),
+        // gap: calc(token.paddingXXS).mul(1.5).equal(),
         flexWrap: 'nowrap',
         position: 'relative',
         transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
@@ -153,11 +160,18 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           minWidth: 0,
           position: 'relative',
           display: 'flex',
+          marginInlineEnd: calc(token.paddingXXS).mul(1.5).equal(),
 
           '&:after': {
             content: '"\\a0"',
             width: 0,
             overflow: 'hidden',
+          },
+
+          // >>> Value
+          '&-value': {
+            ...textEllipsis,
+            transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
           },
 
           // >>> Input
@@ -176,6 +190,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           'input[readonly]': {
             cursor: 'inherit',
           },
+        },
+
+        [`&-open ${componentCls}-content-value`]: {
+          color: token.colorTextPlaceholder,
         },
 
         // ========================= Suffix =========================
@@ -233,6 +251,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           borderHover: token.hoverBorderColor,
           borderActive: token.activeBorderColor,
           borderOutline: token.activeOutlineColor,
+          borderDisabled: token.colorBorderDisabled,
         },
         // Error
         {
@@ -259,6 +278,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           borderHover: 'transparent',
           borderActive: token.activeBorderColor,
           borderOutline: 'transparent',
+          borderDisabled: token.colorBorderDisabled,
 
           background: token.colorFillTertiary,
           backgroundHover: token.colorFillSecondary,

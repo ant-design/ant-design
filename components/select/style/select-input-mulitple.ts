@@ -1,6 +1,8 @@
-import { resetIcon } from '../../style';
+import { resetIcon, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
 import type { SelectToken } from './token';
+
+const FIXED_INPUT_MIN_WIDTH = 4;
 
 const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
   const {
@@ -21,16 +23,31 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       '--select-multi-item-height': token.multipleItemHeight,
       '--select-multi-padding-base': `calc((var(--select-height) - var(--select-multi-item-height)) / 2)`,
       '--select-multi-padding-vertical': `calc(var(--select-multi-padding-base) - ${INTERNAL_FIXED_ITEM_MARGIN} - ${lineWidth})`,
+      '--select-multi-item-padding-horizontal': `calc(${inputPaddingHorizontalBase} - var(--select-multi-padding-vertical) - ${lineWidth} * 2)`,
 
       // ========================= Root =========================
       paddingBlock: `var(--select-multi-padding-vertical)`,
       paddingInlineStart: `calc(var(--select-multi-padding-base) - ${lineWidth})`,
 
+      // ======================== Prefix ========================
+      [`${componentCls}-prefix`]: {
+        marginInlineStart: 'var(--select-multi-item-padding-horizontal)',
+      },
+
+      [`${componentCls}-prefix + ${componentCls}-content`]: {
+        [`${componentCls}-placeholder`]: {
+          insetInlineStart: 0,
+        },
+        [`${componentCls}-content-item${componentCls}-content-item-suffix`]: {
+          marginInlineStart: 0,
+        },
+      },
+
       // ===================== Placeholder ======================
       [`${componentCls}-placeholder`]: {
         position: 'absolute',
 
-        insetInlineStart: inputPaddingHorizontalBase,
+        insetInlineStart: 'var(--select-multi-item-padding-horizontal)',
         top: '50%',
         transform: 'translateY(-50%)',
       },
@@ -38,13 +55,19 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       // ======================= Content ========================
       [`${componentCls}-content`]: {
         flexWrap: 'wrap',
+        alignItems: 'center',
 
-        '&-item-suffix': {
-          maxWidth: '100%',
+        '&-item-prefix': {
+          height: 'var(--select-multi-item-height)',
+        },
 
-          [`&:first-child`]: {
-            marginInlineStart: `calc(${inputPaddingHorizontalBase} - var(--select-multi-padding-vertical) - ${lineWidth} * 2)`,
-          },
+        '&-item': {
+          maxWidth: `calc(100% - ${FIXED_INPUT_MIN_WIDTH}px)`,
+        },
+
+        [`${componentCls}-content-item-prefix + ${componentCls}-content-item-suffix,
+          ${componentCls}-content-item-suffix:first-child`]: {
+          marginInlineStart: 'var(--select-multi-item-padding-horizontal)',
         },
 
         [`${componentCls}-selection-item`]: {
@@ -60,6 +83,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
 
           // >>> Content
           '&-content': {
+            ...textEllipsis,
             marginInlineEnd: paddingXXS,
           },
 
@@ -91,7 +115,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
             .add('var(--select-multi-item-height)')
             .equal(),
           width: 'calc(var(--select-input-width, 0) * 1px)',
-          minWidth: 4,
+          minWidth: FIXED_INPUT_MIN_WIDTH,
           maxWidth: '100%',
         },
       },

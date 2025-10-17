@@ -1,86 +1,36 @@
 import React from 'react';
 import { Flex, Select } from 'antd';
+import type { SelectProps } from 'antd';
+
+const sharedSelectProps: SelectProps<string> = {
+  value: 'lucy',
+  variant: 'filled' as const,
+  style: { flex: 1 },
+  options: [
+    { value: 'jack', label: 'Jack' },
+    { value: 'lucy', label: 'Lucy' },
+    { value: 'Yiminghe', label: 'yiminghe' },
+  ],
+};
 
 const App: React.FC = () => (
   <Flex gap={12} vertical>
     <Flex gap={8}>
-      <Select
-        value="lucy"
-        disabled
-        variant="filled"
-        style={{ flex: 1 }}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-        ]}
-      />
-      <Select
-        value="lucy"
-        disabled
-        mode="multiple"
-        variant="filled"
-        placeholder="Outlined"
-        style={{ flex: 1 }}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-        ]}
-      />
+      <Select {...sharedSelectProps} disabled />
+      <Select {...sharedSelectProps} disabled mode="multiple" placeholder="Outlined" />
     </Flex>
     <Flex gap={8}>
-      <Select
-        value="lucy"
-        status="error"
-        variant="filled"
-        style={{ flex: 1 }}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-        ]}
-      />
-      <Select
-        value="lucy"
-        status="error"
-        mode="multiple"
-        variant="filled"
-        placeholder="Outlined"
-        style={{ flex: 1 }}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-        ]}
-      />
+      <Select {...sharedSelectProps} status="error" />
+      <Select {...sharedSelectProps} status="error" mode="multiple" placeholder="Outlined" />
     </Flex>
     <Flex gap={8}>
+      <Select {...sharedSelectProps} disabled status="error" />
       <Select
+        {...sharedSelectProps}
         disabled
-        value="lucy"
-        status="error"
-        variant="filled"
-        style={{ flex: 1 }}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-        ]}
-      />
-      <Select
-        disabled
-        value="lucy"
         status="error"
         mode="multiple"
-        variant="filled"
         placeholder="Outlined"
-        style={{ flex: 1 }}
-        options={[
-          { value: 'jack', label: 'Jack' },
-          { value: 'lucy', label: 'Lucy' },
-          { value: 'Yiminghe', label: 'yiminghe' },
-        ]}
       />
     </Flex>
   </Flex>
