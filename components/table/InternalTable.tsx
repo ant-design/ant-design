@@ -539,15 +539,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   };
 
   // >>>>>>>>> Spinning
-  const spinProps: SpinProps | undefined = (() => {
+  const spinProps = React.useMemo<SpinProps | void>(() => {
     if (typeof loading === 'boolean') {
       return { spinning: loading };
     }
-    if (typeof loading === 'object' && loading !== null) { // Add null check
+    if (typeof loading === 'object' && loading !== null) {
+      // Add null check
       return { spinning: true, ...loading };
     }
     return undefined;
-  })();
+  }, [loading]);
 
   const wrapperClassNames = classNames(
     cssVarCls,
@@ -565,7 +566,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
   // ========== empty ==========
-  const mergedEmptyNode = React.useMemo((): RcTableProps['emptyText'] => {
+  const mergedEmptyNode = React.useMemo<RcTableProps['emptyText']>(() => {
     // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
     // and the table is in a loading state, we only show the loading spinner without the empty placeholder.
     // For empty arrays (datasource={[]}), both loading and empty states would normally be shown.
