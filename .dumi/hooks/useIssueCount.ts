@@ -11,7 +11,7 @@ export function useIssueCount(options: UseIssueCountOptions) {
 
   const [issuesCount, setIssuesCount] = useState<number | null>(null);
 
-  // Note: current query only filters by title keywords (button/按钮). Component name can be added later if needed.
+  // Note: current query only filters by title keywords. Filtering by component name can be added later if needed.
 
   const searchUrl = useMemo(() => {
     const tokens = (titleKeywords || []).filter(Boolean).map((k) => encodeURIComponent(String(k)));
