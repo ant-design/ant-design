@@ -539,7 +539,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   };
 
   // >>>>>>>>> Spinning
-  const spinProps = React.useMemo<SpinProps | void>(() => {
+  const spinProps = React.useMemo<SpinProps | undefined>(() => {
     if (typeof loading === 'boolean') {
       return { spinning: loading };
     }
