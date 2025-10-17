@@ -6,11 +6,11 @@ const isNumber = (value: any): value is number => {
   return typeof value === 'number' && !Number.isNaN(value);
 };
 
-const fetcher = async (url: string) => {
+const fetcher = async (url: string): Promise<number> => {
   // eslint-disable-next-line compat/compat
   const res = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
   const data = await res.json();
-  const totalCount = isNumber(data?.total_count) ? data.total_count : null;
+  const totalCount = isNumber(data?.total_count) ? data.total_count : 0;
   return totalCount;
 };
 
@@ -41,7 +41,7 @@ export const useIssueCount = (options: UseIssueCountOptions) => {
 
   const endpoint = proxyEndpoint || searchUrl;
 
-  const { data, error, isLoading } = useSWR<number>(endpoint || null, fetcher, swrConfig);
+  const { data, error, isLoading } = useSWR<number, Error>(endpoint || null, fetcher, swrConfig);
 
   const issueNewUrl = `https://github.com/${repo}/issues/new/choose`;
 

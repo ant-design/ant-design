@@ -6,6 +6,7 @@ import {
   GithubOutlined,
   HistoryOutlined,
   IssuesCloseOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
@@ -17,10 +18,6 @@ import useIssueCount from '../../../hooks/useIssueCount';
 import useLocale from '../../../hooks/useLocale';
 import ComponentChangelog from '../../common/ComponentChangelog';
 import Link from '../../common/Link';
-
-const isNumber = (value: any): value is number => {
-  return typeof value === 'number' && !Number.isNaN(value);
-};
 
 const locales = {
   cn: {
@@ -77,7 +74,7 @@ const useStyle = createStyles(({ token }) => ({
     }
   `,
   icon: css`
-    margin-inline-end: 3px;
+    margin-inline-end: 4px;
   `,
 }));
 
@@ -186,8 +183,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
                   <IssuesCloseOutlined className={styles.icon} />
                   <span>
-                    {locale.issueOpen}
-                    {issueCountLoading ? ' -' : isNumber(issueCount) ? ` ${issueCount}` : ''}
+                    {locale.issueOpen} {issueCountLoading ? <LoadingOutlined /> : issueCount}
                   </span>
                 </Typography.Link>
               </Flex>
