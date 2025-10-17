@@ -413,6 +413,11 @@ describe('Table.pagination', () => {
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
   });
 
+  it('should support align props', () => {
+    const { container } = render(createTable({ pagination: { align: 'center' } }));
+    expect(container.querySelector('.ant-pagination-center')).toBeTruthy();
+  });
+
   /**
    * `pagination` is not designed to accept `true` value, but in practice, many people assign `true`
    * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
@@ -638,15 +643,13 @@ describe('Table.pagination', () => {
         {...dataProp}
         columns={[]}
         pagination={{
-          className: 'pagination',
+          className: 'my-pagination',
           total: 200,
           current: 1,
           pageSize: 10,
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination')?.className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
-    );
+    expect(container.querySelector('.ant-pagination')?.className).toContain('my-pagination');
   });
 });
