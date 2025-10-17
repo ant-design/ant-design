@@ -125,6 +125,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | prevIcon | The custom prev icon | ReactNode | - | 4.17.0 |
+| previewValue | When the user selects the date hover option, the value of the input field undergoes a temporary change | false \| hover | hover | 6.0.0 |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | To customize the style of the input box | CSSProperties | {} |  |

@@ -5740,7 +5740,7 @@ Array [
       aria-orientation="vertical"
       class="ant-tabs-nav"
       role="tablist"
-      style="text-align:left"
+      style="text-align:start"
     >
       <div
         class="ant-tabs-nav-wrap"

@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button, Empty, Flex } from 'antd';
-import type { EmptyProps } from '..';
 import { createStyles } from 'antd-style';
+
+import type { EmptyProps } from '..';
+
+const emptySharedProps: EmptyProps = {
+  image: Empty.PRESENTED_IMAGE_SIMPLE,
+  children: <Button type="primary">Create Now</Button>,
+};
 
 const useStyle = createStyles(({ css }) => ({
   root: css`
@@ -10,22 +16,20 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-// Object-based styles
-const stylesObject = {
+const stylesObject: EmptyProps['styles'] = {
   root: { backgroundColor: '#f5f5f5', borderRadius: '8px' },
   image: { filter: 'grayscale(100%)' },
   description: { color: '#1890ff', fontWeight: 'bold' },
   footer: { marginTop: '16px' },
 };
 
-// Function-based styles - differentiate by props
-const stylesFn: EmptyProps['styles'] = ({ props: { description } }) => {
-  if (description) {
+const stylesFn: EmptyProps['styles'] = ({ props }) => {
+  if (props.description) {
     return {
       root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },
       description: { color: '#1890ff', fontWeight: 'bold' },
       image: { filter: 'hue-rotate(180deg)' },
-    };
+    } satisfies EmptyProps['styles'];
   }
   return {};
 };
@@ -33,26 +37,22 @@ const stylesFn: EmptyProps['styles'] = ({ props: { description } }) => {
 const App: React.FC = () => {
   const { styles } = useStyle();
 
-  const emptySharedProps: EmptyProps = {
-    image: Empty.PRESENTED_IMAGE_SIMPLE,
-    children: <Button type="primary">Create Now</Button>,
+  const classNames: EmptyProps['classNames'] = {
+    root: styles.root,
   };
-
-  // Use same classNames across examples
-  const sharedClassNames = { root: styles.root };
 
   return (
     <Flex vertical gap="middle">
       <Empty
         {...emptySharedProps}
         description="Object styles"
-        classNames={sharedClassNames}
+        classNames={classNames}
         styles={stylesObject}
       />
       <Empty
         {...emptySharedProps}
         description="Function styles"
-        classNames={sharedClassNames}
+        classNames={classNames}
         styles={stylesFn}
       />
     </Flex>

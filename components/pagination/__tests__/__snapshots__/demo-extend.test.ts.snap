@@ -5252,7 +5252,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     <li
       aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       title="Previous Page"
     >
       <button
@@ -5284,7 +5284,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="1"
     >
@@ -5296,7 +5296,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="2"
     >
@@ -5308,7 +5308,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="3"
     >
@@ -5320,7 +5320,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="4"
     >
@@ -5332,7 +5332,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="5"
     >
@@ -5382,7 +5382,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-50"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="50"
     >
@@ -5395,7 +5395,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
     <li
       aria-disabled="false"
       class="ant-pagination-next"
-      style="background: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
+      style="background-color: rgba(200, 200, 200, 0.3); margin-inline-end: 4px;"
       tabindex="0"
       title="Next Page"
     >

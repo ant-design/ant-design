@@ -32,7 +32,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/suffix.tsx">前后缀</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -73,6 +73,7 @@ dayjs.extend(customParseFormat)
 | ~~popupClassName~~ | 弹出层类名，请使用 `classNames.popup` 替换 | string | - |  |
 | ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | object | - |  |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
+| previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | 6.0.0 |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |

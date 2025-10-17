@@ -33,6 +33,7 @@ const App: React.FC = () => (
       variant="filled"
       status="error"
       style={{ width: '100%' }}
+      previewValue={false}
     />
     <DatePicker variant="filled" status="warning" style={{ width: '100%' }} />
     <RangePicker variant="filled" status="error" style={{ width: '100%' }} />

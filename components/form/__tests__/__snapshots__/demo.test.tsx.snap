@@ -393,7 +393,7 @@ Array [
       </div>
     </div>
     <div
-      style="text-align:right"
+      style="text-align:end"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -9614,7 +9614,7 @@ Array [
           <label
             class="ant-form-item-required"
             for="username"
-            style="text-align:right;color:#333;font-weight:500"
+            style="text-align:end;color:#333;font-weight:500"
             title="Username"
           >
             Username
@@ -9628,7 +9628,7 @@ Array [
           >
             <div
               class="ant-form-item-control-input-content"
-              style="padding-left:12px"
+              style="padding-inline-start:12px"
             >
               <input
                 aria-required="true"
@@ -9655,7 +9655,7 @@ Array [
           <label
             class="ant-form-item-required"
             for="email"
-            style="text-align:right;color:#333;font-weight:500"
+            style="text-align:end;color:#333;font-weight:500"
             title="Email"
           >
             Email
@@ -9669,7 +9669,7 @@ Array [
           >
             <div
               class="ant-form-item-control-input-content"
-              style="padding-left:12px"
+              style="padding-inline-start:12px"
             >
               <input
                 aria-required="true"
@@ -9698,7 +9698,7 @@ Array [
           >
             <div
               class="ant-form-item-control-input-content"
-              style="padding-left:12px"
+              style="padding-inline-start:12px"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -9751,7 +9751,7 @@ Array [
           <label
             class="ant-form-item-required"
             for="username"
-            style="text-align:right;color:#1677FF"
+            style="text-align:end;color:#1677FF"
             title="Username"
           >
             Username
@@ -9765,7 +9765,7 @@ Array [
           >
             <div
               class="ant-form-item-control-input-content"
-              style="padding-left:12px"
+              style="padding-inline-start:12px"
             >
               <input
                 aria-required="true"
@@ -9792,7 +9792,7 @@ Array [
           <label
             class="ant-form-item-required"
             for="email"
-            style="text-align:right;color:#1677FF"
+            style="text-align:end;color:#1677FF"
             title="Email"
           >
             Email
@@ -9806,7 +9806,7 @@ Array [
           >
             <div
               class="ant-form-item-control-input-content"
-              style="padding-left:12px"
+              style="padding-inline-start:12px"
             >
               <input
                 aria-required="true"
@@ -9835,7 +9835,7 @@ Array [
           >
             <div
               class="ant-form-item-control-input-content"
-              style="padding-left:12px"
+              style="padding-inline-start:12px"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

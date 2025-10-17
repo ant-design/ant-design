@@ -1,7 +1,14 @@
 import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
+import type { SemanticName } from '@rc-component/picker/lib/interface';
 import type { Dayjs } from 'dayjs';
 
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';
@@ -12,27 +19,21 @@ import type {
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
-import type { SemanticName } from '@rc-component/picker/lib/interface';
-
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
 export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer';
+
 export type TimePickerClassNames = SemanticClassNamesType<
   TimePickerProps,
   SemanticName,
-  {
-    popup?: string | Partial<Record<PanelSemanticName, string>>;
-  }
+  { popup?: string | SemanticClassNames<PanelSemanticName> }
 >;
 
 export type TimePickerStyles = SemanticStylesType<
   TimePickerProps,
   SemanticName,
-  {
-    popup?: Partial<Record<PanelSemanticName, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PanelSemanticName> }
 >;
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<

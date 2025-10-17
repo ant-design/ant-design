@@ -22,8 +22,6 @@ import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteC
 import SiteContext from '../slots/SiteContext';
 import { isLocalStorageNameSupported } from '../utils';
 
-import '@ant-design/v5-patch-for-react-19';
-
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
@@ -228,7 +226,7 @@ const GlobalLayout: React.FC = () => {
     ];
   }, [theme, dynamicTheme]);
 
-  const [styleCache] = React.useState(() => createCache());
+  const styleCache = React.useMemo(() => createCache(), []);
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(styleCache, {

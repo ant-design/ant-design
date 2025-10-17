@@ -10,21 +10,25 @@ const useStyle = createStyles(({ token }) => ({
   },
 }));
 
+const stylesObject: SwitchProps['styles'] = {
+  root: {
+    backgroundColor: '#F5D2D2',
+  },
+};
+
+const stylesFn: SwitchProps['styles'] = (info) => {
+  if (info.props.size === 'default') {
+    return {
+      root: {
+        backgroundColor: '#BDE3C3',
+      },
+    } satisfies SwitchProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyle();
-
-  const stylesObject: SwitchProps['styles'] = {
-    root: { background: '#F5D2D2' },
-  };
-  const stylesFn: SwitchProps['styles'] = (info) => {
-    if (info.props.size === 'default') {
-      return {
-        root: { backgroundColor: '#BDE3C3' },
-      };
-    }
-    return {};
-  };
-
   return (
     <Flex vertical gap="middle">
       <Switch

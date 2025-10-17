@@ -23,17 +23,17 @@ jobs:
       - name: checkout
         uses: actions/checkout@v5
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
-      - run: bun install
+      - run: ut
 
       - name: build site
-        run: bun run predeploy
+        run: ut predeploy
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
       - name: build dist and bundle analyzer report
-        run: bun run dist
+        run: ut dist
         env:
           ANALYZER: 1
           NODE_OPTIONS: --max_old_space_size=4096
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-site
     steps:
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
       - name: download site artifact
         uses: actions/download-artifact@v5
@@ -88,7 +88,7 @@ jobs:
       - name: Deploy to Surge (with TAG)
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
-          bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v4
@@ -117,7 +117,7 @@ jobs:
           cd ..
 
       - name: Upload to Release
-        uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2.3.3
+        uses: softprops/action-gh-release@6da8fa9354ddfdc4aeace5fc48d7f679b5214090 # v2.4.1
         with:
           fail_on_unmatched_files: true
           files: website.tar.gz

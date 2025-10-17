@@ -3,6 +3,25 @@ import { Button, Drawer, Flex } from 'antd';
 import type { DrawerProps } from 'antd';
 import { createStyles } from 'antd-style';
 
+const lineStyle: React.CSSProperties = {
+  lineHeight: '28px',
+};
+
+const sharedContent = (
+  <>
+    <div style={lineStyle}>
+      Following the Ant Design specification, we developed a React UI library antd that contains a
+      set of high quality components and demos for building rich, interactive user interfaces.
+    </div>
+    <div style={lineStyle}>🌈 Enterprise-class UI designed for web applications.</div>
+    <div style={lineStyle}>📦 A set of high-quality React components out of the box.</div>
+    <div style={lineStyle}>🛡 Written in TypeScript with predictable static types.</div>
+    <div style={lineStyle}>⚙️ Whole package of design resources and development tools.</div>
+    <div style={lineStyle}>🌍 Internationalization support for dozens of languages.</div>
+    <div style={lineStyle}>🎨 Powerful theme customization in every detail.</div>
+  </>
+);
+
 const useStyles = createStyles(() => ({
   container: {
     borderRadius: 10,
@@ -19,12 +38,6 @@ const styles: DrawerProps['styles'] = {
 const stylesFn: DrawerProps['styles'] = (info) => {
   if (info.props.footer) {
     return {
-      container: {
-        borderRadius: 14,
-        border: '1px solid #ccc',
-        padding: 0,
-        overflow: 'hidden',
-      },
       header: {
         padding: 16,
       },
@@ -35,7 +48,7 @@ const stylesFn: DrawerProps['styles'] = (info) => {
         padding: '16px 10px',
         backgroundColor: '#fafafa',
       },
-    };
+    } satisfies DrawerProps['styles'];
   }
   return {};
 };
@@ -44,23 +57,6 @@ const App: React.FC = () => {
   const [drawerOpen, setOpen] = useState(false);
   const [drawerFnOpen, setFnOpen] = useState(false);
   const { styles: classNames } = useStyles();
-  const lineStyle = {
-    lineHeight: '28px',
-  };
-  const sharedContent = (
-    <>
-      <div style={lineStyle}>
-        Following the Ant Design specification, we developed a React UI library antd that contains a
-        set of high quality components and demos for building rich, interactive user interfaces.
-      </div>
-      <div style={lineStyle}>🌈 Enterprise-class UI designed for web applications.</div>
-      <div style={lineStyle}>📦 A set of high-quality React components out of the box.</div>
-      <div style={lineStyle}>🛡 Written in TypeScript with predictable static types.</div>
-      <div style={lineStyle}>⚙️ Whole package of design resources and development tools.</div>
-      <div style={lineStyle}>🌍 Internationalization support for dozens of languages.</div>
-      <div style={lineStyle}>🎨 Powerful theme customization in every detail.</div>
-    </>
-  );
 
   const sharedProps: DrawerProps = {
     classNames,
@@ -106,10 +102,7 @@ const App: React.FC = () => {
         footer={footer}
         title="Custom Function drawer"
         styles={stylesFn}
-        mask={{
-          enabled: true,
-          blur: true,
-        }}
+        mask={{ enabled: true, blur: true }}
         open={drawerFnOpen}
         onClose={() => setFnOpen(false)}
       >

@@ -1941,7 +1941,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        style="text-align:left"
+        style="text-align:start"
       >
         <input
           checked=""
@@ -1985,7 +1985,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        style="text-align:left"
+        style="text-align:start"
       >
         <input
           class="ant-segmented-item-input"
@@ -2028,7 +2028,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        style="text-align:left"
+        style="text-align:start"
       >
         <input
           class="ant-segmented-item-input"

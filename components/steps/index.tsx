@@ -40,6 +40,7 @@ export type StepsSemanticName =
   | 'itemRail';
 
 export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticName>;
+
 export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticName>;
 
 interface StepItem {

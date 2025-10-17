@@ -79,7 +79,6 @@ exports[`antd exports modules correctly 1`] = `
   "notification",
   "px2remTransformer",
   "theme",
-  "unstableSetRender",
   "version",
 ]
 `;

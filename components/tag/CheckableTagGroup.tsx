@@ -4,6 +4,7 @@ import { useControlledState } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -34,9 +35,8 @@ export type CheckableTagGroupProps<CheckableTagValue> = {
   // style
   prefixCls?: string;
   rootClassName?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-
+  classNames?: SemanticClassNames<SemanticName>;
+  styles?: SemanticStyles<SemanticName>;
   options?: (CheckableTagOption<CheckableTagValue> | CheckableTagValue)[];
   disabled?: boolean;
 } & (

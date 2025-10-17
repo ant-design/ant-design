@@ -8,9 +8,10 @@ const useStyles = createStyles(() => ({
     padding: 10,
   },
 }));
+
 const styles: PopconfirmProps['styles'] = {
   container: {
-    background: '#eee',
+    backgroundColor: '#eee',
     boxShadow: 'inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2)',
   },
 };
@@ -29,7 +30,7 @@ const stylesFn: PopconfirmProps['styles'] = (info) => {
       content: {
         color: '#fff',
       },
-    };
+    } satisfies PopconfirmProps['styles'];
   }
   return {};
 };
@@ -54,12 +55,7 @@ const App: React.FC = () => {
         styles={stylesFn}
         arrow={false}
         okButtonProps={{
-          styles: {
-            root: {
-              backgroundColor: 'rgba(53, 71, 125, 0.6)',
-              color: '#fff',
-            },
-          },
+          styles: { root: { backgroundColor: 'rgba(53, 71, 125, 0.6)', color: '#fff' } },
         }}
         cancelButtonProps={{
           styles: {

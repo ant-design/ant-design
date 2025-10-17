@@ -27,7 +27,7 @@ demo:
 <code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/control.tsx">从浮层内关闭</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义语义化结构样式</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>

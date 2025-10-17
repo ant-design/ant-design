@@ -28,7 +28,7 @@ group:
 <code src="./demo/customize-style.tsx" debug>样式自定义</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/variant.tsx">变体</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构样式</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 

@@ -10,29 +10,29 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+const styles: TimelineProps['styles'] = {
+  itemIcon: {
+    borderColor: '#1890ff',
+  },
+};
+
+const stylesFn: TimelineProps['styles'] = (info) => {
+  if (info.props.orientation === 'vertical') {
+    return {
+      root: {
+        padding: '10px 6px',
+        border: '1px solid #A294F9',
+      },
+      itemIcon: {
+        borderColor: '#A294F9',
+      },
+    } satisfies TimelineProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-
-  const styles: TimelineProps['styles'] = {
-    itemIcon: {
-      borderColor: '#1890ff',
-    },
-  };
-
-  const stylesFn: TimelineProps['styles'] = (info) => {
-    if (info.props.orientation === 'vertical') {
-      return {
-        root: {
-          padding: '10px 6px',
-          border: '1px solid #A294F9',
-        },
-        itemIcon: {
-          borderColor: '#A294F9',
-        },
-      };
-    }
-    return {};
-  };
 
   const sharedProps: TimelineProps = {
     classNames,

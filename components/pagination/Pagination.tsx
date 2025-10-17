@@ -28,10 +28,12 @@ import useShowSizeChanger from './useShowSizeChanger';
 export type SemanticName = 'root' | 'item';
 
 export type PaginationSemanticName = SemanticName;
+
 export type PaginationClassNamesType = SemanticClassNamesType<
   PaginationProps,
   PaginationSemanticName
 >;
+
 export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticName>;
 
 export interface PaginationProps
@@ -259,8 +261,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       <RcPagination
         {...iconsProps}
         {...restProps}
-        styles={{ item: mergedStyles.item }}
-        classNames={{ item: mergedClassNames.item }}
+        styles={mergedStyles}
+        classNames={mergedClassNames}
         style={mergedStyle}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}

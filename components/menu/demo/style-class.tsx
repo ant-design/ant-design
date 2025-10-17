@@ -34,7 +34,9 @@ const classNamesObject: MenuProps['classNames'] = {
 
 const classNamesFn: MenuProps['classNames'] = (info) => {
   const inline = info.props.mode === 'inline';
-  return { root: inline ? 'demo-menu-root--inline' : 'demo-menu-root--plain' };
+  return {
+    root: inline ? 'demo-menu-root--inline' : 'demo-menu-root--plain',
+  } satisfies MenuProps['classNames'];
 };
 
 const stylesObject: MenuProps['styles'] = {
@@ -44,8 +46,12 @@ const stylesObject: MenuProps['styles'] = {
 };
 
 const stylesFn: MenuProps['styles'] = (info) => {
-  const hasSub = !!info.props.items?.[0];
-  return { root: { backgroundColor: hasSub ? '#f0f9ff' : '#ffffff' } };
+  const hasSub = info.props.items?.[0];
+  return {
+    root: {
+      backgroundColor: hasSub ? '#f0f9ff' : '#fff',
+    },
+  } satisfies MenuProps['styles'];
 };
 
 const App: React.FC = () => (

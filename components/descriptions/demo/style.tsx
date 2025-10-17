@@ -73,10 +73,7 @@ const App: React.FC = () => {
       <Divider />
       <Descriptions
         title="Root style"
-        styles={{
-          label: labelStyle,
-          content: contentStyle,
-        }}
+        styles={{ label: labelStyle, content: contentStyle }}
         bordered={border}
         layout={layout}
         items={rootStyleItems}

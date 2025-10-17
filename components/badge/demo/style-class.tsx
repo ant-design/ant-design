@@ -18,47 +18,47 @@ const useStylesRibbon = createStyles(() => ({
   },
 }));
 
+const badgeStyles: BadgeProps['styles'] = {
+  root: {
+    backgroundColor: '#f0f0f0',
+  },
+};
+
+const ribbonStyles: RibbonProps['styles'] = {
+  indicator: {
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+  },
+};
+
+const badgeStylesFn: BadgeProps['styles'] = (info) => {
+  if (info.props.size === 'default') {
+    return {
+      indicator: {
+        fontSize: 14,
+        backgroundColor: '#696FC7',
+      },
+    } satisfies BadgeProps['styles'];
+  }
+  return {};
+};
+
+const ribbonStylesFn: RibbonProps['styles'] = (info) => {
+  if (info.props.color === '#696FC7') {
+    return {
+      content: {
+        fontWeight: 'bold',
+      },
+      indicator: {
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      },
+    } satisfies RibbonProps['styles'];
+  }
+  return {};
+};
+
 const App: React.FC = () => {
   const { styles: badgeClassNames } = useStylesBadge();
   const { styles: ribbonClassNames } = useStylesRibbon();
-  const badgeStyles: BadgeProps['styles'] = {
-    root: {
-      backgroundColor: '#f0f0f0',
-    },
-  };
-
-  const badgeStylesFn: BadgeProps['styles'] = (info) => {
-    if (info.props.size === 'default') {
-      return {
-        indicator: {
-          fontSize: 14,
-          backgroundColor: '#696FC7',
-        },
-      };
-    }
-    return {};
-  };
-
-  const ribbonStyles: RibbonProps['styles'] = {
-    indicator: {
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    },
-  };
-
-  const ribbonStylesFn: RibbonProps['styles'] = (info) => {
-    if (info.props.color === '#696FC7') {
-      return {
-        content: {
-          fontWeight: 'bold',
-        },
-        indicator: {
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        },
-      };
-    }
-    return {};
-  };
-
   return (
     <Space size="large" vertical>
       <Flex gap="middle">
@@ -75,7 +75,6 @@ const App: React.FC = () => {
             This card has a customized ribbon with semantic classNames and styles.
           </Card>
         </Badge.Ribbon>
-
         <Badge.Ribbon
           text="Custom Ribbon"
           color="#696FC7"

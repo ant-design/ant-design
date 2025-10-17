@@ -4,7 +4,12 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -55,19 +60,20 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 export type ModeType = 'single' | 'gradient';
 
 type SemanticName = 'root';
+
 type PopupSemantic = 'root';
+
 export type ColorPickerClassNamesType = SemanticClassNamesType<
   ColorPickerProps,
   SemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
+
 export type ColorPickerStylesType = SemanticStylesType<
   ColorPickerProps,
   SemanticName,
   {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+    popup?: SemanticStyles<PopupSemantic>;
     popupOverlayInner?: React.CSSProperties;
   }
 >;

@@ -11,7 +11,11 @@ const classNamesObject: AnchorProps['classNames'] = {
 
 const stylesFn: AnchorProps['styles'] = (info) => {
   if (info.props.direction === 'vertical') {
-    return { root: { backgroundColor: '#fffbe6' } };
+    return {
+      root: {
+        backgroundColor: '#fffbe6',
+      },
+    } satisfies AnchorProps['styles'];
   }
   return {};
 };

@@ -1,25 +1,41 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { AnyObject } from '../../type';
+import type { AnyObject, EmptyObject } from '../../type';
 import type { ValidChar } from './interface';
 
-type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
-
-export type SemanticSchema = {
-  _default?: string;
-} & {
+export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-// ========================= ClassNames =========================
-export function mergeClassNames<
-  T extends string,
-  SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
->(schema: SemanticSchema | undefined, ...classNames: (SemanticClassNames | undefined)[]) {
-  const mergedSchema = schema || {};
+export type SemanticClassNames<Name extends string> = Partial<Record<Name, string>>;
 
-  return classNames.reduce((acc: any, cur) => {
+export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
+
+export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T);
+
+export type SemanticClassNamesType<
+  Props extends AnyObject,
+  SemanticName extends string,
+  NestedStructure extends EmptyObject = EmptyObject,
+> = Resolvable<Readonly<SemanticClassNames<SemanticName>>, Props> & NestedStructure;
+
+export type SemanticStylesType<
+  Props extends AnyObject,
+  SemanticName extends string,
+  NestedStructure extends EmptyObject = EmptyObject,
+> = Resolvable<Readonly<SemanticStyles<SemanticName>>, Props> & NestedStructure;
+
+// ========================= ClassNames =========================
+export const mergeClassNames = <
+  Name extends string,
+  SemanticClassNames extends Partial<Record<Name, any>>,
+>(
+  schema?: SemanticSchema,
+  ...classNames: (SemanticClassNames | undefined)[]
+) => {
+  const mergedSchema = schema || {};
+  return classNames.filter(Boolean).reduce<SemanticClassNames>((acc: any, cur) => {
     // Loop keys of the current classNames
     Object.keys(cur || {}).forEach((key) => {
       const keySchema = mergedSchema[key as keyof SemanticSchema] as SemanticSchema;
@@ -32,8 +48,10 @@ export function mergeClassNames<
         } else {
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
-          acc[key] = acc[key] || {};
-          acc[key][defaultField!] = clsx(acc[key][defaultField!], curVal);
+          if (defaultField) {
+            acc[key] = acc[key] || {};
+            acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
+          }
         }
       } else {
         // Flatten fill
@@ -41,48 +59,48 @@ export function mergeClassNames<
       }
     });
     return acc;
-  }, {} as SemanticClassNames) as SemanticClassNames;
-}
+  }, {} as SemanticClassNames);
+};
 
-function useSemanticClassNames<ClassNamesType extends AnyObject>(
+const useSemanticClassNames = <ClassNamesType extends AnyObject>(
   schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
-): Partial<ClassNamesType> {
+): Partial<ClassNamesType> => {
   return React.useMemo(() => mergeClassNames(schema, ...classNames), [schema, ...classNames]);
-}
+};
 
 // =========================== Styles ===========================
-export function mergeStyles<StylesType extends AnyObject>(
+export const mergeStyles = <StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
-): Record<string, React.CSSProperties> {
-  return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
-    Object.keys(cur).forEach((key) => {
-      acc[key] = { ...acc[key], ...cur[key] };
-    });
-    return acc;
-  }, {});
-}
-function useSemanticStyles<StylesType extends AnyObject>(
+) => {
+  return styles
+    .filter(Boolean)
+    .reduce<Record<PropertyKey, React.CSSProperties>>((acc, cur = {}) => {
+      Object.keys(cur).forEach((key) => {
+        acc[key] = { ...acc[key], ...cur[key] };
+      });
+      return acc;
+    }, {});
+};
+
+const useSemanticStyles = <StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
-) {
+) => {
   return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
-}
+};
 
 // =========================== Export ===========================
-function fillObjectBySchema<T extends AnyObject>(obj: T, schema: SemanticSchema): T {
+const fillObjectBySchema = <T extends AnyObject>(obj: T, schema: SemanticSchema): T => {
   const newObj: any = { ...obj };
-
   Object.keys(schema).forEach((key) => {
     if (key !== '_default') {
       const nestSchema = (schema as any)[key] as SemanticSchema;
       const nextValue = newObj[key] || {};
-
       newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
     }
   });
-
   return newObj;
-}
+};
 
 export const resolveStyleOrClass = <T extends AnyObject>(
   value: T | ((config: any) => T),
@@ -96,8 +114,8 @@ type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 
 /**
- * Merge classNames and styles from multiple sources.
- * When `schema` is provided, it will **must** provide the nest object structure.
+ * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
+ * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
  */
 const useMergeSemantic = <
   ClassNamesType extends AnyObject,
@@ -137,21 +155,3 @@ const useMergeSemantic = <
 };
 
 export default useMergeSemantic;
-
-export type SemanticClassNamesType<
-  Props,
-  SemanticName extends string,
-  NestedStructure extends AnyObject = object,
-> =
-  | (Partial<Record<SemanticName, string>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined) &
-      NestedStructure);
-
-export type SemanticStylesType<
-  Props,
-  SemanticName extends string,
-  NestedStructure extends AnyObject = object,
-> =
-  | (Partial<Record<SemanticName, React.CSSProperties>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined) &
-      NestedStructure);

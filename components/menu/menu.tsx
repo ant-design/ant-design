@@ -7,6 +7,7 @@ import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -36,21 +37,25 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
 
 export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
 
-export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
+export type SubMenuSemanticName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
-type CustomizationType<T = string> = Partial<
-  Record<SemanticName, T> & {
-    popup?: T | { root?: T };
-    subMenu?: Partial<Record<SubMenuName, T>>;
-  }
->;
+type MenuClassNamesSchemaType = SemanticClassNames<SemanticName> & {
+  popup?: SemanticClassNames<'root'> | string;
+  subMenu?: SemanticClassNames<SubMenuSemanticName>;
+};
+
+type MenuStylesSchemaType = SemanticStyles<SemanticName> & {
+  popup?: SemanticStyles<'root'> | React.CSSProperties;
+  subMenu?: SemanticStyles<SubMenuSemanticName>;
+};
+
 export type MenuClassNamesType =
-  | CustomizationType
-  | ((info: { props: MenuProps }) => CustomizationType);
+  | MenuClassNamesSchemaType
+  | ((info: { props: MenuProps }) => MenuClassNamesSchemaType);
 
 export type MenuStylesType =
-  | CustomizationType<React.CSSProperties>
-  | ((info: { props: MenuProps }) => CustomizationType<React.CSSProperties>);
+  | MenuStylesSchemaType
+  | ((info: { props: MenuProps }) => MenuStylesSchemaType);
 
 export interface MenuProps
   extends Omit<

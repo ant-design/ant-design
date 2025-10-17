@@ -1,4 +1,5 @@
 import React from 'react';
+import type { SemanticClassNames } from 'antd/es/_util/hooks/useMergeSemantic';
 
 import Progress from '..';
 import { render } from '../../../tests/utils';
@@ -6,7 +7,7 @@ import type { SemanticName } from '../progress';
 
 describe('Progress.Semantic', () => {
   it('Line', () => {
-    const classNames: Record<SemanticName, string> = {
+    const classNames: Required<SemanticClassNames<SemanticName>> = {
       root: 'my-root',
       body: 'my-body',
       rail: 'my-rail',
@@ -40,7 +41,7 @@ describe('Progress.Semantic', () => {
   });
 
   it('Steps', () => {
-    const classNames: Record<SemanticName, string> = {
+    const classNames: Required<SemanticClassNames<SemanticName>> = {
       root: 'my-root',
       body: 'my-body',
       track: 'my-track',
@@ -77,7 +78,7 @@ describe('Progress.Semantic', () => {
   });
 
   it('Circle', () => {
-    const classNames: Record<SemanticName, string> = {
+    const classNames: Required<SemanticClassNames<SemanticName>> = {
       root: 'my-root',
       body: 'my-body',
       rail: 'my-rail',

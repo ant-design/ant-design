@@ -23,26 +23,17 @@ const stylesFn: AutoCompleteProps['styles'] = ({ props }) => {
         root: { borderWidth: 1, borderColor: '#ccc' },
         list: { backgroundColor: '#f0f0f0' },
       },
-    };
+    } satisfies AutoCompleteProps['styles'];
   }
+  return {};
 };
 
 const options: AutoCompleteProps['options'] = [
-  {
-    value: 'Burnaby',
-  },
-  {
-    value: 'Seattle',
-  },
-  {
-    value: 'Los Angeles',
-  },
-  {
-    value: 'San Francisco',
-  },
-  {
-    value: 'Meet student',
-  },
+  { value: 'Burnaby' },
+  { value: 'Seattle' },
+  { value: 'Los Angeles' },
+  { value: 'San Francisco' },
+  { value: 'Meet student' },
 ];
 
 const App: React.FC = () => {

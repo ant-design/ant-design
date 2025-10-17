@@ -152,8 +152,8 @@ const PASSED_PROPS: Exclude<
 ];
 
 export interface ConfigProviderProps {
-  getTargetContainer?: () => HTMLElement | Window;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getTargetContainer?: () => HTMLElement | Window | ShadowRoot;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement | ShadowRoot;
   prefixCls?: string;
   iconPrefixCls?: string;
   children?: React.ReactNode;

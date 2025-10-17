@@ -35,7 +35,9 @@ export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefi
 }
 
 type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content';
+
 export type DescriptionsClassNamesType = SemanticClassNamesType<DescriptionsProps, SemanticName>;
+
 export type DescriptionsStylesType = SemanticStylesType<DescriptionsProps, SemanticName>;
 
 export interface DescriptionsProps {

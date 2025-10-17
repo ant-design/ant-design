@@ -21,8 +21,10 @@ const { Search, TextArea, OTP, Password } = Input;
 const stylesFn: InputProps['styles'] = (info) => {
   if (info.props.size === 'middle') {
     return {
-      root: { borderColor: '#696FC7' },
-    };
+      root: {
+        borderColor: '#696FC7',
+      },
+    } satisfies InputProps['styles'];
   }
   return {};
 };
@@ -32,7 +34,7 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
     return {
       root: { borderColor: '#BDE3C3' },
       count: { color: '#BDE3C3' },
-    };
+    } satisfies TextAreaProps['styles'];
   }
   return {};
 };
@@ -40,8 +42,10 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
 const stylesFnPassword: PasswordProps['styles'] = (info) => {
   if (info.props.size === 'middle') {
     return {
-      root: { borderColor: '#F5D3C4' },
-    };
+      root: {
+        borderColor: '#F5D3C4',
+      },
+    } satisfies PasswordProps['styles'];
   }
   return {};
 };
@@ -49,9 +53,11 @@ const stylesFnPassword: PasswordProps['styles'] = (info) => {
 const stylesFnOTP: OTPProps['styles'] = (info) => {
   if (info.props.size === 'middle') {
     return {
-      input: { borderColor: '#6E8CFB', width: 32 },
-      prefix: { color: '#6E8CFB' },
-    };
+      input: {
+        borderColor: '#6E8CFB',
+        width: 32,
+      },
+    } satisfies OTPProps['styles'];
   }
   return {};
 };
@@ -68,7 +74,7 @@ const stylesFnSearch: SearchProps['styles'] = (info) => {
         root: { color: '#4DA8DA', borderColor: '#4DA8DA' },
         icon: { color: '#4DA8DA' },
       },
-    };
+    } satisfies SearchProps['styles'];
   }
   return {};
 };
@@ -78,11 +84,11 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="middle">
       <Input classNames={classNames} placeholder="Object" />
-      <Input size="middle" classNames={classNames} styles={stylesFn} placeholder="Function" />
-      <TextArea classNames={classNames} showCount styles={stylesFnTextArea} value="TextArea" />
-      <Password size="middle" classNames={classNames} styles={stylesFnPassword} value="Password" />
-      <OTP size="middle" length={6} separator="*" classNames={classNames} styles={stylesFnOTP} />
-      <Search placeholder="Search" classNames={classNames} styles={stylesFnSearch} size="large" />
+      <Input classNames={classNames} styles={stylesFn} placeholder="Function" size="middle" />
+      <TextArea classNames={classNames} styles={stylesFnTextArea} value="TextArea" showCount />
+      <Password classNames={classNames} styles={stylesFnPassword} value="Password" size="middle" />
+      <OTP classNames={classNames} styles={stylesFnOTP} size="middle" length={6} separator="*" />
+      <Search classNames={classNames} styles={stylesFnSearch} size="large" placeholder="Search" />
     </Flex>
   );
 };

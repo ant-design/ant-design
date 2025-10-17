@@ -5,7 +5,12 @@ import { clsx } from 'clsx';
 
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -55,16 +60,13 @@ export type PopupSemantic = 'root' | 'mask' | 'body' | 'footer' | 'actions';
 export type ImageClassNamesType = SemanticClassNamesType<
   ImageProps,
   ImageSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  }
+  { popup?: SemanticClassNames<PopupSemantic> }
 >;
+
 export type ImageStylesType = SemanticStylesType<
   ImageProps,
   ImageSemanticName,
-  {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  }
+  { popup?: SemanticStyles<PopupSemantic> }
 >;
 
 export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {

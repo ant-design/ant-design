@@ -11,6 +11,7 @@ export interface MasonryItemType<T = any> {
   children?: React.ReactNode;
   data: T;
 }
+
 interface MasonryItemProps<T = any> extends Pick<MasonryProps, 'itemRender'> {
   prefixCls: string;
   item: MasonryItemType<T>;

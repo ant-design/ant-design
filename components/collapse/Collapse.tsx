@@ -7,7 +7,12 @@ import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -66,8 +71,8 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
-  classNames?: Partial<Record<CollapseSemanticName, string>>;
-  styles?: Partial<Record<CollapseSemanticName, React.CSSProperties>>;
+  classNames?: SemanticClassNames<CollapseSemanticName>;
+  styles?: SemanticStyles<CollapseSemanticName>;
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
@@ -176,7 +181,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     () => ({
       ...initCollapseMotion(rootPrefixCls),
       motionAppear: false,
-      leavedClassName: `${prefixCls}-content-hidden`,
+      leavedClassName: `${prefixCls}-panel-hidden`,
     }),
     [rootPrefixCls, prefixCls],
   );
@@ -198,18 +203,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      classNames={{
-        header: mergedClassNames.header,
-        title: mergedClassNames.title,
-        body: mergedClassNames.body,
-        icon: mergedClassNames.icon,
-      }}
-      styles={{
-        header: mergedStyles.header,
-        title: mergedStyles.title,
-        body: mergedStyles.body,
-        icon: mergedStyles.icon,
-      }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       destroyOnHidden={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}

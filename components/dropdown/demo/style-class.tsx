@@ -64,7 +64,7 @@ const functionStyles: DropdownProps['styles'] = (info) => {
         borderColor: '#1890ff',
         borderRadius: '8px',
       },
-    };
+    } satisfies DropdownProps['styles'];
   }
   return {};
 };
@@ -74,11 +74,10 @@ const App: React.FC = () => {
 
   const sharedProps: DropdownProps = {
     menu: { items },
-    placement: 'bottomLeft' as const,
-    classNames: {
-      root: styles.root,
-    },
+    placement: 'bottomLeft',
+    classNames: { root: styles.root },
   };
+
   return (
     <Flex gap="middle" wrap="wrap">
       <Space vertical size="large">

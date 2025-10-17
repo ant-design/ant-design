@@ -22,6 +22,47 @@ const useStyles = createStyles(({ token }) => ({
   },
 }));
 
+const stylesCard: CardProps['styles'] = {
+  root: {
+    boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+    borderRadius: 8,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 500,
+    color: '#262626',
+  },
+};
+
+const stylesCardFn: CardProps['styles'] = (info) => {
+  if (info.props.variant === 'outlined') {
+    return {
+      root: {
+        borderColor: '#696FC7',
+        boxShadow: '0 2px 8px #A7AAE1',
+        borderRadius: 8,
+      },
+      extra: {
+        color: '#696FC7',
+      },
+      title: {
+        fontSize: 16,
+        fontWeight: 500,
+        color: '#A7AAE1',
+      },
+    } satisfies CardProps['styles'];
+  }
+};
+
+const stylesCardMeta: CardMetaProps['styles'] = {
+  title: {
+    color: '#A7AAE1',
+  },
+  description: {
+    color: '#A7AAE1',
+  },
+};
+
 const actions = [
   <HeartOutlined key="heart" style={{ color: '#ff6b6b' }} />,
   <ShareAltOutlined key="share" style={{ color: '#4ecdc4' }} />,
@@ -30,47 +71,6 @@ const actions = [
 
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-  const stylesCard: CardProps['styles'] = {
-    root: {
-      boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      borderRadius: 8,
-    },
-    title: {
-      fontSize: 16,
-      fontWeight: 500,
-      color: '#262626',
-    },
-  };
-
-  const stylesCardFn: CardProps['styles'] = (info) => {
-    if (info.props.variant === 'outlined') {
-      return {
-        root: {
-          borderColor: '#696FC7',
-          boxShadow: '0 2px 8px #A7AAE1',
-          borderRadius: 8,
-        },
-        extra: {
-          color: '#696FC7',
-        },
-        title: {
-          fontSize: 16,
-          fontWeight: 500,
-          color: '#A7AAE1',
-        },
-      };
-    }
-    return {};
-  };
-
-  const stylesCardMeta: CardMetaProps['styles'] = {
-    title: {
-      color: '#A7AAE1',
-    },
-    description: {
-      color: '#A7AAE1',
-    },
-  };
 
   const sharedCardProps: CardProps = {
     classNames,
@@ -81,6 +81,7 @@ const App: React.FC = () => {
     avatar: <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />,
     description: 'This is the description',
   };
+
   return (
     <Flex gap="middle">
       <Card
@@ -97,14 +98,7 @@ const App: React.FC = () => {
         title="Function Card"
         styles={stylesCardFn}
         extra={
-          <Button
-            type="link"
-            styles={{
-              root: {
-                color: '#A7AAE1',
-              },
-            }}
-          >
+          <Button type="link" styles={{ root: { color: '#A7AAE1' } }}>
             More
           </Button>
         }

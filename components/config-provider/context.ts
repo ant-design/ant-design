@@ -474,7 +474,7 @@ export interface ConfigComponentProps {
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {
-  getTargetContainer?: () => HTMLElement;
+  getTargetContainer?: () => HTMLElement | Window;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   iconPrefixCls: string;

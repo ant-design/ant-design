@@ -33,7 +33,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/inline-variant.tsx">内联样式组合</code>
 <code src="./demo/variant-debug.tsx" debug>变体 Debug</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 

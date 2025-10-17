@@ -12,10 +12,9 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: StatisticProps['styles'] = ({ props: { value } }) => {
-  const numValue = Number(value ?? 0);
+const styleFn: StatisticProps['styles'] = ({ props }) => {
+  const numValue = Number(props.value ?? 0);
   const isNegative = Number.isFinite(numValue) && numValue < 0;
-
   if (isNegative) {
     return {
       title: {
@@ -24,9 +23,8 @@ const styleFn: StatisticProps['styles'] = ({ props: { value } }) => {
       content: {
         color: '#ff7875',
       },
-    };
+    } satisfies StatisticProps['styles'];
   }
-
   return {};
 };
 
@@ -34,9 +32,7 @@ const App: React.FC = () => {
   const { styles } = useStyle();
 
   const statisticSharedProps: StatisticProps = {
-    classNames: {
-      root: styles.root,
-    },
+    classNames: { root: styles.root },
     prefix: <ArrowUpOutlined />,
   };
 
@@ -46,18 +42,9 @@ const App: React.FC = () => {
         {...statisticSharedProps}
         title="Monthly Active Users"
         value={93241}
-        styles={{
-          title: {
-            color: '#1890ff',
-            fontWeight: 600,
-          },
-          content: {
-            fontSize: '24px',
-          },
-        }}
+        styles={{ title: { color: '#1890ff', fontWeight: 600 }, content: { fontSize: '24px' } }}
         suffix="users"
       />
-
       <Statistic
         {...statisticSharedProps}
         title="Yearly Loss"

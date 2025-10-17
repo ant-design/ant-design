@@ -10,32 +10,30 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+const stylesObject: CalendarProps<Dayjs>['styles'] = {
+  root: {
+    borderRadius: 8,
+    width: 600,
+    backgroundColor: '#d9d9d9',
+  },
+};
+
+const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
+  if (info.props.fullscreen) {
+    return {
+      root: {
+        border: '2px solid #BDE3C3',
+        borderRadius: 10,
+      },
+      header: {
+        backgroundColor: '#fafafa',
+      },
+    } satisfies CalendarProps<Dayjs>['styles'];
+  }
+};
+
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
-
-  const stylesObject: CalendarProps<Dayjs>['styles'] = {
-    root: {
-      borderRadius: 8,
-      width: 600,
-      backgroundColor: '#d9d9d9',
-    },
-  };
-
-  const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
-    if (info.props.fullscreen) {
-      return {
-        root: {
-          border: '2px solid #BDE3C3',
-          borderRadius: 10,
-        },
-        header: {
-          backgroundColor: '#fafafa',
-        },
-      };
-    }
-    return {};
-  };
-
   return (
     <Flex vertical gap="middle">
       <Calendar fullscreen={false} classNames={classNames} styles={stylesObject} />

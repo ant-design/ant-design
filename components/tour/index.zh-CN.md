@@ -25,7 +25,7 @@ tag: 5.0.0
 <code src="./demo/indicator.tsx">自定义指示器</code>
 <code src="./demo/actions-render.tsx" version="5.25.0">自定义操作按钮</code>
 <code src="./demo/gap.tsx">自定义高亮区域的样式</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
