@@ -29,9 +29,6 @@ export function useIssueCount(options: UseIssueCountOptions) {
       try {
         // eslint-disable-next-line compat/compat
         const res = await fetch(endpoint, { headers: { Accept: 'application/vnd.github+json' } });
-        if (!res.ok) {
-          throw new Error(`Fetch failed with status ${res.status}`);
-        }
         const data = await res.json();
         if (!aborted) {
           const total = typeof data?.total_count === 'number' ? data.total_count : null;
