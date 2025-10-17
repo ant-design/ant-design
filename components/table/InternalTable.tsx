@@ -478,58 +478,76 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   );
 
-  let topPaginationNode: React.ReactNode;
-  let bottomPaginationNode: React.ReactNode;
-  if (pagination !== false && mergedPagination?.total) {
-    let paginationSize: TablePaginationConfig['size'];
-    if (mergedPagination.size) {
-      paginationSize = mergedPagination.size;
-    } else {
-      paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
+  const getPaginationNodes = (): { top?: React.ReactNode; bottom?: React.ReactNode } => {
+    if (pagination === false || !mergedPagination?.total) {
+      return {};
     }
 
-    const renderPagination = (position: string) => (
-      <Pagination
-        {...mergedPagination}
-        className={classNames(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
-          mergedPagination.className,
-        )}
-        size={paginationSize}
-      />
-    );
+    const getPaginationSize = (): TablePaginationConfig['size'] =>
+      mergedPagination.size ||
+      (mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined);
+
+    const renderPagination = (position: string) => {
+      const align = (position === 'left' ? 'start' : position === 'right' ? 'end' : position) as
+        | 'start'
+        | 'center'
+        | 'end';
+      return (
+        <Pagination
+          {...mergedPagination}
+          align={mergedPagination.align || align}
+          className={classNames(`${prefixCls}-pagination`, mergedPagination.className)}
+          size={getPaginationSize()}
+        />
+      );
+    };
+
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    const { position } = mergedPagination;
-    if (position !== null && Array.isArray(position)) {
-      const topPos = position.find((p) => p.includes('top'));
-      const bottomPos = position.find((p) => p.includes('bottom'));
-      const isDisable = position.every((p) => `${p}` === 'none');
-      if (!topPos && !bottomPos && !isDisable) {
-        bottomPaginationNode = renderPagination(defaultPosition);
-      }
-      if (topPos) {
-        topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
-      }
-      if (bottomPos) {
-        bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
-      }
-    } else {
-      bottomPaginationNode = renderPagination(defaultPosition);
+    const positions = mergedPagination.position;
+
+    if (positions === null || !Array.isArray(positions)) {
+      return { bottom: renderPagination(defaultPosition) };
     }
-  }
+
+    const topPosition = positions.find(
+      (pos) => typeof pos === 'string' && pos.toLowerCase().includes('top'),
+    );
+    const bottomPosition = positions.find(
+      (pos) => typeof pos === 'string' && pos.toLowerCase().includes('bottom'),
+    );
+    const isNone = positions.every((pos) => `${pos}` === 'none');
+
+    const topAlign = topPosition ? topPosition.toLowerCase().replace('top', '') : '';
+    const bottomAlign = bottomPosition ? bottomPosition.toLowerCase().replace('bottom', '') : '';
+    const shouldDefaultBottom = !topPosition && !bottomPosition && !isNone;
+
+    const renderTop = () => (topAlign ? renderPagination(topAlign) : undefined);
+    const renderBottom = () => {
+      if (bottomAlign) {
+        return renderPagination(bottomAlign);
+      }
+      if (shouldDefaultBottom) {
+        return renderPagination(defaultPosition);
+      }
+      return undefined;
+    };
+
+    return {
+      top: renderTop(),
+      bottom: renderBottom(),
+    };
+  };
 
   // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
-    };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
-  }
+  const spinProps: SpinProps | undefined = (() => {
+    if (typeof loading === 'boolean') {
+      return { spinning: loading };
+    }
+    if (typeof loading === 'object' && loading !== null) { // Add null check
+      return { spinning: true, ...loading };
+    }
+    return undefined;
+  })();
 
   const wrapperClassNames = classNames(
     cssVarCls,
@@ -586,6 +604,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   if (virtual) {
     virtualProps.listItemHeight = listItemHeight;
   }
+
+  const { top: topPaginationNode, bottom: bottomPaginationNode } = getPaginationNodes();
 
   return wrapCSSVar(
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>

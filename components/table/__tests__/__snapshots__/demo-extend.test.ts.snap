@@ -236,7 +236,7 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -456,7 +456,7 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -776,7 +776,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -3342,7 +3342,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -3765,7 +3765,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -4462,7 +4462,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -7952,7 +7952,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -8348,7 +8348,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -8796,7 +8796,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -9351,7 +9351,7 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -9920,7 +9920,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -10222,7 +10222,7 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -11198,7 +11198,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -11982,7 +11982,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -13181,7 +13181,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -14673,7 +14673,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -15784,7 +15784,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -16236,7 +16236,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -16586,7 +16586,7 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -17974,7 +17974,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -18454,7 +18454,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -18797,7 +18797,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
         >
           <li
             aria-disabled="false"
@@ -19553,7 +19553,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -20452,7 +20452,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -21344,7 +21344,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -22236,7 +22236,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -22611,7 +22611,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -22898,7 +22898,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
         class="ant-spin-container"
       >
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-left"
+          class="ant-pagination ant-pagination-start ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -23208,7 +23208,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -24060,7 +24060,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -24413,7 +24413,7 @@ exports[`renders components/table/demo/resizable-column.tsx extend context corre
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -24553,7 +24553,7 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -24946,7 +24946,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -25523,7 +25523,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -26326,7 +26326,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -26733,7 +26733,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -29471,7 +29471,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -29682,7 +29682,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -29887,7 +29887,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -30198,7 +30198,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -30922,7 +30922,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
@@ -31413,7 +31413,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-end ant-table-pagination"
         >
           <li
             aria-disabled="true"
