@@ -12,10 +12,10 @@ import type { FormItemStatusContextProps } from '../context';
 import { getStatus } from '../util';
 
 const iconMap = {
-  success: <CheckCircleFilled />,
-  warning: <ExclamationCircleFilled />,
-  error: <CloseCircleFilled />,
-  validating: <LoadingOutlined />,
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: LoadingOutlined,
 };
 
 export interface StatusProviderProps {
@@ -78,7 +78,7 @@ export default function StatusProvider({
               `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
             )}
           >
-            {customIconNode || IconNode}
+            {customIconNode || React.createElement(IconNode)}
           </span>
         ) : null;
     }
