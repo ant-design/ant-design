@@ -7,6 +7,7 @@ const isNumber = (value: any): value is number => {
 };
 
 const fetcher = async (url: string) => {
+  // eslint-disable-next-line compat/compat
   const res = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
   const data = await res.json();
   const totalCount = isNumber(data?.total_count) ? data.total_count : null;
