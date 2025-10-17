@@ -617,6 +617,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       ...resetComponent(token),
       display: 'flex',
       flexWrap: 'wrap',
+      rowGap: token.paddingXS,
 
       '&-start': {
         justifyContent: 'start',
