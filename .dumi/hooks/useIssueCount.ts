@@ -9,7 +9,7 @@ export interface UseIssueCountOptions {
 export function useIssueCount(options: UseIssueCountOptions) {
   const { repo, proxyEndpoint, titleKeywords } = options;
 
-  const [issuesCount, setIssuesCount] = useState<number | null>();
+  const [issuesCount, setIssuesCount] = useState<number | null>(null);
 
   // Note: current query only filters by title keywords (button/按钮). Component name can be added later if needed.
 
