@@ -11,8 +11,8 @@ import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import Link from '../../common/Link';
 import kebabCase from 'lodash/kebabCase';
+import Link from '../../common/Link';
 
 import useLocale from '../../../hooks/useLocale';
 import useIssueCount from '../../../hooks/useIssueCount';
