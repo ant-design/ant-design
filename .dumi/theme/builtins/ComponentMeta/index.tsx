@@ -1,22 +1,26 @@
 import React from 'react';
 import {
+  BugOutlined,
+  CompassOutlined,
   EditOutlined,
   GithubOutlined,
   HistoryOutlined,
-  BugOutlined,
-  CompassOutlined,
   IssuesCloseOutlined,
 } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import kebabCase from 'lodash/kebabCase';
+import CopyToClipboard from 'react-copy-to-clipboard';
+
+import useIssueCount from '../../../hooks/useIssueCount';
+import useLocale from '../../../hooks/useLocale';
+import ComponentChangelog from '../../common/ComponentChangelog';
 import Link from '../../common/Link';
 
-import useLocale from '../../../hooks/useLocale';
-import useIssueCount from '../../../hooks/useIssueCount';
-import ComponentChangelog from '../../common/ComponentChangelog';
+const isNumber = (value: any): value is number => {
+  return typeof value === 'number' && !Number.isNaN(value);
+};
 
 const locales = {
   cn: {
@@ -95,7 +99,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const { styles } = useStyle();
 
   // ======================= Issues Count =======================
-  const { issuesCount, issueNewUrl, issueSearchUrl } = useIssueCount({
+  const { issueCount, issueCountLoading, issueNewUrl, issueSearchUrl } = useIssueCount({
     repo,
     titleKeywords: searchTitleKeywords,
   });
@@ -183,7 +187,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                   <IssuesCloseOutlined className={styles.icon} />
                   <span>
                     {locale.issueOpen}
-                    {typeof issuesCount === 'number' ? ` ${issuesCount}` : ''}
+                    {issueCountLoading ? ' -' : isNumber(issueCount) ? ` ${issueCount}` : ''}
                   </span>
                 </Typography.Link>
               </Flex>
