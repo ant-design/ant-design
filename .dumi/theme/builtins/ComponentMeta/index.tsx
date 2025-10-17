@@ -1,11 +1,19 @@
 import React from 'react';
-import { CompassOutlined, EditOutlined, GithubOutlined, HistoryOutlined } from '@ant-design/icons';
+import {
+  BugOutlined,
+  CompassOutlined,
+  EditOutlined,
+  GithubOutlined,
+  HistoryOutlined,
+  IssuesCloseOutlined,
+} from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import copy from 'antd/es/_util/copy';
 import kebabCase from 'lodash/kebabCase';
 
+import useIssueCount from '../../../hooks/useIssueCount';
 import useLocale from '../../../hooks/useLocale';
 import ComponentChangelog from '../../common/ComponentChangelog';
 import Link from '../../common/Link';
@@ -15,27 +23,31 @@ const locales = {
     import: '使用',
     copy: '复制',
     copied: '已复制',
-    source: '源码',
+    source: '反馈',
     docs: '文档',
     edit: '编辑此页',
     changelog: '更新日志',
     design: '设计指南',
     version: '版本',
+    issueNew: '提交问题',
+    issueOpen: '待解决',
   },
   en: {
     import: 'Import',
     copy: 'Copy',
     copied: 'Copied',
-    source: 'Source',
+    source: 'GitHub',
     docs: 'Docs',
     edit: 'Edit this page',
     changelog: 'Changelog',
     design: 'Design',
     version: 'Version',
+    issueNew: 'Issue',
+    issueOpen: 'Open issues',
   },
 };
 
-const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
+const branchUrl = (repo: string) => `https://github.com/${repo}/edit/master/`;
 
 function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
@@ -71,14 +83,22 @@ export interface ComponentMetaProps {
   filename?: string;
   version?: string;
   designUrl?: string;
+  searchTitleKeywords?: string[];
+  repo: string;
 }
 
 const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
-  const { component, source, filename, version, designUrl } = props;
+  const { component, source, filename, version, designUrl, searchTitleKeywords, repo } = props;
   const { token } = theme.useToken();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
   const { styles } = useStyle();
+
+  // ======================= Issues Count =======================
+  const { issuesCount, issueNewUrl, issueSearchUrl } = useIssueCount({
+    repo,
+    titleKeywords: searchTitleKeywords,
+  });
 
   // ========================= Copy =========================
   const [copied, setCopied] = React.useState(false);
@@ -99,7 +119,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     if (String(source) === 'true') {
       const kebabComponent = kebabCase(component);
       return [
-        `https://github.com/ant-design/ant-design/blob/master/components/${kebabComponent}`,
+        `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
         `components/${kebabComponent}`,
       ];
     }
@@ -153,10 +173,23 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           filledSource && {
             label: locale.source,
             children: (
-              <Typography.Link className={styles.code} href={filledSource} target="_blank">
-                <GithubOutlined className={styles.icon} />
-                <span>{abbrSource}</span>
-              </Typography.Link>
+              <Flex justify="flex-start" align="center" gap="small">
+                <Typography.Link className={styles.code} href={filledSource} target="_blank">
+                  <GithubOutlined className={styles.icon} />
+                  <span>{abbrSource}</span>
+                </Typography.Link>
+                <Typography.Link className={styles.code} href={issueNewUrl} target="_blank">
+                  <BugOutlined className={styles.icon} />
+                  <span>{locale.issueNew}</span>
+                </Typography.Link>
+                <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
+                  <IssuesCloseOutlined className={styles.icon} />
+                  <span>
+                    {locale.issueOpen}
+                    {typeof issuesCount === 'number' ? ` ${issuesCount}` : ''}
+                  </span>
+                </Typography.Link>
+              </Flex>
             ),
           },
           filename && {
@@ -165,7 +198,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
               <Flex justify="flex-start" align="center" gap="small">
                 <Typography.Link
                   className={styles.code}
-                  href={`${branchUrl}${filename}`}
+                  href={`${branchUrl(repo)}${filename}`}
                   target="_blank"
                 >
                   <EditOutlined className={styles.icon} />

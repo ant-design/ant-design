@@ -619,17 +619,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
-    };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
-  }
+  const spinProps: SpinProps | undefined = (() => {
+    if (typeof loading === 'boolean') {
+      return { spinning: loading };
+    }
+    if (typeof loading === 'object' && loading !== null) {
+      // Add null check
+      return { spinning: true, ...loading };
+    }
+    return undefined;
+  })();
 
   const wrappercls = clsx(
     cssVarCls,

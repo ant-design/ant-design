@@ -65,7 +65,6 @@ export default antfu(
       'react-hooks/preserve-manual-memoization': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
-      'react-hooks/purity': 'off',
       'react-hooks/static-components': 'off',
     },
   },
