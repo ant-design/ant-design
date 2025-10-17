@@ -526,8 +526,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     if (typeof loading === 'object' && loading != null) { // Add null check
       return { spinning: true, ...loading };
     }
-      return { spinning: true, ...loading };
-    }
     return undefined;
   })();
 
