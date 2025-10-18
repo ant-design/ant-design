@@ -89,7 +89,7 @@ export function spaceChildren(
 ) {
   let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
-  const childNodes: React.ReactElement[] = toArray(children);
+  const childNodes: React.ReactNode[] = toArray(children);
   childNodes.forEach((child) => {
     const type = typeof child;
     const isCurrentChildPure = type === 'string' || type === 'number';
