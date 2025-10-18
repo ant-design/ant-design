@@ -150,11 +150,11 @@ const App: React.FC = () => {
     const additionalGroupLocale = mode !== 'horizontal' ? groupLocale : [];
 
     return [...baseLocale, ...additionalGroupLocale, ...additionalPopupLocale, ...subMenuLocale];
-  }, [mode]);
+  }, [mode, locale]);
 
   const itemList = React.useMemo(() => {
     return mode === 'horizontal' ? items : [...items, ...groupItem];
-  }, [mode]);
+  }, [mode, items, groupItem]);
 
   return (
     <SemanticPreview componentName="Menu" semantics={semantics}>
