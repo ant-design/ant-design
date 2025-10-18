@@ -159,13 +159,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const isContainGrid = React.useMemo<boolean>(() => {
-    let containGrid = false;
-    React.Children.forEach(children as React.ReactElement, (element: React.JSX.Element) => {
-      if (element?.type === Grid) {
-        containGrid = true;
-      }
-    });
-    return containGrid;
+    const childrenArray = React.Children.toArray(children);
+    return childrenArray.some((child) => React.isValidElement(child) && child.type === Grid);
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);

@@ -1,5 +1,5 @@
-import type { CSSProperties, FC, HTMLAttributes, ReactElement, ReactNode } from 'react';
-import React, { Children, useContext } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
+import React, { useContext } from 'react';
 import { clsx } from 'clsx';
 
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
@@ -35,7 +35,7 @@ export interface ListItemMetaProps {
 type ListItemClassNamesModule = keyof Exclude<ListItemProps['classNames'], undefined>;
 type ListItemStylesModule = keyof Exclude<ListItemProps['styles'], undefined>;
 
-export const Meta: FC<ListItemMetaProps> = ({
+export const Meta: React.FC<ListItemMetaProps> = ({
   prefixCls: customizePrefixCls,
   className,
   avatar,
@@ -87,13 +87,9 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   });
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    let result = false;
-    Children.forEach(children as ReactElement, (element) => {
-      if (typeof element === 'string') {
-        result = true;
-      }
-    });
-    return result && Children.count(children) > 1;
+    const childrenArray = React.Children.toArray(children);
+    const hasTextNode = childrenArray.some((node) => typeof node === 'string');
+    return hasTextNode && childrenArray.length > 1;
   };
 
   const isFlexMode = () => {
