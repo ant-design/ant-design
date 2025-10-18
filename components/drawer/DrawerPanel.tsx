@@ -78,7 +78,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {icon}
       </button>
     ),
-    [onClose],
+    [onClose, prefixCls],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
@@ -96,11 +96,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     }
     return (
       <div
-        style={{
-          ...drawerContext.styles?.header,
-          ...headerStyle,
-          ...drawerStyles?.header,
-        }}
+        style={{ ...drawerContext.styles?.header, ...headerStyle, ...drawerStyles?.header }}
         className={classNames(
           `${prefixCls}-header`,
           {
@@ -117,7 +113,18 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);
+  }, [
+    title,
+    mergedClosable,
+    drawerContext.styles?.header,
+    drawerContext.classNames?.header,
+    headerStyle,
+    drawerStyles?.header,
+    prefixCls,
+    extra,
+    drawerClassNames?.header,
+    mergedCloseIcon,
+  ]);
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {
@@ -131,16 +138,20 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           drawerContext.classNames?.footer,
           drawerClassNames?.footer,
         )}
-        style={{
-          ...drawerContext.styles?.footer,
-          ...footerStyle,
-          ...drawerStyles?.footer,
-        }}
+        style={{ ...drawerContext.styles?.footer, ...footerStyle, ...drawerStyles?.footer }}
       >
         {footer}
       </div>
     );
-  }, [footer, footerStyle, prefixCls]);
+  }, [
+    drawerClassNames?.footer,
+    drawerContext.classNames?.footer,
+    drawerContext.styles?.footer,
+    drawerStyles?.footer,
+    footer,
+    footerStyle,
+    prefixCls,
+  ]);
 
   return (
     <>
