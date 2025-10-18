@@ -1,4 +1,25 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import useSWR from 'swr';
+import type { SWRConfiguration } from 'swr';
+
+const isNumber = (value: any): value is number => {
+  return typeof value === 'number' && !Number.isNaN(value);
+};
+
+const fetcher = async (url: string): Promise<number> => {
+  // eslint-disable-next-line compat/compat
+  const res = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+  const data = await res.json();
+  const totalCount = isNumber(data?.total_count) ? data.total_count : 0;
+  return totalCount;
+};
+
+const swrConfig: SWRConfiguration<number, Error> = {
+  revalidateOnReconnect: true, // 网络重新连接时重新请求
+  dedupingInterval: 1000 * 60, // 1 分钟内重复 key 不会重新请求
+  shouldRetryOnError: true, // 错误重试
+  errorRetryCount: 3, // 最多重试 3 次
+};
 
 export interface UseIssueCountOptions {
   repo: string; // e.g. ant-design/ant-design
@@ -6,13 +27,10 @@ export interface UseIssueCountOptions {
   titleKeywords?: string[]; // keywords to match in issue title
 }
 
-export function useIssueCount(options: UseIssueCountOptions) {
+export const useIssueCount = (options: UseIssueCountOptions) => {
   const { repo, proxyEndpoint, titleKeywords } = options;
 
-  const [issuesCount, setIssuesCount] = useState<number | null>(null);
-
   // Note: current query only filters by title keywords. Filtering by component name can be added later if needed.
-
   const searchUrl = useMemo(() => {
     const tokens = (titleKeywords || []).filter(Boolean).map((k) => encodeURIComponent(String(k)));
     const orExpr = tokens.length > 0 ? tokens.join('%20OR%20') : '';
@@ -23,27 +41,10 @@ export function useIssueCount(options: UseIssueCountOptions) {
 
   const endpoint = proxyEndpoint || searchUrl;
 
-  useEffect(() => {
-    let aborted = false;
-    (async () => {
-      try {
-        // eslint-disable-next-line compat/compat
-        const res = await fetch(endpoint, { headers: { Accept: 'application/vnd.github+json' } });
-        const data = await res.json();
-        if (!aborted) {
-          const total = typeof data?.total_count === 'number' ? data.total_count : null;
-          setIssuesCount(total);
-        }
-      } catch {
-        if (!aborted) setIssuesCount(null);
-      }
-    })();
-    return () => {
-      aborted = true;
-    };
-  }, [endpoint]);
+  const { data, error, isLoading } = useSWR<number, Error>(endpoint || null, fetcher, swrConfig);
 
   const issueNewUrl = `https://github.com/${repo}/issues/new/choose`;
+
   const issueSearchUrl = useMemo(() => {
     const keywords = (titleKeywords || []).filter(Boolean).map((k) => String(k));
     const groupExpr =
@@ -52,7 +53,13 @@ export function useIssueCount(options: UseIssueCountOptions) {
     return `https://github.com/${repo}/issues?q=${encodeURIComponent(qRaw)}`;
   }, [repo, titleKeywords]);
 
-  return { issuesCount, issueNewUrl, issueSearchUrl };
-}
+  return {
+    issueCount: data,
+    issueCountError: error,
+    issueCountLoading: isLoading,
+    issueNewUrl,
+    issueSearchUrl,
+  };
+};
 
 export default useIssueCount;
