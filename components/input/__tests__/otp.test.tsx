@@ -237,4 +237,33 @@ describe('Input.OTP', () => {
       expect(separator.textContent).toBe('X');
     });
   });
+
+  it('numericOnly filters non-digits, sets inputMode and keeps text type', () => {
+    const { container } = render(<OTP numericOnly length={6} autoFocus />);
+
+    const inputs = Array.from(container.querySelectorAll('input'));
+    expect(inputs[0]).toHaveAttribute('inputmode', 'numeric');
+    expect(inputs[0]).toHaveAttribute('type', 'text');
+
+    // Paste alpha-numeric text into first cell
+    fireEvent.input(inputs[0], { target: { value: 'a1b2c3' } });
+
+    // Only digits should be filled into consecutive cells
+    expect(getText(container)).toBe('123');
+
+    // Focus should move by the count of numeric chars (3)
+    expect(document.activeElement).toBe(inputs[3]);
+  });
+
+  it('numericOnly ignores single non-digit input', () => {
+    const { container } = render(<OTP numericOnly length={4} autoFocus />);
+    const inputs = Array.from(container.querySelectorAll('input'));
+
+    // Type a non-digit character
+    fireEvent.input(inputs[0], { target: { value: 'a' } });
+
+    // Value remains empty, focus stays on the same input
+    expect(getText(container)).toBe('');
+    expect(document.activeElement).toBe(inputs[0]);
+  });
 });
