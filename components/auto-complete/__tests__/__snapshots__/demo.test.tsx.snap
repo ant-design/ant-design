@@ -1850,5 +1850,39 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
       </span>
     </div>
   </div>
+  <div
+    class="ant-select ant-select-underlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Underlined
+        </span>
+      </span>
+    </div>
+  </div>
 </div>
 `;

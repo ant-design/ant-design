@@ -1096,7 +1096,11 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+]
+`;
 
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
@@ -2424,6 +2428,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
@@ -2982,7 +2987,11 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+]
+`;
 
 exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 1`] = `
 <div
@@ -3114,6 +3123,53 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
           class="ant-select-selection-placeholder"
         >
           Borderless
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="rc_select_TEST_OR_SSR_list"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-underlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    style="width: 200px;"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Underlined
         </span>
       </span>
     </div>

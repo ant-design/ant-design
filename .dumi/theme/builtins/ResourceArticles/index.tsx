@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
+import { Alert, Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
-import { useSiteData } from '../../../pages/index/components/util';
+import { useAntdSiteConfig } from '../../../pages/index/components/util';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
@@ -92,7 +92,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
+const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
 
@@ -145,15 +145,27 @@ const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
   );
 };
 
-export default () => {
+const ResourceArticles: React.FC = () => {
   const { styles } = useStyle();
-  const data = useSiteData();
-
-  const articles = data ? <Articles data={data} /> : <Skeleton active />;
-
+  const { data, error, isLoading } = useAntdSiteConfig();
+  if (isLoading) {
+    return <Skeleton active />;
+  }
+  if (error) {
+    return (
+      <Alert
+        showIcon
+        type="error"
+        message={error.message}
+        description={process.env.NODE_ENV !== 'production' ? error.stack : undefined}
+      />
+    );
+  }
   return (
     <div id="articles" className={styles.articles}>
-      {articles}
+      <Articles data={data} />
     </div>
   );
 };
+
+export default ResourceArticles;

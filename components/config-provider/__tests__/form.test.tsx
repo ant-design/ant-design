@@ -16,12 +16,12 @@ jest.mock('scroll-into-view-if-needed');
 describe('ConfigProvider.Form', () => {
   (scrollIntoView as any).mockImplementation(() => {});
 
-  beforeEach(() => {
-    (scrollIntoView as any).mockReset();
-  });
-
   beforeAll(() => {
     jest.useFakeTimers();
+  });
+
+  beforeEach(() => {
+    (scrollIntoView as any).mockReset();
   });
 
   afterAll(() => {
