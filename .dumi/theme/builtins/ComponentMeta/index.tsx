@@ -6,6 +6,7 @@ import {
   GithubOutlined,
   HistoryOutlined,
   IssuesCloseOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
@@ -73,7 +74,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     }
   `,
   icon: css`
-    margin-inline-end: 3px;
+    margin-inline-end: 4px;
   `,
 }));
 
@@ -95,7 +96,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const { styles } = useStyle();
 
   // ======================= Issues Count =======================
-  const { issuesCount, issueNewUrl, issueSearchUrl } = useIssueCount({
+  const { issueCount, issueCountLoading, issueNewUrl, issueSearchUrl } = useIssueCount({
     repo,
     titleKeywords: searchTitleKeywords,
   });
@@ -185,8 +186,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
                   <IssuesCloseOutlined className={styles.icon} />
                   <span>
-                    {locale.issueOpen}
-                    {typeof issuesCount === 'number' ? ` ${issuesCount}` : ''}
+                    {locale.issueOpen} {issueCountLoading ? <LoadingOutlined /> : issueCount}
                   </span>
                 </Typography.Link>
               </Flex>
