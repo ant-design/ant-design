@@ -105,7 +105,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     [slickRef.current],
   );
   const { children, initialSlide = 0 } = props;
-  const childNodes: React.ReactElement[] = toArray(children);
+  const childNodes: React.ReactNode[] = toArray(children);
   const count = childNodes.length;
   const isRTL = (rtl ?? direction === 'rtl') && !vertical;
 
