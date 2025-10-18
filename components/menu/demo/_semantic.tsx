@@ -154,7 +154,7 @@ const App: React.FC = () => {
 
   const itemList = React.useMemo(() => {
     return mode === 'horizontal' ? items : [...items, ...groupItem];
-  }, [mode, items, groupItem]);
+  }, [mode]);
 
   return (
     <SemanticPreview componentName="Menu" semantics={semantics}>
