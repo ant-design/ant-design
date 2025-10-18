@@ -147,13 +147,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const mergedSizes: number[] = [];
 
     let stack = 0;
-    for (let i = 0; i < items.length; i += 1) {
+    const len = items.length;
+    for (let i = 0; i < len; i += 1) {
       stack += itemPtgSizes[i];
       mergedSizes.push(stack);
     }
 
     return mergedSizes;
-  }, [itemPtgSizes]);
+  }, [itemPtgSizes, items.length]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
