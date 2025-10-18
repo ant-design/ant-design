@@ -60,8 +60,8 @@ const Palette: React.FC<PaletteProps> = (props) => {
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
 
   const colors: React.ReactNode[] = Array.from({ length: count }, (_, i) => {
-    const colorText = `${name}-${i}`;
-    const defaultBgStyle = dark && name ? presetDarkPalettes[name][i - 1] : '';
+    const colorText = `${name}-${i + 1}`;
+    const defaultBgStyle = dark && name ? presetDarkPalettes[name][i] : '';
     return (
       <CopyToClipboard
         text={hexColors[colorText]}
