@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import { unstableSetRender } from '../config-provider/UnstableContext';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import type { ArgsProps, NotificationConfig, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
@@ -31,21 +31,15 @@ type Task =
 
 let taskQueue: Task[] = [];
 
-let defaultGlobalConfig: GlobalConfigProps = {};
+let defaultGlobalConfig: NotificationConfig = {};
 
 function getGlobalContext() {
-  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } =
-    defaultGlobalConfig;
+  const { getContainer, ...restConfig } = defaultGlobalConfig;
   const mergedContainer = getContainer?.() || document.body;
 
   return {
+    ...restConfig,
     getContainer: () => mergedContainer,
-    rtl,
-    maxCount,
-    top,
-    bottom,
-    showProgress,
-    pauseOnHover,
   };
 }
 
@@ -56,7 +50,7 @@ interface GlobalHolderRef {
 
 const GlobalHolder = React.forwardRef<
   GlobalHolderRef,
-  { notificationConfig: GlobalConfigProps; sync: () => void }
+  { notificationConfig: NotificationConfig; sync: () => void }
 >((props, ref) => {
   const { notificationConfig, sync } = props;
 
@@ -93,7 +87,7 @@ const GlobalHolder = React.forwardRef<
 
 const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
   const [notificationConfig, setNotificationConfig] =
-    React.useState<GlobalConfigProps>(getGlobalContext);
+    React.useState<NotificationConfig>(getGlobalContext);
 
   const sync = () => {
     setNotificationConfig(getGlobalContext);
@@ -183,7 +177,7 @@ const flushNotificationQueue = () => {
 // ==                                  Export                                  ==
 // ==============================================================================
 
-function setNotificationGlobalConfig(config: GlobalConfigProps) {
+function setNotificationGlobalConfig(config: NotificationConfig) {
   defaultGlobalConfig = {
     ...defaultGlobalConfig,
     ...config,
@@ -214,7 +208,7 @@ const destroy: BaseMethods['destroy'] = (key) => {
 interface BaseMethods {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
-  config: (config: GlobalConfigProps) => void;
+  config: (config: NotificationConfig) => void;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;

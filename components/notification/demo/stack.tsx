@@ -21,7 +21,6 @@ const App: React.FC = () => {
         { length: Math.round(Math.random() * 5) + 1 },
         () => 'This is the content of the notification.',
       ).join('\n')}`,
-      duration: null,
     });
   };
 

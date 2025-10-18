@@ -1,28 +1,25 @@
 import type * as React from 'react';
+import type { NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
-export interface ConfigOptions {
+type SharedProps = Pick<
+  RcNotificationConfig,
+  'prefixCls' | 'maxCount' | 'duration' | 'getContainer' | 'pauseOnHover'
+>;
+
+export interface ConfigOptions extends SharedProps {
   top?: string | number;
-  duration?: number;
-  prefixCls?: string;
-  getContainer?: () => HTMLElement;
   transitionName?: string;
-  maxCount?: number;
   rtl?: boolean;
 }
 
-export interface ArgsProps {
+export interface ArgsProps extends SharedProps {
   /**
    * @descCN 消息通知的内容，接收组件或者字符串
    * @descEN The content of the message notification, receiving component or string
    */
   content: React.ReactNode;
-  /**
-   * @descCN 消息通知持续显示的时间
-   * @descEN How long the message notification remains displayed
-   */
-  duration?: number;
   /**
    * @descCN 消息通知的类型，可以是 'info'、'success'、'error'、'warning' 或 'loading'
    * @descEN The type of message notification, which can be 'info', 'success', 'error', 'warning' or 'loading'

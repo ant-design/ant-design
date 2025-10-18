@@ -60,11 +60,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top,
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
-    maxCount,
     duration = DEFAULT_DURATION,
     rtl,
     transitionName,
     onAllRemoved,
+    ...restProps
   } = props;
   const { getPrefixCls, getPopupContainer, message, direction } = React.useContext(ConfigContext);
 
@@ -91,6 +91,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
+    ...restProps,
     prefixCls,
     style: getStyle,
     className: getClassName,
@@ -99,7 +100,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     closeIcon: mergedCloseIcon,
     duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
-    maxCount,
     onAllRemoved,
     renderNotifications,
   });
