@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
+import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
@@ -104,7 +105,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     [slickRef.current],
   );
   const { children, initialSlide = 0 } = props;
-  const count = React.Children.count(children);
+  const childNodes: React.ReactNode[] = toArray(children);
+  const count = childNodes.length;
   const isRTL = (rtl ?? direction === 'rtl') && !vertical;
 
   React.useEffect(() => {

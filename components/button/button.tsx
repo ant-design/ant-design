@@ -1,5 +1,5 @@
-import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, useComposeRef } from '@rc-component/util';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { omit, toArray, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
@@ -142,7 +142,7 @@ const InternalCompoundedButton = React.forwardRef<
     autoFocus,
     ...rest
   } = props;
-
+  const childNodes: React.ReactNode[] = toArray(children);
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
@@ -216,7 +216,7 @@ const InternalCompoundedButton = React.forwardRef<
   const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
-    Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
+    childNodes.length === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
   // ========================= Mount ==========================
   // Record for mount status.
