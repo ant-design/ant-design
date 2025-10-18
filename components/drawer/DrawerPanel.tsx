@@ -90,7 +90,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  const headerNode = React.useMemo<React.ReactNode>(() => {
+  const renderHeader = () => {
     if (!title && !mergedClosable) {
       return null;
     }
@@ -113,20 +113,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }, [
-    title,
-    mergedClosable,
-    drawerContext.styles?.header,
-    drawerContext.classNames?.header,
-    headerStyle,
-    drawerStyles?.header,
-    prefixCls,
-    extra,
-    drawerClassNames?.header,
-    mergedCloseIcon,
-  ]);
+  };
 
-  const footerNode = React.useMemo<React.ReactNode>(() => {
+  const renderFooter = () => {
     if (!footer) {
       return null;
     }
@@ -143,19 +132,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {footer}
       </div>
     );
-  }, [
-    drawerClassNames?.footer,
-    drawerContext.classNames?.footer,
-    drawerContext.styles?.footer,
-    drawerStyles?.footer,
-    footer,
-    footerStyle,
-    prefixCls,
-  ]);
+  };
 
   return (
     <>
-      {headerNode}
+      {renderHeader()}
       <div
         className={classNames(
           `${prefixCls}-body`,
@@ -175,7 +156,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           children
         )}
       </div>
-      {footerNode}
+      {renderFooter()}
     </>
   );
 };
