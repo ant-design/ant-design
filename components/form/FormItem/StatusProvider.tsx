@@ -69,7 +69,7 @@ export default function StatusProvider({
       const customIconNode =
         mergedValidateStatus &&
         customIcons?.({ status: mergedValidateStatus, errors, warnings })?.[mergedValidateStatus];
-      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
+      const IconNode = mergedValidateStatus ? iconMap[mergedValidateStatus] : null;
       feedbackIcon =
         customIconNode !== false && IconNode ? (
           <span
@@ -78,7 +78,7 @@ export default function StatusProvider({
               `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
             )}
           >
-            {customIconNode || React.createElement(IconNode)}
+            {customIconNode || <IconNode />}
           </span>
         ) : null;
     }
