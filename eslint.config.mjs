@@ -49,7 +49,6 @@ export default antfu(
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
-      'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-named-imports': 'off',
       'perfectionist/sort-named-exports': 'off',
