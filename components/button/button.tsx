@@ -142,7 +142,7 @@ const InternalCompoundedButton = React.forwardRef<
     autoFocus,
     ...rest
   } = props;
-  const childNodes: React.ReactElement[] = toArray(children);
+  const childNodes: React.ReactNode[] = toArray(children);
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
