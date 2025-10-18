@@ -78,7 +78,7 @@ const Steps: CompoundedComponent = (props) => {
 
   const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
     () => (responsive && xs ? 'vertical' : direction),
-    [xs, direction],
+    [responsive, xs, direction],
   );
 
   const size = useSize(customizeSize);
