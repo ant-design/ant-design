@@ -43,8 +43,6 @@ export default antfu(
       'react-hooks/exhaustive-deps': 'off',
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
-      'react/no-children-for-each': 'off',
-      'react/no-children-count': 'off',
       'react/no-children-map': 'off',
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',

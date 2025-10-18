@@ -1,5 +1,6 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import React, { useContext } from 'react';
+import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
@@ -87,9 +88,9 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   });
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    const childrenArray = React.Children.toArray(children);
-    const hasTextNode = childrenArray.some((node) => typeof node === 'string');
-    return hasTextNode && childrenArray.length > 1;
+    const childNodes: React.ReactElement[] = toArray(children);
+    const hasTextNode = childNodes.some((node) => typeof node === 'string');
+    return hasTextNode && childNodes.length > 1;
   };
 
   const isFlexMode = () => {
