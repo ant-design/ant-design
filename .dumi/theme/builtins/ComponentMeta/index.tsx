@@ -1,22 +1,23 @@
 import React from 'react';
 import {
+  BugOutlined,
+  CompassOutlined,
   EditOutlined,
   GithubOutlined,
   HistoryOutlined,
-  BugOutlined,
-  CompassOutlined,
   IssuesCloseOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import kebabCase from 'lodash/kebabCase';
-import Link from '../../common/Link';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
-import useLocale from '../../../hooks/useLocale';
 import useIssueCount from '../../../hooks/useIssueCount';
+import useLocale from '../../../hooks/useLocale';
 import ComponentChangelog from '../../common/ComponentChangelog';
+import Link from '../../common/Link';
 
 const locales = {
   cn: {
@@ -73,7 +74,7 @@ const useStyle = createStyles(({ token }) => ({
     }
   `,
   icon: css`
-    margin-inline-end: 3px;
+    margin-inline-end: 4px;
   `,
 }));
 
@@ -95,7 +96,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const { styles } = useStyle();
 
   // ======================= Issues Count =======================
-  const { issuesCount, issueNewUrl, issueSearchUrl } = useIssueCount({
+  const { issueCount, issueCountLoading, issueNewUrl, issueSearchUrl } = useIssueCount({
     repo,
     titleKeywords: searchTitleKeywords,
   });
@@ -182,8 +183,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
                   <IssuesCloseOutlined className={styles.icon} />
                   <span>
-                    {locale.issueOpen}
-                    {typeof issuesCount === 'number' ? ` ${issuesCount}` : ''}
+                    {locale.issueOpen} {issueCountLoading ? <LoadingOutlined /> : issueCount}
                   </span>
                 </Typography.Link>
               </Flex>
