@@ -73,13 +73,12 @@ const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id
 
   const matchColors = React.useMemo(() => {
     const valueStr = generateColor(value || '').toRgbString();
-    let existActive = false;
     const colors = PRESET_COLORS.map((color) => {
       const colorStr = generateColor(color).toRgbString();
       const active = colorStr === valueStr;
-      existActive = existActive || active;
-      return { color, active, picker: false };
+      return { color, active, picker: false } as const;
     });
+    const existActive = colors.some((c) => c.active);
 
     return [
       ...colors,
