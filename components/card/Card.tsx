@@ -159,7 +159,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const isContainGrid = React.useMemo<boolean>(() => {
-    const childNodes: React.ReactElement[] = toArray(children);
+    const childNodes: React.ReactNode[] = toArray(children);
     return childNodes.some((child) => React.isValidElement(child) && child.type === Grid);
   }, [children]);
 
