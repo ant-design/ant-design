@@ -1,5 +1,4 @@
 import React from 'react';
-import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { cloneElement, isFragment } from '../_util/reactNode';
@@ -89,8 +88,8 @@ export function spaceChildren(
 ) {
   let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
-  const childNodes: React.ReactElement[] = toArray(children);
-  childNodes.forEach((child) => {
+
+  React.Children.forEach(children, (child) => {
     const type = typeof child;
     const isCurrentChildPure = type === 'string' || type === 'number';
     if (isPrevChildPure && isCurrentChildPure) {
