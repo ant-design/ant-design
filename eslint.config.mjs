@@ -47,7 +47,6 @@ export default antfu(
       'react/no-children-count': 'off',
       'react/no-children-map': 'off',
       'react/no-children-only': 'off',
-      'react/no-children-to-array': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
       'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
