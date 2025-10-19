@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-import type { ValidChar } from './interface';
+import type { ValidChar } from '../type';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
 
@@ -29,8 +29,10 @@ export function mergeClassNames<
         } else {
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
-          acc[key] = acc[key] || {};
-          acc[key][defaultField!] = classnames(acc[key][defaultField!], curVal);
+          if (defaultField) {
+            acc[key] = acc[key] || {};
+            acc[key][defaultField] = classnames(acc[key][defaultField], curVal);
+          }
         }
       } else {
         // Flatten fill
@@ -68,16 +70,13 @@ function useSemanticStyles<StylesType extends object>(
 // =========================== Export ===========================
 function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T {
   const newObj: any = { ...obj };
-
   Object.keys(schema).forEach((key) => {
     if (key !== '_default') {
       const nestSchema = (schema as any)[key] as SemanticSchema;
       const nextValue = newObj[key] || {};
-
       newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
     }
   });
-
   return newObj;
 }
 
