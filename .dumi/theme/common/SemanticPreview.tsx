@@ -101,7 +101,7 @@ function HighlightExample(props: {
     }
 
     return Prism.highlight(code, Prism.languages.javascript, 'jsx');
-  }, [componentName, semanticName]);
+  }, [componentName, itemsAPI, semanticName]);
 
   return (
     // biome-ignore lint: lint/security/noDangerouslySetInnerHtml

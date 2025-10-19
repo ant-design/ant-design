@@ -5,11 +5,10 @@ interface AntdProps {
   component: keyof typeof all;
 }
 
-function Antd(props: AntdProps) {
+const Antd: React.FC<AntdProps> = (props) => {
   const { component, ...restProps } = props;
-  const Component = (all[component] ?? React.Fragment) as React.ComponentType;
-
+  const Component = (all[component] ?? React.Fragment) as React.ComponentType<any>;
   return <Component {...restProps} />;
-}
+};
 
 export default Antd;

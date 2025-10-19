@@ -110,15 +110,13 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  let headerNode: React.ReactNode = null;
-  if (title || mergedClosable) {
-    headerNode = (
+  const renderHeader = () => {
+    if (!title && !mergedClosable) {
+      return null;
+    }
+    return (
       <div
-        style={{
-          ...drawerContext.styles?.header,
-          ...headerStyle,
-          ...drawerStyles?.header,
-        }}
+        style={{ ...drawerContext.styles?.header, ...headerStyle, ...drawerStyles?.header }}
         className={classNames(
           `${prefixCls}-header`,
           {
@@ -136,9 +134,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {closablePlacement === 'end' && mergedCloseIcon}
       </div>
     );
-  }
+  };
 
-  const footerNode = React.useMemo<React.ReactNode>(() => {
+  const renderFooter = () => {
     if (!footer) {
       return null;
     }
@@ -150,20 +148,16 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           drawerContext.classNames?.footer,
           drawerClassNames?.footer,
         )}
-        style={{
-          ...drawerContext.styles?.footer,
-          ...footerStyle,
-          ...drawerStyles?.footer,
-        }}
+        style={{ ...drawerContext.styles?.footer, ...footerStyle, ...drawerStyles?.footer }}
       >
         {footer}
       </div>
     );
-  }, [footer, footerStyle, prefixCls]);
+  };
 
   return (
     <>
-      {headerNode}
+      {renderHeader()}
       <div
         className={classNames(
           `${prefixCls}-body`,
@@ -183,7 +177,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           children
         )}
       </div>
-      {footerNode}
+      {renderFooter()}
     </>
   );
 };
