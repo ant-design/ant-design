@@ -89,7 +89,7 @@ export default function confirm(config: ModalFuncProps) {
     });
   }
 
-  function scheduleRender(props: any) {
+  const scheduleRender = (props: ConfirmDialogProps) => {
     clearTimeout(timeoutId);
 
     /**
@@ -111,7 +111,7 @@ export default function confirm(config: ModalFuncProps) {
         container,
       );
     });
-  }
+  };
 
   function close(...args: any[]) {
     currentConfig = {
@@ -133,10 +133,7 @@ export default function confirm(config: ModalFuncProps) {
     if (typeof configUpdate === 'function') {
       currentConfig = configUpdate(currentConfig);
     } else {
-      currentConfig = {
-        ...currentConfig,
-        ...configUpdate,
-      };
+      currentConfig = { ...currentConfig, ...configUpdate };
     }
     scheduleRender(currentConfig);
   }

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { AnyObject, EmptyObject } from '../../type';
-import type { ValidChar } from './interface';
+import type { AnyObject, EmptyObject, ValidChar } from '../type';
 
 export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
@@ -40,7 +39,6 @@ export const mergeClassNames = <
     Object.keys(cur || {}).forEach((key) => {
       const keySchema = mergedSchema[key as keyof SemanticSchema] as SemanticSchema;
       const curVal = (cur as SemanticClassNames)[key as keyof SemanticClassNames];
-
       if (keySchema && typeof keySchema === 'object') {
         if (curVal && typeof curVal === 'object') {
           // Loop fill
@@ -146,12 +144,11 @@ const useMergeSemantic = <
     if (!schema) {
       return [mergedClassNames, mergedStyles] as const;
     }
-
     return [
       fillObjectBySchema<ObjectOnly<ClassNamesType>>(mergedClassNames, schema),
       fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
     ] as const;
-  }, [mergedClassNames, mergedStyles]);
+  }, [mergedClassNames, mergedStyles, schema]);
 };
 
 export default useMergeSemantic;

@@ -24,13 +24,7 @@ export type HookAPI = Omit<Record<keyof ModalStaticFunctions, ModalFuncWithPromi
 const ElementsHolder = React.memo(
   React.forwardRef<ElementsHolderRef>((_props, ref) => {
     const [elements, patchElement] = usePatchElement();
-    React.useImperativeHandle(
-      ref,
-      () => ({
-        patchElement,
-      }),
-      [],
-    );
+    React.useImperativeHandle(ref, () => ({ patchElement }), [patchElement]);
     return <>{elements}</>;
   }),
 );
@@ -132,7 +126,7 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
       warning: getConfirmFunc(withWarn),
       confirm: getConfirmFunc(withConfirm),
     }),
-    [],
+    [getConfirmFunc],
   );
   return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
 }

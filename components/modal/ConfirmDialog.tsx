@@ -49,7 +49,9 @@ export interface ConfirmDialogProps extends ModalFuncProps {
   isSilent?: () => boolean;
 }
 
-export function ConfirmContent(props: ConfirmDialogProps & { confirmPrefixCls: string }) {
+export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: string }> = (
+  props,
+) => {
   const {
     prefixCls,
     icon,
@@ -160,7 +162,7 @@ export function ConfirmContent(props: ConfirmDialogProps & { confirmPrefixCls: s
       <Confirm prefixCls={prefixCls} />
     </div>
   );
-}
+};
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   const {
