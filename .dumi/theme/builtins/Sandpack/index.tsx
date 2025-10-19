@@ -60,7 +60,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
     dependencies: {
       react: '^19.0.0',
       'react-dom': '^19.0.0',
-      antd: '^5.0.0',
+      antd: '^5.0.0', // TODO: change to ^6.0.0 when released
       ...dependencies,
     },
     devDependencies: {
