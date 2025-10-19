@@ -164,7 +164,6 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           </div>
         ),
       })),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       entryName,
       error,
