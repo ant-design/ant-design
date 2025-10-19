@@ -310,7 +310,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       graph.render();
       graph.fitCenter();
     });
-  }, []);
+  }, [data]);
 
   return (
     <div ref={ref} className={styles.container}>

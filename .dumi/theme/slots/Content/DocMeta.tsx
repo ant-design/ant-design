@@ -17,7 +17,7 @@ const AuthorAvatar: React.FC<AuthorAvatarPoprs> = ({ name, avatar }) => {
     img.src = avatar;
     img.onload = () => setLoading(false);
     img.onerror = () => setError(true);
-  }, []);
+  }, [avatar]);
   if (error) {
     return null;
   }
@@ -34,8 +34,9 @@ const AuthorAvatar: React.FC<AuthorAvatarPoprs> = ({ name, avatar }) => {
 const DocMeta: React.FC = () => {
   const meta = useRouteMeta();
 
+  const { author } = meta.frontmatter;
+
   const mergedAuthorInfos = useMemo(() => {
-    const { author } = meta.frontmatter;
     if (!author) {
       return [];
     }
@@ -49,7 +50,7 @@ const DocMeta: React.FC = () => {
       return author;
     }
     return [];
-  }, [meta.frontmatter.author]);
+  }, [author]);
 
   if (!meta.frontmatter.date && !meta.frontmatter.author) {
     return null;

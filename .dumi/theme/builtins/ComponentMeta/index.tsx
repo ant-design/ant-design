@@ -54,6 +54,13 @@ function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
 
+const transformComponentName = (componentName: string) => {
+  if (componentName === 'Notification' || componentName === 'Message') {
+    return componentName.toLowerCase();
+  }
+  return componentName;
+};
+
 const useStyle = createStyles(({ token }) => ({
   code: css`
     cursor: pointer;
@@ -129,14 +136,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     }
 
     return [source, source];
-  }, [component, source]);
-
-  const transformComponentName = (componentName: string) => {
-    if (componentName === 'Notification' || componentName === 'Message') {
-      return componentName.toLowerCase();
-    }
-    return componentName;
-  };
+  }, [component, repo, source]);
 
   // ======================== Render ========================
   const importList = `import { ${transformComponentName(component)} } from "antd";`;
@@ -147,9 +147,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      styles={{
-        label: { paddingInlineEnd: token.padding, width: 56 },
-      }}
+      styles={{ label: { paddingInlineEnd: token.padding, width: 56 } }}
       items={
         [
           {

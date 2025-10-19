@@ -1,7 +1,7 @@
 import type { UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
-import semver from 'semver';
 import set from 'lodash/set';
+import semver from 'semver';
 
 let hastToString: typeof import('hast-util-to-string').toString;
 
@@ -80,7 +80,9 @@ function rehypeChangelog(): UnifiedTransformer<any> {
           break;
         }
       }
-      if (endIdx === -1) continue;
+      if (endIdx === -1) {
+        continue;
+      }
 
       // Version
       const heading = parent.children[startIdx];
@@ -94,7 +96,9 @@ function rehypeChangelog(): UnifiedTransformer<any> {
           break;
         }
       }
-      if (dateIdx === -1) continue;
+      if (dateIdx === -1) {
+        continue;
+      }
 
       // Collect list nodes between dateIdx and endIdx
       const version = hastToString(heading);
