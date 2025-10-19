@@ -281,10 +281,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         },
         defaultEdge: {
           type: 'cubic-horizontal',
-          style: {
-            lineWidth: 1,
-            stroke: '#BFBFBF',
-          },
+          style: { lineWidth: 1, stroke: '#BFBFBF' },
         },
         layout: {
           type: 'mindmap',
