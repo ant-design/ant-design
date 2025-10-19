@@ -116,7 +116,7 @@ const AffixTabs: React.FC = () => {
     return () => {
       listenerEvents.forEach((event) => window.removeEventListener(event, onSyncAffix));
     };
-  }, []);
+  }, [onSyncAffix]);
 
   return (
     <div className={classNames(affixTabs, fixedId && affixTabsFixed)} ref={containerRef}>

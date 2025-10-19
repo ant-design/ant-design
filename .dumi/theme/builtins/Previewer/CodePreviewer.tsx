@@ -98,7 +98,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     if (asset.id === hash.slice(1)) {
       anchorRef.current?.click();
     }
-  }, []);
+  }, [asset.id, hash]);
 
   useEffect(() => {
     setCodeExpand(expand);

@@ -55,7 +55,7 @@ const Markers: React.FC<MarkersProps> = (props) => {
         },
       );
     });
-  }, [targetClassName]);
+  }, [containerRef, targetClassName]);
 
   // ======================== Render =========================
   return (

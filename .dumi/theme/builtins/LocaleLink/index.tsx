@@ -39,7 +39,7 @@ const LocaleLink: React.FC<React.PropsWithChildren<LocaleLinkProps>> = ({
     }
 
     return to;
-  }, [to]);
+  }, [localeType, to]);
 
   const linkProps: LocaleLinkProps = {
     ...props,
