@@ -160,7 +160,16 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           </div>
         ),
       })),
-    [JSON.stringify(highlightedCodes), styles.code, styles.copyButton, styles.copyIcon],
+    [
+      entryName,
+      error,
+      JSON.stringify(highlightedCodes),
+      langList,
+      sourceCodes,
+      styles.code,
+      styles.copyButton,
+      styles.copyIcon,
+    ],
   );
 
   if (!langList.length) {

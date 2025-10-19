@@ -17,7 +17,7 @@ const AuthorAvatar: React.FC<AuthorAvatarPoprs> = ({ name, avatar }) => {
     img.src = avatar;
     img.onload = () => setLoading(false);
     img.onerror = () => setError(true);
-  }, []);
+  }, [avatar]);
   if (error) {
     return null;
   }
@@ -49,7 +49,7 @@ const DocMeta: React.FC = () => {
       return author;
     }
     return [];
-  }, [meta.frontmatter.author]);
+  }, [meta.frontmatter]);
 
   if (!meta.frontmatter.date && !meta.frontmatter.author) {
     return null;

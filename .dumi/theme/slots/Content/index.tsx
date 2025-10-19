@@ -39,11 +39,11 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   useLayoutEffect(() => {
     setShowDebug(process.env.NODE_ENV === 'development' || isDebugDemo);
-  }, []);
+  }, [isDebugDemo, setShowDebug]);
 
   const contextValue = useMemo<DemoContextProps>(
     () => ({ showDebug, setShowDebug, codeType, setCodeType }),
-    [showDebug, codeType, debugDemos],
+    [showDebug, setShowDebug, codeType],
   );
 
   const isRTL = direction === 'rtl';

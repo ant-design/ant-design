@@ -38,7 +38,7 @@ const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
       code: 11,
       msg: `Page not found: ${location.href}; Source: ${document.referrer}`,
     });
-  }, []);
+  }, [isZhCN, pathname, router]);
 
   return (
     <Result

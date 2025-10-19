@@ -68,7 +68,7 @@ const IconSearch: React.FC = () => {
 
     const tagMatchedCategoryObj = matchCategoriesFromTag(normalizedSearchKey, metaInfo);
 
-    const namedMatchedCategoryObj = Object.keys(categories).reduce(
+    const namedMatchedCategoryObj = Object.keys(categories).reduce<Record<string, MatchedCategory>>(
       (acc, key) => {
         let iconList = categories[key as CategoriesKeys];
         if (normalizedSearchKey) {
@@ -89,7 +89,7 @@ const IconSearch: React.FC = () => {
 
         return acc;
       },
-      {} as Record<string, MatchedCategory>,
+      {},
     );
 
     // merge matched categories from tag search
@@ -114,7 +114,7 @@ const IconSearch: React.FC = () => {
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
-  }, [displayState.searchKey, displayState.theme]);
+  }, [displayState, newIconNames]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean | undefined>(false);
   const { borderRadius, colorBgContainer, anchorTop } = token;

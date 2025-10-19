@@ -107,7 +107,7 @@ const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
     });
     return yearData;
-  }, [articles]);
+  }, [articles, lang]);
 
   const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
