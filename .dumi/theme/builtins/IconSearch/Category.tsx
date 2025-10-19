@@ -30,7 +30,7 @@ interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
   theme: ThemeType;
-  newIcons: string[];
+  newIcons: ReadonlyArray<string> | string[];
 }
 
 const Category: React.FC<CategoryProps> = (props) => {
