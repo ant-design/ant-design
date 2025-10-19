@@ -58,17 +58,17 @@ const Palette: React.FC<PaletteProps> = (props) => {
 
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
 
-  const colors: React.ReactNode[] = [];
-
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
     default: ['rgba(0, 0, 0, 0.85)', '#fff'],
   };
+
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
-  for (let i = 1; i <= count; i += 1) {
+
+  const colors = Array.from<any, React.ReactNode>({ length: count }, (_, i) => {
     const colorText = `${name}-${i}`;
     const defaultBgStyle = dark && name ? presetDarkPalettes[name][i - 1] : '';
-    colors.push(
+    return (
       <div
         key={i}
         ref={(node) => {
@@ -88,9 +88,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
       >
         <span className="main-color-text">{colorText}</span>
         <span className="main-color-value">{hexColors[colorText]}</span>
-      </div>,
+      </div>
     );
-  }
+  });
+
   return (
     <div className={className}>
       {showTitle && (

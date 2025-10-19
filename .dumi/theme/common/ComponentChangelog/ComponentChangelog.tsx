@@ -301,7 +301,17 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
         ),
       };
     });
-  }, [list]);
+  }, [
+    lang,
+    list,
+    locale.bugList,
+    styles.bug,
+    styles.bugReasonList,
+    styles.bugReasonTitle,
+    styles.versionTag,
+    styles.versionTitle,
+    styles.versionWrap,
+  ]);
 
   const screens = Grid.useBreakpoint();
   const width = screens.md ? '48vw' : '90vw';

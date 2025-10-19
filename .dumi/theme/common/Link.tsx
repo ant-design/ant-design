@@ -21,7 +21,7 @@ const Link = forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>(
         return `${to.pathname || pathname}${to.search || ''}${to.hash || ''}`;
       }
       return to;
-    }, [to]);
+    }, [pathname, to]);
     const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
       rest.onClick?.(e);
       if (!href?.startsWith('http')) {

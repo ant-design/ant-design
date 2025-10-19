@@ -258,7 +258,18 @@ const ComponentsList: React.FC = () => {
         ),
       },
     ],
-    [isMobile],
+    [
+      isMobile,
+      locale.inProgress,
+      locale.lastMonth,
+      locale.lastWeek,
+      locale.lastYear,
+      locale.sampleContent,
+      locale.success,
+      locale.taskFailed,
+      locale.tour,
+      locale.yesterday,
+    ],
   );
 
   return isMobile ? (

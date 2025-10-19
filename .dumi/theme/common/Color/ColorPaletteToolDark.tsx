@@ -54,7 +54,7 @@ const ColorPaletteTool: React.FC = () => {
         {text.trim()}
       </span>
     );
-  }, [primaryColorInstance]);
+  }, [locale, primaryColorInstance]);
 
   return (
     <div className="color-palette-horizontal color-palette-horizontal-dark">
