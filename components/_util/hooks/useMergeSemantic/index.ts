@@ -42,7 +42,7 @@ export function mergeClassNames<
 }
 
 function useSemanticClassNames<ClassNamesType extends object>(
-  schema: SemanticSchema | undefined,
+  schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
   return React.useMemo(
