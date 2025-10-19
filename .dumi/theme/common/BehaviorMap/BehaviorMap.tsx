@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { RightCircleOutlined } from '@ant-design/icons';
+import type { TreeGraph } from '@antv/g6';
 import { Flex } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
@@ -112,7 +113,10 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
+
   const meta = useRouteMeta();
+
+  const graphRef = useRef<TreeGraph>(null);
 
   useEffect(() => {
     import('@antv/g6').then((G6) => {
@@ -267,7 +271,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         },
         'rect',
       );
-      const graph = new G6.TreeGraph({
+      graphRef.current = new G6.TreeGraph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
@@ -293,23 +297,25 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         },
       });
 
-      graph.on('node:mouseenter', (e) => {
-        graph.setItemState(e.item!, 'hover', true);
+      graphRef.current?.on('node:mouseenter', (e) => {
+        graphRef.current?.setItemState(e.item!, 'hover', true);
       });
-      graph.on('node:mouseleave', (e) => {
-        graph.setItemState(e.item!, 'hover', false);
+      graphRef.current?.on('node:mouseleave', (e) => {
+        graphRef.current?.setItemState(e.item!, 'hover', false);
       });
-      graph.on('node:click', (e) => {
+      graphRef.current?.on('node:click', (e) => {
         const { link } = e.item!.getModel();
         if (link) {
           window.location.hash = link as string;
         }
       });
-
-      graph.data(dataTransform(data));
-      graph.render();
-      graph.fitCenter();
+      graphRef.current?.data(dataTransform(data));
+      graphRef.current?.render();
+      graphRef.current?.fitCenter();
     });
+    return () => {
+      graphRef.current?.destroy();
+    };
   }, [data]);
 
   return (
