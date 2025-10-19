@@ -201,7 +201,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     handleHideMenu();
-  }, [location]);
+  }, [handleHideMenu, location]);
 
   useEffect(() => {
     onWindowResize();
@@ -212,7 +212,7 @@ const Header: React.FC = () => {
         clearTimeout(pingTimer.current);
       }
     };
-  }, []);
+  }, [onWindowResize]);
 
   const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
@@ -247,7 +247,7 @@ const Header: React.FC = () => {
         window.location.pathname,
         utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname), search).pathname,
       );
-  }, [location]);
+  }, [pathname, search]);
 
   const nextDirectionText = useMemo<string>(
     () => (direction !== 'rtl' ? 'RTL' : 'LTR'),

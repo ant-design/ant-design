@@ -170,8 +170,8 @@ export function useInternalMessage(
           'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );
-
         const fakeResult: any = () => {};
+        // eslint-disable-next-line react-hooks/immutability
         fakeResult.then = () => {};
         return fakeResult;
       }

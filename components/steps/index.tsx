@@ -172,10 +172,7 @@ const Steps = (props: StepsProps) => {
   let components: RcStepsProps['components'] = {};
 
   if (internalContent) {
-    components = {
-      root: internalContent.rootComponent,
-      item: internalContent.itemComponent,
-    };
+    components = { root: internalContent.rootComponent, item: internalContent.itemComponent };
   } else {
     ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
   }
@@ -205,7 +202,7 @@ const Steps = (props: StepsProps) => {
     }
 
     return type;
-  }, []);
+  }, [progressDot, type]);
 
   const isInline = mergedType === 'inline';
   const isDot = mergedType === 'dot' || mergedType === 'inline';
@@ -213,7 +210,7 @@ const Steps = (props: StepsProps) => {
   // Progress Dot Render function
   const legacyProgressDotRender = React.useMemo(() => {
     return mergedType === 'dot' && typeof progressDot === 'function' ? progressDot : undefined;
-  }, [progressDot]);
+  }, [mergedType, progressDot]);
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
     const nextOrientation = orientation || direction;
@@ -223,7 +220,7 @@ const Steps = (props: StepsProps) => {
     }
 
     return (responsive && xs) || nextOrientation === 'vertical' ? 'vertical' : 'horizontal';
-  }, [xs, direction]);
+  }, [orientation, direction, mergedType, responsive, xs]);
 
   const mergedTitlePlacement = React.useMemo<StepsProps['titlePlacement']>(() => {
     if (isDot || mergedOrientation === 'vertical') {
@@ -234,7 +231,7 @@ const Steps = (props: StepsProps) => {
     }
 
     return titlePlacement || labelPlacement || 'horizontal';
-  }, []);
+  }, [isDot, labelPlacement, mergedOrientation, titlePlacement, type]);
 
   // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;

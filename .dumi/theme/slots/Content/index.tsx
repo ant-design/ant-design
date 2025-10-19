@@ -35,6 +35,7 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const [codeType, setCodeType] = useState('tsx');
+
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],
@@ -44,11 +45,13 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
 
   useLayoutEffect(() => {
     setShowDebug(process.env.NODE_ENV === 'development' || isDebugDemo);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDebugDemo]);
 
   const contextValue = useMemo<DemoContextProps>(
     () => ({ showDebug, setShowDebug, codeType, setCodeType }),
-    [showDebug, codeType, debugDemos],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [showDebug, codeType],
   );
 
   const isRTL = direction === 'rtl';

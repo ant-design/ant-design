@@ -40,7 +40,7 @@ export default antfu(
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
-      'react-hooks/exhaustive-deps': 'off',
+      'react-hooks/exhaustive-deps': 'warn',
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
@@ -48,7 +48,6 @@ export default antfu(
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
-      'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'perfectionist/sort-imports': 'off',
       'regexp/strict': 'off',
       /* turn off React 19 only rules */
@@ -59,12 +58,10 @@ export default antfu(
       /* turn off 升级 @antfu/eslint-config@6 带来的 warning */
       'react/no-unnecessary-use-prefix': 'off',
       'react-hooks/use-memo': 'off',
-      'react-hooks/immutability': 'off',
       'react-hooks/globals': 'off',
       'react-hooks/preserve-manual-memoization': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
-      'react-hooks/static-components': 'off',
     },
   },
   compat.configs['flat/recommended'],
@@ -84,6 +81,7 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-components': 'off',

@@ -6,6 +6,7 @@ import {
   GithubOutlined,
   HistoryOutlined,
   IssuesCloseOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
@@ -53,6 +54,13 @@ function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
 
+const transformComponentName = (componentName: string) => {
+  if (componentName === 'Notification' || componentName === 'Message') {
+    return componentName.toLowerCase();
+  }
+  return componentName;
+};
+
 const useStyle = createStyles(({ cssVar }) => ({
   code: css`
     cursor: pointer;
@@ -73,7 +81,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     }
   `,
   icon: css`
-    margin-inline-end: 3px;
+    margin-inline-end: 4px;
   `,
 }));
 
@@ -95,7 +103,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const { styles } = useStyle();
 
   // ======================= Issues Count =======================
-  const { issuesCount, issueNewUrl, issueSearchUrl } = useIssueCount({
+  const { issueCount, issueCountLoading, issueNewUrl, issueSearchUrl } = useIssueCount({
     repo,
     titleKeywords: searchTitleKeywords,
   });
@@ -129,14 +137,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     }
 
     return [source, source];
-  }, [component, source]);
-
-  const transformComponentName = (componentName: string) => {
-    if (componentName === 'Notification' || componentName === 'Message') {
-      return componentName.toLowerCase();
-    }
-    return componentName;
-  };
+  }, [component, repo, source]);
 
   // ======================== Render ========================
   const importList = `import { ${transformComponentName(component)} } from "antd";`;
@@ -147,9 +148,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      styles={{
-        label: { paddingInlineEnd: token.padding, width: 56 },
-      }}
+      styles={{ label: { paddingInlineEnd: token.padding, width: 56 } }}
       items={
         [
           {
@@ -185,8 +184,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
                   <IssuesCloseOutlined className={styles.icon} />
                   <span>
-                    {locale.issueOpen}
-                    {typeof issuesCount === 'number' ? ` ${issuesCount}` : ''}
+                    {locale.issueOpen} {issueCountLoading ? <LoadingOutlined /> : issueCount}
                   </span>
                 </Typography.Link>
               </Flex>
