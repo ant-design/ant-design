@@ -37,6 +37,7 @@ const ElementsHolder = React.memo(
 
 function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElement] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
+  const modalRef = React.useRef<HookModalRef>(null);
 
   // ========================== Effect ==========================
   const [actionQueue, setActionQueue] = React.useState<VoidFunction[]>([]);
@@ -58,8 +59,6 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
     (withFunc: (config: ModalFuncProps) => ModalFuncProps) =>
       function hookConfirm(config: ModalFuncProps) {
         uuid += 1;
-
-        const modalRef = React.createRef<HookModalRef>();
 
         // Proxy to promise with `onClose`
         let resolvePromise: (confirmed: boolean) => void;
