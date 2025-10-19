@@ -119,7 +119,7 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [searchParams, setSearchParams],
   );
 
@@ -174,7 +174,6 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
