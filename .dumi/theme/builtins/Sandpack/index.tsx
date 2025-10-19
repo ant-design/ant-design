@@ -29,9 +29,8 @@ const useStyle = createStyles(({ css, cssVar }) => ({
   `,
 }));
 
-const SandpackFallback = () => {
+const SandpackFallback: React.FC = () => {
   const { styles } = useStyle();
-
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 500, width: '100%' }}>
@@ -47,21 +46,19 @@ interface SandpackProps {
   dependencies?: string;
 }
 
-const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
-  children,
-  dark,
-  dependencies: extraDeps,
-  autorun = false,
-}) => {
+const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = (props) => {
+  const { children, dark, dependencies, autorun = false } = props;
+
   const [searchParams] = useSearchParams();
-  const dependencies = extraDeps && JSON.parse(extraDeps);
+
+  const extraDependencies = dependencies ? JSON.parse(dependencies) : {};
 
   const setup: SandpackSetup = {
     dependencies: {
       react: '^19.0.0',
       'react-dom': '^19.0.0',
-      antd: '^5.0.0', // TODO: change to ^6.0.0 when released
-      ...dependencies,
+      antd: '6.0.0-alpha.3', // TODO: update to ^6.0.0 when released
+      ...extraDependencies,
     },
     devDependencies: {
       '@types/react': '^19.0.0',
@@ -90,7 +87,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
           'index.css': `html, body {
   padding: 0;
   margin: 0;
-  background: ${dark ? '#000' : '#fff'};
+  background-color: ${dark ? '#000' : '#fff'};
 }
 
 #root {

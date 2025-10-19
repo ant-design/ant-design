@@ -99,12 +99,12 @@ const Actions: React.FC<ActionsProps> = ({
   dependencies['@ant-design/icons'] = packageJson.dependencies['@ant-design/icons'] || 'latest';
 
   if (suffix === 'tsx') {
-    dependencies['@types/react'] = '^18.0.0';
-    dependencies['@types/react-dom'] = '^18.0.0';
+    dependencies['@types/react'] = '^19.0.0';
+    dependencies['@types/react-dom'] = '^19.0.0';
   }
 
-  dependencies.react = '^18.0.0';
-  dependencies['react-dom'] = '^18.0.0';
+  dependencies.react = '^19.0.0';
+  dependencies['react-dom'] = '^19.0.0';
 
   const codepenPrefillConfig = {
     title: `${title} - antd@${dependencies.antd}`,
@@ -128,8 +128,8 @@ const Actions: React.FC<ActionsProps> = ({
     editors: '001',
     css: '',
     js_external: [
-      'react@18/umd/react.development.js',
-      'react-dom@18/umd/react-dom.development.js',
+      'react@19/cjs/react.development.js',
+      'react-dom@19/cjs/react-dom.development.js',
       'dayjs@1/dayjs.min.js',
       `antd@${pkg.version}/dist/antd-with-locales.min.js`,
       `@ant-design/icons/dist/index.umd.js`,
