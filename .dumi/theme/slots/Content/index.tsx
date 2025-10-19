@@ -40,12 +40,10 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   useLayoutEffect(() => {
     setShowDebug(process.env.NODE_ENV === 'development' || isDebugDemo);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDebugDemo]);
 
   const contextValue = useMemo<DemoContextProps>(
     () => ({ showDebug, setShowDebug, codeType, setCodeType }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [showDebug, codeType],
   );
 

@@ -148,13 +148,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   };
 
   const matchFilter = (text: string, item: RecordType) => {
-    if (filterOption) {
+    if (typeof filterOption === 'function') {
       return filterOption(filterValue, item, direction);
     }
     return text.includes(filterValue);
   };
 
-  const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
+  const customRenderListBody = (listProps: TransferListBodyProps<RecordType>) => {
     let bodyContent: React.ReactNode = renderList
       ? renderList({
           ...listProps,
@@ -214,9 +214,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       return 'all';
     }
     return 'part';
-  }, [checkedKeys, checkedActiveItems]);
+  }, [checkedActiveItems.length, checkedKeys, filteredItems]);
 
-  const listBody = useMemo<React.ReactNode>(() => {
+  const renderListBody = () => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
@@ -230,7 +230,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       </div>
     ) : null;
 
-    const { customize, bodyContent } = renderListBody({
+    const { customize, bodyContent } = customRenderListBody({
       ...omit(props, OmitProps),
       filteredItems,
       filteredRenderItems,
@@ -258,17 +258,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         {bodyNode}
       </div>
     );
-  }, [
-    showSearch,
-    prefixCls,
-    searchPlaceholder,
-    filterValue,
-    disabled,
-    checkedKeys,
-    filteredItems,
-    filteredRenderItems,
-    notFoundContentEle,
-  ]);
+  };
 
   const checkBox = (
     <Checkbox
@@ -402,7 +392,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         </span>
         <span className={`${prefixCls}-header-title`}>{titleText}</span>
       </div>
-      {listBody}
+      {renderListBody()}
       {listFooter}
     </div>
   );

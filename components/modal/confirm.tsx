@@ -90,7 +90,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount();
   }
 
-  function render(props: any) {
+  const scheduleRender = (props: ConfirmDialogProps) => {
     clearTimeout(timeoutId);
 
     /**
@@ -109,12 +109,12 @@ export default function confirm(config: ModalFuncProps) {
 
       reactUnmount = reactRender(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
-          {global.holderRender ? global.holderRender(dom) : dom}
+          {typeof global.holderRender === 'function' ? global.holderRender(dom) : dom}
         </ConfigProvider>,
         container,
       );
     });
-  }
+  };
 
   function close(...args: any[]) {
     currentConfig = {
@@ -134,22 +134,19 @@ export default function confirm(config: ModalFuncProps) {
       delete currentConfig.visible;
     }
 
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
   function update(configUpdate: ConfigUpdate) {
     if (typeof configUpdate === 'function') {
       currentConfig = configUpdate(currentConfig);
     } else {
-      currentConfig = {
-        ...currentConfig,
-        ...configUpdate,
-      };
+      currentConfig = { ...currentConfig, ...configUpdate };
     }
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
-  render(currentConfig);
+  scheduleRender(currentConfig);
 
   destroyFns.push(close);
 
