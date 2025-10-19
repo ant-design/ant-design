@@ -125,9 +125,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  let headerNode: React.ReactNode = null;
-  if (title || mergedClosable) {
-    headerNode = (
+  const renderHeader = () => {
+    if (!title && !mergedClosable) {
+      return null;
+    }
+    return (
       <div
         style={{ ...mergedStyles.header, ...headerStyle }}
         className={clsx(`${prefixCls}-header`, mergedClassNames.header, {
@@ -156,9 +158,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {closablePlacement === 'end' && mergedCloseIcon}
       </div>
     );
-  }
+  };
 
-  const footerNode = React.useMemo<React.ReactNode>(() => {
+  const renderFooter = () => {
     if (!footer) {
       return null;
     }
@@ -170,11 +172,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {footer}
       </div>
     );
-  }, [footer, footerStyle, prefixCls, mergedClassNames.footer, mergedStyles.footer]);
+  };
 
   return (
     <>
-      {headerNode}
+      {renderHeader()}
       <div
         className={clsx(`${prefixCls}-body`, mergedClassNames.body)}
         style={{ ...mergedStyles.body, ...bodyStyle }}
@@ -190,7 +192,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           children
         )}
       </div>
-      {footerNode}
+      {renderFooter()}
     </>
   );
 };

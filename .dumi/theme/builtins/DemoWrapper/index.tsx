@@ -44,7 +44,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           },
         });
       }, []),
-    [expandAll, showDebug],
+    [expandAll, items, showDebug],
   );
 
   return (

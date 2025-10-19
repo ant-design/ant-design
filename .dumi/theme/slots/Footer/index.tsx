@@ -430,7 +430,7 @@ const Footer: React.FC = () => {
       ],
     };
     return [col1, col2, col3, col4];
-  }, [lang, location.search]);
+  }, [getLink, lang]);
 
   return (
     <>

@@ -232,7 +232,7 @@ const useMenu = (options: UseMenuOptions = {}): readonly [MenuProps['items'], st
         return result;
       }, []) ?? []
     );
-  }, [sidebarData, fullData, pathname, search, options]);
+  }, [sidebarData, pathname, fullData, search, before, after]);
 
   return [menuItems, pathname] as const;
 };

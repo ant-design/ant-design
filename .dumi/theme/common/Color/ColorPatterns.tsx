@@ -10,7 +10,7 @@ interface ColorPatternsProps {
   backgroundColor?: string;
 }
 
-const ColorPatterns: React.FC<ColorPatternsProps> = ({ color, dark, backgroundColor }) => {
+const ColorPatterns: React.FC<ColorPatternsProps> = ({ color = '', dark, backgroundColor }) => {
   const colors = generate(color, dark ? { theme: 'dark', backgroundColor } : {});
   return (
     <>
