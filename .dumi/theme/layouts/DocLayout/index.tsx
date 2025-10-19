@@ -69,7 +69,7 @@ const DocLayout: React.FC = () => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
     }
-  }, [location, pathname, search]);
+  }, [pathname, search]);
 
   const content = React.useMemo<React.ReactNode>(() => {
     if (['', '/'].includes(pathname) || ['/index'].some((path) => pathname.startsWith(path))) {
