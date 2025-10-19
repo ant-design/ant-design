@@ -1,6 +1,3 @@
-// prettier-ignore
-import { scan } from 'react-scan'; // import this BEFORE react
-
 import React, { useCallback, useEffect } from 'react';
 import {
   createCache,
@@ -43,13 +40,6 @@ if (typeof window !== 'undefined') {
     if (!document.querySelector(`#${hashId}`)) {
       location.hash = `#${hashId.replace(/^components-/, '')}`;
     }
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    scan({
-      enabled: false,
-      showToolbar: true,
-    });
   }
 }
 
@@ -132,12 +122,13 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [searchParams, setSearchParams],
   );
 
-  const updateMobileMode = () => {
+  const updateMobileMode = useCallback(() => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
-  };
+  }, [updateSiteConfig]);
 
   // 监听系统主题变化
   useEffect(() => {
@@ -186,7 +177,8 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
@@ -208,9 +200,9 @@ const GlobalLayout: React.FC = () => {
       cssVar: useCssVar,
       hashed: !useCssVar,
     };
-  }, [theme]);
+  }, [theme, useCssVar]);
 
-  const [styleCache] = React.useState(() => createCache());
+  const styleCache = React.useMemo(() => createCache(), []);
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(styleCache, {

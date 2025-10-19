@@ -263,11 +263,16 @@ const runPrePublish = async () => {
   await runScript({ event: 'test:package-diff', path: '.', stdio: 'inherit' });
   showMessage(`文件检查通过，准备发布！`, 'succeed');
 
-  new Notifier().notify({
-    title: '✅ 准备发布到 npm',
-    message: '产物已经准备好了，快回来输入 npm 校验码了！',
-    sound: 'Crystal',
-  });
+  try {
+    await new Notifier().notify({
+      title: '✅ 准备发布到 npm',
+      message: '产物已经准备好了，快回来输入 npm 校验码了！',
+      sound: 'Crystal',
+    });
+  } catch (e) {
+    console.log('通知发送失败', e);
+  }
+
   process.exit(0);
 };
 

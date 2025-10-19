@@ -78,7 +78,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {icon}
       </button>
     ),
-    [onClose],
+    [onClose, prefixCls],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
@@ -90,17 +90,13 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  const headerNode = React.useMemo<React.ReactNode>(() => {
+  const renderHeader = () => {
     if (!title && !mergedClosable) {
       return null;
     }
     return (
       <div
-        style={{
-          ...drawerContext.styles?.header,
-          ...headerStyle,
-          ...drawerStyles?.header,
-        }}
+        style={{ ...drawerContext.styles?.header, ...headerStyle, ...drawerStyles?.header }}
         className={classNames(
           `${prefixCls}-header`,
           {
@@ -117,9 +113,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);
+  };
 
-  const footerNode = React.useMemo<React.ReactNode>(() => {
+  const renderFooter = () => {
     if (!footer) {
       return null;
     }
@@ -131,20 +127,16 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           drawerContext.classNames?.footer,
           drawerClassNames?.footer,
         )}
-        style={{
-          ...drawerContext.styles?.footer,
-          ...footerStyle,
-          ...drawerStyles?.footer,
-        }}
+        style={{ ...drawerContext.styles?.footer, ...footerStyle, ...drawerStyles?.footer }}
       >
         {footer}
       </div>
     );
-  }, [footer, footerStyle, prefixCls]);
+  };
 
   return (
     <>
-      {headerNode}
+      {renderHeader()}
       <div
         className={classNames(
           `${prefixCls}-body`,
@@ -164,7 +156,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           children
         )}
       </div>
-      {footerNode}
+      {renderFooter()}
     </>
   );
 };

@@ -1,14 +1,12 @@
 ---
-group:
-  title: 进阶使用
-order: 9
+order: 1
 title: React 19 兼容
 tag: New
 ---
 
 <!-- prettier-ignore -->
 :::info{title="兼容接口"}
-antd v5 默认兼容 React 16 ~ 18 版本，对于 React 19 版本，可以使用以下兼容方法进行适配。该兼容方式以及接口将在 v6 被移除。
+antd v5 默认兼容 React 16 ~ 18 版本，绝大多数功能也兼容于 React 19 版本。少数问题如下所示，可使用以下兼容方法进行适配。该方式以及接口将在 v6 被移除。
 :::
 
 ### React 19 兼容问题
@@ -16,7 +14,7 @@ antd v5 默认兼容 React 16 ~ 18 版本，对于 React 19 版本，可以使�
 由于 React 19 调整了 `react-dom` 的导出方式，导致 antd 无法直接使用 `ReactDOM.render` 方法。因而使用 antd 会遇到以下问题：
 
 - 波纹特效无法正常工作
-- `Modal`、`Notification`、`Message` 等组件的静态方法无效
+- `Modal`、`Notification`、`Message` 等组件的静态方法无效（hooks 调用方式不受影响）
 
 因而需要通过兼容配置，使 antd 在 React 19 中正常工作。
 

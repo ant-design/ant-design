@@ -106,7 +106,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   };
 
   return wrapCSSVar(
-    <Wave component="Switch">
+    <Wave component="Switch" disabled={mergedDisabled}>
       <RcSwitch
         {...restProps}
         checked={checked}

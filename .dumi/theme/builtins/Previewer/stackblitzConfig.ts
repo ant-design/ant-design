@@ -1,4 +1,4 @@
-import { Project, ProjectFiles } from '@stackblitz/sdk';
+import type { Project, ProjectFiles } from '@stackblitz/sdk';
 
 const getStackblitzConfig = ({
   title = '',
@@ -6,12 +6,14 @@ const getStackblitzConfig = ({
   indexCssContent = '',
   demoJsContent = '',
   suffix = '',
+  isZhCN = false,
 }: {
   title?: string;
   dependencies: Record<string, string>;
   indexCssContent?: string;
   demoJsContent?: string;
   suffix?: string;
+  isZhCN?: boolean;
 }) => {
   const _suffix = suffix === 'tsx' ? suffix : 'jsx';
   const packageJSON = {
@@ -32,7 +34,7 @@ const getStackblitzConfig = ({
       '@types/react-dom': '^19.1.7',
       '@vitejs/plugin-react': '^4.7.0',
       eslint: '^9.32.0',
-      'eslint-plugin-react-hooks': '^5.2.0',
+      'eslint-plugin-react-hooks': '^7.0.0',
       'eslint-plugin-react-refresh': '^0.4.20',
       globals: '^16.3.0',
       typescript: '~5.8.3',
@@ -195,6 +197,9 @@ export default tseslint.config([
   }
   if (indexCssContent) {
     files = { ...files, 'src/index.css': indexCssContent };
+  }
+  if (isZhCN) {
+    files = { ...files, '.npmrc': `registry=https://registry.npmmirror.com/` };
   }
 
   const project: Project = { title, description: '', template: 'node', files };

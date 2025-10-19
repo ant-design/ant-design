@@ -37,7 +37,7 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
   const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
   return (
-    <Tooltip title={copyTitle} getPopupContainer={(node) => node.parentNode as HTMLElement}>
+    <Tooltip title={copyTitle}>
       <button
         type="button"
         className={classNames(`${prefixCls}-copy`, {

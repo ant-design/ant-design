@@ -49,7 +49,7 @@ export interface NotificationInstance {
   info: StaticFn;
   warning: StaticFn;
   open: StaticFn;
-  destroy(key?: React.Key): void;
+  destroy: (key?: React.Key) => void;
 }
 
 export interface GlobalConfigProps {

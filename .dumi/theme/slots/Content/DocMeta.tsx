@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useMemo, useState } from 'react';
 import { CalendarOutlined } from '@ant-design/icons';
 import { Avatar, Flex, Skeleton, Typography } from 'antd';
-import DayJS from 'dayjs';
+import dayjs from 'dayjs';
 import { useRouteMeta } from 'dumi';
 
 interface AuthorAvatarPoprs {
@@ -17,7 +17,7 @@ const AuthorAvatar: React.FC<AuthorAvatarPoprs> = ({ name, avatar }) => {
     img.src = avatar;
     img.onload = () => setLoading(false);
     img.onerror = () => setError(true);
-  }, []);
+  }, [avatar]);
   if (error) {
     return null;
   }
@@ -34,8 +34,9 @@ const AuthorAvatar: React.FC<AuthorAvatarPoprs> = ({ name, avatar }) => {
 const DocMeta: React.FC = () => {
   const meta = useRouteMeta();
 
+  const { author } = meta.frontmatter;
+
   const mergedAuthorInfos = useMemo(() => {
-    const { author } = meta.frontmatter;
     if (!author) {
       return [];
     }
@@ -49,7 +50,7 @@ const DocMeta: React.FC = () => {
       return author;
     }
     return [];
-  }, [meta.frontmatter.author]);
+  }, [author]);
 
   if (!meta.frontmatter.date && !meta.frontmatter.author) {
     return null;
@@ -60,7 +61,7 @@ const DocMeta: React.FC = () => {
       <Flex gap="small">
         {meta.frontmatter.date && (
           <span style={{ opacity: 0.65 }}>
-            <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
+            <CalendarOutlined /> {dayjs(meta.frontmatter.date).format('YYYY-MM-DD')}
           </span>
         )}
         {mergedAuthorInfos.map<React.ReactNode>((info) => (

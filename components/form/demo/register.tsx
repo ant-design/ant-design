@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { CascaderProps } from 'antd';
+import type { CascaderProps, FormItemProps, FormProps } from 'antd';
 import {
   AutoComplete,
   Button,
@@ -12,16 +12,17 @@ import {
   Row,
   Select,
 } from 'antd';
+import type { DefaultOptionType } from 'antd/es/select';
 
 const { Option } = Select;
 
-interface DataNodeType {
+interface FormCascaderOption {
   value: string;
   label: string;
-  children?: DataNodeType[];
+  children?: FormCascaderOption[];
 }
 
-const residences: CascaderProps<DataNodeType>['options'] = [
+const residences: CascaderProps<FormCascaderOption>['options'] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -56,7 +57,7 @@ const residences: CascaderProps<DataNodeType>['options'] = [
   },
 ];
 
-const formItemLayout = {
+const formItemLayout: FormProps = {
   labelCol: {
     xs: { span: 24 },
     sm: { span: 8 },
@@ -67,7 +68,7 @@ const formItemLayout = {
   },
 };
 
-const tailFormItemLayout = {
+const tailFormItemLayout: FormItemProps = {
   wrapperCol: {
     xs: {
       span: 24,
@@ -108,14 +109,12 @@ const App: React.FC = () => {
   const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
   const onWebsiteChange = (value: string) => {
-    if (!value) {
-      setAutoCompleteResult([]);
-    } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
-    }
+    setAutoCompleteResult(
+      value ? ['.com', '.org', '.net'].map((domain) => `${value}${domain}`) : [],
+    );
   };
 
-  const websiteOptions = autoCompleteResult.map((website) => ({
+  const websiteOptions = autoCompleteResult.map<DefaultOptionType>((website) => ({
     label: website,
     value: website,
   }));

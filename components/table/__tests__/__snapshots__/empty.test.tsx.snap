@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table renders empty table 1`] = `
 <div
@@ -22,7 +22,6 @@ exports[`Table renders empty table 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -169,7 +168,6 @@ exports[`Table renders empty table when emptyText is null 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -267,7 +265,6 @@ exports[`Table renders empty table with custom emptyText 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -468,96 +465,107 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Full Name
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Age
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 1
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 2
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 3
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 4
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 5
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 6
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 7
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Column 8
                     </div>
-                  </td>
-                  <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      class="ant-table-measure-cell-content"
                     >
+                      Action
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-placeholder"
@@ -681,7 +689,6 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -795,6 +802,131 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                       </div>
                     </div>
                   </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table should not render empty when loading 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div>
+      <div
+        aria-busy="true"
+        aria-live="polite"
+        class="ant-spin ant-spin-spinning"
+      >
+        <span
+          class="ant-spin-dot-holder"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-spin-container ant-spin-blur"
+    >
+      <div
+        class="ant-table ant-table-empty"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 2
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 3
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 4
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 5
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 6
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 7
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 8
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-placeholder"
+                >
+                  <td
+                    class="ant-table-cell"
+                    colspan="8"
+                  />
                 </tr>
               </tbody>
             </table>

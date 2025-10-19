@@ -8,7 +8,7 @@ import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
-import { Breakpoint } from '../_util/responsiveObserver';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -158,7 +158,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       });
     }
     return vars;
-  }, [responsiveWidth]);
+  }, [prefixCls, responsiveWidth]);
 
   // =========================== Render ===========================
   return wrapCSSVar(

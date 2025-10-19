@@ -102,5 +102,5 @@ export default function useResizable(items: ItemType[], pxSizes: number[], isRTL
     }
 
     return resizeInfos;
-  }, [pxSizes, items]);
+  }, [pxSizes, items, isRTL]);
 }

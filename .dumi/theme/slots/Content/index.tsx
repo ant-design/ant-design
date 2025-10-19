@@ -30,6 +30,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const [codeType, setCodeType] = useState('tsx');
+
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],
@@ -39,11 +40,13 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   useLayoutEffect(() => {
     setShowDebug(process.env.NODE_ENV === 'development' || isDebugDemo);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDebugDemo]);
 
   const contextValue = useMemo<DemoContextProps>(
     () => ({ showDebug, setShowDebug, codeType, setCodeType }),
-    [showDebug, codeType, debugDemos],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [showDebug, codeType],
   );
 
   const isRTL = direction === 'rtl';
@@ -81,6 +84,10 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 filename={meta.frontmatter.filename}
                 version={meta.frontmatter.tag}
                 designUrl={meta.frontmatter.designUrl}
+                searchTitleKeywords={[meta.frontmatter.title, meta.frontmatter.subtitle].filter(
+                  Boolean,
+                )}
+                repo="ant-design/ant-design"
               />
             )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>

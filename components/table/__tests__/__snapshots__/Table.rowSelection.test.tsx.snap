@@ -329,7 +329,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -683,7 +683,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"
@@ -955,7 +955,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"

@@ -84,13 +84,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
       });
     }
     return mergedWrapper;
-  }, [wrapperCol, formContext]);
+  }, [wrapperCol, formContext.wrapperCol, formContext.labelCol, label, labelCol]);
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => {
-    const { labelCol, wrapperCol, ...rest } = formContext;
+    const { labelCol: _labelCol, wrapperCol: _wrapperCol, ...rest } = formContext;
     return rest;
   }, [formContext]);
 

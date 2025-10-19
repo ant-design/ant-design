@@ -30,7 +30,7 @@ interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
   theme: ThemeType;
-  newIcons: string[];
+  newIcons: ReadonlyArray<string> | string[];
 }
 
 const Category: React.FC<CategoryProps> = (props) => {
@@ -40,17 +40,20 @@ const Category: React.FC<CategoryProps> = (props) => {
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-  const onCopied = React.useCallback((type: string, text: string) => {
-    message.success(
-      <span>
-        <code className={styles.copiedCode}>{text}</code> copied 🎉
-      </span>,
-    );
-    setJustCopied(type);
-    copyId.current = setTimeout(() => {
-      setJustCopied(null);
-    }, 2000);
-  }, []);
+  const onCopied = React.useCallback(
+    (type: string, text: string) => {
+      message.success(
+        <span>
+          <code className={styles.copiedCode}>{text}</code> copied 🎉
+        </span>,
+      );
+      setJustCopied(type);
+      copyId.current = setTimeout(() => {
+        setJustCopied(null);
+      }, 2000);
+    },
+    [message, styles.copiedCode],
+  );
   React.useEffect(
     () => () => {
       if (copyId.current) {
