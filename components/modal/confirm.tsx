@@ -90,7 +90,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount();
   }
 
-  function scheduleRender(props: any) {
+  const scheduleRender = (props: any) => {
     clearTimeout(timeoutId);
 
     /**
@@ -114,7 +114,7 @@ export default function confirm(config: ModalFuncProps) {
         container,
       );
     });
-  }
+  };
 
   function close(...args: any[]) {
     currentConfig = {
