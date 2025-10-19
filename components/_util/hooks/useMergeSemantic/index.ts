@@ -5,9 +5,7 @@ import type { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
 
-export type SemanticSchema = {
-  _default?: string;
-} & {
+export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
@@ -15,7 +13,7 @@ export type SemanticSchema = {
 export function mergeClassNames<
   T extends string,
   SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
->(schema: SemanticSchema | undefined, ...classNames: (SemanticClassNames | undefined)[]) {
+>(schema?: SemanticSchema, ...classNames: (SemanticClassNames | undefined)[]) {
   const mergedSchema = schema || {};
 
   return classNames.reduce((acc: any, cur) => {
@@ -40,7 +38,7 @@ export function mergeClassNames<
       }
     });
     return acc;
-  }, {} as SemanticClassNames) as SemanticClassNames;
+  }, {} as SemanticClassNames);
 }
 
 function useSemanticClassNames<ClassNamesType extends object>(
@@ -49,7 +47,7 @@ function useSemanticClassNames<ClassNamesType extends object>(
 ): Partial<ClassNamesType> {
   return React.useMemo(
     () => mergeClassNames(schema, ...classNames),
-    [classNames],
+    [classNames, schema],
   ) as ClassNamesType;
 }
 
@@ -58,15 +56,12 @@ function useSemanticStyles<StylesType extends object>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) {
   return React.useMemo(() => {
-    return styles.reduce(
-      (acc, cur = {}) => {
-        Object.keys(cur).forEach((key) => {
-          acc[key] = { ...acc[key], ...(cur as Record<string, React.CSSProperties>)[key] };
-        });
-        return acc;
-      },
-      {} as Record<string, React.CSSProperties>,
-    );
+    return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
+      Object.keys(cur).forEach((key) => {
+        acc[key] = { ...acc[key], ...(cur as Record<string, React.CSSProperties>)[key] };
+      });
+      return acc;
+    }, {});
   }, [styles]) as StylesType;
 }
 
@@ -103,5 +98,5 @@ export default function useMergeSemantic<ClassNamesType extends object, StylesTy
       fillObjectBySchema(mergedClassNames, schema!) as ClassNamesType,
       fillObjectBySchema(mergedStyles, schema!) as StylesType,
     ] as const;
-  }, [mergedClassNames, mergedStyles]);
+  }, [mergedClassNames, mergedStyles, schema]);
 }
