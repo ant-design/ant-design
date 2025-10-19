@@ -90,7 +90,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount();
   }
 
-  function render(props: any) {
+  function scheduleRender(props: any) {
     clearTimeout(timeoutId);
 
     /**
@@ -134,7 +134,7 @@ export default function confirm(config: ModalFuncProps) {
       delete currentConfig.visible;
     }
 
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
   function update(configUpdate: ConfigUpdate) {
@@ -146,10 +146,10 @@ export default function confirm(config: ModalFuncProps) {
         ...configUpdate,
       };
     }
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
-  render(currentConfig);
+  scheduleRender(currentConfig);
 
   destroyFns.push(close);
 
