@@ -158,7 +158,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       });
     }
     return vars;
-  }, [responsiveWidth]);
+  }, [prefixCls, responsiveWidth]);
 
   // =========================== Render ===========================
   return wrapCSSVar(

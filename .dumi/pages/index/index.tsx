@@ -51,11 +51,7 @@ const Homepage: React.FC = () => {
 
       <div>
         {/* 定制主题 */}
-        <ConfigProvider
-          theme={{
-            algorithm: theme.defaultAlgorithm,
-          }}
-        >
+        <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
           <Suspense fallback={null}>
             <Theme />
           </Suspense>

@@ -33,9 +33,7 @@ const Block: React.FC<BlockProps> = ({ component: Component, options, defaultVal
         defaultValue={defaultValue}
         getPopupContainer={() => divRef.current}
         options={options}
-        styles={{
-          popup: { zIndex: 1 },
-        }}
+        styles={{ popup: { zIndex: 1 } }}
       />
     </div>
   );
