@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import type { SandpackSetup } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
@@ -55,16 +56,16 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   const [searchParams] = useSearchParams();
   const dependencies = extraDeps && JSON.parse(extraDeps);
 
-  const setup = {
+  const setup: SandpackSetup = {
     dependencies: {
-      react: '^18.0.0',
-      'react-dom': '^18.0.0',
+      react: '^19.0.0',
+      'react-dom': '^19.0.0',
       antd: '^5.0.0',
       ...dependencies,
     },
     devDependencies: {
-      '@types/react': '^18.0.0',
-      '@types/react-dom': '^18.0.0',
+      '@types/react': '^19.0.0',
+      '@types/react-dom': '^19.0.0',
       typescript: '^5',
     },
     entry: 'index.tsx',

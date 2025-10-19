@@ -175,8 +175,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
-      react: '^18.0.0',
-      'react-dom': '^18.0.0',
+      react: '^19.0.0',
+      'react-dom': '^19.0.0',
       'react-scripts': '^5.0.0',
     },
     devDependencies: {
