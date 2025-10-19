@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useMemo, useState } from 'react';
 import { CalendarOutlined } from '@ant-design/icons';
 import { Avatar, Flex, Skeleton, Typography } from 'antd';
-import DayJS from 'dayjs';
+import dayjs from 'dayjs';
 import { useRouteMeta } from 'dumi';
 
 interface AuthorAvatarPoprs {
@@ -61,7 +61,7 @@ const DocMeta: React.FC = () => {
       <Flex gap="small">
         {meta.frontmatter.date && (
           <span style={{ opacity: 0.65 }}>
-            <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
+            <CalendarOutlined /> {dayjs(meta.frontmatter.date).format('YYYY-MM-DD')}
           </span>
         )}
         {mergedAuthorInfos.map<React.ReactNode>((info) => (
