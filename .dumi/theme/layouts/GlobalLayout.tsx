@@ -122,7 +122,8 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
-    [searchParams, setSearchParams, setSiteState],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [searchParams, setSearchParams],
   );
 
   const updateMobileMode = useCallback(() => {
@@ -176,7 +177,8 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams, setSiteState, updateMobileMode]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
