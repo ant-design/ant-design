@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.27.6
+
+`2025-10-20`
+
+- Table
+  - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316) 
+  - 🛠 Add Table missing useMemo capability to spinProps.  [#55344](https://github.com/ant-design/ant-design/pull/55344) 
+- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376) 
+- TypeScript
+  - 🤖 Add ConfigProvider the `Window` type definition in `getTargetContainer` of . [#55313](https://github.com/ant-design/ant-design/pull/55313)
+  - 🤖 Add ConfigProvider the `ShadowRoot` type definition in `getTargetContainer` and `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
+  - 🤖 Improve Modal type definition. [#55371](https://github.com/ant-design/ant-design/pull/55371) 
+
 ## 5.27.5
 
 `2025-10-14`
