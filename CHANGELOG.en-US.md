@@ -25,7 +25,7 @@ tag: vVERSION
 - 🛠 Refactor the useMemo capability of ConfirmDialog in Modal when using arrays. [#55376](https://github.com/ant-design/ant-design/pull/55376) 
 - TypeScript
   - 🤖 Add the `Window` type definition in `getTargetContainer` of ConfigProvider. [#55313](https://github.com/ant-design/ant-design/pull/55313)
-  - 🤖 Add the `ShadowRoot` type definition in ConfigProvider `getTargetContainer` `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
+  - 🤖 Add the `ShadowRoot` type definition in ConfigProvider's `getTargetContainer` and `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
   - 🤖 Improve type definition in Modal. [#55371](https://github.com/ant-design/ant-design/pull/55371) 
 
 ## 5.27.5
