@@ -119,12 +119,13 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
+
     [searchParams, setSearchParams],
   );
 
-  const updateMobileMode = () => {
+  const updateMobileMode = useCallback(() => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
-  };
+  }, [updateSiteConfig]);
 
   // 监听系统主题变化
   useEffect(() => {
@@ -173,7 +174,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams]);
+  }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({

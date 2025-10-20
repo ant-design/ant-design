@@ -531,6 +531,14 @@ describe('Input allowClear', () => {
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
   });
+
+  it('legacy addon should work', () => {
+    const errSpy = jest.spyOn(console, 'error');
+    render(<Input addonAfter="addonAfter" addonBefore="addonBefore" />);
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`addonAfter` is deprecated'));
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`addonBefore` is deprecated'));
+    errSpy.mockRestore();
+  });
 });
 
 describe('typescript types', () => {

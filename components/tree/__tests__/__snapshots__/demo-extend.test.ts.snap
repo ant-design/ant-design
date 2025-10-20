@@ -4715,7 +4715,11 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/tree/demo/search.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tree/demo/search.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+]
+`;
 
 exports[`renders components/tree/demo/style-class.tsx extend context correctly 1`] = `
 <div

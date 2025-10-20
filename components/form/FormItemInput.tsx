@@ -85,7 +85,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
       });
     }
     return mergedWrapper;
-  }, [wrapperCol, formContext]);
+  }, [wrapperCol, formContext.wrapperCol, formContext.labelCol, label, labelCol]);
 
   const className = clsx(`${baseClassName}-control`, mergedWrapperCol.className);
 

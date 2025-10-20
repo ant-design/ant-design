@@ -2907,7 +2907,12 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
+]
+`;
 
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
 Array [

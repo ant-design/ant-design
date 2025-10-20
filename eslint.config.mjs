@@ -44,21 +44,24 @@ export default antfu(
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
-      'react/no-children-count': 'off',
       'react/no-children-map': 'off',
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
-      'react/no-comment-textnodes': 'off',
-      'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
       'perfectionist/sort-imports': 'off',
       'regexp/strict': 'off',
       /* turn off React 19 only rules */
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
       'react/no-use-context': 'off',
-      'react-hooks-extra/no-unnecessary-use-prefix': 'off',
       'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
+      /* turn off 升级 @antfu/eslint-config@6 带来的 warning */
+      'react/no-unnecessary-use-prefix': 'off',
+      'react-hooks/use-memo': 'off',
+      'react-hooks/globals': 'off',
+      'react-hooks/preserve-manual-memoization': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/refs': 'off',
     },
   },
   compat.configs['flat/recommended'],
@@ -78,6 +81,7 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-components': 'off',

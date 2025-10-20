@@ -21,7 +21,7 @@ demo:
 <code src="./demo/size.tsx">Three sizes of Input</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
-<code src="./demo/addon.tsx">Pre / Post tab</code>
+<code src="./demo/addon.tsx" debug>Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
 <code src="./demo/group.tsx" debug>Input Group</code>
 <code src="./demo/search-input.tsx">Search box</code>
@@ -52,8 +52,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
-| addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
+| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use `Space.Compat` instead | ReactNode | - |  |
+| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use `Space.Compat` instead | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  |
