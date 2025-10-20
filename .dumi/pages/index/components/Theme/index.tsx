@@ -397,7 +397,7 @@ const Theme: React.FC = () => {
 
   React.useEffect(() => {
     onThemeChange({}, { ...themeData, themeType: isDark ? 'dark' : 'default' });
-  }, [isDark, themeData]);
+  }, [isDark]);
 
   // ================================ Tokens ================================
   const closestColor = getClosetColor(colorPrimaryValue);
