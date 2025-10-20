@@ -111,15 +111,15 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
   const okTextLocale = okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText);
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
-  // ================= Context Value =================
-  const btnCtxValue: ModalContextProps = {
-    autoFocusButton,
-    cancelTextLocale,
-    okTextLocale,
-    mergedOkCancel,
-    ...resetProps,
-  };
-  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
+  const memoizedValue = React.useMemo<ModalContextProps>(() => {
+    return {
+      autoFocusButton,
+      cancelTextLocale,
+      okTextLocale,
+      mergedOkCancel,
+      ...resetProps,
+    };
+  }, [autoFocusButton, cancelTextLocale, okTextLocale, mergedOkCancel, resetProps]);
 
   // ====================== Footer Origin Node ======================
   const footerOriginNode = (
@@ -146,22 +146,17 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
           <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
         </div>
       </div>
-
       {footer === undefined || typeof footer === 'function' ? (
-        <ModalContextProvider value={btnCtxValueMemo}>
+        <ModalContextProvider value={memoizedValue}>
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
-              ? footer(footerOriginNode, {
-                  OkBtn,
-                  CancelBtn,
-                })
+              ? footer(footerOriginNode, { OkBtn, CancelBtn })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
       ) : (
         footer
       )}
-
       <Confirm prefixCls={prefixCls} />
     </div>
   );
