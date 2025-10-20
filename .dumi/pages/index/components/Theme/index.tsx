@@ -389,10 +389,9 @@ const Theme: React.FC = () => {
       themeType,
       ...ThemesInfo[themeType],
     };
-
     setThemeData(mergedData);
     form.setFieldsValue(mergedData);
-  }, [themeType]);
+  }, [form, themeType]);
 
   const isDark = React.use(DarkContext);
 
@@ -433,23 +432,14 @@ const Theme: React.FC = () => {
       token: { ...themeToken, colorPrimary: colorPrimaryValue },
       algorithm: algorithmFn,
       components: {
-        Layout: isLight
-          ? {
-              headerBg: 'transparent',
-              bodyBg: 'transparent',
-            }
-          : {},
+        Layout: isLight ? { headerBg: 'transparent', bodyBg: 'transparent' } : {},
         Menu: isLight
-          ? {
-              itemBg: 'transparent',
-              subMenuItemBg: 'transparent',
-              activeBarBorderWidth: 0,
-            }
+          ? { itemBg: 'transparent', subMenuItemBg: 'transparent', activeBarBorderWidth: 0 }
           : {},
         ...(themeType === 'v4' ? defaultTheme.components : {}),
       },
     }),
-    [themeToken, colorPrimaryValue, algorithmFn, themeType],
+    [themeToken, colorPrimaryValue, algorithmFn, isLight, themeType],
   );
 
   // ================================ Render ================================
