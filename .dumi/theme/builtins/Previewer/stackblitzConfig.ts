@@ -1,5 +1,14 @@
 import type { Project, ProjectFiles } from '@stackblitz/sdk';
 
+interface StackblitzConfigOptions {
+  title?: string;
+  dependencies: Record<string, string>;
+  indexCssContent?: string;
+  demoJsContent?: string;
+  suffix?: string;
+  isZhCN?: boolean;
+}
+
 const getStackblitzConfig = ({
   title = '',
   dependencies,
@@ -7,14 +16,7 @@ const getStackblitzConfig = ({
   demoJsContent = '',
   suffix = '',
   isZhCN = false,
-}: {
-  title?: string;
-  dependencies: Record<string, string>;
-  indexCssContent?: string;
-  demoJsContent?: string;
-  suffix?: string;
-  isZhCN?: boolean;
-}) => {
+}: StackblitzConfigOptions) => {
   const _suffix = suffix === 'tsx' ? suffix : 'jsx';
   const packageJSON = {
     name: 'vite-react-typescript-starter',

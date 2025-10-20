@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import type { SandpackSetup } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
@@ -28,9 +29,8 @@ const useStyle = createStyles(({ css, cssVar }) => ({
   `,
 }));
 
-const SandpackFallback = () => {
+const SandpackFallback: React.FC = () => {
   const { styles } = useStyle();
-
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 500, width: '100%' }}>
@@ -46,25 +46,23 @@ interface SandpackProps {
   dependencies?: string;
 }
 
-const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
-  children,
-  dark,
-  dependencies: extraDeps,
-  autorun = false,
-}) => {
-  const [searchParams] = useSearchParams();
-  const dependencies = extraDeps && JSON.parse(extraDeps);
+const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = (props) => {
+  const { children, dark, dependencies, autorun = false } = props;
 
-  const setup = {
+  const [searchParams] = useSearchParams();
+
+  const extraDependencies = dependencies ? JSON.parse(dependencies) : {};
+
+  const setup: SandpackSetup = {
     dependencies: {
-      react: '^18.0.0',
-      'react-dom': '^18.0.0',
-      antd: '^5.0.0',
-      ...dependencies,
+      react: '^19.0.0',
+      'react-dom': '^19.0.0',
+      antd: '6.0.0-alpha.3', // TODO: update to ^6.0.0 when released
+      ...extraDependencies,
     },
     devDependencies: {
-      '@types/react': '^18.0.0',
-      '@types/react-dom': '^18.0.0',
+      '@types/react': '^19.0.0',
+      '@types/react-dom': '^19.0.0',
       typescript: '^5',
     },
     entry: 'index.tsx',
@@ -89,7 +87,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
           'index.css': `html, body {
   padding: 0;
   margin: 0;
-  background: ${dark ? '#000' : '#fff'};
+  background-color: ${dark ? '#000' : '#fff'};
 }
 
 #root {
