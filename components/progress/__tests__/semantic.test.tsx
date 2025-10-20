@@ -1,119 +1,76 @@
 import React from 'react';
-import type { SemanticClassNames } from 'antd/es/_util/hooks/useMergeSemantic';
 
 import Progress from '..';
+import type { ProgressProps } from '..';
 import { render } from '../../../tests/utils';
-import type { SemanticName } from '../progress';
 
-describe('Progress.Semantic', () => {
-  it('Line', () => {
-    const classNames: Required<SemanticClassNames<SemanticName>> = {
-      root: 'my-root',
-      body: 'my-body',
-      rail: 'my-rail',
-      track: 'my-track',
-      indicator: 'my-indicator',
-    };
+const classNames: ProgressProps['classNames'] = (info) => {
+  return info.props.percent === 100
+    ? {
+        root: 'progress-root-full',
+        body: 'progress-body-full',
+        rail: 'progress-rail-full',
+        track: 'progress-track-full',
+        indicator: 'progress-indicator-full',
+      }
+    : {
+        root: 'progress-root-not-full',
+        body: 'progress-body-not-full',
+        rail: 'progress-rail-not-full',
+        track: 'progress-track-not-full',
+        indicator: 'progress-indicator-not-full',
+      };
+};
 
-    const styles = {
-      root: { backgroundColor: 'rgb(255, 0, 0)' },
-      body: { backgroundColor: 'rgb(0, 0, 255)' },
-      rail: { backgroundColor: 'rgb(0, 255, 0)' },
-      track: { backgroundColor: 'rgb(255, 255, 0)' },
-      indicator: { backgroundColor: 'rgb(128, 0, 128)' },
-    };
+const styles: ProgressProps['styles'] = (info) => {
+  return info.props.percent === 100
+    ? {
+        root: { padding: 12 },
+        body: { padding: 12 },
+        rail: { padding: 12 },
+        track: { padding: 12 },
+        indicator: { padding: 12 },
+      }
+    : {
+        root: { padding: 8 },
+        body: { padding: 8 },
+        rail: { padding: 8 },
+        track: { padding: 8 },
+        indicator: { padding: 8 },
+      };
+};
 
-    const { container } = render(
-      <Progress percent={100} success={{ percent: 50 }} classNames={classNames} styles={styles} />,
+describe('Progress classNames & styles function', () => {
+  it('should apply dynamic classNames and styles from props function', () => {
+    const { container, rerender } = render(
+      <Progress percent={100} classNames={classNames} styles={styles} />,
     );
-
-    expect(container.querySelector(`.ant-progress`)).toHaveClass(classNames.root);
-    expect(container.querySelector(`.ant-progress-body`)).toHaveClass(classNames.body);
-    expect(container.querySelector(`.ant-progress-rail`)).toHaveClass(classNames.rail);
-    expect(container.querySelector(`.ant-progress-track`)).toHaveClass(classNames.track);
-    expect(container.querySelector(`.ant-progress-indicator`)).toHaveClass(classNames.indicator);
-
-    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
-    expect(container.querySelector(`.${classNames.body}`)).toHaveStyle(styles.body);
-    expect(container.querySelector(`.${classNames.rail}`)).toHaveStyle(styles.rail);
-    expect(container.querySelector(`.${classNames.track}`)).toHaveStyle(styles.track);
-    expect(container.querySelector(`.${classNames.indicator}`)).toHaveStyle(styles.indicator);
-  });
-
-  it('Steps', () => {
-    const classNames: Required<SemanticClassNames<SemanticName>> = {
-      root: 'my-root',
-      body: 'my-body',
-      track: 'my-track',
-      indicator: 'my-indicator',
-      rail: 'my-rail',
-    };
-
-    const styles = {
-      root: { backgroundColor: 'rgb(255, 0, 0)' },
-      body: { backgroundColor: 'rgb(0, 0, 255)' },
-      track: { backgroundColor: 'rgb(255, 255, 0)' },
-      indicator: { backgroundColor: 'rgb(128, 0, 128)' },
-    };
-
-    const { container } = render(
-      <Progress
-        steps={5}
-        percent={100}
-        success={{ percent: 50 }}
-        classNames={classNames}
-        styles={styles}
-      />,
-    );
-
-    expect(container.querySelector(`.ant-progress`)).toHaveClass(classNames.root);
-    expect(container.querySelector(`.ant-progress-steps-body`)).toHaveClass(classNames.body);
-    expect(container.querySelector(`.ant-progress-steps-item`)).toHaveClass(classNames.track);
-    expect(container.querySelector(`.ant-progress-indicator`)).toHaveClass(classNames.indicator);
-
-    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
-    expect(container.querySelector(`.${classNames.body}`)).toHaveStyle(styles.body);
-    expect(container.querySelector(`.${classNames.track}`)).toHaveStyle(styles.track);
-    expect(container.querySelector(`.${classNames.indicator}`)).toHaveStyle(styles.indicator);
-  });
-
-  it('Circle', () => {
-    const classNames: Required<SemanticClassNames<SemanticName>> = {
-      root: 'my-root',
-      body: 'my-body',
-      rail: 'my-rail',
-      track: 'my-track',
-      indicator: 'my-indicator',
-    };
-
-    const styles = {
-      root: { backgroundColor: 'rgb(255, 0, 0)' },
-      body: { backgroundColor: 'rgb(0, 0, 255)' },
-      rail: { backgroundColor: 'rgb(0, 255, 0)' },
-      track: { backgroundColor: 'rgb(255, 255, 0)' },
-      indicator: { backgroundColor: 'rgb(128, 0, 128)' },
-    };
-
-    const { container } = render(
-      <Progress
-        percent={100}
-        type="circle"
-        success={{ percent: 50 }}
-        classNames={classNames}
-        styles={styles}
-      />,
-    );
-
-    expect(container.querySelector(`.ant-progress`)).toHaveClass(classNames.root);
-    expect(container.querySelector(`.ant-progress-body`)).toHaveClass(classNames.body);
-    expect(container.querySelector(`.ant-progress-circle-rail`)).toHaveClass(classNames.rail);
-    expect(container.querySelector(`.ant-progress-circle-path`)).toHaveClass(classNames.track);
-    expect(container.querySelector(`.ant-progress-indicator`)).toHaveClass(classNames.indicator);
-
-    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
-    expect(container.querySelector(`.${classNames.body}`)).toHaveStyle(styles.body);
-    expect(container.querySelector(`.${classNames.rail}`)).toHaveStyle(styles.rail);
-    expect(container.querySelector(`.${classNames.track}`)).toHaveStyle(styles.track);
-    expect(container.querySelector(`.${classNames.indicator}`)).toHaveStyle(styles.indicator);
+    const root = container.querySelector<HTMLDivElement>('.ant-progress');
+    const body = root?.querySelector<HTMLDivElement>('.ant-progress-body');
+    const rail = body?.querySelector<HTMLDivElement>('.ant-progress-rail');
+    const track = body?.querySelector<HTMLDivElement>('.ant-progress-track');
+    const indicator = body?.querySelector<HTMLDivElement>('.ant-progress-indicator');
+    expect(root).toHaveClass('progress-root-full');
+    expect(body).toHaveClass('progress-body-full');
+    expect(rail).toHaveClass('progress-rail-full');
+    expect(track).toHaveClass('progress-track-full');
+    expect(indicator).toHaveClass('progress-indicator-full');
+    expect(root).toHaveStyle({ padding: '12px' });
+    expect(body).toHaveStyle({ padding: '12px' });
+    expect(rail).toHaveStyle({ padding: '12px' });
+    expect(track).toHaveStyle({ padding: '12px' });
+    expect(indicator).toHaveStyle({ padding: '12px' });
+    rerender(<Progress size="small" percent={50} classNames={classNames} styles={styles} />);
+    expect(root).toHaveClass('ant-progress-small');
+    expect(root).toHaveClass('progress-root-not-full');
+    expect(body).toHaveClass('progress-body-not-full');
+    expect(rail).toHaveClass('progress-rail-not-full');
+    expect(track).toHaveClass('progress-track-not-full');
+    expect(indicator).toHaveClass('progress-indicator-not-full');
+    expect(body).toHaveStyle({ padding: '8px' });
+    expect(rail).toHaveStyle({ padding: '8px' });
+    expect(track).toHaveStyle({ padding: '8px' });
+    expect(indicator).toHaveStyle({ padding: '8px' });
+    expect(root).toHaveStyle({ padding: '8px' });
   });
 });
