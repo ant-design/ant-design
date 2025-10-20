@@ -66,6 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | mask | Whether show mask or not | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
+| mousePosition | Custom starting position of the Modal | `{ x: number; y: number }` | `{ x: mouseEvent.pageX, y: mouseEvent.pageY }` |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
