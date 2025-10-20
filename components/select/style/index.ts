@@ -11,61 +11,6 @@ import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
-// // ============================= Selector =============================
-// const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-//   const { componentCls } = token;
-
-//   return {
-//     position: 'relative',
-//     transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
-
-//     input: {
-//       cursor: 'pointer',
-//     },
-
-//     [`${componentCls}-show-search&`]: {
-//       cursor: 'text',
-
-//       input: {
-//         cursor: 'auto',
-//         color: 'inherit',
-//         height: '100%',
-//       },
-//     },
-
-//     [`${componentCls}-disabled&`]: {
-//       cursor: 'not-allowed',
-
-//       input: {
-//         cursor: 'not-allowed',
-//       },
-//     },
-//   };
-// };
-
-// ============================== Styles ==============================
-// // /* Reset search input style */
-// const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-//   const { componentCls } = token;
-
-//   return {
-//     [`${componentCls}-selection-search-input`]: {
-//       margin: 0,
-//       padding: 0,
-//       background: 'transparent',
-//       border: 'none',
-//       outline: 'none',
-//       appearance: 'none',
-//       fontFamily: 'inherit',
-
-//       '&::-webkit-search-cancel-button': {
-//         display: 'none',
-//         appearance: 'none',
-//       },
-//     },
-//   };
-// };
-
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls, inputPaddingHorizontalBase } = token;
@@ -82,11 +27,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
 
-      // [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
-      //   // ...genSelectorStyle(token),
-      //   ...getSearchInputWithoutBorderStyle(token),
-      // },
-
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
         flex: 1,
@@ -100,69 +40,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'inline',
         },
       },
-
-      // // ======================= Placeholder =======================
-      // [`${componentCls}-selection-placeholder`]: {
-      //   ...textEllipsis,
-      //   flex: 1,
-      //   color: token.colorTextPlaceholder,
-      //   pointerEvents: 'none',
-      // },
-
-      // // ========================== Arrow ==========================
-      // [`${componentCls}-arrow`]: {
-      //   ...resetIcon(),
-      //   position: 'absolute',
-      //   top: '50%',
-      //   insetInlineStart: 'auto',
-      //   insetInlineEnd: inputPaddingHorizontalBase,
-      //   height: token.fontSizeIcon,
-      //   marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
-      //   color: token.colorTextQuaternary,
-      //   fontSize: token.fontSizeIcon,
-      //   lineHeight: 1,
-      //   textAlign: 'center',
-      //   pointerEvents: 'none',
-      //   display: 'flex',
-      //   alignItems: 'center',
-      //   transition: `opacity ${token.motionDurationSlow} ease`,
-
-      //   [iconCls]: {
-      //     verticalAlign: 'top',
-      //     transition: `transform ${token.motionDurationSlow}`,
-
-      //     '> svg': {
-      //       verticalAlign: 'top',
-      //     },
-
-      //     [`&:not(${componentCls}-suffix)`]: {
-      //       pointerEvents: 'auto',
-      //     },
-      //   },
-
-      //   [`${componentCls}-disabled &`]: {
-      //     cursor: 'not-allowed',
-      //   },
-
-      //   '> *:not(:last-child)': {
-      //     marginInlineEnd: 8, // FIXME: magic
-      //   },
-      // },
-
-      // ========================== Wrap ===========================
-      // [`${componentCls}-selection-wrap`]: {
-      //   display: 'flex',
-      //   width: '100%',
-      //   position: 'relative',
-      //   minWidth: 0,
-
-      //   // https://github.com/ant-design/ant-design/issues/51669
-      //   '&:after': {
-      //     content: '"\\a0"',
-      //     width: 0,
-      //     overflow: 'hidden',
-      //   },
-      // },
 
       // ========================= Prefix ==========================
       [`${componentCls}-prefix`]: {
@@ -245,12 +122,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
     // Base
     genBaseStyle(token),
 
-    // // Single
-    // genSingleStyle(token),
-
-    // // Multiple
-    // genMultipleStyle(token),
-
     // Dropdown
     genDropdownStyle(token),
 
@@ -284,11 +155,7 @@ export default genStyleHooks(
       selectHeight: token.controlHeight,
     });
 
-    return [
-      genSelectStyle(selectToken),
-      // genVariantsStyle(selectToken),
-      genSelectInputStyle(selectToken),
-    ];
+    return [genSelectStyle(selectToken), genSelectInputStyle(selectToken)];
   },
   prepareComponentToken,
   {
