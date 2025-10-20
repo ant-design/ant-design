@@ -24,7 +24,7 @@ tag: vVERSION
   - 🛠 重构 Table 中 spinProps 的 useMemo 能力。[#55344](https://github.com/ant-design/ant-design/pull/55344) 
 - 🛠 重构 Modal 中 ConfirmDialog 使用数组时的 useMemo 能力。[#55376](https://github.com/ant-design/ant-design/pull/55376) 
 - TypeScript
-  - 🤖 补充 ConfigProvider `getTargetContainer` 中 `Window` 类型 定义。[#55313](https://github.com/ant-design/ant-design/pull/55313) 
+  - 🤖 补充 ConfigProvider `getTargetContainer` 中 `Window` 类型定义。[#55313](https://github.com/ant-design/ant-design/pull/55313)
   - 🤖 补充 ConfigProvider `getTargetContainer` `getPopupContainer` 中 `ShadowRoot` 类型定义。[#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
   - 🤖 优化 Modal 中类型定义。[#55371](https://github.com/ant-design/ant-design/pull/55371) 
 
