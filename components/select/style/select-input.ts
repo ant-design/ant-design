@@ -162,7 +162,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'flex',
           marginInlineEnd: calc(token.paddingXXS).mul(1.5).equal(),
 
-          '&:after': {
+          '&:before': {
             content: '"\\a0"',
             width: 0,
             overflow: 'hidden',
@@ -249,6 +249,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             insetInline: 0,
             insetBlock: 'calc(var(--select-padding-vertical) * -1)',
             lineHeight: 'calc(var(--select-font-height) + var(--select-padding-vertical) * 2)',
+          },
+
+          // Content center align
+          [`${componentCls}-content`]: {
+            alignSelf: 'center',
           },
         },
       },

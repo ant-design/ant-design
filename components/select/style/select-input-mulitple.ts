@@ -31,7 +31,6 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       // ========================================================
       // ==                        Base                        ==
       // ========================================================
-
       // ========================= Root =========================
       paddingBlock: `var(--select-multi-padding-vertical)`,
       paddingInlineStart: `calc(var(--select-multi-padding-base) - ${lineWidth})`,
@@ -53,8 +52,10 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       // ===================== Placeholder ======================
       [`${componentCls}-placeholder`]: {
         position: 'absolute',
+        lineHeight: 'var(--select-line-height)',
 
         insetInlineStart: 'var(--select-multi-item-padding-horizontal)',
+        width: 'calc(100% - var(--select-multi-item-padding-horizontal))',
         top: '50%',
         transform: 'translateY(-50%)',
       },
@@ -66,7 +67,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
         lineHeight: 1,
 
         '&-item-prefix': {
-          height: 'var(--select-multi-item-height)',
+          height: 'var(--select-font-size)',
         },
 
         '&-item': {
