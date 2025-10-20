@@ -14,6 +14,7 @@ interface RectType {
   width: number;
   height: number;
   visible: boolean;
+  opacity: number;
 }
 
 const Markers: React.FC<MarkersProps> = (props) => {
@@ -31,12 +32,18 @@ const Markers: React.FC<MarkersProps> = (props) => {
 
     const targetRectList = targetElements.map<RectType>((targetElement) => {
       const rect = targetElement.getBoundingClientRect();
+      const computedStyle = window.getComputedStyle(targetElement);
+      const parentComputedStyle = window.getComputedStyle(targetElement.parentElement!);
+      const opacity = Number.parseFloat(computedStyle.opacity);
+      const parentOpacity = Number.parseFloat(parentComputedStyle.opacity);
+
       return {
         left: rect.left - (containerRect.left || 0),
         top: rect.top - (containerRect.top || 0),
         width: rect.width,
         height: rect.height,
         visible: isVisible(targetElement),
+        opacity: Math.min(opacity, parentOpacity),
       };
     });
 
@@ -51,6 +58,7 @@ const Markers: React.FC<MarkersProps> = (props) => {
             width: nextRect.width ?? prevRect.width ?? 0,
             height: nextRect.height ?? prevRect.height ?? 0,
             visible: !!nextRect.visible,
+            opacity: nextRect.opacity ?? prevRect.opacity ?? 1,
           };
         },
       );

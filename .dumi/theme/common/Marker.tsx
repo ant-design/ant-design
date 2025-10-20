@@ -23,14 +23,14 @@ const useStyle = createStyles(({ cssVar, cx }) => {
 
   const markerActive = css`
     &.${cx(marker)} {
-      opacity: 0.85;
+      opacity: calc(0.85 * var(--target-opacity, 1));
     }
   `;
 
   const markerPrimary = css`
     &.${cx(marker)}.${cx(markerActive)} {
       --mark-border-size: 2px;
-      opacity: 1;
+      opacity: calc(1 * var(--target-opacity, 1));
       box-shadow: 0 0 0 1px #fff;
       z-index: 1000000;
     }
@@ -50,6 +50,7 @@ export interface MarkerProps {
     width: number;
     height: number;
     visible: boolean;
+    opacity: number;
   };
   primary?: boolean;
 }
@@ -84,6 +85,7 @@ const Marker = React.memo<MarkerProps>((props) => {
           '--rect-top': mergedRect.top,
           '--rect-width': mergedRect.width,
           '--rect-height': mergedRect.height,
+          '--target-opacity': rect.opacity,
         } as React.CSSProperties
       }
       {...restProps}
