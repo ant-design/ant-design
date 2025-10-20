@@ -20,10 +20,16 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
 
   return {
     '&-multiple': {
+      '--select-multi-item-background': token.multipleItemBg,
+      '--select-multi-item-border-color': 'transparent',
       '--select-multi-item-height': token.multipleItemHeight,
       '--select-multi-padding-base': `calc((var(--select-height) - var(--select-multi-item-height)) / 2)`,
       '--select-multi-padding-vertical': `calc(var(--select-multi-padding-base) - ${INTERNAL_FIXED_ITEM_MARGIN} - ${lineWidth})`,
       '--select-multi-item-padding-horizontal': `calc(${inputPaddingHorizontalBase} - var(--select-multi-padding-vertical) - ${lineWidth} * 2)`,
+
+      // ========================================================
+      // ==                        Base                        ==
+      // ========================================================
 
       // ========================= Root =========================
       paddingBlock: `var(--select-multi-padding-vertical)`,
@@ -56,12 +62,14 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       [`${componentCls}-content`]: {
         flexWrap: 'wrap',
         alignItems: 'center',
+        lineHeight: 1,
 
         '&-item-prefix': {
           height: 'var(--select-multi-item-height)',
         },
 
         '&-item': {
+          lineHeight: 1,
           maxWidth: `calc(100% - ${FIXED_INPUT_MIN_WIDTH}px)`,
         },
 
@@ -72,14 +80,17 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
 
         [`${componentCls}-selection-item`]: {
           lineHeight: `calc(var(--select-multi-item-height) - ${lineWidth} * 2)`,
-          border: `${lineWidth} solid transparent`,
+          border: `${lineWidth} solid var(--select-multi-item-border-color)`,
           display: 'flex',
           marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
           marginInlineEnd: calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
-          background: token.multipleItemBg,
+          background: `var(--select-multi-item-background)`,
           borderRadius: token.borderRadiusSM,
           paddingInlineStart: paddingXS,
           paddingInlineEnd: paddingXXS,
+          transition: ['height', 'line-height', 'padding']
+            .map((key) => `${key} ${token.motionDurationSlow}`)
+            .join(','),
 
           // >>> Content
           '&-content': {
@@ -117,6 +128,30 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
           width: 'calc(var(--select-input-width, 0) * 1px)',
           minWidth: FIXED_INPUT_MIN_WIDTH,
           maxWidth: '100%',
+          transition: `line-height ${token.motionDurationSlow}`,
+        },
+      },
+
+      // ========================================================
+      // ==                        Size                        ==
+      // ========================================================
+      [`&${componentCls}-sm`]: {
+        '--select-multi-item-height': token.multipleItemHeightSM,
+      },
+
+      [`&${componentCls}-lg`]: {
+        '--select-multi-item-height': token.multipleItemHeightLG,
+      },
+
+      // ========================================================
+      // ==                      Variants                      ==
+      // ========================================================
+      [`&${componentCls}-filled`]: {
+        '--select-multi-item-border-color': token.colorSplit,
+        '--select-multi-item-background': token.colorBgContainer,
+
+        [`&${componentCls}-disabled`]: {
+          '--select-multi-item-border-color': 'transparent',
         },
       },
     },

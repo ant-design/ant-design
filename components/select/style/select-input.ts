@@ -105,7 +105,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // Size
         '--select-height': controlHeight,
 
-        '--select-padding-horizontal': calc(token.paddingSM).sub(1).equal(),
+        '--select-padding-horizontal': calc(token.paddingSM).sub(token.lineWidth).equal(),
         '--select-padding-vertical':
           'calc((var(--select-height) - var(--select-font-height)) / 2 - var(--select-border-size))',
 
@@ -118,7 +118,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // gap: calc(token.paddingXXS).mul(1.5).equal(),
         flexWrap: 'nowrap',
         position: 'relative',
-        transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+        transition: `all ${token.motionDurationSlow}`,
         alignItems: 'flex-start',
         outline: 0,
 
@@ -219,6 +219,21 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           background: token.colorBgContainerDisabled,
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
+        },
+
+        // ==========================================================
+        // ==                         Size                         ==
+        // ==========================================================
+        '&-sm': {
+          '--select-height': token.controlHeightSM,
+          '--select-padding-horizontal': calc(token.paddingXS).sub(token.lineWidth).equal(),
+        },
+
+        '&-lg': {
+          '--select-height': token.controlHeightLG,
+          '--select-font-size': token.fontSizeLG,
+          '--select-line-height': token.lineHeightLG,
+          '--select-font-height': token.fontHeightLG,
         },
       },
 
