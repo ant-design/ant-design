@@ -173,7 +173,7 @@ const GlobalLayout: React.FC = () => {
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       bannerVisible:
-        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
+        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true) && false,
     });
 
     // 设置 data-prefers-color 属性
