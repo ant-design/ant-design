@@ -67,7 +67,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
           resizeObserver.disconnect();
         };
       }
-    }, [prefixCls]);
+    }, []);
 
     let mergedProps: WrapProps = {
       ...props,
