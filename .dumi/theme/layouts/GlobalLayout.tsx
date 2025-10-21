@@ -50,6 +50,7 @@ if (typeof window !== 'undefined') {
 const getAlgorithm = (themes: ThemeName[] = [], systemTheme: 'dark' | 'light') =>
   themes
     .map((theme) => {
+      // auto 模式下根据系统主题切换
       if (theme === 'auto' && systemTheme === 'dark') {
         return antdTheme.darkAlgorithm;
       }
@@ -135,7 +136,7 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
-    [searchParams, setSearchParams, systemTheme],
+    [searchParams, setSearchParams],
   );
 
   const updateMobileMode = useCallback(() => {
@@ -192,12 +193,6 @@ const GlobalLayout: React.FC = () => {
       // bannerVisible:
       //   hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
     });
-
-    // 设置 data-prefers-color 属性
-    const colorTheme = finalTheme.find((t) => ['light', 'dark'].includes(t));
-    if (colorTheme) {
-      document.documentElement.setAttribute('data-prefers-color', colorTheme);
-    }
 
     // Handle isMobile
     updateMobileMode();

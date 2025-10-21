@@ -36,7 +36,7 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
     inset: 0;
     backdrop-filter: blur(2px);
     opacity: 1;
-    background-color: 'rgba(255, 255, 255, 0.2)';
+    background-color: rgba(255, 255, 255, 0.2);
     transition: all 1s ease;
     pointer-events: none;
     [data-prefers-color='dark'] & {
