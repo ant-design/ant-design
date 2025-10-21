@@ -173,7 +173,7 @@ const GlobalLayout: React.FC = () => {
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       bannerVisible:
-        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true) && false,
+        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
     });
 
     // 设置 data-prefers-color 属性
@@ -195,7 +195,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams, updateMobileMode, h5Data]);
+  }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
