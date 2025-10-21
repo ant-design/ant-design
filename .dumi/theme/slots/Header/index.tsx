@@ -8,6 +8,7 @@ import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
+import { useAntdSiteConfig } from '../../../pages/index/components/util';
 import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
 import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
@@ -21,21 +22,6 @@ import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
-
-const locales = {
-  cn: {
-    message: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
-    shortMessage: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
-    more: '前往了解',
-    link: 'https://www.yuque.com/opensource2023',
-  },
-  en: {
-    message: '',
-    shortMessage: '',
-    more: '',
-    link: '',
-  },
-};
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
@@ -162,7 +148,8 @@ interface HeaderState {
 
 // ================================= Header =================================
 const Header: React.FC = () => {
-  const [locale, lang] = useLocale(locales);
+  const [, lang] = useLocale();
+  const { data: siteData } = useAntdSiteConfig();
 
   const { pkg } = useSiteData();
 
@@ -272,6 +259,12 @@ const Header: React.FC = () => {
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
+
+  // Get banner data from site config
+  const bannerData = siteData?.headingBanner?.[lang as 'cn' | 'en'];
+  const bannerTitle = bannerData?.title || '';
+  const bannerHref = bannerData?.href || '';
+
   let responsive: null | 'narrow' | 'crowded' = null;
   if (windowWidth < RESPONSIVE_XS) {
     responsive = 'crowded';
@@ -375,7 +368,7 @@ const Header: React.FC = () => {
           <MenuOutlined className="nav-phone-icon" />
         </Popover>
       )}
-      {isZhCN && bannerVisible && (
+      {isZhCN && bannerVisible && bannerTitle && bannerHref && (
         <ConfigProvider
           theme={{
             token: {
@@ -387,23 +380,25 @@ const Header: React.FC = () => {
           <Alert
             className={styles.banner}
             message={
-              <>
-                <span>{isMobile ? locale.shortMessage : locale.message}</span>
-                <a
-                  className={styles.link}
-                  href={locale.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => {
-                    window.gtag?.('event', '点击', {
-                      event_category: 'top_banner',
-                      event_label: locale.link,
-                    });
-                  }}
-                >
-                  {locale.more}
-                </a>
-              </>
+              bannerTitle && bannerHref ? (
+                <>
+                  <span>{bannerTitle}</span>
+                  <a
+                    className={styles.link}
+                    href={bannerHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => {
+                      window.gtag?.('event', '点击', {
+                        event_category: 'top_banner',
+                        event_label: bannerHref,
+                      });
+                    }}
+                  >
+                    前往了解
+                  </a>
+                </>
+              ) : null
             }
             type="info"
             banner
