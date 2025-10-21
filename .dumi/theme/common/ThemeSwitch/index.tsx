@@ -11,10 +11,11 @@ import type { MenuProps } from 'antd';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, useLocation } from 'dumi';
 
+import useLocalStorage from '../../../hooks/useLocalStorage';
 import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { getLocalizedPathname, isZhCN, isLocalStorageNameSupported } from '../../utils';
+import { getLocalizedPathname, isZhCN } from '../../utils';
 import Link from '../Link';
 import ThemeIcon from './ThemeIcon';
 
@@ -32,6 +33,10 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { theme, updateSiteConfig } = use<SiteContextProps>(SiteContext);
   const toggleAnimationTheme = useThemeAnimation();
   const lastThemeKey = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
+
+  const [, setTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
+    defaultValue: undefined,
+  });
 
   const badge = <Badge color="blue" style={{ marginTop: -1 }} />;
 
@@ -133,14 +138,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       const filteredTheme = theme.filter((t) => !['light', 'dark', 'auto'].includes(t));
       const newTheme = [...filteredTheme, themeKey];
 
-      updateSiteConfig({
-        theme: newTheme,
-      });
+      updateSiteConfig({ theme: newTheme });
 
-      // 持久化到 localStorage
-      if (isLocalStorageNameSupported()) {
-        localStorage.setItem(ANT_DESIGN_SITE_THEME, themeKey);
-      }
+      setTheme(themeKey);
     } else {
       // 其他主题选项是开关式的
       const hasTheme = theme.includes(themeKey);

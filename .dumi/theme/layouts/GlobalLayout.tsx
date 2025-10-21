@@ -16,11 +16,11 @@ import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML }
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-import { isLocalStorageNameSupported } from '../utils';
 
 import '@ant-design/v5-patch-for-react-19';
 
@@ -32,10 +32,10 @@ type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 
 const RESPONSIVE_MOBILE = 768;
+
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
-// 主题持久化存储键名
-const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
+export const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
@@ -60,23 +60,6 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     })
     .filter(Boolean);
 
-// 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
-const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
-  // 只认 light/dark
-  const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
-  const urlColor = urlTheme.find((t) => t === 'light' || t === 'dark');
-  if (urlColor) return [...baseTheme, urlColor];
-
-  if (isLocalStorageNameSupported()) {
-    const stored = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
-    if (stored && ['light', 'dark', 'auto'].includes(stored)) {
-      return [...baseTheme, stored];
-    }
-  }
-  // 默认 auto
-  return [...baseTheme, 'auto'];
-};
-
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -87,6 +70,24 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  const [storedTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
+    defaultValue: undefined,
+  });
+
+  // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
+  const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
+    // 只认 light/dark
+    const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
+    const urlColor = urlTheme.find((t) => t === 'light' || t === 'dark');
+    if (urlColor) {
+      return [...baseTheme, urlColor];
+    }
+    if (['light', 'dark', 'auto'].includes(storedTheme)) {
+      return [...baseTheme, storedTheme];
+    }
+    return [...baseTheme, 'auto'];
+  };
 
   // const { data: h5Data } = useAntdSiteConfig();
   // useAntdSiteConfig();
@@ -159,16 +160,6 @@ const GlobalLayout: React.FC = () => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
-
-    // const storedBannerVisibleLastTime =
-    //   localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
-    // const storedBannerVisible =
-    //   storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
-
-    // const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
-    // const hasBannerContent = !!(isZhCN
-    //   ? h5Data?.headingBanner?.cn?.title
-    //   : h5Data?.headingBanner?.en?.title);
 
     setSiteState({
       theme: finalTheme,
