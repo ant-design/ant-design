@@ -49,6 +49,7 @@ interface BlockProps {
   style?: React.CSSProperties;
   mode: 'single' | 'multiple';
   onModeChange: (mode: 'single' | 'multiple') => void;
+  multipleProps?: object;
   [key: string]: any;
 }
 
@@ -58,9 +59,15 @@ const Block: React.FC<BlockProps> = ({
   defaultValue,
   mode,
   onModeChange,
+  multipleProps,
   ...props
 }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
+  const [value, setValue] = React.useState(defaultValue);
+
+  React.useEffect(() => {
+    setValue(defaultValue);
+  }, [mode]);
 
   return (
     <Flex
@@ -80,13 +87,13 @@ const Block: React.FC<BlockProps> = ({
       />
       <Component
         {...props}
-        key={mode}
         open
         placement="bottomLeft"
-        defaultValue={defaultValue}
+        value={value}
+        onChange={setValue}
         getPopupContainer={() => divRef.current}
         options={options}
-        mode={mode === 'multiple' ? 'multiple' : undefined}
+        {...(mode === 'multiple' ? multipleProps : {})}
         styles={{ popup: { zIndex: 1 } }}
         maxTagCount="responsive"
         placeholder="Please select"
@@ -104,6 +111,7 @@ export interface SelectSemanticTemplateProps {
   placeholder?: string;
   style?: React.CSSProperties;
   ignoreSemantics?: string[];
+  multipleProps?: object;
   [key: string]: any;
 }
 

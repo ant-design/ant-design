@@ -145,6 +145,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // ========================= Prefix =========================
         [`${componentCls}-prefix`]: {
           flex: 'none',
+          lineHeight: 1,
         },
 
         // ====================== Placeholder =======================
@@ -152,6 +153,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           ...textEllipsis,
           color: token.colorTextPlaceholder,
           pointerEvents: 'none',
+          zIndex: 1,
         },
 
         // ======================== Content =========================
@@ -172,6 +174,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           '&-value': {
             ...textEllipsis,
             transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+            zIndex: 1,
           },
 
           // >>> Input
@@ -202,6 +205,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           color: token.colorTextQuaternary,
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
+
+          '> :not(:last-child)': {
+            marginInlineEnd: token.marginXS,
+          },
         },
 
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
