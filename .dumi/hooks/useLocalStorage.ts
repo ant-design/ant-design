@@ -1,6 +1,10 @@
-import React, { useEffect, useEffectEvent } from 'react';
+import React, { useCallback, useEffect, useEffectEvent } from 'react';
 
 export const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
+
+export const isFunction = (val: any): val is (...args: any[]) => any => {
+  return typeof val === 'function';
+};
 
 interface Options<T> {
   defaultValue?: T;
@@ -38,7 +42,8 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
   }, [key]);
 
   const updateState: React.Dispatch<React.SetStateAction<T>> = (value) => {
-    const currentState = typeof value === 'function' ? (value as any)(state) : value;
+    const currentState = isFunction(value) ? value(state) : value;
+    setState(currentState);
     try {
       let newValue: string | null;
       const oldValue = storage?.getItem(key);
@@ -63,17 +68,23 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
     return ev && ev.key === key && ev.storageArea === storage;
   };
 
-  const onNativeStorage = (event: StorageEvent) => {
-    if (shouldSync(event)) {
-      setState(getStoredValue());
-    }
-  };
+  const onNativeStorage = useCallback(
+    (event: StorageEvent) => {
+      if (shouldSync(event)) {
+        setState(getStoredValue());
+      }
+    },
+    [key],
+  );
 
-  const onCustomStorage = (event: Event) => {
-    if (shouldSync(event as StorageEvent)) {
-      setState(getStoredValue());
-    }
-  };
+  const onCustomStorage = useCallback(
+    (event: Event) => {
+      if (shouldSync(event as StorageEvent)) {
+        setState(getStoredValue());
+      }
+    },
+    [key],
+  );
 
   useEffect(() => {
     window?.addEventListener('storage', onNativeStorage);
