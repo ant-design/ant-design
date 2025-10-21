@@ -22,7 +22,7 @@ import type {
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
-export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer';
+export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer' | 'container';
 
 export type TimePickerClassNames = SemanticClassNamesType<
   TimePickerProps,

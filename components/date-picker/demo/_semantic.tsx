@@ -12,6 +12,7 @@ const locales = {
     input: '输入框元素，包含相对定位、宽度、颜色、字体、行高、过渡动画等输入框的核心交互样式',
     suffix: '后缀元素，包含flex布局、颜色、行高、指针事件、过渡动画等后缀内容的样式',
     popup: '弹出框元素',
+    'popup.container': '容器元素，设置背景色、内边距、圆角、阴影、边框和内容展示样式',
     'popup.header': '弹出框头部元素，包含导航按钮、月份年份选择器等头部控制区域的布局和样式',
     'popup.body': '弹出框主体元素，包含日期面板表格的容器布局和样式',
     'popup.content': '弹出框内容元素，包含日期表格的宽度、边框、单元格等内容展示样式',
@@ -27,6 +28,8 @@ const locales = {
     suffix:
       'Suffix element with flex layout, color, line-height, pointer events, transition animations and other styles for suffix content',
     popup: 'Popup element',
+    'popup.container':
+      'Container element, set background color, padding, border radius, shadow, border and content display styles',
     'popup.header':
       'Popup header element with navigation buttons, month/year selectors and other header control area layout and styles',
     'popup.body': 'Popup body element with container layout and styles for date panel table',
@@ -99,6 +102,7 @@ export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplatePro
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
         { name: 'popup.root', desc: locale.popup },
+        { name: 'popup.container', desc: locale['popup.container'] },
         { name: 'popup.header', desc: locale['popup.header'] },
         { name: 'popup.body', desc: locale['popup.body'] },
         { name: 'popup.content', desc: locale['popup.content'] },
