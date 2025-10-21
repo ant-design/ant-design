@@ -140,7 +140,7 @@ const useResponsiveObserver = () => {
         subscribers.clear();
       },
     };
-  }, [token]);
+  }, [responsiveMap]);
 };
 
 export default useResponsiveObserver;
