@@ -47,9 +47,12 @@ if (typeof window !== 'undefined') {
   }
 }
 
-const getAlgorithm = (themes: ThemeName[] = []) =>
+const getAlgorithm = (themes: ThemeName[] = [], systemTheme: 'dark' | 'light') =>
   themes
     .map((theme) => {
+      if (theme === 'auto' && systemTheme === 'dark') {
+        return antdTheme.darkAlgorithm;
+      }
       if (theme === 'dark') {
         return antdTheme.darkAlgorithm;
       }
@@ -60,6 +63,12 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     })
     .filter(Boolean);
 
+const getSystemTheme = (): 'light' | 'dark' => {
+  if (typeof window === 'undefined') {
+    return 'light';
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
 // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
 const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
   // 只认 light/dark
@@ -88,6 +97,7 @@ const GlobalLayout: React.FC = () => {
       bannerVisible: false,
     });
 
+  const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
   // const { data: h5Data } = useAntdSiteConfig();
   // useAntdSiteConfig();
 
@@ -118,10 +128,6 @@ const GlobalLayout: React.FC = () => {
           } else {
             nextSearchParams.delete('theme');
           }
-          // 设置 data-prefers-color
-          if (color) {
-            document.querySelector('html')?.setAttribute('data-prefers-color', color);
-          }
         }
       });
 
@@ -129,13 +135,20 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
-
-    [searchParams, setSearchParams],
+    [searchParams, setSearchParams, systemTheme],
   );
 
   const updateMobileMode = useCallback(() => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
   }, [updateSiteConfig]);
+
+  // 设置 data-prefers-color 属性
+  useEffect(() => {
+    const color = theme.find((t) => t === 'light' || t === 'dark');
+    if (theme.includes('auto') && systemTheme) {
+      document.querySelector('html')?.setAttribute('data-prefers-color', systemTheme);
+    } else if (color) document.querySelector('html')?.setAttribute('data-prefers-color', color);
+  }, [systemTheme, theme]);
 
   // 监听系统主题变化
   useEffect(() => {
@@ -145,7 +158,10 @@ const GlobalLayout: React.FC = () => {
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const handleSystemThemeChange = () => {};
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      const newSystemTheme = e.matches ? 'dark' : 'light';
+      setSystemTheme(newSystemTheme);
+    };
 
     mediaQuery.addEventListener('change', handleSystemThemeChange);
 
@@ -213,12 +229,12 @@ const GlobalLayout: React.FC = () => {
     // 算法优先级：auto 时用系统主题算法
     const themeForAlgorithm = theme;
     return {
-      algorithm: getAlgorithm(themeForAlgorithm),
+      algorithm: getAlgorithm(themeForAlgorithm, systemTheme),
       token: { motion: !theme.includes('motion-off') },
       cssVar: useCssVar,
       hashed: !useCssVar,
     };
-  }, [theme, useCssVar]);
+  }, [theme, useCssVar, systemTheme]);
 
   const styleCache = React.useMemo(() => createCache(), []);
 
@@ -257,7 +273,9 @@ const GlobalLayout: React.FC = () => {
   ));
 
   return (
-    <DarkContext value={theme.includes('dark')}>
+    <DarkContext
+      value={theme.includes('dark') || (theme.includes('auto') && systemTheme === 'dark')}
+    >
       <StyleProvider
         cache={styleCache}
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
