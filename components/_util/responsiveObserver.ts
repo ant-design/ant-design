@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
-import { addMediaQueryListener, removeMediaQueryListener } from './mediaQueryUtil';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
@@ -127,7 +126,7 @@ const useResponsiveObserver = () => {
             this.dispatch({ ...screens, [screen]: matches });
           };
           const mql = window.matchMedia(mediaQuery);
-          addMediaQueryListener(mql, listener);
+          mql.addEventListener('change', listener);
           this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
         });
@@ -135,7 +134,7 @@ const useResponsiveObserver = () => {
       unregister() {
         Object.values(responsiveMap).forEach((mediaQuery) => {
           const handler = this.matchHandlers[mediaQuery];
-          removeMediaQueryListener(handler?.mql, handler?.listener);
+          handler?.mql.removeEventListener('change', handler?.listener);
         });
         subscribers.clear();
       },

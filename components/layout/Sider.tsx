@@ -6,7 +6,6 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
@@ -125,11 +124,11 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     let mql: MediaQueryList;
     if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
       mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
-      addMediaQueryListener(mql, responsiveHandler);
+      mql.addEventListener('change', responsiveHandler);
       responsiveHandler(mql);
     }
     return () => {
-      removeMediaQueryListener(mql, responsiveHandler);
+      mql.removeEventListener('change', responsiveHandler);
     };
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
