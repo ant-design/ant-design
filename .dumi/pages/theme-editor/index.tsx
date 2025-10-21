@@ -34,18 +34,18 @@ const locales = {
   },
 };
 
-const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
+const ANT_THEME_EDITOR_THEME = 'ant-theme-editor-theme';
 
 const CustomTheme: React.FC = () => {
   const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
 
-  const [theme, setTheme] = useLocalStorage<ThemeConfig>(ANT_DESIGN_V5_THEME_EDITOR_THEME, {
+  const [themeConfig, setThemeConfig] = useLocalStorage<ThemeConfig>(ANT_THEME_EDITOR_THEME, {
     defaultValue: {},
   });
 
   const handleSave = () => {
-    setTheme(theme);
+    setThemeConfig(themeConfig);
     message.success(locale.saveSuccessfully);
   };
 
@@ -60,9 +60,9 @@ const CustomTheme: React.FC = () => {
           <ThemeEditor
             advanced
             hideAdvancedSwitcher
-            theme={{ name: 'Custom Theme', key: 'test', config: theme }}
+            theme={{ name: 'Custom Theme', key: 'test', config: themeConfig }}
             style={{ height: 'calc(100vh - 64px)' }}
-            onThemeChange={(newTheme) => setTheme(newTheme.config)}
+            onThemeChange={(newTheme) => setThemeConfig(newTheme.config)}
             locale={lang === 'cn' ? zhCN : enUS}
             actions={
               <Button type="primary" onClick={handleSave}>

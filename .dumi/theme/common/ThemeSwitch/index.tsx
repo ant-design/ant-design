@@ -21,8 +21,7 @@ import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'auto' | 'compact' | 'motion-off' | 'happy-work';
 
-// 主题持久化存储键名
-const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
+export const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 export interface ThemeSwitchProps {
   value?: ThemeName[];

@@ -17,6 +17,7 @@ import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML }
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
@@ -34,8 +35,6 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 const RESPONSIVE_MOBILE = 768;
 
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
-
-export const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
