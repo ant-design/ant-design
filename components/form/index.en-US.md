@@ -599,7 +599,7 @@ Components inside Form.Item with name property will turn into controlled mode, w
 
 ### Why can not call `ref` of Form at first time?
 
-`ref` only receives the mounted instance. please ref React official doc: <https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs>
+`ref` only receives the mounted instance. please ref React official doc: <https://react.dev/learn/manipulating-the-dom-with-refs#when-react-attaches-the-refs>
 
 ### Why will `resetFields` re-mount component?
 
