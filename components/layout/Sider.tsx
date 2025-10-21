@@ -124,11 +124,15 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     let mql: MediaQueryList;
     if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
       mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
-      mql.addEventListener('change', responsiveHandler);
+      if (typeof mql.addEventListener === 'function') {
+        mql.addEventListener('change', responsiveHandler);
+      }
       responsiveHandler(mql);
     }
     return () => {
-      mql.removeEventListener('change', responsiveHandler);
+      if (typeof mql.removeEventListener === 'function') {
+        mql.removeEventListener('change', responsiveHandler);
+      }
     };
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
