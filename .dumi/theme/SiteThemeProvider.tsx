@@ -30,7 +30,8 @@ declare module 'antd-style' {
 }
 
 const headerHeight = 64;
-const bannerHeight = 38;
+// const bannerHeight = 38;
+const bannerHeight = 0;
 
 const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme, ...rest }) => {
   const { getPrefixCls, iconPrefixCls } = React.use(ConfigProvider.ConfigContext);
