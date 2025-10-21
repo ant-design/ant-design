@@ -17,13 +17,6 @@ const createImplFn = (value: string | number) => {
       },
       removeEventListener: jest.fn(),
     }),
-    (query: string) => ({
-      matches: query === value,
-      addListener: (cb: (e: { matches: boolean }) => void) => {
-        cb({ matches: query === value });
-      },
-      removeListener: jest.fn(),
-    }),
   ];
 };
 
