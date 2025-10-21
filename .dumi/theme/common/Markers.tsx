@@ -14,7 +14,6 @@ interface RectType {
   width: number;
   height: number;
   visible: boolean;
-  opacity: number;
 }
 
 const Markers: React.FC<MarkersProps> = (props) => {
@@ -24,18 +23,33 @@ const Markers: React.FC<MarkersProps> = (props) => {
 
   // ======================== Effect =========================
   React.useEffect(() => {
-    const targetElements = targetClassName
+    const allElements = targetClassName
       ? Array.from(containerRef.current?.querySelectorAll<HTMLElement>(`.${targetClassName}`) || [])
       : [];
+
+    const targetElements = allElements.filter((element) => {
+      let currentElement: HTMLElement | null = element;
+      let count = 0;
+
+      while (currentElement && count <= 5) {
+        const computedStyle = window.getComputedStyle(currentElement);
+        const opacity = Number.parseFloat(computedStyle.opacity);
+
+        if (opacity === 0) {
+          return false;
+        }
+
+        currentElement = currentElement.parentElement;
+        count++;
+      }
+
+      return true;
+    });
 
     const containerRect = containerRef.current?.getBoundingClientRect() || ({} as DOMRect);
 
     const targetRectList = targetElements.map<RectType>((targetElement) => {
       const rect = targetElement.getBoundingClientRect();
-      const computedStyle = window.getComputedStyle(targetElement);
-      const parentComputedStyle = window.getComputedStyle(targetElement.parentElement!);
-      const opacity = Number.parseFloat(computedStyle.opacity);
-      const parentOpacity = Number.parseFloat(parentComputedStyle.opacity);
 
       return {
         left: rect.left - (containerRect.left || 0),
@@ -43,7 +57,6 @@ const Markers: React.FC<MarkersProps> = (props) => {
         width: rect.width,
         height: rect.height,
         visible: isVisible(targetElement),
-        opacity: Math.min(opacity, parentOpacity),
       };
     });
 
@@ -58,7 +71,6 @@ const Markers: React.FC<MarkersProps> = (props) => {
             width: nextRect.width ?? prevRect.width ?? 0,
             height: nextRect.height ?? prevRect.height ?? 0,
             visible: !!nextRect.visible,
-            opacity: nextRect.opacity ?? prevRect.opacity ?? 1,
           };
         },
       );

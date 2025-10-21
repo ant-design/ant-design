@@ -19,14 +19,13 @@ export default function useIcons({
   loading,
   multiple,
   hasFeedback,
-  prefixCls,
   showSuffixIcon,
   feedbackIcon,
   showArrow,
   componentName,
 }: {
   suffixIcon?: React.ReactNode;
-  clearIcon?: RenderNode;
+  clearIcon?: React.ReactNode;
   menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   loading?: boolean;
