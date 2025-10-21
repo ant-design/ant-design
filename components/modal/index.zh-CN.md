@@ -67,7 +67,6 @@ demo:
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| mousePosition | 自定义 Modal 弹出的起始位置 | `{ x: number; y: number }` | `{ x: mouseEvent.pageX, y: mouseEvent.pageY }` |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
