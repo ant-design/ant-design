@@ -24,6 +24,10 @@ import { isLocalStorageNameSupported } from '../utils';
 
 import '@ant-design/v5-patch-for-react-19';
 
+// import dayjs from 'dayjs';
+
+// import { useAntdSiteConfig } from '../../pages/index/components/util';
+
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 
@@ -83,6 +87,9 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  // const { data: h5Data } = useAntdSiteConfig();
+  // useAntdSiteConfig();
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -153,9 +160,21 @@ const GlobalLayout: React.FC = () => {
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
+    // const storedBannerVisibleLastTime =
+    //   localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    // const storedBannerVisible =
+    //   storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
+
+    // const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
+    // const hasBannerContent = !!(isZhCN
+    //   ? h5Data?.headingBanner?.cn?.title
+    //   : h5Data?.headingBanner?.en?.title);
+
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
+      // bannerVisible:
+      //   hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
     });
 
     // 设置 data-prefers-color 属性
