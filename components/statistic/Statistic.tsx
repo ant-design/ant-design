@@ -107,7 +107,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
       onMouseLeave={onMouseLeave}
     >
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
+      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`} active>
         <div style={valueStyle} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
           {valueRender ? valueRender(valueNode) : valueNode}
