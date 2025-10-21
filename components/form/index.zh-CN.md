@@ -598,7 +598,7 @@ Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件
 
 ### 为什么第一次调用 `ref` 的 Form 为空？
 
-`ref` 仅在节点被加载时才会被赋值，请参考 React 官方文档：<https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs>
+`ref` 仅在节点被加载时才会被赋值，请参考 React 官方文档：<https://zh-hans.react.dev/learn/manipulating-the-dom-with-refs#when-react-attaches-the-refs>
 
 ### 为什么 `resetFields` 会重新 mount 组件？
 
