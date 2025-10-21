@@ -126,7 +126,7 @@ const useResponsiveObserver = () => {
             this.dispatch({ ...screens, [screen]: matches });
           };
           const mql = window.matchMedia(mediaQuery);
-          if (typeof mql.addEventListener === 'function') {
+          if (typeof mql?.addEventListener === 'function') {
             mql.addEventListener('change', listener);
           }
           this.matchHandlers[mediaQuery] = { mql, listener };
@@ -136,8 +136,8 @@ const useResponsiveObserver = () => {
       unregister() {
         Object.values(responsiveMap).forEach((mediaQuery) => {
           const handler = this.matchHandlers[mediaQuery];
-          if (typeof handler?.mql.removeEventListener === 'function') {
-            handler?.mql.removeEventListener('change', handler?.listener);
+          if (typeof handler?.mql?.removeEventListener === 'function') {
+            handler.mql.removeEventListener('change', handler?.listener);
           }
         });
         subscribers.clear();
