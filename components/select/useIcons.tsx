@@ -25,7 +25,7 @@ export default function useIcons({
   componentName,
 }: {
   suffixIcon?: React.ReactNode;
-  clearIcon?: React.ReactNode;
+  clearIcon?: RenderNode;
   menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   loading?: boolean;
@@ -92,7 +92,8 @@ export default function useIcons({
   }
 
   return {
-    clearIcon: mergedClearIcon,
+    // TODO: remove as when all the deps bumped
+    clearIcon: mergedClearIcon as React.ReactNode,
     suffixIcon: mergedSuffixIcon,
     itemIcon: mergedItemIcon,
     removeIcon: mergedRemoveIcon,
