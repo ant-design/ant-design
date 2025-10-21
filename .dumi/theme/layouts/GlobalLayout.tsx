@@ -26,7 +26,7 @@ import '@ant-design/v5-patch-for-react-19';
 
 // import dayjs from 'dayjs';
 
-import { useAntdSiteConfig } from '../../pages/index/components/util';
+// import { useAntdSiteConfig } from '../../pages/index/components/util';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
@@ -89,7 +89,7 @@ const GlobalLayout: React.FC = () => {
     });
 
   // const { data: h5Data } = useAntdSiteConfig();
-  useAntdSiteConfig();
+  // useAntdSiteConfig();
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
