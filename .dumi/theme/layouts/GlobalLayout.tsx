@@ -24,7 +24,7 @@ import { isLocalStorageNameSupported } from '../utils';
 
 import '@ant-design/v5-patch-for-react-19';
 
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 
 import { useAntdSiteConfig } from '../../pages/index/components/util';
 
@@ -88,7 +88,8 @@ const GlobalLayout: React.FC = () => {
       bannerVisible: false,
     });
 
-  const { data: h5Data } = useAntdSiteConfig();
+  // const { data: h5Data } = useAntdSiteConfig();
+  useAntdSiteConfig();
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -159,21 +160,21 @@ const GlobalLayout: React.FC = () => {
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
-    const storedBannerVisibleLastTime =
-      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
-    const storedBannerVisible =
-      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
+    // const storedBannerVisibleLastTime =
+    //   localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    // const storedBannerVisible =
+    //   storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
-    const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
-    const hasBannerContent = !!(isZhCN
-      ? h5Data?.headingBanner?.cn?.title
-      : h5Data?.headingBanner?.en?.title);
+    // const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
+    // const hasBannerContent = !!(isZhCN
+    //   ? h5Data?.headingBanner?.cn?.title
+    //   : h5Data?.headingBanner?.en?.title);
 
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      bannerVisible:
-        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
+      // bannerVisible:
+      //   hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
     });
 
     // 设置 data-prefers-color 属性
