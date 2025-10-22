@@ -8,6 +8,7 @@ import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
+import useLocalStorage from '../../../hooks/useLocalStorage';
 import { useAntdSiteConfig } from '../../../pages/index/components/util';
 import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
@@ -22,6 +23,8 @@ import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
+
+export const ANT_LOCAL_TYPE_KEY = 'ANT_LOCAL_TYPE_KEY';
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
@@ -154,6 +157,7 @@ const Header: React.FC = () => {
   const { pkg } = useSiteData();
 
   const themeConfig = getThemeConfig();
+
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
@@ -166,24 +170,33 @@ const Header: React.FC = () => {
 
   const { styles } = useStyle();
 
+  const [, setTopBannerDay] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
+    defaultValue: undefined,
+  });
+
+  const [, setLocalType] = useLocalStorage<string>(ANT_LOCAL_TYPE_KEY, {
+    defaultValue: undefined,
+  });
+
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
   }, []);
+
   const onWindowResize = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
   }, []);
+
   const onMenuVisibleChange = useCallback((visible: boolean) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
+
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
   };
+
   const onBannerClose = () => {
     updateSiteConfig({ bannerVisible: false });
-
-    if (utils.isLocalStorageNameSupported()) {
-      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, dayjs().toISOString());
-    }
+    setTopBannerDay(dayjs().toISOString());
   };
 
   useEffect(() => {
@@ -225,9 +238,8 @@ const Header: React.FC = () => {
     const currentProtocol = `${window.location.protocol}//`;
     const currentHref = window.location.href.slice(currentProtocol.length);
 
-    if (utils.isLocalStorageNameSupported()) {
-      localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
-    }
+    setLocalType(utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
+
     window.location.href =
       currentProtocol +
       currentHref.replace(
