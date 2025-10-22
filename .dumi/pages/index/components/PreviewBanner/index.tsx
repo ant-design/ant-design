@@ -31,15 +31,17 @@ const locales = {
 
 const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps) => {
   const textShadow = `0 0 4px ${token.colorBgContainer}`;
-  const isDark = siteConfig.theme.includes('dark');
   const mask = cx(css`
     position: absolute;
     inset: 0;
     backdrop-filter: blur(2px);
     opacity: 1;
-    background-color: ${isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+    background-color: rgba(255, 255, 255, 0.2);
     transition: all 1s ease;
     pointer-events: none;
+    [data-prefers-color='dark'] & {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   `);
 
   const block = cx(css`
