@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useEffectEvent } from 'react';
 
-export const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
+const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
 
-export const isFunction = (val: any): val is (...args: any[]) => any => {
+const isFunction = (val: any): val is (...args: any[]) => any => {
   return typeof val === 'function';
 };
 
@@ -93,7 +93,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       window?.removeEventListener('storage', onNativeStorage);
       window?.removeEventListener(ANT_SYNC_STORAGE_EVENT_KEY, onCustomStorage);
     };
-  }, [key]);
+  }, [key, onNativeStorage, onCustomStorage]);
 
   return [state, useEffectEvent(updateState)] as const;
 };
