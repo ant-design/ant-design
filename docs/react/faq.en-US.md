@@ -73,7 +73,7 @@ The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works o
 
 ## Why does modifying props in mutable way not trigger a component update?
 
-antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://reactjs.org/docs/thinking-in-react.html)
+antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://react.dev/learn/thinking-in-react)
 
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
@@ -181,7 +181,7 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 ## Why shouldn't I use component internal props or state with ref?
 
-You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://reactjs.org/docs/hooks-intro.html) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
+You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://react.dev/reference/react/hooks) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
 
 <div id="why-open"></div>
 
