@@ -130,7 +130,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`
-  const innerPanelRef = usePanelRef(`.${prefixCls}-content`);
+  const innerPanelRef = usePanelRef();
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
