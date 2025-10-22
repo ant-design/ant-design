@@ -77,7 +77,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
-The rest of the props of Input are exactly the same as the original [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes).
+The rest of the props of Input are exactly the same as the original [input](https://react.dev/reference/react-dom/components/input).
 
 #### CountConfig
 

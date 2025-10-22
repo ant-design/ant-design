@@ -60,7 +60,15 @@ export type Extras = {
 
 export type Icons = Icon[];
 
+export type HeadingBanner = {
+  [key in 'cn' | 'en']: {
+    title?: string;
+    href?: string;
+  };
+};
+
 export type SiteData = {
+  headingBanner: HeadingBanner;
   articles: Articles;
   authors: Authors;
   recommendations: Recommendations;

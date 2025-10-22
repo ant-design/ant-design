@@ -161,7 +161,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
           </div>
         </div>
       )}
-      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
+      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`} active>
         <div className={contentClassNames} style={{ ...valueStyle, ...mergedStyles.content }}>
           {prefix && (
             <span className={prefixClassNames} style={mergedStyles.prefix}>
