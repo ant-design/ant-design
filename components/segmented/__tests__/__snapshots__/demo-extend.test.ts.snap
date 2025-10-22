@@ -171,103 +171,203 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
 exports[`renders components/segmented/demo/block.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 1`] = `
-<div
-  aria-label="segmented control"
-  class="ant-segmented css-var-test-id"
-  role="radiogroup"
-  tabindex="0"
->
+Array [
   <div
-    class="ant-segmented-group"
+    aria-label="segmented control"
+    class="ant-segmented css-var-test-id"
+    role="radiogroup"
+    tabindex="0"
   >
-    <label
-      class="ant-segmented-item ant-segmented-item-selected"
+    <div
+      class="ant-segmented-group"
     >
-      <input
-        checked=""
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="true"
-        class="ant-segmented-item-label"
-        role="radio"
-        title="Daily"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
-        Daily
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Daily"
+        >
+          Daily
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Weekly"
+        >
+          Weekly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Monthly"
+        >
+          Monthly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Quarterly"
+        >
+          Quarterly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Yearly"
+        >
+          Yearly
+        </div>
+      </label>
+    </div>
+  </div>,
+    ,
+  <div
+    aria-label="segmented control"
+    class="ant-segmented css-var-test-id"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
     >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="false"
-        class="ant-segmented-item-label"
-        role="radio"
-        title="Weekly"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
-        Weekly
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="false"
-        class="ant-segmented-item-label"
-        role="radio"
-        title="Monthly"
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Daily"
+        >
+          Daily
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        Monthly
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="false"
-        class="ant-segmented-item-label"
-        role="radio"
-        title="Quarterly"
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Weekly"
+        >
+          Weekly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        Quarterly
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="false"
-        class="ant-segmented-item-label"
-        role="radio"
-        title="Yearly"
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Monthly"
+        >
+          Monthly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        Yearly
-      </div>
-    </label>
-  </div>
-</div>
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Quarterly"
+        >
+          Quarterly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Yearly"
+        >
+          Yearly
+        </div>
+      </label>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 2`] = `[]`;

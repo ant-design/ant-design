@@ -20,11 +20,11 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-import { isLocalStorageNameSupported } from '../utils';
 
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
+
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
 // 主题持久化存储键名
@@ -58,13 +58,12 @@ const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
   // 只认 light/dark
   const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
   const urlColor = urlTheme.find((t) => t === 'light' || t === 'dark');
-  if (urlColor) return [...baseTheme, urlColor];
-
-  if (isLocalStorageNameSupported()) {
-    const stored = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
-    if (stored && ['light', 'dark', 'auto'].includes(stored)) {
-      return [...baseTheme, stored];
-    }
+  if (urlColor) {
+    return [...baseTheme, urlColor];
+  }
+  const stored = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
+  if (stored && ['light', 'dark', 'auto'].includes(stored)) {
+    return [...baseTheme, stored];
   }
   // 默认 auto
   return [...baseTheme, 'auto'];

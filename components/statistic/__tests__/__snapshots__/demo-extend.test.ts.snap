@@ -166,7 +166,7 @@ exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="ant-skeleton ant-statistic-skeleton css-var-test-id"
+        class="ant-skeleton ant-skeleton-active ant-statistic-skeleton css-var-test-id"
       >
         <div
           class="ant-skeleton-section"
@@ -437,7 +437,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
         </div>
       </div>
       <div
-        class="ant-skeleton ant-statistic-skeleton css-var-test-id"
+        class="ant-skeleton ant-skeleton-active ant-statistic-skeleton css-var-test-id"
       >
         <div
           class="ant-skeleton-section"
