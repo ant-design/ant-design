@@ -25,6 +25,7 @@ const ComponentCustomizeRender: Record<
       <div />
     </Dropdown>
   ),
+  FloatButton: (FloatButton) => <FloatButton content="HELP INFO" shape="square" />,
   Menu: (Menu) => <Menu items={[]} />,
   QRCode: (QRCode) => <QRCode value="https://ant.design" />,
   Tree: (Tree) => <Tree treeData={[]} />,
