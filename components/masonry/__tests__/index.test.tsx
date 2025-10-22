@@ -45,21 +45,23 @@ describe('Masonry', () => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === `(min-width: ${minWidth})` });
+          addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
+            if (type === 'change') {
+              cb({ matches: query === `(min-width: ${minWidth})` });
+            }
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === `(min-width: ${minWidth})`,
         }) as any,
     );
 
     spyElementPrototypes(HTMLElement, {
       getBoundingClientRect() {
-        const recordElement = (this as unknown as HTMLElement).querySelector(
+        const recordElement = (this as unknown as HTMLElement).querySelector<HTMLElement>(
           '.bamboo',
-        ) as HTMLElement;
+        );
         return {
-          height: recordElement.hasAttribute('data-height')
+          height: recordElement?.hasAttribute('data-height')
             ? Number(recordElement.getAttribute('data-height'))
             : 100,
           width: 100,
@@ -248,10 +250,12 @@ describe('Masonry', () => {
       const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
         (query) =>
           ({
-            addListener: (cb: (e: { matches: boolean }) => void) => {
-              cb({ matches: query === '(min-width: 576px)' });
+            addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
+              if (type === 'change') {
+                cb({ matches: query === '(min-width: 576px)' });
+              }
             },
-            removeListener: jest.fn(),
+            removeEventListener: jest.fn(),
             matches: query === '(min-width: 576px)',
           }) as any,
       );

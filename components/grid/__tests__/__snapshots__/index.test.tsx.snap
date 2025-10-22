@@ -42,14 +42,7 @@ exports[`Grid should render Row 1`] = `
 />
 `;
 
-exports[`Grid when typeof gutter is object array in large screen 0 1`] = `
-<div
-  class="ant-row css-var-root"
-  style="margin-inline: -20px; row-gap: 400px;"
-/>
-`;
-
-exports[`Grid when typeof gutter is object array in large screen 1 1`] = `
+exports[`Grid when typeof gutter is object array in large screen 1`] = `
 <div
   class="ant-row css-var-root"
   style="margin-inline: -20px; row-gap: 400px;"
