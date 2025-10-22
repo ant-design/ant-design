@@ -76,8 +76,9 @@ const Editable: React.FC<EditableProps> = (props) => {
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
     // We don't record keyCode when IME is using
-    if (inComposition.current) return;
-
+    if (inComposition.current) {
+      return;
+    }
     lastKeyCode.current = keyCode;
   };
 

@@ -39,7 +39,9 @@ const App: React.FC = () => {
   };
 
   const remove = (targetKey: TargetKey) => {
-    if (!items) return;
+    if (!items) {
+      return;
+    }
     const targetIndex = items.findIndex((item) => item.key === targetKey);
     const newItems = items.filter((item) => item.key !== targetKey);
 
