@@ -147,9 +147,12 @@ const GlobalLayout: React.FC = () => {
   // 设置 data-prefers-color 属性
   useEffect(() => {
     const color = theme.find((t) => t === 'light' || t === 'dark');
+    const html = document.querySelector<HTMLHtmlElement>('html');
     if (theme.includes('auto') && systemTheme) {
-      document.querySelector('html')?.setAttribute('data-prefers-color', systemTheme);
-    } else if (color) document.querySelector('html')?.setAttribute('data-prefers-color', color);
+      html?.setAttribute('data-prefers-color', systemTheme);
+    } else if (color) {
+      html?.setAttribute('data-prefers-color', color);
+    }
   }, [systemTheme, theme]);
 
   // 监听系统主题变化
