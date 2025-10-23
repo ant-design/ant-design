@@ -135,7 +135,7 @@ describe('TreeSelect', () => {
       'Warning: [antd: TreeSelect] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(onDropdownVisibleChange).toHaveBeenCalled();
 
     errSpy.mockRestore();

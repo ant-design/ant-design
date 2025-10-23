@@ -53,7 +53,7 @@ describe('Calendar', () => {
   rtlTest(Calendar, true);
 
   function openSelect(wrapper: HTMLElement, className: string) {
-    fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select')!);
   }
 
   function findSelectItem(wrapper: HTMLElement) {

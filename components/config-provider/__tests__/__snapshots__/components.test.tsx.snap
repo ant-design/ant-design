@@ -369,32 +369,25 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
   class="config-select config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -404,33 +397,26 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
   class="config-select config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-disabled config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          disabled=""
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      disabled=""
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -440,32 +426,25 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
   class="config-select config-select-lg config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -475,32 +454,25 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
   class="config-select config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -510,32 +482,25 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
   class="config-select config-select-sm config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -545,32 +510,25 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
 >
   <div
-    class="ant-select-selector"
+    class="ant-select-content"
   >
-    <span
-      class="ant-select-selection-wrap"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="ant-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="ant-select-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -580,32 +538,25 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
   class="prefix-AutoComplete prefix-AutoComplete-outlined prefix-AutoComplete-auto-complete css-var-root prefix-AutoComplete-css-var prefix-AutoComplete-single prefix-AutoComplete-show-search"
 >
   <div
-    class="prefix-AutoComplete-selector"
+    class="prefix-AutoComplete-content"
   >
-    <span
-      class="prefix-AutoComplete-selection-wrap"
-    >
-      <span
-        class="prefix-AutoComplete-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="prefix-AutoComplete-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="prefix-AutoComplete-selection-placeholder"
-      />
-    </span>
+    <div
+      class="prefix-AutoComplete-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="prefix-AutoComplete-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -1395,48 +1346,36 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -1453,54 +1392,42 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-select config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -1517,7 +1444,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -2350,48 +2277,36 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -2408,7 +2323,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -2707,49 +2622,37 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            disabled=""
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -2766,55 +2669,43 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-select config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            disabled=""
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -2831,7 +2722,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -3666,49 +3557,37 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            disabled=""
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -3725,7 +3604,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -4026,48 +3905,36 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -4084,54 +3951,42 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-select config-select-lg config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -4148,7 +4003,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -4981,48 +4836,36 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -5039,7 +4882,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -5338,48 +5181,36 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -5396,54 +5227,42 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-select config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -5460,7 +5279,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -6293,48 +6112,36 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -6351,7 +6158,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -6650,48 +6457,36 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -6708,54 +6503,42 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-select config-select-sm config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -6772,7 +6555,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -7605,48 +7388,36 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -7663,7 +7434,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
@@ -7962,48 +7733,36 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -8020,54 +7779,42 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -8084,7 +7831,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
@@ -8917,48 +8664,36 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -8975,7 +8710,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
@@ -9274,48 +9009,36 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -9332,54 +9055,42 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="ant-select ant-select-outlined prefix-Calendar-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="Sep"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="Sep"
-            >
-              Sep
-            </span>
-          </span>
+            Sep
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -9396,7 +9107,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
@@ -10229,48 +9940,36 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="2000"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="2000"
-            >
-              2000
-            </span>
-          </span>
+            2000
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -10287,7 +9986,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
@@ -11612,45 +11311,35 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
 
 exports[`ConfigProvider components Cascader configProvider 1`] = `
 <div
-  class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -11667,52 +11356,42 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Cascader configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          disabled=""
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      disabled=""
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -11729,51 +11408,41 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Cascader configProvider componentSize large 1`] = `
 <div
-  class="config-select config-cascader config-select-lg config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-lg config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -11790,51 +11459,41 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -11851,51 +11510,41 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Cascader configProvider componentSize small 1`] = `
 <div
-  class="config-select config-cascader config-select-sm config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-sm config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -11912,51 +11561,41 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Cascader normal 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-show-arrow ant-select-show-search"
 >
   <div
-    class="ant-select-selector"
+    class="ant-select-content"
   >
-    <span
-      class="ant-select-selection-wrap"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="ant-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="ant-select-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="ant-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -11973,51 +11612,41 @@ exports[`ConfigProvider components Cascader normal 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Cascader prefixCls 1`] = `
 <div
-  class="prefix-Cascader prefix-Cascader-outlined prefix-Cascader-css-var prefix-Cascader-css-var css-var-root prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
+  class="prefix-Cascader prefix-Cascader-outlined prefix-Cascader-css-var prefix-Cascader-css-var css-var-root prefix-Cascader-single prefix-Cascader-show-arrow prefix-Cascader-show-search"
 >
   <div
-    class="prefix-Cascader-selector"
+    class="prefix-Cascader-content"
   >
-    <span
-      class="prefix-Cascader-selection-wrap"
-    >
-      <span
-        class="prefix-Cascader-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="prefix-Cascader-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="prefix-Cascader-selection-placeholder"
-      />
-    </span>
+    <div
+      class="prefix-Cascader-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="prefix-Cascader-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="prefix-Cascader-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="prefix-Cascader-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down prefix-Cascader-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -12034,7 +11663,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -19017,46 +18646,36 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19073,7 +18692,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -19163,46 +18782,36 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19219,7 +18828,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -19314,47 +18923,37 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19371,7 +18970,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -19461,47 +19060,37 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19518,7 +19107,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -19613,46 +19202,36 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19669,7 +19248,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -19759,46 +19338,36 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19815,7 +19384,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -19910,46 +19479,36 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -19966,7 +19525,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20056,46 +19615,36 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -20112,7 +19661,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20207,46 +19756,36 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -20263,7 +19802,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20353,46 +19892,36 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-selector"
+          class="config-select-content"
         >
-          <span
-            class="config-select-selection-wrap"
+          <div
+            class="config-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="config-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="config-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="config-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="config-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="config-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="config-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down config-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -20409,7 +19938,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20504,46 +20033,36 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -20560,7 +20079,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20650,46 +20169,36 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -20706,7 +20215,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20801,46 +20310,36 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -20857,7 +20356,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -20947,46 +20446,36 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+        <div
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -21003,7 +20492,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -24540,111 +24029,34 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-activedescendant="test-id_list_1"
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-activedescendant="test-id_list_1"
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up css-var-root config-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-label="Light"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          Bamboo
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                title="Light"
-              >
-                <div
-                  class="config-select-item-option-content"
-                >
-                  Light
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="config-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -24661,7 +24073,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -24670,46 +24082,34 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          disabled=""
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      disabled=""
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -24726,7 +24126,7 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -24735,111 +24135,34 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   class="config-select config-select-lg config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-activedescendant="test-id_list_1"
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-activedescendant="test-id_list_1"
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up css-var-root config-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-label="Light"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          Bamboo
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                title="Light"
-              >
-                <div
-                  class="config-select-item-option-content"
-                >
-                  Light
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="config-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -24856,7 +24179,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -24865,111 +24188,34 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-activedescendant="test-id_list_1"
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-activedescendant="test-id_list_1"
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up css-var-root config-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-label="Light"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          Bamboo
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                title="Light"
-              >
-                <div
-                  class="config-select-item-option-content"
-                >
-                  Light
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="config-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -24986,7 +24232,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -24995,111 +24241,34 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   class="config-select config-select-sm config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-activedescendant="test-id_list_1"
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-activedescendant="test-id_list_1"
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up css-var-root config-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-label="Light"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          Bamboo
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                title="Light"
-              >
-                <div
-                  class="config-select-item-option-content"
-                >
-                  Light
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="config-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -25116,7 +24285,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -25125,111 +24294,34 @@ exports[`ConfigProvider components Select normal 1`] = `
   class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
-    class="ant-select-selector"
+    class="ant-select-content"
   >
-    <span
-      class="ant-select-selection-wrap"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-activedescendant="test-id_list_1"
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="ant-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-activedescendant="test-id_list_1"
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="ant-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-root ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-label="Light"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          Bamboo
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="ant-select-item ant-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
-                title="Light"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Light
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="ant-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -25246,7 +24338,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -25255,111 +24347,34 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   class="prefix-Select prefix-Select-outlined css-var-root prefix-Select-css-var prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
 >
   <div
-    class="prefix-Select-selector"
+    class="prefix-Select-content"
   >
-    <span
-      class="prefix-Select-selection-wrap"
-    >
-      <span
-        class="prefix-Select-selection-search"
-      >
-        <input
-          aria-activedescendant="test-id_list_1"
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="prefix-Select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="prefix-Select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="prefix-Select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-activedescendant="test-id_list_1"
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="prefix-Select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="prefix-Select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-root prefix-Select-css-var prefix-Select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-label="Light"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          Bamboo
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="prefix-Select-item prefix-Select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
-                title="Light"
-              >
-                <div
-                  class="prefix-Select-item-option-content"
-                >
-                  Light
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="prefix-Select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="prefix-Select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="prefix-Select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down prefix-Select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -25376,7 +24391,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -42603,127 +41618,33 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   class="config-select config-tree-select config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown css-var-root config-select-css-var config-tree-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          light
-        </span>
-        <div
-          class="config-select-tree config-select-tree-active-focused"
-        >
-          <div>
-            <input
-              aria-label="for screen reader"
-              disabled=""
-              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-              value=""
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            class="config-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-          >
-            <div
-              class="config-select-tree-indent"
-            >
-              <div
-                class="config-select-tree-indent-unit"
-              />
-            </div>
-          </div>
-          <div
-            class="config-select-tree-list"
-            role="tree"
-            style="position: relative;"
-          >
-            <div
-              class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="config-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
-                    draggable="false"
-                    role="treeitem"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="config-select-tree-indent"
-                    />
-                    <span
-                      class="config-select-tree-switcher config-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                      title="bamboo"
-                    >
-                      <span
-                        class="config-select-tree-title"
-                      >
-                        bamboo
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -42740,7 +41661,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -42749,46 +41670,34 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
   class="config-select config-tree-select config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          disabled=""
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      disabled=""
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+  <div
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -42805,7 +41714,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -42814,127 +41723,33 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   class="config-select config-tree-select config-select-lg config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown css-var-root config-select-css-var config-tree-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          light
-        </span>
-        <div
-          class="config-select-tree config-select-tree-active-focused"
-        >
-          <div>
-            <input
-              aria-label="for screen reader"
-              disabled=""
-              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-              value=""
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            class="config-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-          >
-            <div
-              class="config-select-tree-indent"
-            >
-              <div
-                class="config-select-tree-indent-unit"
-              />
-            </div>
-          </div>
-          <div
-            class="config-select-tree-list"
-            role="tree"
-            style="position: relative;"
-          >
-            <div
-              class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="config-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
-                    draggable="false"
-                    role="treeitem"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="config-select-tree-indent"
-                    />
-                    <span
-                      class="config-select-tree-switcher config-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                      title="bamboo"
-                    >
-                      <span
-                        class="config-select-tree-title"
-                      >
-                        bamboo
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -42951,7 +41766,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -42960,127 +41775,33 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   class="config-select config-tree-select config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown css-var-root config-select-css-var config-tree-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          light
-        </span>
-        <div
-          class="config-select-tree config-select-tree-active-focused"
-        >
-          <div>
-            <input
-              aria-label="for screen reader"
-              disabled=""
-              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-              value=""
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            class="config-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-          >
-            <div
-              class="config-select-tree-indent"
-            >
-              <div
-                class="config-select-tree-indent-unit"
-              />
-            </div>
-          </div>
-          <div
-            class="config-select-tree-list"
-            role="tree"
-            style="position: relative;"
-          >
-            <div
-              class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="config-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
-                    draggable="false"
-                    role="treeitem"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="config-select-tree-indent"
-                    />
-                    <span
-                      class="config-select-tree-switcher config-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                      title="bamboo"
-                    >
-                      <span
-                        class="config-select-tree-title"
-                      >
-                        bamboo
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -43097,7 +41818,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -43106,127 +41827,33 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   class="config-select config-tree-select config-select-sm config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-selector"
+    class="config-select-content"
   >
-    <span
-      class="config-select-selection-wrap"
-    >
-      <span
-        class="config-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="config-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="config-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="config-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="config-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown css-var-root config-select-css-var config-tree-select-css-var config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          light
-        </span>
-        <div
-          class="config-select-tree config-select-tree-active-focused"
-        >
-          <div>
-            <input
-              aria-label="for screen reader"
-              disabled=""
-              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-              value=""
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            class="config-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-          >
-            <div
-              class="config-select-tree-indent"
-            >
-              <div
-                class="config-select-tree-indent-unit"
-              />
-            </div>
-          </div>
-          <div
-            class="config-select-tree-list"
-            role="tree"
-            style="position: relative;"
-          >
-            <div
-              class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="config-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
-                    draggable="false"
-                    role="treeitem"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="config-select-tree-indent"
-                    />
-                    <span
-                      class="config-select-tree-switcher config-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                      title="bamboo"
-                    >
-                      <span
-                        class="config-select-tree-title"
-                      >
-                        bamboo
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="config-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="config-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down config-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -43243,7 +41870,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -43252,127 +41879,33 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
-    class="ant-select-selector"
+    class="ant-select-content"
   >
-    <span
-      class="ant-select-selection-wrap"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
-    </span>
+    <div
+      class="ant-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="ant-select-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-root ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          light
-        </span>
-        <div
-          class="ant-select-tree ant-select-tree-active-focused"
-        >
-          <div>
-            <input
-              aria-label="for screen reader"
-              disabled=""
-              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-              value=""
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            class="ant-select-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-          >
-            <div
-              class="ant-select-tree-indent"
-            >
-              <div
-                class="ant-select-tree-indent-unit"
-              />
-            </div>
-          </div>
-          <div
-            class="ant-select-tree-list"
-            role="tree"
-            style="position: relative;"
-          >
-            <div
-              class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="ant-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
-                    draggable="false"
-                    role="treeitem"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-tree-indent"
-                    />
-                    <span
-                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                      title="bamboo"
-                    >
-                      <span
-                        class="ant-select-tree-title"
-                      >
-                        bamboo
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="ant-select-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -43389,7 +41922,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
@@ -43398,127 +41931,33 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   class="prefix-TreeSelect prefix-TreeSelect-outlined css-var-root prefix-TreeSelect-css-var prefix-TreeSelect-css-var prefix-TreeSelect-single prefix-TreeSelect-show-arrow prefix-TreeSelect-open"
 >
   <div
-    class="prefix-TreeSelect-selector"
+    class="prefix-TreeSelect-content"
   >
-    <span
-      class="prefix-TreeSelect-selection-wrap"
-    >
-      <span
-        class="prefix-TreeSelect-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="true"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="prefix-TreeSelect-selection-search-input"
-          id="test-id"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="prefix-TreeSelect-selection-placeholder"
-      />
-    </span>
+    <div
+      class="prefix-TreeSelect-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="prefix-TreeSelect-input"
+      id="test-id"
+      readonly=""
+      role="combobox"
+      type="search"
+      value=""
+    />
   </div>
   <div
-    class="prefix-TreeSelect-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-TreeSelect-dropdown css-var-root prefix-TreeSelect-css-var prefix-TreeSelect-css-var prefix-TreeSelect-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          light
-        </span>
-        <div
-          class="prefix-TreeSelect-tree prefix-TreeSelect-tree-active-focused"
-        >
-          <div>
-            <input
-              aria-label="for screen reader"
-              disabled=""
-              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-              value=""
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            class="prefix-TreeSelect-tree-treenode"
-            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
-          >
-            <div
-              class="prefix-TreeSelect-tree-indent"
-            >
-              <div
-                class="prefix-TreeSelect-tree-indent-unit"
-              />
-            </div>
-          </div>
-          <div
-            class="prefix-TreeSelect-tree-list"
-            role="tree"
-            style="position: relative;"
-          >
-            <div
-              class="prefix-TreeSelect-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="prefix-TreeSelect-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last prefix-TreeSelect-tree-treenode-leaf"
-                    draggable="false"
-                    role="treeitem"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="prefix-TreeSelect-tree-indent"
-                    />
-                    <span
-                      class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
-                    />
-                    <span
-                      class="prefix-TreeSelect-tree-node-content-wrapper prefix-TreeSelect-tree-node-content-wrapper-normal"
-                      title="bamboo"
-                    >
-                      <span
-                        class="prefix-TreeSelect-tree-title"
-                      >
-                        bamboo
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="prefix-TreeSelect-arrow"
-    style="user-select: none;"
-    unselectable="on"
+    class="prefix-TreeSelect-suffix"
   >
     <span
       aria-label="down"
-      class="anticon anticon-down prefix-TreeSelect-suffix"
+      class="anticon anticon-down"
       role="img"
     >
       <svg
@@ -43535,7 +41974,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </div>
 </div>
 `;
 

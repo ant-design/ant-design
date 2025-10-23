@@ -157,10 +157,10 @@ describe('List.pagination', () => {
     const { container: wrapper } = render(createList({ pagination: { showSizeChanger: true } }));
     expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
 
-    fireEvent.mouseDown(wrapper.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(wrapper.querySelector('.ant-select')!);
     fireEvent.click(wrapper.querySelectorAll('.ant-select-item-option')[2]);
 
-    fireEvent.mouseDown(wrapper.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(wrapper.querySelector('.ant-select')!);
     expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
   });
 
@@ -180,7 +180,7 @@ describe('List.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(wrapper.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(wrapper.querySelector('.ant-select')!);
     fireEvent.click(wrapper.querySelectorAll('.ant-select-item-option')[1]);
     expect(handlePaginationChange).toHaveBeenCalledWith(1, 10);
   });

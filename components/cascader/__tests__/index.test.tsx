@@ -15,7 +15,7 @@ import ConfigProvider from '../../config-provider';
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
 function toggleOpen(container: ReturnType<typeof render>['container']) {
-  fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+  fireEvent.mouseDown(container.querySelector('.ant-select')!);
 }
 
 function isOpen(container: ReturnType<typeof render>['container']) {
@@ -771,7 +771,7 @@ describe('Cascader', () => {
         ]}
       />,
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     // disabled className
     fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
     expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);

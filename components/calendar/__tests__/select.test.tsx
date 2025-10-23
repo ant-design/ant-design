@@ -25,7 +25,7 @@ describe('Calendar.onSelect', () => {
     const onSelect = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     await waitFakeTimer();
 
     fireEvent.click(container.querySelector('.ant-select-item-option')!);
@@ -38,7 +38,7 @@ describe('Calendar.onSelect', () => {
     const onSelect = jest.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
-    fireEvent.mouseDown(container.querySelectorAll('.ant-select-selector')[1]!);
+    fireEvent.mouseDown(container.querySelectorAll('.ant-select')[1]!);
     await waitFakeTimer();
 
     fireEvent.click(container.querySelector('.ant-select-item-option')!);
