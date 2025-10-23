@@ -182,6 +182,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             outline: 'none',
             background: 'transparent',
             appearance: 'none',
+            border: 0,
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
