@@ -74,7 +74,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         forceUpdate();
       });
     });
-  }, [listType, items, previewFile]);
+  }, [listType, items, previewFile, forceUpdate]);
 
   React.useEffect(() => {
     setMotionAppear(true);
