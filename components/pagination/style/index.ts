@@ -511,7 +511,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       verticalAlign: 'middle',
 
       '&-size-changer': {
-        display: 'inline-block',
         width: 'auto',
       },
 
