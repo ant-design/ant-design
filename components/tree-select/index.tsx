@@ -58,7 +58,16 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-type SemanticName = 'root' | 'prefix' | 'input' | 'suffix';
+type SemanticName =
+  | 'root'
+  | 'prefix'
+  | 'input'
+  | 'suffix'
+  | 'content'
+  | 'placeholder'
+  | 'item'
+  | 'itemContent'
+  | 'itemRemove';
 
 type PopupSemantic = 'item' | 'itemTitle' | 'root';
 

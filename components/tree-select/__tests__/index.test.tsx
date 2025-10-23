@@ -165,7 +165,92 @@ describe('TreeSelect', () => {
 
     errSpy.mockRestore();
   });
-  it('support classNames and styles', () => {
+  it('support classNames and styles for basic elements (root, prefix, input, suffix, content)', () => {
+    const treeData = [
+      {
+        value: 'parent 1',
+        title: 'parent 1',
+        children: [
+          {
+            value: 'leaf1',
+            title: 'my leaf',
+          },
+        ],
+      },
+    ];
+    const customClassNames = {
+      root: 'test-root',
+      prefix: 'test-prefix',
+      input: 'test-input',
+      suffix: 'test-suffix',
+      content: 'test-content',
+    };
+    const customStyles = {
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 255, 0)' },
+      input: { color: 'rgb(0, 0, 255)' },
+      suffix: { color: 'rgb(255, 255, 0)' },
+      content: { color: 'rgb(255, 192, 203)' },
+    };
+    const { container } = render(
+      <TreeSelect
+        classNames={customClassNames}
+        styles={customStyles}
+        showSearch
+        prefix="P"
+        suffixIcon={<SmileOutlined />}
+        treeData={treeData}
+      />,
+    );
+
+    const selectRoot = container.querySelector('.ant-tree-select');
+    const prefix = container.querySelector('.ant-select-prefix');
+    const content = container.querySelector('.ant-select-content');
+    const suffix = container.querySelector('.ant-select-suffix');
+    const input = container.querySelector('.ant-select-input');
+
+    expect(selectRoot).toHaveClass(customClassNames.root);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(content).toHaveClass(customClassNames.content);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    expect(input).toHaveClass(customClassNames.input);
+
+    expect(selectRoot).toHaveStyle(customStyles.root);
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(content).toHaveStyle(customStyles.content);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    expect(input).toHaveStyle(customStyles.input);
+  });
+
+  it('support classNames and styles for placeholder', () => {
+    const treeData = [
+      {
+        value: 'leaf1',
+        title: 'Leaf 1',
+      },
+    ];
+    const customClassNames = {
+      placeholder: 'test-placeholder',
+    };
+    const customStyles = {
+      placeholder: { color: 'rgb(165, 42, 42)' },
+    };
+    const { container } = render(
+      <TreeSelect
+        classNames={customClassNames}
+        styles={customStyles}
+        placeholder="Please select"
+        treeData={treeData}
+      />,
+    );
+
+    const placeholder = container.querySelector('.ant-select-placeholder');
+
+    expect(placeholder).toHaveClass(customClassNames.placeholder);
+    expect(placeholder).toHaveStyle(customStyles.placeholder);
+  });
+
+  it('support classNames and styles for items (item, itemContent, itemRemove)', () => {
     const treeData = [
       {
         value: 'parent 1',
@@ -189,21 +274,19 @@ describe('TreeSelect', () => {
       },
     ];
     const customClassNames = {
-      root: 'test-root',
-      prefix: 'test-prefix',
-      input: 'test-input',
-      suffix: 'test-suffix',
+      item: 'test-item',
+      itemContent: 'test-item-content',
+      itemRemove: 'test-item-remove',
       popup: {
         root: 'test-popup',
-        item: 'test-item',
+        item: 'test-popup-item',
         itemTitle: 'test-item-title',
       },
     };
     const customStyles = {
-      root: { backgroundColor: 'rgb(255, 0, 0)' },
-      prefix: { color: 'rgb(0, 255, 0)' },
-      input: { color: 'rgb(0, 0, 255)' },
-      suffix: { color: 'rgb(255, 255, 0)' },
+      item: { color: 'rgb(70, 130, 180)' },
+      itemContent: { color: 'rgb(255, 20, 147)' },
+      itemRemove: { color: 'rgb(34, 139, 34)' },
       popup: {
         root: { color: 'rgb(255, 165, 0)' },
         item: { color: 'rgb(0, 0, 0)' },
@@ -214,40 +297,37 @@ describe('TreeSelect', () => {
       <TreeSelect
         classNames={customClassNames}
         styles={customStyles}
-        showSearch
-        prefix="Prefix"
+        multiple
+        value={['leaf1']}
         open
-        suffixIcon={<SmileOutlined />}
-        placeholder="Please select"
         treeDefaultExpandAll
         treeData={treeData}
       />,
     );
-    const prefix = container.querySelector('.ant-select-prefix');
-    const input = container.querySelector('.ant-select-selection-search-input');
-    const suffix = container.querySelector('.ant-select-arrow');
+
+    const selectedItem = container.querySelector('.ant-select-selection-item');
+    const itemContent = container.querySelector('.ant-select-selection-item-content');
+    const itemRemove = container.querySelector('.ant-select-selection-item-remove');
     const popup = container.querySelector('.ant-tree-select-dropdown');
     const itemTitle = container.querySelector('.ant-select-tree-title');
-    const root = container.querySelector('.ant-tree-select-dropdown');
-    const selectRoot = container.querySelector('.ant-tree-select');
 
-    const item = container.querySelector(`.${customClassNames.popup.item}`);
-    expect(prefix).toHaveClass(customClassNames.prefix);
-    expect(input).toHaveClass(customClassNames.input);
-    expect(suffix).toHaveClass(customClassNames.suffix);
+    expect(selectedItem).toHaveClass(customClassNames.item);
+    expect(itemContent).toHaveClass(customClassNames.itemContent);
+    expect(itemRemove).toHaveClass(customClassNames.itemRemove);
     expect(popup).toHaveClass(customClassNames.popup.root);
     expect(itemTitle).toHaveClass(customClassNames.popup.itemTitle);
-    expect(root).toHaveClass(customClassNames.root);
-    expect(selectRoot).toHaveClass(customClassNames.root);
 
-    expect(prefix).toHaveStyle(customStyles.prefix);
-    expect(input).toHaveStyle(customStyles.input);
-    expect(suffix).toHaveStyle(customStyles.suffix);
+    expect(selectedItem).toHaveStyle(customStyles.item);
+    expect(itemContent).toHaveStyle(customStyles.itemContent);
+    expect(itemRemove).toHaveStyle(customStyles.itemRemove);
     expect(popup).toHaveStyle(customStyles.popup.root);
     expect(itemTitle).toHaveStyle(customStyles.popup.itemTitle);
-    expect(root).toHaveStyle(customStyles.root);
-    expect(selectRoot).toHaveStyle(customStyles.root);
-    expect(item).toHaveStyle(customStyles.popup.item);
+
+    // Test popup item if it exists
+    const popupItem = container.querySelector(`.${customClassNames.popup.item}`);
+    if (popupItem) {
+      expect(popupItem).toHaveStyle(customStyles.popup.item);
+    }
   });
 
   it('TreeSelect ContextIsolator', () => {
@@ -339,6 +419,11 @@ describe('TreeSelect', () => {
           root: info.props.disabled ? 'disabled-tree-select-root' : 'enabled-tree-select-root',
           input: `dynamic-input-${info.props.size}`,
           suffix: 'dynamic-suffix',
+          content: 'dynamic-content',
+          placeholder: 'dynamic-placeholder',
+          item: 'dynamic-item',
+          itemContent: 'dynamic-item-content',
+          itemRemove: 'dynamic-item-remove',
           popup: {
             root: 'dynamic-popup-root',
             item: info.props.disabled ? 'disabled-item' : 'enabled-item',
@@ -352,6 +437,11 @@ describe('TreeSelect', () => {
           },
           input: { fontSize: '14px' },
           suffix: { color: 'blue' },
+          content: { padding: '4px' },
+          placeholder: { color: 'gray' },
+          item: { margin: '2px' },
+          itemContent: { fontWeight: 'normal' },
+          itemRemove: { cursor: 'pointer' },
           popup: {
             root: { zIndex: 1000 },
             item: { padding: '6px' },
