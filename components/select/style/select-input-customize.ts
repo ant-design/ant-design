@@ -8,9 +8,12 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken> = (token) => {
     [`&${componentCls}-customize`]: {
       border: 0,
       padding: 0,
+      fontSize: 'inherit',
+      lineHeight: 'inherit',
 
       [`${componentCls}-content`]: {
         margin: 0,
+        padding: 0,
 
         '&-value': {
           display: 'none',

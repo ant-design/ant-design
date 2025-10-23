@@ -178,18 +178,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             zIndex: 1,
           },
 
-          // >>> Input
-          [`${componentCls}-input`]: {
-            outline: 'none',
-            background: 'transparent',
-            appearance: 'none',
-            border: 0,
-
-            '&::-webkit-search-cancel-button': {
-              display: 'none',
-              appearance: 'none',
-            },
-          },
+          // >>> Input: should only take effect for not customize mode
 
           // input element with readOnly use cursor pointer
           'input[readonly]': {
@@ -249,10 +238,29 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
       },
 
       // ============================================================
+      // ==                         Input                          ==
+      // ============================================================
+      {
+        [`&:not(${componentCls}-customize)`]: {
+          [`${componentCls}-input`]: {
+            outline: 'none',
+            background: 'transparent',
+            appearance: 'none',
+            border: 0,
+
+            '&::-webkit-search-cancel-button': {
+              display: 'none',
+              appearance: 'none',
+            },
+          },
+        },
+      },
+
+      // ============================================================
       // ==                         Single                         ==
       // ============================================================
       {
-        '&-single': {
+        [`&-single:not(${componentCls}-customize)`]: {
           [`${componentCls}-input`]: {
             position: 'absolute',
             insetInline: 0,
