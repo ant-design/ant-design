@@ -15,6 +15,7 @@ const options: MentionsProps['options'] = [
   { value: 'afc163', label: 'afc163' },
   { value: 'zombieJ', label: 'zombieJ' },
   { value: 'meet-student', label: 'meet-student' },
+  { value: 'thinkasany', label: 'thinkasany' },
 ];
 
 const stylesObject: MentionsProps['styles'] = {
