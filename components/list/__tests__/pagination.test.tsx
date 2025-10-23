@@ -154,14 +154,18 @@ describe('List.pagination', () => {
   });
 
   it('should change page size work', () => {
-    const { container: wrapper } = render(createList({ pagination: { showSizeChanger: true } }));
-    expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
+    const { container } = render(
+      createList({
+        pagination: { showSizeChanger: true },
+        dataSource: Array.from({ length: 100 }, (_, key) => ({ key, name: `name${key}` })),
+      }),
+    );
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(6);
 
-    fireEvent.mouseDown(wrapper.querySelector('.ant-select')!);
-    fireEvent.click(wrapper.querySelectorAll('.ant-select-item-option')[2]);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
 
-    fireEvent.mouseDown(wrapper.querySelector('.ant-select')!);
-    expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
   });
 
   // https://github.com/ant-design/ant-design/issues/24913
