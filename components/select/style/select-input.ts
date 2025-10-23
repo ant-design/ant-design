@@ -3,7 +3,8 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
-import genSelectInputMultipleStyle from './select-input-mulitple';
+import genSelectInputCustomizeStyle from './select-input-customize';
+import genSelectInputMultipleStyle from './select-input-multiple';
 import type { SelectToken } from './token';
 
 interface VariableColors {
@@ -367,6 +368,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           borderLeftColor: 'transparent',
         },
       ),
+
+      // ============================================================
+      // ==                         Custom                         ==
+      // ============================================================
+      genSelectInputCustomizeStyle(token),
     ],
   };
 };

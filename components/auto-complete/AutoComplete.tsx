@@ -212,7 +212,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const finalClassNames = React.useMemo(
     () => ({
-      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
+      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root, {
+        [`${prefixCls}-customize`]: customizeInput,
+      }),
       prefix: mergedClassNames.prefix,
       input: mergedClassNames.input,
       placeholder: mergedClassNames.placeholder,
