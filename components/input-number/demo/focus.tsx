@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
+import type { GetRef } from 'antd';
 import { Button, InputNumber, Space } from 'antd';
-import type { InputNumberRef } from 'rc-input-number';
+
+type InputNumberRef = GetRef<typeof InputNumber>;
 
 const App: React.FC = () => {
   const inputRef = useRef<InputNumberRef>(null);
