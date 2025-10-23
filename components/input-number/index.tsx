@@ -45,8 +45,6 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   variant?: Variant;
 }
 
-export type InputNumberRef = RcInputNumberRef;
-
 const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
