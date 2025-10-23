@@ -4032,14 +4032,14 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="Meet-student"
+              data-path-key="meet-student"
               role="menuitemcheckbox"
-              title="Meet-student"
+              title="meet-student"
             >
               <div
                 class="ant-cascader-menu-item-content"
               >
-                Meet-student
+                meet-student
               </div>
               <div
                 class="ant-cascader-menu-item-expand-icon"
@@ -4189,15 +4189,15 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="Meet-student"
+              data-path-key="meet-student"
               role="menuitemcheckbox"
               style="color: rgb(24, 144, 255);"
-              title="Meet-student"
+              title="meet-student"
             >
               <div
                 class="ant-cascader-menu-item-content"
               >
-                Meet-student
+                meet-student
               </div>
               <div
                 class="ant-cascader-menu-item-expand-icon"
