@@ -14,7 +14,7 @@ const useStyles = createStyles(({ token }) => ({
 const options: MentionsProps['options'] = [
   { value: 'afc163', label: 'afc163' },
   { value: 'zombieJ', label: 'zombieJ' },
-  { value: 'Meet-student', label: 'Meet-student' },
+  { value: 'meet-student', label: 'meet-student' },
 ];
 
 const stylesObject: MentionsProps['styles'] = {

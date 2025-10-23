@@ -673,10 +673,10 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
         class="ant-select-selection-item"
       >
         <span>
-          Zhejiang / 
+          Zhejiang /
         </span>
         <span>
-          Hangzhou / 
+          Hangzhou /
         </span>
         <span>
           West Lake (
@@ -836,7 +836,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 
 exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
 <span>
-  Unselect 
+  Unselect
   <a>
     Change city
   </a>
@@ -4032,14 +4032,14 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="Meet-student"
+              data-path-key="meet-student"
               role="menuitemcheckbox"
-              title="Meet-student"
+              title="meet-student"
             >
               <div
                 class="ant-cascader-menu-item-content"
               >
-                Meet-student
+                meet-student
               </div>
               <div
                 class="ant-cascader-menu-item-expand-icon"
@@ -4189,15 +4189,15 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
             <li
               aria-checked="false"
               class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="Meet-student"
+              data-path-key="meet-student"
               role="menuitemcheckbox"
               style="color: rgb(24, 144, 255);"
-              title="Meet-student"
+              title="meet-student"
             >
               <div
                 class="ant-cascader-menu-item-content"
               >
-                Meet-student
+                meet-student
               </div>
               <div
                 class="ant-cascader-menu-item-expand-icon"
