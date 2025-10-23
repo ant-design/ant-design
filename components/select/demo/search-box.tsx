@@ -2,12 +2,11 @@
 import React, { useState } from 'react';
 import { Select } from 'antd';
 import type { SelectProps } from 'antd';
-import type { AnyObject } from 'antd/es/_util/type';
 
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
-const toURLSearchParams = <T extends AnyObject>(record: T) => {
+const toURLSearchParams = <T extends Record<string, any>>(record: T) => {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(record)) {
     params.append(key, value);
