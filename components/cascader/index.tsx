@@ -58,7 +58,16 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-type SemanticName = 'root' | 'prefix' | 'suffix';
+type SemanticName =
+  | 'root'
+  | 'prefix'
+  | 'suffix'
+  | 'input'
+  | 'placeholder'
+  | 'content'
+  | 'item'
+  | 'itemContent'
+  | 'itemRemove';
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
