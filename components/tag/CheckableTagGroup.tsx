@@ -114,7 +114,12 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
         ? [...valueList, option.value]
         : valueList.filter((item) => item !== option.value);
     } else {
-      newValue = checked ? option.value : null;
+      if (checked) {
+        newValue = option.value;
+      } else {
+        // Single mode always have one value
+        return;
+      }
     }
 
     setMergedValue(newValue);

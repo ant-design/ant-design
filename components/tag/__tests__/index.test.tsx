@@ -334,9 +334,9 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
       expect(onChange).toHaveBeenCalledWith('bar');
 
-      // Click again
+      // Click again (single mode should not uncheck)
       fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
-      expect(onChange).toHaveBeenCalledWith(null);
+      expect(onChange).toHaveBeenCalledWith('bar');
     });
 
     it('should check multiple tag in group', async () => {
