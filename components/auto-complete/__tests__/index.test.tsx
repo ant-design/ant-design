@@ -102,6 +102,9 @@ describe('AutoComplete', () => {
     const customClassNames = {
       root: 'custom-root',
       input: 'custom-input',
+      prefix: 'custom-prefix',
+      placeholder: 'custom-placeholder',
+      content: 'custom-content',
       popup: {
         root: 'custom-popup',
         list: 'custom-list',
@@ -111,6 +114,9 @@ describe('AutoComplete', () => {
     const customStyles = {
       root: { color: 'rgb(255, 0, 0)' },
       input: { color: 'rgb(0, 128, 0)' },
+      prefix: { color: 'rgb(255, 165, 0)' },
+      placeholder: { color: 'rgb(255, 192, 203)' },
+      content: { color: 'rgb(165, 42, 42)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
         list: { color: 'rgb(0, 0, 255)' },
@@ -122,27 +128,38 @@ describe('AutoComplete', () => {
         options={[{ label: '123', value: '123' }]}
         classNames={customClassNames}
         styles={customStyles}
+        prefix={<span>prefix</span>}
+        placeholder="placeholder text"
         open
       />,
     );
 
     const root = container.querySelector('.ant-select-auto-complete');
     const input = container.querySelector('.ant-select-selection-search-input');
+    const prefix = container.querySelector('.ant-select-prefix');
+    const placeholder = container.querySelector('.ant-select-selection-placeholder');
+    const content = container.querySelector('.ant-select-selector');
     const list = container.querySelector('.rc-virtual-list');
     const listItem = container.querySelector('.ant-select-item-option');
     const popup = container.querySelector('.ant-select-dropdown');
 
     expect(root).toHaveClass(customClassNames.root);
-    expect(input).toHaveClass(customClassNames.input);
-    expect(list).toHaveClass(customClassNames.popup.list);
-    expect(listItem).toHaveClass(customClassNames.popup.listItem);
-    expect(popup).toHaveClass(customClassNames.popup.root);
+    if (input) expect(input).toHaveClass(customClassNames.input);
+    if (prefix) expect(prefix).toHaveClass(customClassNames.prefix);
+    if (placeholder) expect(placeholder).toHaveClass(customClassNames.placeholder);
+    if (content) expect(content).toHaveClass(customClassNames.content);
+    if (list) expect(list).toHaveClass(customClassNames.popup.list);
+    if (listItem) expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    if (popup) expect(popup).toHaveClass(customClassNames.popup.root);
 
     expect(root).toHaveStyle(customStyles.root);
-    expect(input).toHaveStyle(customStyles.input);
-    expect(list).toHaveStyle(customStyles.popup.list);
-    expect(listItem).toHaveStyle(customStyles.popup.listItem);
-    expect(popup).toHaveStyle(customStyles.popup.root);
+    if (input) expect(input).toHaveStyle(customStyles.input);
+    if (prefix) expect(prefix).toHaveStyle(customStyles.prefix);
+    if (placeholder) expect(placeholder).toHaveStyle(customStyles.placeholder);
+    if (content) expect(content).toHaveStyle(customStyles.content);
+    if (list) expect(list).toHaveStyle(customStyles.popup.list);
+    if (listItem) expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    if (popup) expect(popup).toHaveStyle(customStyles.popup.root);
   });
 
   it('deprecated popupClassName', () => {
