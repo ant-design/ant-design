@@ -26,7 +26,7 @@ const stylesFn: TimePickerProps['styles'] = (info) => {
         color: '#722ed1',
       },
       popup: {
-        root: { border: '1px solid #722ed1', borderRadius: 8 },
+        container: { border: '1px solid #722ed1', borderRadius: 8 },
       },
     } satisfies TimePickerProps['styles'];
   }

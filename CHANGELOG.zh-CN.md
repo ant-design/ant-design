@@ -172,6 +172,18 @@ tag: vVERSION
 - 🆕 ConfigProvider 支持 Result 组件的 `classNames` 和 `styles` 配置。[#52171](https://github.com/ant-design/ant-design/pull/52171) [@thinkasany](https://github.com/thinkasany)
 - 🚫 Modal `closable` 支持 `onClose` 属性以任意方式关闭时触发。[#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🛠 移除 Dropdown.Button，请使用 Space.Compact。[#53793](https://github.com/ant-design/ant-design/pull/53793) [@Meet-student](https://github.com/Meet-student)
+## 5.27.6
+
+`2025-10-20`
+
+- Table
+  - 🐞 修复 Table `pagination.align` 属性失效的问题。[#55316](https://github.com/ant-design/ant-design/pull/55316)
+  - 🛠 补充 Table 中 spinProps 的 useMemo 缺失能力。[#55344](https://github.com/ant-design/ant-design/pull/55344)
+- 🛠 重构 Modal 中 ConfirmDialog 的 useMemo，以解决 Object.values 生成新数组导致 useMemo 失效的问题。[#55376](https://github.com/ant-design/ant-design/pull/55376)
+- TypeScript
+  - 🤖 补充 ConfigProvider `getTargetContainer` 中 `Window` 类型定义。[#55313](https://github.com/ant-design/ant-design/pull/55313)
+  - 🤖 补充 ConfigProvider 的 `getTargetContainer` 和 `getPopupContainer` 中 `ShadowRoot` 类型定义。[#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
+  - 🤖 优化 Modal 中类型定义。[#55371](https://github.com/ant-design/ant-design/pull/55371)
 
 ## 5.27.5
 

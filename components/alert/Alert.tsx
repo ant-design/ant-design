@@ -217,7 +217,9 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
-    if (typeof closable === 'object' && closable.closeIcon) return true;
+    if (typeof closable === 'object' && closable.closeIcon) {
+      return true;
+    }
     if (closeText) {
       return true;
     }

@@ -30,7 +30,7 @@ title: 介绍
 
 ## 前端实现
 
-我们采用 [React](https://reactjs.org) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
+我们采用 [React](https://zh-hans.react.dev/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
 - [Ant Design of React](/docs/react/introduce)（官方实现）
 - [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)（社区实现）

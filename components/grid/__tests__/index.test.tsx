@@ -7,8 +7,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
 
 const createImplFn = (value: string | number) => {
-  return [
-    (query: string) => ({
+  return (query: string) => {
+    return {
       matches: query === value,
       addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
         if (type === 'change') {
@@ -16,15 +16,8 @@ const createImplFn = (value: string | number) => {
         }
       },
       removeEventListener: jest.fn(),
-    }),
-    (query: string) => ({
-      matches: query === value,
-      addListener: (cb: (e: { matches: boolean }) => void) => {
-        cb({ matches: query === value });
-      },
-      removeListener: jest.fn(),
-    }),
-  ];
+    };
+  };
 };
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
@@ -100,22 +93,20 @@ describe('Grid', () => {
     expect(container.querySelector('div')?.style.marginInline).toEqual('-4px');
   });
 
-  createImplFn('(min-width: 1200px)').forEach((impl, i) => {
-    it(`when typeof gutter is object array in large screen ${i}`, () => {
-      jest.spyOn(window, 'matchMedia').mockImplementation(impl as any);
-      const { container, asFragment } = render(
-        <Row
-          gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
-            { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
-          ]}
-        />,
-      );
-      expect(asFragment().firstChild).toMatchSnapshot();
-      expect(container.querySelector('div')?.style.marginInline).toBe('-20px');
-      expect(container.querySelector('div')?.style.marginTop).toBe('');
-      expect(container.querySelector('div')?.style.marginBottom).toBe('');
-    });
+  it(`when typeof gutter is object array in large screen`, () => {
+    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(min-width: 1200px)') as any);
+    const { container, asFragment } = render(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
+        ]}
+      />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('div')?.style.marginInline).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginTop).toBe('');
+    expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
 
   it('renders wrapped Col correctly', () => {
@@ -154,49 +145,43 @@ describe('Grid', () => {
 
   // By jsdom mock, actual jsdom not implemented matchMedia
   // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
-  createImplFn('(max-width: 575px)').forEach((impl, i) => {
-    it(`should work with useBreakpoint ${i}`, () => {
-      jest.spyOn(window, 'matchMedia').mockImplementation(impl as any);
-      let screensVar: any = null;
-      const Demo: React.FC = () => {
-        const screens = useBreakpoint();
-        screensVar = screens;
-        return null;
-      };
-      render(<Demo />);
-      expect(screensVar).toEqual({
-        xs: true,
-        sm: false,
-        md: false,
-        lg: false,
-        xl: false,
-        xxl: false,
-      });
+  it(`should work with useBreakpoint`, () => {
+    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    let screensVar: any = null;
+    const Demo: React.FC = () => {
+      const screens = useBreakpoint();
+      screensVar = screens;
+      return null;
+    };
+    render(<Demo />);
+    expect(screensVar).toEqual({
+      xs: true,
+      sm: false,
+      md: false,
+      lg: false,
+      xl: false,
+      xxl: false,
     });
   });
 
-  createImplFn('(max-width: 575px)').forEach((impl, i) => {
-    it(`should align by responsive align prop ${i}`, () => {
-      jest.spyOn(window, 'matchMedia').mockImplementation(impl as any);
-      const { container } = render(<Row align="middle" />);
-      expect(container.innerHTML).toContain('ant-row-middle');
-      const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
-      expect(container2.innerHTML).toContain('ant-row-middle');
-      const { container: container3 } = render(<Row align={{ lg: 'middle' }} />);
-      expect(container3.innerHTML).not.toContain('ant-row-middle');
-    });
+  it(`should align by responsive align prop`, () => {
+    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    const { container } = render(<Row align="middle" />);
+    expect(container.innerHTML).toContain('ant-row-middle');
+    const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
+    expect(container2.innerHTML).toContain('ant-row-middle');
+    const { container: container3 } = render(<Row align={{ lg: 'middle' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-middle');
   });
 
-  createImplFn('(max-width: 575px)').forEach((impl, i) => {
-    it(`should justify by responsive justify prop ${i}`, () => {
-      jest.spyOn(window, 'matchMedia').mockImplementation(impl as any);
-      const { container } = render(<Row justify="center" />);
-      expect(container.innerHTML).toContain('ant-row-center');
-      const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
-      expect(container2.innerHTML).toContain('ant-row-center');
-      const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
-      expect(container3.innerHTML).not.toContain('ant-row-center');
-    });
+  it(`should justify by responsive justify prop`, () => {
+    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    const { container } = render(<Row justify="center" />);
+    expect(container.innerHTML).toContain('ant-row-center');
+    const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
+    expect(container2.innerHTML).toContain('ant-row-center');
+    const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-center');
   });
 
   // https://github.com/ant-design/ant-design/issues/39690

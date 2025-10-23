@@ -21,7 +21,7 @@ const stylesFn: DatePickerProps<Dayjs>['styles'] = (info) => {
     return {
       root: { borderColor: '#722ed1' },
       popup: {
-        root: { border: '1px solid #722ed1', borderRadius: 8 },
+        container: { border: '1px solid #722ed1', borderRadius: 8 },
       },
     } satisfies DatePickerProps<Dayjs>['styles'];
   }
