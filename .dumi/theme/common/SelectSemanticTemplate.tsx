@@ -50,6 +50,7 @@ interface BlockProps {
   mode: 'single' | 'multiple';
   onModeChange: (mode: 'single' | 'multiple') => void;
   multipleProps?: object;
+  singleOnly?: boolean;
   [key: string]: any;
 }
 
@@ -60,6 +61,7 @@ const Block: React.FC<BlockProps> = ({
   mode,
   onModeChange,
   multipleProps,
+  singleOnly,
   ...props
 }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
@@ -77,14 +79,16 @@ const Block: React.FC<BlockProps> = ({
       gap="middle"
       align="center"
     >
-      <Segmented
-        options={[
-          { label: 'Single', value: 'single' },
-          { label: 'Multiple', value: 'multiple' },
-        ]}
-        value={mode}
-        onChange={(value) => onModeChange(value as 'single' | 'multiple')}
-      />
+      {!singleOnly && (
+        <Segmented
+          options={[
+            { label: 'Single', value: 'single' },
+            { label: 'Multiple', value: 'multiple' },
+          ]}
+          value={mode}
+          onChange={(value) => onModeChange(value as 'single' | 'multiple')}
+        />
+      )}
       <Component
         {...props}
         open
@@ -97,6 +101,7 @@ const Block: React.FC<BlockProps> = ({
         styles={{ popup: { zIndex: 1 } }}
         maxTagCount="responsive"
         placeholder="Please select"
+        allowClear
       />
     </Flex>
   );
@@ -112,6 +117,7 @@ export interface SelectSemanticTemplateProps {
   style?: React.CSSProperties;
   ignoreSemantics?: string[];
   multipleProps?: object;
+  singleOnly?: boolean;
   [key: string]: any;
 }
 
@@ -123,16 +129,18 @@ const SelectSemanticTemplate: React.FC<SelectSemanticTemplateProps> = ({
   style,
   componentName,
   ignoreSemantics = [],
+  singleOnly = false,
   ...restProps
 }) => {
   const [locale] = useLocale(locales);
-  const [mode, setMode] = React.useState<'single' | 'multiple'>('single');
+  const [mode, setMode] = React.useState<'single' | 'multiple'>(singleOnly ? 'single' : 'single');
 
   const semanticList =
     mode === 'single'
       ? [
           { name: 'root', desc: locale.root },
           { name: 'prefix', desc: locale.prefix },
+          { name: 'content', desc: locale.content },
           { name: 'placeholder', desc: locale.placeholder },
           { name: 'input', desc: locale.input },
           { name: 'suffix', desc: locale.suffix },
@@ -170,7 +178,8 @@ const SelectSemanticTemplate: React.FC<SelectSemanticTemplateProps> = ({
         options={options}
         style={style}
         mode={mode}
-        onModeChange={setMode}
+        onModeChange={singleOnly ? () => {} : setMode}
+        singleOnly={singleOnly}
         {...restProps}
       />
     </SemanticPreview>
