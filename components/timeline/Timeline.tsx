@@ -204,7 +204,7 @@ const Timeline: CompoundedComponent = (props) => {
     () =>
       mergedMode === 'alternate' ||
       (orientation === 'vertical' && mergedItems.some((item) => item.title)),
-    [mergedItems, mergedMode],
+    [mergedItems, mergedMode, orientation],
   );
 
   // ===================== Warn =======================
