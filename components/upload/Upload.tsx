@@ -104,6 +104,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   // Control mode will auto fill file uid if not provided
   React.useMemo(() => {
+    /* eslint-disable react-hooks/purity */
     const timestamp = Date.now();
     (fileList || []).forEach((file, index) => {
       if (!file.uid && !Object.isFrozen(file)) {
