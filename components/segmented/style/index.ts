@@ -175,8 +175,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           pointerEvents: 'none',
         },
 
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.itemHoverColor,
+        '&:not(&-selected):not(&-disabled)': {
+          '&:hover, &:active': {
+            color: token.itemHoverColor,
+          },
           '&:hover::after': {
             opacity: 1,
             backgroundColor: token.itemHoverBg,
