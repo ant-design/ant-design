@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { VariantContext } from '../context';
-import type { Variant, ConfigProviderProps } from '../../config-provider';
+import type { ConfigProviderProps, Variant } from '../../config-provider';
 import { ConfigContext, Variants } from '../../config-provider';
+import { VariantContext } from '../context';
 
 type VariantComponents = keyof Pick<
   ConfigProviderProps,
@@ -24,8 +24,8 @@ type VariantComponents = keyof Pick<
  */
 const useVariant = (
   component: VariantComponents,
-  variant: Variant | undefined,
-  legacyBordered: boolean | undefined = undefined,
+  variant?: Variant,
+  legacyBordered?: boolean,
 ): [Variant, boolean] => {
   const { variant: configVariant, [component]: componentConfig } = React.useContext(ConfigContext);
   const ctxVariant = React.useContext(VariantContext);
