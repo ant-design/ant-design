@@ -11,6 +11,10 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken> = (token) => {
       fontSize: 'inherit',
       lineHeight: 'inherit',
 
+      [`${componentCls}-placeholder`]: {
+        display: 'none',
+      },
+
       [`${componentCls}-content`]: {
         margin: 0,
         padding: 0,
