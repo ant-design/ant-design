@@ -64,6 +64,7 @@ return (
 <code src="./demo/big-data.tsx">大数据</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/accessibility.tsx">无障碍</code>
 <code src="./demo/placement-debug.tsx" debug>动态高度</code>
 <code src="./demo/debug.tsx" debug>Debug 专用</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -81,6 +82,11 @@ return (
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
+| aria-describedby | 标识描述 Select 的元素 ID | string | - |  |
+| aria-invalid | 指示输入值不符合预期格式 | boolean | - |  |
+| aria-label | 定义 Select 的标签文本 | string | - |  |
+| aria-labelledby | 标识作为 Select 标签的元素 ID | string | - |  |
+| aria-required | 指示在表单提交前需要用户输入 | boolean | - |  |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
@@ -214,11 +220,36 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 
 注意：`listItemHeight` 和 `listHeight` 为内部属性，如无必要，请勿修改该值。
 
-### 为何无障碍测试会报缺失 `aria-` 属性？
+### 为何无障碍测试会报缺失 `aria-` 属性？ {#faq-a11y-missing-aria}
 
-Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行无障碍检测时请先打开下拉后再进行测试。对于 `aria-label` 与 `aria-labelledby` 属性缺失警告，请自行为 Select 组件添加相应无障碍属性。
+Select 支持标准的 ARIA 属性以确保无障碍性。你应该添加 `aria-label` 或 `aria-labelledby` 为屏幕阅读器用户提供可访问的名称。
 
-Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。
+**推荐方法：**
+
+1. **使用 `aria-label`**: 直接提供可访问的名称
+
+```tsx
+<Select aria-label="选择您的国家" options={countries} />
+```
+
+2. **使用 `aria-labelledby`**: 引用外部标签元素
+
+```tsx
+<label id="country-label">国家：</label>
+<Select aria-labelledby="country-label" options={countries} />
+```
+
+3. **使用 Form.Item**: 在 `Form.Item` 中使用时，无障碍属性会自动管理
+
+```tsx
+<Form.Item name="country" label="国家" required>
+  <Select options={countries} />
+</Form.Item>
+```
+
+**注意：** Select 无障碍辅助元素仅在交互时创建。在进行无障碍测试时，请先打开 Select 下拉菜单。默认的虚拟滚动会创建模拟元素来模拟无障碍绑定。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动。
+
+查看[无障碍示例](#components-select-demo-accessibility)了解更多。
 
 ### 使用 `tagRender` 生成的自定义标签，点击关闭时会呼出下拉框
 

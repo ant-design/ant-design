@@ -63,6 +63,7 @@ return (
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/accessibility.tsx">Accessibility</code>
 <code src="./demo/placement-debug.tsx" debug>Dynamic Height</code>
 <code src="./demo/debug.tsx" debug>For Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -80,6 +81,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
+| aria-describedby | Identifies the element (or elements) that describes the Select | string | - |  |
+| aria-invalid | Indicates the entered value does not conform to the format expected | boolean | - |  |
+| aria-label | Defines a string value that labels the Select | string | - |  |
+| aria-labelledby | Identifies the element (or elements) that labels the Select | string | - |  |
+| aria-required | Indicates that user input is required on the Select before form submission | boolean | - |  |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
 | autoFocus | Get focus by default | boolean | false |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
@@ -213,11 +219,36 @@ Virtual scroll internal set item height as `24px`. You need to adjust `listItemH
 
 Note: `listItemHeight` and `listHeight` are internal props. Please only modify when necessary.
 
-### Why a11y test report missing `aria-` props?
+### Why a11y test report missing `aria-` props? {#faq-a11y-missing-aria}
 
-Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
+Select supports standard ARIA attributes for accessibility. You should add `aria-label` or `aria-labelledby` to provide an accessible name for screen reader users.
 
-Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
+**Recommended approaches:**
+
+1. **Using `aria-label`**: Provide a direct accessible name
+
+```tsx
+<Select aria-label="Select your country" options={countries} />
+```
+
+2. **Using `aria-labelledby`**: Reference an external label
+
+```tsx
+<label id="country-label">Country:</label>
+<Select aria-labelledby="country-label" options={countries} />
+```
+
+3. **Using Form.Item**: When used inside `Form.Item`, accessibility attributes are automatically managed
+
+```tsx
+<Form.Item name="country" label="Country" required>
+  <Select options={countries} />
+</Form.Item>
+```
+
+**Note:** Select only creates a11y auxiliary nodes when interacting. Please open the Select dropdown before running accessibility tests. Default virtual scrolling creates a mock element to simulate accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling.
+
+See the [Accessibility demo](#components-select-demo-accessibility) for more examples.
 
 ### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close
 

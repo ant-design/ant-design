@@ -87,6 +87,31 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  /**
+   * Provides an accessible name for the Select
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
+   */
+  'aria-label'?: string;
+  /**
+   * References the ID of the element that labels the Select
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+   */
+  'aria-labelledby'?: string;
+  /**
+   * References the ID(s) of element(s) that describe the Select
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby
+   */
+  'aria-describedby'?: string;
+  /**
+   * Indicates whether the Select is required
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required
+   */
+  'aria-required'?: boolean;
+  /**
+   * Indicates the entered value does not conform to the expected format
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid
+   */
+  'aria-invalid'?: boolean;
   /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
   /** @deprecated Please use `classNames.popup.root` instead */
