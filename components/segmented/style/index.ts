@@ -146,7 +146,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationMid}, backgroundColor ${token.motionDurationMid}`,
+        transition: `color ${token.motionDurationMid}`,
         borderRadius: token.borderRadiusSM,
         // Fix Safari render bug
         // https://github.com/ant-design/ant-design/issues/45250
@@ -169,22 +169,19 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           insetInlineStart: 0,
           borderRadius: 'inherit',
           opacity: 0,
-          transition: `opacity ${token.motionDurationMid}, backgroundColor ${token.motionDurationMid}`,
+          transition: `opacity ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
           // This is mandatory to make it not clickable or hoverable
           // Ref: https://github.com/ant-design/ant-design/issues/40888
           pointerEvents: 'none',
         },
 
-        [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
+        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
           color: token.itemHoverColor,
-          '&::after': {
+          '&:hover::after': {
             opacity: 1,
             backgroundColor: token.itemHoverBg,
           },
-        },
-        [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.itemHoverColor,
-          '&::after': {
+          '&:active::after': {
             opacity: 1,
             backgroundColor: token.itemActiveBg,
           },
