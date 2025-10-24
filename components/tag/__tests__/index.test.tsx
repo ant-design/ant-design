@@ -334,9 +334,32 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
       expect(onChange).toHaveBeenCalledWith('bar');
 
-      // Click again
+      // Click again (single mode can uncheck)
       fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
       expect(onChange).toHaveBeenCalledWith(null);
+    });
+
+    it('should check radio tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          mode="radio"
+          defaultValue="foo"
+          options={['foo', 'bar']}
+          onChange={onChange}
+        />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith('bar');
+
+      // Click again (radio mode should not uncheck)
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith('bar');
     });
 
     it('should check multiple tag in group', async () => {
@@ -344,7 +367,7 @@ describe('Tag', () => {
 
       const { container } = render(
         <Tag.CheckableTagGroup
-          multiple
+          mode="multiple"
           defaultValue={['foo', 'bar']}
           options={[
             { value: 'foo', label: 'Foo' },
