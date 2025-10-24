@@ -8,6 +8,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -860,6 +862,39 @@ describe('Transfer', () => {
     searchInputs.forEach((input) => {
       expect(input.getAttribute('placeholder')).toBe('Search placeholder');
       expect(input).toHaveValue('values');
+    });
+  });
+
+  describe('form disabled', () => {
+    it('should support Form disabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <Form.Item name="transfer1" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('.ant-transfer.ant-transfer-disabled')).toBeTruthy();
+    });
+
+    it('set Transfer enabled when ConfigProvider componentDisabled is false', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="transfer1" label="启用">
+              <Transfer {...listCommonProps} />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="transfer2" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      const transfers = container.querySelectorAll('.ant-transfer');
+      expect(transfers[0]).not.toHaveClass('ant-transfer-disabled');
+      expect(transfers[1]).toHaveClass('ant-transfer-disabled');
     });
   });
 });

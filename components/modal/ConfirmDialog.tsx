@@ -48,11 +48,9 @@ export interface ConfirmDialogProps extends ModalFuncProps {
   isSilent?: () => boolean;
 }
 
-export function ConfirmContent(
-  props: ConfirmDialogProps & {
-    confirmPrefixCls: string;
-  },
-) {
+export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: string }> = (
+  props,
+) => {
   const {
     prefixCls,
     icon,
@@ -113,15 +111,15 @@ export function ConfirmContent(
   const okTextLocale = okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText);
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
-  // ================= Context Value =================
-  const btnCtxValue: ModalContextProps = {
-    autoFocusButton,
-    cancelTextLocale,
-    okTextLocale,
-    mergedOkCancel,
-    ...resetProps,
-  };
-  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
+  const memoizedValue = React.useMemo<ModalContextProps>(() => {
+    return {
+      autoFocusButton,
+      cancelTextLocale,
+      okTextLocale,
+      mergedOkCancel,
+      ...resetProps,
+    };
+  }, [autoFocusButton, cancelTextLocale, okTextLocale, mergedOkCancel, resetProps]);
 
   // ====================== Footer Origin Node ======================
   const footerOriginNode = (
@@ -148,26 +146,21 @@ export function ConfirmContent(
           <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
         </div>
       </div>
-
       {footer === undefined || typeof footer === 'function' ? (
-        <ModalContextProvider value={btnCtxValueMemo}>
+        <ModalContextProvider value={memoizedValue}>
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
-              ? footer(footerOriginNode, {
-                  OkBtn,
-                  CancelBtn,
-                })
+              ? footer(footerOriginNode, { OkBtn, CancelBtn })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
       ) : (
         footer
       )}
-
       <Confirm prefixCls={prefixCls} />
     </div>
   );
-}
+};
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   const {
@@ -182,6 +175,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closable = false,
     onConfirm,
     styles,
+    title,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -236,7 +230,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         close?.({ triggerCancel: true });
         onConfirm?.(false);
       }}
-      title=""
+      title={title}
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}

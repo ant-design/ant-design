@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 5.27.6
+
+`2025-10-20`
+
+- Table
+  - 🐞 修复 Table `pagination.align` 属性失效的问题。[#55316](https://github.com/ant-design/ant-design/pull/55316) 
+  - 🛠 补充 Table 中 spinProps 的 useMemo 缺失能力。[#55344](https://github.com/ant-design/ant-design/pull/55344) 
+- 🛠 重构 Modal 中 ConfirmDialog 的 useMemo，以解决 Object.values 生成新数组导致 useMemo 失效的问题。[#55376](https://github.com/ant-design/ant-design/pull/55376) 
+- TypeScript
+  - 🤖 补充 ConfigProvider `getTargetContainer` 中 `Window` 类型定义。[#55313](https://github.com/ant-design/ant-design/pull/55313)
+  - 🤖 补充 ConfigProvider 的 `getTargetContainer` 和 `getPopupContainer` 中 `ShadowRoot` 类型定义。[#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
+  - 🤖 优化 Modal 中类型定义。[#55371](https://github.com/ant-design/ant-design/pull/55371) 
+
+## 5.27.5
+
+`2025-10-14`
+
+- 🐞 修复 Tour 指定 `target` 为 Table 固定列头时定位错误的问题。[#55124](https://github.com/ant-design/ant-design/pull/55124) [@afc163](https://github.com/afc163)
+- 💄 修复 Card body 增加 `gap` 样式时有多余 padding 的问题。[#54974](https://github.com/ant-design/ant-design/pull/54974) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 💄 修复 DatePicker 文本颜色 token 错误的问题。[#55065](https://github.com/ant-design/ant-design/pull/55065) [@765477020](https://github.com/765477020)
+- 💄 修复 List 启用边框时会内容溢出的问题。[#55075](https://github.com/ant-design/ant-design/pull/55075) [@Jiyur](https://github.com/Jiyur)
+- ⌨️ 修复 Modal.confirm 缺失 `aria-labelledby` 可访问性属性的问题。[#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
+- ⚡️ 优化 Cascader 加载中图标的渲染。[#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 修复 FloatButton `disabled` 属性类型缺失的问题。[#55156](https://github.com/ant-design/ant-design/pull/55156) [@deathemperor](https://github.com/deathemperor)
+
 ## 5.27.4
 
 `2025-09-17`

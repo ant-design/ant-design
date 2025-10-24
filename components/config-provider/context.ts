@@ -39,8 +39,8 @@ import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { UploadProps } from '../upload';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -132,6 +132,7 @@ export interface TableConfig extends ComponentStyleConfig {
 
 export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
+  fallback?: string;
 }
 
 export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
@@ -214,7 +215,7 @@ export type CascaderConfig = ComponentStyleConfig &
   Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
+  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames' | 'switcherIcon'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<DatePickerProps, 'variant' | 'styles' | 'classNames'>;
@@ -321,7 +322,7 @@ export interface ConfigComponentProps {
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {
-  getTargetContainer?: () => HTMLElement;
+  getTargetContainer?: () => HTMLElement | Window;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   iconPrefixCls: string;

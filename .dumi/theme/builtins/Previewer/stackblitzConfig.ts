@@ -34,7 +34,7 @@ const getStackblitzConfig = ({
       '@types/react-dom': '^19.1.7',
       '@vitejs/plugin-react': '^4.7.0',
       eslint: '^9.32.0',
-      'eslint-plugin-react-hooks': '^5.2.0',
+      'eslint-plugin-react-hooks': '^7.0.0',
       'eslint-plugin-react-refresh': '^0.4.20',
       globals: '^16.3.0',
       typescript: '~5.8.3',

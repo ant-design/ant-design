@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 5.27.6
+
+`2025-10-20`
+
+- Table
+  - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316) 
+  - 🛠 Add Table missing useMemo capability to spinProps.  [#55344](https://github.com/ant-design/ant-design/pull/55344) 
+- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376) 
+- TypeScript
+  - 🤖 Add ConfigProvider the `Window` type definition in `getTargetContainer` of . [#55313](https://github.com/ant-design/ant-design/pull/55313)
+  - 🤖 Add ConfigProvider the `ShadowRoot` type definition in `getTargetContainer` and `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
+  - 🤖 Improve Modal type definition. [#55371](https://github.com/ant-design/ant-design/pull/55371) 
+
+## 5.27.5
+
+`2025-10-14`
+
+- 🐞 Fix Tour positioning when the `target` is a Table with fixed headers. [#55124](https://github.com/ant-design/ant-design/pull/55124) [@afc163](https://github.com/afc163)
+- 💄 Fix Card body extra padding when adding `gap` style. [#54974](https://github.com/ant-design/ant-design/pull/54974) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 💄 Fix DatePicker design token for text color. [#55065](https://github.com/ant-design/ant-design/pull/55065) [@765477020](https://github.com/765477020)
+- 💄 Fix List overflow problem when bordered. [#55075](https://github.com/ant-design/ant-design/pull/55075) [@Jiyur](https://github.com/Jiyur)
+- ⌨️ Fix Modal.confirm `aria-labelledby` accessibility attribute missing problem. [#55266](https://github.com/ant-design/ant-design/pull/55266) [@Jiyur](https://github.com/Jiyur)
+- ⚡️ Improve Cascader rendering for loading icon. [#55285](https://github.com/ant-design/ant-design/pull/55285) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 Fix FloatButton type definition missing for `disabled` property. [#55156](https://github.com/ant-design/ant-design/pull/55156) [@deathemperor](https://github.com/deathemperor)
+
 ## 5.27.4
 
 `2025-09-17`

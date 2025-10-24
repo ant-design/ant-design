@@ -119,7 +119,10 @@ const Version: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 const DateComp: React.FC<React.PropsWithChildren> = (props) => props.children;
 
-const DetailsComp: React.FC<React.PropsWithChildren> = (props) => props.children;
+const DetailsComp: React.FC<React.PropsWithChildren<HTMLDivElement>> = (props) => {
+  const { children, className } = props;
+  return <div className={className}>{children}</div>;
+};
 
 export default Object.assign(RefinedChangelog, {
   Version,

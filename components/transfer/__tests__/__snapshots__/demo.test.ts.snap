@@ -3135,7 +3135,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                  class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
                 >
                   <li
                     aria-disabled="true"
@@ -3685,7 +3685,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                  class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
                 >
                   <li
                     aria-disabled="true"
@@ -7375,7 +7375,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                  class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
                 >
                   <li
                     aria-disabled="true"

@@ -109,12 +109,16 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
   const { codeType, setCodeType } = React.use(DemoContext);
-  const sourceCodes = {
-    // omit trailing line break
-    tsx: sourceCode?.trim(),
-    jsx: jsxCode?.trim(),
-    style: styleCode?.trim(),
-  } as Record<'tsx' | 'jsx' | 'style', string>;
+
+  const sourceCodes = useMemo<Record<'tsx' | 'jsx' | 'style', string>>(() => {
+    return {
+      // omit trailing line break
+      tsx: sourceCode?.trim(),
+      jsx: jsxCode?.trim(),
+      style: styleCode?.trim(),
+    };
+  }, [sourceCode, jsxCode, styleCode]);
+
   useEffect(() => {
     const codes = {
       tsx: Prism.highlight(sourceCode, Prism.languages.javascript, 'jsx'),
@@ -160,7 +164,16 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           </div>
         ),
       })),
-    [JSON.stringify(highlightedCodes), styles.code, styles.copyButton, styles.copyIcon],
+    [
+      entryName,
+      error,
+      highlightedCodes,
+      langList,
+      sourceCodes,
+      styles.code,
+      styles.copyButton,
+      styles.copyIcon,
+    ],
   );
 
   if (!langList.length) {

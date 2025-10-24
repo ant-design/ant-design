@@ -73,7 +73,7 @@ antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从�
 
 ## 为什么修改组件传入的对象或数组属性组件不会更新？
 
-antd 内部会对 props 进行浅比较实现性能优化。当状态变更，你总是应该传递一个新的对象。具体请参考 [React 的文档](https://zh-hans.reactjs.org/docs/thinking-in-react.html)
+antd 内部会对 props 进行浅比较实现性能优化。当状态变更，你总是应该传递一个新的对象。具体请参考 [React 的文档](https://zh-hans.react.dev/learn/thinking-in-react)
 
 ## 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
@@ -204,7 +204,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
-你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括且不仅限于改造成 [Hooks](https://reactjs.org/docs/hooks-intro.html) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
+你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括且不仅限于改造成 [Hooks](https://zh-hans.react.dev/reference/react/hooks) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
 
 <div id="why-open"></div>
 
@@ -297,6 +297,10 @@ export default () => {
 ```
 
 如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭控制严格检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。
+
+## 为什么 antd 不处理浏览器缩放遇到的精度问题？
+
+不同浏览器对缩放的渲染行为不同，修复一个浏览器的精度问题往往会导致其他浏览器出现问题。此外，缩放相关的精度问题通常出现在极端缩放级别下，这在常规使用中并不常见。渲染不一致的问题源于浏览器在缩放操作期间计算和渲染元素的方式，包括亚像素渲染、舍入差异和布局重新计算。解决这些问题需要大量的浏览器特定代码，这会对性能和可维护性产生负面影响，并且这些代码也可能因浏览器版本更新而失效。
 
 ## 使用 Next.js 的 App Router 时 antd 组件报错
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
+import { Alert, Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
@@ -107,7 +107,7 @@ const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
     });
     return yearData;
-  }, [articles]);
+  }, [articles, lang]);
 
   const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
@@ -152,7 +152,14 @@ const ResourceArticles: React.FC = () => {
     return <Skeleton active />;
   }
   if (error) {
-    return <div>{error.message}</div>;
+    return (
+      <Alert
+        showIcon
+        type="error"
+        message={error.message}
+        description={process.env.NODE_ENV !== 'production' ? error.stack : undefined}
+      />
+    );
   }
   return (
     <div id="articles" className={styles.articles}>

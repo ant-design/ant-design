@@ -54,7 +54,7 @@ demo:
 | accept | 接受上传的文件类型，详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
 | action | 上传的地址 | string \| (file) => Promise&lt;string> | - |  |
 | beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入 `File` 或 `Blob` 对象则上传 resolve 传入对象）；也可以返回 `Upload.LIST_IGNORE`，此时列表中将不展示此文件。 **注意：IE9 不支持该方法** | (file, fileList) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
-| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | function | - |  |
+| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | ( options: [RequestOptions](#requestoptions), info: { defaultRequest: (option: [RequestOptions](#requestoptions)) => void; } ) => void | - | defaultRequest: 5.28.0 |
 | data | 上传所需额外参数或返回上传额外参数的方法 | object\|(file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
@@ -94,6 +94,21 @@ demo:
 | thumbUrl | 缩略图地址 | string | - | - |
 | uid | 唯一标识符，不设置时会自动生成 | string | - | - |
 | url | 下载地址 | string | - | - |
+
+### RequestOptions
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| action | 上传的地址 | string | - | - |
+| data | CORS 属性设置 | Record<string, unknown> | - | - |
+| filename | 文件名 | string | - | - |
+| file | 文件信息 | [UploadFile](#uploadfile) | - | - |
+| withCredentials | 上传请求时是否携带 cookie | boolean | - | - |
+| headers | 上传的请求头部 | Record<string, string> | - | - |
+| method | 上传请求的 http method | string | - | - |
+| onProgress | 上传进度回调 | (event: object, file:UploadFile ) => void | - | - |
+| onError | 上传失败回调 | (event: object, body?: object) => void | - | - |
+| onSuccess | 上传成功回调 | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) | - | - |
 
 ### onChange
 

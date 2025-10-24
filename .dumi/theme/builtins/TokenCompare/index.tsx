@@ -96,7 +96,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
         dark: color2Rgba((darkTokens as any)[tokenName]),
       };
     });
-  }, [tokenNames]);
+  }, [lang, tokenNames]);
 
   return (
     <div className={styles.container}>

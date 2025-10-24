@@ -5,6 +5,8 @@ export type LiteralUnion<T extends string> = T | (string & {});
 
 export type AnyObject = Record<PropertyKey, any>;
 
+export type EmptyObject = Record<never, never>;
+
 export type CustomComponent<P = AnyObject> = React.ComponentType<P> | string;
 
 /**
@@ -78,3 +80,31 @@ export type GetContextProp<
   T extends React.Context<any>,
   PropName extends keyof GetContextProps<T>,
 > = NonNullable<GetContextProps<T>[PropName]>;
+
+export type ValidChar =
+  | 'a'
+  | 'b'
+  | 'c'
+  | 'd'
+  | 'e'
+  | 'f'
+  | 'g'
+  | 'h'
+  | 'i'
+  | 'j'
+  | 'k'
+  | 'l'
+  | 'm'
+  | 'n'
+  | 'o'
+  | 'p'
+  | 'q'
+  | 'r'
+  | 's'
+  | 't'
+  | 'u'
+  | 'v'
+  | 'w'
+  | 'x'
+  | 'y'
+  | 'z';

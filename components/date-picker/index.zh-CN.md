@@ -47,6 +47,7 @@ demo:
 <code src="./demo/suffix.tsx">前后缀</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/suffixIcon-debug.tsx" debug>suffixIcon</code>
 
 ## API
 

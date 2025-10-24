@@ -13,7 +13,6 @@ import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
-
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
@@ -48,7 +47,7 @@ const DocLayout: React.FC = () => {
     } else {
       dayjs.locale('en');
     }
-  }, []);
+  }, [lang]);
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
@@ -70,7 +69,7 @@ const DocLayout: React.FC = () => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
     }
-  }, [location]);
+  }, [pathname, search]);
 
   const content = React.useMemo<React.ReactNode>(() => {
     if (['', '/'].includes(pathname) || ['/index'].some((path) => pathname.startsWith(path))) {
@@ -87,7 +86,7 @@ const DocLayout: React.FC = () => {
       return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
-  }, [pathname, outlet]);
+  }, [pathname, outlet, locale.title, locale.description]);
 
   return (
     <>
@@ -111,11 +110,7 @@ const DocLayout: React.FC = () => {
       <ConfigProvider
         direction={direction}
         locale={lang === 'cn' ? zhCN : undefined}
-        theme={{
-          token: {
-            fontFamily: `AlibabaSans, ${token.fontFamily}`,
-          },
-        }}
+        theme={{ token: { fontFamily: `AlibabaSans, ${token.fontFamily}` } }}
       >
         <GlobalStyles />
         {!hideLayout && <Header />}
