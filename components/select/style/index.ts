@@ -138,7 +138,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
     // ==             Space Compact                       ==
     // =====================================================
     genCompactItemStyle(token, {
-      borderElCls: `${componentCls}-selector`,
       focusElCls: `${componentCls}-focused`,
     }),
   ];
