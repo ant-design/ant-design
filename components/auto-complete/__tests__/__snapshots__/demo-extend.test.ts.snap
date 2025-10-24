@@ -665,7 +665,7 @@ exports[`renders components/auto-complete/demo/basic.tsx extend context correctl
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
     style="width: 250px;"
   >
     <div
@@ -1031,7 +1031,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
     style="width: 200px;"
   >
     <div
@@ -1492,7 +1492,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-content"
@@ -1699,7 +1699,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -1907,7 +1907,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -2128,7 +2128,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -2978,7 +2978,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
     style="width: 300px;"
   >
     <div
