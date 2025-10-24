@@ -68,7 +68,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | defaultValue | Initial value | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | Disable check/uncheck | `boolean` | - |  |
-| multiple | Multiple select mode | `boolean` | - |  |
+| mode | Select mode | `'radio' \| 'checkbox'` | `'radio'` |  |
 | styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | value | Value of checked tag(s) | `string \| number \| Array<string \| number> \| null` | - |  |
 | options | Option list | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |

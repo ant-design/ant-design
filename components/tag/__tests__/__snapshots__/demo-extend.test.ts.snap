@@ -271,9 +271,9 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
       >
         <label
           class=""
-          title="Single"
+          title="Checkable group (radio mode)"
         >
-          Single
+          Checkable group (radio mode)
         </label>
       </div>
       <div
@@ -333,9 +333,9 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
       >
         <label
           class=""
-          title="Multiple"
+          title="Checkable group (checkbox mode)"
         >
-          Multiple
+          Checkable group (checkbox mode)
         </label>
       </div>
       <div

@@ -5,8 +5,8 @@ const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState(true);
-  const [singleSelected, setSingleSelected] = useState<string | null>('Books');
-  const [multipleSelected, setMultipleSelected] = useState<string[]>(['Movies', 'Music']);
+  const [radioSelected, setRadioSelected] = useState<string | null>('Books');
+  const [checkboxSelected, setCheckboxSelected] = useState<string[]>(['Movies', 'Music']);
 
   return (
     <Form labelCol={{ span: 6 }}>
@@ -15,19 +15,20 @@ const App: React.FC = () => {
           Yes
         </Tag.CheckableTag>
       </Form.Item>
-      <Form.Item label="Single">
+      <Form.Item label="Checkable group (radio mode)">
         <Tag.CheckableTagGroup
+          mode="radio"
           options={tagsData}
-          value={singleSelected}
-          onChange={(val) => setSingleSelected(val)}
+          value={radioSelected}
+          onChange={(val) => setRadioSelected(val)}
         />
       </Form.Item>
-      <Form.Item label="Multiple">
+      <Form.Item label="Checkable group (checkbox mode)">
         <Tag.CheckableTagGroup
-          multiple
+          mode="checkbox"
           options={tagsData}
-          value={multipleSelected}
-          onChange={(val) => setMultipleSelected(val)}
+          value={checkboxSelected}
+          onChange={(val) => setCheckboxSelected(val)}
         />
       </Form.Item>
     </Form>
