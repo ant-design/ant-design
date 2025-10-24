@@ -89,8 +89,6 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     }
   };
 
-  //
-
   React.useEffect(() => {
     setMounted(true);
   }, []);
