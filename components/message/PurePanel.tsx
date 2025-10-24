@@ -44,7 +44,7 @@ export interface PurePanelProps
 /** @private Internal Component. Do not use in your production. */
 const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { prefixCls: staticPrefixCls, className, type, icon, content, ...restProps } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, message } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
@@ -61,6 +61,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         `${prefixCls}-notice-pure-panel`,
         cssVarCls,
         rootCls,
+        message?.className,
       )}
       eventKey="pure"
       duration={null}

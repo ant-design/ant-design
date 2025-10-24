@@ -1,6 +1,5 @@
 import type * as React from 'react';
-
-import type { ClosableType } from '../_util/hooks/useClosable';
+import type { NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -14,11 +13,25 @@ export const NotificationPlacements = [
   'bottomLeft',
   'bottomRight',
 ] as const;
+
 export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export interface ArgsProps {
+type SharedProps = Pick<
+  RcNotificationConfig,
+  | 'prefixCls'
+  | 'getContainer'
+  | 'maxCount'
+  | 'stack'
+  | 'duration'
+  | 'showProgress'
+  | 'pauseOnHover'
+  | 'closeIcon'
+  | 'closable'
+>;
+
+export interface ArgsProps extends SharedProps {
   message: React.ReactNode;
   description?: React.ReactNode;
   /** @deprecated Please use `actions` instead */
@@ -26,17 +39,15 @@ export interface ArgsProps {
   actions?: React.ReactNode;
   key?: React.Key;
   onClose?: () => void;
-  duration?: number | null;
-  showProgress?: boolean;
-  pauseOnHover?: boolean;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
-  closeIcon?: React.ReactNode;
-  closable?: ClosableType;
+  /**
+   * @private It may be internal, uncertain, so it's better not to use it.
+   */
   props?: DivProps;
   role?: 'alert' | 'status';
 }
@@ -52,33 +63,16 @@ export interface NotificationInstance {
   destroy: (key?: React.Key) => void;
 }
 
-export interface GlobalConfigProps {
-  top?: number;
-  bottom?: number;
-  duration?: number;
-  showProgress?: boolean;
-  pauseOnHover?: boolean;
-  prefixCls?: string;
-  getContainer?: () => HTMLElement | ShadowRoot;
-  placement?: NotificationPlacement;
-  closeIcon?: React.ReactNode;
-  closable?: ClosableType;
-  rtl?: boolean;
-  maxCount?: number;
-  props?: DivProps;
-}
+// Prevent destructive updates, We do not internally use.
+export type GlobalConfigProps = NotificationConfig;
 
-export interface NotificationConfig {
+export interface NotificationConfig extends SharedProps {
   top?: number;
   bottom?: number;
-  prefixCls?: string;
-  getContainer?: () => HTMLElement | ShadowRoot;
   placement?: NotificationPlacement;
-  maxCount?: number;
   rtl?: boolean;
-  stack?: boolean | { threshold?: number };
-  duration?: number;
-  showProgress?: boolean;
-  pauseOnHover?: boolean;
-  closeIcon?: React.ReactNode;
+  /**
+   * @private It may be internal, uncertain, so it's better not to use it.
+   */
+  props?: DivProps;
 }

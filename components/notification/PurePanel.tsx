@@ -15,6 +15,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
+import { getCloseIconConfig } from './util';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -87,12 +88,11 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     description,
     btn,
     actions,
-    closable = true,
+    closable,
     closeIcon,
-    className: notificationClassName,
     ...restProps
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, notification } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Notification');
@@ -101,12 +101,21 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
 
+  const realCloseIcon = getCloseIcon(prefixCls, getCloseIconConfig(closeIcon, notification));
+
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   return wrapCSSVar(
     <div
-      className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, cssVarCls, rootCls)}
+      className={classNames(
+        `${noticePrefixCls}-pure-panel`,
+        hashId,
+        className,
+        cssVarCls,
+        rootCls,
+        notification?.className,
+      )}
     >
       <PurePanelStyle prefixCls={prefixCls} />
       <Notice
@@ -114,11 +123,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         prefixCls={prefixCls}
         eventKey="pure"
         duration={null}
-        closable={closable}
-        className={classNames({
-          notificationClassName,
-        })}
-        closeIcon={getCloseIcon(prefixCls, closeIcon)}
+        closable={closable ?? !!realCloseIcon}
+        closeIcon={realCloseIcon}
         content={
           <PureContent
             prefixCls={noticePrefixCls}
