@@ -277,9 +277,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const watermarkContext = React.useMemo<WatermarkContextProps>(
     () => ({
       add: (ele) => {
-        if (!ele) {
-          return;
-        }
         setSubElements((prev) => {
           const clone = new Set(prev);
           clone.add(ele);
