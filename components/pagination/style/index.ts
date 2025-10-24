@@ -30,6 +30,16 @@ export interface ComponentToken {
    */
   itemActiveBg: string;
   /**
+   * @desc 页码激活态文字颜色
+   * @descEN Text color of active Pagination item
+   */
+  itemActiveColor: string;
+  /**
+   * @desc 页码激活态文字颜色悬停态
+   * @descEN Text color of active Pagination item hover
+   */
+  itemActiveColorHover: string;
+  /**
    * @desc 小号页码尺寸
    * @descEN Size of small Pagination item
    */
@@ -594,7 +604,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         borderColor: token.colorPrimary,
 
         a: {
-          color: token.colorPrimary,
+          color: token.itemActiveColor,
         },
 
         '&:hover': {
@@ -602,7 +612,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         },
 
         '&:hover a': {
-          color: token.colorPrimaryHover,
+          color: token.itemActiveColorHover,
         },
       },
     },
@@ -725,6 +735,8 @@ export const prepareComponentToken: GetDefaultToken<'Pagination'> = (token) => (
   itemSize: token.controlHeight,
   itemSizeSM: token.controlHeightSM,
   itemActiveBg: token.colorBgContainer,
+  itemActiveColor: token.colorPrimary,
+  itemActiveColorHover: token.colorPrimaryHover,
   itemLinkBg: token.colorBgContainer,
   itemActiveColorDisabled: token.colorTextDisabled,
   itemActiveBgDisabled: token.controlItemBgActiveDisabled,
