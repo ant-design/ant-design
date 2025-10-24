@@ -10,14 +10,15 @@ export interface LinkProps
   ellipsis?: boolean;
 }
 
-const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restProps }, ref) => {
+const Link = React.forwardRef<HTMLElement, LinkProps>((props, ref) => {
+  const { ellipsis, rel, children, ...restProps } = props;
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography.Link');
-
     warning(typeof ellipsis !== 'object', 'usage', '`ellipsis` only supports boolean value.');
   }
 
-  const mergedProps = {
+  const mergedProps: LinkProps = {
     ...restProps,
     rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
   };
@@ -25,7 +26,11 @@ const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restP
   // @ts-expect-error: https://github.com/ant-design/ant-design/issues/26622
   delete mergedProps.navigate;
 
-  return <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component="a" />;
+  return (
+    <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component="a">
+      {children}
+    </Base>
+  );
 });
 
 export default Link;
