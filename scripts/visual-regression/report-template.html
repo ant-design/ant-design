@@ -103,10 +103,11 @@
 </head>
 
 <body>
+  <!-- Report Content -->
   {{reportContent}}
 
   <script>
-    window.addEventListener('click', function (e) {
+    window.addEventListener('click', (e) => {
       if (e.target.tagName === 'FIGCAPTION') {
         // get previous sibling
         const img = e.target.previousElementSibling;
