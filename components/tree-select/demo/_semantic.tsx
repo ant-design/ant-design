@@ -18,8 +18,8 @@ const App: React.FC = () => {
           title: 'thinkasany',
         },
         {
-          value: 'Meet-student',
-          title: 'Meet-student',
+          value: 'meet-student',
+          title: 'meet-student',
         },
       ],
     },

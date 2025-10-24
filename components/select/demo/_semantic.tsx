@@ -14,7 +14,7 @@ const App: React.FC = () => {
       options={[
         { value: 'aojunhao123', label: 'aojunhao123' },
         { value: 'thinkasany', label: 'thinkasany' },
-        { value: 'Meet-student', label: 'Meet-student' },
+        { value: 'meet-student', label: 'meet-student' },
       ]}
     />
   );
