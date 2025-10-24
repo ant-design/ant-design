@@ -320,6 +320,10 @@ describe('Directory Tree', () => {
         fieldNames: { key: 'id', title: 'label', children: 'child' },
       }),
     );
+
+    // https://github.com/ant-design/ant-design/issues/55418
+    expect(container.querySelectorAll('.ant-tree-node-content-wrapper-open').length).toBe(2);
+
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
     expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
   });
