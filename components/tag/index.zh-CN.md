@@ -65,7 +65,7 @@ demo:
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | 禁用选中 | `boolean` | - |  |
-| multiple | 多选模式 | `boolean` | - |  |
+| mode | 选择模式 | `'single' \| 'radio' \| 'multiple'` | `'single'` |  |
 | value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
 | onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |

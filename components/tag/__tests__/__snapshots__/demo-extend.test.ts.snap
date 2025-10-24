@@ -261,7 +261,7 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -316,6 +316,96 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
                   Sports
                 </span>
               </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item-additional"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help css-var-test-id ant-form-css-var ant-form-item-explain-connected"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            >
+              mode='single' allow unselect
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-test-id"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label css-var-test-id"
+      >
+        <label
+          class=""
+          title="Radio"
+        >
+          Radio
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control css-var-test-id"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-tag-checkable-group css-var-test-id"
+            >
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+              >
+                <span>
+                  Movies
+                </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-test-id"
+              >
+                <span>
+                  Books
+                </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+              >
+                <span>
+                  Music
+                </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+              >
+                <span>
+                  Sports
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item-additional"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help css-var-test-id ant-form-css-var ant-form-item-explain-connected"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            >
+              mode='radio' always have one value
             </div>
           </div>
         </div>
