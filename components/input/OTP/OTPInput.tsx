@@ -69,8 +69,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
       <Input
         aria-label={`OTP Input ${index + 1}`}
-        type={mask === true ? 'password' : 'text'}
         {...restProps}
+        type={mask === true ? 'password' : restProps.type || 'text'}
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
