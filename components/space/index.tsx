@@ -59,6 +59,8 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
+  const [latestIndex, setLatestIndex] = React.useState<number>(0);
+
   const isPresetVerticalSize = isPresetSize(verticalSize);
 
   const isPresetHorizontalSize = isPresetSize(horizontalSize);
@@ -95,10 +97,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   );
 
   // Calculate latest one
-  let latestIndex = 0;
   const nodes = childNodes.map<React.ReactNode>((child, i) => {
     if (child !== null && child !== undefined) {
-      latestIndex = i;
+      setLatestIndex(i);
     }
 
     const key = child?.key || `${itemClassName}-${i}`;
