@@ -102,7 +102,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       color: token.itemColor,
       background: token.trackBg,
       borderRadius: token.borderRadius,
-      transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      transition: `all ${token.motionDurationMid}`,
       ...genFocusStyle(token),
 
       [`${componentCls}-group`]: {
@@ -146,7 +146,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+        transition: `backgroundColor ${token.motionDurationMid}, color ${token.motionDurationMid}`,
         borderRadius: token.borderRadiusSM,
         // Fix Safari render bug
         // https://github.com/ant-design/ant-design/issues/45250
@@ -224,7 +224,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         height: '100%',
         padding: `${unit(token.paddingXXS)} 0`,
         borderRadius: token.borderRadiusSM,
-        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, height ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
           {
