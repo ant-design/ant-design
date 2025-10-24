@@ -307,6 +307,7 @@
     "react-sticky-box": "^2.0.5",
     "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
+    "remark-cli": "^12.0.1",
     "remark-gfm": "^4.0.0",
     "remark-lint": "^10.0.0",
     "remark-lint-no-undefined-references": "^5.0.0",
