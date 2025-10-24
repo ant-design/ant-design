@@ -88,27 +88,32 @@ export interface SelectProps<
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
   /**
-   * Provides an accessible name for the Select
+   * Provides an accessible name for the Select.
+   * @description Use to give the select a descriptive label for screen readers when no visible label is present.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
    */
   'aria-label'?: string;
   /**
-   * References the ID of the element that labels the Select
+   * References the ID of the element that labels the Select.
+   * @description Use to associate the select with an existing visible label element by referencing its ID.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
    */
   'aria-labelledby'?: string;
   /**
-   * References the ID(s) of element(s) that describe the Select
+   * References the ID(s) of element(s) that describe the Select.
+   * @description Use to provide additional context or instructions by referencing help text or description elements.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby
    */
   'aria-describedby'?: string;
   /**
-   * Indicates whether the Select is required
+   * Indicates whether the Select is required.
+   * @description Set to true to inform screen readers that this field must be filled before form submission.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required
    */
   'aria-required'?: boolean;
   /**
-   * Indicates the entered value does not conform to the expected format
+   * Indicates the entered value does not conform to the expected format.
+   * @description Set to true when the select has a validation error to inform screen readers of the invalid state.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid
    */
   'aria-invalid'?: boolean;
