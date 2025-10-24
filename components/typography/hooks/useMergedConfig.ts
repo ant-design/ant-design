@@ -14,5 +14,5 @@ export default function useMergedConfig<Target>(
         ...(support && typeof propConfig === 'object' ? propConfig : null),
       },
     ] as const;
-  }, [propConfig]);
+  }, [propConfig, templateConfig]);
 }
