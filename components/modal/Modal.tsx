@@ -68,6 +68,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     destroyOnHidden,
     destroyOnClose,
     panelRef = null,
+    modalRender,
     ...restProps
   } = props;
 
@@ -128,9 +129,15 @@ const Modal: React.FC<ModalProps> = (props) => {
     },
   );
 
+  // ============================ modalRender ============================
+  const mergedModalRender = modalRender
+    ? (node: React.ReactNode) => <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
+    : undefined;
+
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`
-  const innerPanelRef = usePanelRef(`.${prefixCls}-content`);
+  const panelClassName = `.${prefixCls}-${modalRender ? 'render' : 'content'}`;
+  const innerPanelRef = usePanelRef(panelClassName);
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
@@ -195,6 +202,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           panelRef={mergedPanelRef}
           // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          modalRender={mergedModalRender}
         >
           {loading ? (
             <Skeleton
