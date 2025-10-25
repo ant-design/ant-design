@@ -10,6 +10,19 @@ const fruitOptions = [
   { value: 'grape', label: 'Grape' },
 ];
 
+/**
+ * Accessibility demo component for Select.
+ *
+ * Demonstrates proper usage of ARIA attributes for making Select components accessible:
+ * - aria-label: Direct accessible name
+ * - aria-labelledby: Reference to external label
+ * - aria-describedby: Reference to description text
+ * - aria-required: Required field indicator
+ * - aria-invalid: Validation error indicator
+ * - Form.Item integration: Automatic ARIA management
+ *
+ * @returns {JSX.Element} Accessibility demonstration examples
+ */
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
