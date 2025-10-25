@@ -311,7 +311,9 @@ describe('Upload', () => {
           seen.push(file);
           return originNode;
         }}
-      />,
+      >
+        <button type="button">upload</button>
+      </Upload>,
     );
     seen.forEach((file) => {
       expect(file.uid).toBeDefined();
