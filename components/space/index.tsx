@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useRef } from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 
@@ -95,7 +94,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     customClassNames?.item ?? contextClassNames.item,
   );
 
-  const latestIndexRef = useRef<number>(0);
+  const latestIndexRef = React.useRef<number>(0);
 
   // Calculate latest one
   const nodes = childNodes.map<React.ReactNode>((child, i) => {
