@@ -315,6 +315,11 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
+    // 外部 props 未被修改
+    fileList.forEach((file) => {
+      expect((file as any).uid).not.toBeDefined();
+    });
+    // 内部派生的数据应该含有 uid
     seen.forEach((file) => {
       expect(file.uid).toBeDefined();
     });
@@ -884,6 +889,11 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
+    // 外部 props 未被修改
+    fileList.forEach((file) => {
+      expect((file as any).uid).not.toBeDefined();
+    });
+    // 内部派生的数据应该含有 uid
     seen.forEach((file) => {
       expect(file.uid).toBeDefined();
     });
