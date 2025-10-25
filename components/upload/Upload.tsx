@@ -92,10 +92,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const normalizedFileList = React.useMemo(() => {
     if (Array.isArray(fileList)) {
       return fileList.map<UploadFile<any>>((file, index) => {
-        return !file.uid && !Object.isFrozen(file) ? buildData(file, index) : file;
+        if (!file.uid && !Object.isFrozen(file)) {
+          return buildData(file, index);
+        }
+        return file;
       });
-    } else {
-      return [];
     }
   }, [fileList]);
 
