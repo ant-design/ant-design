@@ -296,7 +296,7 @@ describe('Upload', () => {
   });
 
   it('should be able to get uid at first', () => {
-    const fileList = [
+    const fileList: Partial<UploadFile<any>>[] = [
       {
         name: 'foo.png',
         status: 'done',
@@ -317,7 +317,7 @@ describe('Upload', () => {
     );
     // 外部 props 未被修改
     fileList.forEach((file) => {
-      expect((file as any).uid).not.toBeDefined();
+      expect(file.uid).not.toBeDefined();
     });
     // 内部派生的数据应该含有 uid
     seen.forEach((file) => {
@@ -876,7 +876,11 @@ describe('Upload', () => {
   });
 
   it('auto fill file uid', () => {
-    const fileList = [{ name: 'bamboo.png' }];
+    const fileList: Partial<UploadFile<any>>[] = [
+      { name: 'bamboo.png' },
+      { name: 'little.png' },
+      { name: 'foo.png' },
+    ];
     const seen: UploadFile<any>[] = [];
     render(
       <Upload
@@ -891,7 +895,7 @@ describe('Upload', () => {
     );
     // 外部 props 未被修改
     fileList.forEach((file) => {
-      expect((file as any).uid).not.toBeDefined();
+      expect(file.uid).not.toBeDefined();
     });
     // 内部派生的数据应该含有 uid
     seen.forEach((file) => {
