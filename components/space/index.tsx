@@ -94,16 +94,19 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     customClassNames?.item ?? contextClassNames.item,
   );
 
-  const latestIndexRef = React.useRef<number>(0);
+  const memoizedLatestIndex = React.useMemo<number>(() => {
+    let index = 0;
+    childNodes.forEach((child, i) => {
+      if (child !== null && child !== undefined) {
+        index = i;
+      }
+    });
+    return index;
+  }, [childNodes]);
 
   // Calculate latest one
   const nodes = childNodes.map<React.ReactNode>((child, i) => {
-    if (child !== null && child !== undefined) {
-      latestIndexRef.current = i;
-    }
-
     const key = child?.key || `${itemClassName}-${i}`;
-
     return (
       <Item
         className={itemClassName}
@@ -118,8 +121,8 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   });
 
   const spaceContext = React.useMemo<SpaceContextType>(
-    () => ({ latestIndex: latestIndexRef.current }),
-    [latestIndexRef.current],
+    () => ({ latestIndex: memoizedLatestIndex }),
+    [memoizedLatestIndex],
   );
 
   // =========================== Render ===========================
