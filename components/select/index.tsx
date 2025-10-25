@@ -87,6 +87,24 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  /**
+   * Provides an accessible name for the Select.
+   * @description Use to give the select a descriptive label for screen readers when no visible label is present.
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
+   */
+  'aria-label'?: string;
+  /**
+   * References the ID of the element that labels the Select.
+   * @description Use to associate the select with an existing visible label element by referencing its ID.
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+   */
+  'aria-labelledby'?: string;
+  /**
+   * References the ID(s) of element(s) that describe the Select.
+   * @description Use to provide additional context or instructions by referencing help text or description elements.
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby
+   */
+  'aria-describedby'?: string;
   /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
   /** @deprecated Please use `classNames.popup.root` instead */
