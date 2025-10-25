@@ -26,6 +26,14 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export type { UploadProps };
 
+const buildData = (file: UploadFile<any>, index: number): UploadFile<any> => {
+  const timestamp = Date.now();
+  return {
+    ...file,
+    uid: `__AUTO__${timestamp}_${index}__`,
+  };
+};
+
 export interface UploadRef<T = any> {
   onBatchStart: RcUploadProps['onBatchStart'];
   onSuccess: (response: any, file: RcFile, xhr: any) => void;
@@ -80,8 +88,19 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const customRequest = props.customRequest || config.customRequest;
 
+  // Control mode will auto fill file uid if not provided
+  const normalizedFileList = React.useMemo(() => {
+    if (Array.isArray(fileList)) {
+      return fileList.map<UploadFile<any>>((file, index) => {
+        return !file.uid && !Object.isFrozen(file) ? buildData(file, index) : file;
+      });
+    } else {
+      return [];
+    }
+  }, [fileList]);
+
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
-    value: fileList,
+    value: normalizedFileList,
     postState: (list) => list ?? [],
   });
 
@@ -101,17 +120,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
     warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
   }
-
-  // Control mode will auto fill file uid if not provided
-  React.useMemo(() => {
-    // eslint-disable-next-line react-hooks/purity
-    const timestamp = Date.now();
-    (fileList || []).forEach((file, index) => {
-      if (!file.uid && !Object.isFrozen(file)) {
-        file.uid = `__AUTO__${timestamp}_${index}__`;
-      }
-    });
-  }, [fileList]);
 
   const onInternalChange = (
     file: UploadFile,
