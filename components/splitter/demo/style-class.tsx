@@ -21,6 +21,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 
 const stylesObject: SplitterProps['styles'] = {
   root: { backgroundColor: '#fffbe6' },
+  dragger: { backgroundColor: 'rgba(194,223,252,0.4)' },
 };
 
 const stylesFn: SplitterProps['styles'] = ({ props }) => {
