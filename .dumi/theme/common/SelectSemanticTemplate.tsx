@@ -1,4 +1,5 @@
 import React from 'react';
+import { Flex, Segmented } from 'antd';
 
 import useLocale from '../../hooks/useLocale';
 import SemanticPreview from './SemanticPreview';
@@ -9,6 +10,11 @@ export const locales = {
     prefix: '前缀元素，包含前缀内容的布局和样式',
     suffix: '后缀元素，包含后缀内容的布局和样式，如清除按钮、箭头图标等',
     input: '输入框元素，包含搜索输入框的样式、光标控制、字体继承等搜索相关样式，去除了边框样式',
+    content: '多选容器，包含已选项的布局、间距、换行相关样式',
+    item: '多选项元素，包含边框、背景、内边距、外边距样式',
+    itemContent: '多选项内容区域，包含文字的省略样式',
+    itemRemove: '多选项移除按钮，包含字体相关样式',
+    placeholder: '占位符元素，包含占位符文本的字体样式和颜色',
     'popup.root': '弹出菜单元素，包含弹出层的定位、层级、背景、边框、阴影等弹出容器样式',
     'popup.list': '弹出菜单列表元素，包含选项列表的布局、滚动、最大高度等列表容器样式',
     'popup.listItem':
@@ -21,6 +27,12 @@ export const locales = {
       'Suffix element with layout and styling for suffix content like clear button, arrow icon, etc.',
     input:
       'Input element with search input styling, cursor control, font inheritance and other search-related styles. Remove border styles',
+    content:
+      'Multiple selection container with layout, spacing, and wrapping styles for selected items',
+    item: 'Multiple selection item element with border, background, padding, and margin styles',
+    itemContent: 'Multiple selection item content area with text ellipsis styles',
+    itemRemove: 'Multiple selection item remove button with font-related styles',
+    placeholder: 'Placeholder element with font styles and colors for placeholder text',
     'popup.root':
       'Popup element with popup layer positioning, z-index, background, border, box-shadow and other popup container styles',
     'popup.list':
@@ -35,23 +47,63 @@ interface BlockProps {
   options?: { value: string; label: string }[];
   defaultValue?: string;
   style?: React.CSSProperties;
+  mode: 'single' | 'multiple';
+  onModeChange: (mode: 'single' | 'multiple') => void;
+  multipleProps?: object;
+  singleOnly?: boolean;
   [key: string]: any;
 }
 
-const Block: React.FC<BlockProps> = ({ component: Component, options, defaultValue, ...props }) => {
+const Block: React.FC<BlockProps> = ({
+  component: Component,
+  options,
+  defaultValue,
+  mode,
+  onModeChange,
+  multipleProps,
+  singleOnly,
+  ...props
+}) => {
   const divRef = React.useRef<HTMLDivElement>(null);
+  const [value, setValue] = React.useState(defaultValue);
+
+  React.useEffect(() => {
+    setValue(defaultValue);
+  }, [mode]);
+
   return (
-    <div ref={divRef} style={{ position: 'absolute', marginBottom: 80 }}>
+    <Flex
+      ref={divRef}
+      style={{ position: 'absolute', marginBottom: 80 }}
+      vertical
+      gap="middle"
+      align="center"
+    >
+      {!singleOnly && (
+        <Segmented
+          options={[
+            { label: 'Single', value: 'single' },
+            { label: 'Multiple', value: 'multiple' },
+          ]}
+          value={mode}
+          onChange={(value) => onModeChange(value as 'single' | 'multiple')}
+        />
+      )}
       <Component
         {...props}
         open
         placement="bottomLeft"
-        defaultValue={defaultValue}
+        value={value}
+        onChange={setValue}
         getPopupContainer={() => divRef.current}
         options={options}
+        {...(mode === 'multiple' ? multipleProps : {})}
         styles={{ popup: { zIndex: 1 } }}
+        maxTagCount="responsive"
+        placeholder="Please select"
+        allowClear
       />
-    </div>
+    </Flex>
   );
 };
 
@@ -64,6 +116,8 @@ export interface SelectSemanticTemplateProps {
   placeholder?: string;
   style?: React.CSSProperties;
   ignoreSemantics?: string[];
+  multipleProps?: object;
+  singleOnly?: boolean;
   [key: string]: any;
 }
 
@@ -75,29 +129,57 @@ const SelectSemanticTemplate: React.FC<SelectSemanticTemplateProps> = ({
   style,
   componentName,
   ignoreSemantics = [],
+  singleOnly = false,
   ...restProps
 }) => {
   const [locale] = useLocale(locales);
+  const [mode, setMode] = React.useState<'single' | 'multiple'>(singleOnly ? 'single' : 'single');
+
+  const semanticList =
+    mode === 'single'
+      ? [
+          { name: 'root', desc: locale.root },
+          { name: 'prefix', desc: locale.prefix },
+          { name: 'content', desc: locale.content },
+          { name: 'placeholder', desc: locale.placeholder },
+          { name: 'input', desc: locale.input },
+          { name: 'suffix', desc: locale.suffix },
+          { name: 'popup.root', desc: locale['popup.root'] },
+          { name: 'popup.list', desc: locale['popup.list'] },
+          { name: 'popup.listItem', desc: locale['popup.listItem'] },
+        ].filter((semantic) => !ignoreSemantics.includes(semantic.name))
+      : [
+          { name: 'root', desc: locale.root },
+          { name: 'prefix', desc: locale.prefix },
+          { name: 'content', desc: locale.content },
+          { name: 'item', desc: locale.item },
+          { name: 'itemContent', desc: locale.itemContent },
+          { name: 'itemRemove', desc: locale.itemRemove },
+          { name: 'input', desc: locale.input },
+          { name: 'placeholder', desc: locale.placeholder },
+          { name: 'suffix', desc: locale.suffix },
+          { name: 'popup.root', desc: locale['popup.root'] },
+          { name: 'popup.list', desc: locale['popup.list'] },
+          { name: 'popup.listItem', desc: locale['popup.listItem'] },
+        ].filter((semantic) => !ignoreSemantics.includes(semantic.name));
 
   return (
     <SemanticPreview
       componentName={componentName}
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'prefix', desc: locale.prefix },
-        { name: 'input', desc: locale.input },
-        { name: 'suffix', desc: locale.suffix },
-        { name: 'popup.root', desc: locale['popup.root'] },
-        { name: 'popup.list', desc: locale['popup.list'] },
-        { name: 'popup.listItem', desc: locale['popup.listItem'] },
-      ].filter((semantic) => !ignoreSemantics.includes(semantic.name))}
+      semantics={semanticList}
       height={height}
+      style={{
+        alignItems: 'flex-start',
+      }}
     >
       <Block
         component={component}
         defaultValue={defaultValue}
         options={options}
         style={style}
+        mode={mode}
+        onModeChange={singleOnly ? () => {} : setMode}
+        singleOnly={singleOnly}
         {...restProps}
       />
     </SemanticPreview>

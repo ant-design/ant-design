@@ -4302,149 +4302,33 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          id="test-id_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
-        >
-          <div
-            aria-selected="false"
-            id="test-id_list_0"
-            role="option"
-          >
-            start
-          </div>
-          <div
-            aria-selected="false"
-            id="test-id_list_1"
-            role="option"
-          >
-            end
-          </div>
-        </div>
-        <div
-          class="rc-virtual-list"
-          style="position: relative;"
-        >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-          >
-            <div>
-              <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
-              >
-                <div
-                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - start
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - end
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - top
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - bottom
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -4461,156 +4345,144 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-selected="false"
+          id="test-id_list_0"
+          role="option"
+        >
+          start
+        </div>
+        <div
+          aria-selected="false"
+          id="test-id_list_1"
+          role="option"
+        >
+          end
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - start
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - end
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - top
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - bottom
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          id="test-id_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
-        >
-          <div
-            aria-selected="false"
-            id="test-id_list_0"
-            role="option"
-          >
-            start
-          </div>
-          <div
-            aria-selected="false"
-            id="test-id_list_1"
-            role="option"
-          >
-            end
-          </div>
-        </div>
-        <div
-          class="rc-virtual-list"
-          style="position: relative;"
-        >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-          >
-            <div>
-              <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
-              >
-                <div
-                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Child - start
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Child - end
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Child - top
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Child - bottom
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -4627,146 +4499,144 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-selected="false"
+          id="test-id_list_0"
+          role="option"
+        >
+          start
+        </div>
+        <div
+          aria-selected="false"
+          id="test-id_list_1"
+          role="option"
+        >
+          end
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Child - start
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Child - end
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Child - top
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Child - bottom
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          id="test-id_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
-        >
-          <div
-            aria-label="Parent - line"
-            aria-selected="false"
-            id="test-id_list_0"
-            role="option"
-          >
-            line
-          </div>
-          <div
-            aria-label="Parent - card"
-            aria-selected="false"
-            id="test-id_list_1"
-            role="option"
-          >
-            card
-          </div>
-        </div>
-        <div
-          class="rc-virtual-list"
-          style="position: relative;"
-        >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-          >
-            <div>
-              <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
-              >
-                <div
-                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                  title="Parent - line"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - line
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Parent - card"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - card
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Parent - card edit"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - card edit
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -4783,146 +4653,134 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Parent - line"
+          aria-selected="false"
+          id="test-id_list_0"
+          role="option"
+        >
+          line
+        </div>
+        <div
+          aria-label="Parent - card"
+          aria-selected="false"
+          id="test-id_list_1"
+          role="option"
+        >
+          card
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="Parent - line"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - line
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="Parent - card"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - card
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="Parent - card edit"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - card edit
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          id="test-id_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
-        >
-          <div
-            aria-label="Child - line"
-            aria-selected="false"
-            id="test-id_list_0"
-            role="option"
-          >
-            line
-          </div>
-          <div
-            aria-label="Child - card"
-            aria-selected="false"
-            id="test-id_list_1"
-            role="option"
-          >
-            card
-          </div>
-        </div>
-        <div
-          class="rc-virtual-list"
-          style="position: relative;"
-        >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-          >
-            <div>
-              <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
-              >
-                <div
-                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                  title="Child - line"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Child - line
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Child - card"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Child - card
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-                <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Parent - card edit"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Parent - card edit
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -4939,7 +4797,101 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Child - line"
+          aria-selected="false"
+          id="test-id_list_0"
+          role="option"
+        >
+          line
+        </div>
+        <div
+          aria-label="Child - card"
+          aria-selected="false"
+          id="test-id_list_1"
+          role="option"
+        >
+          card
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="Child - line"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Child - line
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="Child - card"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Child - card
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="Parent - card edit"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Parent - card edit
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"

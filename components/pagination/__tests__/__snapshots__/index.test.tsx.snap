@@ -257,46 +257,36 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: visible;"
+          title="10 / page"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
-          </span>
-        </span>
+          10 / page
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-label="Page Size"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value=""
+        />
       </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+      <div
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -313,7 +303,7 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
             />
           </svg>
         </span>
-      </span>
+      </div>
     </div>
   </li>
 </ul>

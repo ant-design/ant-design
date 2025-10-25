@@ -818,7 +818,7 @@ describe('Transfer', () => {
         <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
       );
 
-      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(container.querySelector('.ant-select')!);
       fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
       expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
     });
@@ -833,7 +833,7 @@ describe('Transfer', () => {
         />,
       );
 
-      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(container.querySelector('.ant-select')!);
       fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
       expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
     });

@@ -6,46 +6,34 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-activedescendant="test-id_list_0"
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-activedescendant="test-id_list_0"
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -62,51 +50,39 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -123,51 +99,39 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -184,7 +148,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -195,46 +159,34 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-activedescendant="test-id_list_0"
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-activedescendant="test-id_list_0"
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -251,51 +203,39 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -312,51 +252,39 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -373,7 +301,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -384,46 +312,34 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-activedescendant="test-id_list_0"
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-activedescendant="test-id_list_0"
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -440,51 +356,39 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -501,51 +405,39 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
-      >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        />
-      </span>
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
     </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select: none;"
-      unselectable="on"
+    <div
+      class="ant-select-suffix"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down"
         role="img"
       >
         <svg
@@ -562,7 +454,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
           />
         </svg>
       </span>
-    </span>
+    </div>
   </div>
 </div>
 `;

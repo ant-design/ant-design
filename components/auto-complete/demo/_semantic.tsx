@@ -28,6 +28,7 @@ const App: React.FC = () => {
       onSearch={(text: string) => setOptions(getPanelValue(text))}
       placeholder="input here"
       ignoreSemantics={['suffix']}
+      singleOnly
     />
   );
 };

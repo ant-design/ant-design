@@ -1201,7 +1201,7 @@ describe('Table.filter', () => {
     expect(renderSelectedKeys).toEqual(filteredValue);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     fireEvent.click(container.querySelector('.ant-select-item-option')!);
     fireEvent.click(container.querySelector('.confirm-btn')!);
     expect(onChange).toHaveBeenCalled();
