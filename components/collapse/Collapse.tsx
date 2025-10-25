@@ -158,7 +158,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         style: mergedStyles.icon,
       }));
     },
-    [mergedExpandIcon, prefixCls, direction],
+    [mergedExpandIcon, prefixCls, direction, mergedStyles.icon, mergedClassNames.icon],
   );
 
   const collapseClassName = clsx(
