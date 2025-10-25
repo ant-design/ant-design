@@ -94,29 +94,34 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     customClassNames?.item ?? contextClassNames.item,
   );
 
+  const memoizedLatestIndex = React.useMemo(() => {
+    return childNodes.reduce<number>((latest, child, i) => {
+      if (child !== null && child !== undefined) {
+        return i;
+      }
+      return latest;
+    }, 0);
+  }, [childNodes]);
+
+  const mergedItemStyle: React.CSSProperties = {
+    ...contextStyles.item,
+    ...styles?.item,
+  };
+
   // Calculate latest one
-  let latestIndex = 0;
   const nodes = childNodes.map<React.ReactNode>((child, i) => {
-    if (child !== null && child !== undefined) {
-      latestIndex = i;
-    }
-
     const key = child?.key || `${itemClassName}-${i}`;
-
     return (
-      <Item
-        className={itemClassName}
-        key={key}
-        index={i}
-        split={split}
-        style={styles?.item ?? contextStyles.item}
-      >
+      <Item className={itemClassName} key={key} index={i} split={split} style={mergedItemStyle}>
         {child}
       </Item>
     );
   });
 
-  const spaceContext = React.useMemo<SpaceContextType>(() => ({ latestIndex }), [latestIndex]);
+  const spaceContext = React.useMemo<SpaceContextType>(
+    () => ({ latestIndex: memoizedLatestIndex }),
+    [memoizedLatestIndex],
+  );
 
   // =========================== Render ===========================
   if (childNodes.length === 0) {
