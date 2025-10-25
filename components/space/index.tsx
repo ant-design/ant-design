@@ -103,17 +103,16 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     }, 0);
   }, [childNodes]);
 
+  const mergedItemStyle: React.CSSProperties = {
+    ...contextStyles.item,
+    ...styles?.item,
+  };
+
   // Calculate latest one
   const nodes = childNodes.map<React.ReactNode>((child, i) => {
     const key = child?.key || `${itemClassName}-${i}`;
     return (
-      <Item
-        className={itemClassName}
-        key={key}
-        index={i}
-        split={split}
-        style={styles?.item ?? contextStyles.item}
-      >
+      <Item className={itemClassName} key={key} index={i} split={split} style={mergedItemStyle}>
         {child}
       </Item>
     );
