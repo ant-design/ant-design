@@ -1,21 +1,19 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
+import { Button, Col, Popover, Row, Select, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocalStorage from '../../../hooks/useLocalStorage';
-import { useAntdSiteConfig } from '../../../pages/index/components/util';
 import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
-import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
 import SiteContext from '../SiteContext';
+// import DelayAlert from './DelayAlert';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
 import Navigation from './Navigation';
@@ -119,18 +117,6 @@ const useStyle = createStyles(({ token, css }) => {
         padding: 0,
       },
     },
-    banner: css`
-      width: 100%;
-      text-align: center;
-      word-break: keep-all;
-      user-select: none;
-    `,
-    link: css`
-      margin-inline-start: 10px;
-      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
-        margin-inline-start: 0;
-      }
-    `,
     versionSelect: css`
       min-width: 90px;
       .rc-virtual-list {
@@ -152,7 +138,6 @@ interface HeaderState {
 // ================================= Header =================================
 const Header: React.FC = () => {
   const [, lang] = useLocale();
-  const { data: siteData } = useAntdSiteConfig();
 
   const { pkg } = useSiteData();
 
@@ -163,16 +148,12 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, bannerVisible, updateSiteConfig } = React.use(SiteContext);
+  const { direction, isMobile, updateSiteConfig } = React.use(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
 
   const { styles } = useStyle();
-
-  const [, setTopBannerDay] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
-    defaultValue: undefined,
-  });
 
   const [, setLocalType] = useLocalStorage<string>(ANT_LOCAL_TYPE_KEY, {
     defaultValue: undefined,
@@ -192,11 +173,6 @@ const Header: React.FC = () => {
 
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
-  };
-
-  const onBannerClose = () => {
-    updateSiteConfig({ bannerVisible: false });
-    setTopBannerDay(dayjs().toISOString());
   };
 
   useEffect(() => {
@@ -271,11 +247,6 @@ const Header: React.FC = () => {
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
-
-  // Get banner data from site config
-  const bannerData = siteData?.headingBanner?.[lang as 'cn' | 'en'];
-  const bannerTitle = bannerData?.title || '';
-  const bannerHref = bannerData?.href || '';
 
   let responsive: null | 'narrow' | 'crowded' = null;
   if (windowWidth < RESPONSIVE_XS) {
@@ -380,46 +351,7 @@ const Header: React.FC = () => {
           <MenuOutlined className="nav-phone-icon" />
         </Popover>
       )}
-      {isZhCN && bannerVisible && bannerTitle && bannerHref && (
-        <ConfigProvider
-          theme={{
-            token: {
-              colorInfoBg: 'linear-gradient(90deg, #84fab0, #8fd3f4)',
-              colorTextBase: '#000',
-            },
-          }}
-        >
-          <Alert
-            className={styles.banner}
-            message={
-              bannerTitle && bannerHref ? (
-                <>
-                  <span>{bannerTitle}</span>
-                  <a
-                    className={styles.link}
-                    href={bannerHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => {
-                      window.gtag?.('event', '点击', {
-                        event_category: 'top_banner',
-                        event_label: bannerHref,
-                      });
-                    }}
-                  >
-                    前往了解
-                  </a>
-                </>
-              ) : null
-            }
-            type="info"
-            banner
-            closable
-            showIcon={false}
-            onClose={onBannerClose}
-          />
-        </ConfigProvider>
-      )}
+      {/* <DelayAlert lang={lang as 'cn' | 'en'} /> */}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>
           <Logo {...sharedProps} location={location} />
