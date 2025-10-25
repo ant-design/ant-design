@@ -79,7 +79,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       default:
         return alpha < 100 ? `${hexString.slice(0, 7)},${alpha}%` : hexString;
     }
-  }, [color, format, showText, activeIndex]);
+  }, [color, format, showText, activeIndex, locale.transparent, colorTextCellPrefixCls]);
 
   // ============================= Render =============================
   const containerNode = useMemo<React.ReactNode>(
