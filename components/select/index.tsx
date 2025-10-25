@@ -110,13 +110,13 @@ export interface SelectProps<
    * @description Set to true to inform screen readers that this field must be filled before form submission.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required
    */
-  'aria-required'?: boolean;
+  'aria-required'?: React.AriaAttributes['aria-required'];
   /**
    * Indicates the entered value does not conform to the expected format.
    * @description Set to true when the select has a validation error to inform screen readers of the invalid state.
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid
    */
-  'aria-invalid'?: boolean;
+  'aria-invalid'?: React.AriaAttributes['aria-invalid'];
   /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
   /** @deprecated Please use `classNames.popup.root` instead */
