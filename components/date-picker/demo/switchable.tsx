@@ -13,8 +13,12 @@ const PickerWithType = ({
   type: PickerType;
   onChange: TimePickerProps['onChange'] | DatePickerProps['onChange'];
 }) => {
-  if (type === 'time') return <TimePicker onChange={onChange} />;
-  if (type === 'date') return <DatePicker onChange={onChange} />;
+  if (type === 'time') {
+    return <TimePicker onChange={onChange} />;
+  }
+  if (type === 'date') {
+    return <DatePicker onChange={onChange} />;
+  }
   return <DatePicker picker={type} onChange={onChange} />;
 };
 

@@ -129,7 +129,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
           fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
-  }, [screens, size]);
+  }, [screens, size, icon, children]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Avatar');
@@ -205,11 +205,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
     childrenToRender = (
       <ResizeObserver onResize={setScaleParam}>
-        <span
-          className={`${prefixCls}-string`}
-          ref={avatarChildrenRef}
-          style={{ ...childrenStyle }}
-        >
+        <span className={`${prefixCls}-string`} ref={avatarChildrenRef} style={childrenStyle}>
           {children}
         </span>
       </ResizeObserver>

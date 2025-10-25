@@ -65,8 +65,12 @@ const App: React.FC = () => {
   };
 
   const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
-    if (info.type === 'date') return dateCellRender(current);
-    if (info.type === 'month') return monthCellRender(current);
+    if (info.type === 'date') {
+      return dateCellRender(current);
+    }
+    if (info.type === 'month') {
+      return monthCellRender(current);
+    }
     return info.originNode;
   };
 

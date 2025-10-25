@@ -57,7 +57,7 @@ export default function useModeColor(
     pushOption('gradient', locale.gradientColor);
 
     return [optionList, modes];
-  }, [mode]);
+  }, [mode, locale.singleColor, locale.gradientColor]);
 
   // ======================== Post ========================
   // We need align `mode` with `color` state

@@ -55,7 +55,10 @@ export interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 
-type InternalAffixProps = AffixProps & { onTestUpdatePosition?: any };
+interface InternalAffixProps extends AffixProps {
+  onTestUpdatePosition?: () => void;
+}
+
 const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const {
     style,

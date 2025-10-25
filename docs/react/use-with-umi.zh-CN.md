@@ -249,7 +249,9 @@ export default function Page() {
       queryClient.invalidateQueries({ queryKey: ['products'] });
     },
   });
-  if (productsQuery.isLoading) return null;
+  if (productsQuery.isLoading) {
+    return null;
+  }
   return (
     <div>
       <h1 className={styles.title}>Page products</h1>

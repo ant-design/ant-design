@@ -305,7 +305,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
         (file) => !file.includes('_semantic'),
       );
 
-  const mobileDemos: [file: string, node: any][] = [];
+  const mobileDemos: [file: string, node: React.ReactElement<any>][] = [];
 
   const getTestOption = (file: string) => ({
     onlyViewport:

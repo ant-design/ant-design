@@ -2,14 +2,14 @@ import type { render } from '../../../tests/utils';
 import { fireEvent } from '../../../tests/utils';
 
 export function openPicker(wrapper: ReturnType<typeof render>, index = 0) {
-  const inputEle = wrapper.container?.querySelectorAll<HTMLInputElement>('input')?.[index]!;
+  const inputEle = wrapper.container?.querySelectorAll<HTMLInputElement>('input')?.[index];
   fireEvent.mouseDown(inputEle);
   fireEvent.focus(inputEle);
   fireEvent.click(inputEle);
 }
 
 export function closePicker(wrapper: ReturnType<typeof render>, index = 0) {
-  fireEvent.blur(wrapper.container?.querySelectorAll('input')[index]!);
+  fireEvent.blur(wrapper.container?.querySelectorAll('input')[index]);
 }
 
 export function selectCell(wrapper: ReturnType<typeof render>, text: string | number, index = 0) {
