@@ -130,7 +130,15 @@ export interface TooltipProps extends AbstractTooltipProps {
   styles?: TooltipStylesType;
 }
 
-const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+/**
+ * @internal
+ * Internal props type with hidden properties
+ */
+interface InternalTooltipProps extends TooltipProps {
+  'data-popover-inject'?: boolean;
+}
+
+const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     openClassName,
@@ -238,7 +246,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         visibleFirst: true,
       })
     );
-  }, [mergedArrow, builtinPlacements, token]);
+  }, [mergedArrow, builtinPlacements, token, mergedShowArrow, autoAdjustOverflow]);
 
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
@@ -280,7 +288,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   const rootPrefixCls = getPrefixCls();
 
-  const injectFromPopover = (props as any)['data-popover-inject'];
+  const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title
@@ -320,7 +328,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
-  const containerStyle = {
+  const containerStyle: React.CSSProperties = {
     ...mergedStyles.container,
     ...overlayInnerStyle,
     ...colorInfo.overlayStyle,
