@@ -83,10 +83,8 @@ return (
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | aria-describedby | 标识描述 Select 的元素 ID | string | - |  |
-| aria-invalid | 指示输入值不符合预期格式 | boolean | - |  |
 | aria-label | 定义 Select 的标签文本 | string | - |  |
 | aria-labelledby | 标识作为 Select 标签的元素 ID | string | - |  |
-| aria-required | 指示在表单提交前需要用户输入 | boolean | - |  |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |

@@ -82,10 +82,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | aria-describedby | Identifies the element (or elements) that describes the Select | string | - |  |
-| aria-invalid | Indicates the entered value does not conform to the format expected | boolean | - |  |
 | aria-label | Defines a string value that labels the Select | string | - |  |
 | aria-labelledby | Identifies the element (or elements) that labels the Select | string | - |  |
-| aria-required | Indicates that user input is required on the Select before form submission | boolean | - |  |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
 | autoFocus | Get focus by default | boolean | false |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
