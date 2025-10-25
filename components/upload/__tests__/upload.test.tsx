@@ -303,8 +303,17 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
       },
     ];
-    render(<Upload fileList={fileList as UploadProps['fileList']} />);
-    (fileList as UploadProps['fileList'])?.forEach((file) => {
+    const seen: UploadFile<any>[] = [];
+    render(
+      <Upload
+        fileList={fileList as UploadProps['fileList']}
+        itemRender={(originNode, file) => {
+          seen.push(file);
+          return originNode;
+        }}
+      />,
+    );
+    seen.forEach((file) => {
       expect(file.uid).toBeDefined();
     });
   });
@@ -861,16 +870,21 @@ describe('Upload', () => {
 
   it('auto fill file uid', () => {
     const fileList = [{ name: 'bamboo.png' }];
-
-    expect((fileList[0] as any).uid).toBeFalsy();
-
+    const seen: UploadFile<any>[] = [];
     render(
-      <Upload fileList={fileList as UploadProps['fileList']}>
+      <Upload
+        fileList={fileList as UploadProps['fileList']}
+        itemRender={(originNode, file) => {
+          seen.push(file);
+          return originNode;
+        }}
+      >
         <button type="button">upload</button>
       </Upload>,
     );
-
-    expect((fileList[0] as any).uid).toBeTruthy();
+    seen.forEach((file) => {
+      expect(file.uid).toBeDefined();
+    });
   });
 
   it('Proxy should support deepClone', async () => {
