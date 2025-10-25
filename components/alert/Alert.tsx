@@ -228,7 +228,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       return contextClosable.closeIcon;
     }
     return contextCloseIcon;
-  }, [closeIcon, closable, closeText, contextCloseIcon]);
+  }, [closeIcon, closable, contextClosable, closeText, contextCloseIcon]);
 
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? contextClosable;
