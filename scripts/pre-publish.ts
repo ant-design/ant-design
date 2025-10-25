@@ -6,6 +6,7 @@ import axios from 'axios';
 import chalk from 'chalk';
 import dotnev from 'dotenv';
 import Spinnies from 'spinnies';
+import { confirm } from '@inquirer/prompts';
 
 import checkRepo from './check-repo';
 
@@ -140,9 +141,20 @@ const runPrePublish = async () => {
   }
 
   if (data.state === 'pending') {
-    showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
+    showMessage(chalk.bgYellowBright('远程分支 CI 还在执行中'), 'non-spinnable');
     showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-    process.exit(1);
+
+    const shouldSkip = await confirm({
+      message: '是否要跳过 CI 检查继续发布？',
+      default: false,
+    });
+
+    if (!shouldSkip) {
+      showMessage(chalk.bgRedBright('已取消发布，请等待 CI 完成后再试'), 'fail');
+      process.exit(1);
+    }
+
+    showMessage(chalk.bgYellowBright('用户选择跳过 CI 检查，继续发布流程'), 'succeed');
   }
 
   if (data.state !== 'success') {
