@@ -119,7 +119,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const spaceContext = React.useMemo<SpaceContextType>(
     () => ({ latestIndex: latestIndexRef.current }),
-    [], // ✅ 永远不变
+    [latestIndexRef.current],
   );
 
   // =========================== Render ===========================
