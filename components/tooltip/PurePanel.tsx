@@ -34,7 +34,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   // Color
   const colorInfo = parseColor(prefixCls, color);
 
-  const arrowContentStyle = colorInfo.arrowStyle;
+  const arrowContentStyle: React.CSSProperties = colorInfo.arrowStyle;
 
   const innerStyles = React.useMemo(() => {
     const mergedStyle: React.CSSProperties = {
