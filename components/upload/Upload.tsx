@@ -106,6 +106,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   React.useMemo(() => {
     (fileList || []).forEach((file, index) => {
       if (!file.uid && !Object.isFrozen(file)) {
+        // eslint-disable-next-line react-hooks/purity
         file.uid = `__AUTO__${Date.now()}_${index}__`;
       }
     });
