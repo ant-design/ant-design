@@ -3,6 +3,10 @@ import { Form, Select, Space, Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
+/**
+ * Sample fruit options for demonstration purposes.
+ * Used across multiple examples to show different ARIA attribute patterns.
+ */
 const fruitOptions = [
   { value: 'apple', label: 'Apple' },
   { value: 'banana', label: 'Banana' },
