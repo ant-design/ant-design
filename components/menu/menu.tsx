@@ -232,6 +232,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       direction,
       _internalDisableMenuItemTitleTooltip,
       theme,
+      mergedMode,
       mergedClassNames,
       mergedStyles,
     ],
