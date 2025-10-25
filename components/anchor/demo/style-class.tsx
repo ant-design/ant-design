@@ -13,7 +13,8 @@ const stylesFn: AnchorProps['styles'] = (info) => {
   if (info.props.direction === 'vertical') {
     return {
       root: {
-        backgroundColor: '#fffbe6',
+        backgroundColor: 'rgba(255,251,230,0.5)',
+        height: '100vh',
       },
     } satisfies AnchorProps['styles'];
   }
@@ -38,17 +39,19 @@ const items: NonNullable<AnchorProps['items']> = [
   },
 ];
 
-const App: React.FC = () => (
-  <Row>
-    <Col span={16}>
-      <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.02)' }} />
-      <div id="part-2" style={{ height: '100vh', background: 'rgba(0,255,0,0.02)' }} />
-      <div id="part-3" style={{ height: '100vh', background: 'rgba(0,0,255,0.02)' }} />
-    </Col>
-    <Col span={8}>
-      <Anchor replace items={items} styles={stylesFn} classNames={classNamesObject} />
-    </Col>
-  </Row>
-);
+const App: React.FC = () => {
+  return (
+    <Row>
+      <Col span={16}>
+        <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.08)' }} />
+        <div id="part-2" style={{ height: '100vh', background: 'rgba(0,255,0,0.08)' }} />
+        <div id="part-3" style={{ height: '100vh', background: 'rgba(0,0,255,0.08)' }} />
+      </Col>
+      <Col span={8}>
+        <Anchor replace items={items} styles={stylesFn} classNames={classNamesObject} />
+      </Col>
+    </Row>
+  );
+};
 
 export default App;
