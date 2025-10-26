@@ -2,9 +2,9 @@ import type { FC } from 'react';
 import React, { useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
 import type { Color } from '@rc-component/color-picker';
-import useForceUpdate from 'antd/es/_util/hooks/useForceUpdate';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
+import useForceUpdate from '../../../_util/hooks/useForceUpdate';
 import Segmented from '../../../segmented';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
