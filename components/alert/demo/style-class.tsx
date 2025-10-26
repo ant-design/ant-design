@@ -53,7 +53,7 @@ const App: React.FC = () => {
     <Flex vertical gap="middle">
       <Alert
         {...alertSharedProps}
-        message="Object styles"
+        title="Object styles"
         type="info"
         styles={{
           icon: {
@@ -65,8 +65,7 @@ const App: React.FC = () => {
         }}
         action={<Button size="small">Action</Button>}
       />
-
-      <Alert {...alertSharedProps} message="Function styles" type="success" styles={styleFn} />
+      <Alert {...alertSharedProps} title="Function styles" type="success" styles={styleFn} />
     </Flex>
   );
 };
