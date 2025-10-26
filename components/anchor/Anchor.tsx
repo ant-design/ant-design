@@ -246,7 +246,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     );
 
     setCurrentActiveLink(currentActiveLink);
-  }, [dependencyListItem, targetOffset, offsetTop]);
+  }, [links, targetOffset, offsetTop, bounds]);
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
     (link) => {
