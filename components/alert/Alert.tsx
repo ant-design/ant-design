@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 
 import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import isNonNullable from '../_util/isValidNode';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

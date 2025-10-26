@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
-import isNonNullable from '../_util/isNonNullable';
+import isNonNullable from '../_util/isValidNode';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';

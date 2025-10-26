@@ -1,4 +1,4 @@
-import isNonNullable from './isNonNullable';
+import isNonNullable from './isValidNode';
 
 export function isWindow(obj: any): obj is Window {
   return isNonNullable(obj) && obj === obj.window;
