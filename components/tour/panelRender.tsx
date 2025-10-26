@@ -4,7 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import isValidNode from '../_util/isValidNode';
+import isNonNullable from '../_util/isValidNode';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -80,7 +80,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     nextButtonProps?.onClick?.();
   };
 
-  const headerNode = isValidNode(title) ? (
+  const headerNode = isNonNullable(title) ? (
     <div className={clsx(`${prefixCls}-header`, classNames.header)} style={styles.header}>
       <div className={clsx(`${prefixCls}-title`, classNames.title)} style={styles.title}>
         {title}
@@ -88,7 +88,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     </div>
   ) : null;
 
-  const descriptionNode = isValidNode(description) ? (
+  const descriptionNode = isNonNullable(description) ? (
     <div
       className={clsx(`${prefixCls}-description`, classNames.description)}
       style={styles.description}
@@ -97,7 +97,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     </div>
   ) : null;
 
-  const coverNode = isValidNode(cover) ? (
+  const coverNode = isNonNullable(cover) ? (
     <div className={clsx(`${prefixCls}-cover`, classNames.cover)} style={styles.cover}>
       {cover}
     </div>

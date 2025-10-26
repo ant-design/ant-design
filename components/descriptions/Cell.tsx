@@ -8,9 +8,9 @@ import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
-function notEmpty(val: any) {
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
   return val !== undefined && val !== null;
-}
+};
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -76,8 +76,10 @@ const Cell: React.FC<CellProps> = (props) => {
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) && <span style={{ ...labelStyle, ...mergedStyles.label }}>{label}</span>}
-        {notEmpty(content) && (
+        {isNonNullable(label) && (
+          <span style={{ ...labelStyle, ...mergedStyles.label }}>{label}</span>
+        )}
+        {isNonNullable(content) && (
           <span style={{ ...contentStyle, ...mergedStyles.content }}>{content}</span>
         )}
       </Component>
