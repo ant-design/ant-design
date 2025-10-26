@@ -79,7 +79,7 @@ jobs:
           mkdir persist-coverage
           mv coverage/coverage-final.json persist-coverage/react-test-${{matrix.module}}-${{strategy.job-index}}.json
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         name: upload coverages
         with:
           name: coverage-artifacts-${{ matrix.module }}-${{ strategy.job-index }}
@@ -182,7 +182,7 @@ jobs:
         run: bun run test:dekko
 
       # Artifact build files
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           name: build artifacts
