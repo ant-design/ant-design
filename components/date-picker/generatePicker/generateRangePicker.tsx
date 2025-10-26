@@ -7,7 +7,7 @@ import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
-import { useZIndex } from '../../_util/hooks/useZIndex';
+import { useZIndex } from '../../_util/hooks';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';

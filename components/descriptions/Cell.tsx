@@ -3,8 +3,8 @@ import type { JSX } from 'react';
 import { clsx } from 'clsx';
 
 import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 

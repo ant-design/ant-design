@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type { MaskType } from '../_util/hooks/useMergedMask';
+import type { MaskType } from '../_util/hooks';
 import type { AnyObject } from '../_util/type';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';

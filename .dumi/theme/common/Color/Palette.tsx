@@ -73,10 +73,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
         key={i}
         ref={(node) => {
           if (node) {
-            colorNodesRef.current[`${name}-${i}`] = node;
+            colorNodesRef.current[`${name}-${i + 1}`] = node;
           }
         }}
-        className={`main-color-item palette-${name}-${i}`}
+        className={`main-color-item palette-${name}-${i + 1}`}
         style={{
           color: (name === 'yellow' ? i > 6 : i > 5) ? firstColor : lastColor,
           fontWeight: i === 6 ? 'bold' : 'normal',

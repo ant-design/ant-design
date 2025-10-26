@@ -4,8 +4,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import useOrientation from '../_util/hooks/useOrientation';
+import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

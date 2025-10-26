@@ -4,7 +4,7 @@ import useId from '@rc-component/util/lib/hooks/useId';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import useOrientation from '../_util/hooks/useOrientation';
+import { useOrientation } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';

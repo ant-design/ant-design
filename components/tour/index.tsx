@@ -3,8 +3,7 @@ import RCTour from '@rc-component/tour';
 import type { TourProps as RcTourProps } from '@rc-component/tour';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import getPlacements from '../_util/placements';
 import zIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';

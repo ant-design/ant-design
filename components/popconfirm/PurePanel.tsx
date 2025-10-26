@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import Button from '../button';
 import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';

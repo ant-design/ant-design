@@ -1,7 +1,7 @@
 import { isValidElement, useMemo } from 'react';
 
 import type { PreviewConfig } from '..';
-import type { MaskType } from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks';
 import { devUseWarning } from '../../_util/warning';
 import type { GroupPreviewConfig } from '../PreviewGroup';
 

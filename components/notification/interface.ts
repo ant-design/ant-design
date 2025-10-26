@@ -1,7 +1,6 @@
 import type * as React from 'react';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
