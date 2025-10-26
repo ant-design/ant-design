@@ -3,10 +3,8 @@ import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
 import { clsx } from 'clsx';
 
 import type { DrawerProps } from '.';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import type { ClosableType } from '../_util/hooks/useClosable';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 

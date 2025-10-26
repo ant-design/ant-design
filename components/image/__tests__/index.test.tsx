@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from 'antd';
 
 import Image from '..';
-import type { MaskType } from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Space from '..';
-import type { Orientation } from '../../_util/hooks/useOrientation';
+import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';

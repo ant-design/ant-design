@@ -1,9 +1,12 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
-import type { MaskType } from '../_util/hooks/useMergedMask';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type {
+  ClosableType,
+  MaskType,
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';

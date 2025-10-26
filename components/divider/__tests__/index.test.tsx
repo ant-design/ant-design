@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ConfigProvider } from 'antd';
 
 import Divider from '..';
-import type { Orientation } from '../../_util/hooks/useOrientation';
+import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import type { TitlePlacement } from '../index';

@@ -1,7 +1,6 @@
 import type * as React from 'react';
 
-import type { Orientation } from '../_util/hooks/useOrientation';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';

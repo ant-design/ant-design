@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import useOrientation from '../_util/hooks/useOrientation';
-import type { Orientation } from '../_util/hooks/useOrientation';
+import { useMergeSemantic, useOrientation } from '../_util/hooks';
+import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';

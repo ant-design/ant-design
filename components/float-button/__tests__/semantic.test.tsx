@@ -3,7 +3,7 @@ import type { GetProp } from 'antd/es/_util/type';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps, FloatButtonProps } from '..';
-import type { SemanticClassNames } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
 import type { FloatButtonSemanticName } from '../FloatButton';
 

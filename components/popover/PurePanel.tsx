@@ -9,8 +9,8 @@ import type {
   PopoverStylesType,
 } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 

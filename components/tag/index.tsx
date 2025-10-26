@@ -3,10 +3,8 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
-import type { ClosableType } from '../_util/hooks/useClosable';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

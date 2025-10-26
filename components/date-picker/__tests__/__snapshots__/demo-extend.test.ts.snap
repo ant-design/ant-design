@@ -88081,11 +88081,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
 </div>
 `;
 
-exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
 <div

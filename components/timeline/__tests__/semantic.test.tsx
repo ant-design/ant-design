@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TimeLine from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
 
 type StepsSemanticName =
