@@ -45,7 +45,7 @@ const stylesFn: MenuProps['styles'] = (info) => {
 const App: React.FC = () => {
   const { styles: classNames } = useStyle();
 
-  const shareProps = {
+  const shareProps: MenuProps = {
     classNames,
     items,
   };
