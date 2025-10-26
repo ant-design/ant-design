@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import useClosable from '../_util/hooks/useClosable';
+import { useClosable } from '../_util/hooks';
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
