@@ -12,6 +12,7 @@ import { clsx } from 'clsx';
 
 import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import isNonNullable from '../_util/isValidNode';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -226,7 +227,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       return closable;
     }
     // should be true when closeIcon is 0 or ''
-    if (closeIcon !== false && closeIcon !== null && closeIcon !== undefined) {
+    if (closeIcon !== false && isNonNullable(closeIcon)) {
       return true;
     }
 

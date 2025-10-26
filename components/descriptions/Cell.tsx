@@ -5,12 +5,9 @@ import { clsx } from 'clsx';
 import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import isNonNullable from '../_util/isValidNode';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
-
-const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
-  return val !== undefined && val !== null;
-};
 
 export interface CellProps {
   itemPrefixCls: string;

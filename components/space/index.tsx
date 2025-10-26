@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -163,7 +164,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const memoizedSpaceContext = React.useMemo<SpaceContextType>(() => {
     const calcLatestIndex = childNodes.reduce<number>(
-      (latest, child, i) => (child !== null && child !== undefined ? i : latest),
+      (latest, child, i) => (isNonNullable(child) ? i : latest),
       0,
     );
     return { latestIndex: calcLatestIndex };
