@@ -94,7 +94,7 @@ const PanelPicker: FC = () => {
   const activeColorHex = activeColor?.toHexString();
   useLayoutEffect(() => {
     setPickerColor(activeColor);
-  }, [forceSync, activeColorHex]);
+  }, [forceSync, activeColor, activeColorHex]);
 
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
