@@ -3,8 +3,8 @@ import { omit, toArray, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -172,7 +172,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return ['default', 'outlined'];
-  }, [type, color, variant, danger, button?.variant, button?.color]);
+  }, [color, variant, type, danger, button?.color, button?.variant, mergedType]);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (ghost && parsedVariant === 'solid') {

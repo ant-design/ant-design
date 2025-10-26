@@ -9,12 +9,13 @@ import type {
 } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
-import useMergeSemantic, {
+import {
   mergeClassNames,
   mergeStyles,
   resolveStyleOrClass,
-} from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+  useMergeSemantic,
+} from '../_util/hooks';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';

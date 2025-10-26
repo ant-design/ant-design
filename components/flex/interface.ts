@@ -1,6 +1,6 @@
 import type React from 'react';
 
-import type { Orientation } from '../_util/hooks/useOrientation';
+import type { Orientation } from '../_util/hooks';
 import type { AnyObject, CustomComponent } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
 

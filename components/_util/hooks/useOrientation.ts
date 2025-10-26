@@ -6,11 +6,11 @@ const isValidOrientation = (orientation?: Orientation) => {
   return orientation === 'horizontal' || orientation === 'vertical';
 };
 
-export default function useOrientation(
+export const useOrientation = (
   orientation?: Orientation,
   vertical?: boolean,
   legacyDirection?: Orientation,
-): [Orientation, boolean] {
+): [Orientation, boolean] => {
   return useMemo(() => {
     const validOrientation = isValidOrientation(orientation);
     let mergedOrientation: Orientation;
@@ -25,4 +25,4 @@ export default function useOrientation(
 
     return [mergedOrientation, mergedOrientation === 'vertical'];
   }, [legacyDirection, orientation, vertical]);
-}
+};

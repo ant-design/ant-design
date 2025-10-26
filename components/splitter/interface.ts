@@ -1,10 +1,10 @@
 import type {
+  Orientation,
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
-import type { Orientation } from '../_util/hooks/useOrientation';
+} from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================

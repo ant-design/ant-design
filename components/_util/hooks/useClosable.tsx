@@ -15,15 +15,15 @@ export type ContextClosable<T extends BaseContextClosable = any> = Partial<
   Pick<T, 'closable' | 'closeIcon'>
 >;
 
-export function pickClosable<T extends BaseContextClosable>(
+export const pickClosable = <T extends BaseContextClosable>(
   context?: ContextClosable<T>,
-): ContextClosable<T> | undefined {
+): ContextClosable<T> | undefined => {
   if (!context) {
     return undefined;
   }
   const { closable, closeIcon } = context;
   return { closable, closeIcon };
-}
+};
 
 /** Collection contains the all the props related with closable. e.g. `closable`, `closeIcon` */
 interface ClosableCollection {
@@ -46,10 +46,10 @@ type DataAttributes = {
   [key: `data-${string}`]: string;
 };
 
-function computeClosableConfig(
+const computeClosableConfig = (
   closable?: ClosableType,
   closeIcon?: ReactNode,
-): ClosableType | boolean | null {
+): ClosableType | boolean | null => {
   if (!closable && (closable === false || closeIcon === false || closeIcon === null)) {
     return false;
   }
@@ -69,27 +69,35 @@ function computeClosableConfig(
     };
   }
   return closableConfig;
-}
+};
 
-function mergeClosableConfigs(
+const mergeClosableConfigs = (
   propConfig: ReturnType<typeof computeClosableConfig>,
   contextConfig: ReturnType<typeof computeClosableConfig>,
   fallbackConfig: ClosableCollection & { closeIconRender?: (icon: ReactNode) => ReactNode },
-) {
-  if (propConfig === false) return false;
-  if (propConfig) return extendsObject(fallbackConfig, contextConfig, propConfig);
+) => {
+  if (propConfig === false) {
+    return false;
+  }
+  if (propConfig) {
+    return extendsObject(fallbackConfig, contextConfig, propConfig);
+  }
 
-  if (contextConfig === false) return false;
-  if (contextConfig) return extendsObject(fallbackConfig, contextConfig);
+  if (contextConfig === false) {
+    return false;
+  }
+  if (contextConfig) {
+    return extendsObject(fallbackConfig, contextConfig);
+  }
 
   return fallbackConfig.closable ? fallbackConfig : false;
-}
+};
 
-function computeCloseIcon(
+const computeCloseIcon = (
   mergedConfig: ClosableCollection,
   fallbackCloseCollection: FallbackCloseCollection,
   closeLabel: string,
-): [ReactNode, React.AriaAttributes & DataAttributes] {
+): [ReactNode, React.AriaAttributes & DataAttributes] => {
   const { closeIconRender } = fallbackCloseCollection;
   const { closeIcon, ...restConfig } = mergedConfig;
 
@@ -115,9 +123,9 @@ function computeCloseIcon(
   }
 
   return [finalCloseIcon, ariaOrDataProps];
-}
+};
 
-export function computeClosable(
+export const computeClosable = (
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
@@ -127,7 +135,7 @@ export function computeClosable(
   closeIcon: React.ReactNode,
   closeBtnIsDisabled: boolean,
   ariaOrDataProps: React.AriaAttributes & DataAttributes,
-] {
+] => {
   const propConfig = computeClosableConfig(
     propCloseCollection?.closable,
     propCloseCollection?.closeIcon,
@@ -151,13 +159,13 @@ export function computeClosable(
 
   const [closeIcon, ariaProps] = computeCloseIcon(mergedConfig, mergedFallback, closeLabel);
   return [true, closeIcon, closeBtnIsDisabled, ariaProps];
-}
+};
 
-function useClosable(
+export const useClosable = (
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
-) {
+) => {
   const [contextLocale] = useLocale('global', defaultLocale.global);
   return React.useMemo(() => {
     return computeClosable(
@@ -170,6 +178,4 @@ function useClosable(
       contextLocale.close,
     );
   }, [propCloseCollection, contextCloseCollection, fallbackCloseCollection, contextLocale.close]);
-}
-
-export default useClosable;
+};

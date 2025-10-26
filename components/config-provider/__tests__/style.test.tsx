@@ -2,7 +2,7 @@ import React from 'react';
 import Masonry from 'antd/es/masonry';
 
 import ConfigProvider from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { fireEvent, render } from '../../../tests/utils';
 import Alert from '../../alert';
 import Anchor from '../../anchor';

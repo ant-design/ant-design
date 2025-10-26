@@ -2,7 +2,7 @@ import React from 'react';
 
 import Skeleton from '..';
 import type { SkeletonProps } from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
 
 type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';

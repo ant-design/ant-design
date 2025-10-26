@@ -5,7 +5,7 @@ import type { FormProviderProps as RcFormProviderProps } from '@rc-component/for
 import type { Meta } from '@rc-component/form/lib/interface';
 import { omit } from '@rc-component/util';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, FormLayout, FormSemanticName, RequiredMark } from './Form';

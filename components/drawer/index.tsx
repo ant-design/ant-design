@@ -7,10 +7,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import type { MaskType } from '../_util/hooks/useMergedMask';
-import useMergedMask from '../_util/hooks/useMergedMask';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useMergedMask, useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { MaskType } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';

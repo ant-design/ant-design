@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import type { DirectionType } from '../config-provider';
 import type { SemanticName, SubMenuSemanticName } from './menu';
 

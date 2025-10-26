@@ -50,9 +50,9 @@ export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   ImagePreview: 1,
 };
 
-function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndexContainer {
+const isContainerType = (type: ZIndexContainer | ZIndexConsumer): type is ZIndexContainer => {
   return type in containerBaseZIndexOffset;
-}
+};
 
 type ReturnResult = [zIndex: number | undefined, contextZIndex: number];
 
