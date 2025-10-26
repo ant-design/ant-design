@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import isValidNode from '../_util/isValidNode';
+import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -412,7 +412,7 @@ const InternalCompoundedButton = React.forwardRef<
       />
     );
 
-  const contentNode = isValidNode(children)
+  const contentNode = isNonNullable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,
