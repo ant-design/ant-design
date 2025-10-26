@@ -7,9 +7,10 @@ const execCopy = (text: string, isHtmlFormat: boolean) => {
     event.stopPropagation();
     event.preventDefault();
     event.clipboardData?.clearData();
-    event.clipboardData?.setData('text/plain', text);
     if (isHtmlFormat) {
       event.clipboardData?.setData('text/html', text);
+    } else {
+      event.clipboardData?.setData('text/plain', text);
     }
     copySuccess = true;
   };
