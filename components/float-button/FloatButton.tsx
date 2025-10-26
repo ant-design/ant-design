@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';

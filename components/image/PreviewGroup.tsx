@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import RcImage from 'rc-image';
 import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';

@@ -4,7 +4,7 @@ import RcColorPicker from '@rc-component/color-picker';
 import type { Color } from '@rc-component/color-picker';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
-import useForceUpdate from '../../../_util/hooks/useForceUpdate';
+import { useForceUpdate } from '../../../_util/hooks';
 import Segmented from '../../../segmented';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';

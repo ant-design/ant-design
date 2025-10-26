@@ -5,8 +5,7 @@ import Dialog from 'rc-dialog';
 import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { pickClosable, useClosable, useZIndex } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';

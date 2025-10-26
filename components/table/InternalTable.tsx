@@ -5,7 +5,7 @@ import type { Reference as RcReference, TableProps as RcTableProps } from 'rc-ta
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 
-import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
+import { useProxyImperativeHandle } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';

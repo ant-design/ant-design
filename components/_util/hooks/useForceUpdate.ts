@@ -1,7 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 
-const useForceUpdate = () => {
+export const useForceUpdate = () => {
   return React.useReducer((ori) => ori + 1, 0);
 };
-
-export default useForceUpdate;

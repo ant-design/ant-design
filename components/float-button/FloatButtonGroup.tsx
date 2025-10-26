@@ -6,7 +6,7 @@ import CSSMotion from 'rc-motion';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';

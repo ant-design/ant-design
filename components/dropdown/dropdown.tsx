@@ -9,7 +9,7 @@ import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';

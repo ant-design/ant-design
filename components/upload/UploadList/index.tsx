@@ -8,7 +8,7 @@ import type { CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import omit from 'rc-util/lib/omit';
 
-import useForceUpdate from '../../_util/hooks/useForceUpdate';
+import { useForceUpdate } from '../../_util/hooks';
 import initCollapseMotion from '../../_util/motion';
 import { cloneElement } from '../../_util/reactNode';
 import type { ButtonProps } from '../../button';

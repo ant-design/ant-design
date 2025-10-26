@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
