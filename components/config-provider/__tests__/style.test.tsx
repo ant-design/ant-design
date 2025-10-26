@@ -987,12 +987,8 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Alert style works', () => {
     const { container } = render(
-      <ConfigProvider
-        alert={{
-          style: { color: 'rgb(255, 0, 0)' },
-        }}
-      >
-        <Alert style={{ fontSize: '16px' }} message="Test Message" />
+      <ConfigProvider alert={{ style: { color: 'rgb(255, 0, 0)' } }}>
+        <Alert style={{ fontSize: '16px' }} title="Test Message" />
       </ConfigProvider>,
     );
 
