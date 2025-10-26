@@ -75,7 +75,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       rootClassName: mergedRootClassName,
       zIndex,
     };
-  }, [preview]);
+  }, [preview, rootPrefixCls, zIndex, hashId, cssVarCls, rootCls]);
 
   return wrapCSSVar(
     <RcImage.PreviewGroup
