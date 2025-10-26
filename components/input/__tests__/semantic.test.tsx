@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+
 import type { InputProps } from '..';
 import Input from '..';
 
@@ -163,13 +164,18 @@ describe('Input.Semantic', () => {
     expect(separator).toHaveClass(testClassNames.separator);
     expect(separator).toHaveStyle(testStyles.separator);
   });
+
   it('should apply dynamic classNames and styles from props function', () => {
     const classNames: InputProps['classNames'] = (info) => {
-      if (info.props.disabled) return { root: 'input-disabled' };
+      if (info.props.disabled) {
+        return { root: 'input-disabled' };
+      }
       return { root: 'input-enabled' };
     };
     const styles: InputProps['styles'] = (info) => {
-      if (info.props.size === 'large') return { root: { background: 'red' } };
+      if (info.props.size === 'large') {
+        return { root: { background: 'red' } };
+      }
       return { root: { background: 'blue' } };
     };
 
