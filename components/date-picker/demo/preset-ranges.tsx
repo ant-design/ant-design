@@ -13,6 +13,7 @@ const onChange = (date: Dayjs) => {
     console.log('Clear');
   }
 };
+
 const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) => {
   if (dates) {
     console.log('From: ', dates[0], ', to: ', dates[1]);
