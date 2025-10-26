@@ -11,7 +11,7 @@ dayjs.extend(customParseFormat);
 const { RangePicker } = DatePicker;
 
 const range = (start: number, end: number) => {
-  const result = [];
+  const result: number[] = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
