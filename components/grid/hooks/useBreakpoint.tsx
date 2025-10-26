@@ -13,7 +13,7 @@ function useBreakpoint(
   defaultScreens: ScreenMap | null = {} as ScreenMap,
 ): ScreenMap | null {
   const screensRef = useRef<ScreenMap | null>(defaultScreens);
-  const forceUpdate = useForceUpdate();
+  const [, forceUpdate] = useForceUpdate();
   const responsiveObserver = useResponsiveObserver();
 
   useLayoutEffect(() => {

@@ -51,7 +51,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     itemRender,
     disabled,
   } = props;
-  const forceUpdate = useForceUpdate();
+
+  const [, forceUpdate] = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
   const isPictureCardOrCirle = ['picture-card', 'picture-circle'].includes(listType);
 
