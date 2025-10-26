@@ -7,6 +7,7 @@ import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isValidNode';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
@@ -107,11 +108,9 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
 
   const ignoreCount = count === null || (isZero && !showZero);
 
-  const hasStatus =
-    ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&
-    ignoreCount;
+  const hasStatus = (isNonNullable(status) || isNonNullable(color)) && ignoreCount;
 
-  const hasStatusValue = (status !== null && status !== undefined) || !isZero;
+  const hasStatusValue = isNonNullable(status) || !isZero;
 
   const showAsDot = dot && !isZero;
 
