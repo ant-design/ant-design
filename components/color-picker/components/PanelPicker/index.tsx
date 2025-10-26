@@ -91,10 +91,9 @@ const PanelPicker: FC = () => {
 
   const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
 
-  const activeColorHex = activeColor?.toHexString();
   useLayoutEffect(() => {
     setPickerColor(activeColor);
-  }, [forceSync, activeColor, activeColorHex]);
+  }, [forceSync, activeColor?.toHexString()]);
 
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
