@@ -6,7 +6,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
 import type { FormItemProps } from '.';
-import isNonNullable from '../../_util/isValidNode';
+import isNonNullable from '../../_util/isNonNullable';
 import { Row } from '../../grid';
 import type { ReportMetaChange } from '../context';
 import { FormContext, NoStyleItemContext } from '../context';
