@@ -10,7 +10,7 @@ import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
+import { useMultipleSelect } from '../../_util/hooks';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';

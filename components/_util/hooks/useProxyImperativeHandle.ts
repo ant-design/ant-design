@@ -22,10 +22,13 @@ function fillProxy(
   return element;
 }
 
-export default function useProxyImperativeHandle<
+export const useProxyImperativeHandle = <
   NativeELementType extends HTMLElement,
   ReturnRefType extends { nativeElement: NativeELementType },
->(ref: Ref<any> | undefined, init: () => ReturnRefType) {
+>(
+  ref: Ref<any> | undefined,
+  init: () => ReturnRefType,
+) => {
   return useImperativeHandle(ref, () => {
     const refObj = init();
     const { nativeElement } = refObj;
@@ -45,4 +48,4 @@ export default function useProxyImperativeHandle<
     // Fallback of IE
     return fillProxy(nativeElement, refObj);
   });
-}
+};

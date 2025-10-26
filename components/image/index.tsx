@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import RcImage from 'rc-image';
 import type { ImagePreviewType, ImageProps as RcImageProps } from 'rc-image';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

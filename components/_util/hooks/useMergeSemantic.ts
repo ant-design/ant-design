@@ -84,18 +84,17 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<ClassNamesType extends object, StylesType extends object>(
+export const useMergeSemantic = <ClassNamesType extends object, StylesType extends object>(
   classNamesList: (ClassNamesType | undefined)[],
   stylesList: (StylesType | undefined)[],
   schema?: SemanticSchema,
-) {
+) => {
   const mergedClassNames = useSemanticClassNames(schema, ...classNamesList) as ClassNamesType;
   const mergedStyles = useSemanticStyles(...stylesList) as StylesType;
-
   return React.useMemo(() => {
     return [
       fillObjectBySchema(mergedClassNames, schema!) as ClassNamesType,
       fillObjectBySchema(mergedStyles, schema!) as StylesType,
     ] as const;
   }, [mergedClassNames, mergedStyles, schema]);
-}
+};

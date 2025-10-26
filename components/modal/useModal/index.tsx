@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import usePatchElement from '../../_util/hooks/usePatchElement';
+import { usePatchElement } from '../../_util/hooks';
 import type { ModalFunc, ModalStaticFunctions } from '../confirm';
 import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';
 import destroyFns from '../destroyFns';
