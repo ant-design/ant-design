@@ -110,11 +110,11 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   });
 
   const memoizedSpaceContext = React.useMemo<SpaceContextType>(() => {
-    const calcuLatestIndex = childNodes.reduce<number>(
+    const calcLatestIndex = childNodes.reduce<number>(
       (latest, child, i) => (child !== null && child !== undefined ? i : latest),
       0,
     );
-    return { latestIndex: calcuLatestIndex };
+    return { latestIndex: calcLatestIndex };
   }, [childNodes]);
 
   // =========================== Render ===========================
