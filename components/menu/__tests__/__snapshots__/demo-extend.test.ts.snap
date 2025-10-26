@@ -6589,334 +6589,14 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root"
-    data-menu-list="true"
-    role="menu"
-    tabindex="0"
-  >
-    <li
-      class="ant-menu-submenu ant-menu-submenu-inline"
-      role="none"
-    >
-      <div
-        aria-controls="rc-menu-uuid-SubMenu-popup"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-SubMenu"
-        role="menuitem"
-        style="padding-left: 24px;"
-        tabindex="-1"
-      >
-        <span
-          class="ant-menu-title-content"
-        >
-          Navigation One
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-      <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          class="ant-menu ant-menu-sub ant-menu-inline"
-          data-menu-list="true"
-          id="rc-menu-uuid-SubMenu-popup"
-          role="menu"
-        >
-          <li
-            class="ant-menu-item-group"
-            role="presentation"
-          >
-            <div
-              class="ant-menu-item-group-title demo-submenu-title"
-              role="presentation"
-              title="Item 1"
-            >
-              Item 1
-            </div>
-            <ul
-              class="ant-menu-item-group-list demo-submenu-list"
-              role="group"
-            >
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-1"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Option 1
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-2"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Option 2
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li
-      aria-describedby="test-id"
-      class="ant-menu-item demo-menu-item ant-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-mail"
-      role="menuitem"
-      style="padding-left: 24px;"
-      tabindex="-1"
-    >
-      <span
-        class="ant-menu-title-content demo-menu-item-content"
-      >
-        Navigation Two
-      </span>
-    </li>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      />
-    </div>
-  </ul>
-  <div
-    aria-hidden="true"
-    style="display: none;"
-  />
-  <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--inline"
-    data-menu-list="true"
-    role="menu"
-    tabindex="0"
-  >
-    <li
-      class="ant-menu-submenu ant-menu-submenu-inline"
-      role="none"
-    >
-      <div
-        aria-controls="rc-menu-uuid-SubMenu-popup"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-SubMenu"
-        role="menuitem"
-        style="padding-left: 24px;"
-        tabindex="-1"
-      >
-        <span
-          class="ant-menu-title-content"
-        >
-          Navigation One
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
-      <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--inline"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          class="ant-menu ant-menu-sub ant-menu-inline"
-          data-menu-list="true"
-          id="rc-menu-uuid-SubMenu-popup"
-          role="menu"
-        >
-          <li
-            class="ant-menu-item-group"
-            role="presentation"
-          >
-            <div
-              class="ant-menu-item-group-title"
-              role="presentation"
-              title="Item 1"
-            >
-              Item 1
-            </div>
-            <ul
-              class="ant-menu-item-group-list"
-              role="group"
-            >
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-1"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Option 1
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-2"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Option 2
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li
-      aria-describedby="test-id"
-      class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-mail"
-      role="menuitem"
-      style="padding-left: 24px;"
-      tabindex="-1"
-    >
-      <span
-        class="ant-menu-title-content"
-      >
-        Navigation Two
-      </span>
-    </li>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      />
-    </div>
-  </ul>
-  <div
-    aria-hidden="true"
-    style="display: none;"
-  />
-  <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
     data-menu-list="true"
     role="menu"
     style="border: 1px solid rgb(240, 240, 240); padding: 8px; border-radius: 4px;"
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-inline"
+      class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
     >
       <div
@@ -6926,7 +6606,6 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
         class="ant-menu-submenu-title"
         data-menu-id="rc-menu-uuid-SubMenu"
         role="menuitem"
-        style="padding-left: 24px;"
         tabindex="-1"
       >
         <span
@@ -6939,11 +6618,11 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1 ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
-          class="ant-menu ant-menu-sub ant-menu-inline"
+          class="ant-menu ant-menu-sub ant-menu-vertical"
           data-menu-list="true"
           id="rc-menu-uuid-SubMenu-popup"
           role="menu"
@@ -6969,7 +6648,6 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
-                style="padding-left: 48px;"
                 tabindex="-1"
               >
                 <span
@@ -7001,7 +6679,6 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
-                style="padding-left: 48px;"
                 tabindex="-1"
               >
                 <span
@@ -7035,10 +6712,10 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     </li>
     <li
       aria-describedby="test-id"
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
-      style="padding-left: 24px; color: rgb(22, 119, 255);"
+      style="color: rgb(22, 119, 255);"
       tabindex="-1"
     >
       <span
@@ -7071,10 +6748,10 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     style="display: none;"
   />
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
     data-menu-list="true"
     role="menu"
-    style="background-color: rgb(240, 249, 255);"
+    style="background-color: rgba(240, 249, 255, 0.6);"
     tabindex="0"
   >
     <li
@@ -7101,7 +6778,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
@@ -7196,7 +6873,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     </li>
     <li
       aria-describedby="test-id"
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
       style="padding-left: 24px;"
