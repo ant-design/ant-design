@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import Divider from '..';
 import type { DividerProps } from '..';
-
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 
@@ -38,11 +37,15 @@ describe('Divider.Semantic', () => {
 
   it('should support function classNames/styles with merged props', () => {
     const classNames: DividerProps['classNames'] = (info) => {
-      if (info.props.titlePlacement === 'start') return { root: 'divider-start' };
+      if (info.props.titlePlacement === 'start') {
+        return { root: 'divider-start' };
+      }
       return { root: 'divider-center' };
     };
     const styles: DividerProps['styles'] = (info) => {
-      if (info.props.size === 'small') return { root: { opacity: 0.5 } };
+      if (info.props.size === 'small') {
+        return { root: { opacity: 0.5 } };
+      }
       return { root: { opacity: 1 } };
     };
 
