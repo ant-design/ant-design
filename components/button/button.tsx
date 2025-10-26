@@ -1,8 +1,8 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -154,7 +154,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return ['default', 'outlined'];
-  }, [type, color, variant, danger, button?.variant, button?.color]);
+  }, [color, variant, type, danger, button?.color, button?.variant, mergedType]);
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
