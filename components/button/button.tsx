@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNonNullable } from '../_util/isNonNullable';
+import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';

@@ -8,7 +8,7 @@ import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 import extendsObject from '../extendsObject';
-import { isNonNullable } from '../isNonNullable';
+import isNonNullable from '../isNonNullable';
 
 export type ClosableType = DialogProps['closable'];
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };

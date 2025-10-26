@@ -4,7 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/isNonNullable';
+import isNonNullable from '../_util/isNonNullable';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
