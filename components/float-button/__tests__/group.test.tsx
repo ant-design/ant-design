@@ -2,7 +2,6 @@ import React from 'react';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps } from '..';
-
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('FloatButtonGroup', () => {
@@ -170,11 +169,15 @@ describe('FloatButtonGroup', () => {
   describe('semantic classNames/styles', () => {
     it('should apply dynamic classNames and styles from props function', () => {
       const classNames: FloatButtonGroupProps['classNames'] = (info) => {
-        if (info.props.placement === 'bottom') return { root: 'float-btn-group-bottom' };
+        if (info.props.placement === 'bottom') {
+          return { root: 'float-btn-group-bottom' };
+        }
         return { root: 'float-btn-group-top' };
       };
       const styles: FloatButtonGroupProps['styles'] = (info) => {
-        if (info.props.shape === 'square') return { root: { opacity: 1 } } as any;
+        if (info.props.shape === 'square') {
+          return { root: { opacity: 1 } };
+        }
         return { root: { opacity: 0.5 } };
       };
 

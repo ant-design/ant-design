@@ -158,11 +158,16 @@ describe('FloatButton.Semantic', () => {
 
   it('should apply dynamic classNames and styles from props function', () => {
     const classNames: FloatButtonProps['classNames'] = (info) => {
-      if (info.props.type === 'primary') return { root: 'float-btn-primary' };
+      if (info.props.type === 'primary') {
+        return { root: 'float-btn-primary' };
+      }
+
       return { root: 'float-btn-default' };
     };
     const styles: FloatButtonProps['styles'] = (info) => {
-      if (info.props.shape === 'square') return { root: { background: 'red' } };
+      if (info.props.shape === 'square') {
+        return { root: { background: 'red' } };
+      }
       return { root: { background: 'blue' } };
     };
 
