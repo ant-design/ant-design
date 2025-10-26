@@ -6956,16 +6956,18 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 exports[`renders components/tabs/demo/slide.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    class="ant-tabs ant-tabs-top demo-tabs-root css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top acss-1lyenb6 css-var-test-id ant-tabs-css-var"
     style="border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;"
   >
     <div
       aria-orientation="horizontal"
-      class="ant-tabs-nav demo-tabs-header"
+      class="ant-tabs-nav"
       role="tablist"
-      style="background-color: rgb(245, 245, 245);"
+      style="background-color: rgba(245, 245, 245, 0.5);"
     >
       <div
         class="ant-tabs-nav-wrap"
@@ -6975,7 +6977,7 @@ Array [
           style="transform: translate(0px, 0px);"
         >
           <div
-            class="ant-tabs-tab demo-tabs-item ant-tabs-tab-active"
+            class="ant-tabs-tab ant-tabs-tab-active"
             data-node-key="1"
             style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
@@ -6991,7 +6993,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-tabs-tab demo-tabs-item"
+            class="ant-tabs-tab"
             data-node-key="2"
             style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
@@ -7007,7 +7009,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-tabs-tab demo-tabs-item"
+            class="ant-tabs-tab"
             data-node-key="3"
             style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
@@ -7023,8 +7025,8 @@ Array [
             </div>
           </div>
           <div
-            class="ant-tabs-ink-bar demo-tabs-indicator ant-tabs-ink-bar-animated"
-            style="background-color: rgb(255, 77, 79); height: 4px;"
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            style="background-color: rgba(255, 77, 79, 0.3); height: 4px;"
           />
         </div>
       </div>
@@ -7088,20 +7090,20 @@ Array [
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active demo-tabs-content"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
-          style="background-color: rgb(230, 247, 255); padding: 16px;"
+          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px;"
           tabindex="0"
         >
           Content of Tab Pane 1
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
-    class="ant-tabs ant-tabs-left ant-tabs-card demo-tabs-root--card css-var-test-id ant-tabs-css-var"
-    style="background-color: rgb(250, 250, 250); border-color: rgb(217, 217, 217);"
+    class="ant-tabs ant-tabs-left ant-tabs-card acss-1lyenb6 css-var-test-id ant-tabs-css-var"
+    style="background-color: rgba(250, 250, 250, 0.8); border-color: rgb(217, 217, 217);"
   >
     <div
       aria-orientation="vertical"
@@ -7229,15 +7231,14 @@ Array [
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
-          style="padding: 8px;"
           tabindex="0"
         >
           Content of Tab Pane 1
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/tabs/demo/style-class.tsx extend context correctly 2`] = `[]`;
