@@ -70,7 +70,7 @@ const PanelPicker: FC = () => {
     if (!isSingle) {
       setLockedColor(colors[activeIndex]?.color);
     }
-  }, [gradientDragging, activeIndex]);
+  }, [isSingle, colors, gradientDragging, activeIndex]);
 
   const activeColor = React.useMemo(() => {
     if (isSingle) {
@@ -83,7 +83,7 @@ const PanelPicker: FC = () => {
     }
 
     return colors[activeIndex]?.color;
-  }, [value, activeIndex, isSingle, lockedColor, gradientDragging]);
+  }, [colors, value, activeIndex, isSingle, lockedColor, gradientDragging]);
 
   // ========================= Picker Color =========================
   const [pickerColor, setPickerColor] = React.useState<AggregationColor | null>(activeColor);
@@ -91,9 +91,10 @@ const PanelPicker: FC = () => {
 
   const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
 
+  const activeColorHex = activeColor?.toHexString();
   useLayoutEffect(() => {
     setPickerColor(activeColor);
-  }, [forceSync, activeColor?.toHexString()]);
+  }, [forceSync, activeColorHex]);
 
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
