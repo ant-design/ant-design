@@ -126,7 +126,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true
