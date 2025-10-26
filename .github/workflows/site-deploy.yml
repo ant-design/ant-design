@@ -63,7 +63,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - name: download site artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: real-site
           path: _site
@@ -105,7 +105,7 @@ jobs:
     needs: build-site
     steps:
       - name: download site artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: real-site
           path: _site
