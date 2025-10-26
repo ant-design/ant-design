@@ -4,6 +4,7 @@ import RcColorPicker from '@rc-component/color-picker';
 import type { Color } from '@rc-component/color-picker';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
+import useForceUpdate from '../../../_util/hooks/useForceUpdate';
 import Segmented from '../../../segmented';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
@@ -87,7 +88,8 @@ const PanelPicker: FC = () => {
 
   // ========================= Picker Color =========================
   const [pickerColor, setPickerColor] = React.useState<AggregationColor | null>(activeColor);
-  const [forceSync, setForceSync] = React.useState(0);
+
+  const [forceSync, setForceSync] = useForceUpdate();
 
   const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
 
@@ -148,7 +150,7 @@ const PanelPicker: FC = () => {
     // Back of origin color in case in controlled
     // This will set after `onChangeComplete` to avoid `setState` trigger rerender
     // which will make `fillColor` get wrong `color.cleared` state
-    setForceSync((ori) => ori + 1);
+    setForceSync();
   };
 
   const onInputChange = (colorValue: AggregationColor) => {
