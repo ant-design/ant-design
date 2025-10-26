@@ -11,7 +11,7 @@ import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import omit from 'rc-util/lib/omit';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';

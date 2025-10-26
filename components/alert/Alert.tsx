@@ -10,7 +10,7 @@ import CSSMotion from 'rc-motion';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 import { composeRef } from 'rc-util/lib/ref';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

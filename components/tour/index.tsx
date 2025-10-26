@@ -3,7 +3,7 @@ import RCTour from '@rc-component/tour';
 import type { TourProps as RcTourProps } from '@rc-component/tour';
 import classNames from 'classnames';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import getPlacements from '../_util/placements';
 import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';

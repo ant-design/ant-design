@@ -30,7 +30,7 @@ jobs:
       - name: run e2e test
         run: bun run test:site
       - name: upload site artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: site
           path: _site/
@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload PR number
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: pr
           path: ./pr-id.txt

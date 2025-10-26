@@ -5,7 +5,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
-import { CONTAINER_MAX_OFFSET } from '../_util/hooks/useZIndex';
+import { CONTAINER_MAX_OFFSET } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';

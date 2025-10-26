@@ -9,7 +9,7 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
 import ContextIsolator from '../../_util/ContextIsolator';
-import { useZIndex } from '../../_util/hooks/useZIndex';
+import { useZIndex } from '../../_util/hooks';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -21,6 +21,7 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, useIcons } from '../util';
@@ -38,7 +39,6 @@ import {
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
-import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,

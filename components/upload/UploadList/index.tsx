@@ -8,7 +8,7 @@ import type { CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import omit from 'rc-util/lib/omit';
 
-import useForceUpdate from '../../_util/hooks/useForceUpdate';
+import { useForceUpdate } from '../../_util/hooks';
 import initCollapseMotion from '../../_util/motion';
 import { cloneElement } from '../../_util/reactNode';
 import type { ButtonProps } from '../../button';
@@ -51,7 +51,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     itemRender,
     disabled,
   } = props;
-  const forceUpdate = useForceUpdate();
+
+  const [, forceUpdate] = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
   const isPictureCardOrCirle = ['picture-card', 'picture-circle'].includes(listType);
 

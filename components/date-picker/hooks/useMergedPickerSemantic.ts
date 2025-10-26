@@ -1,8 +1,7 @@
 import * as React from 'react';
-
 import cls from 'classnames';
 
-import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../../_util/hooks';
 import { useComponentConfig } from '../../config-provider/context';
 import type {
   PickerClassNames,

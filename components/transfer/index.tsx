@@ -2,8 +2,8 @@ import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
 import classNames from 'classnames';
 
-import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
-import useMultipleSelect from '../_util/hooks/useMultipleSelect';
+import type { PrevSelectedIndex } from '../_util/hooks';
+import { useMultipleSelect } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
