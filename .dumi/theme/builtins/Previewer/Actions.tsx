@@ -6,7 +6,7 @@ import { Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
-import { dependencies } from '../../../../package.json';
+import { dependencies, devDependencies } from '../../../../package.json';
 import useLocale from '../../../hooks/useLocale';
 import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../icons/CodePenIcon';
