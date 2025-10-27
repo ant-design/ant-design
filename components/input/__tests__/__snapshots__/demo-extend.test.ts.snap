@@ -12232,7 +12232,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
 
 exports[`renders components/input/demo/style-class.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
