@@ -9262,7 +9262,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
 
 exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -14080,8 +14080,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 exports[`renders components/space/demo/compact-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Dropdown.Button] \`Dropdown.Button\` is deprecated. Please use \`Space.Compact + Dropdown + Button\` instead.",
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -16180,7 +16180,7 @@ Array [
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 

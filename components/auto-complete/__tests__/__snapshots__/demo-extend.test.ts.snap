@@ -1024,7 +1024,7 @@ Array [
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -2247,7 +2247,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -3061,7 +3061,7 @@ Array [
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
