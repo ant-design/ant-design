@@ -8144,6 +8144,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   autocomplete="off"
                   class="ant-input ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
                   id="register_website"
+                  placeholder="website"
                   role="combobox"
                   type="text"
                   value=""
