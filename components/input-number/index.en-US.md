@@ -41,8 +41,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
-| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
+| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use `Space.Compact` instead | ReactNode | - |  |
+| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use `Space.Compact` instead | ReactNode | - |  |
 | autoFocus | If the component gets focus when mounted | boolean | false | - |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |

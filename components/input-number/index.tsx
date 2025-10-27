@@ -40,9 +40,9 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   rootClassName?: string;
   classNames?: InputNumberClassNamesType;
   styles?: InputNumberStylesType;
-  /** @deprecated Use `Space.Compat` instead. */
+  /** @deprecated Use `Space.Compact` instead. */
   addonBefore?: React.ReactNode;
-  /** @deprecated Use `Space.Compat` instead. */
+  /** @deprecated Use `Space.Compact` instead. */
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -64,8 +64,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     const typeWarning = devUseWarning('InputNumber');
     [
       ['bordered', 'variant'],
-      ['addonAfter', 'Space.Compat'],
-      ['addonBefore', 'Space.Compat'],
+      ['addonAfter', 'Space.Compact'],
+      ['addonBefore', 'Space.Compact'],
     ].forEach(([prop, newProp]) => {
       typeWarning.deprecated(!(prop in props), prop, newProp);
     });

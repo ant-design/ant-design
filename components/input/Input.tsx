@@ -51,9 +51,9 @@ export interface InputProps
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
-  /** @deprecated Use `Space.Compat` instead. */
+  /** @deprecated Use `Space.Compact` instead. */
   addonBefore?: React.ReactNode;
-  /** @deprecated Use `Space.Compat` instead. */
+  /** @deprecated Use `Space.Compact` instead. */
   addonAfter?: React.ReactNode;
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;

@@ -58,8 +58,8 @@ const App: React.FC = () => {
               >
                 <Input
                   style={{ width: '100%' }}
-                  prefix={<div>http://</div>}
-                  suffix={<div>.com</div>}
+                  prefix="http://"
+                  suffix=".com"
                   placeholder="Please enter url"
                 />
               </Form.Item>
