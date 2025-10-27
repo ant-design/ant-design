@@ -106,7 +106,7 @@ demo:
 | withCredentials | 上传请求时是否携带 cookie | boolean | - | - |
 | headers | 上传的请求头部 | Record<string, string> | - | - |
 | method | 上传请求的 http method | string | - | - |
-| onProgress | 上传进度回调 | (event: object, file: UploadFile ) => void | - | - |
+| onProgress | 上传进度回调 | (event: object, file: UploadFile) => void | - | - |
 | onError | 上传失败回调 | (event: object, body?: object) => void | - | - |
 | onSuccess | 上传成功回调 | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) => void | - | - |
 

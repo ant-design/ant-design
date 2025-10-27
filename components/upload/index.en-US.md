@@ -105,7 +105,7 @@ Extends File with additional props.
 | withCredentials | The ajax upload with cookie sent | boolean | - | - |
 | headers | Set request headers, valid above IE10 | Record<string, string> | - | - |
 | method | The http method of upload request | string | - | - |
-| onProgress | Progress event callback | (event: object, file: UploadFile ) => void | - | - |
+| onProgress | Progress event callback | (event: object, file: UploadFile) => void | - | - |
 | onError | Error callback when upload fails | (event: object, body?: object) => void | - | - |
 | onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) => void | - | - |
 
