@@ -1,7 +1,6 @@
 import path from 'path';
 import React from 'react';
 import { createCache, extractStyle as extStyle, StyleProvider } from '@ant-design/cssinjs';
-import Cascader from '@rc-component/cascader';
 import fs from 'fs-extra';
 import { renderToString } from 'react-dom/server';
 
@@ -23,8 +22,8 @@ const ComponentCustomizeRender: Record<
   BackTop: () => <antd.FloatButton.BackTop />,
   Cascader: () => (
     <>
-      <Cascader />
-      <Cascader.Panel />
+      <antd.Cascader />
+      <antd.Cascader.Panel />
     </>
   ),
   Dropdown: (Dropdown) => (
