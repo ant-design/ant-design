@@ -5,6 +5,7 @@ import cls from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { PickerFocusEventHandler } from 'rc-picker/lib/interface';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks';
@@ -122,6 +123,19 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root?.zIndex as number);
 
+    // https://github.com/ant-design/ant-design/issues/52473
+    // Handle manual input clearing: trigger onChange when input is manually cleared
+    const onInternalBlur: PickerFocusEventHandler = (e, info) => {
+      const target = e.target as HTMLInputElement;
+      // If input value is empty and we have a current value, trigger onChange with null
+      const currentValue = (restProps as any).value;
+      if (target.value === '' && currentValue && (currentValue[0] || currentValue[1])) {
+        (restProps as any).onChange?.(null, ['', '']);
+      }
+      // Call original onBlur if provided
+      (restProps as any).onBlur?.(e, info);
+    };
+
     return wrapCSSVar(
       <ContextIsolator space>
         <RCRangePicker<DateType>
@@ -142,6 +156,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           transitionName={`${rootPrefixCls}-slide-up`}
           picker={picker}
           {...restProps}
+          onBlur={onInternalBlur}
           className={cls(
             {
               [`${prefixCls}-${mergedSize}`]: mergedSize,

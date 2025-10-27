@@ -498,4 +498,20 @@ describe('DatePicker', () => {
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
     expect(container.children).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/52473
+  it('should trigger onChange when manually clearing input', () => {
+    const onChange = jest.fn();
+    const { container } = render(<DatePicker onChange={onChange} value={dayjs('2023-08-01')} />);
+
+    const input = container.querySelector('input')!;
+    expect(input.value).toBe('2023-08-01');
+
+    // Select all text and delete it
+    fireEvent.change(input, { target: { value: '' } });
+    fireEvent.blur(input);
+
+    // Should trigger onChange with null value
+    expect(onChange).toHaveBeenCalledWith(null, '');
+  });
 });

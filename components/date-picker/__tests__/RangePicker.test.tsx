@@ -6,7 +6,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import DatePicker from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
-import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import { fireEvent, render, resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
 
@@ -217,5 +217,26 @@ describe('RangePicker', () => {
 
     rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/52473
+  it('should trigger onChange when manually clearing input', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <RangePicker onChange={onChange} value={[dayjs('2023-08-01'), dayjs('2023-08-15')]} />,
+    );
+
+    const inputs = container.querySelectorAll('input');
+    expect(inputs[0].value).toBe('2023-08-01');
+    expect(inputs[1].value).toBe('2023-08-15');
+
+    // Select all text and delete it from first input
+    inputs[0].focus();
+    inputs[0].setSelectionRange(0, inputs[0].value.length);
+    fireEvent.change(inputs[0], { target: { value: '' } });
+    fireEvent.blur(inputs[0]);
+
+    // Should trigger onChange with null value
+    expect(onChange).toHaveBeenCalledWith(null, ['', '']);
   });
 });
