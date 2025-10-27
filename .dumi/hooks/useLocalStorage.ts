@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useEffectEvent } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
 
@@ -95,7 +95,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
     };
   }, [key, onNativeStorage, onCustomStorage]);
 
-  return [state, useEffectEvent(updateState)] as const;
+  return [state, updateState] as const;
 };
 
 export default useLocalStorage;

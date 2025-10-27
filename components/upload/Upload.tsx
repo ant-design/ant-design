@@ -5,7 +5,7 @@ import RcUpload from '@rc-component/upload';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -103,8 +103,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   // Control mode will auto fill file uid if not provided
   React.useMemo(() => {
+    // eslint-disable-next-line react-hooks/purity
     const timestamp = Date.now();
-
     (fileList || []).forEach((file, index) => {
       if (!file.uid && !Object.isFrozen(file)) {
         file.uid = `__AUTO__${timestamp}_${index}__`;

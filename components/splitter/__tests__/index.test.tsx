@@ -4,7 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 
-import type { Orientation } from '../../_util/hooks/useOrientation';
+import type { Orientation } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
 import {
   act,

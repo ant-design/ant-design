@@ -1,37 +1,34 @@
 import React from 'react';
-import { CloseSquareOutlined } from '@ant-design/icons';
 import { Alert } from 'antd';
 
-const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+const onClose: React.MouseEventHandler<HTMLButtonElement> = (e) => {
   console.log(e, 'I was closed.');
 };
 
 const App: React.FC = () => (
   <>
     <Alert
-      title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+      title="Warning Title"
       type="warning"
-      closable
-      onClose={onClose}
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
     />
     <br />
     <Alert
-      title="Error Text"
-      description="Error Description Error Description Error Description Error Description Error Description Error Description"
-      type="error"
-      closable
-      onClose={onClose}
+      title="Success Title"
+      type="success"
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
     />
     <br />
     <Alert
-      title="Error Text"
-      description="Error Description Error Description Error Description Error Description Error Description Error Description"
+      title="Info Title"
+      type="info"
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
+    />
+    <br />
+    <Alert
+      title="Error Title"
       type="error"
-      onClose={onClose}
-      closable={{
-        'aria-label': 'close',
-        closeIcon: <CloseSquareOutlined />,
-      }}
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
     />
   </>
 );

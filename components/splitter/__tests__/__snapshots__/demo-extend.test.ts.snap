@@ -1325,6 +1325,7 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-splitter-bar-dragger"
+        style="background-color: rgba(194, 223, 252, 0.4);"
       />
     </div>
     <div

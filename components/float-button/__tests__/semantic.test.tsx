@@ -3,7 +3,7 @@ import type { GetProp } from 'antd/es/_util/type';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps, FloatButtonProps } from '..';
-import type { SemanticClassNames } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
 import type { FloatButtonSemanticName } from '../FloatButton';
 
@@ -158,11 +158,16 @@ describe('FloatButton.Semantic', () => {
 
   it('should apply dynamic classNames and styles from props function', () => {
     const classNames: FloatButtonProps['classNames'] = (info) => {
-      if (info.props.type === 'primary') return { root: 'float-btn-primary' };
+      if (info.props.type === 'primary') {
+        return { root: 'float-btn-primary' };
+      }
+
       return { root: 'float-btn-default' };
     };
     const styles: FloatButtonProps['styles'] = (info) => {
-      if (info.props.shape === 'square') return { root: { background: 'red' } };
+      if (info.props.shape === 'square') {
+        return { root: { background: 'red' } };
+      }
       return { root: { background: 'blue' } };
     };
 

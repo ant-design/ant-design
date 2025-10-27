@@ -5,14 +5,13 @@ import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColum
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
-import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
+} from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';

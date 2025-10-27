@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 

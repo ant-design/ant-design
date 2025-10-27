@@ -2,7 +2,7 @@ import React from 'react';
 
 import Steps from '..';
 import type { StepsProps, StepsSemanticName } from '..';
-import type { SemanticClassNames } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
 
 describe('Steps.Semantic', () => {

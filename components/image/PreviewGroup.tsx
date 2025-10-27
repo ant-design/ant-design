@@ -11,8 +11,8 @@ import RcImage from '@rc-component/image';
 import { clsx } from 'clsx';
 
 import type { DeprecatedPreviewConfig, ImageClassNamesType, ImageStylesType } from '.';
-import type { MaskType } from '../_util/hooks/useMergedMask';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { MaskType } from '../_util/hooks';
 import type { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -103,6 +103,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     getContextPopupContainer,
     icons,
   );
+
   const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
 
   // =========== Merged Props for Semantic ===========

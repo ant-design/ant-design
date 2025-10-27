@@ -3,7 +3,7 @@ import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
 import type { TooltipClassNamesType, TooltipProps, TooltipStylesType } from '.';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
@@ -34,7 +34,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   // Color
   const colorInfo = parseColor(prefixCls, color);
 
-  const arrowContentStyle = colorInfo.arrowStyle;
+  const arrowContentStyle: React.CSSProperties = colorInfo.arrowStyle;
 
   const innerStyles = React.useMemo(() => {
     const mergedStyle: React.CSSProperties = {

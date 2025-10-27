@@ -460,101 +460,7 @@ Array [
       <div
         class="ant-alert-title"
       >
-        Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
-      </div>
-    </div>
-    <button
-      class="ant-alert-close-icon"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        aria-label="close"
-        class="anticon anticon-close"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-          />
-        </svg>
-      </span>
-    </button>
-  </div>,
-  <br />,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-test-id"
-    data-show="true"
-    role="alert"
-  >
-    <div
-      class="ant-alert-section"
-    >
-      <div
-        class="ant-alert-title"
-      >
-        Error Text
-      </div>
-      <div
-        class="ant-alert-description"
-      >
-        Error Description Error Description Error Description Error Description Error Description Error Description
-      </div>
-    </div>
-    <button
-      class="ant-alert-close-icon"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        aria-label="close"
-        class="anticon anticon-close"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-          />
-        </svg>
-      </span>
-    </button>
-  </div>,
-  <br />,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-test-id"
-    data-show="true"
-    role="alert"
-  >
-    <div
-      class="ant-alert-section"
-    >
-      <div
-        class="ant-alert-title"
-      >
-        Error Text
-      </div>
-      <div
-        class="ant-alert-description"
-      >
-        Error Description Error Description Error Description Error Description Error Description Error Description
+        Warning Title
       </div>
     </div>
     <button
@@ -564,13 +470,13 @@ Array [
       type="button"
     >
       <span
-        aria-label="close-square"
-        class="anticon anticon-close-square"
+        aria-label="close"
+        class="anticon anticon-close"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="close-square"
+          data-icon="close"
           fill="currentColor"
           fill-rule="evenodd"
           focusable="false"
@@ -579,7 +485,136 @@ Array [
           width="1em"
         >
           <path
-            d="M880 112c17.7 0 32 14.3 32 32v736c0 17.7-14.3 32-32 32H144c-17.7 0-32-14.3-32-32V144c0-17.7 14.3-32 32-32zm-40 72H184v656h656V184zM640.01 338.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>,
+  <br />,
+  <div
+    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="ant-alert-section"
+    >
+      <div
+        class="ant-alert-title"
+      >
+        Success Title
+      </div>
+    </div>
+    <button
+      aria-label="close"
+      class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        aria-label="close"
+        class="anticon anticon-close"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>,
+  <br />,
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="ant-alert-section"
+    >
+      <div
+        class="ant-alert-title"
+      >
+        Info Title
+      </div>
+    </div>
+    <button
+      aria-label="close"
+      class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        aria-label="close"
+        class="anticon anticon-close"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>,
+  <br />,
+  <div
+    class="ant-alert ant-alert-error ant-alert-no-icon css-var-test-id"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="ant-alert-section"
+    >
+      <div
+        class="ant-alert-title"
+      >
+        Error Title
+      </div>
+    </div>
+    <button
+      aria-label="close"
+      class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        aria-label="close"
+        class="anticon anticon-close"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
           />
         </svg>
       </span>
@@ -1608,8 +1643,4 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/alert/demo/style-class.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Alert] \`message\` is deprecated. Please use \`title\` instead.",
-]
-`;
+exports[`renders components/alert/demo/style-class.tsx extend context correctly 2`] = `[]`;

@@ -4,8 +4,9 @@ import RcCheckbox from '@rc-component/checkbox';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -214,7 +215,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           disabled={mergedDisabled}
           ref={mergedRef}
         />
-        {children !== undefined && children !== null && (
+        {isNonNullable(children) && (
           <span
             className={clsx(`${prefixCls}-label`, mergedClassNames.label)}
             style={mergedStyles.label}

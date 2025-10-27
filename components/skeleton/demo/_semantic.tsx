@@ -1,7 +1,7 @@
 import React from 'react';
 import { Skeleton } from 'antd';
 
-import type { SemanticClassNames } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames } from '../../_util/hooks';
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import type { SemanticName } from '../Skeleton';

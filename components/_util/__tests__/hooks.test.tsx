@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render, renderHook } from '@testing-library/react';
 
-import useClosable, { computeClosable } from '../hooks/useClosable';
-import type { ClosableType } from '../hooks/useClosable';
-import useOrientation from '../hooks/useOrientation';
-import type { Orientation } from '../hooks/useOrientation';
+import { computeClosable, useClosable, useOrientation } from '../hooks';
+import type { ClosableType, Orientation } from '../hooks';
 
 describe('hooks test', () => {
   const useClosableParams: {

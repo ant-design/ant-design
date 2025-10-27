@@ -92,5 +92,5 @@ export default function useItems(
     }
 
     return mergedItems;
-  }, [prefixCls, parseItems, pending, pendingDot]);
+  }, [parseItems, pending, pendingDot, itemCls, mode]);
 }

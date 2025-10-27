@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
-export default function isValidNode(node: ReactNode): boolean {
-  return node !== undefined && node !== null;
-}
+const isNonNullable = <T>(val: T): val is NonNullable<T> => {
+  return val !== undefined && val !== null;
+};
+
+export default isNonNullable;

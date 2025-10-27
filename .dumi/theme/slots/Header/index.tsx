@@ -412,9 +412,8 @@ const Header: React.FC = () => {
             }
             type="info"
             banner
-            closable
             showIcon={false}
-            onClose={onBannerClose}
+            closable={{ closeIcon: true, onClose: onBannerClose }}
           />
         </ConfigProvider>
       )}

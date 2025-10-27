@@ -3,10 +3,9 @@ import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import type { Orientation } from '../_util/hooks/useOrientation';
-import useOrientation from '../_util/hooks/useOrientation';
+import { useMergeSemantic, useOrientation } from '../_util/hooks';
+import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -134,14 +133,8 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const itemClassName = clsx(`${prefixCls}-item`, mergedClassNames.item);
 
   // Calculate latest one
-  let latestIndex = 0;
-  const nodes = childNodes.map<React.ReactNode>((child, i) => {
-    if (child !== null && child !== undefined) {
-      latestIndex = i;
-    }
-
+  const renderedItems = childNodes.map<React.ReactNode>((child, i) => {
     const key = child?.key || `${itemClassName}-${i}`;
-
     return (
       <Item
         prefix={prefixCls}
@@ -161,7 +154,6 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   // ======================== Warning ==========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Space');
-
     [
       ['direction', 'orientation'],
       ['split', 'separator'],
@@ -170,7 +162,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     });
   }
 
-  const spaceContext = React.useMemo<SpaceContextType>(() => ({ latestIndex }), [latestIndex]);
+  const memoizedSpaceContext = React.useMemo<SpaceContextType>(() => {
+    const calcLatestIndex = childNodes.reduce<number>(
+      (latest, child, i) => (isNonNullable(child) ? i : latest),
+      0,
+    );
+    return { latestIndex: calcLatestIndex };
+  }, [childNodes]);
 
   // =========================== Render ===========================
   if (childNodes.length === 0) {
@@ -198,7 +196,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       style={{ ...gapStyle, ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
     >
-      <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
+      <SpaceContextProvider value={memoizedSpaceContext}>{renderedItems}</SpaceContextProvider>
     </div>
   );
 });

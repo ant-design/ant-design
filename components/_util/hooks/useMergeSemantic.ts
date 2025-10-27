@@ -115,7 +115,7 @@ type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
  * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
  * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
  */
-const useMergeSemantic = <
+export const useMergeSemantic = <
   ClassNamesType extends AnyObject,
   StylesType extends AnyObject,
   Props extends AnyObject,
@@ -150,5 +150,3 @@ const useMergeSemantic = <
     ] as const;
   }, [mergedClassNames, mergedStyles, schema]);
 };
-
-export default useMergeSemantic;

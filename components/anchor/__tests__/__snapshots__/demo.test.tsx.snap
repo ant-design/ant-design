@@ -675,15 +675,15 @@ exports[`renders components/anchor/demo/style-class.tsx correctly 1`] = `
   >
     <div
       id="part-1"
-      style="height:100vh;background:rgba(255,0,0,0.02)"
+      style="height:100vh;background:rgba(255,0,0,0.08)"
     />
     <div
       id="part-2"
-      style="height:100vh;background:rgba(0,255,0,0.02)"
+      style="height:100vh;background:rgba(0,255,0,0.08)"
     />
     <div
       id="part-3"
-      style="height:100vh;background:rgba(0,0,255,0.02)"
+      style="height:100vh;background:rgba(0,0,255,0.08)"
     />
   </div>
   <div
@@ -697,7 +697,7 @@ exports[`renders components/anchor/demo/style-class.tsx correctly 1`] = `
       >
         <div
           class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper demo-anchor-root"
-          style="max-height:100vh;background-color:#fffbe6"
+          style="max-height:100vh;background-color:rgba(255,251,230,0.5);height:100vh"
         >
           <div
             class="ant-anchor"

@@ -12,31 +12,26 @@ const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
   }
   if (typeof mask === 'boolean') {
     return {
-      enabled: !!mask,
-      blur: !!mask,
+      enabled: mask,
+      blur: mask,
     };
   }
   return {};
 };
 
-function useMergedMask(
+export const useMergedMask = (
   mask?: MaskType,
   contextMask?: MaskType,
   prefixCls?: string,
-): [boolean, { [key: string]: string | undefined }] {
+): [boolean, { [key: string]: string | undefined }] => {
   return useMemo(() => {
     const maskConfig = normalizeMaskConfig(mask);
     const contextMaskConfig = normalizeMaskConfig(contextMask);
 
-    const mergedConfig: MaskConfig = {
-      ...contextMaskConfig,
-      ...maskConfig,
-    };
+    const mergedConfig: MaskConfig = { ...contextMaskConfig, ...maskConfig };
 
     const className = mergedConfig.blur !== false ? `${prefixCls}-mask-blur` : undefined;
 
     return [mergedConfig.enabled !== false, { mask: className }];
   }, [mask, contextMask, prefixCls]);
-}
-
-export default useMergedMask;
+};

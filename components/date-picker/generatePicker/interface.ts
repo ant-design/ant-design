@@ -14,7 +14,7 @@ import type {
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../../_util/hooks/useMergeSemantic';
+} from '../../_util/hooks';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';

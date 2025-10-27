@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { QRProps } from '@rc-component/qrcode';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { Locale } from '../locale';
 
 type ImageSettings = QRProps['imageSettings'];
