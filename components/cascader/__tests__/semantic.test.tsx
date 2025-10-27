@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import Cascader from '..';
-import { render } from '../../../tests/utils';
 import type { CascaderProps } from '..';
+import { render } from '../../../tests/utils';
 
 describe('Cascader.Semantic', () => {
   const options = [
@@ -40,8 +40,10 @@ describe('Cascader.Semantic', () => {
     },
   ];
   it('support classNames and styles', () => {
-    const customClassNames = {
+    const classNames = {
       root: 'custom-root',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
       input: 'custom-input',
       popup: {
         root: 'custom-popup',
@@ -49,8 +51,10 @@ describe('Cascader.Semantic', () => {
         listItem: 'custom-list-item',
       },
     };
-    const customStyles = {
+    const styles = {
       root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(255, 165, 0)' },
+      suffix: { color: 'rgb(255, 192, 203)' },
       input: { color: 'rgb(0, 255, 0)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
@@ -64,30 +68,110 @@ describe('Cascader.Semantic', () => {
         open
         options={options}
         defaultValue={[1, 'hangzhou']}
-        classNames={customClassNames}
-        styles={customStyles}
+        classNames={classNames}
+        styles={styles}
+        prefix={<span>prefix</span>}
+        suffix={<span>suffix</span>}
       />,
     );
-    const root = container.querySelector('.ant-cascader');
-    const input = container.querySelector('.ant-select-selection-search-input');
-    const list = container.querySelector('.ant-cascader-menu');
-    const listItem = container.querySelector('.ant-cascader-menu-item');
-    const popup = container.querySelector('.ant-select-dropdown');
 
-    expect(root).toHaveClass(customClassNames.root);
-    expect(input).toHaveClass(customClassNames.input);
-    expect(list).toHaveClass(customClassNames.popup.list);
-    expect(listItem).toHaveClass(customClassNames.popup.listItem);
-    expect(popup).toHaveClass(customClassNames.popup.root);
-
-    expect(root).toHaveStyle(customStyles.root);
-    expect(input).toHaveStyle(customStyles.input);
-    expect(list).toHaveStyle(customStyles.popup.list);
-    expect(listItem).toHaveStyle(customStyles.popup.listItem);
-    expect(popup).toHaveStyle(customStyles.popup.root);
+    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
+    expect(container.querySelector(`.${classNames.prefix}`)).toHaveStyle(styles.prefix);
+    expect(container.querySelector(`.${classNames.suffix}`)).toHaveStyle(styles.suffix);
+    expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
+    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
+    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+      styles.popup.listItem,
+    );
+    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
   });
+
+  it('support placeholder classNames and styles', () => {
+    const classNames = {
+      placeholder: 'custom-placeholder',
+    };
+    const styles = {
+      placeholder: { color: 'rgb(128, 128, 128)' },
+    };
+
+    const { container } = render(
+      <Cascader
+        open
+        options={options}
+        classNames={classNames}
+        styles={styles}
+        placeholder="Please select"
+      />,
+    );
+
+    expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
+  });
+
+  it('support multiple mode classNames and styles', () => {
+    const classNames = {
+      root: 'custom-root',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
+      input: 'custom-input',
+      content: 'custom-content',
+      item: 'custom-item',
+      itemContent: 'custom-item-content',
+      itemRemove: 'custom-item-remove',
+      popup: {
+        root: 'custom-popup',
+        list: 'custom-list',
+        listItem: 'custom-list-item',
+      },
+    };
+    const styles = {
+      root: { background: 'rgb(255, 240, 240)' },
+      prefix: { color: 'rgb(255, 165, 0)' },
+      suffix: { color: 'rgb(255, 192, 203)' },
+      input: { color: 'rgb(0, 255, 0)' },
+      content: { background: 'rgb(240, 240, 255)' },
+      item: { background: 'rgb(255, 255, 240)' },
+      itemContent: { color: 'rgb(128, 0, 128)' },
+      itemRemove: { color: 'rgb(255, 0, 0)' },
+      popup: {
+        root: { background: 'rgb(128, 0, 128)' },
+        list: { color: 'rgb(0, 0, 255)' },
+        listItem: { color: 'rgb(255, 255, 0)' },
+      },
+    };
+
+    const { container } = render(
+      <Cascader
+        multiple
+        open
+        options={options}
+        defaultValue={[
+          [1, 'hangzhou'],
+          ['jiangsu', 'nanjing'],
+        ]}
+        classNames={classNames}
+        styles={styles}
+        prefix={<span>prefix</span>}
+        suffix={<span>suffix</span>}
+      />,
+    );
+
+    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
+    expect(container.querySelector(`.${classNames.prefix}`)).toHaveStyle(styles.prefix);
+    expect(container.querySelector(`.${classNames.suffix}`)).toHaveStyle(styles.suffix);
+    expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
+    expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
+    expect(container.querySelector(`.${classNames.item}`)).toHaveStyle(styles.item);
+    expect(container.querySelector(`.${classNames.itemContent}`)).toHaveStyle(styles.itemContent);
+    expect(container.querySelector(`.${classNames.itemRemove}`)).toHaveStyle(styles.itemRemove);
+    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
+    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+      styles.popup.listItem,
+    );
+    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
+  });
+
   it('should support function-based classNames and styles', () => {
-    const classNamesFn: CascaderProps['classNames'] = (info) => {
+    const classNames: CascaderProps['classNames'] = (info) => {
       const { props } = info;
       return {
         root: props.disabled ? 'disabled-cascader' : 'enabled-cascader',
@@ -96,7 +180,7 @@ describe('Cascader.Semantic', () => {
       };
     };
 
-    const stylesFn: CascaderProps['styles'] = (info) => {
+    const styles: CascaderProps['styles'] = (info) => {
       const { props } = info;
       return {
         root: {
@@ -111,20 +195,19 @@ describe('Cascader.Semantic', () => {
         },
       };
     };
+
     const { container } = render(
       <Cascader
         open
         options={options}
         disabled
-        classNames={classNamesFn}
-        styles={stylesFn}
+        classNames={classNames}
+        styles={styles}
         prefix="prefix"
       />,
     );
 
-    const cascader = container.querySelector('.ant-select');
-    expect(cascader).toHaveClass('disabled-cascader');
-    expect(cascader).toHaveStyle({
+    expect(container.querySelector('.disabled-cascader')).toHaveStyle({
       background: '#f5f5f5',
       opacity: '0.6',
     });

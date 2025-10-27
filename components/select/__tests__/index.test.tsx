@@ -19,7 +19,7 @@ describe('Select', () => {
   rtlTest(Select);
 
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -94,11 +94,11 @@ describe('Select', () => {
         <Option value="1">1</Option>
       </Select>,
     );
-    expect(container.querySelectorAll('.anticon-down').length).toBe(1);
-    expect(container.querySelectorAll('.anticon-search').length).toBe(0);
+    expect(container.querySelector('.anticon-down')).toBeTruthy();
+    expect(container.querySelector('.anticon-search')).toBeFalsy();
     toggleOpen(container);
-    expect(container.querySelectorAll('.anticon-down').length).toBe(0);
-    expect(container.querySelectorAll('.anticon-search').length).toBe(1);
+    expect(container.querySelector('.anticon-down')).toBeFalsy();
+    expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
   describe('Select Custom Icons', () => {
@@ -135,7 +135,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('calc(var(--ant-padding-sm) - 1px)');
+      ).toEqual('calc(var(--ant-padding-sm) - var(--ant-line-width))');
     });
 
     it('hasFeedback, has validateStatus', () => {
@@ -149,7 +149,7 @@ describe('Select', () => {
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
       ).toEqual(
-        'calc(calc(var(--ant-padding-sm) - 1px) + var(--ant-font-size) + var(--ant-padding-xs))',
+        'calc(calc(var(--ant-padding-sm) - var(--ant-line-width)) + var(--ant-font-size) + var(--ant-padding-xs))',
       );
     });
 
@@ -163,7 +163,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('calc(var(--ant-padding-sm) - 1px)');
+      ).toEqual('calc(var(--ant-padding-sm) - var(--ant-line-width))');
     });
   });
 

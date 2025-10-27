@@ -18,7 +18,8 @@ describe('Select.Semantic', () => {
   it('support classNames and styles', () => {
     const customClassNames = {
       root: 'custom-root',
-      input: 'custom-input',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
       popup: {
         root: 'custom-popup',
         list: 'custom-list',
@@ -27,7 +28,8 @@ describe('Select.Semantic', () => {
     };
     const customStyles = {
       root: { color: 'rgb(255, 0, 0)' },
-      input: { color: 'rgb(0, 255, 0)' },
+      prefix: { color: 'rgb(0, 128, 255)' },
+      suffix: { color: 'rgb(255, 128, 0)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
         list: { color: 'rgb(0, 0, 255)' },
@@ -42,26 +44,112 @@ describe('Select.Semantic', () => {
         defaultValue={'GuangZhou'}
         classNames={customClassNames}
         styles={customStyles}
+        prefix={<span>Pre</span>}
+        suffix={<span>Suf</span>}
       />,
     );
     const root = container.querySelector('.ant-select');
-    const input = container.querySelector('.ant-select-selection-search-input');
+    const prefix = container.querySelector('.ant-select-prefix');
+    const suffix = container.querySelector('.ant-select-suffix');
     const list = container.querySelector('.rc-virtual-list');
     const listItem = container.querySelector('.ant-select-item');
     const popup = container.querySelector('.ant-select-dropdown');
 
     expect(root).toHaveClass(customClassNames.root);
-    expect(input).toHaveClass(customClassNames.input);
-    expect(list).toHaveClass(customClassNames.popup.list);
-    expect(listItem).toHaveClass(customClassNames.popup.listItem);
-    expect(popup).toHaveClass(customClassNames.popup.root);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    if (list) {
+      expect(list).toHaveClass(customClassNames.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveClass(customClassNames.popup.root);
+    }
 
     expect(root).toHaveStyle(customStyles.root);
-    expect(input).toHaveStyle(customStyles.input);
-    expect(list).toHaveStyle(customStyles.popup.list);
-    expect(listItem).toHaveStyle(customStyles.popup.listItem);
-    expect(popup).toHaveStyle(customStyles.popup.root);
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    if (list) {
+      expect(list).toHaveStyle(customStyles.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveStyle(customStyles.popup.root);
+    }
   });
+
+  it('support multiple mode classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
+      popup: {
+        root: 'custom-popup',
+        list: 'custom-list',
+        listItem: 'custom-list-item',
+      },
+    };
+    const customStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 128, 255)' },
+      suffix: { color: 'rgb(255, 128, 0)' },
+      popup: {
+        root: { color: 'rgb(128, 0, 128)' },
+        list: { color: 'rgb(0, 0, 255)' },
+        listItem: { color: 'rgb(255, 255, 0)' },
+      },
+    };
+
+    const { container } = render(
+      <Select
+        mode="multiple"
+        open
+        options={options}
+        defaultValue={['GuangZhou']}
+        classNames={customClassNames}
+        styles={customStyles}
+        prefix={<span>Pre</span>}
+        suffix={<span>Suf</span>}
+      />,
+    );
+    const root = container.querySelector('.ant-select');
+    const prefix = container.querySelector('.ant-select-prefix');
+    const suffix = container.querySelector('.ant-select-suffix');
+    const list = container.querySelector('.rc-virtual-list');
+    const listItem = container.querySelector('.ant-select-item');
+    const popup = container.querySelector('.ant-select-dropdown');
+
+    expect(root).toHaveClass(customClassNames.root);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    if (list) {
+      expect(list).toHaveClass(customClassNames.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveClass(customClassNames.popup.root);
+    }
+
+    expect(root).toHaveStyle(customStyles.root);
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    if (list) {
+      expect(list).toHaveStyle(customStyles.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveStyle(customStyles.popup.root);
+    }
+  });
+
   it('should support function-based classNames and styles', () => {
     const classNamesFn: SelectProps['classNames'] = (info) => {
       const { props } = info;

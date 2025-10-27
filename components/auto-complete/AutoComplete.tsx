@@ -23,7 +23,7 @@ import type {
 } from '../select';
 import Select from '../select';
 
-export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input';
+export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input' | 'placeholder' | 'content';
 
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
@@ -212,9 +212,13 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const finalClassNames = React.useMemo(
     () => ({
-      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root),
+      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root, {
+        [`${prefixCls}-customize`]: customizeInput,
+      }),
       prefix: mergedClassNames.prefix,
       input: mergedClassNames.input,
+      placeholder: mergedClassNames.placeholder,
+      content: mergedClassNames.content,
       popup: {
         root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
         list: mergedClassNames.popup?.list,
@@ -229,6 +233,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       root: { ...mergedStyles.root, ...style },
       input: mergedStyles.input,
       prefix: mergedStyles.prefix,
+      placeholder: mergedStyles.placeholder,
+      content: mergedStyles.content,
       popup: {
         root: { ...dropdownStyle, ...mergedStyles.popup?.root },
         list: mergedStyles.popup?.list,

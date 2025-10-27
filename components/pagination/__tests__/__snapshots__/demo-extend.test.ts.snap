@@ -563,148 +563,36 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: visible;"
+          title="10 / page"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
-          </span>
-        </span>
+          10 / page
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-label="Page Size"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value=""
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="rc-virtual-list"
-            style="position: relative;"
-          >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="rc-virtual-list-holder-inner"
-                  id="test-id_list"
-                  role="listbox"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    id="test-id_list_0"
-                    role="option"
-                    title="10 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      10 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_1"
-                    role="option"
-                    title="20 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      20 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_2"
-                    role="option"
-                    title="50 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      50 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_3"
-                    role="option"
-                    title="100 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      100 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -721,7 +609,109 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="rc-virtual-list"
+          style="position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                id="test-id_list"
+                role="listbox"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  aria-selected="true"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                  id="test-id_list_0"
+                  role="option"
+                  title="10 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    10 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_1"
+                  role="option"
+                  title="20 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    20 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_2"
+                  role="option"
+                  title="50 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    50 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_3"
+                  role="option"
+                  title="100 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    100 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-pagination-options-quick-jumper"
@@ -1049,148 +1039,36 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -1207,7 +1085,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -1391,149 +1371,37 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -1550,7 +1418,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -1701,148 +1671,36 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -1859,7 +1717,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -2054,149 +2014,37 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -2213,7 +2061,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -2487,148 +2437,36 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: visible;"
+          title="10 / page"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
-          </span>
-        </span>
+          10 / page
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-label="Page Size"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value=""
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="rc-virtual-list"
-            style="position: relative;"
-          >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="rc-virtual-list-holder-inner"
-                  id="test-id_list"
-                  role="listbox"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    id="test-id_list_0"
-                    role="option"
-                    title="10 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      10 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_1"
-                    role="option"
-                    title="20 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      20 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_2"
-                    role="option"
-                    title="50 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      50 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_3"
-                    role="option"
-                    title="100 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      100 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -2645,7 +2483,109 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="rc-virtual-list"
+          style="position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                id="test-id_list"
+                role="listbox"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  aria-selected="true"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                  id="test-id_list_0"
+                  role="option"
+                  title="10 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    10 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_1"
+                  role="option"
+                  title="20 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    20 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_2"
+                  role="option"
+                  title="50 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    50 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_3"
+                  role="option"
+                  title="100 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    100 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </li>
 </ul>
@@ -2834,148 +2774,36 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -2992,7 +2820,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -3187,149 +3117,37 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -3346,7 +3164,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -3622,148 +3542,36 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -3780,7 +3588,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -4058,149 +3968,37 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -4217,7 +4015,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -4467,148 +4367,36 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: visible;"
+          title="10 / page"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
-          </span>
-        </span>
+          10 / page
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-label="Page Size"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value=""
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="rc-virtual-list"
-            style="position: relative;"
-          >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
-                <div
-                  class="rc-virtual-list-holder-inner"
-                  id="test-id_list"
-                  role="listbox"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    id="test-id_list_0"
-                    role="option"
-                    title="10 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      10 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_1"
-                    role="option"
-                    title="20 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      20 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_2"
-                    role="option"
-                    title="50 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      50 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    id="test-id_list_3"
-                    role="option"
-                    title="100 / page"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      100 / page
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -4625,7 +4413,109 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="rc-virtual-list"
+          style="position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                id="test-id_list"
+                role="listbox"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  aria-selected="true"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                  id="test-id_list_0"
+                  role="option"
+                  title="10 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    10 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_1"
+                  role="option"
+                  title="20 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    20 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_2"
+                  role="option"
+                  title="50 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    50 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  id="test-id_list_3"
+                  role="option"
+                  title="100 / page"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    100 / page
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </li>
 </ul>
@@ -5084,148 +4974,36 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -5242,7 +5020,109 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>
@@ -5433,148 +5313,36 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -5591,7 +5359,109 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>
@@ -5737,148 +5607,36 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="20 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="20 / page"
-            >
-              20 / page
-            </span>
-          </span>
+            20 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -5895,7 +5653,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -6035,148 +5895,36 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="20 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="20 / page"
-            >
-              20 / page
-            </span>
-          </span>
+            20 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -6193,7 +5941,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -6383,148 +6233,36 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -6541,7 +6279,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -6725,149 +6565,37 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -6884,7 +6612,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -7068,148 +6898,36 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -7226,7 +6944,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,
@@ -7410,149 +7230,37 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-selector"
+          class="ant-select-content"
         >
-          <span
-            class="ant-select-selection-wrap"
+          <div
+            class="ant-select-content-value"
+            style="visibility: visible;"
+            title="10 / page"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="test-id_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="Page Size"
-                aria-owns="test-id_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                id="test-id"
-                role="combobox"
-                type="search"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="10 / page"
-            >
-              10 / page
-            </span>
-          </span>
+            10 / page
+          </div>
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            disabled=""
+            id="test-id"
+            role="combobox"
+            type="search"
+            value=""
+          />
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    id="test-id_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="test-id_list_0"
-                      role="option"
-                      title="10 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_1"
-                      role="option"
-                      title="20 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_2"
-                      role="option"
-                      title="50 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="test-id_list_3"
-                      role="option"
-                      title="100 / page"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
+          class="ant-select-suffix"
         >
           <span
             aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
+            class="anticon anticon-down"
             role="img"
           >
             <svg
@@ -7569,7 +7277,109 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="test-id_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_0"
+                    role="option"
+                    title="10 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      10 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      20 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      50 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      100 / page
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>,

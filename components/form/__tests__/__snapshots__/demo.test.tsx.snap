@@ -90,49 +90,37 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-content-value"
+                        style="visibility:visible"
+                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="advanced_search_field-1_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="advanced_search_field-1_list"
-                            aria-required="true"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="advanced_search_field-1"
-                            readonly=""
-                            role="combobox"
-                            style="opacity:0"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                        >
-                          longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                        </span>
-                      </span>
+                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="advanced_search_field-1_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="advanced_search_field-1_list"
+                        aria-required="true"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="advanced_search_field-1"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -149,7 +137,7 @@ Array [
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -280,49 +268,37 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-content-value"
+                        style="visibility:visible"
+                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="advanced_search_field-4_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="advanced_search_field-4_list"
-                            aria-required="true"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="advanced_search_field-4"
-                            readonly=""
-                            role="combobox"
-                            style="opacity:0"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                        >
-                          longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                        </span>
-                      </span>
+                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="advanced_search_field-4_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="advanced_search_field-4_list"
+                        aria-required="true"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="advanced_search_field-4"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -339,7 +315,7 @@ Array [
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -801,99 +777,75 @@ Array [
                 style="width:70%"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
+                  <div
+                    class="ant-select-content-item"
+                    style="opacity:1"
                   >
-                    <div
-                      class="ant-select-selection-overflow"
+                    <span
+                      class="ant-select-selection-item"
+                      title="Bamboo"
                     >
-                      <div
-                        class="ant-select-selection-overflow-item"
-                        style="opacity:1"
+                      <span
+                        class="ant-select-selection-item-content"
+                      >
+                        Bamboo
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-selection-item-remove"
+                        style="user-select:none;-webkit-user-select:none"
+                        unselectable="on"
                       >
                         <span
-                          class="ant-select-selection-item"
-                          title="Bamboo"
+                          aria-label="close"
+                          class="anticon anticon-close"
+                          role="img"
                         >
-                          <span
-                            class="ant-select-selection-item-content"
-                          >
-                            Bamboo
-                          </span>
-                          <span
+                          <svg
                             aria-hidden="true"
-                            class="ant-select-selection-item-remove"
-                            style="user-select:none;-webkit-user-select:none"
-                            unselectable="on"
+                            data-icon="close"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <span
-                              aria-label="close"
-                              class="anticon anticon-close"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="close"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                                />
-                              </svg>
-                            </span>
-                          </span>
+                            <path
+                              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                            />
+                          </svg>
                         </span>
-                      </div>
-                      <div
-                        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                        style="opacity:1"
-                      >
-                        <div
-                          class="ant-select-selection-search"
-                          style="width:0"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="col-24-debug_select_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="col-24-debug_select_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="col-24-debug_select"
-                            readonly=""
-                            role="combobox"
-                            style="opacity:0"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                          <span
-                            aria-hidden="true"
-                            class="ant-select-selection-search-mirror"
-                          >
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </span>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-select-content-item ant-select-content-item-suffix"
+                    style="opacity:1"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="col-24-debug_select_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="col-24-debug_select_list"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="col-24-debug_select"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </div>
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -910,7 +862,7 @@ Array [
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1132,99 +1084,75 @@ Array [
                 style="width:70%"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
+                  <div
+                    class="ant-select-content-item"
+                    style="opacity:1"
                   >
-                    <div
-                      class="ant-select-selection-overflow"
+                    <span
+                      class="ant-select-selection-item"
+                      title="Bamboo"
                     >
-                      <div
-                        class="ant-select-selection-overflow-item"
-                        style="opacity:1"
+                      <span
+                        class="ant-select-selection-item-content"
+                      >
+                        Bamboo
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-selection-item-remove"
+                        style="user-select:none;-webkit-user-select:none"
+                        unselectable="on"
                       >
                         <span
-                          class="ant-select-selection-item"
-                          title="Bamboo"
+                          aria-label="close"
+                          class="anticon anticon-close"
+                          role="img"
                         >
-                          <span
-                            class="ant-select-selection-item-content"
-                          >
-                            Bamboo
-                          </span>
-                          <span
+                          <svg
                             aria-hidden="true"
-                            class="ant-select-selection-item-remove"
-                            style="user-select:none;-webkit-user-select:none"
-                            unselectable="on"
+                            data-icon="close"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <span
-                              aria-label="close"
-                              class="anticon anticon-close"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="close"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                                />
-                              </svg>
-                            </span>
-                          </span>
+                            <path
+                              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                            />
+                          </svg>
                         </span>
-                      </div>
-                      <div
-                        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                        style="opacity:1"
-                      >
-                        <div
-                          class="ant-select-selection-search"
-                          style="width:0"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="select_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="select_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="select"
-                            readonly=""
-                            role="combobox"
-                            style="opacity:0"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                          <span
-                            aria-hidden="true"
-                            class="ant-select-selection-search-mirror"
-                          >
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </span>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-select-content-item ant-select-content-item-suffix"
+                    style="opacity:1"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="select_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="select_list"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="select"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </div>
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -1241,7 +1169,7 @@ Array [
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1361,51 +1289,39 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="control-hooks_gender_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="control-hooks_gender_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="control-hooks_gender"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    Select a option and change input text above
-                  </span>
-                </span>
+                  Select a option and change input text above
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="control-hooks_gender_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="control-hooks_gender_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="control-hooks_gender"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -1422,7 +1338,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -1763,48 +1679,36 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
                 style="width:80px;margin:0 8px"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
+                  <div
+                    class="ant-select-content-value"
+                    style="visibility:visible"
+                    title="RMB"
                   >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity:0"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="RMB"
-                    >
-                      RMB
-                    </span>
-                  </span>
+                    RMB
+                  </div>
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -1821,7 +1725,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
             </span>
           </div>
@@ -2085,46 +1989,34 @@ Array [
                 class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        disabled=""
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity:0"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility:visible"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    disabled=""
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -2141,7 +2033,7 @@ Array [
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -2177,46 +2069,34 @@ Array [
                 class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        disabled=""
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity:0"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility:visible"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    disabled=""
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -2233,7 +2113,7 @@ Array [
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -2266,49 +2146,37 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        disabled=""
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity:0"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility:visible"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    disabled=""
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none"
-                  unselectable="on"
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -2325,7 +2193,7 @@ Array [
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -7876,49 +7744,37 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-content-value"
+                  style="visibility:visible"
+                  title="Zhejiang / Hangzhou / West Lake"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="register_residence_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="register_residence_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="register_residence"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-item"
-                    title="Zhejiang / Hangzhou / West Lake"
-                  >
-                    Zhejiang / Hangzhou / West Lake
-                  </span>
-                </span>
+                  Zhejiang / Hangzhou / West Lake
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="register_residence_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="register_residence_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="register_residence"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -7935,12 +7791,9 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
-              <span
-                aria-hidden="true"
+              </div>
+              <div
                 class="ant-select-clear"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
               >
                 <span
                   aria-label="close-circle"
@@ -7962,7 +7815,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -8010,48 +7863,36 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     style="width:70px"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-content-value"
+                        style="visibility:visible"
+                        title="+86"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="register_prefix_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="register_prefix_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="register_prefix"
-                            readonly=""
-                            role="combobox"
-                            style="opacity:0"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="+86"
-                        >
-                          +86
-                        </span>
-                      </span>
+                        +86
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="register_prefix_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="register_prefix_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="register_prefix"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -8068,7 +7909,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </span>
                 <input
@@ -8201,45 +8042,33 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     style="width:70px"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
-                      >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="register_suffix_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="register_suffix_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="register_suffix"
-                            readonly=""
-                            role="combobox"
-                            style="opacity:0"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        />
-                      </span>
+                      <div
+                        class="ant-select-placeholder"
+                        style="visibility:visible"
+                      />
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="register_suffix_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="register_suffix_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="register_suffix"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -8256,7 +8085,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -8294,38 +8123,32 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="register_website_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="register_website_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-input ant-input-outlined ant-select-selection-search-input css-var-test-id ant-input-css-var"
-                      id="register_website"
-                      role="combobox"
-                      type="search"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    website
-                  </span>
-                </span>
+                  website
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="register_website_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="register_website_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-input ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
+                  id="register_website"
+                  placeholder="website"
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -8415,48 +8238,36 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="register_gender_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="register_gender_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="register_gender"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    select your gender
-                  </span>
-                </span>
+                  select your gender
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="register_gender_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="register_gender_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="register_gender"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -8473,7 +8284,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -9090,45 +8901,33 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -9145,7 +8944,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -9181,45 +8980,33 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
               class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -9236,7 +9023,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -9269,48 +9056,36 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -9327,7 +9102,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -10802,48 +10577,36 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="validate_other_select_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="validate_other_select_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="validate_other_select"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    Please select a country
-                  </span>
-                </span>
+                  Please select a country
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="validate_other_select_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="validate_other_select_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="validate_other_select"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -10860,7 +10623,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -10898,63 +10661,45 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-content-item ant-select-content-item-prefix"
+                  style="opacity:1"
                 >
                   <div
-                    class="ant-select-selection-overflow"
-                  >
-                    <div
-                      class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                      style="opacity:1"
-                    >
-                      <div
-                        class="ant-select-selection-search"
-                        style="width:0"
-                      >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="validate_other_select-multiple_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="validate_other_select-multiple_list"
-                          aria-required="true"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="validate_other_select-multiple"
-                          readonly=""
-                          role="combobox"
-                          style="opacity:0"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-selection-search-mirror"
-                        >
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <span
-                    class="ant-select-selection-placeholder"
+                    class="ant-select-placeholder"
+                    style="visibility:visible"
                   >
                     Please select favourite colors
-                  </span>
-                </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-select-content-item ant-select-content-item-suffix"
+                  style="opacity:1"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="validate_other_select-multiple_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="validate_other_select-multiple_list"
+                    aria-required="true"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="validate_other_select-multiple"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </div>
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -10971,7 +10716,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -12376,45 +12121,33 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="occupation_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="occupation_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="occupation"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="occupation_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="occupation_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="occupation"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -12431,7 +12164,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -13284,50 +13017,38 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    I'm Select
-                  </span>
-                </span>
+                  I'm Select
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -13368,7 +13089,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                     </svg>
                   </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -13401,50 +13122,38 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    I'm Cascader
-                  </span>
-                </span>
+                  I'm Cascader
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -13485,7 +13194,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                     </svg>
                   </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -13518,50 +13227,38 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-status-warning ant-select-has-feedback css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-status-warning ant-select-has-feedback css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
                 >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    I'm TreeSelect
-                  </span>
-                </span>
+                  I'm TreeSelect
+                </div>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -13601,7 +13298,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                     </svg>
                   </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -15222,46 +14919,34 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
               class="ant-select ant-select-filled ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="Select_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="Select_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="Select"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="Select_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="Select_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="Select"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -15278,7 +14963,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -15313,49 +14998,37 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="Cascader_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="Cascader_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="Cascader"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="Cascader_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="Cascader_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="Cascader"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -15372,7 +15045,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -15410,46 +15083,34 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
               class="ant-select ant-tree-select ant-select-filled ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="TreeSelect_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="TreeSelect_list"
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="TreeSelect"
-                      readonly=""
-                      role="combobox"
-                      style="opacity:0"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility:visible"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="TreeSelect_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="TreeSelect_list"
+                  aria-required="true"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="TreeSelect"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-suffix"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -15466,7 +15127,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
