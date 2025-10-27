@@ -124,15 +124,12 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root?.zIndex as number);
 
     // https://github.com/ant-design/ant-design/issues/52473
-    // Handle manual input clearing: trigger onChange when input is manually cleared
     const onInternalBlur: PickerFocusEventHandler = (e, info) => {
       const target = e.target as HTMLInputElement;
-      // If input value is empty and we have a current value, trigger onChange with null
       const currentValue = (restProps as any).value;
       if (target.value === '' && currentValue && (currentValue[0] || currentValue[1])) {
         (restProps as any).onChange?.(null, ['', '']);
       }
-      // Call original onBlur if provided
       (restProps as any).onBlur?.(e, info);
     };
 

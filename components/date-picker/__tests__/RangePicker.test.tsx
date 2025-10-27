@@ -230,13 +230,10 @@ describe('RangePicker', () => {
     expect(inputs[0].value).toBe('2023-08-01');
     expect(inputs[1].value).toBe('2023-08-15');
 
-    // Select all text and delete it from first input
     inputs[0].focus();
     inputs[0].setSelectionRange(0, inputs[0].value.length);
     fireEvent.change(inputs[0], { target: { value: '' } });
     fireEvent.blur(inputs[0]);
-
-    // Should trigger onChange with null value
     expect(onChange).toHaveBeenCalledWith(null, ['', '']);
   });
 });

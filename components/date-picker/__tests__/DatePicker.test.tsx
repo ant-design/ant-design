@@ -507,11 +507,9 @@ describe('DatePicker', () => {
     const input = container.querySelector('input')!;
     expect(input.value).toBe('2023-08-01');
 
-    // Select all text and delete it
     fireEvent.change(input, { target: { value: '' } });
     fireEvent.blur(input);
 
-    // Should trigger onChange with null value
     expect(onChange).toHaveBeenCalledWith(null, '');
   });
 });
