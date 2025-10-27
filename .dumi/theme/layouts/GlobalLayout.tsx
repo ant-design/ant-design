@@ -174,7 +174,6 @@ const GlobalLayout: React.FC = () => {
     };
   }, []);
 
-  console.log('->', h5Data);
   // 主题初始化
   useEffect(() => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
@@ -186,7 +185,6 @@ const GlobalLayout: React.FC = () => {
     const storedBannerVisible =
       storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
-    console.log('>>>>>', h5Data);
     const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
     const hasBannerContent = !!(isZhCN
       ? h5Data?.headingBanner?.cn?.title
