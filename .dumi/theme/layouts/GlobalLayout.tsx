@@ -12,11 +12,13 @@ import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
+import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useAntdSiteConfig } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
@@ -24,10 +26,6 @@ import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
-
-import dayjs from 'dayjs';
-
-import { useAntdSiteConfig } from '../../pages/index/components/util';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
@@ -82,6 +80,10 @@ const GlobalLayout: React.FC = () => {
     });
 
   const [storedTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
+    defaultValue: undefined,
+  });
+
+  const [bannerLastTime] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
     defaultValue: undefined,
   });
 
@@ -180,12 +182,10 @@ const GlobalLayout: React.FC = () => {
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
-    const storedBannerVisibleLastTime =
-      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
-    const storedBannerVisible =
-      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
+    const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
 
     const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
+
     const hasBannerContent = !!(isZhCN
       ? h5Data?.headingBanner?.cn?.title
       : h5Data?.headingBanner?.en?.title);
@@ -193,8 +193,7 @@ const GlobalLayout: React.FC = () => {
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      bannerVisible:
-        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
+      bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
     });
 
     // Handle isMobile
