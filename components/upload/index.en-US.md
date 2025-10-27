@@ -107,7 +107,7 @@ Extends File with additional props.
 | method | The http method of upload request | string | - | - |
 | onProgress | Progress event callback | (event: object, file:UploadFile ) => void | - | - |
 | onError | Error callback when upload fails | (event: object, body?: object) => void | - | - |
-| onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) | - | - |
+| onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) => void | - | - |
 
 ### onChange
 

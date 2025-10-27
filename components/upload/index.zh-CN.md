@@ -100,7 +100,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | action | 上传的地址 | string | - | - |
-| data | CORS 属性设置 | Record<string, unknown> | - | - |
+| data | 上传所需额外参数或返回上传额外参数的方法 | Record<string, unknown> | - | - |
 | filename | 文件名 | string | - | - |
 | file | 文件信息 | [UploadFile](#uploadfile) | - | - |
 | withCredentials | 上传请求时是否携带 cookie | boolean | - | - |
@@ -108,7 +108,7 @@ demo:
 | method | 上传请求的 http method | string | - | - |
 | onProgress | 上传进度回调 | (event: object, file:UploadFile ) => void | - | - |
 | onError | 上传失败回调 | (event: object, body?: object) => void | - | - |
-| onSuccess | 上传成功回调 | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) | - | - |
+| onSuccess | 上传成功回调 | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) => void | - | - |
 
 ### onChange
 
