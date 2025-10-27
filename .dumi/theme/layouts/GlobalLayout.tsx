@@ -25,9 +25,9 @@ import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
 
-// import dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
-// import { useAntdSiteConfig } from '../../pages/index/components/util';
+import { useAntdSiteConfig } from '../../pages/index/components/util';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
@@ -100,8 +100,7 @@ const GlobalLayout: React.FC = () => {
   };
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
-  // const { data: h5Data } = useAntdSiteConfig();
-  // useAntdSiteConfig();
+  const { data: h5Data } = useAntdSiteConfig();
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -175,17 +174,29 @@ const GlobalLayout: React.FC = () => {
     };
   }, []);
 
+  console.log('->', h5Data);
   // 主题初始化
   useEffect(() => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
+    const storedBannerVisibleLastTime =
+      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    const storedBannerVisible =
+      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
+
+    console.log('>>>>>', h5Data);
+    const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
+    const hasBannerContent = !!(isZhCN
+      ? h5Data?.headingBanner?.cn?.title
+      : h5Data?.headingBanner?.en?.title);
+
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      // bannerVisible:
-      //   hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
+      bannerVisible:
+        hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
     });
 
     // Handle isMobile
@@ -201,7 +212,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams, updateMobileMode]);
+  }, [searchParams, updateMobileMode, h5Data]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
