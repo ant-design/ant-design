@@ -86,7 +86,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       title={locale.title}
       open={open}
       onClose={onClose}
-      width={480}
+      size={480}
       placement="right"
       afterOpenChange={handleAfterOpenChange}
     >
