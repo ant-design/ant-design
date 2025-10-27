@@ -1029,30 +1029,26 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
+                            class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
                             style="width: 100%;"
                           >
                             <span
-                              class="ant-input-wrapper ant-input-group"
+                              class="ant-input-prefix"
                             >
-                              <span
-                                class="ant-input-group-addon"
-                              >
-                                http://
-                              </span>
-                              <input
-                                aria-required="true"
-                                class="ant-input ant-input-outlined"
-                                id="url"
-                                placeholder="Please enter url"
-                                type="text"
-                                value=""
-                              />
-                              <span
-                                class="ant-input-group-addon"
-                              >
-                                .com
-                              </span>
+                              http://
+                            </span>
+                            <input
+                              aria-required="true"
+                              class="ant-input"
+                              id="url"
+                              placeholder="Please enter url"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              class="ant-input-suffix"
+                            >
+                              .com
                             </span>
                           </span>
                         </div>
@@ -2871,12 +2867,7 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
 Array [
