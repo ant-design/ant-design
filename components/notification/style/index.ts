@@ -20,6 +20,26 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number | string;
+  /**
+   * @desc 成功提醒框容器背景色
+   * @descEN Background color of success notification container
+   */
+  colorSuccessBg?: string;
+  /**
+   * @desc 错误提醒框容器背景色
+   * @descEN Background color of error notification container
+   */
+  colorErrorBg?: string;
+  /**
+   * @desc 信息提醒框容器背景色
+   * @descEN Background color of info notification container
+   */
+  colorInfoBg?: string;
+  /**
+   * @desc 警告提醒框容器背景色
+   * @descEN Background color of warning notification container
+   */
+  colorWarningBg?: string;
 }
 
 /**
@@ -112,6 +132,10 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     width,
     notificationIconSize,
     colorText,
+    colorSuccessBg,
+    colorErrorBg,
+    colorInfoBg,
+    colorWarningBg,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -128,9 +152,24 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       padding: notificationPadding,
       width,
       maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
-      overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
+      borderRadius: borderRadiusLG,
+      overflow: 'hidden',
+
+      // Type-specific background colors
+      '&-success': {
+        background: colorSuccessBg,
+      },
+      '&-error': {
+        background: colorErrorBg,
+      },
+      '&-info': {
+        background: colorInfoBg,
+      },
+      '&-warning': {
+        background: colorWarningBg,
+      },
     },
 
     [`${noticeCls}-message`]: {
@@ -337,9 +376,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     // ============================ Notice ============================
     {
       [componentCls]: {
-        [`${noticeCls}-wrapper`]: {
-          ...genNoticeStyle(token),
-        },
+        [`${noticeCls}-wrapper`]: genNoticeStyle(token),
       },
     },
   ];
@@ -349,6 +386,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
+  colorSuccessBg: token.colorSuccessBg,
+  colorErrorBg: token.colorErrorBg,
+  colorInfoBg: token.colorInfoBg,
+  colorWarningBg: token.colorWarningBg,
 });
 
 export const prepareNotificationToken: (

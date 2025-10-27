@@ -132,6 +132,7 @@ export interface TableConfig extends ComponentStyleConfig {
 
 export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
+  fallback?: string;
 }
 
 export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
@@ -214,7 +215,7 @@ export type CascaderConfig = ComponentStyleConfig &
   Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
+  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames' | 'switcherIcon'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<DatePickerProps, 'variant' | 'styles' | 'classNames'>;

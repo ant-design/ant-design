@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button, Input, Space } from 'antd';
+import { Button, ConfigProvider, Input, Space } from 'antd';
+import type { TreeNodeProps } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -199,5 +200,33 @@ describe('TreeSelect', () => {
     const input = popupElement!.querySelector('input');
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  it('should support switcherIcon from ConfigProvider', () => {
+    render(
+      <ConfigProvider
+        treeSelect={{
+          switcherIcon: ({ expanded }: TreeNodeProps) => {
+            return expanded ? (
+              <span data-testid="custom-expanded">▼</span>
+            ) : (
+              <span data-testid="custom-collapsed">▶</span>
+            );
+          },
+        }}
+      >
+        <TreeSelect open>
+          <TreeNode value="parent 1" title="parent 1" key="0-1">
+            <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
+              <TreeNode value="leaf1" title="my leaf" key="random" />
+              <TreeNode value="leaf2" title="your leaf" key="random1" />
+            </TreeNode>
+          </TreeNode>
+        </TreeSelect>
+      </ConfigProvider>,
+    );
+
+    const customIcon = screen.getByTestId(/custom-(expanded|collapsed)/);
+    expect(customIcon).toBeInTheDocument();
   });
 });

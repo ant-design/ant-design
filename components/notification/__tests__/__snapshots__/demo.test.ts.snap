@@ -11,6 +11,66 @@ exports[`renders components/notification/demo/basic.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/notification/demo/component-token.tsx correctly 1`] = `
+Array [
+  <h4>
+    Custom Theme (Enhanced Colors)
+  </h4>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Custom Success
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Custom Info
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Custom Warning
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Custom Error
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/notification/demo/custom-icon.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"

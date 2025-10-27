@@ -612,7 +612,12 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/input/demo/addon.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/addon.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/advance-count.tsx extend context correctly 1`] = `
 <div
@@ -5403,7 +5408,12 @@ Array [
 ]
 `;
 
-exports[`renders components/input/demo/align.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/align.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
@@ -6112,7 +6122,12 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/input/demo/compact-style.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/compact-style.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/debug-addon.tsx extend context correctly 1`] = `
 <div
@@ -6244,7 +6259,11 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/input/demo/debug-addon.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/debug-addon.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/filled-debug.tsx extend context correctly 1`] = `
 <div
@@ -6619,7 +6638,12 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/input/demo/filled-debug.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/filled-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = `
 <div
@@ -10278,6 +10302,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -11768,7 +11793,12 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/input/demo/search-input.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/search-input.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 1`] = `
 Array [
@@ -11920,7 +11950,11 @@ Array [
 ]
 `;
 
-exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/show-count.tsx extend context correctly 1`] = `
 <div
@@ -12424,4 +12458,8 @@ exports[`renders components/input/demo/variant.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/input/demo/variant.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/variant.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;

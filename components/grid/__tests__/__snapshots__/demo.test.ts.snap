@@ -557,7 +557,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex:auto"
+      style="flex:1 1 auto"
     >
       Fill Rest
     </div>
@@ -603,7 +603,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex:auto;min-width:0"
+      style="flex:1 1 auto;min-width:0"
     >
       auto with no-wrap
     </div>
@@ -810,6 +810,61 @@ Array [
     <div
       class="ant-col ant-col-6 gutter-row"
       style="padding-left:8px;padding-right:8px"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Gutter(string)
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+    style="margin-left:calc(2rem / -2);margin-right:calc(2rem / -2)"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:calc(2rem / 2);padding-right:calc(2rem / 2)"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:calc(2rem / 2);padding-right:calc(2rem / 2)"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:calc(2rem / 2);padding-right:calc(2rem / 2)"
+    >
+      <div
+        style="background:#0092ff;padding:8px 0"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:calc(2rem / 2);padding-right:calc(2rem / 2)"
     >
       <div
         style="background:#0092ff;padding:8px 0"

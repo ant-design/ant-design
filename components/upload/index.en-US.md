@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
 | action | Uploading URL | string \| (file) => Promise&lt;string> | - |  |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file, fileList) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
-| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | function | - |  |
+| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#requestoptions), info: { defaultRequest: (option: [RequestOptions](#requestoptions)) => void; } ) => void | - | defaultRequest: 5.28.0 |
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
@@ -93,6 +93,21 @@ Extends File with additional props.
 | thumbUrl | Thumb image url | string | - | - |
 | uid | unique id. Will auto-generate when not provided | string | - | - |
 | url | Download url | string | - | - |
+
+### RequestOptions
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| action | Uploading URL | string | - | - |
+| data | Uploading extra params or function which can return uploading extra params | Record<string, unknown> | - | 4.20.0 |
+| filename | file name | string | - | - |
+| file | File object containing upload information | [UploadFile](#uploadfile) | - | - |
+| withCredentials | The ajax upload with cookie sent | boolean | - | - |
+| headers | Set request headers, valid above IE10 | Record<string, string> | - | - |
+| method | The http method of upload request | string | - | - |
+| onProgress | Progress event callback | (event: object, file:UploadFile ) => void | - | - |
+| onError | Error callback when upload fails | (event: object, body?: object) => void | - | - |
+| onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) => void | - | - |
 
 ### onChange
 
