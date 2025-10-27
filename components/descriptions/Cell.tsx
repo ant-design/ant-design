@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
-import isNonNullable from '../_util/isValidNode';
+import isNonNullable from '../_util/isNonNullable';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
