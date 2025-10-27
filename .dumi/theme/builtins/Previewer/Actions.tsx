@@ -96,15 +96,16 @@ const Actions: React.FC<ActionsProps> = ({
     { antd: pkg.version },
   );
 
-  runtimeDependencies['@ant-design/icons'] = dependencies['@ant-design/icons'] || 'latest';
-
-  if (suffix === 'tsx') {
-    runtimeDependencies['@types/react'] = '^19.0.0';
-    runtimeDependencies['@types/react-dom'] = '^19.0.0';
-  }
-
   runtimeDependencies.react = '^19.0.0';
   runtimeDependencies['react-dom'] = '^19.0.0';
+  runtimeDependencies['@ant-design/icons'] = dependencies['@ant-design/icons'] || 'latest';
+
+  const runtimeDevDependencies: Record<PropertyKey, string> = {};
+
+  if (suffix === 'tsx') {
+    runtimeDevDependencies['@types/react'] = devDependencies['@types/react'] || '^19.0.0';
+    runtimeDevDependencies['@types/react-dom'] = devDependencies['@types/react-dom'] || '^19.0.0';
+  }
 
   const codepenPrefillConfig = {
     title: `${title} - antd@${runtimeDependencies.antd}`,
@@ -180,6 +181,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
       'react-scripts': '^5.0.0',
     },
     devDependencies: {
+      ...runtimeDevDependencies,
       typescript: '^5.0.2',
     },
     scripts: {
