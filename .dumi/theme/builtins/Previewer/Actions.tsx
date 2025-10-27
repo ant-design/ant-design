@@ -6,7 +6,7 @@ import { Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
-import packageJson from '../../../../package.json';
+import { dependencies } from '../../../../package.json';
 import useLocale from '../../../hooks/useLocale';
 import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../icons/CodePenIcon';
@@ -83,7 +83,7 @@ const Actions: React.FC<ActionsProps> = ({
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
+  const runtimeDependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
       if (matches?.[1]) {
@@ -96,18 +96,18 @@ const Actions: React.FC<ActionsProps> = ({
     { antd: pkg.version },
   );
 
-  dependencies['@ant-design/icons'] = packageJson.dependencies['@ant-design/icons'] || 'latest';
+  runtimeDependencies['@ant-design/icons'] = dependencies['@ant-design/icons'] || 'latest';
 
   if (suffix === 'tsx') {
-    dependencies['@types/react'] = '^19.0.0';
-    dependencies['@types/react-dom'] = '^19.0.0';
+    runtimeDependencies['@types/react'] = '^19.0.0';
+    runtimeDependencies['@types/react-dom'] = '^19.0.0';
   }
 
-  dependencies.react = '^19.0.0';
-  dependencies['react-dom'] = '^19.0.0';
+  runtimeDependencies.react = '^19.0.0';
+  runtimeDependencies['react-dom'] = '^19.0.0';
 
   const codepenPrefillConfig = {
-    title: `${title} - antd@${dependencies.antd}`,
+    title: `${title} - antd@${runtimeDependencies.antd}`,
     html,
     js: `const { createRoot } = ReactDOM;\n${jsx
       .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
@@ -171,10 +171,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
   `;
 
   const codesandboxPackage = {
-    title: `${title} - antd@${dependencies.antd}`,
+    title: `${title} - antd@${runtimeDependencies.antd}`,
     main: 'index.js',
     dependencies: {
-      ...dependencies,
+      ...runtimeDependencies,
       react: '^19.0.0',
       'react-dom': '^19.0.0',
       'react-scripts': '^5.0.0',
@@ -204,9 +204,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
   };
 
   const stackblitzPrefillConfig: Project = getStackblitzConfig({
-    title: `${title} - antd@${dependencies.antd}`,
+    title: `${title} - antd@${runtimeDependencies.antd}`,
     dependencies: {
-      ...dependencies,
+      ...runtimeDependencies,
       react: '^19.0.0',
       'react-dom': '^19.0.0',
       '@types/react': '^19.0.0',
@@ -257,7 +257,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         </Tooltip>
       </form>
       {/* 代码块复制按钮 */}
-      <CodeBlockButton title={title} dependencies={dependencies} jsx={jsx} />
+      <CodeBlockButton title={title} dependencies={runtimeDependencies} jsx={jsx} />
       {/* StackBlitz 按钮 */}
       <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
         <span
