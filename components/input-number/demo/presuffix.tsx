@@ -7,7 +7,17 @@ const App: React.FC = () => (
     <InputNumber prefix="￥" style={{ width: '100%' }} />
     <br />
     <br />
-    <InputNumber addonBefore={<UserOutlined />} prefix="￥" style={{ width: '100%' }} />
+    <InputNumber
+      prefix={
+        <>
+          <div style={{ marginRight: 8 }}>
+            <UserOutlined />
+          </div>
+          ￥
+        </>
+      }
+      style={{ width: '100%' }}
+    />
     <br />
     <br />
     <InputNumber prefix="￥" disabled style={{ width: '100%' }} />

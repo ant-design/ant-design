@@ -23,7 +23,7 @@ const App: React.FC = () => (
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
     <Search
-      addonBefore="https://"
+      prefix="https://"
       placeholder="input search text"
       allowClear
       onSearch={onSearch}
