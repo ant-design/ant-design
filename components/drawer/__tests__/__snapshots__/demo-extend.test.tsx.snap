@@ -2915,8 +2915,8 @@ Array [
 
 exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 

@@ -4720,7 +4720,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
 
 exports[`renders components/tree/demo/search.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 

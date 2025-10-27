@@ -8059,7 +8059,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
 
 exports[`renders components/form/demo/disabled-input-debug.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -12818,7 +12818,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
 
 exports[`renders components/form/demo/register.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
