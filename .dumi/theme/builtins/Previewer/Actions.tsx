@@ -1,7 +1,6 @@
 import React, { Suspense, useRef } from 'react';
 import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
-import type { Project } from '@stackblitz/sdk';
 import { Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
@@ -176,12 +175,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...runtimeDependencies,
-      react: '^19.0.0',
-      'react-dom': '^19.0.0',
-      'react-scripts': '^5.0.0',
     },
     devDependencies: {
       ...runtimeDevDependencies,
+      '@types/node': '^24.0.0',
       typescript: '^5.0.2',
     },
     scripts: {
@@ -205,15 +202,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
     },
   };
 
-  const stackblitzPrefillConfig: Project = getStackblitzConfig({
+  const stackblitzPrefillConfig = getStackblitzConfig({
     title: `${title} - antd@${runtimeDependencies.antd}`,
-    dependencies: {
-      ...runtimeDependencies,
-      react: '^19.0.0',
-      'react-dom': '^19.0.0',
-      '@types/react': '^19.0.0',
-      '@types/react-dom': '^19.0.0',
-    },
+    dependencies: runtimeDependencies,
+    devDependencies: runtimeDevDependencies,
     demoJsContent,
     indexCssContent,
     suffix,
