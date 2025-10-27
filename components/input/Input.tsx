@@ -88,8 +88,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     const { deprecated } = devUseWarning('Input');
     [
       ['bordered', 'variant'],
-      ['addonAfter', 'Space.Compat'],
-      ['addonBefore', 'Space.Compat'],
+      ['addonAfter', 'Space.Compact'],
+      ['addonBefore', 'Space.Compact'],
     ].forEach(([prop, newProp]) => {
       deprecated(!(prop in props), prop, newProp);
     });

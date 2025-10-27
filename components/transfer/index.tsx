@@ -230,6 +230,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     KeyWise<RecordType>,
     TransferKey
   >((item) => item.key);
+
   const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
     TransferKey
