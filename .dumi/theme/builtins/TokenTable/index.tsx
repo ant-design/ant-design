@@ -117,7 +117,15 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
     [type, lang],
   );
 
-  return <Table dataSource={data} columns={columns} pagination={false} bordered />;
+  return (
+    <Table<TokenData>
+      bordered
+      rowKey={(record) => record.name}
+      dataSource={data}
+      columns={columns}
+      pagination={false}
+    />
+  );
 };
 
 export default TokenTable;
