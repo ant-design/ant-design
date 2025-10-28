@@ -209,7 +209,8 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams, updateMobileMode, h5Data]);
+    // }, [searchParams, updateMobileMode, h5Data]);
+  }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
