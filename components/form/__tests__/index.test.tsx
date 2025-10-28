@@ -33,6 +33,7 @@ import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
+const { Option } = Select;
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -1581,7 +1582,7 @@ describe('Form', () => {
     // if form name is empty and item name is parentNode
     // will get parentNode
     mockFn.mockImplementation(() => itemName);
-    const { Option } = Select;
+
     const Demo: React.FC = () => {
       const [open, setOpen] = useState(false);
       return (

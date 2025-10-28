@@ -233,6 +233,7 @@ const locales = [
 ];
 
 const { Option } = Select;
+
 const { RangePicker } = DatePicker;
 
 const columns: TableProps['columns'] = [
