@@ -23,14 +23,23 @@ After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` wi
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::
 
-```jsx
+```tsx
 // works when >=5.11.0, recommended ✅
-return <Select options={[{ value: 'sample', label: <span>sample</span> }]} />;
+return (
+  <Select
+    onChange={onChange}
+    options={[
+      { value: '1', label: <span>Option 1</span> },
+      { value: '2', label: <span>Option 2</span> },
+    ]}
+  />
+);
 
 // works when <5.11.0, deprecated when >=5.11.0 🙅🏻‍♀️
 return (
   <Select onChange={onChange}>
-    <Select.Option value="sample">Sample</Select.Option>
+    <Select.Option value="1">Option 1</Select.Option>
+    <Select.Option value="2">Option 2</Select.Option>
   </Select>
 );
 ```

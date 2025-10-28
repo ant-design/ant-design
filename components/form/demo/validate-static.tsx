@@ -12,8 +12,6 @@ import {
   TreeSelect,
 } from 'antd';
 
-const { Option } = Select;
-
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -78,11 +76,16 @@ const App: React.FC = () => (
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
-      <Select placeholder="I'm Select" allowClear>
-        <Option value="1">Option 1</Option>
-        <Option value="2">Option 2</Option>
-        <Option value="3">Option 3</Option>
-      </Select>
+      <Select
+        allowClear
+        placeholder="I'm Select"
+        defaultValue={'1'}
+        options={[
+          { label: 'Option 1', value: '1' },
+          { label: 'Option 2', value: '2' },
+          { label: 'Option 3', value: '3' },
+        ]}
+      />
     </Form.Item>
 
     <Form.Item

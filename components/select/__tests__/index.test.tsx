@@ -11,8 +11,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Form from '../../form';
 
-const { Option } = Select;
-
 describe('Select', () => {
   focusTest(Select, { refFocus: true });
   mountTest(Select);
@@ -67,33 +65,27 @@ describe('Select', () => {
   });
 
   it('should be controlled by open prop', () => {
-    const onDropdownVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
-        onDropdownVisibleChange(value);
+      const handleChange: SelectProps['onOpenChange'] = (value) => {
+        onOpenChange(value);
         setOpen(value);
       };
       return (
-        <Select open={open} onDropdownVisibleChange={handleChange}>
-          <Option value="1">1</Option>
-        </Select>
+        <Select open={open} onOpenChange={handleChange} options={[{ label: '1', value: '1' }]} />
       );
     };
     const { container } = render(<TestComponent />);
     expect(container.querySelector('.ant-select-dropdown')).toBeFalsy();
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
-    expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
-    const { container } = render(
-      <Select showSearch>
-        <Option value="1">1</Option>
-      </Select>,
-    );
+    const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
     expect(container.querySelectorAll('.anticon-down').length).toBe(1);
     expect(container.querySelectorAll('.anticon-search').length).toBe(0);
     toggleOpen(container);
@@ -106,20 +98,18 @@ describe('Select', () => {
       const { rerender, asFragment } = render(
         <Select
           removeIcon={<CloseOutlined />}
-          clearIcon={<CloseOutlined />}
+          allowClear={{ clearIcon: <CloseOutlined /> }}
           menuItemSelectedIcon={<CloseOutlined />}
-        >
-          <Option value="1">1</Option>
-        </Select>,
+          options={[{ label: '1', value: '1' }]}
+        />,
       );
       rerender(
         <Select
           removeIcon={<CloseOutlined />}
-          clearIcon={<CloseOutlined />}
+          allowClear={{ clearIcon: <CloseOutlined /> }}
           menuItemSelectedIcon={<CloseOutlined />}
-        >
-          <Option value="1">1</Option>
-        </Select>,
+          options={[{ label: '1', value: '1' }]}
+        />,
       );
       act(() => {
         jest.runAllTimers();
@@ -168,9 +158,7 @@ describe('Select', () => {
   describe('Deprecated', () => {
     it('should ignore mode="combobox"', () => {
       const { asFragment } = render(
-        <Select mode={'combobox' as SelectProps['mode']}>
-          <Option value="1">1</Option>
-        </Select>,
+        <Select mode={'combobox' as SelectProps['mode']} options={[{ label: '1', value: '1' }]} />,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -218,11 +206,10 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
         <Select
-          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
           open
-        >
-          <Select.Option value="1">1</Select.Option>
-        </Select>,
+          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
+          options={[{ label: '1', value: '1' }]}
+        />,
       );
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',

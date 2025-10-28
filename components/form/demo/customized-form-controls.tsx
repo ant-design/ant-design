@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Select } from 'antd';
 
-const { Option } = Select;
-
 type Currency = 'rmb' | 'dollar';
 
 interface PriceValue {
@@ -55,10 +53,11 @@ const PriceInput: React.FC<PriceInputProps> = (props) => {
         value={value.currency || currency}
         style={{ width: 80, margin: '0 8px' }}
         onChange={onCurrencyChange}
-      >
-        <Option value="rmb">RMB</Option>
-        <Option value="dollar">Dollar</Option>
-      </Select>
+        options={[
+          { label: 'RMB', value: 'rmb' },
+          { label: 'Dollar', value: 'dollar' },
+        ]}
+      />
     </span>
   );
 };
@@ -81,10 +80,7 @@ const App: React.FC = () => {
       layout="inline"
       onFinish={onFinish}
       initialValues={{
-        price: {
-          number: 0,
-          currency: 'rmb',
-        },
+        price: { number: 0, currency: 'rmb' },
       }}
     >
       <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>

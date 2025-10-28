@@ -59,11 +59,12 @@ import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
 dayjs.extend(customParseFormat);
+
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
-    function testPair(name: string, renderComponent: (props?: any) => React.ReactElement): void {
+    const testPair = (name: string, renderComponent: (props?: any) => React.ReactElement<any>) => {
       const isArray = ['Menu', 'TimePicker', 'Tooltip'].includes(name);
       describe(`${name}`, () => {
         // normal
@@ -122,7 +123,7 @@ describe('ConfigProvider', () => {
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
       });
-    }
+    };
 
     // Alert
     testPair('Alert', (props) => (
@@ -430,11 +431,12 @@ describe('ConfigProvider', () => {
 
     // Select
     testPair('Select', (props) => (
-      <Select {...props} open>
-        <Select.OptGroup key="grp">
-          <Select.Option key="Bamboo">Light</Select.Option>
-        </Select.OptGroup>
-      </Select>
+      <Select
+        open
+        defaultValue={'light'}
+        options={[{ label: 'Light', value: 'light' }]}
+        {...props}
+      />
     ));
 
     // Skeleton

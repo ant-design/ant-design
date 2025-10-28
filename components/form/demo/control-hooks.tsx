@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button, Form, Input, Select, Space } from 'antd';
 
-const { Option } = Select;
-
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -55,14 +53,15 @@ const App: React.FC = () => {
       </Form.Item>
       <Form.Item name="gender" label="Gender" rules={[{ required: true }]}>
         <Select
+          allowClear
           placeholder="Select a option and change input text above"
           onChange={onGenderChange}
-          allowClear
-        >
-          <Option value="male">male</Option>
-          <Option value="female">female</Option>
-          <Option value="other">other</Option>
-        </Select>
+          options={[
+            { label: 'male', value: 'male' },
+            { label: 'female', value: 'female' },
+            { label: 'other', value: 'other' },
+          ]}
+        />
       </Form.Item>
       <Form.Item
         noStyle

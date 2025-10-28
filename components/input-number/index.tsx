@@ -2,7 +2,11 @@ import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
+import type {
+  InputNumberProps as RcInputNumberProps,
+  InputNumberRef as RcInputNumberRef,
+  ValueType,
+} from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -41,7 +45,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   variant?: Variant;
 }
 
-const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
+const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
     typeWarning.deprecated(!('bordered' in props), 'bordered', 'variant');
@@ -54,7 +58,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = React.useRef<RcInputNumberRef>(null);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
@@ -200,7 +204,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 });
 
 const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(
-  props: React.PropsWithChildren<InputNumberProps<T>> & React.RefAttributes<HTMLInputElement>,
+  props: React.PropsWithChildren<InputNumberProps<T>> & React.RefAttributes<RcInputNumberRef>,
 ) => React.ReactElement) & {
   displayName?: string;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;

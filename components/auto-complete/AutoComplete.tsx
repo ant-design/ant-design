@@ -24,6 +24,7 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
+
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export interface AutoCompleteProps<
