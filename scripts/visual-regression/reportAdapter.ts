@@ -1,12 +1,13 @@
-import fs from 'fs-extra';
-import fg from 'fast-glob';
 import path from 'path';
-import { PNG } from 'pngjs';
 // locked to v2.2.0
 import {
   getReportHtmlAfterPopulatingData,
   getReportJsonWithTotalStats,
 } from 'cypress-image-diff-html-report/dist/common/utils';
+import fg from 'fast-glob';
+import fs from 'fs-extra';
+import { PNG } from 'pngjs';
+
 import type { IBadCase } from './build';
 
 const ROOT = path.resolve(__dirname, '../../');
