@@ -1326,7 +1326,7 @@ Array [
                                   style="height: 0px; width: 0px; overflow: hidden;"
                                 >
                                   <div
-                                    aria-label="Private"
+                                    aria-label="private"
                                     aria-selected="false"
                                     id="type_list_0"
                                     role="option"
@@ -1334,7 +1334,7 @@ Array [
                                     private
                                   </div>
                                   <div
-                                    aria-label="Public"
+                                    aria-label="public"
                                     aria-selected="false"
                                     id="type_list_1"
                                     role="option"
@@ -1358,12 +1358,12 @@ Array [
                                         <div
                                           aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                                          title="Private"
+                                          title="private"
                                         >
                                           <div
                                             class="ant-select-item-option-content"
                                           >
-                                            Private
+                                            private
                                           </div>
                                           <span
                                             aria-hidden="true"
@@ -1375,12 +1375,12 @@ Array [
                                         <div
                                           aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
-                                          title="Public"
+                                          title="public"
                                         >
                                           <div
                                             class="ant-select-item-option-content"
                                           >
-                                            Public
+                                            public
                                           </div>
                                           <span
                                             aria-hidden="true"

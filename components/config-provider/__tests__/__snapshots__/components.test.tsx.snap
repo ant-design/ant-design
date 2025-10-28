@@ -24801,7 +24801,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
@@ -24819,8 +24819,11 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         />
       </span>
       <span
-        class="config-select-selection-placeholder"
-      />
+        class="config-select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <div
@@ -24834,17 +24837,12 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
-          role="presentation"
-        />
-        <div
           aria-label="Light"
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          aria-selected="true"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          Bamboo
+          light
         </div>
       </div>
       <div
@@ -24861,14 +24859,8 @@ exports[`ConfigProvider components Select configProvider 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                aria-selected="false"
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                aria-selected="true"
+                class="config-select-item config-select-item-option config-select-item-option-active config-select-item-option-selected"
                 title="Light"
               >
                 <div
@@ -24950,8 +24942,11 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
         />
       </span>
       <span
-        class="config-select-selection-placeholder"
-      />
+        class="config-select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <span
@@ -24997,7 +24992,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
@@ -25015,8 +25010,11 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         />
       </span>
       <span
-        class="config-select-selection-placeholder"
-      />
+        class="config-select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <div
@@ -25030,17 +25028,12 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
-          role="presentation"
-        />
-        <div
           aria-label="Light"
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          aria-selected="true"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          Bamboo
+          light
         </div>
       </div>
       <div
@@ -25057,14 +25050,8 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
               style="display: flex; flex-direction: column;"
             >
               <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                aria-selected="false"
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                aria-selected="true"
+                class="config-select-item config-select-item-option config-select-item-option-active config-select-item-option-selected"
                 title="Light"
               >
                 <div
@@ -25128,7 +25115,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
@@ -25146,8 +25133,11 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         />
       </span>
       <span
-        class="config-select-selection-placeholder"
-      />
+        class="config-select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <div
@@ -25161,17 +25151,12 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
-          role="presentation"
-        />
-        <div
           aria-label="Light"
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          aria-selected="true"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          Bamboo
+          light
         </div>
       </div>
       <div
@@ -25188,14 +25173,8 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
               style="display: flex; flex-direction: column;"
             >
               <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                aria-selected="false"
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                aria-selected="true"
+                class="config-select-item config-select-item-option config-select-item-option-active config-select-item-option-selected"
                 title="Light"
               >
                 <div
@@ -25259,7 +25238,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
@@ -25277,8 +25256,11 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         />
       </span>
       <span
-        class="config-select-selection-placeholder"
-      />
+        class="config-select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <div
@@ -25292,17 +25274,12 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
-          role="presentation"
-        />
-        <div
           aria-label="Light"
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          aria-selected="true"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          Bamboo
+          light
         </div>
       </div>
       <div
@@ -25319,14 +25296,8 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
               style="display: flex; flex-direction: column;"
             >
               <div
-                class="config-select-item config-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                aria-selected="false"
-                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                aria-selected="true"
+                class="config-select-item config-select-item-option config-select-item-option-active config-select-item-option-selected"
                 title="Light"
               >
                 <div
@@ -25390,7 +25361,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
@@ -25408,8 +25379,11 @@ exports[`ConfigProvider components Select normal 1`] = `
         />
       </span>
       <span
-        class="ant-select-selection-placeholder"
-      />
+        class="ant-select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <div
@@ -25423,17 +25397,12 @@ exports[`ConfigProvider components Select normal 1`] = `
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
-          role="presentation"
-        />
-        <div
           aria-label="Light"
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          aria-selected="true"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          Bamboo
+          light
         </div>
       </div>
       <div
@@ -25450,14 +25419,8 @@ exports[`ConfigProvider components Select normal 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
-                class="ant-select-item ant-select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                aria-selected="false"
-                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                aria-selected="true"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 title="Light"
               >
                 <div
@@ -25521,7 +25484,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         class="prefix-Select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
@@ -25539,8 +25502,11 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         />
       </span>
       <span
-        class="prefix-Select-selection-placeholder"
-      />
+        class="prefix-Select-selection-item"
+        title="Light"
+      >
+        Light
+      </span>
     </span>
   </div>
   <div
@@ -25554,17 +25520,12 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
-          role="presentation"
-        />
-        <div
           aria-label="Light"
-          aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          aria-selected="true"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          Bamboo
+          light
         </div>
       </div>
       <div
@@ -25581,14 +25542,8 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
-                class="prefix-Select-item prefix-Select-item-group"
-                title="grp"
-              >
-                grp
-              </div>
-              <div
-                aria-selected="false"
-                class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
+                aria-selected="true"
+                class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-active prefix-Select-item-option-selected"
                 title="Light"
               >
                 <div

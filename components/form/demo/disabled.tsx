@@ -62,9 +62,7 @@ const FormDisabledDemo: React.FC = () => {
           <Input />
         </Form.Item>
         <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
+          <Select options={[{ label: 'Demo', value: 'demo' }]} />
         </Form.Item>
         <Form.Item label="TreeSelect">
           <TreeSelect

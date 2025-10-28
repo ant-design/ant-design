@@ -99,11 +99,15 @@ const App: React.FC = () => {
         <br />
         <br />
         showLeafIcon:{' '}
-        <Select defaultValue="true" onChange={handleLeafIconChange}>
-          <Select.Option value="true">True</Select.Option>
-          <Select.Option value="false">False</Select.Option>
-          <Select.Option value="custom">Custom icon</Select.Option>
-        </Select>
+        <Select
+          defaultValue="true"
+          onChange={handleLeafIconChange}
+          options={[
+            { label: 'True', value: 'true' },
+            { label: 'False', value: 'false' },
+            { label: 'Custom icon', value: 'custom' },
+          ]}
+        />
       </div>
       <Tree
         showLine={showLine ? { showLeafIcon } : false}
