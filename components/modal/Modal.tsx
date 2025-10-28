@@ -76,6 +76,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     panelRef = null,
     closable,
     mask: modalMask,
+    modalRender,
     ...restProps
   } = props;
 
@@ -169,9 +170,15 @@ const Modal: React.FC<ModalProps> = (props) => {
         ...ariaProps,
       }
     : false;
+
+  // ============================ modalRender ============================
+  const mergedModalRender = modalRender
+    ? (node: React.ReactNode) => <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
+    : undefined;
   // ============================ Refs ============================
   // Select `ant-modal-container` by `panelRef`
-  const innerPanelRef = usePanelRef(`.${prefixCls}-container`);
+  const panelClassName = `.${prefixCls}-${modalRender ? 'render' : 'container'}`;
+  const innerPanelRef = usePanelRef(panelClassName);
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
@@ -249,6 +256,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           styles={mergedStyles}
           panelRef={mergedPanelRef}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          modalRender={mergedModalRender}
         >
           {loading ? (
             <Skeleton
