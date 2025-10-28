@@ -375,15 +375,10 @@ describe('Calendar', () => {
     // Year
     const headerRender = jest.fn(({ value }) => {
       const year = value.year();
-      const options = [];
+      const options: any[] = [];
       for (let i = year - 100; i < year + 100; i += 1) {
-        options.push(
-          <Select.Option className="year-item" key={i} value={i}>
-            {i}
-          </Select.Option>,
-        );
+        options.push({ label: i, value: i });
       }
-
       return (
         <Select
           size="small"
@@ -391,9 +386,8 @@ describe('Calendar', () => {
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
-        >
-          {options}
-        </Select>
+          options={options}
+        />
       );
     });
     const uiWithYear = <Calendar fullscreen={false} headerRender={headerRender} />;
@@ -412,7 +406,7 @@ describe('Calendar', () => {
     const headerRenderWithMonth = jest.fn(({ value }) => {
       const start = 0;
       const end = 12;
-      const monthOptions = [];
+      const monthOptions: any[] = [];
       const current = value.clone();
       const localeData = value.localeData();
       const months = [];
@@ -422,11 +416,7 @@ describe('Calendar', () => {
       }
 
       for (let index = start; index < end; index += 1) {
-        monthOptions.push(
-          <Select.Option className="month-item" key={index} value={index}>
-            {months[index]}
-          </Select.Option>,
-        );
+        monthOptions.push({ label: months[index], value: index });
       }
 
       const month = value.month();
@@ -437,9 +427,8 @@ describe('Calendar', () => {
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}
-        >
-          {monthOptions}
-        </Select>
+          options={monthOptions}
+        />
       );
     });
     const uiWithMonth = <Calendar fullscreen={false} headerRender={headerRenderWithMonth} />;

@@ -1365,9 +1365,7 @@ describe('Form', () => {
           <Input />
         </Form.Item>
         <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
+          <Select options={[{ value: 'demo', label: 'Demo' }]} />
         </Form.Item>
         <Form.Item label="TreeSelect">
           <TreeSelect
