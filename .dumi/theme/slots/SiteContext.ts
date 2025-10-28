@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
 
 import type { ThemeName } from '../common/ThemeSwitch';
-import { getBannerData } from '.dumi/pages/index/components/util';
+import { getBannerData } from '../../pages/index/components/util';
 
 export interface SiteContextProps {
   isMobile: boolean;
