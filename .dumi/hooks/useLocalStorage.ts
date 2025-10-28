@@ -22,7 +22,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
 
   const mergedDeserializer = typeof deserializer === 'function' ? deserializer : JSON.parse;
 
-  const mergedHandleError = typeof onError === 'function' ? onError : console.error;
+  const handleError = typeof onError === 'function' ? onError : console.error;
 
   const getStoredValue = () => {
     try {
@@ -32,7 +32,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       }
     } catch (e) {
       if (process.env.NODE_ENV !== 'production') {
-        mergedHandleError(e);
+        handleError(e);
       }
       return defaultValue;
     }
@@ -65,7 +65,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       );
     } catch (e) {
       if (process.env.NODE_ENV !== 'production') {
-        mergedHandleError(e);
+        handleError(e);
       }
     }
   };
