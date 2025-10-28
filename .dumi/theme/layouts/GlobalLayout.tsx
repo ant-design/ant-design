@@ -18,7 +18,7 @@ import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML }
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { useAntdSiteConfig } from '../../pages/index/components/util';
+import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
@@ -102,7 +102,8 @@ const GlobalLayout: React.FC = () => {
   };
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
-  const { data: h5Data } = useAntdSiteConfig();
+
+  const bannerData = getBannerData();
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -186,9 +187,7 @@ const GlobalLayout: React.FC = () => {
 
     const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
 
-    const hasBannerContent = !!(isZhCN
-      ? h5Data?.headingBanner?.cn?.title
-      : h5Data?.headingBanner?.en?.title);
+    const hasBannerContent = isZhCN && !!bannerData;
 
     setSiteState({
       theme: finalTheme,
@@ -209,7 +208,6 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-    // }, [searchParams, updateMobileMode, h5Data]);
   }, [searchParams, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(

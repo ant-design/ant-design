@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
 
 import type { ThemeName } from '../common/ThemeSwitch';
+import { getBannerData } from '.dumi/pages/index/components/util';
 
 export interface SiteContextProps {
   isMobile: boolean;
@@ -13,7 +14,7 @@ export interface SiteContextProps {
 
 const SiteContext = React.createContext<SiteContextProps>({
   isMobile: false,
-  bannerVisible: false,
+  bannerVisible: !!getBannerData(),
   direction: 'ltr',
   theme: ['light'],
   updateSiteConfig: () => {},
