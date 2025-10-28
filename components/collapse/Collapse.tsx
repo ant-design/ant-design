@@ -152,13 +152,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       return cloneElement(icon, () => ({
         className: clsx(
           (icon as React.ReactElement<{ className?: string }>)?.props?.className,
-          mergedClassNames.icon,
           `${prefixCls}-arrow`,
         ),
-        style: mergedStyles.icon,
       }));
     },
-    [mergedExpandIcon, prefixCls, direction, mergedStyles.icon, mergedClassNames.icon],
+    [mergedExpandIcon, prefixCls, direction],
   );
 
   const collapseClassName = clsx(
