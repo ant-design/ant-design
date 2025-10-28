@@ -333,7 +333,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
           </Link>
         }
         open={show}
-        size={'large'}
+        size="large"
         onClose={() => setShow(false)}
       >
         <Timeline items={timelineItems} />
