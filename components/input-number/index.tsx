@@ -28,7 +28,9 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
   prefixCls?: string;
   rootClassName?: string;
+  /** @deprecated Use `Space.Compact` instead. */
   addonBefore?: React.ReactNode;
+  /** @deprecated Use `Space.Compact` instead. */
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -48,7 +50,13 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
-    typeWarning.deprecated(!('bordered' in props), 'bordered', 'variant');
+    [
+      ['bordered', 'variant'],
+      ['addonAfter', 'Space.Compact'],
+      ['addonBefore', 'Space.Compact'],
+    ].forEach(([prop, newProp]) => {
+      typeWarning.deprecated(!(prop in props), prop, newProp);
+    });
     typeWarning(
       !(props.type === 'number' && props.changeOnWheel),
       'usage',

@@ -11,6 +11,7 @@ import {
   InputNumber,
   Row,
   Select,
+  Space,
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
 
@@ -213,7 +214,10 @@ const App: React.FC = () => {
         label="Phone Number"
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        <Space.Compact>
+          {prefixSelector}
+          <InputNumber style={{ width: '100%' }} />
+        </Space.Compact>
       </Form.Item>
 
       <Form.Item
@@ -221,7 +225,10 @@ const App: React.FC = () => {
         label="Donation"
         rules={[{ required: true, message: 'Please input donation amount!' }]}
       >
-        <InputNumber addonAfter={suffixSelector} style={{ width: '100%' }} />
+        <Space.Compact>
+          <InputNumber style={{ width: '100%' }} />
+          {suffixSelector}
+        </Space.Compact>
       </Form.Item>
 
       <Form.Item
