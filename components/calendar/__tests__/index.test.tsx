@@ -1,8 +1,5 @@
-import Dayjs from 'dayjs';
-
-import 'dayjs/locale/zh-cn';
-
 import React from 'react';
+import Dayjs from 'dayjs';
 import MockDate from 'mockdate';
 import type { PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
@@ -17,8 +14,11 @@ import ConfigProvider from '../../config-provider';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
+import type { DefaultOptionType } from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
+
+import 'dayjs/locale/zh-cn';
 
 const ref: {
   calendarProps?: PickerPanelProps;
@@ -375,7 +375,7 @@ describe('Calendar', () => {
     // Year
     const headerRender = jest.fn(({ value }) => {
       const year = value.year();
-      const options: any[] = [];
+      const options: DefaultOptionType[] = [];
       for (let i = year - 100; i < year + 100; i += 1) {
         options.push({ label: i, value: i });
       }
@@ -406,19 +406,17 @@ describe('Calendar', () => {
     const headerRenderWithMonth = jest.fn(({ value }) => {
       const start = 0;
       const end = 12;
-      const monthOptions: any[] = [];
+      const months: string[] = [];
+      const monthOptions: DefaultOptionType[] = [];
       const current = value.clone();
       const localeData = value.localeData();
-      const months = [];
       for (let i = 0; i < 12; i += 1) {
         current.month(i);
         months.push(localeData.monthsShort(current));
       }
-
       for (let index = start; index < end; index += 1) {
         monthOptions.push({ label: months[index], value: index });
       }
-
       const month = value.month();
       return (
         <Select

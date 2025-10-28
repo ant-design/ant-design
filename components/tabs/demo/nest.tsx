@@ -46,7 +46,7 @@ const App: React.FC = () => {
         options={[
           { value: 'line', label: 'Child - line' },
           { value: 'card', label: 'Child - card' },
-          { value: 'editable-card', label: 'Parent - card edit' },
+          { value: 'editable-card', label: 'Child - card edit' },
         ]}
       />
       <Tabs
