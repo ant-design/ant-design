@@ -6880,6 +6880,22 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     unselectable="on"
                   />
                 </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Other"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Other
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
               </div>
             </div>
           </div>

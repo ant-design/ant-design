@@ -24032,11 +24032,14 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     class="config-select-content"
   >
     <div
-      class="config-select-placeholder"
+      class="config-select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
-      aria-activedescendant="test-id_list_1"
+      aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
       aria-controls="test-id_list"
       aria-expanded="true"
@@ -24085,9 +24088,12 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
     class="config-select-content"
   >
     <div
-      class="config-select-placeholder"
+      class="config-select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
       aria-autocomplete="list"
       aria-controls="test-id_list"
@@ -24138,11 +24144,14 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
     class="config-select-content"
   >
     <div
-      class="config-select-placeholder"
+      class="config-select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
-      aria-activedescendant="test-id_list_1"
+      aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
       aria-controls="test-id_list"
       aria-expanded="true"
@@ -24191,11 +24200,14 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
     class="config-select-content"
   >
     <div
-      class="config-select-placeholder"
+      class="config-select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
-      aria-activedescendant="test-id_list_1"
+      aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
       aria-controls="test-id_list"
       aria-expanded="true"
@@ -24244,11 +24256,14 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
     class="config-select-content"
   >
     <div
-      class="config-select-placeholder"
+      class="config-select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
-      aria-activedescendant="test-id_list_1"
+      aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
       aria-controls="test-id_list"
       aria-expanded="true"
@@ -24297,11 +24312,14 @@ exports[`ConfigProvider components Select normal 1`] = `
     class="ant-select-content"
   >
     <div
-      class="ant-select-placeholder"
+      class="ant-select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
-      aria-activedescendant="test-id_list_1"
+      aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
       aria-controls="test-id_list"
       aria-expanded="true"
@@ -24350,11 +24368,14 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     class="prefix-Select-content"
   >
     <div
-      class="prefix-Select-placeholder"
+      class="prefix-Select-content-value"
       style="visibility: visible;"
-    />
+      title="Light"
+    >
+      Light
+    </div>
     <input
-      aria-activedescendant="test-id_list_1"
+      aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
       aria-controls="test-id_list"
       aria-expanded="true"

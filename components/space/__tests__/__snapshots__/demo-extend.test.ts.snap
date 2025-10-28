@@ -641,12 +641,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <span
               class="ant-select-selection-item"
-              title="Zhejianggggg"
+              title="Zhejiang"
             >
               <span
                 class="ant-select-selection-item-content"
               >
-                Zhejianggggg
+                Zhejiang
               </span>
               <span
                 aria-hidden="true"
@@ -756,12 +756,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
-              aria-label="Zhejianggggg"
+              aria-label="Zhejiang"
               aria-selected="true"
               id="test-id_list_0"
               role="option"
             >
-              Zhejianggggg
+              Zhejiang
             </div>
             <div
               aria-label="Jiangsu"
@@ -787,12 +787,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    title="Zhejianggggg"
+                    title="Zhejiang"
                   >
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Zhejianggggg
+                      Zhejiang
                     </div>
                     <span
                       aria-hidden="true"
@@ -10531,7 +10531,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     id="test-id_list_0"
                     role="option"
                   >
-                    http://
+                    http
                   </div>
                   <div
                     aria-label="https://"
@@ -10539,7 +10539,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     id="test-id_list_1"
                     role="option"
                   >
-                    https://
+                    https
                   </div>
                 </div>
                 <div

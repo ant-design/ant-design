@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row, Select, Space, theme } from 'antd';
 
-const { Option } = Select;
-
 const AdvancedSearchForm = () => {
   const { token } = theme.useToken();
   const [form] = Form.useForm();
@@ -47,12 +45,19 @@ const AdvancedSearchForm = () => {
               ]}
               initialValue="1"
             >
-              <Select>
-                <Option value="1">
-                  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                </Option>
-                <Option value="2">222</Option>
-              </Select>
+              <Select
+                options={[
+                  {
+                    value: '1',
+                    label:
+                      'longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong',
+                  },
+                  {
+                    value: '2',
+                    label: '222',
+                  },
+                ]}
+              />
             </Form.Item>
           )}
         </Col>,

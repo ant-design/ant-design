@@ -3,8 +3,6 @@ import { SettingOutlined } from '@ant-design/icons';
 import type { CollapseProps } from 'antd';
 import { Collapse, Select } from 'antd';
 
-const { Option } = Select;
-
 const text = `
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
@@ -62,11 +60,16 @@ const App: React.FC = () => {
         items={items}
       />
       <br />
-      <span>Expand Icon Placement: </span>
-      <Select value={expandIconPlacement} style={{ margin: '0 8px' }} onChange={onPlacementChange}>
-        <Option value="start">start</Option>
-        <Option value="end">end</Option>
-      </Select>
+      <span>Expand Icon Position: </span>
+      <Select
+        value={expandIconPlacement}
+        style={{ margin: '0 8px' }}
+        onChange={onPlacementChange}
+        options={[
+          { label: 'start', value: 'start' },
+          { label: 'end', value: 'end' },
+        ]}
+      />
     </>
   );
 };

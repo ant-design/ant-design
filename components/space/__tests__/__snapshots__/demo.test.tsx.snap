@@ -456,12 +456,12 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           >
             <span
               class="ant-select-selection-item"
-              title="Zhejianggggg"
+              title="Zhejiang"
             >
               <span
                 class="ant-select-selection-item-content"
               >
-                Zhejianggggg
+                Zhejiang
               </span>
               <span
                 aria-hidden="true"

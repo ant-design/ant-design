@@ -12,24 +12,24 @@ import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
+import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { getBannerData } from '../../pages/index/components/util';
+import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
-type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
+type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 
 const RESPONSIVE_MOBILE = 768;
 
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
-
-// 主题持久化存储键名
-const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
@@ -81,6 +81,11 @@ const GlobalLayout: React.FC = () => {
     defaultValue: undefined,
   });
 
+  const [bannerLastTime] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
+    defaultValue: undefined,
+  });
+
+  // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
   const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
     // 只认 light/dark
     const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
@@ -95,6 +100,8 @@ const GlobalLayout: React.FC = () => {
   };
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
+
+  const bannerData = getBannerData();
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -174,9 +181,16 @@ const GlobalLayout: React.FC = () => {
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
+    const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
+
+    const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
+
+    const hasBannerContent = isZhCN && !!bannerData;
+
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
+      bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
     });
 
     // Handle isMobile

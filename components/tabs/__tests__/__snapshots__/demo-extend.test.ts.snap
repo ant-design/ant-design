@@ -4358,6 +4358,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-label="Parent - start"
           aria-selected="false"
           id="test-id_list_0"
           role="option"
@@ -4365,6 +4366,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           start
         </div>
         <div
+          aria-label="Parent - end"
           aria-selected="false"
           id="test-id_list_1"
           role="option"
@@ -4387,6 +4389,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             >
               <div
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="Parent - start"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4402,6 +4405,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                title="Parent - end"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4417,6 +4421,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                title="Parent - top"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4432,6 +4437,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                title="Parent - bottom"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4512,6 +4518,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-label="Child - start"
           aria-selected="false"
           id="test-id_list_0"
           role="option"
@@ -4519,6 +4526,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           start
         </div>
         <div
+          aria-label="Child - end"
           aria-selected="false"
           id="test-id_list_1"
           role="option"
@@ -4541,6 +4549,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             >
               <div
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="Child - start"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4556,6 +4565,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                title="Child - end"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4571,6 +4581,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                title="Child - top"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4586,6 +4597,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                title="Child - bottom"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -4873,12 +4885,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
-                title="Parent - card edit"
+                title="Child - card edit"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Parent - card edit
+                  Child - card edit
                 </div>
                 <span
                   aria-hidden="true"
