@@ -216,7 +216,7 @@ const App: React.FC = () => {
       >
         <Space.Compact>
           {prefixSelector}
-          <InputNumber style={{ width: '100%' }} />
+          <Input style={{ width: '100%' }} />
         </Space.Compact>
       </Form.Item>
 
