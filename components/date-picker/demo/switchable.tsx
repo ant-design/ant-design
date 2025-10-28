@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import type { DatePickerProps, TimePickerProps } from 'antd';
 import { DatePicker, Select, Space, TimePicker } from 'antd';
 
-const { Option } = Select;
-
 type PickerType = 'time' | 'date';
 
-const PickerWithType = ({
-  type,
-  onChange,
-}: {
+interface PickerWithTypeProps {
   type: PickerType;
   onChange: TimePickerProps['onChange'] | DatePickerProps['onChange'];
-}) => {
+}
+
+const PickerWithType: React.FC<PickerWithTypeProps> = ({ type, onChange }) => {
   if (type === 'time') {
     return <TimePicker onChange={onChange} />;
   }
@@ -27,14 +24,19 @@ const App: React.FC = () => {
 
   return (
     <Space>
-      <Select aria-label="Picker Type" value={type} onChange={setType}>
-        <Option value="time">Time</Option>
-        <Option value="date">Date</Option>
-        <Option value="week">Week</Option>
-        <Option value="month">Month</Option>
-        <Option value="quarter">Quarter</Option>
-        <Option value="year">Year</Option>
-      </Select>
+      <Select
+        aria-label="Picker Type"
+        value={type}
+        onChange={setType}
+        options={[
+          { label: 'Time', value: 'time' },
+          { label: 'Date', value: 'date' },
+          { label: 'Week', value: 'week' },
+          { label: 'Month', value: 'month' },
+          { label: 'Quarter', value: 'quarter' },
+          { label: 'Year', value: 'year' },
+        ]}
+      />
       <PickerWithType type={type} onChange={(value) => console.log(value)} />
     </Space>
   );

@@ -3,6 +3,7 @@ import type { DirectionType } from 'antd/es/config-provider';
 
 import type { ConfigComponentProps } from '../../../components/config-provider/context';
 import type { ThemeName } from '../common/ThemeSwitch';
+import { getBannerData } from '../../pages/index/components/util';
 
 export type SimpleComponentClassNames = Partial<
   Record<keyof ConfigComponentProps, Record<string, string>>
@@ -23,7 +24,7 @@ export interface SiteContextProps {
 
 const SiteContext = React.createContext<SiteContextProps>({
   isMobile: false,
-  bannerVisible: false,
+  bannerVisible: !!getBannerData(),
   direction: 'ltr',
   theme: ['light'],
   updateSiteConfig: () => {},

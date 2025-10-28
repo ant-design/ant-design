@@ -14,8 +14,6 @@ import {
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
 
-const { Option } = Select;
-
 interface FormCascaderOption {
   value: string;
   label: string;
@@ -90,19 +88,27 @@ const App: React.FC = () => {
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
+      <Select
+        style={{ width: 70 }}
+        defaultValue={'86'}
+        options={[
+          { label: '+86', value: '86' },
+          { label: '+87', value: '87' },
+        ]}
+      />
     </Form.Item>
   );
 
   const suffixSelector = (
     <Form.Item name="suffix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="USD">$</Option>
-        <Option value="CNY">¥</Option>
-      </Select>
+      <Select
+        style={{ width: 70 }}
+        defaultValue={'USD'}
+        options={[
+          { label: '$', value: 'USD' },
+          { label: '¥', value: 'CNY' },
+        ]}
+      />
     </Form.Item>
   );
 
@@ -241,11 +247,15 @@ const App: React.FC = () => {
         label="Gender"
         rules={[{ required: true, message: 'Please select gender!' }]}
       >
-        <Select placeholder="select your gender">
-          <Option value="male">Male</Option>
-          <Option value="female">Female</Option>
-          <Option value="other">Other</Option>
-        </Select>
+        <Select
+          placeholder="select your gender"
+          defaultValue={'male'}
+          options={[
+            { label: 'Male', value: 'male' },
+            { label: 'Female', value: 'female' },
+            { label: 'Other', value: 'other' },
+          ]}
+        />
       </Form.Item>
 
       <Form.Item label="Captcha" extra="We must make sure that your are a human.">

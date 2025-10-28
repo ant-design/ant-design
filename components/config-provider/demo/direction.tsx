@@ -36,7 +36,6 @@ type DirectionType = ConfigProviderProps['direction'];
 const InputGroup = Input.Group;
 const ButtonGroup = Button.Group;
 
-const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
 
@@ -100,19 +99,27 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
   const [showBadge, setShowBadge] = useState(true);
 
   const selectBefore = (
-    <Select defaultValue="Http://" style={{ width: 90 }}>
-      <Option value="Http://">Http://</Option>
-      <Option value="Https://">Https://</Option>
-    </Select>
+    <Select
+      defaultValue="Http://"
+      style={{ width: 90 }}
+      options={[
+        { label: 'Http://', value: 'Http://' },
+        { label: 'Https://', value: 'Https://' },
+      ]}
+    />
   );
 
   const selectAfter = (
-    <Select defaultValue=".com" style={{ width: 80 }}>
-      <Option value=".com">.com</Option>
-      <Option value=".jp">.jp</Option>
-      <Option value=".cn">.cn</Option>
-      <Option value=".org">.org</Option>
-    </Select>
+    <Select
+      defaultValue=".com"
+      style={{ width: 80 }}
+      options={[
+        { label: '.com', value: '.com' },
+        { label: '.jp', value: '.jp' },
+        { label: '.cn', value: '.cn' },
+        { label: '.org', value: '.org' },
+      ]}
+    />
   );
 
   // ==== Cascader ====
@@ -280,10 +287,13 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           </InputGroup>
           <br />
           <InputGroup compact>
-            <Select defaultValue="Option1">
-              <Option value="Option1">Option1</Option>
-              <Option value="Option2">Option2</Option>
-            </Select>
+            <Select
+              defaultValue="Option1"
+              options={[
+                { label: 'Option1', value: 'Option1' },
+                { label: 'Option2', value: 'Option2' },
+              ]}
+            />
             <Input style={{ width: '50%' }} defaultValue="input content" />
             <InputNumber />
           </InputGroup>
@@ -299,25 +309,39 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
             <Col span={12}>
               <Divider titlePlacement="start">Select example</Divider>
               <Space wrap>
-                <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
-                  <Option value="jack">Jack</Option>
-                  <Option value="مورچه">مورچه</Option>
-                  <Option value="disabled" disabled>
-                    Disabled
-                  </Option>
-                  <Option value="Yiminghe">yiminghe</Option>
-                </Select>
-                <Select defaultValue="مورچه" style={{ width: 120 }} disabled>
-                  <Option value="مورچه">مورچه</Option>
-                </Select>
-                <Select defaultValue="مورچه" style={{ width: 120 }} loading>
-                  <Option value="مورچه">مورچه</Option>
-                </Select>
-                <Select showSearch style={{ width: 200 }} placeholder="Select a person">
-                  <Option value="jack">Jack</Option>
-                  <Option value="سعید">سعید</Option>
-                  <Option value="tom">Tom</Option>
-                </Select>
+                <Select
+                  mode="multiple"
+                  defaultValue="مورچه"
+                  style={{ width: 120 }}
+                  options={[
+                    { label: 'jack', value: 'jack' },
+                    { label: 'مورچه', value: 'مورچه' },
+                    { label: 'disabled', value: 'disabled', disabled: true },
+                    { label: 'yiminghe', value: 'Yiminghe' },
+                  ]}
+                />
+                <Select
+                  disabled
+                  defaultValue="مورچه"
+                  style={{ width: 120 }}
+                  options={[{ label: 'مورچه', value: 'مورچه' }]}
+                />
+                <Select
+                  loading
+                  defaultValue="مورچه"
+                  style={{ width: 120 }}
+                  options={[{ label: 'مورچه', value: 'مورچه' }]}
+                />
+                <Select
+                  showSearch
+                  style={{ width: 200 }}
+                  placeholder="Select a person"
+                  options={[
+                    { label: 'jack', value: 'jack' },
+                    { label: 'سعید', value: 'سعید' },
+                    { label: 'Tom', value: 'tom' },
+                  ]}
+                />
               </Space>
             </Col>
             <Col span={12}>

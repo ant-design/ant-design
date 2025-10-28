@@ -1,12 +1,9 @@
-import Dayjs from 'dayjs';
-
-import 'dayjs/locale/zh-cn';
-
 import React from 'react';
 import type { PickerPanelProps } from '@rc-component/picker';
 import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
 import type { Locale } from '@rc-component/picker/lib/interface';
 import { warning } from '@rc-component/util';
+import Dayjs from 'dayjs';
 import MockDate from 'mockdate';
 
 import Calendar from '..';
@@ -17,8 +14,11 @@ import ConfigProvider from '../../config-provider';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
+import type { DefaultOptionType } from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
+
+import 'dayjs/locale/zh-cn';
 
 const { resetWarned } = warning;
 
@@ -379,15 +379,10 @@ describe('Calendar', () => {
     // Year
     const headerRender = jest.fn(({ value }) => {
       const year = value.year();
-      const options = [];
+      const options: DefaultOptionType[] = [];
       for (let i = year - 100; i < year + 100; i += 1) {
-        options.push(
-          <Select.Option className="year-item" key={i} value={i}>
-            {i}
-          </Select.Option>,
-        );
+        options.push({ label: i, value: i });
       }
-
       return (
         <Select
           size="small"
@@ -395,9 +390,8 @@ describe('Calendar', () => {
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
-        >
-          {options}
-        </Select>
+          options={options}
+        />
       );
     });
     const uiWithYear = <Calendar fullscreen={false} headerRender={headerRender} />;
@@ -416,23 +410,17 @@ describe('Calendar', () => {
     const headerRenderWithMonth = jest.fn(({ value }) => {
       const start = 0;
       const end = 12;
-      const monthOptions = [];
+      const months: string[] = [];
+      const monthOptions: DefaultOptionType[] = [];
       const current = value.clone();
       const localeData = value.localeData();
-      const months = [];
       for (let i = 0; i < 12; i += 1) {
         current.month(i);
         months.push(localeData.monthsShort(current));
       }
-
       for (let index = start; index < end; index += 1) {
-        monthOptions.push(
-          <Select.Option className="month-item" key={index} value={index}>
-            {months[index]}
-          </Select.Option>,
-        );
+        monthOptions.push({ label: months[index], value: index });
       }
-
       const month = value.month();
       return (
         <Select
@@ -441,9 +429,8 @@ describe('Calendar', () => {
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}
-        >
-          {monthOptions}
-        </Select>
+          options={monthOptions}
+        />
       );
     });
     const uiWithMonth = <Calendar fullscreen={false} headerRender={headerRenderWithMonth} />;
