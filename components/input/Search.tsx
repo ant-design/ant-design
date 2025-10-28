@@ -111,12 +111,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton
-        ? {
-            className: btnClassName,
-            size,
-          }
-        : {}),
+      ...(isAntdButton ? { className: btnClassName, size } : {}),
     });
   } else {
     button = (
@@ -144,12 +139,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   }
 
   if (addonAfter) {
-    button = [
-      button,
-      cloneElement(addonAfter, {
-        key: 'addonAfter',
-      }),
-    ];
+    button = [button, cloneElement(addonAfter, { key: 'addonAfter' })];
   }
 
   const cls = classNames(
@@ -185,6 +175,11 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange,
     disabled,
   };
+
+  if (!button) {
+    return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
+  }
+
   return (
     <Space.Compact>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
