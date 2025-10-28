@@ -7,6 +7,7 @@ import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -181,13 +182,15 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onPressEnter,
     onCompositionStart: handleOnCompositionStart,
     onCompositionEnd: handleOnCompositionEnd,
-    addonAfter: button,
-    suffix,
     onChange,
     disabled,
   };
-
-  return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
+  return (
+    <Space.Compact>
+      <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
+      {button}
+    </Space.Compact>
+  );
 });
 
 if (process.env.NODE_ENV !== 'production') {

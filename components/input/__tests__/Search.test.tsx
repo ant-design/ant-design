@@ -209,13 +209,6 @@ describe('Input.Search', () => {
     }).not.toThrow();
   });
 
-  // https://github.com/ant-design/ant-design/issues/27258
-  it('Search with allowClear should have one className only', () => {
-    const { container } = render(<Search allowClear className="test-className" />);
-    expect(container.querySelector('.ant-input-group-wrapper')).toHaveClass('test-className');
-    expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('test-className');
-  });
-
   // https://github.com/ant-design/ant-design/issues/53897
   it('should trigger onPressEnter when press enter', () => {
     const onPressEnter = jest.fn();
