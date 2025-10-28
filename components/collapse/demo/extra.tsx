@@ -60,7 +60,7 @@ const App: React.FC = () => {
         items={items}
       />
       <br />
-      <span>Expand Icon Position: </span>
+      <span>Expand Icon Placement: </span>
       <Select
         value={expandIconPlacement}
         style={{ margin: '0 8px' }}

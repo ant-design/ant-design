@@ -34,7 +34,6 @@ import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
-const { Option } = Select;
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -1548,11 +1547,12 @@ describe('Form', () => {
                 defaultValue="lucy"
                 open={open}
                 style={{ width: 120 }}
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
+                options={[
+                  { value: 'jack', label: 'Jack' },
+                  { value: 'lucy', label: 'Lucy' },
+                  { value: 'Yiminghe', label: 'yiminghe' },
+                ]}
+              />
             </Form.Item>
           </Form>
           <button
