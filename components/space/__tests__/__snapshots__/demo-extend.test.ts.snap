@@ -664,12 +664,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               >
                 <span
                   class="ant-select-selection-item"
-                  title="Zhejianggggg"
+                  title="Zhejiang"
                 >
                   <span
                     class="ant-select-selection-item-content"
                   >
-                    Zhejianggggg
+                    Zhejiang
                   </span>
                   <span
                     aria-hidden="true"
@@ -745,12 +745,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
-                aria-label="Zhejianggggg"
+                aria-label="Zhejiang"
                 aria-selected="true"
                 id="rc_select_TEST_OR_SSR_list_0"
                 role="option"
               >
-                Zhejianggggg
+                Zhejiang
               </div>
               <div
                 aria-label="Jiangsu"
@@ -777,12 +777,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      title="Zhejianggggg"
+                      title="Zhejiang"
                     >
                       <div
                         class="ant-select-item-option-content"
                       >
-                        Zhejianggggg
+                        Zhejiang
                       </div>
                       <span
                         aria-hidden="true"
@@ -1132,12 +1132,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 Option1
               </div>
               <div
-                aria-label="Option2"
-                aria-selected="false"
+                aria-label="Option1"
+                aria-selected="true"
                 id="rc_select_TEST_OR_SSR_list_1"
                 role="option"
               >
-                Option2
+                Option1
               </div>
             </div>
             <div
@@ -1171,14 +1171,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </div>
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="Option2"
+                      aria-selected="true"
+                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                      title="Option1"
                     >
                       <div
                         class="ant-select-item-option-content"
                       >
-                        Option2
+                        Option1
                       </div>
                       <span
                         aria-hidden="true"
@@ -9426,6 +9426,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
 
 exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `
 [
+  "Encountered two children with the same key, \`%s\`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.",
   "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
@@ -10680,7 +10681,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                       id="rc_select_TEST_OR_SSR_list_0"
                       role="option"
                     >
-                      http://
+                      http
                     </div>
                     <div
                       aria-label="https://"
@@ -10688,7 +10689,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                       id="rc_select_TEST_OR_SSR_list_1"
                       role="option"
                     >
-                      https://
+                      https
                     </div>
                   </div>
                   <div
