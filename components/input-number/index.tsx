@@ -28,9 +28,33 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
   prefixCls?: string;
   rootClassName?: string;
-  /** @deprecated Use `Space.Compact` instead. */
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, InputNumber } from 'antd';
+   *
+   * <Space.Compact>
+   *   {addon}
+   *   <InputNumber />
+   * </Space.Compact>
+   * ```
+   */
   addonBefore?: React.ReactNode;
-  /** @deprecated Use `Space.Compact` instead. */
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, InputNumber } from 'antd';
+   *
+   * <Space.Compact>
+   *   <InputNumber />
+   *   {addon}
+   * </Space.Compact>
+   * ```
+   */
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
