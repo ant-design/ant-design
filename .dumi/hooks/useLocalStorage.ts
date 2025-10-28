@@ -16,21 +16,25 @@ interface Options<T> {
 const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
   const storage = typeof window !== 'undefined' ? localStorage : null;
 
-  const {
-    defaultValue,
-    serializer = JSON.stringify,
-    deserializer = JSON.parse,
-    onError = console.error,
-  } = options;
+  const { serializer, deserializer, onError, defaultValue } = options;
+
+  const mergedSerializer = typeof serializer === 'function' ? serializer : JSON.stringify;
+
+  const mergedDeserializer = typeof deserializer === 'function' ? deserializer : JSON.parse;
+
+  const mergedHandleError = typeof onError === 'function' ? onError : console.error;
 
   const getStoredValue = () => {
     try {
       const rawData = storage?.getItem(key);
       if (rawData) {
-        return deserializer(rawData);
+        return mergedDeserializer(rawData);
       }
     } catch (e) {
-      onError(e);
+      if (process.env.NODE_ENV !== 'production') {
+        mergedHandleError(e);
+      }
+      return defaultValue;
     }
     return defaultValue;
   };
@@ -51,7 +55,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
         newValue = null;
         storage?.removeItem(key);
       } else {
-        newValue = serializer(currentState);
+        newValue = mergedSerializer(currentState);
         storage?.setItem(key, newValue);
       }
       dispatchEvent(
@@ -60,7 +64,9 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
         }),
       );
     } catch (e) {
-      onError(e);
+      if (process.env.NODE_ENV !== 'production') {
+        mergedHandleError(e);
+      }
     }
   };
 
