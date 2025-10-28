@@ -9,7 +9,7 @@ import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocalStorage from '../../../hooks/useLocalStorage';
-import { useAntdSiteConfig } from '../../../pages/index/components/util';
+import { getBannerData } from '../../../pages/index/components/util';
 import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
 import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
@@ -152,7 +152,6 @@ interface HeaderState {
 // ================================= Header =================================
 const Header: React.FC = () => {
   const [, lang] = useLocale();
-  const { data: siteData } = useAntdSiteConfig();
 
   const { pkg } = useSiteData();
 
@@ -273,7 +272,7 @@ const Header: React.FC = () => {
   const isRTL = direction === 'rtl';
 
   // Get banner data from site config
-  const bannerData = siteData?.headingBanner?.[lang as 'cn' | 'en'];
+  const bannerData = getBannerData();
   const bannerTitle = bannerData?.title || '';
   const bannerHref = bannerData?.href || '';
 

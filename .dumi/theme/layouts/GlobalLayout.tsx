@@ -12,11 +12,13 @@ import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
+import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
@@ -24,10 +26,6 @@ import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
-
-// import dayjs from 'dayjs';
-
-// import { useAntdSiteConfig } from '../../pages/index/components/util';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
@@ -85,6 +83,10 @@ const GlobalLayout: React.FC = () => {
     defaultValue: undefined,
   });
 
+  const [bannerLastTime] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
+    defaultValue: undefined,
+  });
+
   // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
   const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
     // 只认 light/dark
@@ -100,8 +102,8 @@ const GlobalLayout: React.FC = () => {
   };
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
-  // const { data: h5Data } = useAntdSiteConfig();
-  // useAntdSiteConfig();
+
+  const bannerData = getBannerData();
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -181,11 +183,16 @@ const GlobalLayout: React.FC = () => {
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
+    const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
+
+    const isZhCN = typeof window !== 'undefined' && window.location.pathname.includes('-cn');
+
+    const hasBannerContent = isZhCN && !!bannerData;
+
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      // bannerVisible:
-      //   hasBannerContent && (storedBannerVisibleLastTime ? !!storedBannerVisible : true),
+      bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
     });
 
     // Handle isMobile

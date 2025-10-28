@@ -90,10 +90,27 @@ export function preLoad(list: string[]) {
   }
 }
 
+// Banner 硬编码，以防止页面闪烁问题
+export const getBannerData = (): null | {
+  title: string;
+  href: string;
+} => {
+  return {
+    title: 'See Conf 2025 震撼来袭 - 探索 AI 时代的用户体验与工程实践',
+    href: 'https://seeconf.antfin.com/',
+  };
+};
+
 export const useAntdSiteConfig = () => {
   const { data, error, isLoading } = useSWR<Partial<SiteData>, Error>(
     `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`,
     (url: string) => fetch(url).then((res) => res.json()),
+    {
+      suspense: false,
+      // revalidateOnMount: false,
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+    },
   );
   return { data, error, isLoading };
 };
