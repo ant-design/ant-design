@@ -48,13 +48,13 @@ const AdvancedSearchForm = () => {
               <Select
                 options={[
                   {
-                    label: '1',
-                    value:
+                    value: '1',
+                    label:
                       'longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong',
                   },
                   {
-                    label: '2',
-                    value: '222',
+                    value: '2',
+                    label: '222',
                   },
                 ]}
               />
