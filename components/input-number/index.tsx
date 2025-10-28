@@ -37,7 +37,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    *
    * <Space.Compact>
    *   {addon}
-   *   <InputNumber />
+   *   <InputNumber defaultValue={1} />
    * </Space.Compact>
    * ```
    */
@@ -50,7 +50,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * import { Space, InputNumber } from 'antd';
    *
    * <Space.Compact>
-   *   <InputNumber />
+   *   <InputNumber defaultValue={1} />
    *   {addon}
    * </Space.Compact>
    * ```

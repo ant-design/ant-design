@@ -48,7 +48,7 @@ export interface InputProps
    *
    * <Space.Compact>
    *   {addon}
-   *   <Input />
+   *   <Input defaultValue="name" />
    * </Space.Compact>
    * ```
    */
@@ -61,7 +61,7 @@ export interface InputProps
    * import { Space, Input } from 'antd';
    *
    * <Space.Compact>
-   *   <Input />
+   *   <Input defaultValue="name" />
    *   {addon}
    * </Space.Compact>
    * ```
