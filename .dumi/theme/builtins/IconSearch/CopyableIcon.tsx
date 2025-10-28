@@ -83,6 +83,12 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         transition: color ${cssVar.motionDurationSlow} ease-in-out;
       }
     `,
+    copiedCode: css`
+      padding: 0 ${cssVar.paddingXXS};
+      font-size: ${cssVar.fontSizeSM};
+      background-color: ${cssVar.colorBgLayout};
+      border-radius: ${cssVar.borderRadiusXS};
+    `,
   };
 });
 
@@ -99,30 +105,30 @@ export interface CopyableIconProps {
   name: string;
   isNew: boolean;
   theme: ThemeType;
-  justCopied: string | null;
-  onCopied: (type: string, text: string) => void;
 }
 
 const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const { message } = App.useApp();
-  const { name, isNew, justCopied, theme, onCopied } = props;
+  const { name, isNew, theme } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
-  const onCopy = async (text: string) => {
-    const result = await copy(text);
-    if (result) {
-      onCopied(name, text);
-    } else {
-      message.error(locale.errMessage);
-    }
+  const onCopy = (text: string) => {
+    copy(text)
+      .then(() => {
+        message.success(
+          <span>
+            <code className={clsx(styles.copiedCode)}>{text}</code> copied 🎉
+          </span>,
+        );
+      })
+      .catch(() => {
+        message.error(locale.errMessage);
+      });
   };
+
   return (
-    <li
-      className={clsx(theme, styles.iconItem, { copied: justCopied === name })}
-      onClick={() => onCopy(`<${name} />`)}
-      style={{ cursor: 'pointer' }}
-    >
+    <li className={clsx(theme, styles.iconItem)} onClick={() => onCopy(`<${name} />`)}>
       {React.createElement(allIcons[name])}
       <span className={styles.anticonCls}>
         <Badge dot={isNew}>{name}</Badge>
