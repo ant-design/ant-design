@@ -41,7 +41,6 @@ type Locale = ConfigProviderProps['locale'];
 
 dayjs.locale('en');
 
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const columns: TableProps['columns'] = [
@@ -132,10 +131,14 @@ const Page: React.FC = () => {
     >
       <Pagination defaultCurrent={1} total={50} showSizeChanger />
       <Space wrap>
-        <Select showSearch style={{ width: 200 }}>
-          <Option value="jack">jack</Option>
-          <Option value="lucy">lucy</Option>
-        </Select>
+        <Select
+          showSearch
+          style={{ width: 200 }}
+          options={[
+            { label: 'jack', value: 'jack' },
+            { label: 'lucy', value: 'lucy' },
+          ]}
+        />
         <DatePicker />
         <TimePicker />
         <RangePicker />
