@@ -1132,12 +1132,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 Option1
               </div>
               <div
-                aria-label="Option1"
-                aria-selected="true"
+                aria-label="Option2"
+                aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_1"
                 role="option"
               >
-                Option1
+                Option2
               </div>
             </div>
             <div
@@ -1171,14 +1171,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </div>
                     <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                      title="Option1"
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
+                      title="Option2"
                     >
                       <div
                         class="ant-select-item-option-content"
                       >
-                        Option1
+                        Option2
                       </div>
                       <span
                         aria-hidden="true"
@@ -9426,7 +9426,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
 
 exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `
 [
-  "Encountered two children with the same key, \`%s\`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.",
   "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;

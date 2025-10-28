@@ -74,7 +74,7 @@ const App: React.FC = () => (
         defaultValue="Option1"
         options={[
           { label: 'Option1', value: 'Option1' },
-          { label: 'Option1', value: 'Option1' },
+          { label: 'Option2', value: 'Option2' },
         ]}
       />
       <Input style={{ width: '50%' }} defaultValue="input content" />
