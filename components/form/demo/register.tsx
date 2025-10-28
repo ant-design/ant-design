@@ -215,6 +215,7 @@ const App: React.FC = () => {
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
         <Space.Compact>
+          {/* Demo only, real usage should wrap as custom component */}
           {prefixSelector}
           <Input style={{ width: '100%' }} />
         </Space.Compact>
