@@ -102,7 +102,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       return direction === 'rtl' ? 'start' : 'end';
     }
     return placement;
-  }, [direction, orientation, titlePlacement]);
+  }, [direction, orientation, titlePlacement, validTitlePlacement]);
 
   const hasMarginStart = mergedTitlePlacement === 'start' && orientationMargin != null;
 
