@@ -3160,7 +3160,7 @@ Array [
     class="ant-space-compact"
   >
     <div
-      class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item"
+      class="ant-space-compactCell ant-space-compactCell-compact-item ant-space-compactCell-compact-first-item"
     >
       <span
         aria-label="user"
