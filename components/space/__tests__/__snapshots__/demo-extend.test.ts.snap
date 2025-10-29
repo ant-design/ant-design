@@ -897,11 +897,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
+        style="width: 30%;"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
-          style="width: 30%;"
+          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
           type="search"
           value="0571"
         />
@@ -935,11 +935,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </button>
       </div>
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
+        style="width: 50%;"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
-          style="width: 50%;"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
         >
           <input
             class="ant-input"
@@ -1007,11 +1007,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </button>
       </div>
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
+        style="width: 20%;"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
-          style="width: 20%;"
+          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
           type="search"
           value="+1"
         />
@@ -8796,6 +8796,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-middle-item"
+        style="width: 100%;"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -8870,6 +8871,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-middle-item"
+        style="width: 100%;"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -10946,10 +10948,10 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
           type="search"
           value=""
         />
@@ -10983,10 +10985,10 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </button>
       </div>
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
+          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
           type="search"
           value=""
         />
@@ -14547,12 +14549,12 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-space-compact"
+          class="ant-space-compact ant-input-search"
+          style="width: 110px;"
         >
           <input
-            class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
+            class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
             placeholder="Search"
-            style="width: 110px;"
             type="search"
             value=""
           />
