@@ -1,3 +1,5 @@
+import { genCompactItemStyle } from '../../style/compact-item';
+import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -13,6 +15,8 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
 
   return {
     [componentCls]: {
+      display: 'inline-flex',
+
       '&-block': {
         display: 'flex',
         width: '100%',
@@ -20,9 +24,78 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
       '&-vertical': {
         flexDirection: 'column',
       },
+
+      '&-rtl': {
+        direction: 'rtl',
+      },
     },
   };
 };
 
+const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
+  const {
+    componentCls,
+    borderRadius,
+    paddingSM,
+    colorBorder,
+    paddingXS,
+    fontSizeLG,
+    fontSizeSM,
+    borderRadiusLG,
+    borderRadiusSM,
+    colorBgContainerDisabled,
+    lineWidth,
+  } = token;
+
+  const cellCls = `${componentCls}-cell`;
+
+  return {
+    [componentCls]: [
+      {
+        [cellCls]: {
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 0,
+          paddingInline: paddingSM,
+          margin: 0,
+          background: colorBgContainerDisabled,
+          borderWidth: lineWidth,
+          borderStyle: 'solid',
+          borderColor: colorBorder,
+          borderRadius,
+
+          '&-large': {
+            fontSize: fontSizeLG,
+            borderRadius: borderRadiusLG,
+          },
+          '&-small': {
+            paddingInline: paddingXS,
+            borderRadius: borderRadiusSM,
+            fontSize: fontSizeSM,
+          },
+
+          '&-vertical': {
+            flexDirection: 'column',
+          },
+        },
+      },
+
+      genCompactItemStyle(token, {
+        focus: false,
+        componentCls: cellCls,
+      }),
+    ],
+  };
+};
+
 // ============================== Export ==============================
-export default genSpaceCompactStyle;
+export default genStyleHooks(
+  ['Space', 'Compact'],
+  (token) => [genSpaceCompactStyle(token), genSpaceCompactCellStyle(token)],
+  () => ({}),
+  {
+    // Space component don't apply extra font style
+    // https://github.com/ant-design/ant-design/issues/40315
+    resetStyle: false,
+  },
+);

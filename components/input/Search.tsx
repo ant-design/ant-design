@@ -34,6 +34,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     inputPrefixCls: customizeInputPrefixCls,
     className,
+    style,
     size: customizeSize,
     suffix,
     enterButton = false,
@@ -164,7 +165,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const inputProps: InputProps = {
     ...restProps,
-    className: cls,
     prefixCls: inputPrefixCls,
     type: 'search',
     size,
@@ -177,7 +177,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   return (
-    <Space.Compact>
+    <Space.Compact className={cls} style={style}>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
     </Space.Compact>

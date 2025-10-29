@@ -1,7 +1,5 @@
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import genSpaceCompactStyle from './compact';
-import genSpaceCompactCellStyle from './compactCell';
 
 /** Component only token. Which will handle additional calculation of alias token */
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
@@ -88,12 +86,7 @@ export default genStyleHooks(
       spaceGapMiddleSize: token.padding,
       spaceGapLargeSize: token.paddingLG,
     });
-    return [
-      genSpaceStyle(spaceToken),
-      genSpaceGapStyle(spaceToken),
-      genSpaceCompactStyle(spaceToken),
-      genSpaceCompactCellStyle(spaceToken),
-    ];
+    return [genSpaceStyle(spaceToken), genSpaceGapStyle(spaceToken)];
   },
   () => ({}),
   {
