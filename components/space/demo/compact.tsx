@@ -222,8 +222,10 @@ const App: React.FC = () => (
     </Space.Compact>
     <Space.Compact>
       <Input placeholder="input here" />
-      <InputNumber placeholder="another input" prefix="$" />
-      <InputNumber placeholder="another input" suffix="$" />
+      <Space.Addon>$</Space.Addon>
+      <InputNumber placeholder="another input" />
+      <InputNumber placeholder="another input" />
+      <Space.Addon>$</Space.Addon>
     </Space.Compact>
     <Space.Compact>
       <Input placeholder="input here" />
@@ -231,7 +233,8 @@ const App: React.FC = () => (
     </Space.Compact>
     <Space.Compact>
       <Button type="primary">Button</Button>
-      <Input placeholder="input here" suffix="$" />
+      <Input placeholder="input here" />
+      <Space.Addon>$</Space.Addon>
     </Space.Compact>
   </Space>
 );

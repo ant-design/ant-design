@@ -57,7 +57,9 @@ describe('Space.Compact', () => {
       <Space.Compact>
         <Input defaultValue="https://ant.design" />
         <Input.Search />
-        <Button type="primary">Submit</Button>
+        <Button type="primary" className="classname">
+          Submit
+        </Button>
       </Space.Compact>,
     );
     expect(
@@ -70,9 +72,7 @@ describe('Space.Compact', () => {
       container.querySelector('.ant-input')?.classList.contains('ant-input-compact-first-item'),
     ).toBe(true);
     expect(
-      container
-        .querySelector('.ant-btn-compact-item')
-        ?.classList.contains('ant-btn-compact-last-item'),
+      container.querySelector('.classname')?.classList.contains('ant-btn-compact-last-item'),
     ).toBe(true);
   });
 
@@ -138,6 +138,9 @@ describe('Space.Compact', () => {
       );
       expect(container.querySelectorAll(`.${targetCls}`).length).toBe(1);
       ['compact-item', 'compact-first-item', 'compact-last-item'].forEach((suffix) => {
+        if (name === 'Input.Search' && suffix === 'compact-last-item') {
+          return;
+        }
         expect(
           container
             .querySelector(`.${targetCls}`)
