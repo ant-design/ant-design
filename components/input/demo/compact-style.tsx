@@ -25,7 +25,7 @@ const App: React.FC = () => (
       <Input style={{ width: '80%' }} defaultValue="26888888" />
     </Space.Compact>
     <Space.Compact>
-      <Space.Addon>https://</Space.Addon>
+      <Space.CompactCell>https://</Space.CompactCell>
       <Search placeholder="input search text" allowClear />
     </Space.Compact>
     <Space.Compact style={{ width: '100%' }}>
@@ -37,9 +37,9 @@ const App: React.FC = () => (
       <Input defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
     <Space.Compact size="large">
-      <Space.Addon>
+      <Space.CompactCell>
         <SearchOutlined />
-      </Space.Addon>
+      </Space.CompactCell>
       <Input placeholder="large size" />
       <Input placeholder="another input" />
     </Space.Compact>

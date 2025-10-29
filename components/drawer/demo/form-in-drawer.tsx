@@ -55,9 +55,9 @@ const App: React.FC = () => {
                 rules={[{ required: true, message: 'Please enter url' }]}
               >
                 <Space.Compact>
-                  <Space.Addon>http://</Space.Addon>
+                  <Space.CompactCell>http://</Space.CompactCell>
                   <Input style={{ width: '100%' }} placeholder="Please enter url" />
-                  <Space.Addon>.com</Space.Addon>
+                  <Space.CompactCell>.com</Space.CompactCell>
                 </Space.Compact>
               </Form.Item>
             </Col>

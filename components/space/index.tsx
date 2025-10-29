@@ -5,8 +5,8 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
-import Addon from './Addon';
 import Compact from './Compact';
+import CompactCell from './CompactCell';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
@@ -151,13 +151,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
 type CompoundedComponent = typeof InternalSpace & {
   Compact: typeof Compact;
-  Addon: typeof Addon;
+  CompactCell: typeof CompactCell;
 };
 
 const Space = InternalSpace as CompoundedComponent;
 
 Space.Compact = Compact;
-Space.Addon = Addon;
+Space.CompactCell = CompactCell;
 
 if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';

@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { useCompactItemContext } from './Compact';
 
-export interface SpaceAddonProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SpaceCompactCellProps extends React.HTMLAttributes<HTMLDivElement> {
   vertical?: boolean;
   block?: boolean;
   children: React.ReactNode;
   prefixCls?: string;
 }
 
-const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceAddonProps>((props, ref) => {
+const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>((props, ref) => {
   const {
     className,
     vertical,
@@ -23,7 +23,7 @@ const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceAddonProps>((props, ref
   } = props;
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('space-addon', customizePrefixCls);
+  const prefixCls = getPrefixCls('space-compactCell', customizePrefixCls);
   const { compactItemClassnames, compactSize, compactDirection } = useCompactItemContext(
     prefixCls,
     directionConfig,
@@ -47,4 +47,4 @@ const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceAddonProps>((props, ref
   );
 });
 
-export default SpaceAddon;
+export default SpaceCompactCell;
