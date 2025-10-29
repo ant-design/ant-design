@@ -32,6 +32,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
     return classNames(`${prefixCls}-compact${separator}item`, {
       [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
       [`${prefixCls}-compact${separator}last-item`]: isLastItem,
+      [`${prefixCls}-compact${separator}middle-item`]: !isLastItem && !isFirstItem,
       [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
     });
   }, [prefixCls, direction, compactItemContext]);

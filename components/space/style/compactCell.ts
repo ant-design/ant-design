@@ -8,7 +8,7 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
   const {
     componentCls,
     borderRadius,
-    padding,
+    paddingSM,
     colorBorder,
     paddingXS,
     fontSizeLG,
@@ -23,7 +23,7 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
-        paddingInline: padding,
+        paddingInline: paddingSM,
         margin: 0,
         background: 'transparent',
         border: `1px solid ${colorBorder}`,
@@ -58,7 +58,7 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
           borderStartStartRadius: 0,
           borderEndStartRadius: 0,
         },
-        '&:not(&-compact-last-item)&:not(&-compact-first-item)&:not(&-vertical)': {
+        '&-compact-middle-item': {
           borderRadius: 0,
           borderInlineEnd: 'none',
         },
@@ -72,11 +72,10 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
           borderStartStartRadius: 0,
           borderStartEndRadius: 0,
         },
-        '&-compact-vertical-item&:not(&-compact-vertical-last-item)&:not(&-compact-vertical-first-item)':
-          {
-            borderBottom: 'none',
-            borderRadius: 0,
-          },
+        '&-compact-vertical-middle-item': {
+          borderBottom: 'none',
+          borderRadius: 0,
+        },
       },
     },
   };
