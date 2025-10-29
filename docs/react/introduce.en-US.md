@@ -36,9 +36,7 @@ Following the Ant Design specification, we developed a React UI library `antd` (
 | --- | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-Polyfills are needed for IE browsers. We recommend [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](https://umijs.org/).
-
-> Dropped support of IE8 after `antd@2.0`. Dropped support of React 15 and IE9/10 after `antd@4.0`. Dropped support of IE after `antd@5.0`.
+> Dropped support of IE8 after `antd 2.0`. Dropped support of React 15 and IE9/10 after `antd 4.0`. Dropped support of IE after `antd 5.0`. Dropped support of React 16 and React 17 after `antd 6.0`.
 
 ## Version
 
