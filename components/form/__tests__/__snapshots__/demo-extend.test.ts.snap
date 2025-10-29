@@ -12184,7 +12184,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-show-arrow"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-single ant-select-show-arrow"
                 style="width: 70px;"
               >
                 <div
