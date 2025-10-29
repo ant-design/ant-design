@@ -741,7 +741,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
         class="ant-select-selection-search"
       >
         <div
-          class="ant-space-compact"
+          class="ant-space-compact ant-input-search ant-input-search-large ant-select-selection-search-input"
         >
           <input
             aria-autocomplete="list"
@@ -750,7 +750,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
-            class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+            class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
             id="rc_select_TEST_OR_SSR"
             placeholder="input here"
             role="combobox"
@@ -2062,7 +2062,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <div
-                        class="ant-space-compact"
+                        class="ant-space-compact ant-input-search ant-select-selection-search-input"
                       >
                         <input
                           aria-autocomplete="list"
@@ -2071,7 +2071,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
-                          class="ant-input ant-input-outlined ant-input-search ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+                          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
                           id="rc_select_TEST_OR_SSR"
                           role="combobox"
                           type="search"
@@ -2294,7 +2294,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <div
-                        class="ant-space-compact"
+                        class="ant-space-compact ant-input-search ant-select-selection-search-input"
                       >
                         <input
                           aria-autocomplete="list"
@@ -2303,7 +2303,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
-                          class="ant-input ant-input-outlined ant-input-search ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+                          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
                           id="rc_select_TEST_OR_SSR"
                           role="combobox"
                           type="search"
@@ -2884,7 +2884,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
         class="ant-select-selection-search"
       >
         <div
-          class="ant-space-compact"
+          class="ant-space-compact ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
         >
           <input
             aria-autocomplete="list"
@@ -2893,7 +2893,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
-            class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+            class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
             id="rc_select_TEST_OR_SSR"
             placeholder="input here"
             role="combobox"

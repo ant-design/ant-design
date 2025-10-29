@@ -4383,12 +4383,12 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
 exports[`renders components/tree/demo/search.tsx correctly 1`] = `
 <div>
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-input-search"
+    style="margin-bottom:8px"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       placeholder="Search"
-      style="margin-bottom:8px"
       type="search"
       value=""
     />
