@@ -1028,29 +1028,29 @@ Array [
                         <div
                           class="ant-form-item-control-input-content"
                         >
-                          <span
-                            class="ant-input-affix-wrapper ant-input-outlined"
-                            style="width: 100%;"
+                          <div
+                            aria-required="true"
+                            class="ant-space-compact"
+                            id="url"
                           >
-                            <span
-                              class="ant-input-prefix"
+                            <div
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item"
                             >
                               http://
-                            </span>
+                            </div>
                             <input
-                              aria-required="true"
-                              class="ant-input"
-                              id="url"
+                              class="ant-input ant-input-outlined ant-input-compact-item"
                               placeholder="Please enter url"
+                              style="width: 100%;"
                               type="text"
                               value=""
                             />
-                            <span
-                              class="ant-input-suffix"
+                            <div
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item"
                             >
                               .com
-                            </span>
-                          </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

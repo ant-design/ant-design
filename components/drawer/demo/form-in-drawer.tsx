@@ -54,12 +54,11 @@ const App: React.FC = () => {
                 label="Url"
                 rules={[{ required: true, message: 'Please enter url' }]}
               >
-                <Input
-                  style={{ width: '100%' }}
-                  prefix="http://"
-                  suffix=".com"
-                  placeholder="Please enter url"
-                />
+                <Space.Compact>
+                  <Space.Addon>http://</Space.Addon>
+                  <Input style={{ width: '100%' }} placeholder="Please enter url" />
+                  <Space.Addon>.com</Space.Addon>
+                </Space.Compact>
               </Form.Item>
             </Col>
           </Row>
