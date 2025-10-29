@@ -4,7 +4,7 @@ interface SpaceToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
   const {
     componentCls,
     borderRadius,
@@ -19,7 +19,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
 
   return {
     [componentCls]: {
-      '&-addon': {
+      '&-compactCell': {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
@@ -83,4 +83,4 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genSpaceAddonStyle;
+export default genSpaceCompactCellStyle;
