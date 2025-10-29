@@ -223,8 +223,8 @@ const App: React.FC = () => (
     <Space.Compact>
       <Input placeholder="input here" />
       <Space.CompactCell>$</Space.CompactCell>
-      <InputNumber placeholder="another input" />
-      <InputNumber placeholder="another input" />
+      <InputNumber placeholder="another input" style={{ width: '100%' }} />
+      <InputNumber placeholder="another input" style={{ width: '100%' }} />
       <Space.CompactCell>$</Space.CompactCell>
     </Space.Compact>
     <Space.Compact>
