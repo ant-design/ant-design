@@ -5811,7 +5811,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         class="ant-space-compact"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
         >
           <input
             class="ant-input"
@@ -6090,7 +6090,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         </span>
       </div>
       <input
-        class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
         placeholder="large size"
         type="text"
         value=""
@@ -11506,7 +11506,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         class="ant-space-compact"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
           style="width: 304px;"
         >
           <input

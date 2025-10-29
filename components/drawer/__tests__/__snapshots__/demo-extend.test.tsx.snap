@@ -1039,7 +1039,7 @@ Array [
                               http://
                             </div>
                             <input
-                              class="ant-input ant-input-outlined ant-input-compact-item"
+                              class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
                               placeholder="Please enter url"
                               style="width: 100%;"
                               type="text"

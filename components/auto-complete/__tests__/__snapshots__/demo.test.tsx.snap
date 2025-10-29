@@ -457,59 +457,51 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
       <span
         class="ant-select-selection-search"
       >
-        <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-select-selection-search-input"
+        <div
+          class="ant-space-compact"
         >
-          <span
-            class="ant-input-wrapper ant-input-group"
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+            placeholder="input here"
+            role="combobox"
+            type="search"
+            value=""
+          />
+          <button
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+            type="button"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-input ant-input-lg ant-input-outlined"
-              placeholder="input here"
-              role="combobox"
-              type="search"
-              value=""
-            />
             <span
-              class="ant-input-group-addon"
+              class="ant-btn-icon"
             >
-              <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
-                type="button"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <span
-                  class="ant-btn-icon"
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <span
-                    aria-label="search"
-                    class="anticon anticon-search"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="search"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-        </span>
+          </button>
+        </div>
       </span>
       <span
         class="ant-select-selection-placeholder"
@@ -1179,58 +1171,50 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     <span
                       class="ant-select-selection-search"
                     >
-                      <span
-                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
+                      <div
+                        class="ant-space-compact"
                       >
-                        <span
-                          class="ant-input-wrapper ant-input-group"
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="undefined_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="undefined_list"
+                          autocomplete="off"
+                          class="ant-input ant-input-outlined ant-input-search ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
+                        <button
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+                          type="button"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="undefined_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="undefined_list"
-                            autocomplete="off"
-                            class="ant-input ant-input-outlined"
-                            role="combobox"
-                            type="search"
-                            value=""
-                          />
                           <span
-                            class="ant-input-group-addon"
+                            class="ant-btn-icon"
                           >
-                            <button
-                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-                              type="button"
+                            <span
+                              aria-label="search"
+                              class="anticon anticon-search"
+                              role="img"
                             >
-                              <span
-                                class="ant-btn-icon"
+                              <svg
+                                aria-hidden="true"
+                                data-icon="search"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
                               >
-                                <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </button>
+                                <path
+                                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                />
+                              </svg>
+                            </span>
                           </span>
-                        </span>
-                      </span>
+                        </button>
+                      </div>
                     </span>
                     <span
                       class="ant-select-selection-placeholder"
@@ -1345,58 +1329,50 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     <span
                       class="ant-select-selection-search"
                     >
-                      <span
-                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
+                      <div
+                        class="ant-space-compact"
                       >
-                        <span
-                          class="ant-input-wrapper ant-input-group"
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="undefined_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="undefined_list"
+                          autocomplete="off"
+                          class="ant-input ant-input-outlined ant-input-search ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
+                        <button
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+                          type="button"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="undefined_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="undefined_list"
-                            autocomplete="off"
-                            class="ant-input ant-input-outlined"
-                            role="combobox"
-                            type="search"
-                            value=""
-                          />
                           <span
-                            class="ant-input-group-addon"
+                            class="ant-btn-icon"
                           >
-                            <button
-                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-                              type="button"
+                            <span
+                              aria-label="search"
+                              class="anticon anticon-search"
+                              role="img"
                             >
-                              <span
-                                class="ant-btn-icon"
+                              <svg
+                                aria-hidden="true"
+                                data-icon="search"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
                               >
-                                <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </button>
+                                <path
+                                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                />
+                              </svg>
+                            </span>
                           </span>
-                        </span>
-                      </span>
+                        </button>
+                      </div>
                     </span>
                     <span
                       class="ant-select-selection-placeholder"
@@ -1681,59 +1657,51 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
       <span
         class="ant-select-selection-search"
       >
-        <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+        <div
+          class="ant-space-compact"
         >
-          <span
-            class="ant-input-wrapper ant-input-group"
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-compact-item ant-input-compact-first-item"
+            placeholder="input here"
+            role="combobox"
+            type="search"
+            value=""
+          />
+          <button
+            class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+            type="button"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-input ant-input-lg ant-input-outlined"
-              placeholder="input here"
-              role="combobox"
-              type="search"
-              value=""
-            />
             <span
-              class="ant-input-group-addon"
+              class="ant-btn-icon"
             >
-              <button
-                class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
-                type="button"
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
               >
-                <span
-                  class="ant-btn-icon"
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <span
-                    aria-label="search"
-                    class="anticon anticon-search"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="search"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-        </span>
+          </button>
+        </div>
       </span>
       <span
         class="ant-select-selection-placeholder"
