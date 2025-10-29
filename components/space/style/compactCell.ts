@@ -18,14 +18,14 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
   } = token;
 
   return {
-    [componentCls]: {
-      '&-compactCell': {
+    [`${componentCls}-compact`]: {
+      [`${componentCls}-compact-cell`]: {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
         paddingInline: paddingSM,
         margin: 0,
-        background: 'transparent',
+        background: token.colorBgContainerDisabled,
         border: `1px solid ${colorBorder}`,
         fontSize: 'inherit',
         borderRadius,
@@ -43,10 +43,6 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
         },
         '&-vertical': {
           flexDirection: 'column',
-        },
-        '&-block': {
-          display: 'flex',
-          width: '100%',
         },
         '&-compact-first-item': {
           borderInlineEnd: 'none',

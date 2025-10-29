@@ -6,7 +6,6 @@ import { useCompactItemContext } from './Compact';
 
 export interface SpaceCompactCellProps extends React.HTMLAttributes<HTMLDivElement> {
   vertical?: boolean;
-  block?: boolean;
   children: React.ReactNode;
   prefixCls?: string;
 }
@@ -15,7 +14,6 @@ const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>
   const {
     className,
     vertical,
-    block,
     children,
     style,
     prefixCls: customizePrefixCls,
@@ -23,7 +21,7 @@ const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>
   } = props;
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('space-compactCell', customizePrefixCls);
+  const prefixCls = getPrefixCls('space-compact-cell', customizePrefixCls);
   const { compactItemClassnames, compactSize, compactDirection } = useCompactItemContext(
     prefixCls,
     directionConfig,
@@ -34,7 +32,6 @@ const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>
     compactItemClassnames,
     {
       [`${prefixCls}-vertical`]: compactDirection === 'vertical' || vertical,
-      [`${prefixCls}-block`]: block,
       [`${prefixCls}-${compactSize}`]: compactSize,
     },
     className,

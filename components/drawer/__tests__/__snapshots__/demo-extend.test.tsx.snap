@@ -1029,9 +1029,7 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            aria-required="true"
                             class="ant-space-compact"
-                            id="url"
                           >
                             <div
                               class="ant-space-compactCell ant-space-compactCell-compact-item ant-space-compactCell-compact-first-item"
@@ -1039,7 +1037,9 @@ Array [
                               http://
                             </div>
                             <input
+                              aria-required="true"
                               class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
+                              id="url"
                               placeholder="Please enter url"
                               style="width: 100%;"
                               type="text"
