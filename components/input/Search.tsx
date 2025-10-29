@@ -176,10 +176,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     disabled,
   };
 
-  if (!button) {
-    return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
-  }
-
   return (
     <Space.Compact>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
