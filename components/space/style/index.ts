@@ -1,5 +1,6 @@
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import genSpaceAddonStyle from './addon';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -91,6 +92,7 @@ export default genStyleHooks(
       genSpaceStyle(spaceToken),
       genSpaceGapStyle(spaceToken),
       genSpaceCompactStyle(spaceToken),
+      genSpaceAddonStyle(spaceToken),
     ];
   },
   () => ({}),
