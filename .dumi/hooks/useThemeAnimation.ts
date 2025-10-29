@@ -85,10 +85,6 @@ const useThemeAnimation = () => {
     );
     document
       .startViewTransition(async () => {
-        // wait for theme change end
-        while (colorBgElevated === animateRef.current.colorBgElevated) {
-          await new Promise<void>((resolve) => setTimeout(resolve, 1000 / 60));
-        }
         const root = document.documentElement;
         root.classList.remove(isDark ? 'dark' : 'light');
         root.classList.add(isDark ? 'light' : 'dark');
