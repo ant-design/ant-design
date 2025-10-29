@@ -36,26 +36,7 @@ Following the Ant Design specification, we developed a React UI library `antd` (
 | --- | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-### ⚛️ Ant Design React Version Support Matrix
-
-| React Version | v1.x | v2.x | v3.x | v4.x | v5.x | v6.x |
-| --- | --- | --- | --- | --- | --- | --- |
-| React 0.14 | 🟢 Supported | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported |
-| React 15 | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported |
-| React 16 | 🔴 Not Supported | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported |
-| React 17 | 🔴 Not Supported | 🔴 Not Supported | ⚪ Partially | 🟢 Supported | 🟢 Supported | 🔴 Not Supported |
-| React 18 | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported | ⚪ Partially | 🟢 Supported | 🟢 Supported |
-| React 19 | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported | ⚪ Partially | 🟢 Supported |
-
-<p>🟢 = Supported ⚪ = Partially Supported 🔴 = Not Supported</p>
-
-| IE Version | v1.x | v2.x | v3.x | v4.x | v5.x | v6.x |
-| --- | --- | --- | --- | --- | --- | --- |
-| IE8 | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported |
-| IE9 | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported |
-| IE10 | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported | 🔴 Not Supported |
-| IE11 | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🔴 Not Supported | 🔴 Not Supported |
-| Edge / Chrome / Firefox / Safari | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🟢 Supported | 🟢 Supported |
+> Dropped support of IE8 after `antd 2.0`. Dropped support of React 15 and IE9/10 after `antd 4.0`. Dropped support of IE after `antd 5.0`. Dropped support of React 16/17 after `antd 6.0`.
 
 ## Version
 
