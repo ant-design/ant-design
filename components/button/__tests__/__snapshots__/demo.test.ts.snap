@@ -1504,11 +1504,11 @@ Array [
         </span>
       </button>
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search ant-input-search-large"
+        style="width:100px"
       >
         <input
-          class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-input-compact-item ant-input-compact-first-item"
-          style="width:100px"
+          class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
           type="search"
           value=""
         />

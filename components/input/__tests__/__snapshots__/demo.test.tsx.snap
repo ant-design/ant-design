@@ -1674,15 +1674,15 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compactCell ant-space-compactCell-compact-item ant-space-compactCell-compact-first-item"
+        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item"
       >
         https://
       </div>
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
         >
           <input
             class="ant-input"
@@ -1857,7 +1857,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compactCell ant-space-compactCell-compact-item ant-space-compactCell-compact-first-item ant-space-compactCell-large"
+        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item ant-space-compact-cell-large"
       >
         <span
           aria-label="search"
@@ -2695,11 +2695,11 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search"
+      style="width:40%"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
-        style="width:40%"
+        class="ant-input-affix-wrapper ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <input
           class="ant-input"
@@ -2767,11 +2767,11 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search"
+      style="width:40%"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
-        style="width:40%"
+        class="ant-input-affix-wrapper ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <input
           class="ant-input"
@@ -4659,12 +4659,12 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search"
+      style="width:200px"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="input search text"
-        style="width:200px"
         type="search"
         value=""
       />
@@ -4702,11 +4702,11 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search"
+      style="width:200px"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
-        style="width:200px"
+        class="ant-input-affix-wrapper ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <input
           class="ant-input"
@@ -4782,16 +4782,16 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compactCell ant-space-compactCell-compact-item ant-space-compactCell-compact-first-item"
+        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item"
       >
         https://
       </div>
       <div
-        class="ant-space-compact"
+        class="ant-space-compact ant-input-search"
+        style="width:304px"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-middle-item"
-          style="width:304px"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
         >
           <input
             class="ant-input"
@@ -4865,10 +4865,10 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search ant-input-search-with-button"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-search ant-input-search-with-button ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="input search text"
         type="search"
         value=""
@@ -4907,10 +4907,10 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search ant-input-search-large ant-input-search-with-button"
     >
       <span
-        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <input
           class="ant-input ant-input-lg"
@@ -4963,10 +4963,10 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space-compact ant-input-search ant-input-search-large ant-input-search-with-button"
     >
       <input
-        class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="input search text"
         type="search"
         value=""
@@ -4987,10 +4987,10 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
 exports[`renders components/input/demo/search-input-loading.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-input-search"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       placeholder="input search loading default"
       type="search"
       value=""
@@ -5027,10 +5027,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-input-search ant-input-search-with-button"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-search ant-input-search-with-button ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       placeholder="input search loading with enterButton"
       type="search"
       value=""
@@ -5067,10 +5067,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-input-search ant-input-search-large ant-input-search-with-button"
   >
     <input
-      class="ant-input ant-input-lg ant-input-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
       placeholder="input search text"
       type="search"
       value=""
@@ -5530,10 +5530,10 @@ exports[`renders components/input/demo/variant.tsx correctly 1`] = `
     value=""
   />
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-input-search"
   >
     <input
-      class="ant-input ant-input-filled ant-input-search ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-filled ant-input-compact-item ant-input-compact-first-item"
       placeholder="Filled"
       type="search"
       value=""
