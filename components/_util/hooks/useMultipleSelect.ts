@@ -6,7 +6,7 @@ export type PrevSelectedIndex = null | number;
  * @title multipleSelect hooks
  * @description multipleSelect by hold down shift key
  */
-export const useMultipleSelect = <T, K>(getKey: (item: T, index: number) => K) => {
+export const useMultipleSelect = <T, K>(getKey: (value: T, index: number, array: T[]) => K) => {
   const [prevSelectedIndex, setPrevSelectedIndex] = useState<PrevSelectedIndex>(null);
 
   const multipleSelect = useCallback(
