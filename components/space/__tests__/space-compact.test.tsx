@@ -62,6 +62,9 @@ describe('Space.Compact', () => {
     );
     expect(container.querySelector('.test-input')).toHaveClass('ant-input-compact-first-item');
     expect(container.querySelector('.test-input-search')).toHaveClass('ant-space-compact');
+    expect(container.querySelector('.test-input-search input')).toHaveClass(
+      'ant-input-compact-item',
+    );
     expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
