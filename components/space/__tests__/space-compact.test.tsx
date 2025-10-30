@@ -55,25 +55,14 @@ describe('Space.Compact', () => {
   it('compact-item className', () => {
     const { container } = render(
       <Space.Compact>
-        <Input defaultValue="https://ant.design" />
-        <Input.Search />
-        <Button type="primary" className="classname">
-          Submit
-        </Button>
+        <Input className="test-input" />
+        <Input.Search className="test-input-search" />
+        <Button className="test-button">Submit</Button>
       </Space.Compact>,
     );
-    expect(
-      container.querySelector('.ant-input')?.classList.contains('ant-input-compact-item'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-input-search')?.classList.contains('ant-input-compact-item'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-input')?.classList.contains('ant-input-compact-first-item'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.classname')?.classList.contains('ant-btn-compact-last-item'),
-    ).toBe(true);
+    expect(container.querySelector('.test-input')).toHaveClass('ant-input-compact-first-item');
+    expect(container.querySelector('.test-input-search')).toHaveClass('ant-space-compact');
+    expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
   [
