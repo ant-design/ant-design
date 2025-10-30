@@ -90,7 +90,7 @@ exports[`Input.Search should support addonAfter 1`] = `
     value=""
   />
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-middle-item ant-input-search-button"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
     type="button"
   >
     <span
@@ -133,7 +133,7 @@ exports[`Input.Search should support addonAfter 2`] = `
     value=""
   />
   <button
-    class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-middle-item ant-input-search-button"
+    class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-input-search-button"
     type="button"
   >
     <span
@@ -176,7 +176,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
     value=""
   />
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-middle-item ant-input-search-button"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-input-search-button"
     type="button"
   >
     <span
@@ -217,7 +217,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
     value=""
   />
   <button
-    class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-middle-item ant-input-search-button"
+    class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-input-search-button"
     type="button"
   >
     <span

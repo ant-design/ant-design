@@ -3225,7 +3225,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-middle-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3233,7 +3233,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-middle-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3241,7 +3241,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-middle-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3249,7 +3249,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-middle-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3257,7 +3257,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-middle-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
