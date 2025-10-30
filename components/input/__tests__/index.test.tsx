@@ -206,10 +206,11 @@ describe('Input setting hidden', () => {
         />
       </>,
     );
-    expect(container.querySelector('.input')).toHaveAttribute('hidden');
-    expect(container.querySelector('.input-search')).toHaveAttribute('hidden');
-    expect(container.querySelector('.input-textarea')).toHaveAttribute('hidden');
-    expect(container.querySelector('.input-password')).toHaveAttribute('hidden');
+
+    expect(container.querySelector('.input')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.input-search')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.input-textarea')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.input-password')?.getAttribute('hidden')).toBe('');
   });
 });
 
