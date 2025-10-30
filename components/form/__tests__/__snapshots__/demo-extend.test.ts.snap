@@ -8225,7 +8225,9 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
     <pre>
       {
   "items": [
-    {}
+    {
+      "list": []
+    }
   ]
 }
     </pre>
