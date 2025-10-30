@@ -76,9 +76,9 @@ Use Space.Compact when child form components are compactly connected and the bor
 
 Used to create custom cells in compact layouts.
 
-| Property | Description                  | Type    | Default | Version |
-| -------- | ---------------------------- | ------- | ------- | ------- |
-| vertical | Whether to layout vertically | boolean | false   | -       |
+| Property | Description    | Type      | Default | Version |
+| -------- | -------------- | --------- | ------- | ------- |
+| children | Custom content | ReactNode | -       | -       |
 
 ## Semantic DOM
 

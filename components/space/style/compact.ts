@@ -73,10 +73,6 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
             borderRadius: borderRadiusSM,
             fontSize: fontSizeSM,
           },
-
-          '&-vertical': {
-            flexDirection: 'column',
-          },
         },
       },
 
