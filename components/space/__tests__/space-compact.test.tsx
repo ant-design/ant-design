@@ -138,10 +138,8 @@ describe('Space.Compact', () => {
         <Input.Search />
       </Space.Compact>,
     );
-    expect(container.querySelectorAll(`.ant-input-search`).length).toBe(1);
-    expect(
-      container.querySelector(`.ant-input-search`)?.classList.contains('ant-space-compact'),
-    ).toBe(true);
+    expect(container.querySelector('.ant-input-search')).toBeTruthy();
+    expect(container.querySelector(`.ant-input-search`)).toHaveClass('ant-space-compact');
   });
 
   it('size', () => {
