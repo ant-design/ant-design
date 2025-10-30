@@ -80,6 +80,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
+### Space.CompactCell
+
+用于在紧凑布局中创建自定义单元格。
+
+| 参数     | 说明             | 类型    | 默认值 | 版本 |
+| -------- | ---------------- | ------- | ------ | ---- |
+| vertical | 是否垂直方向布局 | boolean | false  | -    |
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>

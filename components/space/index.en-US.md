@@ -72,6 +72,14 @@ Use Space.Compact when child form components are compactly connected and the bor
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
+### Space.CompactCell
+
+Used to create custom cells in compact layouts.
+
+| Property | Description                  | Type    | Default | Version |
+| -------- | ---------------------------- | ------- | ------- | ------- |
+| vertical | Whether to layout vertically | boolean | false   | -       |
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
