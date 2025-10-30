@@ -1038,7 +1038,7 @@ Array [
                             </div>
                             <input
                               aria-required="true"
-                              class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-middle-item"
+                              class="ant-input ant-input-outlined ant-input-compact-item"
                               id="url"
                               placeholder="Please enter url"
                               style="width: 100%;"

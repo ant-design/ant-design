@@ -97,12 +97,6 @@ describe('Space.Compact', () => {
       expectClsPrefix: 'ant-input',
     },
     {
-      name: 'Input.Search',
-      component: Input.Search,
-      targetCls: 'ant-input-search',
-      expectClsPrefix: 'ant-input',
-    },
-    {
       name: 'Select',
       component: Select,
       targetCls: 'ant-select',
@@ -127,9 +121,6 @@ describe('Space.Compact', () => {
       );
       expect(container.querySelectorAll(`.${targetCls}`).length).toBe(1);
       ['compact-item', 'compact-first-item', 'compact-last-item'].forEach((suffix) => {
-        if (name === 'Input.Search' && suffix === 'compact-last-item') {
-          return;
-        }
         expect(
           container
             .querySelector(`.${targetCls}`)
@@ -137,6 +128,17 @@ describe('Space.Compact', () => {
         ).toBe(true);
       });
     });
+  });
+  it('compact-item for Input.Search', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Input.Search />
+      </Space.Compact>,
+    );
+    expect(container.querySelectorAll(`.ant-input-search`).length).toBe(1);
+    expect(
+      container.querySelector(`.ant-input-search`)?.classList.contains('ant-space-compact'),
+    ).toBe(true);
   });
 
   it('size', () => {
