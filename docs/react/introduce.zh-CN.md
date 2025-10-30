@@ -36,9 +36,7 @@ title: Ant Design of React
 | --- | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-对于 IE 系列浏览器，需要提供相应的 Polyfill 支持，建议使用 [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 来解决浏览器兼容问题。如果你在使用 [umi](https://umijs.org/)，可以直接使用 [targets](https://umijs.org/docs/api/config#targets) 配置。
-
-> `antd@2.0` 之后不再支持 IE8。 `antd@4.0` 之后不再支持 React 15 和 IE9/10。 `antd@5.0` 之后不再支持 IE。
+> `antd 2.0` 之后不再支持 IE8。 `antd 4.0` 之后不再支持 React 15 和 IE9/10。 `antd 5.0` 之后不再支持 IE。`antd 6.0` 之后不再支持 React 16/17。
 
 ## 版本
 
