@@ -22,7 +22,14 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
-export type AlertSemanticName = 'root' | 'icon' | 'section' | 'title' | 'description' | 'actions';
+export type AlertSemanticName =
+  | 'root'
+  | 'icon'
+  | 'section'
+  | 'title'
+  | 'description'
+  | 'actions'
+  | 'close';
 
 export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticName>;
 export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticName>;
@@ -120,18 +127,21 @@ type CloseIconProps = {
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
   ariaProps: React.AriaAttributes;
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps } = props;
+  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps, className, style } = props;
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
     <button
       type="button"
       onClick={handleClose}
-      className={`${prefixCls}-close-icon`}
+      className={clsx(`${prefixCls}-close-icon`, className)}
       tabIndex={0}
+      style={style}
       {...ariaProps}
     >
       {mergedCloseIcon}
@@ -364,6 +374,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             </div>
           ) : null}
           <CloseIconNode
+            className={mergedClassNames.close}
+            style={mergedStyles.close}
             isClosable={isClosable}
             prefixCls={prefixCls}
             closeIcon={mergedCloseIcon}

@@ -230,6 +230,7 @@ describe('Alert', () => {
       title: 'custom-title',
       description: 'custom-description',
       actions: 'custom-actions',
+      close: 'custom-close',
     };
     const customStyles: AlertProps['styles'] = {
       root: { color: 'red' },
@@ -238,10 +239,12 @@ describe('Alert', () => {
       title: { backgroundColor: 'blue' },
       description: { fontSize: '20px' },
       actions: { color: 'green' },
+      close: { color: 'purple' },
     };
 
     render(
       <Alert
+        closable
         styles={customStyles}
         classNames={customClassNames}
         title="Info Text"
@@ -263,6 +266,7 @@ describe('Alert', () => {
     const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
     const descriptionElement = document.querySelector('.ant-alert-description') as HTMLElement;
     const actionElement = document.querySelector('.ant-alert-actions') as HTMLElement;
+    const closeElement = document.querySelector('.ant-alert-close-icon') as HTMLElement;
 
     // check classNames
     expect(rootElement.classList).toContain('custom-root');
@@ -271,6 +275,7 @@ describe('Alert', () => {
     expect(titleElement.classList).toContain('custom-title');
     expect(descriptionElement.classList).toContain('custom-description');
     expect(actionElement.classList).toContain('custom-actions');
+    expect(closeElement.classList).toContain('custom-close');
 
     // check styles
     expect(rootElement.style.color).toBe('red');
@@ -279,5 +284,6 @@ describe('Alert', () => {
     expect(titleElement.style.backgroundColor).toBe('blue');
     expect(descriptionElement.style.fontSize).toBe('20px');
     expect(actionElement.style.color).toBe('green');
+    expect(closeElement.style.color).toBe('purple');
   });
 });
