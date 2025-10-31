@@ -259,11 +259,11 @@ describe('Slider', () => {
     const handleElement = container.querySelector('.ant-slider-handle') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(trackElement.classList).toContain('custom-track');
-    expect(tracksElement.classList).toContain('custom-tracks');
-    expect(railElement.classList).toContain('custom-rail');
-    expect(handleElement.classList).toContain('custom-handle');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(trackElement).toHaveClass('custom-track');
+    expect(tracksElement).toHaveClass('custom-tracks');
+    expect(railElement).toHaveClass('custom-rail');
+    expect(handleElement).toHaveClass('custom-handle');
 
     // check styles
     expect(rootElement.style.backgroundColor).toBe('red');

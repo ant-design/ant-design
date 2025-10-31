@@ -107,22 +107,17 @@ describe('DropdownButton', () => {
   });
 
   it('should support overlayClassName and overlayStyle', () => {
-    const items = [
-      {
-        label: 'foo',
-        key: '1',
-      },
-    ];
+    const items = [{ label: 'foo', key: '1' }];
     const { container } = render(
       <DropdownButton
-        overlayClassName="className"
-        overlayStyle={{ color: 'red' }}
+        overlayClassName="test-className"
+        overlayStyle={{ padding: 20 }}
         menu={{ items }}
         open
       />,
     );
-    expect(container.querySelector('.ant-dropdown')?.classList).toContain('className');
-    expect((container.querySelector('.ant-dropdown') as HTMLElement).style.color).toContain('red');
+    expect(container.querySelector<HTMLElement>('.ant-dropdown')).toHaveClass('test-className');
+    expect(container.querySelector<HTMLElement>('.ant-dropdown')).toHaveStyle({ padding: '20px' });
   });
 
   it('should support loading', () => {
@@ -134,9 +129,7 @@ describe('DropdownButton', () => {
     ];
     const { container } = render(<DropdownButton menu={{ items }} loading />);
 
-    expect(container.querySelector('.ant-dropdown-button .ant-btn-loading')?.classList).toContain(
-      'ant-btn',
-    );
+    expect(container.querySelector('.ant-dropdown-button .ant-btn-loading')).toHaveClass('ant-btn');
   });
   it('should console Error when `overlay` in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

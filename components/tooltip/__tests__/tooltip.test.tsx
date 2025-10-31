@@ -635,8 +635,8 @@ describe('Tooltip', () => {
     const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
 
     // 验证 classNames
-    expect(tooltipElement.classList).toContain('custom-root');
-    expect(tooltipBodyElement.classList).toContain('custom-body');
+    expect(tooltipElement).toHaveClass('custom-root');
+    expect(tooltipBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
     expect(tooltipElement.style.backgroundColor).toBe('blue');

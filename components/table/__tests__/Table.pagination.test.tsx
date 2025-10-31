@@ -650,6 +650,6 @@ describe('Table.pagination', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination')?.className).toContain('my-pagination');
+    expect(container.querySelector('.ant-pagination')).toHaveClass('my-pagination');
   });
 });

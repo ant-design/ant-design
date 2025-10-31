@@ -399,9 +399,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
         expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
-        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].classList).toContain(
-          'ant-btn-loading',
-        );
+        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0]).toHaveClass('ant-btn-loading');
         expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].style.color).toBe('red');
         instance.update((prevConfig) => ({
           ...prevConfig,

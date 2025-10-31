@@ -185,7 +185,7 @@ describe('Anchor Render', () => {
     const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
     fireEvent.click(link);
     await waitFakeTimer();
-    expect(link.classList).toContain('ant-anchor-link-title-active');
+    expect(link).toHaveClass('ant-anchor-link-title-active');
   });
 
   it('scrolls the page when clicking a link', async () => {
@@ -816,7 +816,7 @@ describe('Anchor Render', () => {
       const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
       fireEvent.click(link);
       await waitFakeTimer();
-      expect(link.classList).toContain('ant-anchor-link-title-active');
+      expect(link).toHaveClass('ant-anchor-link-title-active');
     });
 
     it('scrolls the page when clicking a link', async () => {
