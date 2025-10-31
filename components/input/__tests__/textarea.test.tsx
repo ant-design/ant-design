@@ -199,12 +199,14 @@ describe('TextArea', () => {
       );
 
       // Outer
-      expect(container.querySelector('span')).toHaveClass('bamboo');
-      expect(container.querySelector('span')).toHaveStyle({ padding: '20px' });
+      const outerEle = container.querySelector('span');
+      expect(outerEle).toHaveClass('bamboo');
+      expect(outerEle).toHaveStyle({ padding: '20px' });
 
       // Inner
-      expect(container.querySelector<HTMLElement>('.ant-input')).not.toHaveClass('bamboo');
-      expect(container.querySelector<HTMLElement>('.ant-input')).toHaveStyle({ padding: '20px' });
+      const innerEle = container.querySelector('.ant-input');
+      expect(innerEle).not.toHaveClass('bamboo');
+      expect(innerEle).not.toHaveStyle({ padding: '20px' });
     });
 
     it('count formatter', () => {
