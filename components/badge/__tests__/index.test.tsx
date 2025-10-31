@@ -146,10 +146,10 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/15349
   it('should color style  works on Badge', () => {
     const { container } = render(
-      <Badge style={{ color: 'red' }} status="success" text="Success" />,
+      <Badge style={{ color: 'rgb(255, 0, 0)' }} status="success" text="Success" />,
     );
     expect(container.querySelector<HTMLElement>('.ant-badge-status-text')).toHaveStyle({
-      color: 'red',
+      color: 'rgb(255, 0, 0)',
     });
   });
 
