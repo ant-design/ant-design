@@ -22,6 +22,8 @@ const App: React.FC = () => {
 
   return (
     <Flex gap="middle" align="flex-start" vertical>
+      <Title level={5}>Numbers only</Title>
+      <Input.OTP numericOnly {...sharedProps} />
       <Title level={5}>With formatter (Upcase)</Title>
       <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} />
       <Title level={5}>With Disabled</Title>
