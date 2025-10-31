@@ -18,6 +18,9 @@ const styles: TagProps['styles'] = {
   icon: {
     color: '#52c41a',
   },
+  content: {
+    color: '#262626',
+  },
 };
 
 const stylesFn: TagProps['styles'] = (info) => {

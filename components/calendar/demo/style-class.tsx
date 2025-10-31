@@ -4,9 +4,10 @@ import type { CalendarProps } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Dayjs } from 'dayjs';
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles(({ token }) => ({
   root: {
     padding: 10,
+    backgroundColor: token.colorPrimaryBg,
   },
 }));
 
@@ -14,7 +15,6 @@ const stylesObject: CalendarProps<Dayjs>['styles'] = {
   root: {
     borderRadius: 8,
     width: 600,
-    backgroundColor: '#d9d9d9',
   },
 };
 
@@ -24,9 +24,7 @@ const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
       root: {
         border: '2px solid #BDE3C3',
         borderRadius: 10,
-      },
-      header: {
-        backgroundColor: '#fafafa',
+        backgroundColor: 'rgba(189,227,195, 0.3)',
       },
     } satisfies CalendarProps<Dayjs>['styles'];
   }

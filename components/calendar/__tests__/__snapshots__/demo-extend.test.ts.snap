@@ -11271,8 +11271,8 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini acss-nk32ej css-var-test-id"
-    style="border-radius: 8px; width: 600px; background-color: rgb(217, 217, 217);"
+    class="ant-picker-calendar ant-picker-calendar-mini acss-1f1p24i css-var-test-id"
+    style="border-radius: 8px; width: 600px;"
   >
     <div
       class="ant-picker-calendar-header"
@@ -12807,12 +12807,11 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-picker-calendar ant-picker-calendar-full acss-nk32ej css-var-test-id"
-    style="border: 2px solid rgb(189, 227, 195); border-radius: 10px;"
+    class="ant-picker-calendar ant-picker-calendar-full acss-1f1p24i css-var-test-id"
+    style="border: 2px solid rgb(189, 227, 195); border-radius: 10px; background-color: rgba(189, 227, 195, 0.3);"
   >
     <div
       class="ant-picker-calendar-header"
-      style="background-color: rgb(250, 250, 250);"
     >
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
