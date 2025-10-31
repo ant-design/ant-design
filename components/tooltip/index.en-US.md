@@ -29,6 +29,7 @@ demo:
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-children.tsx" debug>Disabled children</code>
 <code src="./demo/wrap-custom-component.tsx">Wrap custom component</code>
+<code src="./demo/lazy.tsx">Lazy</code>
 
 ## API
 
@@ -42,6 +43,10 @@ Common props ref：[Common props](/docs/react/common-props)
 ### Common API
 
 <embed src="./shared/sharedProps.en-US.md"></embed>
+
+### Tooltip.Lazy
+
+Basically consistent with the Tooltip API, supports lazy Semantic DOM, but only supports hover triggering.
 
 ## Semantic DOM
 
