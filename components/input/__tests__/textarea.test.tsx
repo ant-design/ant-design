@@ -447,7 +447,7 @@ describe('TextArea allowClear', () => {
 
     const { container } = render(<Demo />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: 'test' } });
-    expect(container.querySelector('.ant-input-clear-icon')?.className).not.toContain(
+    expect(container.querySelector('.ant-input-clear-icon')).not.toHaveClass(
       'ant-input-clear-icon-hidden',
     );
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);

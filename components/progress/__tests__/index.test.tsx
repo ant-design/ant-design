@@ -68,25 +68,11 @@ describe('Progress', () => {
     );
     expect(wrapper.firstChild).toMatchSnapshot();
     rerender(
-      <Progress
-        strokeColor={{
-          from: '#108ee9',
-          to: '#87d068',
-        }}
-        percent={50}
-        type="line"
-      />,
+      <Progress strokeColor={{ from: '#108ee9', to: '#87d068' }} percent={50} type="line" />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
     rerender(
-      <Progress
-        strokeColor={{
-          '0%': '#108ee9',
-          '100%': '#87d068',
-        }}
-        percent={50}
-        type="line"
-      />,
+      <Progress strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }} percent={50} type="line" />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
   });

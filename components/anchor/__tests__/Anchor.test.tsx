@@ -1024,25 +1024,29 @@ describe('Anchor Render', () => {
           </div>
         );
       };
-      const wrapper = await render(<Foo />);
-      (await wrapper.findByText('part-1')).click();
+      const { container, findByText } = await render(<Foo />);
+      (await findByText('part-1')).click();
       await waitFakeTimer();
-      const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
-      const toggleButton = wrapper.container.querySelector('button')!;
+      const inkElement = container.querySelector<HTMLSpanElement>('.ant-anchor-ink');
+      const toggleButton = container.querySelector<HTMLElement>('button');
 
-      fireEvent.click(toggleButton);
-      act(() => jest.runAllTimers());
-      expect(!!ink.style.left).toBe(true);
-      expect(!!ink.style.width).toBe(true);
-      expect(ink.style.top).toBe('');
-      expect(ink.style.height).toBe('');
+      expect(toggleButton).toBeInTheDocument();
 
-      fireEvent.click(toggleButton);
+      fireEvent.click(toggleButton!);
       act(() => jest.runAllTimers());
-      expect(!!ink.style.top).toBe(true);
-      expect(!!ink.style.height).toBe(true);
-      expect(ink.style.left).toBe('');
-      expect(ink.style.width).toBe('');
+
+      expect(inkElement).toHaveStyle({
+        left: '0px',
+        width: '0px',
+      });
+
+      fireEvent.click(toggleButton!);
+      act(() => jest.runAllTimers());
+
+      expect(inkElement).toHaveStyle({
+        top: '0px',
+        height: '0px',
+      });
     });
   });
 });

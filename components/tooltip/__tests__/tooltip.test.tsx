@@ -621,26 +621,26 @@ describe('Tooltip', () => {
     };
 
     const customStyles = {
-      body: { color: 'red' },
-      root: { backgroundColor: 'blue' },
+      body: { padding: 10 },
+      root: { padding: 20 },
     };
 
     const { container } = render(
-      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} visible>
+      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} open>
         <button type="button">button</button>
       </Tooltip>,
     );
 
-    const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
-    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+    const tooltipElement = container.querySelector<HTMLElement>('.ant-tooltip');
+    const tooltipBodyElement = container.querySelector<HTMLElement>('.ant-tooltip-inner');
 
     // 验证 classNames
     expect(tooltipElement).toHaveClass('custom-root');
     expect(tooltipBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
-    expect(tooltipElement.style.backgroundColor).toBe('blue');
-    expect(tooltipBodyElement.style.color).toBe('red');
+    expect(tooltipElement).toHaveStyle({ padding: '20px' });
+    expect(tooltipBodyElement).toHaveStyle({ padding: '10px' });
   });
 
   describe('parseColor', () => {

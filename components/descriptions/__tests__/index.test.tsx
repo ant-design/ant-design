@@ -443,13 +443,13 @@ describe('Descriptions', () => {
       content: 'custom-content',
     };
 
-    const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'black' },
-      title: { backgroundColor: 'yellow' },
-      extra: { backgroundColor: 'purple' },
-      label: { backgroundColor: 'blue' },
-      content: { backgroundColor: 'green' },
+    const customStyles: Record<PropertyKey, React.CSSProperties> = {
+      root: { padding: 10 },
+      header: { padding: 20 },
+      title: { padding: 30 },
+      extra: { padding: 40 },
+      label: { padding: 50 },
+      content: { padding: 60 },
     };
 
     const { container } = render(
@@ -469,8 +469,8 @@ describe('Descriptions', () => {
             label: 'UserName',
             children: '2',
             styles: {
-              content: { color: 'yellow' },
-              label: { color: 'orange' },
+              content: { margin: 100 },
+              label: { margin: 200 },
             },
           },
         ]}
@@ -497,16 +497,16 @@ describe('Descriptions', () => {
     expect(contentElement).toHaveClass('custom-content');
 
     // check styles
-    expect(rootElement?.style.backgroundColor).toBe('red');
-    expect(headerElement?.style.backgroundColor).toBe('black');
-    expect(titleElement?.style.backgroundColor).toBe('yellow');
-    expect(extraElement?.style.backgroundColor).toBe('purple');
-    expect(labelElement?.style.backgroundColor).toBe('blue');
-    expect(contentElement?.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ padding: '10px' });
+    expect(headerElement).toHaveStyle({ padding: '20px' });
+    expect(titleElement).toHaveStyle({ padding: '30px' });
+    expect(extraElement).toHaveStyle({ padding: '40px' });
+    expect(labelElement).toHaveStyle({ padding: '50px' });
+    expect(contentElement).toHaveStyle({ padding: '60px' });
 
-    expect(labelElements[1].style?.color).toBe('orange');
-    expect(contentElements[1].style?.color).toBe('yellow');
-    expect(labelElements[0].style?.color).not.toBe('orange');
-    expect(contentElements[0].style.color).not.toBe('yellow');
+    expect(labelElements[1]).toHaveStyle({ margin: '200px' });
+    expect(contentElements[1]).toHaveStyle({ margin: '100px' });
+    expect(labelElements[0]).not.toHaveStyle({ margin: '200px' });
+    expect(contentElements[0]).not.toHaveStyle({ margin: '100px' });
   });
 });
