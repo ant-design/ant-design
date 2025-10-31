@@ -16216,7 +16216,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       value=""
     />
     <div
-      class="config-space-compact config-input-search"
+      class="config-space-compact config-space-compact-block config-input-search"
     >
       <input
         class="config-input config-input-outlined config-input-compact-item config-input-compact-first-item"
@@ -16307,7 +16307,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
       value=""
     />
     <div
-      class="config-space-compact config-input-search"
+      class="config-space-compact config-space-compact-block config-input-search"
     >
       <input
         class="config-input config-input-disabled config-input-outlined config-input-compact-item config-input-compact-first-item"
@@ -16401,7 +16401,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <div
-      class="config-space-compact config-input-search config-input-search-large"
+      class="config-space-compact config-space-compact-block config-input-search config-input-search-large"
     >
       <input
         class="config-input config-input-lg config-input-outlined config-input-compact-item config-input-compact-first-item"
@@ -16491,7 +16491,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       value=""
     />
     <div
-      class="config-space-compact config-input-search config-input-search-middle"
+      class="config-space-compact config-space-compact-block config-input-search config-input-search-middle"
     >
       <input
         class="config-input config-input-outlined config-input-compact-item config-input-compact-first-item"
@@ -16581,7 +16581,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       value=""
     />
     <div
-      class="config-space-compact config-input-search config-input-search-small"
+      class="config-space-compact config-space-compact-block config-input-search config-input-search-small"
     >
       <input
         class="config-input config-input-sm config-input-outlined config-input-compact-item config-input-compact-first-item"
@@ -16671,7 +16671,7 @@ exports[`ConfigProvider components Input normal 1`] = `
       value=""
     />
     <div
-      class="ant-space-compact ant-input-search"
+      class="ant-space-compact ant-space-compact-block ant-input-search"
     >
       <input
         class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -16761,7 +16761,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       value=""
     />
     <div
-      class="ant-space-compact prefix-Input"
+      class="ant-space-compact ant-space-compact-block prefix-Input"
     >
       <input
         class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"

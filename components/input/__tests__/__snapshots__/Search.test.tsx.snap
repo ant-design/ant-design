@@ -2,7 +2,7 @@
 
 exports[`Input.Search rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-space-compact ant-space-compact-rtl ant-input-search ant-input-search-rtl"
+  class="ant-space-compact ant-space-compact-rtl ant-space-compact-block ant-input-search ant-input-search-rtl"
 >
   <input
     class="ant-input ant-input-rtl ant-input-outlined ant-input-compact-item ant-input-compact-first-item ant-input-compact-item-rtl"
@@ -42,7 +42,7 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
 
 exports[`Input.Search should support ReactNode suffix without error 1`] = `
 <div
-  class="ant-space-compact ant-input-search"
+  class="ant-space-compact ant-space-compact-block ant-input-search"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -82,7 +82,7 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
 
 exports[`Input.Search should support addonAfter 1`] = `
 <div
-  class="ant-space-compact ant-input-search"
+  class="ant-space-compact ant-space-compact-block ant-input-search"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -125,7 +125,7 @@ exports[`Input.Search should support addonAfter 1`] = `
 
 exports[`Input.Search should support addonAfter 2`] = `
 <div
-  class="ant-space-compact ant-input-search ant-input-search-with-button"
+  class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-with-button"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -168,7 +168,7 @@ exports[`Input.Search should support addonAfter 2`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 <div
-  class="ant-space-compact ant-input-search"
+  class="ant-space-compact ant-space-compact-block ant-input-search"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -209,7 +209,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 <div
-  class="ant-space-compact ant-input-search ant-input-search-with-button"
+  class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-with-button"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -250,7 +250,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 
 exports[`Input.Search should support custom Button 1`] = `
 <div
-  class="ant-space-compact ant-input-search ant-input-search-with-button"
+  class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-with-button"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -270,7 +270,7 @@ exports[`Input.Search should support custom Button 1`] = `
 
 exports[`Input.Search should support custom button 1`] = `
 <div
-  class="ant-space-compact ant-input-search ant-input-search-with-button"
+  class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-with-button"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -287,7 +287,7 @@ exports[`Input.Search should support custom button 1`] = `
 
 exports[`Input.Search should support invalid addonAfter 1`] = `
 <div
-  class="ant-space-compact ant-input-search ant-input-search-with-button"
+  class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-with-button"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -327,7 +327,7 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
 
 exports[`Input.Search should support invalid suffix 1`] = `
 <div
-  class="ant-space-compact ant-input-search"
+  class="ant-space-compact ant-space-compact-block ant-input-search"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -367,7 +367,7 @@ exports[`Input.Search should support invalid suffix 1`] = `
 
 exports[`Input.Search should support loading 1`] = `
 <div
-  class="ant-space-compact ant-input-search"
+  class="ant-space-compact ant-space-compact-block ant-input-search"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -407,7 +407,7 @@ exports[`Input.Search should support loading 1`] = `
 
 exports[`Input.Search should support loading 2`] = `
 <div
-  class="ant-space-compact ant-input-search ant-input-search-with-button"
+  class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-with-button"
 >
   <input
     class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"

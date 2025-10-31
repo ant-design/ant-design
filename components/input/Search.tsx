@@ -189,7 +189,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   );
 
   return (
-    <Space.Compact className={cls} style={style} {...rootProps} hidden={hidden}>
+    <Space.Compact className={cls} style={style} {...rootProps} hidden={hidden} block>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
     </Space.Compact>
