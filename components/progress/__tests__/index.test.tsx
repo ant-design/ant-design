@@ -68,25 +68,11 @@ describe('Progress', () => {
     );
     expect(wrapper.firstChild).toMatchSnapshot();
     rerender(
-      <Progress
-        strokeColor={{
-          from: '#108ee9',
-          to: '#87d068',
-        }}
-        percent={50}
-        type="line"
-      />,
+      <Progress strokeColor={{ from: '#108ee9', to: '#87d068' }} percent={50} type="line" />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
     rerender(
-      <Progress
-        strokeColor={{
-          '0%': '#108ee9',
-          '100%': '#87d068',
-        }}
-        percent={50}
-        type="line"
-      />,
+      <Progress strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }} percent={50} type="line" />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
   });
@@ -190,26 +176,21 @@ describe('Progress', () => {
   });
 
   it('steps should be changeable when has strokeColor', () => {
-    const { container: wrapper, rerender } = render(
+    const { container, rerender } = render(
       <Progress steps={5} percent={60} strokeColor="#1677ff" />,
     );
-    expect(
-      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[0].style.backgroundColor,
-    ).toBe('rgb(22, 119, 255)');
+    const eles = container.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item');
+    expect(eles[0]).toHaveStyle({ backgroundColor: 'rgb(22, 119, 255)' });
     rerender(<Progress steps={5} percent={40} strokeColor="#1677ff" />);
-    expect(
-      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[2].style.backgroundColor,
-    ).toBe('');
-    expect(
-      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
-    ).toBe('rgb(22, 119, 255)');
+    expect(eles[2]).toHaveStyle({ backgroundColor: '' });
+    expect(eles[1]).toHaveStyle({ backgroundColor: 'rgb(22, 119, 255)' });
   });
 
   it('steps should support trailColor', () => {
-    const { container: wrapper } = render(<Progress steps={5} percent={20} trailColor="#1890ee" />);
-    expect(
-      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
-    ).toBe('rgb(24, 144, 238)');
+    const { container } = render(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    expect(container.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1]).toHaveStyle({
+      backgroundColor: 'rgb(24, 144, 238)',
+    });
   });
 
   it('should display correct step', () => {

@@ -75,7 +75,7 @@ describe('Modal', () => {
   it('danger type', () => {
     render(<Modal okType="danger" okText="123" open />);
     const btns = document.body.querySelectorAll('.ant-btn');
-    expect(btns[btns.length - 1].classList.contains('ant-btn-dangerous')).toBeTruthy();
+    expect(btns[btns.length - 1]).toHaveClass('ant-btn-dangerous');
   });
 
   it('mouse position', () => {
@@ -100,13 +100,13 @@ describe('Modal', () => {
 
     fireEvent(triggerEle, clickEvent);
 
-    expect(
-      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
-    ).toBe('100px 100px');
+    expect(container.querySelectorAll<HTMLDivElement>('.ant-modal')[0]).toHaveStyle({
+      transformOrigin: '100px 100px',
+    });
   });
 
   it('custom mouse position', () => {
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const containerRef = React.useRef<HTMLDivElement>(null);
       return (
         <div ref={containerRef}>
@@ -119,9 +119,9 @@ describe('Modal', () => {
       );
     };
     const { container } = render(<Demo />);
-    expect(
-      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
-    ).toBe('100px 100px');
+    expect(container.querySelectorAll<HTMLDivElement>('.ant-modal')[0]).toHaveStyle({
+      transformOrigin: '100px 100px',
+    });
   });
 
   it('deprecated warning', () => {

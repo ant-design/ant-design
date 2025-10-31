@@ -394,15 +394,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       it(type, async () => {
         const instance = Modal[type]?.({
           title: 'title',
-          okButtonProps: { loading: true, style: { color: 'red' } },
+          okButtonProps: { loading: true, style: { padding: 20 } },
         });
         await waitFakeTimer();
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
         expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
-        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].classList).toContain(
-          'ant-btn-loading',
-        );
-        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].style.color).toBe('red');
+        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0]).toHaveClass('ant-btn-loading');
+        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0]).toHaveStyle({ padding: '20px' });
         instance.update((prevConfig) => ({
           ...prevConfig,
           okButtonProps: {
@@ -413,10 +411,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
         expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
-        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].classList).not.toContain(
+        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0]).not.toHaveClass(
           'ant-btn-loading',
         );
-        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].style.color).toBe('red');
+        expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0]).toHaveStyle({ padding: '20px' });
         instance.destroy();
 
         await waitFakeTimer();

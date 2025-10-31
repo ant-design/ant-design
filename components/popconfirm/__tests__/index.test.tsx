@@ -83,7 +83,7 @@ describe('Popconfirm', () => {
     await waitFakeTimer(100);
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBeNull();
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).toContain(
+    expect(popconfirm.container.querySelector('.ant-popover')).toHaveClass(
       'ant-popover-placement-top',
     );
     expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
@@ -125,7 +125,7 @@ describe('Popconfirm', () => {
     );
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).not.toContain(
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toHaveClass(
       'ant-popover-hidden',
     );
 
@@ -157,7 +157,7 @@ describe('Popconfirm', () => {
     );
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).not.toContain(
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toHaveClass(
       'ant-popover-hidden',
     );
 
@@ -386,8 +386,8 @@ describe('Popconfirm', () => {
     };
 
     const customStyles = {
-      body: { color: 'red' },
-      root: { backgroundColor: 'blue' },
+      body: { padding: 10 },
+      root: { padding: 20 },
     };
 
     const { container } = render(
@@ -396,15 +396,15 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
 
-    const popconfirmElement = container.querySelector('.ant-popconfirm') as HTMLElement;
-    const popconfirmBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+    const popconfirmElement = container.querySelector<HTMLElement>('.ant-popconfirm');
+    const popconfirmBodyElement = container.querySelector<HTMLElement>('.ant-popover-inner');
 
     // 验证 classNames
-    expect(popconfirmElement.classList).toContain('custom-root');
-    expect(popconfirmBodyElement.classList).toContain('custom-body');
+    expect(popconfirmElement).toHaveClass('custom-root');
+    expect(popconfirmBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
-    expect(popconfirmElement.style.backgroundColor).toBe('blue');
-    expect(popconfirmBodyElement.style.color).toBe('red');
+    expect(popconfirmElement).toHaveStyle({ padding: '20px' });
+    expect(popconfirmBodyElement).toHaveStyle({ padding: '10px' });
   });
 });
