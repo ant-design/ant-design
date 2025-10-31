@@ -1954,14 +1954,12 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.className).toContain(
-      'custom-input-status-',
-    );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-warning')).toHaveClass(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+    expect(container.querySelector('.custom-input')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -1971,7 +1969,7 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('.submit-button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass(
       'custom-input-status-error',
     );
   });

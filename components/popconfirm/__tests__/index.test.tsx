@@ -83,7 +83,7 @@ describe('Popconfirm', () => {
     await waitFakeTimer(100);
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBeNull();
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).toContain(
+    expect(popconfirm.container.querySelector('.ant-popover')).toHaveClass(
       'ant-popover-placement-top',
     );
     expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
@@ -400,8 +400,8 @@ describe('Popconfirm', () => {
     const popconfirmBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
 
     // 验证 classNames
-    expect(popconfirmElement.classList).toContain('custom-root');
-    expect(popconfirmBodyElement.classList).toContain('custom-body');
+    expect(popconfirmElement).toHaveClass('custom-root');
+    expect(popconfirmBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
     expect(popconfirmElement.style.backgroundColor).toBe('blue');

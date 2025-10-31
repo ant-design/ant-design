@@ -82,10 +82,10 @@ describe('Empty', () => {
     const emptyImageElement = container.querySelector('.ant-empty-image') as HTMLElement;
 
     // check classNames
-    expect(emptyElement.classList).toContain('custom-root');
-    expect(emptyFooterElement.classList).toContain('custom-footer');
-    expect(emptyDescriptionElement.classList).toContain('custom-description');
-    expect(emptyImageElement.classList).toContain('custom-image');
+    expect(emptyElement).toHaveClass('custom-root');
+    expect(emptyFooterElement).toHaveClass('custom-footer');
+    expect(emptyDescriptionElement).toHaveClass('custom-description');
+    expect(emptyImageElement).toHaveClass('custom-image');
 
     // check styles
     expect(emptyElement.style.color).toBe('red');

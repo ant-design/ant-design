@@ -558,14 +558,14 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const customStyle = { background: 'red' };
-      const { container } = render(<Cascader dropdownStyle={customStyle} open />);
+
+      const { container } = render(<Cascader dropdownStyle={{ padding: 10 }} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
-      expect(container.querySelector('.ant-select-dropdown')?.getAttribute('style')).toContain(
-        'background: red',
-      );
+      expect(container.querySelector<HTMLElement>('.ant-select-dropdown')).toHaveStyle({
+        padding: '10px',
+      });
 
       errSpy.mockRestore();
     });

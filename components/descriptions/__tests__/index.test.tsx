@@ -477,38 +477,36 @@ describe('Descriptions', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
-    const headerElement = container.querySelector('.ant-descriptions-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-descriptions-title') as HTMLElement;
-    const extraElement = container.querySelector('.ant-descriptions-extra') as HTMLElement;
-    const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
-    const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
-    const labelElements = container.querySelectorAll(
-      '.ant-descriptions-item-label',
-    ) as NodeListOf<HTMLElement>;
-    const contentElements = container.querySelectorAll(
+    const rootElement = container.querySelector<HTMLElement>('.ant-descriptions');
+    const headerElement = container.querySelector<HTMLElement>('.ant-descriptions-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-descriptions-title');
+    const extraElement = container.querySelector<HTMLElement>('.ant-descriptions-extra');
+    const labelElement = container.querySelector<HTMLElement>('.ant-descriptions-item-label');
+    const contentElement = container.querySelector<HTMLElement>('.ant-descriptions-item-content');
+    const labelElements = container.querySelectorAll<HTMLElement>('.ant-descriptions-item-label');
+    const contentElements = container.querySelectorAll<HTMLElement>(
       '.ant-descriptions-item-content',
-    ) as NodeListOf<HTMLElement>;
+    );
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(extraElement.classList).toContain('custom-extra');
-    expect(labelElement.classList).toContain('custom-label');
-    expect(contentElement.classList).toContain('custom-content');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(extraElement).toHaveClass('custom-extra');
+    expect(labelElement).toHaveClass('custom-label');
+    expect(contentElement).toHaveClass('custom-content');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(headerElement.style.backgroundColor).toBe('black');
-    expect(titleElement.style.backgroundColor).toBe('yellow');
-    expect(extraElement.style.backgroundColor).toBe('purple');
-    expect(labelElement.style.backgroundColor).toBe('blue');
-    expect(contentElement.style.backgroundColor).toBe('green');
+    expect(rootElement?.style.backgroundColor).toBe('red');
+    expect(headerElement?.style.backgroundColor).toBe('black');
+    expect(titleElement?.style.backgroundColor).toBe('yellow');
+    expect(extraElement?.style.backgroundColor).toBe('purple');
+    expect(labelElement?.style.backgroundColor).toBe('blue');
+    expect(contentElement?.style.backgroundColor).toBe('green');
 
-    expect(labelElements[1].style.color).toBe('orange');
-    expect(contentElements[1].style.color).toBe('yellow');
-    expect(labelElements[0].style.color).not.toBe('orange');
+    expect(labelElements[1].style?.color).toBe('orange');
+    expect(contentElements[1].style?.color).toBe('yellow');
+    expect(labelElements[0].style?.color).not.toBe('orange');
     expect(contentElements[0].style.color).not.toBe('yellow');
   });
 });

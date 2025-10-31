@@ -159,8 +159,8 @@ describe('Popover', () => {
     const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
 
     // 验证 classNames
-    expect(popoverElement.classList).toContain('custom-root');
-    expect(popoverBodyElement.classList).toContain('custom-body');
+    expect(popoverElement).toHaveClass('custom-root');
+    expect(popoverBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
     expect(popoverElement.style.backgroundColor).toBe('blue');
