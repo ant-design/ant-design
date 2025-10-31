@@ -666,7 +666,29 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             },
         },
       },
+      [`${searchPrefixCls}-button`]: {
+        // Fix https://github.com/ant-design/ant-design/issues/47150
+        marginInlineEnd: -1,
+        borderStartStartRadius: 0,
+        borderEndStartRadius: 0,
+        boxShadow: 'none',
+      },
 
+      [`${searchPrefixCls}-button:not(${antCls}-btn-color-primary)`]: {
+        color: token.colorTextDescription,
+
+        '&:not([disabled]):hover': {
+          color: token.colorPrimaryHover,
+        },
+
+        '&:active': {
+          color: token.colorPrimaryActive,
+        },
+
+        [`&${antCls}-btn-loading::before`]: {
+          inset: 0,
+        },
+      },
       [`${componentCls}-affix-wrapper`]: {
         height: token.controlHeight,
         // borderRadius: 0,
@@ -683,30 +705,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           insetInlineStart: -1,
           padding: 0,
           border: 0,
-
-          [`${searchPrefixCls}-button`]: {
-            // Fix https://github.com/ant-design/ant-design/issues/47150
-            marginInlineEnd: -1,
-            borderStartStartRadius: 0,
-            borderEndStartRadius: 0,
-            boxShadow: 'none',
-          },
-
-          [`${searchPrefixCls}-button:not(${antCls}-btn-color-primary)`]: {
-            color: token.colorTextDescription,
-
-            '&:not([disabled]):hover': {
-              color: token.colorPrimaryHover,
-            },
-
-            '&:active': {
-              color: token.colorPrimaryActive,
-            },
-
-            [`&${antCls}-btn-loading::before`]: {
-              inset: 0,
-            },
-          },
         },
       },
 
