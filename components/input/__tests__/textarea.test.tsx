@@ -195,18 +195,16 @@ describe('TextArea', () => {
 
     it('className & style patch to outer', () => {
       const { container } = render(
-        <TextArea className="bamboo" style={{ backgroundColor: 'red' }} showCount />,
+        <TextArea className="bamboo" style={{ padding: 20 }} showCount />,
       );
 
       // Outer
       expect(container.querySelector('span')).toHaveClass('bamboo');
-      expect(container.querySelector('span')).toHaveStyle({ backgroundColor: 'red' });
+      expect(container.querySelector('span')).toHaveStyle({ padding: '20px' });
 
       // Inner
-      expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
-      expect(container.querySelector<HTMLElement>('.ant-input')).toHaveStyle({
-        backgroundColor: 'red',
-      });
+      expect(container.querySelector<HTMLElement>('.ant-input')).not.toHaveClass('bamboo');
+      expect(container.querySelector<HTMLElement>('.ant-input')).toHaveStyle({ padding: '20px' });
     });
 
     it('count formatter', () => {
