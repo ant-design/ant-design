@@ -1030,22 +1030,22 @@ describe('Anchor Render', () => {
       const inkElement = container.querySelector<HTMLSpanElement>('.ant-anchor-ink');
       const toggleButton = container.querySelector<HTMLElement>('button');
 
+      expect(toggleButton).toBeInTheDocument();
+
       fireEvent.click(toggleButton!);
       act(() => jest.runAllTimers());
+
       expect(inkElement).toHaveStyle({
-        left: expect.any(String),
-        width: expect.any(String),
-        top: '',
-        height: '',
+        left: '0px',
+        width: '0px',
       });
 
       fireEvent.click(toggleButton!);
       act(() => jest.runAllTimers());
+
       expect(inkElement).toHaveStyle({
-        top: expect.any(String),
-        height: expect.any(String),
-        left: '',
-        width: '',
+        top: '0px',
+        height: '0px',
       });
     });
   });
