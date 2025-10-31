@@ -316,14 +316,7 @@ describe('Breadcrumb', () => {
       key1?: number;
       key2?: string;
     }
-    expect(
-      <Breadcrumb<Params>
-        params={{
-          key1: 1,
-          key2: 'test',
-        }}
-      />,
-    ).toBeTruthy();
+    expect(<Breadcrumb<Params> params={{ key1: 1, key2: 'test' }} />).toBeTruthy();
   });
 
   it('support classNames and styles', async () => {
@@ -360,22 +353,24 @@ describe('Breadcrumb', () => {
         ]}
       />,
     );
-    const root = container.querySelector('.ant-breadcrumb') as HTMLElement;
-    const item = container.querySelector('.custom-item') as HTMLElement;
-    const separator = container.querySelector('.ant-breadcrumb-separator') as HTMLElement;
+
+    const root = container.querySelector<HTMLElement>('.ant-breadcrumb');
+    const item = container.querySelector<HTMLElement>('.custom-item');
+    const separator = container.querySelector<HTMLElement>('.ant-breadcrumb-separator');
+
     expect(root).toHaveClass('custom-root');
     expect(separator).toHaveClass('custom-separator');
-    expect(root.style.color).toBe('red');
-    expect(item.style.color).toBe('green');
-    expect(separator.style.color).toBe('blue');
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(item).toHaveStyle({ color: 'green' });
+    expect(separator).toHaveStyle({ color: 'blue' });
   });
 
   it('supports ConfigProvider separator', () => {
-    const wrapper = render(
+    const { getByText } = render(
       <ConfigProvider breadcrumb={{ separator: '666' }}>
         <Breadcrumb items={[{ title: 'foo' }, { title: 'bar' }]} />
       </ConfigProvider>,
     );
-    wrapper.getByText('666');
+    getByText('666');
   });
 });

@@ -99,9 +99,9 @@ describe('Ribbon', () => {
       </Badge.Ribbon>,
     );
 
-    const rootElement = container.querySelector('.ant-ribbon-wrapper') as HTMLElement;
-    const indicatorElement = container.querySelector('.ant-ribbon') as HTMLElement;
-    const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-ribbon-wrapper');
+    const indicatorElement = container.querySelector<HTMLElement>('.ant-ribbon');
+    const contentElement = container.querySelector<HTMLElement>('.ant-ribbon-content');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -109,9 +109,9 @@ describe('Ribbon', () => {
     expect(contentElement).toHaveClass('custom-content');
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(indicatorElement.style.color).toBe('green');
-    expect(contentElement.style.color).toBe('yellow');
+    expect(rootElement).toHaveStyle({ color: 'red' });
+    expect(indicatorElement).toHaveStyle({ color: 'green' });
+    expect(contentElement).toHaveStyle({ color: 'yellow' });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -135,9 +135,9 @@ describe('Ribbon', () => {
       </Badge.Ribbon>,
     );
 
-    const rootElement = container.querySelector('.ant-ribbon-wrapper') as HTMLElement;
-    const indicatorElement = container.querySelector('.ant-ribbon') as HTMLElement;
-    const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-ribbon-wrapper');
+    const indicatorElement = container.querySelector<HTMLElement>('.ant-ribbon');
+    const contentElement = container.querySelector<HTMLElement>('.ant-ribbon-content');
 
     // check function-based classNames
     expect(rootElement).toHaveClass('ribbon-start');
@@ -145,8 +145,8 @@ describe('Ribbon', () => {
     expect(contentElement).toHaveClass('ribbon-content');
 
     // check function-based styles
-    expect(rootElement.style.border).toBe('1px solid red');
-    expect(indicatorElement.style.opacity).toBe('0.8');
-    expect(contentElement.style.fontWeight).toBe('bold');
+    expect(rootElement).toHaveStyle({ border: '1px solid red' });
+    expect(indicatorElement).toHaveStyle({ opacity: '0.8' });
+    expect(contentElement).toHaveStyle({ fontWeight: 'bold' });
   });
 });

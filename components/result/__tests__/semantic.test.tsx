@@ -36,12 +36,12 @@ describe('Result.Semantic', () => {
       </Result>,
     );
 
-    const resultElement = container.querySelector('.ant-result') as HTMLElement;
-    const resultTitleElement = container.querySelector('.ant-result-title') as HTMLElement;
-    const resultSubTitleElement = container.querySelector('.ant-result-subtitle') as HTMLElement;
-    const resultBodyElement = container.querySelector('.ant-result-body') as HTMLElement;
-    const resultExtraElement = container.querySelector('.ant-result-extra') as HTMLElement;
-    const resultIconElement = container.querySelector('.ant-result-icon') as HTMLElement;
+    const resultElement = container.querySelector<HTMLElement>('.ant-result');
+    const resultTitleElement = container.querySelector<HTMLElement>('.ant-result-title');
+    const resultSubTitleElement = container.querySelector<HTMLElement>('.ant-result-subtitle');
+    const resultBodyElement = container.querySelector<HTMLElement>('.ant-result-body');
+    const resultExtraElement = container.querySelector<HTMLElement>('.ant-result-extra');
+    const resultIconElement = container.querySelector<HTMLElement>('.ant-result-icon');
 
     // check classNames
     expect(resultElement).toHaveClass('custom-root');
@@ -52,12 +52,12 @@ describe('Result.Semantic', () => {
     expect(resultIconElement).toHaveClass('custom-icon');
 
     // check styles
-    expect(resultElement.style.color).toBe('red');
-    expect(resultTitleElement.style.color).toBe('green');
-    expect(resultSubTitleElement.style.color).toBe('yellow');
-    expect(resultBodyElement.style.color).toBe('blue');
-    expect(resultExtraElement.style.backgroundColor).toBe('blue');
-    expect(resultIconElement.style.backgroundColor).toBe('black');
+    expect(resultElement).toHaveStyle({ color: 'red' });
+    expect(resultTitleElement).toHaveStyle({ color: 'green' });
+    expect(resultSubTitleElement).toHaveStyle({ color: 'yellow' });
+    expect(resultBodyElement).toHaveStyle({ color: 'blue' });
+    expect(resultExtraElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(resultIconElement).toHaveStyle({ backgroundColor: 'black' });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -79,13 +79,13 @@ describe('Result.Semantic', () => {
       <Result status="success" title="Success" classNames={classNamesFn} styles={stylesFn} />,
     );
 
-    const resultElement = container.querySelector('.ant-result') as HTMLElement;
+    const resultElement = container.querySelector<HTMLElement>('.ant-result');
     expect(resultElement).toHaveClass('success-result');
-    expect(resultElement.style.backgroundColor).toBe('green');
+    expect(resultElement).toHaveStyle({ backgroundColor: 'green' });
 
     rerender(<Result status="error" title="Error" classNames={classNamesFn} styles={stylesFn} />);
 
     expect(resultElement).toHaveClass('default-result');
-    expect(resultElement.style.backgroundColor).toBe('red');
+    expect(resultElement).toHaveStyle({ backgroundColor: 'red' });
   });
 });

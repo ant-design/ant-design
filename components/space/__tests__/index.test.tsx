@@ -255,9 +255,9 @@ describe('Space', () => {
       </Space>,
     );
 
-    const rootElement = container.querySelector('.ant-space') as HTMLElement;
-    const itemElement = container.querySelector('.ant-space-item') as HTMLElement;
-    const separatorElement = container.querySelector('.ant-space-item-separator') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-space');
+    const itemElement = container.querySelector<HTMLElement>('.ant-space-item');
+    const separatorElement = container.querySelector<HTMLElement>('.ant-space-item-separator');
 
     // Check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -265,9 +265,9 @@ describe('Space', () => {
     expect(separatorElement).toHaveClass('custom-separator');
 
     // Check styles
-    expect(rootElement.style.color).toBe(customStyles.root.color);
-    expect(itemElement.style.color).toBe(customStyles.item.color);
-    expect(separatorElement.style.color).toBe(customStyles.separator.color);
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(itemElement).toHaveStyle({ color: customStyles.item.color });
+    expect(separatorElement).toHaveStyle({ color: customStyles.separator.color });
   });
 
   // ============================= orientation =============================

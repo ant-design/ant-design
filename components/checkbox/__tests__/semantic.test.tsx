@@ -17,6 +17,7 @@ describe('Checkbox.Semantic', () => {
       icon: { backgroundColor: 'black' },
       label: { backgroundColor: 'gray' },
     };
+
     const { container } = render(
       <Checkbox classNames={customClassNames} styles={customStyles}>
         Checkbox
@@ -31,9 +32,9 @@ describe('Checkbox.Semantic', () => {
     expect(iconElement).toHaveClass('custom-icon');
     expect(labelElement).toHaveClass('custom-label');
 
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('black');
-    expect(labelElement.style.backgroundColor).toBe('gray');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(iconElement).toHaveStyle({ backgroundColor: 'black' });
+    expect(labelElement).toHaveStyle({ backgroundColor: 'gray' });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -73,8 +74,8 @@ describe('Checkbox.Semantic', () => {
     expect(iconElement).toHaveClass('enabled-icon');
     expect(labelElement).toHaveClass('enabled-label');
 
-    expect(rootElement.style.backgroundColor).toBe('lightblue');
-    expect(iconElement.style.color).toBe('blue');
-    expect(labelElement.style.color).toBe('darkblue');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'lightblue' });
+    expect(iconElement).toHaveStyle({ color: 'blue' });
+    expect(labelElement).toHaveStyle({ color: 'darkblue' });
   });
 });

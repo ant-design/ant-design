@@ -39,13 +39,13 @@ describe('Modal.Semantic', () => {
 
     render(<Modal classNames={customClassNames} styles={customStyles} open title="title" />);
 
-    const rootElement = document.querySelector('.ant-modal-root') as HTMLElement;
-    const maskElement = document.querySelector('.ant-modal-mask') as HTMLElement;
-    const wrapperElement = document.querySelector('.ant-modal-wrap') as HTMLElement;
-    const headerElement = document.querySelector('.ant-modal-header') as HTMLElement;
-    const titleElement = document.querySelector('.ant-modal-title') as HTMLElement;
-    const bodyElement = document.querySelector('.ant-modal-body') as HTMLElement;
-    const footerElement = document.querySelector('.ant-modal-footer') as HTMLElement;
+    const rootElement = document.querySelector<HTMLElement>('.ant-modal-root');
+    const maskElement = document.querySelector<HTMLElement>('.ant-modal-mask');
+    const wrapperElement = document.querySelector<HTMLElement>('.ant-modal-wrap');
+    const headerElement = document.querySelector<HTMLElement>('.ant-modal-header');
+    const titleElement = document.querySelector<HTMLElement>('.ant-modal-title');
+    const bodyElement = document.querySelector<HTMLElement>('.ant-modal-body');
+    const footerElement = document.querySelector<HTMLElement>('.ant-modal-footer');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -57,13 +57,13 @@ describe('Modal.Semantic', () => {
     expect(footerElement).toHaveClass('custom-footer');
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(maskElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
-    expect(wrapperElement.style.padding).toBe('20px');
-    expect(headerElement.style.backgroundColor).toBe('blue');
-    expect(titleElement.style.fontSize).toBe('20px');
-    expect(bodyElement.style.color).toBe('green');
-    expect(footerElement.style.color).toBe('yellow');
+    expect(rootElement).toHaveStyle({ color: 'red' });
+    expect(maskElement).toHaveStyle({ backgroundColor: 'rgba(0, 0, 0, 0.5)' });
+    expect(wrapperElement).toHaveStyle({ padding: '20px' });
+    expect(headerElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(titleElement).toHaveStyle({ fontSize: '20px' });
+    expect(bodyElement).toHaveStyle({ color: 'green' });
+    expect(footerElement).toHaveStyle({ color: 'yellow' });
   });
 
   it('Modal should apply dynamic classNames and styles from props function', () => {

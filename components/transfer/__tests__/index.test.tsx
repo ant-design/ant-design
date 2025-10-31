@@ -608,14 +608,10 @@ describe('Transfer', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-transfer') as HTMLElement;
-    const sectionElements = container.querySelectorAll(
-      '.ant-transfer-section',
-    ) as NodeListOf<HTMLElement>;
-    const headerElements = container.querySelectorAll(
-      '.ant-transfer-list-header',
-    ) as NodeListOf<HTMLElement>;
-    const actionsElement = container.querySelector('.ant-transfer-actions') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-transfer');
+    const sectionElements = container.querySelectorAll<HTMLElement>('.ant-transfer-section');
+    const headerElements = container.querySelectorAll<HTMLElement>('.ant-transfer-list-header');
+    const actionsElement = container.querySelector<HTMLElement>('.ant-transfer-actions');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-transfer-root');
@@ -626,12 +622,12 @@ describe('Transfer', () => {
     expect(actionsElement).toHaveClass('custom-transfer-actions');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(sectionElements[0].style.backgroundColor).toBe('blue');
-    expect(sectionElements[1].style.backgroundColor).toBe('blue');
-    expect(headerElements[0].style.color).toBe('yellow');
-    expect(headerElements[1].style.color).toBe('yellow');
-    expect(actionsElement.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(sectionElements[0]).toHaveStyle({ backgroundColor: 'blue' });
+    expect(sectionElements[1]).toHaveStyle({ backgroundColor: 'blue' });
+    expect(headerElements[0]).toHaveStyle({ color: 'yellow' });
+    expect(headerElements[1]).toHaveStyle({ color: 'yellow' });
+    expect(actionsElement).toHaveStyle({ backgroundColor: 'green' });
   });
 
   it('should support classNames and styles as functions', () => {
@@ -649,7 +645,7 @@ describe('Transfer', () => {
       return { root: { margin: '10px' } };
     };
 
-    const { container: container1 } = render(
+    const { container, rerender } = render(
       <Transfer
         {...listCommonProps}
         disabled
@@ -659,11 +655,11 @@ describe('Transfer', () => {
       />,
     );
 
-    const rootElement1 = container1.querySelector('.ant-transfer') as HTMLElement;
-    expect(rootElement1).toHaveClass('disabled-transfer');
-    expect(rootElement1.style.margin).toBe('10px');
+    const rootElement = container.querySelector<HTMLElement>('.ant-transfer');
+    expect(rootElement).toHaveClass('disabled-transfer');
+    expect(rootElement).toHaveStyle({ margin: '10px' });
 
-    const { container: container2 } = render(
+    rerender(
       <Transfer
         {...listCommonProps}
         showSearch
@@ -673,9 +669,8 @@ describe('Transfer', () => {
       />,
     );
 
-    const rootElement2 = container2.querySelector('.ant-transfer') as HTMLElement;
-    expect(rootElement2).toHaveClass('enabled-transfer');
-    expect(rootElement2.style.padding).toBe('10px');
+    expect(rootElement).toHaveClass('enabled-transfer');
+    expect(rootElement).toHaveStyle({ padding: '10px' });
   });
 
   it('should support onScroll', () => {

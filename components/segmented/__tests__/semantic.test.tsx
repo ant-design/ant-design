@@ -144,9 +144,9 @@ describe('Segmented.Semantic', () => {
     expect(labelElement).toHaveClass('custom-label');
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('blue');
-    expect(itemElement.style.color).toBe('yellow');
-    expect(labelElement.style.backgroundColor).toBe('black');
+    expect(rootElement).toHaveStyle({ color: 'red' });
+    expect(iconElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(itemElement).toHaveStyle({ color: 'yellow' });
+    expect(labelElement).toHaveStyle({ backgroundColor: 'black' });
   });
 });

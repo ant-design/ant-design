@@ -11,10 +11,8 @@ describe('Typography keep prefixCls', () => {
           test prefixCls
         </Base>,
       );
-      expect(
-        (wrapper.firstChild as HTMLElement)?.className.includes('custom-prefixCls'),
-      ).toBeTruthy();
-      expect((wrapper.firstChild as HTMLElement)?.className.includes('custom-class')).toBeTruthy();
+      expect(wrapper.firstChild).toHaveClass('custom-prefixCls');
+      expect(wrapper.firstChild).toHaveClass('custom-class');
     });
   });
 });

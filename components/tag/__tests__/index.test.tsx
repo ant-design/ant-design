@@ -146,7 +146,7 @@ describe('Tag', () => {
         </Tag>,
       );
       const link = container.querySelector('a')!;
-      expect(window.getComputedStyle(link).pointerEvents).toBe('none');
+      expect(link).toHaveStyle({ pointerEvents: 'none' });
     });
 
     it('should render correctly when disabled', () => {
@@ -288,12 +288,14 @@ describe('Tag', () => {
       </Tag>,
     );
 
-    const rootElement = container.querySelector('.ant-tag') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-tag');
 
     expect(rootElement).toHaveClass('custom-root');
-    expect(rootElement.style.backgroundColor).toBe('rgb(0, 255, 0)');
-    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
-    expect(container.querySelector('.custom-content')).toHaveStyle({
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+    expect(container.querySelector<HTMLElement>('.custom-icon')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
+    expect(container.querySelector<HTMLElement>('.custom-content')).toHaveStyle({
       backgroundColor: 'rgb(0, 0, 255)',
     });
   });

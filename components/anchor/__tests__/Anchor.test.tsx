@@ -94,23 +94,19 @@ describe('Anchor Render', () => {
     );
     expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
     const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
-      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+      (n as HTMLElement).querySelector<HTMLAnchorElement>('.ant-anchor-link-title'),
     );
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#anchor-demo-basic');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#anchor-demo-static');
-    expect((linkTitles[3] as HTMLAnchorElement).href).toContain('#api');
+    expect(linkTitles[1]?.href).toContain('#anchor-demo-basic');
+    expect(linkTitles[2]?.href).toContain('#anchor-demo-static');
+    expect(linkTitles[3]?.href).toContain('#api');
     expect(
-      (
-        container.querySelector(
-          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
-        ) as HTMLAnchorElement
+      container.querySelector<HTMLAnchorElement>(
+        '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
       )?.href,
     ).toContain('#anchor-props');
     expect(
-      (
-        container.querySelector(
-          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
-        ) as HTMLAnchorElement
+      container.querySelector<HTMLAnchorElement>(
+        '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
       )?.href,
     ).toContain('#link-props');
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -1087,18 +1083,19 @@ describe('Anchor Render', () => {
         ]}
       />,
     );
-    const root = container.querySelector('.ant-anchor-wrapper') as HTMLElement;
-    const items = container.querySelector('.ant-anchor-link') as HTMLElement;
-    const title = container.querySelector('.ant-anchor-link-title') as HTMLElement;
-    const indicator = container.querySelector('.ant-anchor-ink') as HTMLElement;
+
+    const root = container.querySelector<HTMLElement>('.ant-anchor-wrapper');
+    const items = container.querySelector<HTMLElement>('.ant-anchor-link');
+    const title = container.querySelector<HTMLElement>('.ant-anchor-link-title');
+    const indicator = container.querySelector<HTMLElement>('.ant-anchor-ink');
 
     expect(root).toHaveClass('custom-root');
     expect(items).toHaveClass('custom-item');
     expect(title).toHaveClass('custom-title');
     expect(indicator).toHaveClass('custom-indicator');
-    expect(items.style.background).toBe('blue');
-    expect(root.style.background).toBe('red');
-    expect(title.style.background).toBe('green');
-    expect(indicator.style.background).toBe('yellow');
+    expect(items).toHaveStyle({ background: 'blue' });
+    expect(root).toHaveStyle({ background: 'red' });
+    expect(title).toHaveStyle({ background: 'green' });
+    expect(indicator).toHaveStyle({ background: 'yellow' });
   });
 });

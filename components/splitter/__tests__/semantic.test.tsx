@@ -1,7 +1,7 @@
 import React from 'react';
+import type { GetProps, SplitterProps } from 'antd';
 
 import Splitter from '..';
-import type { GetProps, SplitterProps } from 'antd';
 import { render } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -73,16 +73,16 @@ describe('Splitter.Semantic', () => {
       }),
     });
 
-    const splitterElement = container.querySelector('.ant-splitter') as HTMLElement;
-    expect(splitterElement.style.backgroundColor).toBe('blue');
+    const splitterElement = container.querySelector<HTMLElement>('.ant-splitter');
+    expect(splitterElement).toHaveStyle({ backgroundColor: 'blue' });
 
-    const panelElements = container.querySelectorAll('.ant-splitter-panel');
+    const panelElements = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
     panelElements.forEach((panel) => {
-      expect((panel as HTMLElement).style.padding).toBe('10px');
+      expect(panel).toHaveStyle({ padding: '10px' });
     });
 
-    const draggerElement = container.querySelector('.ant-splitter-bar-dragger') as HTMLElement;
-    expect(draggerElement.style.width).toBe('8px');
+    const draggerElement = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger');
+    expect(draggerElement).toHaveStyle({ width: '8px' });
   });
 
   it('should support both function and object classNames/styles', async () => {
@@ -105,14 +105,15 @@ describe('Splitter.Semantic', () => {
     expect(classNamesFn).toHaveBeenCalled();
     expect(stylesFn).toHaveBeenCalled();
 
-    const splitterElement = container.querySelector('.ant-splitter') as HTMLElement;
+    const splitterElement = container.querySelector<HTMLElement>('.ant-splitter');
     expect(splitterElement).toHaveClass('fn-root');
-    expect(splitterElement.style.color).toBe('red');
+    expect(splitterElement).toHaveStyle({ color: 'red' });
 
-    const panelElements = container.querySelectorAll('.ant-splitter-panel');
+    const panelElements = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
+
     panelElements.forEach((panel) => {
       expect(panel).toHaveClass('fn-panel');
-      expect((panel as HTMLElement).style.margin).toBe('5px');
+      expect(panel).toHaveStyle({ margin: '5px' });
     });
   });
 

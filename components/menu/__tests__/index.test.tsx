@@ -1084,11 +1084,8 @@ describe('Menu', () => {
       />,
     );
 
-    expect(container.querySelector('.bamboo')).toBeTruthy();
-    expect(getComputedStyle(container.querySelector('.bamboo') as HTMLElement)).toHaveProperty(
-      'opacity',
-      '0',
-    );
+    expect(container.querySelector<HTMLElement>('.bamboo')).toBeTruthy();
+    expect(container.querySelector<HTMLElement>('.bamboo')).toHaveStyle({ opacity: 0 });
   });
 
   it('Overflow indicator className should not override menu class', () => {

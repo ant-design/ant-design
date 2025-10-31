@@ -107,9 +107,9 @@ describe('Radio', () => {
 
     const { container } = render(<Radio classNames={customClassNames}>Test</Radio>);
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
     expect(rootElement).toHaveClass('custom-root');
     expect(iconElement).toHaveClass('custom-icon');
@@ -122,15 +122,16 @@ describe('Radio', () => {
       icon: { backgroundColor: 'black' },
       label: { backgroundColor: 'gray' },
     };
+
     const { container } = render(<Radio styles={customStyles}>Test</Radio>);
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('black');
-    expect(labelElement.style.backgroundColor).toBe('gray');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(iconElement).toHaveStyle({ backgroundColor: 'black' });
+    expect(labelElement).toHaveStyle({ backgroundColor: 'gray' });
   });
 
   it('should support both classNames and styles', () => {
@@ -145,15 +146,16 @@ describe('Radio', () => {
       icon: { backgroundColor: 'black' },
       label: { backgroundColor: 'gray' },
     };
+
     const { container } = render(
       <Radio classNames={customClassNames} styles={customStyles}>
         Test
       </Radio>,
     );
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
     // Test classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -161,8 +163,8 @@ describe('Radio', () => {
     expect(labelElement).toHaveClass('custom-label');
 
     // Test styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('black');
-    expect(labelElement.style.backgroundColor).toBe('gray');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(iconElement).toHaveStyle({ backgroundColor: 'black' });
+    expect(labelElement).toHaveStyle({ backgroundColor: 'gray' });
   });
 });

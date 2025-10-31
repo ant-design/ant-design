@@ -229,14 +229,15 @@ describe('Card', () => {
     expect(coverElement).toHaveClass('custom-cover');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(headerElement.style.backgroundColor).toBe('black');
-    expect(bodyElement.style.backgroundColor).toBe('gray');
-    expect(extraElement.style.backgroundColor).toBe('purple');
-    expect(titleElement.style.backgroundColor).toBe('yellow');
-    expect(actionsElement.style.backgroundColor).toBe('blue');
-    expect(coverElement.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(headerElement).toHaveStyle({ backgroundColor: 'black' });
+    expect(bodyElement).toHaveStyle({ backgroundColor: 'gray' });
+    expect(extraElement).toHaveStyle({ backgroundColor: 'purple' });
+    expect(titleElement).toHaveStyle({ backgroundColor: 'yellow' });
+    expect(actionsElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(coverElement).toHaveStyle({ backgroundColor: 'green' });
   });
+
   it('should support custom styles for Card.Meta', () => {
     const { Meta } = Card;
     const customClassNames = {
@@ -284,10 +285,10 @@ describe('Card', () => {
     expect(titleElement).toHaveClass('custom-title');
     expect(descriptionElement).toHaveClass('custom-description');
 
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(sectionElement.style.backgroundColor).toBe('black');
-    expect(avatarElement.style.backgroundColor).toBe('gray');
-    expect(descriptionElement.style.backgroundColor).toBe('yellow');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(sectionElement).toHaveStyle({ backgroundColor: 'black' });
+    expect(avatarElement).toHaveStyle({ backgroundColor: 'gray' });
+    expect(descriptionElement).toHaveStyle({ backgroundColor: 'yellow' });
   });
 
   it('ConfigProvider support variant for card', () => {

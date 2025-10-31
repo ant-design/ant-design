@@ -48,11 +48,11 @@ describe('Collapse.Semantic', () => {
     expect(iconElement).toHaveClass('custom-icon');
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(headerElement.style.color).toBe('blue');
-    expect(titleElement.style.color).toBe('green');
-    expect(bodyElement.style.color).toBe('yellow');
-    expect(iconElement.style.color).toBe('purple');
+    expect(rootElement).toHaveStyle({ color: 'red' });
+    expect(headerElement).toHaveStyle({ color: 'blue' });
+    expect(titleElement).toHaveStyle({ color: 'green' });
+    expect(bodyElement).toHaveStyle({ color: 'yellow' });
+    expect(iconElement).toHaveStyle({ color: 'purple' });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -80,12 +80,7 @@ describe('Collapse.Semantic', () => {
         expandIconPlacement="end"
         styles={fnStyles}
         classNames={fnClassNames}
-        items={[
-          {
-            key: '1',
-            label: 'title',
-          },
-        ]}
+        items={[{ key: '1', label: 'title' }]}
       />,
     );
 
@@ -103,10 +98,10 @@ describe('Collapse.Semantic', () => {
     expect(iconElement).toHaveClass('end-icon');
 
     // check function-based styles
-    expect(rootElement.style.borderWidth).toBe('0px');
-    expect(headerElement.style.fontSize).toBe('18px');
-    expect(titleElement.style.fontWeight).toBe('bold');
-    expect(bodyElement.style.padding).toBe('16px');
-    expect(iconElement.style.transform).toBe('rotate(90deg)');
+    expect(rootElement).toHaveStyle({ borderWidth: '0px' });
+    expect(headerElement).toHaveStyle({ fontSize: '18px' });
+    expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
+    expect(bodyElement).toHaveStyle({ padding: '16px' });
+    expect(iconElement).toHaveStyle({ transform: 'rotate(90deg)' });
   });
 });

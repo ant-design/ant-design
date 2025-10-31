@@ -19,20 +19,18 @@ describe('Slider.Semantic', () => {
       return { root: { margin: '10px' } };
     };
 
-    const { container: container1 } = render(
+    const { container, rerender } = render(
       <Slider disabled defaultValue={30} classNames={classNamesFn} styles={stylesFn} />,
     );
 
-    const rootElement1 = container1.querySelector('.ant-slider') as HTMLElement;
+    const rootElement1 = container.querySelector('.ant-slider') as HTMLElement;
     expect(rootElement1).toHaveClass('disabled-slider');
-    expect(rootElement1.style.margin).toBe('10px');
+    expect(rootElement1).toHaveStyle({ margin: '10px' });
 
-    const { container: container2 } = render(
-      <Slider vertical defaultValue={30} classNames={classNamesFn} styles={stylesFn} />,
-    );
+    rerender(<Slider vertical defaultValue={30} classNames={classNamesFn} styles={stylesFn} />);
 
-    const rootElement2 = container2.querySelector('.ant-slider') as HTMLElement;
+    const rootElement2 = container.querySelector('.ant-slider') as HTMLElement;
     expect(rootElement2).toHaveClass('enabled-slider');
-    expect(rootElement2.style.padding).toBe('10px');
+    expect(rootElement2).toHaveStyle({ padding: '10px' });
   });
 });

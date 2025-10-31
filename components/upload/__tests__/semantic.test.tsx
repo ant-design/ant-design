@@ -75,15 +75,15 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
 
     const listElement = container.querySelector('.ant-upload-list');
     expect(listElement).toBeTruthy();
-    expect(getComputedStyle(listElement!).borderColor).toBe('blue');
+    expect(listElement).toHaveStyle({ borderColor: 'blue' });
 
     const itemElement = container.querySelector('.ant-upload-list-item');
     expect(itemElement).toBeTruthy();
-    expect(getComputedStyle(itemElement!).color).toBe('rgb(0, 128, 0)');
+    expect(itemElement).toHaveStyle({ color: 'rgb(0, 128, 0)' });
   });
 
   it('should work with styles function', () => {
@@ -106,7 +106,7 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 255, 0)');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
   });
 
   it('should merge context and component classNames', () => {
@@ -174,15 +174,14 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(getComputedStyle(rootElement!).borderWidth).toBe('2px');
-    expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', borderWidth: '2px' });
 
     const listElement = container.querySelector('.ant-upload-list');
     expect(listElement).toBeTruthy();
-    expect(getComputedStyle(listElement!).padding).toBe('10px');
+    expect(listElement).toHaveStyle({ padding: '10px' });
 
     const itemElement = container.querySelector('.ant-upload-list-item');
     expect(itemElement).toBeTruthy();
-    expect(getComputedStyle(itemElement!).color).toBe('rgb(0, 0, 255)');
+    expect(itemElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 });

@@ -16,9 +16,8 @@ describe('ConfigProvider.button', () => {
         <Button style={{ fontSize: '14px' }} />
       </ConfigProvider>,
     );
-
-    const item = container.querySelector('button') as HTMLElement;
-    expect(getComputedStyle(item)?.fontSize).toBe('14px');
+    const item = container.querySelector<HTMLElement>('button');
+    expect(item).toHaveStyle({ fontSize: '14px' });
   });
 
   it('ConfigProvider button className', () => {

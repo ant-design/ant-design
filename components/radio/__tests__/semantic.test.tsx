@@ -14,9 +14,8 @@ describe('Radio.Semantic', () => {
       </Radio>,
     );
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    expect(rootElement.style.padding).toBe('10px');
-    expect(rootElement.style.margin).toBe('5px');
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    expect(rootElement).toHaveStyle({ padding: '10px', margin: '5px' });
   });
 
   it('should apply semantic styles to radio without label', () => {
@@ -26,12 +25,12 @@ describe('Radio.Semantic', () => {
     };
     const { container } = render(<Radio styles={customStyles} />);
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label');
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
-    expect(rootElement.style.backgroundColor).toBe('blue');
-    expect(iconElement.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(iconElement).toHaveStyle({ backgroundColor: 'green' });
     expect(labelElement).toBeNull(); // No label element should exist
   });
 });
