@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tooltip } from 'antd';
-import { isTooltipOpen } from 'antd/es/tooltip/__tests__/util';
 import dayjs from 'dayjs';
 import { renderToString } from 'react-dom/server';
 
@@ -344,13 +343,13 @@ describe('Statistic', () => {
     fireEvent.mouseEnter(statistic);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(isTooltipOpen()).toBeTruthy();
+    expect(document.querySelector('.ant-tooltip')).not.toHaveClass('ant-tooltip-hidden');
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(statistic);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(isTooltipOpen()).toBeFalsy();
+    expect(document.querySelector('.ant-tooltip')).toHaveClass('ant-tooltip-hidden');
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 });

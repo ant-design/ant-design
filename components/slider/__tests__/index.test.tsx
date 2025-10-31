@@ -174,11 +174,11 @@ describe('Slider', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      track: { backgroundColor: 'black' },
-      tracks: { backgroundColor: 'yellow' },
-      rail: { backgroundColor: 'purple' },
-      handle: { backgroundColor: 'blue' },
+      root: { padding: 10 },
+      track: { padding: 20 },
+      tracks: { padding: 30 },
+      rail: { padding: 40 },
+      handle: { padding: 50 },
     };
 
     const { container } = render(
@@ -191,25 +191,25 @@ describe('Slider', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-slider') as HTMLElement;
-    const trackElement = container.querySelector('.ant-slider-track') as HTMLElement;
-    const tracksElement = container.querySelector('.ant-slider-tracks') as HTMLElement;
-    const railElement = container.querySelector('.ant-slider-rail') as HTMLElement;
-    const handleElement = container.querySelector('.ant-slider-handle') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-slider');
+    const trackElement = container.querySelector<HTMLElement>('.ant-slider-track');
+    const tracksElement = container.querySelector<HTMLElement>('.ant-slider-tracks');
+    const railElement = container.querySelector<HTMLElement>('.ant-slider-rail');
+    const handleElement = container.querySelector<HTMLElement>('.ant-slider-handle');
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(trackElement.classList).toContain('custom-track');
-    expect(tracksElement.classList).toContain('custom-tracks');
-    expect(railElement.classList).toContain('custom-rail');
-    expect(handleElement.classList).toContain('custom-handle');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(trackElement).toHaveClass('custom-track');
+    expect(tracksElement).toHaveClass('custom-tracks');
+    expect(railElement).toHaveClass('custom-rail');
+    expect(handleElement).toHaveClass('custom-handle');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(trackElement.style.backgroundColor).toBe('black');
-    expect(tracksElement.style.backgroundColor).toBe('yellow');
-    expect(railElement.style.backgroundColor).toBe('purple');
-    expect(handleElement.style.backgroundColor).toBe('blue');
+    expect(rootElement).toHaveStyle({ padding: '10px' });
+    expect(trackElement).toHaveStyle({ padding: '20px' });
+    expect(tracksElement).toHaveStyle({ padding: '30px' });
+    expect(railElement).toHaveStyle({ padding: '40px' });
+    expect(handleElement).toHaveStyle({ padding: '50px' });
   });
 
   // ============================= orientation =============================
