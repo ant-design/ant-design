@@ -11,7 +11,7 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const { container } = render(indicator);
-    expect(container.querySelector('div')?.style.bottom).toEqual('-3px');
+    expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({ bottom: '-3px' });
   });
   it('work with dropPosition inner (-0)', () => {
     const indicator = dropIndicatorRender({
@@ -22,8 +22,10 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const { container } = render(indicator);
-    expect(container.querySelector('div')?.style.bottom).toEqual('-3px');
-    expect(container.querySelector('div')?.style.left).toEqual(`${24 + offset}px`);
+    expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({
+      bottom: '-3px',
+      left: `${24 + offset}px`,
+    });
   });
   it('work with dropPosition after (-1)', () => {
     const indicator = dropIndicatorRender({
@@ -34,7 +36,7 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const { container } = render(indicator);
-    expect(container.querySelector('div')?.style.top).toEqual('-3px');
+    expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({ top: '-3px' });
   });
   it('work with drop level', () => {
     const indicator = dropIndicatorRender({
@@ -45,7 +47,9 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const { container } = render(indicator);
-    expect(container.querySelector('div')?.style.left).toEqual(`${-2 * 24 + offset}px`);
+    expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({
+      left: `${-2 * 24 + offset}px`,
+    });
   });
   it('work with drop level (rtl)', () => {
     const indicator = dropIndicatorRender({
@@ -56,6 +60,8 @@ describe('dropIndicatorRender', () => {
       direction: 'rtl',
     });
     const { container } = render(indicator);
-    expect(container.querySelector('div')?.style.right).toEqual(`${-2 * 24 + offset}px`);
+    expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({
+      right: `${-2 * 24 + offset}px`,
+    });
   });
 });

@@ -52,7 +52,9 @@ describe('BackTop', () => {
 
   it('pass style to float button', () => {
     const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
-    expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')?.style.color).toBe('red');
+    expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')).toHaveStyle({
+      color: 'red',
+    });
   });
 
   it('no error when BackTop work', () => {

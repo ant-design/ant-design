@@ -110,8 +110,10 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.width).toBe('50%');
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.flex).toBe('0 0 50%');
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider')).toHaveStyle({ width: '50%' });
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider')).toHaveStyle({
+      flex: '0 0 50%',
+    });
   });
 
   describe('zeroWidth', () => {

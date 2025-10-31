@@ -552,7 +552,7 @@ describe('Transfer', () => {
       backgroundColor: 'blue',
     };
     const rightStyle: React.CSSProperties = {
-      backgroundColor: 'red',
+      backgroundColor: 'orange',
     };
     const operationStyle: React.CSSProperties = {
       backgroundColor: 'yellow',
@@ -572,10 +572,10 @@ describe('Transfer', () => {
     const listTarget = container.querySelectorAll<HTMLDivElement>('.ant-transfer-list').item(1);
     const operation = container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation').item(0);
 
-    expect(wrapper?.style.backgroundColor).toEqual('red');
-    expect(listSource.style.backgroundColor).toEqual('blue');
-    expect(listTarget.style.backgroundColor).toEqual('red');
-    expect(operation.style.backgroundColor).toEqual('yellow');
+    expect(wrapper).toHaveStyle({ backgroundColor: 'red' });
+    expect(listSource).toHaveStyle({ backgroundColor: 'blue' });
+    expect(listTarget).toHaveStyle({ backgroundColor: 'orange' });
+    expect(operation).toHaveStyle({ backgroundColor: 'yellow' });
   });
 
   it('should support onScroll', () => {

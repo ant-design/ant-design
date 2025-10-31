@@ -13,7 +13,9 @@ describe('Empty', () => {
 
   it('image size should change', () => {
     const { container } = render(<Empty styles={{ image: { height: 20 } }} />);
-    expect(container.querySelector<HTMLDivElement>('.ant-empty-image')?.style.height).toBe('20px');
+    expect(container.querySelector<HTMLDivElement>('.ant-empty-image')).toHaveStyle({
+      height: '20px',
+    });
   });
 
   it('description can be false', () => {
