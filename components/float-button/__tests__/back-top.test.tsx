@@ -51,9 +51,9 @@ describe('BackTop', () => {
   });
 
   it('pass style to float button', () => {
-    const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
+    const { container } = render(<BackTop style={{ padding: 20 }} visibilityHeight={0} />);
     expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')).toHaveStyle({
-      color: 'red',
+      padding: '20px',
     });
   });
 

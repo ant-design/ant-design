@@ -16,8 +16,7 @@ describe('Grid.Gap', () => {
         <Col />
       </Row>,
     );
-
-    expect(screen.getByRole('row').style.rowGap).toBe('');
+    expect(screen.getByRole('row')).toHaveStyle({ rowGap: '' });
   });
 
   it('should use gap', () => {
