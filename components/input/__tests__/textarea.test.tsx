@@ -206,14 +206,12 @@ describe('TextArea', () => {
       );
 
       // Outer
-      const outerEle = container.querySelector('span');
-      expect(outerEle).toHaveClass('bamboo');
-      expect(outerEle).toHaveStyle({ padding: '20px' });
+      expect(container.querySelector('span')).toHaveClass('bamboo');
+      expect(container.querySelector('span')?.style.padding).toBe('20px');
 
       // Inner
-      const innerEle = container.querySelector('.ant-input');
-      expect(innerEle).not.toHaveClass('bamboo');
-      expect(innerEle).not.toHaveStyle({ padding: '20px' });
+      expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
+      expect(container.querySelector('.ant-input')).not.toHaveStyle({ padding: '20px' });
     });
 
     it('count formatter', () => {
