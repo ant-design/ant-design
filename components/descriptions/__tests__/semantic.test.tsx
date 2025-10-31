@@ -15,13 +15,13 @@ describe('Descriptions.Semantic', () => {
       content: 'custom-content',
     };
 
-    const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'black' },
-      title: { backgroundColor: 'yellow' },
-      extra: { backgroundColor: 'purple' },
-      label: { backgroundColor: 'blue' },
-      content: { backgroundColor: 'green' },
+    const customStyles: Record<PropertyKey, React.CSSProperties> = {
+      root: { padding: 10 },
+      header: { padding: 20 },
+      title: { padding: 30 },
+      extra: { padding: 40 },
+      label: { padding: 50 },
+      content: { padding: 60 },
     };
 
     const { container } = render(
@@ -41,8 +41,8 @@ describe('Descriptions.Semantic', () => {
             label: 'UserName',
             children: '2',
             styles: {
-              content: { color: 'yellow' },
-              label: { color: 'orange' },
+              content: { margin: 100 },
+              label: { margin: 200 },
             },
             classNames: {
               content: 'item-content',
@@ -53,46 +53,37 @@ describe('Descriptions.Semantic', () => {
       />,
     );
 
-    const rootElement = container.querySelector<HTMLDivElement>('.ant-descriptions')!;
-    const headerElement = container.querySelector<HTMLDivElement>('.ant-descriptions-header')!;
-    const titleElement = container.querySelector<HTMLDivElement>('.ant-descriptions-title')!;
-    const extraElement = container.querySelector<HTMLDivElement>('.ant-descriptions-extra')!;
-    const labelElement = container.querySelector<HTMLDivElement>('.ant-descriptions-item-label')!;
-    const contentElement = container.querySelector<HTMLDivElement>(
-      '.ant-descriptions-item-content',
-    )!;
-    const labelElements = container.querySelectorAll<HTMLDivElement>(
-      '.ant-descriptions-item-label',
-    );
-    const contentElements = container.querySelectorAll<HTMLDivElement>(
+    const rootElement = container.querySelector<HTMLElement>('.ant-descriptions');
+    const headerElement = container.querySelector<HTMLElement>('.ant-descriptions-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-descriptions-title');
+    const extraElement = container.querySelector<HTMLElement>('.ant-descriptions-extra');
+    const labelElement = container.querySelector<HTMLElement>('.ant-descriptions-item-label');
+    const contentElement = container.querySelector<HTMLElement>('.ant-descriptions-item-content');
+    const labelElements = container.querySelectorAll<HTMLElement>('.ant-descriptions-item-label');
+    const contentElements = container.querySelectorAll<HTMLElement>(
       '.ant-descriptions-item-content',
     );
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(extraElement.classList).toContain('custom-extra');
-    expect(labelElement.classList).toContain('custom-label');
-    expect(contentElement.classList).toContain('custom-content');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(extraElement).toHaveClass('custom-extra');
+    expect(labelElement).toHaveClass('custom-label');
+    expect(contentElement).toHaveClass('custom-content');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(headerElement.style.backgroundColor).toBe('black');
-    expect(titleElement.style.backgroundColor).toBe('yellow');
-    expect(extraElement.style.backgroundColor).toBe('purple');
-    expect(labelElement.style.backgroundColor).toBe('blue');
-    expect(contentElement.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ padding: '10px' });
+    expect(headerElement).toHaveStyle({ padding: '20px' });
+    expect(titleElement).toHaveStyle({ padding: '30px' });
+    expect(extraElement).toHaveStyle({ padding: '40px' });
+    expect(labelElement).toHaveStyle({ padding: '50px' });
+    expect(contentElement).toHaveStyle({ padding: '60px' });
 
-    expect(labelElements[1].style.color).toBe('orange');
-    expect(contentElements[1].style.color).toBe('yellow');
-    expect(labelElements[0].style.color).not.toBe('orange');
-    expect(contentElements[0].style.color).not.toBe('yellow');
-
-    expect(labelElements[1].classList).toContain('item-label');
-    expect(contentElements[1].classList).toContain('item-content');
-    expect(labelElements[0].classList).not.toContain('item-label');
-    expect(contentElements[0].classList).not.toContain('item-content');
+    expect(labelElements[1]).toHaveStyle({ margin: '200px' });
+    expect(contentElements[1]).toHaveStyle({ margin: '100px' });
+    expect(labelElements[0]).not.toHaveStyle({ margin: '200px' });
+    expect(contentElements[0]).not.toHaveStyle({ margin: '100px' });
   });
 
   it('should apply dynamic classNames and styles from props function', () => {

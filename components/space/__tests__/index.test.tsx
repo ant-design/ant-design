@@ -82,8 +82,8 @@ describe('Space', () => {
     );
 
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
-    expect(items[0]?.style.marginRight).toBe('');
-    expect(items[1]?.style.marginRight).toBe('');
+    expect(items[0]).toHaveStyle({ marginRight: '' });
+    expect(items[1]).toHaveStyle({ marginRight: '' });
   });
 
   it('should render vertical space width customize size', () => {
@@ -99,8 +99,8 @@ describe('Space', () => {
     );
     warnSpy.mockRestore();
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
-    expect(items[0]?.style.marginBottom).toBe('');
-    expect(items[1]?.style.marginBottom).toBe('');
+    expect(items[0]).toHaveStyle({ marginBottom: '' });
+    expect(items[1]).toHaveStyle({ marginBottom: '' });
   });
 
   it('should render correct with children', () => {

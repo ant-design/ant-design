@@ -50,6 +50,7 @@ describe('TextArea', () => {
     const ref = React.createRef<TextAreaRef>();
 
     const onInternalAutoSize = jest.fn();
+
     const genTextArea = (props = {}) => (
       <TextArea
         value=""
@@ -74,7 +75,7 @@ describe('TextArea', () => {
     await waitFakeTimer19();
     expect(onInternalAutoSize).toHaveBeenCalledTimes(3);
 
-    expect(container.querySelector('textarea')?.style.overflow).toBeFalsy();
+    expect(container.querySelector('textarea')).toHaveStyle({ overflow: '' });
 
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
@@ -201,16 +202,16 @@ describe('TextArea', () => {
 
     it('className & style patch to outer', () => {
       const { container } = render(
-        <TextArea className="bamboo" style={{ background: 'red' }} showCount />,
+        <TextArea className="bamboo" style={{ padding: 20 }} showCount />,
       );
 
       // Outer
-      expect(container.querySelector('span')?.classList.contains('bamboo')).toBeTruthy();
-      expect(container.querySelector('span')?.style.background).toEqual('red');
+      expect(container.querySelector('span')).toHaveClass('bamboo');
+      expect(container.querySelector('span')?.style.padding).toBe('20px');
 
       // Inner
-      expect(container.querySelector('.ant-input')?.classList.contains('bamboo')).toBeFalsy();
-      expect(container.querySelector<HTMLDivElement>('.ant-input')?.style.background).toBeFalsy();
+      expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
+      expect(container.querySelector('.ant-input')).not.toHaveStyle({ padding: '20px' });
     });
 
     it('count formatter', () => {
@@ -232,7 +233,7 @@ describe('TextArea', () => {
 
   it('should support size', async () => {
     const { asFragment, container } = render(<TextArea size="large" />);
-    expect(container.querySelector('textarea')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('textarea')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -517,7 +518,7 @@ describe('TextArea allowClear', () => {
 
     const { container } = render(<Demo />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: 'test' } });
-    expect(container.querySelector('.ant-input-clear-icon')?.className).not.toContain(
+    expect(container.querySelector('.ant-input-clear-icon')).not.toHaveClass(
       'ant-input-clear-icon-hidden',
     );
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);

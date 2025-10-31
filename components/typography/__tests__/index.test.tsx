@@ -340,8 +340,8 @@ describe('Typography', () => {
             ).toBe(0);
           } else {
             expect(
-              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
-            ).not.toContain('anticon-enter');
+              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0],
+            ).not.toHaveClass('anticon-enter');
           }
 
           if (submitFunc) {

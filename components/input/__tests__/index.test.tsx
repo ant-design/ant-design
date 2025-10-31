@@ -40,7 +40,7 @@ describe('Input', () => {
 
   it('should support size', () => {
     const { asFragment, container } = render(<Input size="large" />);
-    expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('input')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -52,7 +52,7 @@ describe('Input', () => {
         </Form.Item>
       </Form>,
     );
-    expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('input')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 

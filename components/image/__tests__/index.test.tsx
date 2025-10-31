@@ -131,11 +131,11 @@ describe('Image', () => {
     );
     render(<App />);
 
-    expect(document.querySelector('.test-image-preview-class') as HTMLElement).toHaveStyle({
+    expect(document.querySelector<HTMLElement>('.test-image-preview-class')).toHaveStyle({
       zIndex: '1301',
     });
 
-    expect(document.querySelector('.test-image-preview-group-class') as HTMLElement).toHaveStyle({
+    expect(document.querySelector<HTMLElement>('.test-image-preview-group-class')).toHaveStyle({
       zIndex: '1301',
     });
   });
@@ -261,9 +261,9 @@ describe('Image', () => {
             return;
           }
           if (expectedBlurClass) {
-            expect(maskElement!.className).toContain('ant-image-preview-mask-blur');
+            expect(maskElement).toHaveClass('ant-image-preview-mask-blur');
           } else {
-            expect(maskElement!.className).not.toContain('ant-image-preview-mask-blur');
+            expect(maskElement).not.toHaveClass('ant-image-preview-mask-blur');
           }
         },
       );

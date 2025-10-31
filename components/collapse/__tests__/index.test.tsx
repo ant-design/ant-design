@@ -82,14 +82,12 @@ describe('Collapse', () => {
         </Collapse.Panel>
       </Collapse>,
     );
-    expect(
-      container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
-    ).toBe(false);
+    expect(container.querySelector('.ant-collapse-item')).not.toHaveClass(
+      'ant-collapse-item-active',
+    );
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
     await waitFakeTimer();
-    expect(
-      container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
-    ).toBe(true);
+    expect(container.querySelector('.ant-collapse-item')).toHaveClass('ant-collapse-item-active');
     jest.useRealTimers();
   });
 
