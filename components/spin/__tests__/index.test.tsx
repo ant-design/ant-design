@@ -21,12 +21,12 @@ describe('Spin', () => {
 
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const { container } = render(
-      <Spin style={{ background: 'red' }}>
+      <Spin style={{ padding: 20 }}>
         <div>content</div>
       </Spin>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')?.style.length).toBe(0);
-    expect(container.querySelector<HTMLElement>('.ant-spin')?.style.background).toBe('red');
+    expect(container.querySelector('.ant-spin-nested-loading')).not.toHaveAttribute('style');
+    expect(container.querySelector<HTMLElement>('.ant-spin')).toHaveStyle({ padding: '20px' });
   });
 
   it('should not apply nested styles when full screen', () => {

@@ -80,9 +80,10 @@ describe('Table.expand', () => {
     const { container } = render(<Table indentSize={0} columns={columns} dataSource={data} />);
 
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
-    expect(container.querySelector<HTMLElement>('.indent-level-1')?.style.paddingLeft).toEqual(
-      '0px',
-    );
+
+    expect(container.querySelector<HTMLElement>('.indent-level-1')).toHaveStyle({
+      paddingLeft: '0px',
+    });
   });
 
   it('has right aria-expanded state', () => {
