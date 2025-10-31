@@ -76,13 +76,10 @@ describe('Steps', () => {
       );
     };
     const { container } = render(<ControlSteps />);
-    expect(
-      container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
-    ).toBe(false);
+    const ele = container.querySelectorAll<HTMLElement>('.ant-steps-item')[1];
+    expect(ele).not.toHaveClass('ant-steps-item-process');
     fireEvent.click(screen.getByText(/进行中/));
-    expect(
-      container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
-    ).toBe(true);
+    expect(ele).toHaveClass('ant-steps-item-process');
   });
 
   it('deprecated warning', () => {

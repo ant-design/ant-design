@@ -645,7 +645,7 @@ describe('Table.pagination', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination')?.className).toEqual(
+    expect(container.querySelector('.ant-pagination')).toHaveClass(
       'ant-pagination ant-table-pagination ant-table-pagination-end pagination css-var-root',
     );
   });

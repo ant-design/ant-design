@@ -1853,10 +1853,10 @@ describe('Form', () => {
       </Form>
     );
     const { container } = render(<Demo />, { container: document.body });
-    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('status-error');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('status-error');
   });
 
   // eslint-disable-next-line jest/no-disabled-tests
@@ -1911,14 +1911,12 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.className).toContain(
-      'custom-input-status-',
-    );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-warning')).toHaveClass(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+    expect(container.querySelector('.custom-input')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -1928,7 +1926,7 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('.submit-button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass(
       'custom-input-status-error',
     );
   });
