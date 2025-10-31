@@ -163,9 +163,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       const filteredTheme = theme.filter((t) => !['light', 'dark', 'auto'].includes(t));
       const newTheme = [...filteredTheme, themeKey];
 
-      updateSiteConfig({ theme: newTheme });
-
       setTheme(themeKey);
+
+      updateSiteConfig({ theme: newTheme });
     } else {
       // 其他主题选项是开关式的
       const hasTheme = theme.includes(themeKey);
