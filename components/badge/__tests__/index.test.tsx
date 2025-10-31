@@ -148,9 +148,9 @@ describe('Badge', () => {
     const { container } = render(
       <Badge style={{ color: 'red' }} status="success" text="Success" />,
     );
-    expect((container.querySelector('.ant-badge-status-text')! as HTMLElement).style.color).toEqual(
-      'red',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-badge-status-text')).toHaveStyle({
+      color: 'red',
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/15799

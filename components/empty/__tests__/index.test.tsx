@@ -57,10 +57,10 @@ describe('Empty', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
-      description: { color: 'green' },
-      footer: { color: 'yellow' },
-      image: { backgroundColor: 'black' },
+      root: { padding: 10 },
+      description: { padding: 20 },
+      footer: { padding: 30 },
+      image: { padding: 40 },
     };
 
     const { container } = render(
@@ -74,12 +74,10 @@ describe('Empty', () => {
       </Empty>,
     );
 
-    const emptyElement = container.querySelector('.ant-empty') as HTMLElement;
-    const emptyFooterElement = container.querySelector('.ant-empty-footer') as HTMLElement;
-    const emptyDescriptionElement = container.querySelector(
-      '.ant-empty-description',
-    ) as HTMLElement;
-    const emptyImageElement = container.querySelector('.ant-empty-image') as HTMLElement;
+    const emptyElement = container.querySelector<HTMLElement>('.ant-empty');
+    const emptyFooterElement = container.querySelector<HTMLElement>('.ant-empty-footer');
+    const emptyDescriptionElement = container.querySelector<HTMLElement>('.ant-empty-description');
+    const emptyImageElement = container.querySelector<HTMLElement>('.ant-empty-image');
 
     // check classNames
     expect(emptyElement).toHaveClass('custom-root');
@@ -88,10 +86,10 @@ describe('Empty', () => {
     expect(emptyImageElement).toHaveClass('custom-image');
 
     // check styles
-    expect(emptyElement.style.color).toBe('red');
-    expect(emptyDescriptionElement.style.color).toBe('green');
-    expect(emptyFooterElement.style.color).toBe('yellow');
-    expect(emptyImageElement.style.backgroundColor).toBe('black');
+    expect(emptyElement).toHaveStyle({ padding: '10px' });
+    expect(emptyDescriptionElement).toHaveStyle({ padding: '20px' });
+    expect(emptyFooterElement).toHaveStyle({ padding: '30px' });
+    expect(emptyImageElement).toHaveStyle({ padding: '40px' });
   });
 
   it('support ConfigProvider image', () => {
@@ -100,7 +98,8 @@ describe('Empty', () => {
         <Empty />
       </ConfigProvider>,
     );
-    expect(container.querySelector<HTMLImageElement>('img')?.src).toBe(
+    expect(container.querySelector<HTMLImageElement>('img')).toHaveAttribute(
+      'src',
       'https://example.com/foobar.jpg',
     );
   });
