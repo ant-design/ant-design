@@ -897,7 +897,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-space-compact ant-input-search"
+        class="ant-space-compact ant-space-compact-block ant-input-search"
         style="width: 30%;"
       >
         <input
@@ -935,7 +935,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </button>
       </div>
       <div
-        class="ant-space-compact ant-input-search"
+        class="ant-space-compact ant-space-compact-block ant-input-search"
         style="width: 50%;"
       >
         <span
@@ -1007,7 +1007,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </button>
       </div>
       <div
-        class="ant-space-compact ant-input-search"
+        class="ant-space-compact ant-space-compact-block ant-input-search"
         style="width: 20%;"
       >
         <input
@@ -10948,7 +10948,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact ant-input-search"
+        class="ant-space-compact ant-space-compact-block ant-input-search"
       >
         <input
           class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
@@ -10985,7 +10985,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </button>
       </div>
       <div
-        class="ant-space-compact ant-input-search"
+        class="ant-space-compact ant-space-compact-block ant-input-search"
       >
         <input
           class="ant-input ant-input-outlined ant-input-compact-item"
@@ -14549,7 +14549,7 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-space-compact ant-input-search"
+          class="ant-space-compact ant-space-compact-block ant-input-search"
           style="width: 110px;"
         >
           <input
