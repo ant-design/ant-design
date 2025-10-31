@@ -20,7 +20,7 @@ const useStylesRibbon = createStyles(() => ({
 
 const badgeStyles: BadgeProps['styles'] = {
   root: {
-    backgroundColor: '#f0f0f0',
+    borderRadius: 8,
   },
 };
 

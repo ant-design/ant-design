@@ -12,6 +12,7 @@ const useStyles = createStyles(({ token }) => ({
     backgroundColor: token.colorBgContainer,
     borderRadius: token.borderRadius,
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    border: `1px solid ${token.colorBorderSecondary}`,
   },
   header: {
     borderBottom: 'none',
@@ -30,7 +31,6 @@ const stylesCard: CardProps['styles'] = {
   title: {
     fontSize: 16,
     fontWeight: 500,
-    color: '#262626',
   },
 };
 

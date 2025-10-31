@@ -2324,11 +2324,13 @@ exports[`renders components/popconfirm/demo/style-class.tsx extend context corre
             >
               <div
                 class="ant-popconfirm-title"
+                style="color: rgb(38, 38, 38);"
               >
                 Object text
               </div>
               <div
                 class="ant-popconfirm-description"
+                style="color: rgb(38, 38, 38);"
               >
                 Object description
               </div>

@@ -2030,7 +2030,9 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      style="color:#262626"
+    >
       Object
     </span>
   </span>
