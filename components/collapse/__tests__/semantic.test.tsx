@@ -41,11 +41,11 @@ describe('Collapse.Semantic', () => {
     const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(bodyElement.classList).toContain('custom-body');
-    expect(iconElement.classList).toContain('custom-icon');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(bodyElement).toHaveClass('custom-body');
+    expect(iconElement).toHaveClass('custom-icon');
 
     // check styles
     expect(rootElement.style.color).toBe('red');
@@ -96,11 +96,11 @@ describe('Collapse.Semantic', () => {
     const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
 
     // check function-based classNames
-    expect(rootElement.classList).toContain('size-large');
-    expect(headerElement.classList).toContain('ghost-header');
-    expect(titleElement.classList).toContain('dynamic-title');
-    expect(bodyElement.classList).toContain('dynamic-body');
-    expect(iconElement.classList).toContain('end-icon');
+    expect(rootElement).toHaveClass('size-large');
+    expect(headerElement).toHaveClass('ghost-header');
+    expect(titleElement).toHaveClass('dynamic-title');
+    expect(bodyElement).toHaveClass('dynamic-body');
+    expect(iconElement).toHaveClass('end-icon');
 
     // check function-based styles
     expect(rootElement.style.borderWidth).toBe('0px');

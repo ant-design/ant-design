@@ -104,9 +104,9 @@ describe('Ribbon', () => {
     const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(indicatorElement.classList).toContain('custom-indicator');
-    expect(contentElement.classList).toContain('custom-content');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(indicatorElement).toHaveClass('custom-indicator');
+    expect(contentElement).toHaveClass('custom-content');
 
     // check styles
     expect(rootElement.style.color).toBe('red');
@@ -140,9 +140,9 @@ describe('Ribbon', () => {
     const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
 
     // check function-based classNames
-    expect(rootElement.classList).toContain('ribbon-start');
-    expect(indicatorElement.classList).toContain('ribbon-indicator');
-    expect(contentElement.classList).toContain('ribbon-content');
+    expect(rootElement).toHaveClass('ribbon-start');
+    expect(indicatorElement).toHaveClass('ribbon-indicator');
+    expect(contentElement).toHaveClass('ribbon-content');
 
     // check function-based styles
     expect(rootElement.style.border).toBe('1px solid red');

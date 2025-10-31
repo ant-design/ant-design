@@ -1091,10 +1091,11 @@ describe('Anchor Render', () => {
     const items = container.querySelector('.ant-anchor-link') as HTMLElement;
     const title = container.querySelector('.ant-anchor-link-title') as HTMLElement;
     const indicator = container.querySelector('.ant-anchor-ink') as HTMLElement;
-    expect(root.classList).toContain('custom-root');
-    expect(items.classList).toContain('custom-item');
-    expect(title.classList).toContain('custom-title');
-    expect(indicator.classList).toContain('custom-indicator');
+
+    expect(root).toHaveClass('custom-root');
+    expect(items).toHaveClass('custom-item');
+    expect(title).toHaveClass('custom-title');
+    expect(indicator).toHaveClass('custom-indicator');
     expect(items.style.background).toBe('blue');
     expect(root.style.background).toBe('red');
     expect(title.style.background).toBe('green');

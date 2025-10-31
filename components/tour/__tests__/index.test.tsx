@@ -780,17 +780,17 @@ describe('Tour', () => {
     const rootElement = document.querySelector('.ant-tour-mask') as HTMLElement;
 
     // check classNames
-    expect(maskElement.classList).toContain('custom-mask');
-    expect(actionsElement.classList).toContain('custom-actions');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(sectionElement.classList).toContain('custom-section');
-    expect(footerElement.classList).toContain('custom-footer');
-    expect(descriptionElement.classList).toContain('custom-description');
-    expect(coverElement.classList).toContain('custom-cover');
-    expect(indicatorElement.classList).toContain('custom-indicator');
-    expect(indicatorsElement.classList).toContain('custom-indicators');
-    expect(rootElement.classList).toContain('custom-root');
+    expect(maskElement).toHaveClass('custom-mask');
+    expect(actionsElement).toHaveClass('custom-actions');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(sectionElement).toHaveClass('custom-section');
+    expect(footerElement).toHaveClass('custom-footer');
+    expect(descriptionElement).toHaveClass('custom-description');
+    expect(coverElement).toHaveClass('custom-cover');
+    expect(indicatorElement).toHaveClass('custom-indicator');
+    expect(indicatorsElement).toHaveClass('custom-indicators');
+    expect(rootElement).toHaveClass('custom-root');
 
     // check styles
     expect(maskElement.style.color).toBe('white');

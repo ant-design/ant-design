@@ -1,9 +1,10 @@
 import React from 'react';
+import { AppstoreOutlined } from '@ant-design/icons';
+
 import Segmented from '..';
 import type { SegmentedProps } from '..';
-import { AppstoreOutlined } from '@ant-design/icons';
-import type { SegmentedValue } from '../index';
 import { render } from '../../../tests/utils';
+import type { SegmentedValue } from '../index';
 
 describe('Segmented.Semantic', () => {
   it('support function classNames and styles', () => {
@@ -137,10 +138,10 @@ describe('Segmented.Semantic', () => {
     const labelElement = container.querySelector('.ant-segmented-item-label') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(itemElement.classList).toContain('custom-item');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(iconElement).toHaveClass('custom-icon');
+    expect(itemElement).toHaveClass('custom-item');
+    expect(labelElement).toHaveClass('custom-label');
 
     // check styles
     expect(rootElement.style.color).toBe('red');

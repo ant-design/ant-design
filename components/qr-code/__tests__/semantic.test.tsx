@@ -23,8 +23,8 @@ describe('QRCode.Semantic', () => {
     const QRCodeCoverElement = container.querySelector('.ant-qrcode-cover') as HTMLElement;
 
     // check classNames
-    expect(QRCodeElement.classList).toContain('custom-root');
-    expect(QRCodeCoverElement.classList).toContain('custom-cover');
+    expect(QRCodeElement).toHaveClass('custom-root');
+    expect(QRCodeCoverElement).toHaveClass('custom-cover');
 
     // check styles
     expect(QRCodeElement.style.color).toBe('red');

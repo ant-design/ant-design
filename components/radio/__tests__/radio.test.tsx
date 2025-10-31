@@ -111,9 +111,9 @@ describe('Radio', () => {
     const iconElement = container.querySelector('.ant-radio') as HTMLElement;
     const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
 
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(iconElement).toHaveClass('custom-icon');
+    expect(labelElement).toHaveClass('custom-label');
   });
 
   it('should support custom styles', () => {
@@ -156,9 +156,9 @@ describe('Radio', () => {
     const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
 
     // Test classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(iconElement).toHaveClass('custom-icon');
+    expect(labelElement).toHaveClass('custom-label');
 
     // Test styles
     expect(rootElement.style.backgroundColor).toBe('red');

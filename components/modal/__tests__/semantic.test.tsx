@@ -48,13 +48,13 @@ describe('Modal.Semantic', () => {
     const footerElement = document.querySelector('.ant-modal-footer') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(maskElement.classList).toContain('custom-mask');
-    expect(wrapperElement.classList).toContain('custom-wrapper');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(bodyElement.classList).toContain('custom-body');
-    expect(footerElement.classList).toContain('custom-footer');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(maskElement).toHaveClass('custom-mask');
+    expect(wrapperElement).toHaveClass('custom-wrapper');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(bodyElement).toHaveClass('custom-body');
+    expect(footerElement).toHaveClass('custom-footer');
 
     // check styles
     expect(rootElement.style.color).toBe('red');

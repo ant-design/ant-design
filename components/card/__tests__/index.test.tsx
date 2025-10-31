@@ -220,13 +220,13 @@ describe('Card', () => {
     const coverElement = container.querySelector('.ant-card-cover') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(bodyElement.classList).toContain('custom-body');
-    expect(extraElement.classList).toContain('custom-extra');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(actionsElement.classList).toContain('custom-actions');
-    expect(coverElement.classList).toContain('custom-cover');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(bodyElement).toHaveClass('custom-body');
+    expect(extraElement).toHaveClass('custom-extra');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(actionsElement).toHaveClass('custom-actions');
+    expect(coverElement).toHaveClass('custom-cover');
 
     // check styles
     expect(rootElement.style.backgroundColor).toBe('red');
@@ -260,7 +260,7 @@ describe('Card', () => {
         extra="More"
         classNames={customClassNames}
         styles={customStyles}
-        actions={[<div key="testbtn"> button</div>]}
+        actions={[<div key="testbtn">button</div>]}
       >
         <Meta
           classNames={customClassNames}
@@ -271,23 +271,25 @@ describe('Card', () => {
         />
       </Card>,
     );
+
     const rootElement = container.querySelector('.ant-card-meta') as HTMLElement;
     const sectionElement = container.querySelector('.ant-card-meta-section') as HTMLElement;
     const avatarElement = container.querySelector('.ant-card-meta-avatar') as HTMLElement;
     const titleElement = container.querySelector('.ant-card-meta-title') as HTMLElement;
     const descriptionElement = container.querySelector('.ant-card-meta-description') as HTMLElement;
 
-    expect(rootElement.classList).toContain('custom-root');
-    expect(sectionElement.classList).toContain('custom-section');
-    expect(avatarElement.classList).toContain('custom-avatar');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(descriptionElement.classList).toContain('custom-description');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(sectionElement).toHaveClass('custom-section');
+    expect(avatarElement).toHaveClass('custom-avatar');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(descriptionElement).toHaveClass('custom-description');
 
     expect(rootElement.style.backgroundColor).toBe('red');
     expect(sectionElement.style.backgroundColor).toBe('black');
     expect(avatarElement.style.backgroundColor).toBe('gray');
     expect(descriptionElement.style.backgroundColor).toBe('yellow');
   });
+
   it('ConfigProvider support variant for card', () => {
     const TestComponent = () => {
       const [variant, setVariant] = React.useState<'borderless' | 'outlined'>('outlined');

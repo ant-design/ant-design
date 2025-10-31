@@ -290,7 +290,7 @@ describe('Tag', () => {
 
     const rootElement = container.querySelector('.ant-tag') as HTMLElement;
 
-    expect(rootElement.classList).toContain('custom-root');
+    expect(rootElement).toHaveClass('custom-root');
     expect(rootElement.style.backgroundColor).toBe('rgb(0, 255, 0)');
     expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(container.querySelector('.custom-content')).toHaveStyle({

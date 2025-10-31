@@ -260,9 +260,9 @@ describe('Space', () => {
     const separatorElement = container.querySelector('.ant-space-item-separator') as HTMLElement;
 
     // Check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(itemElement.classList).toContain('custom-item');
-    expect(separatorElement.classList).toContain('custom-separator');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(itemElement).toHaveClass('custom-item');
+    expect(separatorElement).toHaveClass('custom-separator');
 
     // Check styles
     expect(rootElement.style.color).toBe(customStyles.root.color);

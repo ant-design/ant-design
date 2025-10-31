@@ -24,7 +24,7 @@ describe('Slider.Semantic', () => {
     );
 
     const rootElement1 = container1.querySelector('.ant-slider') as HTMLElement;
-    expect(rootElement1.classList).toContain('disabled-slider');
+    expect(rootElement1).toHaveClass('disabled-slider');
     expect(rootElement1.style.margin).toBe('10px');
 
     const { container: container2 } = render(
@@ -32,7 +32,7 @@ describe('Slider.Semantic', () => {
     );
 
     const rootElement2 = container2.querySelector('.ant-slider') as HTMLElement;
-    expect(rootElement2.classList).toContain('enabled-slider');
+    expect(rootElement2).toHaveClass('enabled-slider');
     expect(rootElement2.style.padding).toBe('10px');
   });
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { ResultProps } from '..';
 import Result from '..';
 import { render } from '../../../tests/utils';
@@ -43,12 +44,12 @@ describe('Result.Semantic', () => {
     const resultIconElement = container.querySelector('.ant-result-icon') as HTMLElement;
 
     // check classNames
-    expect(resultElement.classList).toContain('custom-root');
-    expect(resultTitleElement.classList).toContain('custom-title');
-    expect(resultSubTitleElement.classList).toContain('custom-subTitle');
-    expect(resultBodyElement.classList).toContain('custom-body');
-    expect(resultExtraElement.classList).toContain('custom-extra');
-    expect(resultIconElement.classList).toContain('custom-icon');
+    expect(resultElement).toHaveClass('custom-root');
+    expect(resultTitleElement).toHaveClass('custom-title');
+    expect(resultSubTitleElement).toHaveClass('custom-subTitle');
+    expect(resultBodyElement).toHaveClass('custom-body');
+    expect(resultExtraElement).toHaveClass('custom-extra');
+    expect(resultIconElement).toHaveClass('custom-icon');
 
     // check styles
     expect(resultElement.style.color).toBe('red');
@@ -78,14 +79,13 @@ describe('Result.Semantic', () => {
       <Result status="success" title="Success" classNames={classNamesFn} styles={stylesFn} />,
     );
 
-    let resultElement = container.querySelector('.ant-result') as HTMLElement;
-    expect(resultElement.classList).toContain('success-result');
+    const resultElement = container.querySelector('.ant-result') as HTMLElement;
+    expect(resultElement).toHaveClass('success-result');
     expect(resultElement.style.backgroundColor).toBe('green');
 
     rerender(<Result status="error" title="Error" classNames={classNamesFn} styles={stylesFn} />);
 
-    resultElement = container.querySelector('.ant-result') as HTMLElement;
-    expect(resultElement.classList).toContain('default-result');
+    expect(resultElement).toHaveClass('default-result');
     expect(resultElement.style.backgroundColor).toBe('red');
   });
 });

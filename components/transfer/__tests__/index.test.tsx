@@ -618,12 +618,12 @@ describe('Transfer', () => {
     const actionsElement = container.querySelector('.ant-transfer-actions') as HTMLElement;
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-transfer-root');
-    expect(sectionElements[0].classList).toContain('custom-transfer-section');
-    expect(sectionElements[1].classList).toContain('custom-transfer-section');
-    expect(headerElements[0].classList).toContain('custom-transfer-header');
-    expect(headerElements[1].classList).toContain('custom-transfer-header');
-    expect(actionsElement.classList).toContain('custom-transfer-actions');
+    expect(rootElement).toHaveClass('custom-transfer-root');
+    expect(sectionElements[0]).toHaveClass('custom-transfer-section');
+    expect(sectionElements[1]).toHaveClass('custom-transfer-section');
+    expect(headerElements[0]).toHaveClass('custom-transfer-header');
+    expect(headerElements[1]).toHaveClass('custom-transfer-header');
+    expect(actionsElement).toHaveClass('custom-transfer-actions');
 
     // check styles
     expect(rootElement.style.backgroundColor).toBe('red');
@@ -660,7 +660,7 @@ describe('Transfer', () => {
     );
 
     const rootElement1 = container1.querySelector('.ant-transfer') as HTMLElement;
-    expect(rootElement1.classList).toContain('disabled-transfer');
+    expect(rootElement1).toHaveClass('disabled-transfer');
     expect(rootElement1.style.margin).toBe('10px');
 
     const { container: container2 } = render(
@@ -674,7 +674,7 @@ describe('Transfer', () => {
     );
 
     const rootElement2 = container2.querySelector('.ant-transfer') as HTMLElement;
-    expect(rootElement2.classList).toContain('enabled-transfer');
+    expect(rootElement2).toHaveClass('enabled-transfer');
     expect(rootElement2.style.padding).toBe('10px');
   });
 

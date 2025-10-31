@@ -2,8 +2,8 @@ import React from 'react';
 
 import Alert from '..';
 import type { AlertProps } from '..';
-import ConfigProvider from '../../config-provider';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Alert.Semantic', () => {
   it('should support classNames and styles as functions', () => {
@@ -29,7 +29,7 @@ describe('Alert.Semantic', () => {
     expect(stylesFn).toHaveBeenCalled();
 
     const rootElement = document.querySelector('.ant-alert') as HTMLElement;
-    expect(rootElement.classList).toContain('error-alert');
+    expect(rootElement).toHaveClass('error-alert');
     expect(rootElement.style.backgroundColor).toBe('rgb(255, 247, 230)');
 
     rerender(
@@ -37,7 +37,7 @@ describe('Alert.Semantic', () => {
     );
 
     const updatedRootElement = document.querySelector('.ant-alert') as HTMLElement;
-    expect(updatedRootElement.classList).toContain('default-alert');
+    expect(updatedRootElement).toHaveClass('default-alert');
     expect(updatedRootElement.style.backgroundColor).toBe('rgb(246, 255, 237)');
   });
 
@@ -80,10 +80,10 @@ describe('Alert.Semantic', () => {
     const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
 
     // Check merged classNames
-    expect(rootElement.classList).toContain('context-root');
-    expect(rootElement.classList).toContain('component-root');
-    expect(iconElement.classList).toContain('context-icon');
-    expect(titleElement.classList).toContain('component-title');
+    expect(rootElement).toHaveClass('context-root');
+    expect(rootElement).toHaveClass('component-root');
+    expect(iconElement).toHaveClass('context-icon');
+    expect(titleElement).toHaveClass('component-title');
 
     // Check merged styles
     expect(rootElement.style.margin).toBe('10px'); // from context

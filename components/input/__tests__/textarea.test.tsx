@@ -202,16 +202,16 @@ describe('TextArea', () => {
 
     it('className & style patch to outer', () => {
       const { container } = render(
-        <TextArea className="bamboo" style={{ padding: 20 }} showCount />,
+        <TextArea className="bamboo" style={{ textAlign: 'center' }} showCount />,
       );
 
       // Outer
       expect(container.querySelector('span')).toHaveClass('bamboo');
-      expect(container.querySelector('span')?.style.padding).toBe('20px');
+      expect(container.querySelector('span')).toHaveStyle({ textAlign: 'center' });
 
       // Inner
       expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
-      expect(container.querySelector('.ant-input')).not.toHaveStyle({ padding: '20px' });
+      expect(container.querySelector('.ant-input')).not.toHaveStyle({ textAlign: 'center' });
     });
 
     it('count formatter', () => {

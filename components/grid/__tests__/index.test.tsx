@@ -71,13 +71,13 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const { container, unmount } = render(<Row gutter={{ xs: 8, sm: 16, md: 24 }}>test</Row>);
-    expect(container.querySelector('div')?.style.marginInline).toEqual('-4px');
+    expect(container.querySelector('div')).toHaveStyle({ marginInline: '-4px' });
     unmount();
   });
 
   it('should work correct when gutter is object', () => {
     const { container, unmount } = render(<Row gutter={{ xs: 20 }}>test</Row>);
-    expect(container.querySelector('div')?.style.marginInline).toBe('-10px');
+    expect(container.querySelector('div')).toHaveStyle({ marginInline: '-10px' });
     unmount();
   });
 
