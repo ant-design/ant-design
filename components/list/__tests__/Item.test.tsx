@@ -48,7 +48,7 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(container.querySelector('.ant-list-item')).toHaveClass('ant-list-item-no-flex');
+    expect(container.querySelector('.ant-list-item')).not.toHaveClass('ant-list-item-no-flex');
   });
 
   it('vertical itemLayout List should be flex container when there is extra node', () => {
