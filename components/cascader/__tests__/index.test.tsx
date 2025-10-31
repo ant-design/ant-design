@@ -558,14 +558,14 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const customStyle = { background: 'red' };
-      const { container } = render(<Cascader dropdownStyle={customStyle} open />);
+
+      const { container } = render(<Cascader dropdownStyle={{ padding: 10 }} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
-      expect(container.querySelector('.ant-select-dropdown')?.getAttribute('style')).toContain(
-        'background: red',
-      );
+      expect(container.querySelector<HTMLElement>('.ant-select-dropdown')).toHaveStyle({
+        padding: '10px',
+      });
 
       errSpy.mockRestore();
     });
@@ -595,11 +595,11 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const columnStyle = { background: 'red' };
+
       const { getByRole } = render(
         <Cascader
           options={[{ label: 'test', value: 1 }]}
-          dropdownMenuColumnStyle={columnStyle}
+          dropdownMenuColumnStyle={{ padding: 10 }}
           open
         />,
       );
@@ -607,7 +607,7 @@ describe('Cascader', () => {
         'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `popupMenuColumnStyle` instead.',
       );
       const menuColumn = getByRole('menuitemcheckbox');
-      expect(menuColumn.style.background).toBe('red');
+      expect(menuColumn).toHaveStyle({ padding: '10px' });
 
       errSpy.mockRestore();
     });

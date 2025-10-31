@@ -185,7 +185,7 @@ describe('Anchor Render', () => {
     const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
     fireEvent.click(link);
     await waitFakeTimer();
-    expect(link.classList).toContain('ant-anchor-link-title-active');
+    expect(link).toHaveClass('ant-anchor-link-title-active');
   });
 
   it('scrolls the page when clicking a link', async () => {
@@ -737,11 +737,9 @@ describe('Anchor Render', () => {
         />,
       );
       expect(container.querySelectorAll('.ant-anchor-ink').length).toBe(1);
-      expect(
-        container
-          .querySelector('.ant-anchor-wrapper')
-          ?.classList.contains('ant-anchor-wrapper-horizontal'),
-      ).toBeTruthy();
+      expect(container.querySelector('.ant-anchor-wrapper')).toHaveClass(
+        'ant-anchor-wrapper-horizontal',
+      );
     });
 
     it('nested children via items should be filtered out when direction is horizontal', () => {
@@ -818,7 +816,7 @@ describe('Anchor Render', () => {
       const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
       fireEvent.click(link);
       await waitFakeTimer();
-      expect(link.classList).toContain('ant-anchor-link-title-active');
+      expect(link).toHaveClass('ant-anchor-link-title-active');
     });
 
     it('scrolls the page when clicking a link', async () => {
@@ -1026,25 +1024,29 @@ describe('Anchor Render', () => {
           </div>
         );
       };
-      const wrapper = await render(<Foo />);
-      (await wrapper.findByText('part-1')).click();
+      const { container, findByText } = await render(<Foo />);
+      (await findByText('part-1')).click();
       await waitFakeTimer();
-      const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
-      const toggleButton = wrapper.container.querySelector('button')!;
+      const inkElement = container.querySelector<HTMLSpanElement>('.ant-anchor-ink');
+      const toggleButton = container.querySelector<HTMLElement>('button');
 
-      fireEvent.click(toggleButton);
-      act(() => jest.runAllTimers());
-      expect(!!ink.style.left).toBe(true);
-      expect(!!ink.style.width).toBe(true);
-      expect(ink.style.top).toBe('');
-      expect(ink.style.height).toBe('');
+      expect(toggleButton).toBeInTheDocument();
 
-      fireEvent.click(toggleButton);
+      fireEvent.click(toggleButton!);
       act(() => jest.runAllTimers());
-      expect(!!ink.style.top).toBe(true);
-      expect(!!ink.style.height).toBe(true);
-      expect(ink.style.left).toBe('');
-      expect(ink.style.width).toBe('');
+
+      expect(inkElement).toHaveStyle({
+        left: '0px',
+        width: '0px',
+      });
+
+      fireEvent.click(toggleButton!);
+      act(() => jest.runAllTimers());
+
+      expect(inkElement).toHaveStyle({
+        top: '0px',
+        height: '0px',
+      });
     });
   });
 });

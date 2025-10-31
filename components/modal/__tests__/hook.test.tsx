@@ -266,10 +266,7 @@ describe('Modal.hook', () => {
       const [modal, contextHolder] = Modal.useModal();
 
       const openBrokenModal = React.useCallback(() => {
-        const instance = modal.info({
-          title: 'Light',
-        });
-
+        const instance = modal.info({ title: 'Light' });
         instance.destroy();
       }, [modal]);
 
@@ -285,7 +282,7 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
+    expect(document.body).not.toHaveClass('ant-modal-confirm-title');
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
