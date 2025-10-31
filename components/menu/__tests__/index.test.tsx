@@ -45,11 +45,12 @@ describe('Menu', () => {
     const { container } = instance;
 
     expect(container.querySelectorAll('ul.ant-menu-sub')).toHaveLength(0);
-    const AnimationClassNames = {
+    const animationClassNames = {
       horizontal: 'ant-slide-up-leave',
       inline: 'ant-motion-collapse-leave',
       vertical: 'ant-zoom-big-leave',
     };
+
     const mode = defaultTestProps.mode || 'horizontal';
 
     act(() => {
@@ -60,14 +61,15 @@ describe('Menu', () => {
     triggerAllTimer();
 
     const getSubMenu = () =>
-      container.querySelector<HTMLUListElement | HTMLDivElement>(
+      container.querySelector<HTMLElement>(
         mode === 'inline' ? 'ul.ant-menu-sub.ant-menu-inline' : 'div.ant-menu-submenu-popup',
       );
 
-    expect(
-      getSubMenu()?.classList.contains('ant-menu-hidden') ||
-        getSubMenu()?.classList.contains(AnimationClassNames[mode]),
-    ).toBeFalsy();
+    if (getSubMenu()) {
+      expect(getSubMenu()).not.toHaveClass(
+        new RegExp(`(${['ant-menu-hidden', animationClassNames[mode]].join('|')})`),
+      );
+    }
 
     act(() => {
       leave();
@@ -77,10 +79,9 @@ describe('Menu', () => {
     triggerAllTimer();
 
     if (getSubMenu()) {
-      expect(
-        getSubMenu()?.classList.contains('ant-menu-hidden') ||
-          getSubMenu()?.classList.contains(AnimationClassNames[mode]),
-      ).toBeTruthy();
+      expect(getSubMenu()).toHaveClass(
+        new RegExp(`(${['ant-menu-hidden', animationClassNames[mode]].join('|')})`),
+      );
     }
   };
 

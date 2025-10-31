@@ -21,7 +21,7 @@ describe('List Item Layout', () => {
   ];
 
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <List
         dataSource={data}
         renderItem={(item) => (
@@ -31,13 +31,11 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(
-      wrapper.querySelectorAll('.ant-list-item')[0].classList.contains('ant-list-item-no-flex'),
-    ).toBe(true);
+    expect(container.querySelectorAll('.ant-list-item')[0]).toHaveClass('ant-list-item-no-flex');
   });
 
   it('horizontal itemLayout List should be flex container by default', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <List
         dataSource={data}
         renderItem={(item) => (
@@ -50,13 +48,11 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(
-      wrapper.querySelector('.ant-list-item')?.classList.contains('ant-list-item-no-flex'),
-    ).toBe(false);
+    expect(container.querySelector('.ant-list-item')).toHaveClass('ant-list-item-no-flex');
   });
 
   it('vertical itemLayout List should be flex container when there is extra node', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <List
         itemLayout="vertical"
         dataSource={data}
@@ -70,13 +66,13 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(
-      wrapper.querySelectorAll('.ant-list-item')[0].classList.contains('ant-list-item-no-flex'),
-    ).toBe(false);
+    expect(container.querySelectorAll('.ant-list-item')[0]).not.toHaveClass(
+      'ant-list-item-no-flex',
+    );
   });
 
   it('vertical itemLayout List should not be flex container when there is not extra node', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <List
         itemLayout="vertical"
         dataSource={data}
@@ -90,9 +86,7 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(
-      wrapper.querySelectorAll('.ant-list-item')[0].classList.contains('ant-list-item-no-flex'),
-    ).toBe(true);
+    expect(container.querySelectorAll('.ant-list-item')[0]).toHaveClass('ant-list-item-no-flex');
   });
 
   it('horizontal itemLayout List should accept extra node', () => {

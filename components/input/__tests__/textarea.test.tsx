@@ -198,11 +198,11 @@ describe('TextArea', () => {
       );
 
       // Outer
-      expect(container.querySelector('span')?.classList.contains('bamboo')).toBeTruthy();
+      expect(container.querySelector('span')).toHaveClass('bamboo');
       expect(container.querySelector('span')?.style.background).toEqual('red');
 
       // Inner
-      expect(container.querySelector('.ant-input')?.classList.contains('bamboo')).toBeFalsy();
+      expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
       expect(container.querySelector<HTMLDivElement>('.ant-input')?.style.background).toBeFalsy();
     });
 
@@ -225,7 +225,7 @@ describe('TextArea', () => {
 
   it('should support size', async () => {
     const { asFragment, container } = render(<TextArea size="large" />);
-    expect(container.querySelector('textarea')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('textarea')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 

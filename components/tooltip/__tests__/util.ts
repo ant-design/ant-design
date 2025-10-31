@@ -1,4 +1,5 @@
 export function isTooltipOpen() {
-  const tooltipEle = document.querySelector('.ant-tooltip');
-  return tooltipEle && !tooltipEle.classList.contains('ant-tooltip-hidden');
+  return !document
+    ?.querySelector<HTMLElement>('.ant-tooltip')
+    ?.classList.contains('ant-tooltip-hidden');
 }

@@ -737,11 +737,9 @@ describe('Anchor Render', () => {
         />,
       );
       expect(container.querySelectorAll('.ant-anchor-ink').length).toBe(1);
-      expect(
-        container
-          .querySelector('.ant-anchor-wrapper')
-          ?.classList.contains('ant-anchor-wrapper-horizontal'),
-      ).toBeTruthy();
+      expect(container.querySelector('.ant-anchor-wrapper')).toHaveClass(
+        'ant-anchor-wrapper-horizontal',
+      );
     });
 
     it('nested children via items should be filtered out when direction is horizontal', () => {

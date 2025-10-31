@@ -75,7 +75,7 @@ describe('Modal', () => {
   it('danger type', () => {
     render(<Modal okType="danger" okText="123" open />);
     const btns = document.body.querySelectorAll('.ant-btn');
-    expect(btns[btns.length - 1].classList.contains('ant-btn-dangerous')).toBeTruthy();
+    expect(btns[btns.length - 1]).toHaveClass('ant-btn-dangerous');
   });
 
   it('mouse position', () => {
