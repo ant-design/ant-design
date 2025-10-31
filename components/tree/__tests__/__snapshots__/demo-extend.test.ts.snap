@@ -4500,7 +4500,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
 exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-space-compact ant-input-search"
+    class="ant-space-compact ant-space-compact-block ant-input-search"
     style="margin-bottom: 8px;"
   >
     <input

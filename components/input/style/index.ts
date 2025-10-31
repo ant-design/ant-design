@@ -669,7 +669,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       [`${componentCls}-affix-wrapper`]: {
         height: token.controlHeight,
-        borderRadius: 0,
+        // borderRadius: 0,
       },
 
       // fix slight height diff in Firefox:

@@ -741,7 +741,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
         class="ant-select-selection-search"
       >
         <div
-          class="ant-space-compact ant-input-search ant-input-search-large ant-select-selection-search-input"
+          class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-large ant-select-selection-search-input"
         >
           <input
             aria-autocomplete="list"
@@ -2062,7 +2062,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <div
-                        class="ant-space-compact ant-input-search ant-select-selection-search-input"
+                        class="ant-space-compact ant-space-compact-block ant-input-search ant-select-selection-search-input"
                       >
                         <input
                           aria-autocomplete="list"
@@ -2294,7 +2294,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <div
-                        class="ant-space-compact ant-input-search ant-select-selection-search-input"
+                        class="ant-space-compact ant-space-compact-block ant-input-search ant-select-selection-search-input"
                       >
                         <input
                           aria-autocomplete="list"
@@ -2884,7 +2884,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
         class="ant-select-selection-search"
       >
         <div
-          class="ant-space-compact ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+          class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
         >
           <input
             aria-autocomplete="list"
