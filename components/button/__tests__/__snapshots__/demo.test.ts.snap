@@ -1504,7 +1504,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-space-compact ant-input-search ant-input-search-large"
+        class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-large"
         style="width:100px"
       >
         <input
