@@ -163,7 +163,7 @@ describe('Popover', () => {
     expect(popoverBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
-    expect(popoverElement).toHaveStyle({ padding: '10px' });
-    expect(popoverBodyElement).toHaveStyle({ padding: '20px' });
+    expect(popoverElement).toHaveStyle({ padding: '20px' });
+    expect(popoverBodyElement).toHaveStyle({ padding: '10px' });
   });
 });
