@@ -202,11 +202,8 @@ describe('Carousel', () => {
           <div>3</div>
         </Carousel>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
-          '--dot-duration',
-        ),
-      ).toBeFalsy();
+      const ele = container.querySelector<HTMLElement>('.ant-carousel')!;
+      expect(getComputedStyle(ele).getPropertyValue('--dot-duration')).toBeFalsy();
     });
 
     it('should show dot duration with default autoplaySpeed', () => {
@@ -217,11 +214,8 @@ describe('Carousel', () => {
           <div>3</div>
         </Carousel>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
-          '--dot-duration',
-        ),
-      ).toBe('3000ms');
+      const ele = container.querySelector<HTMLElement>('.ant-carousel')!;
+      expect(getComputedStyle(ele).getPropertyValue('--dot-duration')).toBe('3000ms');
     });
 
     it('should show dot duration with custom autoplaySpeed', () => {
@@ -232,11 +226,8 @@ describe('Carousel', () => {
           <div>3</div>
         </Carousel>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
-          '--dot-duration',
-        ),
-      ).toBe('5000ms');
+      const ele = container.querySelector<HTMLElement>('.ant-carousel')!;
+      expect(getComputedStyle(ele).getPropertyValue('--dot-duration')).toBe('5000ms');
     });
   });
 
@@ -329,15 +320,16 @@ describe('Carousel', () => {
 
       expect(container.querySelector('.ant-carousel-rtl')).toBeTruthy();
 
-      const prevArrow = container.querySelector('.slick-prev') as HTMLElement;
-      const nextArrow = container.querySelector('.slick-next') as HTMLElement;
+      const prevArrow = container.querySelector<HTMLDivElement>('.slick-prev');
+      const nextArrow = container.querySelector<HTMLDivElement>('.slick-next');
+
       expect(prevArrow).toHaveAttribute('aria-label', 'next');
       expect(nextArrow).toHaveAttribute('aria-label', 'prev');
 
       expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
-      fireEvent.click(prevArrow);
+      fireEvent.click(prevArrow!);
       expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 3');
-      fireEvent.click(nextArrow);
+      fireEvent.click(nextArrow!);
       expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
     });
   });

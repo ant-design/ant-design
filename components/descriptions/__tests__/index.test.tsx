@@ -393,10 +393,9 @@ describe('Descriptions', () => {
         </Descriptions.Item>
       </Descriptions>,
     );
-
     const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
     const view = nestDesc.querySelector('.ant-descriptions-view');
-    expect(getComputedStyle(view!).border).toBeFalsy();
+    expect(view).toHaveStyle({ border: '' });
   });
 
   it('Should Descriptions not throw react key prop error in jsx mode', () => {

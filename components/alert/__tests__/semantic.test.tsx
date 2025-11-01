@@ -2,8 +2,8 @@ import React from 'react';
 
 import Alert from '..';
 import type { AlertProps } from '..';
-import ConfigProvider from '../../config-provider';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Alert.Semantic', () => {
   it('should support classNames and styles as functions', () => {
@@ -28,17 +28,17 @@ describe('Alert.Semantic', () => {
     expect(classNamesFn).toHaveBeenCalled();
     expect(stylesFn).toHaveBeenCalled();
 
-    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
-    expect(rootElement.classList).toContain('error-alert');
-    expect(rootElement.style.backgroundColor).toBe('rgb(255, 247, 230)');
+    const rootElement = document.querySelector<HTMLElement>('.ant-alert');
+    expect(rootElement).toHaveClass('error-alert');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 247, 230)' });
 
     rerender(
       <Alert title="Test Alert" type="success" classNames={classNamesFn} styles={stylesFn} />,
     );
 
-    const updatedRootElement = document.querySelector('.ant-alert') as HTMLElement;
-    expect(updatedRootElement.classList).toContain('default-alert');
-    expect(updatedRootElement.style.backgroundColor).toBe('rgb(246, 255, 237)');
+    const updatedRootElement = document.querySelector<HTMLElement>('.ant-alert');
+    expect(updatedRootElement).toHaveClass('default-alert');
+    expect(updatedRootElement).toHaveStyle({ backgroundColor: 'rgb(246, 255, 237)' });
   });
 
   it('should merge context and component classNames and styles', () => {
@@ -60,12 +60,7 @@ describe('Alert.Semantic', () => {
     };
 
     render(
-      <ConfigProvider
-        alert={{
-          classNames: contextClassNames,
-          styles: contextStyles,
-        }}
-      >
+      <ConfigProvider alert={{ classNames: contextClassNames, styles: contextStyles }}>
         <Alert
           title="Test Alert"
           showIcon
@@ -75,20 +70,18 @@ describe('Alert.Semantic', () => {
       </ConfigProvider>,
     );
 
-    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
-    const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
-    const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
+    const rootElement = document.querySelector<HTMLElement>('.ant-alert');
+    const iconElement = document.querySelector<HTMLElement>('.ant-alert-icon');
+    const titleElement = document.querySelector<HTMLElement>('.ant-alert-title');
 
     // Check merged classNames
-    expect(rootElement.classList).toContain('context-root');
-    expect(rootElement.classList).toContain('component-root');
-    expect(iconElement.classList).toContain('context-icon');
-    expect(titleElement.classList).toContain('component-title');
+    expect(rootElement).toHaveClass('context-root component-root');
+    expect(iconElement).toHaveClass('context-icon');
+    expect(titleElement).toHaveClass('component-title');
 
     // Check merged styles
-    expect(rootElement.style.margin).toBe('10px'); // from context
-    expect(rootElement.style.padding).toBe('5px'); // from component
-    expect(iconElement.style.fontSize).toBe('16px'); // from context
-    expect(titleElement.style.fontWeight).toBe('bold'); // from component
+    expect(rootElement).toHaveStyle({ margin: '10px', padding: '5px' });
+    expect(iconElement).toHaveStyle({ fontSize: '16px' });
+    expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
+import type { GetProps, SplitterProps } from 'antd';
 
 import Splitter from '..';
-import type { GetProps, SplitterProps } from 'antd';
 import { render } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -56,7 +56,10 @@ describe('Splitter.Semantic', () => {
 
   it('should support styles as function', async () => {
     const stylesFn = jest.fn(({ props }) => ({
-      root: { backgroundColor: props.orientation === 'horizontal' ? 'red' : 'blue' },
+      root: {
+        backgroundColor:
+          props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
+      },
       panel: { padding: '10px' },
       dragger: { width: '8px' },
     }));
@@ -68,21 +71,19 @@ describe('Splitter.Semantic', () => {
     await resizeSplitter();
 
     expect(stylesFn).toHaveBeenCalledWith({
-      props: expect.objectContaining({
-        orientation: 'vertical',
-      }),
+      props: expect.objectContaining({ orientation: 'vertical' }),
     });
 
-    const splitterElement = container.querySelector('.ant-splitter') as HTMLElement;
-    expect(splitterElement.style.backgroundColor).toBe('blue');
+    const splitterElement = container.querySelector<HTMLElement>('.ant-splitter');
+    expect(splitterElement).toHaveStyle({ backgroundColor: 'rgba(0, 0, 255, 0.5)' });
 
-    const panelElements = container.querySelectorAll('.ant-splitter-panel');
+    const panelElements = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
     panelElements.forEach((panel) => {
-      expect((panel as HTMLElement).style.padding).toBe('10px');
+      expect(panel).toHaveStyle({ padding: '10px' });
     });
 
-    const draggerElement = container.querySelector('.ant-splitter-bar-dragger') as HTMLElement;
-    expect(draggerElement.style.width).toBe('8px');
+    const draggerElement = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger');
+    expect(draggerElement).toHaveStyle({ width: '8px' });
   });
 
   it('should support both function and object classNames/styles', async () => {
@@ -92,7 +93,7 @@ describe('Splitter.Semantic', () => {
     }));
 
     const stylesFn = jest.fn(() => ({
-      root: { color: 'red' },
+      root: { color: 'rgb(255, 0, 0)' },
       panel: { margin: '5px' },
     }));
 
@@ -105,14 +106,15 @@ describe('Splitter.Semantic', () => {
     expect(classNamesFn).toHaveBeenCalled();
     expect(stylesFn).toHaveBeenCalled();
 
-    const splitterElement = container.querySelector('.ant-splitter') as HTMLElement;
+    const splitterElement = container.querySelector<HTMLElement>('.ant-splitter');
     expect(splitterElement).toHaveClass('fn-root');
-    expect(splitterElement.style.color).toBe('red');
+    expect(splitterElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
 
-    const panelElements = container.querySelectorAll('.ant-splitter-panel');
+    const panelElements = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
+
     panelElements.forEach((panel) => {
       expect(panel).toHaveClass('fn-panel');
-      expect((panel as HTMLElement).style.margin).toBe('5px');
+      expect(panel).toHaveStyle({ margin: '5px' });
     });
   });
 

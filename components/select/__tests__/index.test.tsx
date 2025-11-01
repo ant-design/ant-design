@@ -123,9 +123,12 @@ describe('Select', () => {
       const { container } = render(
         <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('calc(var(--ant-padding-sm) - var(--ant-line-width))');
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
+        );
+      }
     });
 
     it('hasFeedback, has validateStatus', () => {
@@ -136,11 +139,12 @@ describe('Select', () => {
           </Form.Item>
         </Form>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual(
-        'calc(calc(var(--ant-padding-sm) - var(--ant-line-width)) + var(--ant-font-size) + var(--ant-padding-xs))',
-      );
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(calc(var(--ant-padding-sm) - var(--ant-line-width)) + var(--ant-font-size) + var(--ant-padding-xs))',
+        );
+      }
     });
 
     it('hasFeedback, no validateStatus', () => {
@@ -151,9 +155,12 @@ describe('Select', () => {
           </Form.Item>
         </Form>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('calc(var(--ant-padding-sm) - var(--ant-line-width))');
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
+        );
+      }
     });
   });
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import { AppstoreOutlined } from '@ant-design/icons';
+
 import Segmented from '..';
 import type { SegmentedProps } from '..';
-import { AppstoreOutlined } from '@ant-design/icons';
-import type { SegmentedValue } from '../index';
 import { render } from '../../../tests/utils';
+import type { SegmentedValue } from '../index';
 
 describe('Segmented.Semantic', () => {
   it('support function classNames and styles', () => {
@@ -117,10 +118,10 @@ describe('Segmented.Semantic', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
-      icon: { backgroundColor: 'blue' },
-      item: { color: 'yellow' },
-      label: { backgroundColor: 'black' },
+      root: { color: 'rgb(255, 0, 0)' },
+      icon: { backgroundColor: 'rgb(0, 0, 255)' },
+      item: { color: 'rgb(255, 255, 0)' },
+      label: { backgroundColor: 'rgb(0, 0, 0)' },
     };
 
     const { container } = render(
@@ -131,21 +132,21 @@ describe('Segmented.Semantic', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-segmented') as HTMLElement;
-    const iconElement = container.querySelector('.ant-segmented-item-icon') as HTMLElement;
-    const itemElement = container.querySelector('.ant-segmented-item') as HTMLElement;
-    const labelElement = container.querySelector('.ant-segmented-item-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-segmented');
+    const iconElement = container.querySelector<HTMLElement>('.ant-segmented-item-icon');
+    const itemElement = container.querySelector<HTMLElement>('.ant-segmented-item');
+    const labelElement = container.querySelector<HTMLElement>('.ant-segmented-item-label');
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(itemElement.classList).toContain('custom-item');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(iconElement).toHaveClass('custom-icon');
+    expect(itemElement).toHaveClass('custom-item');
+    expect(labelElement).toHaveClass('custom-label');
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('blue');
-    expect(itemElement.style.color).toBe('yellow');
-    expect(labelElement.style.backgroundColor).toBe('black');
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(itemElement).toHaveStyle({ color: customStyles.item.color });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 });
