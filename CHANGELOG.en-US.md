@@ -46,7 +46,7 @@ tag: vVERSION
 `2025-10-20`
 
 - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316)
-- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376)
+- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376)
 - TypeScript
   - 🤖 Add ConfigProvider the `Window` type definition in `getTargetContainer` of . [#55313](https://github.com/ant-design/ant-design/pull/55313)
   - 🤖 Add ConfigProvider the `ShadowRoot` type definition in `getTargetContainer` and `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
