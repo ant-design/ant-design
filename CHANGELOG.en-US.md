@@ -47,7 +47,7 @@ tag: vVERSION
 
 - Table
   - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316)
-  - 🛠 Add Table missing useMemo capability to spinProps. [[#55344](https://github.com/ant-design/ant-design/pull/55344)
+  - 🛠 Add Table missing useMemo capability to spinProps. [#55344](https://github.com/ant-design/ant-design/pull/55344)
 - 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376)
 - TypeScript
   - 🤖 Add ConfigProvider the `Window` type definition in `getTargetContainer` of . [#55313](https://github.com/ant-design/ant-design/pull/55313)
