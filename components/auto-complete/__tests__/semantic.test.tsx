@@ -15,6 +15,7 @@ describe('AutoComplete.Semantic', () => {
       prefix: 'custom-prefix',
       placeholder: 'custom-placeholder',
       content: 'custom-content',
+      input: 'custom-input',
       popup: {
         root: 'custom-popup',
         list: 'custom-list',
@@ -26,6 +27,7 @@ describe('AutoComplete.Semantic', () => {
       prefix: { color: 'rgb(255, 165, 0)' },
       placeholder: { color: 'rgb(255, 192, 203)' },
       content: { color: 'rgb(165, 42, 42)' },
+      input: { color: 'rgb(0, 255, 0)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
         list: { color: 'rgb(0, 0, 255)' },
@@ -47,6 +49,7 @@ describe('AutoComplete.Semantic', () => {
     expect(container.querySelector(`.${classNames.prefix}`)).toHaveStyle(styles.prefix);
     expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
     expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
+    expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
     expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
     expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
     expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
