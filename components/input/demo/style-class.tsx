@@ -2,12 +2,26 @@ import React from 'react';
 import { Flex, Input } from 'antd';
 import type { GetProps } from 'antd';
 import { createStyles } from 'antd-style';
+import { clsx } from 'clsx';
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles(({ css, token }) => ({
   root: {
     width: 300,
     marginBottom: 10,
   },
+  focusEffect: css`
+    border-width: ${token.lineWidth}px;
+    border-radius: 6px;
+    transition: box-shadow ${token.motionDurationMid};
+    &:hover {
+      border: 1px solid #d9d9d9;
+    }
+    &:focus-visible {
+      border-color: lab(66.128% -0.0000298023 0.0000119209);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, lab(66.128% -0.0000298023 0.0000119209) 50%, transparent);
+    }
+  `,
 }));
 
 type InputProps = GetProps<typeof Input>;
@@ -83,7 +97,10 @@ const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
     <Flex vertical gap="middle">
-      <Input classNames={classNames} placeholder="Object" />
+      <Input
+        classNames={{ root: clsx(classNames.root, classNames.focusEffect) }}
+        placeholder="Object"
+      />
       <Input classNames={classNames} styles={stylesFn} placeholder="Function" size="middle" />
       <TextArea classNames={classNames} styles={stylesFnTextArea} value="TextArea" showCount />
       <Password classNames={classNames} styles={stylesFnPassword} value="Password" size="middle" />
