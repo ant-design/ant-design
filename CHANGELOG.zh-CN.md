@@ -38,8 +38,8 @@ tag: vVERSION
 - 🐞 修复 Select、DatePicker、TreeSelect、Cascader 等组件 `suffixIcon` 配置值为 undefined 时没有默认后缀图标的问题。[#54790](https://github.com/ant-design/ant-design/pull/54790) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Mentions 组件没有继承外部 Form 的 `disabled` 的问题。[#54829](https://github.com/ant-design/ant-design/pull/54829) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Watermark 组件内包裹 Modal 使用 `modalRender` 会导致崩溃的问题。[#55435](https://github.com/ant-design/ant-design/pull/55435) [@ug-hero](https://github.com/ug-hero)
-- 🗑 Input 组件废弃 `addonAfter` 和 `addonBefore` 属性，使用 Space.Compat 替换。[#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- 🤖 Row 组件 `gutter` 参数支持 string 类型定义。[#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
+- 🗑 Input 组件废弃 `addonAfter` 和 `addonBefore` 属性，使用 Space.Compact 替换。[#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🤖 Row 组件 `gutter` 属性支持 string 类型定义。[#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
 
 ## 5.27.6
 

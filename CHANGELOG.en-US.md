@@ -38,7 +38,7 @@ tag: vVERSION
 - 🐞 Fix Select, DatePicker, TreeSelect, Cascader and other components not showing default suffix icon when `suffixIcon` is configured as undefined. [#54790](https://github.com/ant-design/ant-design/pull/54790) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Mentions component not inheriting `disabled` from external Form. [#54829](https://github.com/ant-design/ant-design/pull/54829) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Watermark component crashing when wrapping Modal with `modalRender`. [#55435](https://github.com/ant-design/ant-design/pull/55435) [@ug-hero](https://github.com/ug-hero)
-- 🗑 Input component deprecates `addonAfter` and `addonBefore` props, use Space.Compat instead. [#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🗑 Input component deprecates `addonAfter` and `addonBefore` props, use Space.Compact instead. [#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🤖 Row component `gutter` prop supports string type definition. [#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
 
 ## 5.27.6
