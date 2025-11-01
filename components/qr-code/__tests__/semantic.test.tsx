@@ -11,24 +11,24 @@ describe('QRCode.Semantic', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
-      cover: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      cover: { color: 'rgb(0, 0, 255)' },
     };
 
     const { container } = render(
       <QRCode classNames={customClassNames} styles={customStyles} value="antd" status="loading" />,
     );
 
-    const QRCodeElement = container.querySelector('.ant-qrcode') as HTMLElement;
-    const QRCodeCoverElement = container.querySelector('.ant-qrcode-cover') as HTMLElement;
+    const QRCodeElement = container.querySelector<HTMLElement>('.ant-qrcode');
+    const QRCodeCoverElement = container.querySelector<HTMLElement>('.ant-qrcode-cover');
 
     // check classNames
-    expect(QRCodeElement.classList).toContain('custom-root');
-    expect(QRCodeCoverElement.classList).toContain('custom-cover');
+    expect(QRCodeElement).toHaveClass('custom-root');
+    expect(QRCodeCoverElement).toHaveClass('custom-cover');
 
     // check styles
-    expect(QRCodeElement.style.color).toBe('red');
-    expect(QRCodeCoverElement.style.color).toBe('blue');
+    expect(QRCodeElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(QRCodeCoverElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('support classNames and styles as functions', () => {

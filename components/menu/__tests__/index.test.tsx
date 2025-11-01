@@ -1084,11 +1084,8 @@ describe('Menu', () => {
       />,
     );
 
-    expect(container.querySelector('.bamboo')).toBeTruthy();
-    expect(getComputedStyle(container.querySelector('.bamboo') as HTMLElement)).toHaveProperty(
-      'opacity',
-      '0',
-    );
+    expect(container.querySelector<HTMLElement>('.bamboo')).toBeTruthy();
+    expect(container.querySelector<HTMLElement>('.bamboo')).toHaveStyle({ opacity: 0 });
   });
 
   it('Overflow indicator className should not override menu class', () => {
@@ -1186,13 +1183,8 @@ describe('Menu', () => {
       />,
     );
     const link = container.querySelector('a')!;
-
     expect(container.querySelector('.ant-menu-item')).toHaveClass('ant-menu-item-disabled');
-    expect(window.getComputedStyle(link).pointerEvents).toBe('none');
-    expect(link).toHaveStyle({
-      pointerEvents: 'none',
-      cursor: 'not-allowed',
-    });
+    expect(link).toHaveStyle({ pointerEvents: 'none', cursor: 'not-allowed' });
   });
   it('test classNames for popup', () => {
     const items = [
@@ -1235,7 +1227,7 @@ describe('Menu', () => {
         />
       </TriggerMockContext.Provider>,
     );
-    const popup = document.querySelector(`.${testClassNames.popup}`) as HTMLElement;
+    const popup = document.querySelector<HTMLElement>(`.${testClassNames.popup}`);
     expect(popup).toHaveStyle(testStyles.popup.root);
   });
 });

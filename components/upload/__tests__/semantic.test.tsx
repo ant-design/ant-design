@@ -57,33 +57,27 @@ describe('Upload.Semantic', () => {
     const { container } = render(
       <Upload
         styles={{
-          root: { backgroundColor: 'red' },
-          list: { borderColor: 'blue' },
-          item: { color: 'green' },
+          root: { backgroundColor: 'rgb(255, 0, 0)' },
+          list: { backgroundColor: 'rgb(0, 0, 255)' },
+          item: { backgroundColor: 'rgb(0, 128, 0)' },
         }}
-        defaultFileList={[
-          {
-            uid: '1',
-            name: 'test.txt',
-            status: 'done',
-          },
-        ]}
+        defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
       >
         <button type="button">Upload</button>
       </Upload>,
     );
 
-    const rootElement = container.querySelector('.ant-upload-wrapper');
+    const rootElement = container.querySelector<HTMLElement>('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
 
-    const listElement = container.querySelector('.ant-upload-list');
+    const listElement = container.querySelector<HTMLElement>('.ant-upload-list');
     expect(listElement).toBeTruthy();
-    expect(getComputedStyle(listElement!).borderColor).toBe('blue');
+    expect(listElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
 
-    const itemElement = container.querySelector('.ant-upload-list-item');
+    const itemElement = container.querySelector<HTMLElement>('.ant-upload-list-item');
     expect(itemElement).toBeTruthy();
-    expect(getComputedStyle(itemElement!).color).toBe('rgb(0, 128, 0)');
+    expect(itemElement).toHaveStyle({ backgroundColor: 'rgb(0, 128, 0)' });
   });
 
   it('should work with styles function', () => {
@@ -106,7 +100,7 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 255, 0)');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
   });
 
   it('should merge context and component classNames', () => {
@@ -159,13 +153,7 @@ describe('Upload.Semantic', () => {
             root: { backgroundColor: 'red' },
             item: { color: 'blue' },
           }}
-          defaultFileList={[
-            {
-              uid: '1',
-              name: 'test.txt',
-              status: 'done',
-            },
-          ]}
+          defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
         >
           <button type="button">Upload</button>
         </Upload>
@@ -174,15 +162,14 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(getComputedStyle(rootElement!).borderWidth).toBe('2px');
-    expect(getComputedStyle(rootElement!).backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', borderWidth: '2px' });
 
     const listElement = container.querySelector('.ant-upload-list');
     expect(listElement).toBeTruthy();
-    expect(getComputedStyle(listElement!).padding).toBe('10px');
+    expect(listElement).toHaveStyle({ padding: '10px' });
 
     const itemElement = container.querySelector('.ant-upload-list-item');
     expect(itemElement).toBeTruthy();
-    expect(getComputedStyle(itemElement!).color).toBe('rgb(0, 0, 255)');
+    expect(itemElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 });

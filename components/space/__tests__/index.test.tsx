@@ -221,7 +221,7 @@ describe('Space', () => {
     );
     const element = container.querySelector<HTMLDivElement>('div.ant-space-item')!;
     expect(element).toBeEmptyDOMElement();
-    expect(getComputedStyle(element).display).toBe('none');
+    expect(element).toHaveStyle({ display: 'none' });
   });
 
   it('should ref work', () => {
@@ -244,10 +244,11 @@ describe('Space', () => {
     };
 
     const customStyles = {
-      root: { color: 'green' },
-      item: { color: 'red' },
-      separator: { color: 'blue' },
+      root: { color: 'rgb(0, 128, 0)' },
+      item: { color: 'rgb(255, 0, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
     };
+
     const { container } = render(
       <Space classNames={customClassNames} styles={customStyles} separator="-">
         <span>Text1</span>
@@ -255,26 +256,24 @@ describe('Space', () => {
       </Space>,
     );
 
-    const rootElement = container.querySelector('.ant-space') as HTMLElement;
-    const itemElement = container.querySelector('.ant-space-item') as HTMLElement;
-    const separatorElement = container.querySelector('.ant-space-item-separator') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-space');
+    const itemElement = container.querySelector<HTMLElement>('.ant-space-item');
+    const separatorElement = container.querySelector<HTMLElement>('.ant-space-item-separator');
 
     // Check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(itemElement.classList).toContain('custom-item');
-    expect(separatorElement.classList).toContain('custom-separator');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(itemElement).toHaveClass('custom-item');
+    expect(separatorElement).toHaveClass('custom-separator');
 
     // Check styles
-    expect(rootElement.style.color).toBe(customStyles.root.color);
-    expect(itemElement.style.color).toBe(customStyles.item.color);
-    expect(separatorElement.style.color).toBe(customStyles.separator.color);
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(itemElement).toHaveStyle({ color: customStyles.item.color });
+    expect(separatorElement).toHaveStyle({ color: customStyles.separator.color });
   });
 
   // ============================= orientation =============================
   describe('orientation attribute', () => {
-    const testCases: Array<
-      [params: [orientation?: Orientation, direction?: Orientation], expected: string]
-    > = [
+    const testCases: Array<[params: [undefined | Orientation, undefined | Orientation], string]> = [
       [[undefined, undefined], 'horizontal'],
       [[undefined, 'vertical'], 'vertical'],
       [['vertical', 'horizontal'], 'vertical'],

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { ResultProps } from '..';
 import Result from '..';
 import { render } from '../../../tests/utils';
@@ -15,12 +16,12 @@ describe('Result.Semantic', () => {
     };
 
     const customStyles: ResultProps['styles'] = {
-      root: { color: 'red' },
-      title: { color: 'green' },
-      subTitle: { color: 'yellow' },
-      body: { color: 'blue' },
-      extra: { backgroundColor: 'blue' },
-      icon: { backgroundColor: 'black' },
+      root: { color: 'rgb(255, 0, 0)' },
+      title: { color: 'rgb(0, 128, 0)' },
+      subTitle: { color: 'rgb(255, 255, 0)' },
+      body: { color: 'rgb(0, 0, 255)' },
+      extra: { color: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(0, 0, 0)' },
     };
 
     const { container } = render(
@@ -35,28 +36,28 @@ describe('Result.Semantic', () => {
       </Result>,
     );
 
-    const resultElement = container.querySelector('.ant-result') as HTMLElement;
-    const resultTitleElement = container.querySelector('.ant-result-title') as HTMLElement;
-    const resultSubTitleElement = container.querySelector('.ant-result-subtitle') as HTMLElement;
-    const resultBodyElement = container.querySelector('.ant-result-body') as HTMLElement;
-    const resultExtraElement = container.querySelector('.ant-result-extra') as HTMLElement;
-    const resultIconElement = container.querySelector('.ant-result-icon') as HTMLElement;
+    const resultElement = container.querySelector<HTMLElement>('.ant-result');
+    const resultTitleElement = container.querySelector<HTMLElement>('.ant-result-title');
+    const resultSubTitleElement = container.querySelector<HTMLElement>('.ant-result-subtitle');
+    const resultBodyElement = container.querySelector<HTMLElement>('.ant-result-body');
+    const resultExtraElement = container.querySelector<HTMLElement>('.ant-result-extra');
+    const resultIconElement = container.querySelector<HTMLElement>('.ant-result-icon');
 
     // check classNames
-    expect(resultElement.classList).toContain('custom-root');
-    expect(resultTitleElement.classList).toContain('custom-title');
-    expect(resultSubTitleElement.classList).toContain('custom-subTitle');
-    expect(resultBodyElement.classList).toContain('custom-body');
-    expect(resultExtraElement.classList).toContain('custom-extra');
-    expect(resultIconElement.classList).toContain('custom-icon');
+    expect(resultElement).toHaveClass('custom-root');
+    expect(resultTitleElement).toHaveClass('custom-title');
+    expect(resultSubTitleElement).toHaveClass('custom-subTitle');
+    expect(resultBodyElement).toHaveClass('custom-body');
+    expect(resultExtraElement).toHaveClass('custom-extra');
+    expect(resultIconElement).toHaveClass('custom-icon');
 
     // check styles
-    expect(resultElement.style.color).toBe('red');
-    expect(resultTitleElement.style.color).toBe('green');
-    expect(resultSubTitleElement.style.color).toBe('yellow');
-    expect(resultBodyElement.style.color).toBe('blue');
-    expect(resultExtraElement.style.backgroundColor).toBe('blue');
-    expect(resultIconElement.style.backgroundColor).toBe('black');
+    expect(resultElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(resultTitleElement).toHaveStyle({ color: customStyles.title?.color });
+    expect(resultSubTitleElement).toHaveStyle({ color: customStyles.subTitle?.color });
+    expect(resultBodyElement).toHaveStyle({ color: customStyles.body?.color });
+    expect(resultExtraElement).toHaveStyle({ color: customStyles.extra?.color });
+    expect(resultIconElement).toHaveStyle({ color: customStyles.icon?.color });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -69,23 +70,22 @@ describe('Result.Semantic', () => {
 
     const stylesFn: ResultProps['styles'] = (info) => {
       if (info.props.status === 'error') {
-        return { root: { backgroundColor: 'red' } };
+        return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
       }
-      return { root: { backgroundColor: 'green' } };
+      return { root: { backgroundColor: 'rgb(0, 128, 0)' } };
     };
 
     const { container, rerender } = render(
       <Result status="success" title="Success" classNames={classNamesFn} styles={stylesFn} />,
     );
 
-    let resultElement = container.querySelector('.ant-result') as HTMLElement;
-    expect(resultElement.classList).toContain('success-result');
-    expect(resultElement.style.backgroundColor).toBe('green');
+    const resultElement = container.querySelector<HTMLElement>('.ant-result');
+    expect(resultElement).toHaveClass('success-result');
+    expect(resultElement).toHaveStyle({ backgroundColor: 'rgb(0, 128, 0)' });
 
     rerender(<Result status="error" title="Error" classNames={classNamesFn} styles={stylesFn} />);
 
-    resultElement = container.querySelector('.ant-result') as HTMLElement;
-    expect(resultElement.classList).toContain('default-result');
-    expect(resultElement.style.backgroundColor).toBe('red');
+    expect(resultElement).toHaveClass('default-result');
+    expect(resultElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
+
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -41,8 +42,8 @@ describe('Popconfirm.semantic', () => {
 
     expect(popconfirmElement).toHaveClass('custom-root');
     expect(contentElement).toHaveClass('custom-container');
-    expect(window.getComputedStyle(popconfirmElement!).backgroundColor).toBe('rgb(255, 0, 0)');
-    expect(window.getComputedStyle(contentElement!).padding).toBe('20px');
+    expect(popconfirmElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+    expect(contentElement).toHaveStyle({ padding: '20px' });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -70,7 +71,7 @@ describe('Popconfirm.semantic', () => {
 
     expect(popconfirmElement).toHaveClass('top-root');
     expect(contentElement).toHaveClass('custom-container');
-    expect(window.getComputedStyle(popconfirmElement!).backgroundColor).toBe('rgb(0, 0, 255)');
-    expect(window.getComputedStyle(contentElement!).padding).toBe('16px');
+    expect(popconfirmElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
+    expect(contentElement).toHaveStyle({ padding: '16px' });
   });
 });

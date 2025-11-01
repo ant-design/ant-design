@@ -107,30 +107,31 @@ describe('Radio', () => {
 
     const { container } = render(<Radio classNames={customClassNames}>Test</Radio>);
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(iconElement).toHaveClass('custom-icon');
+    expect(labelElement).toHaveClass('custom-label');
   });
 
   it('should support custom styles', () => {
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      icon: { backgroundColor: 'black' },
-      label: { backgroundColor: 'gray' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      icon: { backgroundColor: 'rgb(0, 0, 0)' },
+      label: { backgroundColor: 'rgb(128, 128, 128)' },
     };
+
     const { container } = render(<Radio styles={customStyles}>Test</Radio>);
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('black');
-    expect(labelElement.style.backgroundColor).toBe('gray');
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 
   it('should support both classNames and styles', () => {
@@ -141,28 +142,29 @@ describe('Radio', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      icon: { backgroundColor: 'black' },
-      label: { backgroundColor: 'gray' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      icon: { backgroundColor: 'rgb(0, 0, 0)' },
+      label: { backgroundColor: 'rgb(128, 128, 128)' },
     };
+
     const { container } = render(
       <Radio classNames={customClassNames} styles={customStyles}>
         Test
       </Radio>,
     );
 
-    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
-    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
     // Test classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(iconElement).toHaveClass('custom-icon');
+    expect(labelElement).toHaveClass('custom-label');
 
     // Test styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('black');
-    expect(labelElement.style.backgroundColor).toBe('gray');
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 });

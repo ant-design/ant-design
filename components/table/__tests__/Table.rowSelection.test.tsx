@@ -1251,9 +1251,7 @@ describe('Table.rowSelection', () => {
     };
     const { container } = render(
       <ConfigProvider getPopupContainer={(node) => node?.parentNode as HTMLElement}>
-        {createTable({
-          rowSelection,
-        })}
+        {createTable({ rowSelection })}
       </ConfigProvider>,
     );
     jest.useFakeTimers();
@@ -1275,7 +1273,7 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    const checkboxes = container.querySelectorAll('input');
+    const checkboxes = container.querySelectorAll<HTMLElement>('input');
     fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);

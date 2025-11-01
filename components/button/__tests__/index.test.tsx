@@ -348,7 +348,7 @@ describe('Button', () => {
         <a id="link">test</a>
       </Button>,
     );
-    expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
+    expect(container.querySelector('#link')).toHaveStyle({ pointerEvents: 'none' });
   });
 
   it('Correct type', () => {
