@@ -110,8 +110,8 @@ describe('Switch', () => {
         classNames={customClassNames}
       />,
     );
-    const root = container.querySelector('.ant-switch') as HTMLElement;
-    const content = container.querySelector('.ant-switch-inner-checked') as HTMLElement;
+    const root = container.querySelector<HTMLElement>('.ant-switch');
+    const content = container.querySelector<HTMLElement>('.ant-switch-inner-checked');
     expect(root).toHaveClass('custom-root');
     expect(content).toHaveClass('custom-content');
 

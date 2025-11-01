@@ -104,11 +104,9 @@ describe('Divider', () => {
       );
       expect(container.querySelector<HTMLSpanElement>(expected)).not.toBeNull();
       if (params[4]) {
-        expect(
-          container
-            .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
-            ?.style.getPropertyValue('margin-inline-start'),
-        ).toBe('20px');
+        expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toHaveStyle({
+          marginInlineStart: `${params[4]}px`,
+        });
       }
     });
   });

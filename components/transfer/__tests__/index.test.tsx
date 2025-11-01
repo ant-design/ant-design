@@ -593,10 +593,10 @@ describe('Transfer', () => {
     };
 
     const customStyles: TransferProps['styles'] = {
-      root: { backgroundColor: 'red' },
-      section: { backgroundColor: 'blue' },
-      header: { color: 'yellow' },
-      actions: { backgroundColor: 'green' },
+      root: { color: 'rgb(255, 0, 0)' },
+      section: { color: 'rgb(0, 0, 255)' },
+      header: { color: 'rgb(255, 255, 0)' },
+      actions: { color: 'rgb(0, 128, 0)' },
     };
 
     const { container } = render(
@@ -608,30 +608,26 @@ describe('Transfer', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-transfer') as HTMLElement;
-    const sectionElements = container.querySelectorAll(
-      '.ant-transfer-section',
-    ) as NodeListOf<HTMLElement>;
-    const headerElements = container.querySelectorAll(
-      '.ant-transfer-list-header',
-    ) as NodeListOf<HTMLElement>;
-    const actionsElement = container.querySelector('.ant-transfer-actions') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-transfer');
+    const sectionElements = container.querySelectorAll<HTMLElement>('.ant-transfer-section');
+    const headerElements = container.querySelectorAll<HTMLElement>('.ant-transfer-list-header');
+    const actionsElement = container.querySelector<HTMLElement>('.ant-transfer-actions');
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-transfer-root');
-    expect(sectionElements[0].classList).toContain('custom-transfer-section');
-    expect(sectionElements[1].classList).toContain('custom-transfer-section');
-    expect(headerElements[0].classList).toContain('custom-transfer-header');
-    expect(headerElements[1].classList).toContain('custom-transfer-header');
-    expect(actionsElement.classList).toContain('custom-transfer-actions');
+    expect(rootElement).toHaveClass('custom-transfer-root');
+    expect(sectionElements[0]).toHaveClass('custom-transfer-section');
+    expect(sectionElements[1]).toHaveClass('custom-transfer-section');
+    expect(headerElements[0]).toHaveClass('custom-transfer-header');
+    expect(headerElements[1]).toHaveClass('custom-transfer-header');
+    expect(actionsElement).toHaveClass('custom-transfer-actions');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(sectionElements[0].style.backgroundColor).toBe('blue');
-    expect(sectionElements[1].style.backgroundColor).toBe('blue');
-    expect(headerElements[0].style.color).toBe('yellow');
-    expect(headerElements[1].style.color).toBe('yellow');
-    expect(actionsElement.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section?.color });
+    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section?.color });
+    expect(headerElements[0]).toHaveStyle({ color: customStyles.header?.color });
+    expect(headerElements[1]).toHaveStyle({ color: customStyles.header?.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions?.color });
   });
 
   it('should support classNames and styles as functions', () => {
@@ -649,7 +645,7 @@ describe('Transfer', () => {
       return { root: { margin: '10px' } };
     };
 
-    const { container: container1 } = render(
+    const { container, rerender } = render(
       <Transfer
         {...listCommonProps}
         disabled
@@ -659,11 +655,11 @@ describe('Transfer', () => {
       />,
     );
 
-    const rootElement1 = container1.querySelector('.ant-transfer') as HTMLElement;
-    expect(rootElement1.classList).toContain('disabled-transfer');
-    expect(rootElement1.style.margin).toBe('10px');
+    const rootElement = container.querySelector<HTMLElement>('.ant-transfer');
+    expect(rootElement).toHaveClass('disabled-transfer');
+    expect(rootElement).toHaveStyle({ margin: '10px' });
 
-    const { container: container2 } = render(
+    rerender(
       <Transfer
         {...listCommonProps}
         showSearch
@@ -673,9 +669,8 @@ describe('Transfer', () => {
       />,
     );
 
-    const rootElement2 = container2.querySelector('.ant-transfer') as HTMLElement;
-    expect(rootElement2.classList).toContain('enabled-transfer');
-    expect(rootElement2.style.padding).toBe('10px');
+    expect(rootElement).toHaveClass('enabled-transfer');
+    expect(rootElement).toHaveStyle({ padding: '10px' });
   });
 
   it('should support onScroll', () => {

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import type { GetRef } from 'antd';
 
 import type { InputNumberProps } from '..';
@@ -10,7 +10,7 @@ type InputNumberRef = GetRef<typeof InputNumber>;
 
 describe('prefix', () => {
   focusTest(
-    forwardRef<InputNumberRef, InputNumberProps>((props, ref) => (
+    React.forwardRef<InputNumberRef, InputNumberProps>((props, ref) => (
       <InputNumber {...props} prefix="A" ref={ref} />
     )),
     { refFocus: true },

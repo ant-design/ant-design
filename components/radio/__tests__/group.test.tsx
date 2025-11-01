@@ -167,12 +167,8 @@ describe('Radio Group', () => {
     const { container } = render(
       <RadioGroupComponent data-radio-group-id="radio-group-id" aria-label="radio-group" />,
     );
-    expect((container.firstChild as HTMLDivElement)?.getAttribute('data-radio-group-id')).toBe(
-      'radio-group-id',
-    );
-    expect((container.firstChild as HTMLDivElement)?.getAttribute('aria-label')).toBe(
-      'radio-group',
-    );
+    expect(container.firstChild).toHaveAttribute('data-radio-group-id', 'radio-group-id');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'radio-group');
   });
 
   it('Radio type should not be override', () => {

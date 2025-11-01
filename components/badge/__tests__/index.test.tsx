@@ -80,9 +80,7 @@ describe('Badge', () => {
 
   it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
-    expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
-      'Custom title',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-scroll-number')?.title).toBe('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626

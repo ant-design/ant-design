@@ -12015,7 +12015,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0 acss-sk517y"
     placeholder="Object"
     type="text"
     value=""
