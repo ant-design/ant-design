@@ -44,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | font | Text style | [Font](#font) | [Font](#font) |  |
 | gap | The spacing between watermarks | \[number, number\] | \[100, 100\] |  |
 | offset | The offset of the watermark from the upper left corner of the container. The default is `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
+| onRemove | Callback when all watermarks are removed | `() => void` | - |  |
 
 ### Font
 

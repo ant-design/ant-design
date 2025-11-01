@@ -22,12 +22,18 @@ export type AppendWatermark = (
 
 export default function useWatermark(
   markStyle: React.CSSProperties,
+  onRemove?: () => void,
 ): [
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node) => boolean,
 ] {
   const watermarkMap = React.useRef(new Map<HTMLElement, HTMLDivElement>());
+  const onRemoveRef = React.useRef(onRemove);
+
+  React.useEffect(() => {
+    onRemoveRef.current = onRemove;
+  });
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
@@ -62,11 +68,16 @@ export default function useWatermark(
   const removeWatermark = (container: HTMLElement) => {
     const watermarkEle = watermarkMap.current.get(container);
 
-    if (watermarkEle && container) {
+    if (watermarkEle && container && container.contains(watermarkEle)) {
       container.removeChild(watermarkEle);
     }
 
     watermarkMap.current.delete(container);
+
+    // Call onRemove callback if all watermarks are removed
+    if (watermarkMap.current.size === 0) {
+      onRemoveRef.current?.();
+    }
   };
 
   const isWatermarkEle = (ele: any) => Array.from(watermarkMap.current.values()).includes(ele);

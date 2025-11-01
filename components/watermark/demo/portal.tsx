@@ -15,14 +15,21 @@ const App: React.FC = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [showDrawer, setShowDrawer] = React.useState(false);
   const [showDrawer2, setShowDrawer2] = React.useState(false);
+  const [showWatermark, setShowWatermark] = React.useState(true);
+  const [removed, setRemoved] = React.useState(false);
 
   const closeModal = () => setShowModal(false);
   const closeDrawer = () => setShowDrawer(false);
   const closeDrawer2 = () => setShowDrawer2(false);
 
+  const onRemove = () => {
+    console.log('onRemove Triggered', removed);
+    setRemoved(true);
+  };
+
   return (
     <>
-      <Flex gap="middle">
+      <Flex gap="middle" wrap>
         <Button type="primary" onClick={() => setShowModal(true)}>
           Show in Modal
         </Button>
@@ -31,6 +38,9 @@ const App: React.FC = () => {
         </Button>
         <Button type="primary" onClick={() => setShowDrawer2(true)}>
           Not Show in Drawer
+        </Button>
+        <Button type="primary" onClick={() => setShowWatermark((v) => !v)}>
+          {showWatermark ? 'Hide Watermark' : 'Show Watermark'}
         </Button>
       </Flex>
       <Watermark content="Ant Design">
@@ -52,6 +62,13 @@ const App: React.FC = () => {
           {placeholder}
         </Drawer>
       </Watermark>
+      <div style={{ marginTop: 16 }}>
+        {showWatermark && (
+          <Watermark content="Ant Design" onRemove={onRemove}>
+            {placeholder}
+          </Watermark>
+        )}
+      </div>
     </>
   );
 };
