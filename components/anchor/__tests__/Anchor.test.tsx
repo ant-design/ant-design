@@ -92,9 +92,9 @@ describe('Anchor Render', () => {
         ]}
       />,
     );
-    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
-    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
-      (n as HTMLElement).querySelector<HTMLAnchorElement>('.ant-anchor-link-title'),
+    expect(container.querySelectorAll<HTMLElement>('.ant-anchor .ant-anchor-link').length).toBe(5);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes ?? []).map(
+      (n) => (n as HTMLElement).querySelector<HTMLAnchorElement>('.ant-anchor-link-title'),
     );
     expect(linkTitles[1]?.href).toContain('#anchor-demo-basic');
     expect(linkTitles[2]?.href).toContain('#anchor-demo-static');
@@ -116,31 +116,19 @@ describe('Anchor Render', () => {
     const { container, asFragment } = render(
       <Anchor
         items={[
-          {
-            key: '1',
-            href: '#anchor-demo-basic',
-            title: 'Item Basic Demo',
-          },
-          {
-            key: '2',
-            href: '#anchor-demo-static',
-            title: 'Static demo',
-          },
-          {
-            key: '3',
-            href: '#api',
-            title: 'API',
-          },
+          { key: '1', href: '#anchor-demo-basic', title: 'Item Basic Demo' },
+          { key: '2', href: '#anchor-demo-static', title: 'Static demo' },
+          { key: '3', href: '#api', title: 'API' },
         ]}
       />,
     );
-    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(3);
-    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
-      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+    expect(container.querySelectorAll<HTMLElement>('.ant-anchor .ant-anchor-link').length).toBe(3);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes ?? []).map(
+      (n) => (n as HTMLElement).querySelector<HTMLAnchorElement>('.ant-anchor-link-title'),
     );
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#anchor-demo-basic');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#anchor-demo-static');
-    expect((linkTitles[3] as HTMLAnchorElement).href).toContain('#api');
+    expect(linkTitles[1]?.href).toContain('#anchor-demo-basic');
+    expect(linkTitles[2]?.href).toContain('#anchor-demo-static');
+    expect(linkTitles[3]?.href).toContain('#api');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 

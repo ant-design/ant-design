@@ -16,12 +16,12 @@ describe('Result.Semantic', () => {
     };
 
     const customStyles: ResultProps['styles'] = {
-      root: { color: 'red' },
-      title: { color: 'green' },
-      subTitle: { color: 'yellow' },
-      body: { color: 'blue' },
-      extra: { backgroundColor: 'blue' },
-      icon: { backgroundColor: 'black' },
+      root: { color: 'rgb(255, 0, 0)' },
+      title: { color: 'rgb(0, 128, 0)' },
+      subTitle: { color: 'rgb(255, 255, 0)' },
+      body: { color: 'rgb(0, 0, 255)' },
+      extra: { color: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(0, 0, 0)' },
     };
 
     const { container } = render(
@@ -52,12 +52,12 @@ describe('Result.Semantic', () => {
     expect(resultIconElement).toHaveClass('custom-icon');
 
     // check styles
-    expect(resultElement).toHaveStyle({ color: 'red' });
-    expect(resultTitleElement).toHaveStyle({ color: 'green' });
-    expect(resultSubTitleElement).toHaveStyle({ color: 'yellow' });
-    expect(resultBodyElement).toHaveStyle({ color: 'blue' });
-    expect(resultExtraElement).toHaveStyle({ backgroundColor: 'blue' });
-    expect(resultIconElement).toHaveStyle({ backgroundColor: 'black' });
+    expect(resultElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(resultTitleElement).toHaveStyle({ color: customStyles.title?.color });
+    expect(resultSubTitleElement).toHaveStyle({ color: customStyles.subTitle?.color });
+    expect(resultBodyElement).toHaveStyle({ color: customStyles.body?.color });
+    expect(resultExtraElement).toHaveStyle({ color: customStyles.extra?.color });
+    expect(resultIconElement).toHaveStyle({ color: customStyles.icon?.color });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -70,9 +70,9 @@ describe('Result.Semantic', () => {
 
     const stylesFn: ResultProps['styles'] = (info) => {
       if (info.props.status === 'error') {
-        return { root: { backgroundColor: 'red' } };
+        return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
       }
-      return { root: { backgroundColor: 'green' } };
+      return { root: { backgroundColor: 'rgb(0, 128, 0)' } };
     };
 
     const { container, rerender } = render(
@@ -81,11 +81,11 @@ describe('Result.Semantic', () => {
 
     const resultElement = container.querySelector<HTMLElement>('.ant-result');
     expect(resultElement).toHaveClass('success-result');
-    expect(resultElement).toHaveStyle({ backgroundColor: 'green' });
+    expect(resultElement).toHaveStyle({ backgroundColor: 'rgb(0, 128, 0)' });
 
     rerender(<Result status="error" title="Error" classNames={classNamesFn} styles={stylesFn} />);
 
     expect(resultElement).toHaveClass('default-result');
-    expect(resultElement).toHaveStyle({ backgroundColor: 'red' });
+    expect(resultElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
 });

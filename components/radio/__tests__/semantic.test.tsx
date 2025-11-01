@@ -20,17 +20,18 @@ describe('Radio.Semantic', () => {
 
   it('should apply semantic styles to radio without label', () => {
     const customStyles = {
-      root: { backgroundColor: 'blue' },
-      icon: { backgroundColor: 'green' },
+      root: { backgroundColor: 'rgb(0, 0, 255)' },
+      icon: { backgroundColor: 'rgb(0, 128, 0)' },
     };
+
     const { container } = render(<Radio styles={customStyles} />);
 
     const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
     const iconElement = container.querySelector<HTMLElement>('.ant-radio');
     const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
-    expect(rootElement).toHaveStyle({ backgroundColor: 'blue' });
-    expect(iconElement).toHaveStyle({ backgroundColor: 'green' });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
     expect(labelElement).toBeNull(); // No label element should exist
   });
 });
