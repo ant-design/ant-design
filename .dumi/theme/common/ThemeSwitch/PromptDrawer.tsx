@@ -79,7 +79,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     }
 
     return nextItems;
-  }, [prompt, resText, loading]);
+  }, [prompt, resText, loading, locale.finishTips]);
 
   return (
     <Drawer
