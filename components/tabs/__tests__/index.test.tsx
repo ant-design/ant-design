@@ -187,16 +187,16 @@ describe('Tabs', () => {
     const indicator = container.querySelector('.ant-tabs-ink-bar');
     const header = container.querySelector('.ant-tabs-nav');
     const content = container.querySelector('.ant-tabs-tabpane');
-    expect(root).toHaveClass('test-class');
-    expect(item).toHaveClass('test-item');
-    expect(indicator).toHaveClass('test-indicator');
-    expect(header).toHaveClass('test-header');
-    expect(content).toHaveClass('test-content');
-    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
-    expect(item).toHaveStyle({ color: 'rgb(0, 0, 255)' });
-    expect(indicator).toHaveStyle({ color: 'rgb(255, 255, 0)' });
-    expect(header).toHaveStyle({ color: 'rgb(0, 255, 0)' });
-    expect(content).toHaveStyle({ color: 'rgb(128, 0, 128)' });
+    expect(root).toHaveClass(customClassnames.root);
+    expect(item).toHaveClass(customClassnames.item);
+    expect(indicator).toHaveClass(customClassnames.indicator);
+    expect(header).toHaveClass(customClassnames.header);
+    expect(content).toHaveClass(customClassnames.content);
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(item).toHaveStyle({ color: customStyles.item.color });
+    expect(indicator).toHaveStyle({ color: customStyles.indicator.color });
+    expect(header).toHaveStyle({ color: customStyles.header.color });
+    expect(content).toHaveStyle({ color: customStyles.content.color });
   });
   describe('Tabs placement transformation', () => {
     let consoleErrorSpy: jest.SpyInstance;

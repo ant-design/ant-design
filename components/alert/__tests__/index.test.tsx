@@ -267,12 +267,12 @@ describe('Alert', () => {
     const actionElement = document.querySelector<HTMLElement>('.ant-alert-actions');
 
     // check classNames
-    expect(rootElement).toHaveClass('custom-root');
-    expect(iconElement).toHaveClass('custom-icon');
-    expect(sectionElement).toHaveClass('custom-section');
-    expect(titleElement).toHaveClass('custom-title');
-    expect(descriptionElement).toHaveClass('custom-description');
-    expect(actionElement).toHaveClass('custom-actions');
+    expect(rootElement).toHaveClass(customClassNames.root!);
+    expect(iconElement).toHaveClass(customClassNames.icon!);
+    expect(sectionElement).toHaveClass(customClassNames.section!);
+    expect(titleElement).toHaveClass(customClassNames.title!);
+    expect(descriptionElement).toHaveClass(customClassNames.description!);
+    expect(actionElement).toHaveClass(customClassNames.actions!);
 
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root?.color });

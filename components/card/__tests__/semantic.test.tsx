@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Button from '../../button';
 import Card from '..';
 import { render } from '../../../tests/utils';
+import Button from '../../button';
 
 describe('Card.Semantic', () => {
   it('should support useMergeSemantic with mergedProps', () => {
@@ -44,12 +44,12 @@ describe('Card.Semantic', () => {
     const extra = container.querySelector('.ant-card-extra');
 
     // Check semantic class names
-    expect(root).toHaveClass('semantic-card-root');
-    expect(header).toHaveClass('semantic-card-header');
-    expect(body).toHaveClass('semantic-card-body');
-    expect(actions).toHaveClass('semantic-card-actions');
-    expect(title).toHaveClass('semantic-card-title');
-    expect(extra).toHaveClass('semantic-card-extra');
+    expect(root).toHaveClass(semanticClassNames.root);
+    expect(header).toHaveClass(semanticClassNames.header);
+    expect(body).toHaveClass(semanticClassNames.body);
+    expect(actions).toHaveClass(semanticClassNames.actions);
+    expect(title).toHaveClass(semanticClassNames.title);
+    expect(extra).toHaveClass(semanticClassNames.extra);
 
     // Check semantic styles
     expect(root).toHaveStyle('background-color: rgb(250, 250, 250)');
@@ -79,6 +79,7 @@ describe('Card.Semantic', () => {
       extra: { color: '#000000' },
       actions: { margin: '8px' },
     });
+
     const { Meta } = Card;
 
     const { container } = render(
@@ -113,6 +114,6 @@ describe('Card.Semantic', () => {
     expect(body).toHaveStyle('padding: 20px');
     expect(actions).toHaveStyle('margin: 8px');
     expect(title).toHaveStyle('font-size: 22px');
-    expect(extra).toHaveStyle(' color: #000000');
+    expect(extra).toHaveStyle('color: #000000');
   });
 });

@@ -614,12 +614,12 @@ describe('Transfer', () => {
     const actionsElement = container.querySelector<HTMLElement>('.ant-transfer-actions');
 
     // check classNames
-    expect(rootElement).toHaveClass('custom-transfer-root');
-    expect(sectionElements[0]).toHaveClass('custom-transfer-section');
-    expect(sectionElements[1]).toHaveClass('custom-transfer-section');
-    expect(headerElements[0]).toHaveClass('custom-transfer-header');
-    expect(headerElements[1]).toHaveClass('custom-transfer-header');
-    expect(actionsElement).toHaveClass('custom-transfer-actions');
+    expect(rootElement).toHaveClass(customClassNames.root!);
+    expect(sectionElements[0]).toHaveClass(customClassNames.section!);
+    expect(sectionElements[1]).toHaveClass(customClassNames.section!);
+    expect(headerElements[0]).toHaveClass(customClassNames.header!);
+    expect(headerElements[1]).toHaveClass(customClassNames.header!);
+    expect(actionsElement).toHaveClass(customClassNames.actions!);
 
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root?.color });

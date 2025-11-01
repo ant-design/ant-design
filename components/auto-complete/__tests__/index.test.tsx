@@ -134,32 +134,60 @@ describe('AutoComplete', () => {
       />,
     );
 
-    const root = container.querySelector('.ant-select-auto-complete');
-    const input = container.querySelector('.ant-select-selection-search-input');
-    const prefix = container.querySelector('.ant-select-prefix');
-    const placeholder = container.querySelector('.ant-select-selection-placeholder');
-    const content = container.querySelector('.ant-select-selector');
-    const list = container.querySelector('.rc-virtual-list');
-    const listItem = container.querySelector('.ant-select-item-option');
-    const popup = container.querySelector('.ant-select-dropdown');
+    const root = container.querySelector<HTMLElement>('.ant-select-auto-complete');
+    const input = container.querySelector<HTMLElement>('.ant-select-selection-search-input');
+    const prefix = container.querySelector<HTMLElement>('.ant-select-prefix');
+    const placeholder = container.querySelector<HTMLElement>('.ant-select-selection-placeholder');
+    const content = container.querySelector<HTMLElement>('.ant-select-selector');
+    const list = container.querySelector<HTMLElement>('.rc-virtual-list');
+    const listItem = container.querySelector<HTMLElement>('.ant-select-item-option');
+    const popup = container.querySelector<HTMLElement>('.ant-select-dropdown');
 
     expect(root).toHaveClass(customClassNames.root);
-    if (input) expect(input).toHaveClass(customClassNames.input);
-    if (prefix) expect(prefix).toHaveClass(customClassNames.prefix);
-    if (placeholder) expect(placeholder).toHaveClass(customClassNames.placeholder);
-    if (content) expect(content).toHaveClass(customClassNames.content);
-    if (list) expect(list).toHaveClass(customClassNames.popup.list);
-    if (listItem) expect(listItem).toHaveClass(customClassNames.popup.listItem);
-    if (popup) expect(popup).toHaveClass(customClassNames.popup.root);
+    if (input) {
+      expect(input).toHaveClass(customClassNames.input);
+    }
+    if (prefix) {
+      expect(prefix).toHaveClass(customClassNames.prefix);
+    }
+    if (placeholder) {
+      expect(placeholder).toHaveClass(customClassNames.placeholder);
+    }
+    if (content) {
+      expect(content).toHaveClass(customClassNames.content);
+    }
+    if (list) {
+      expect(list).toHaveClass(customClassNames.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveClass(customClassNames.popup.root);
+    }
 
     expect(root).toHaveStyle(customStyles.root);
-    if (input) expect(input).toHaveStyle(customStyles.input);
-    if (prefix) expect(prefix).toHaveStyle(customStyles.prefix);
-    if (placeholder) expect(placeholder).toHaveStyle(customStyles.placeholder);
-    if (content) expect(content).toHaveStyle(customStyles.content);
-    if (list) expect(list).toHaveStyle(customStyles.popup.list);
-    if (listItem) expect(listItem).toHaveStyle(customStyles.popup.listItem);
-    if (popup) expect(popup).toHaveStyle(customStyles.popup.root);
+    if (input) {
+      expect(input).toHaveStyle(customStyles.input);
+    }
+    if (prefix) {
+      expect(prefix).toHaveStyle(customStyles.prefix);
+    }
+    if (placeholder) {
+      expect(placeholder).toHaveStyle(customStyles.placeholder);
+    }
+    if (content) {
+      expect(content).toHaveStyle(customStyles.content);
+    }
+    if (list) {
+      expect(list).toHaveStyle(customStyles.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveStyle(customStyles.popup.root);
+    }
   });
 
   it('deprecated popupClassName', () => {

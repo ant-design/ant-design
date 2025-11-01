@@ -80,8 +80,11 @@ describe('Alert.Semantic', () => {
     expect(titleElement).toHaveClass('component-title');
 
     // Check merged styles
-    expect(rootElement).toHaveStyle({ margin: '10px', padding: '5px' });
-    expect(iconElement).toHaveStyle({ fontSize: '16px' });
-    expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
+    expect(rootElement).toHaveStyle({
+      margin: contextStyles.root?.margin,
+      padding: contextStyles.root?.padding,
+    });
+    expect(iconElement).toHaveStyle({ fontSize: contextStyles.icon?.fontSize });
+    expect(titleElement).toHaveStyle({ fontWeight: contextStyles.title?.fontWeight });
   });
 });

@@ -523,8 +523,8 @@ describe('Tooltip', () => {
     const tooltipContainerElement = container.querySelector<HTMLElement>('.ant-tooltip-container');
 
     // 验证 classNames
-    expect(tooltipElement).toHaveClass('custom-root');
-    expect(tooltipContainerElement).toHaveClass('custom-container');
+    expect(tooltipElement).toHaveClass(customClassNames.root);
+    expect(tooltipContainerElement).toHaveClass(customClassNames.container);
 
     // 验证 styles
     expect(tooltipElement).toHaveStyle({ padding: '20px' });

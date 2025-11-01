@@ -25,8 +25,8 @@ describe('Tooltip.Semantic', () => {
     const tooltipElement = container.querySelector('.ant-tooltip');
     const tooltipInner = container.querySelector('.ant-tooltip-container');
 
-    expect(tooltipElement).toHaveClass('custom-root');
-    expect(tooltipInner).toHaveClass('custom-container');
+    expect(tooltipElement).toHaveClass(classNames.root!);
+    expect(tooltipInner).toHaveClass(classNames.container!);
     expect(tooltipElement).toHaveStyle('background-color: rgb(255, 0, 0)');
     expect(tooltipInner).toHaveStyle('color: rgb(0, 0, 255)');
   });

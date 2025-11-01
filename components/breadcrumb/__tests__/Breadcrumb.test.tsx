@@ -358,8 +358,10 @@ describe('Breadcrumb', () => {
     const item = container.querySelector<HTMLElement>('.custom-item');
     const separator = container.querySelector<HTMLElement>('.ant-breadcrumb-separator');
 
-    expect(root).toHaveClass('custom-root');
-    expect(separator).toHaveClass('custom-separator');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(separator).toHaveClass(customClassNames.separator);
+
     expect(root).toHaveStyle({ color: customStyles.root?.color });
     expect(item).toHaveStyle({ color: customStyles.item?.color });
     expect(separator).toHaveStyle({ color: customStyles.separator?.color });
