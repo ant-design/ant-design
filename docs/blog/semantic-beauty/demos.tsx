@@ -107,7 +107,7 @@ const DrawerNode = (
     }
   >
     <div>
-      🌈 Following the Ant Design specification, we developed a React UI library antd,interactive
+      🌈 Following the Ant Design specification, we developed a React UI library antd, interactive
       user interfaces.
     </div>
   </InternalDrawer>
