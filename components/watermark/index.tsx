@@ -35,6 +35,7 @@ export interface WatermarkProps {
   offset?: [number, number];
   children?: React.ReactNode;
   inherit?: boolean;
+  onRemove?: () => void;
 }
 
 /**
@@ -73,6 +74,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offset,
     children,
     inherit = true,
+    onRemove,
   } = props;
 
   const mergedStyle = {
@@ -219,7 +221,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, onRemove);
 
   useEffect(() => {
     if (watermarkInfo) {
@@ -227,7 +229,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         appendWatermark(watermarkInfo[0], watermarkInfo[1], holder);
       });
     }
-  }, [watermarkInfo, targetElements]);
+  }, [watermarkInfo, targetElements, appendWatermark]);
 
   // ============================ Observe =============================
   const onMutate = useEvent((mutations: MutationRecord[]) => {
@@ -273,6 +275,15 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offsetTop,
   ]);
 
+  // Cleanup watermark on unmount
+  useEffect(() => {
+    return () => {
+      targetElements.forEach((holder) => {
+        removeWatermark(holder);
+      });
+    };
+  }, [targetElements, removeWatermark]);
+
   // ============================ Context =============================
   const watermarkContext = React.useMemo<WatermarkContextProps>(
     () => ({
@@ -294,7 +305,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         });
       },
     }),
-    [],
+    [removeWatermark],
   );
 
   // ============================= Render =============================
