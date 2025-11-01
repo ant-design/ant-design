@@ -298,7 +298,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }
 
     return null;
-  }, [rawData]);
+  }, [childrenColumnName, rawData]);
 
   const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
     body: React.useRef<HTMLDivElement>(null),
@@ -410,9 +410,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     showSorterTooltip,
     globalLocale,
   });
+
   const sortedData = React.useMemo(
     () => getSortData(rawData, sortStates, childrenColumnName),
-    [rawData, sortStates],
+    [childrenColumnName, rawData, sortStates],
   );
 
   changeEventInfo.sorter = getSorters();
