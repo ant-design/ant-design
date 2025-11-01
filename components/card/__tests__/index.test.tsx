@@ -191,14 +191,15 @@ describe('Card', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'black' },
-      body: { backgroundColor: 'gray' },
-      extra: { backgroundColor: 'purple' },
-      title: { backgroundColor: 'yellow' },
-      actions: { backgroundColor: 'blue' },
-      cover: { backgroundColor: 'green' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      header: { backgroundColor: 'rgb(0, 0, 0)' },
+      body: { backgroundColor: 'rgb(128, 128, 128)' },
+      extra: { backgroundColor: 'rgb(128, 0, 128)' },
+      title: { backgroundColor: 'rgb(255, 255, 0)' },
+      actions: { backgroundColor: 'rgb(0, 0, 255)' },
+      cover: { backgroundColor: 'rgb(0, 128, 0)' },
     };
+
     const { container } = render(
       <Card
         title="Card title"
@@ -211,13 +212,14 @@ describe('Card', () => {
         <p>Card content</p>
       </Card>,
     );
-    const rootElement = container.querySelector('.ant-card') as HTMLElement;
-    const headerElement = container.querySelector('.ant-card-head') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-card-body') as HTMLElement;
-    const extraElement = container.querySelector('.ant-card-extra') as HTMLElement;
-    const titleElement = container.querySelector('.ant-card-head-title') as HTMLElement;
-    const actionsElement = container.querySelector('.ant-card-actions') as HTMLElement;
-    const coverElement = container.querySelector('.ant-card-cover') as HTMLElement;
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-card');
+    const headerElement = container.querySelector<HTMLElement>('.ant-card-head');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-card-body');
+    const extraElement = container.querySelector<HTMLElement>('.ant-card-extra');
+    const titleElement = container.querySelector<HTMLElement>('.ant-card-head-title');
+    const actionsElement = container.querySelector<HTMLElement>('.ant-card-actions');
+    const coverElement = container.querySelector<HTMLElement>('.ant-card-cover');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -229,13 +231,13 @@ describe('Card', () => {
     expect(coverElement).toHaveClass('custom-cover');
 
     // check styles
-    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
-    expect(headerElement).toHaveStyle({ backgroundColor: 'black' });
-    expect(bodyElement).toHaveStyle({ backgroundColor: 'gray' });
-    expect(extraElement).toHaveStyle({ backgroundColor: 'purple' });
-    expect(titleElement).toHaveStyle({ backgroundColor: 'yellow' });
-    expect(actionsElement).toHaveStyle({ backgroundColor: 'blue' });
-    expect(coverElement).toHaveStyle({ backgroundColor: 'green' });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header.backgroundColor });
+    expect(bodyElement).toHaveStyle({ backgroundColor: customStyles.body.backgroundColor });
+    expect(extraElement).toHaveStyle({ backgroundColor: customStyles.extra.backgroundColor });
+    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title.backgroundColor });
+    expect(actionsElement).toHaveStyle({ backgroundColor: customStyles.actions.backgroundColor });
+    expect(coverElement).toHaveStyle({ backgroundColor: customStyles.cover.backgroundColor });
   });
 
   it('should support custom styles for Card.Meta', () => {
@@ -249,11 +251,12 @@ describe('Card', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      section: { backgroundColor: 'black' },
-      avatar: { backgroundColor: 'gray' },
-      description: { backgroundColor: 'yellow' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      section: { backgroundColor: 'rgb(0, 0, 0)' },
+      avatar: { backgroundColor: 'rgb(128, 128, 128)' },
+      description: { backgroundColor: 'rgb(255, 255, 0)' },
     };
+
     const { container } = render(
       <Card
         title="Card title"
@@ -273,26 +276,26 @@ describe('Card', () => {
       </Card>,
     );
 
-    const rootElement = container.querySelector('.ant-card-meta') as HTMLElement;
-    const sectionElement = container.querySelector('.ant-card-meta-section') as HTMLElement;
-    const avatarElement = container.querySelector('.ant-card-meta-avatar') as HTMLElement;
-    const titleElement = container.querySelector('.ant-card-meta-title') as HTMLElement;
-    const descriptionElement = container.querySelector('.ant-card-meta-description') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-card-meta');
+    const sectionElement = container.querySelector<HTMLElement>('.ant-card-meta-section');
+    const avatarElement = container.querySelector<HTMLElement>('.ant-card-meta-avatar');
+    const titleElement = container.querySelector<HTMLElement>('.ant-card-meta-title');
+    const descElement = container.querySelector<HTMLElement>('.ant-card-meta-description');
 
     expect(rootElement).toHaveClass('custom-root');
     expect(sectionElement).toHaveClass('custom-section');
     expect(avatarElement).toHaveClass('custom-avatar');
     expect(titleElement).toHaveClass('custom-title');
-    expect(descriptionElement).toHaveClass('custom-description');
+    expect(descElement).toHaveClass('custom-description');
 
-    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
-    expect(sectionElement).toHaveStyle({ backgroundColor: 'black' });
-    expect(avatarElement).toHaveStyle({ backgroundColor: 'gray' });
-    expect(descriptionElement).toHaveStyle({ backgroundColor: 'yellow' });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section.backgroundColor });
+    expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar.backgroundColor });
+    expect(descElement).toHaveStyle({ backgroundColor: customStyles.description.backgroundColor });
   });
 
   it('ConfigProvider support variant for card', () => {
-    const TestComponent = () => {
+    const TestComponent: React.FC = () => {
       const [variant, setVariant] = React.useState<'borderless' | 'outlined'>('outlined');
       const [cardVariant, setCardVariant] = React.useState<'borderless' | 'outlined' | undefined>(
         undefined,

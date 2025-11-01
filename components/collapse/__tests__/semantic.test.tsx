@@ -14,31 +14,26 @@ describe('Collapse.Semantic', () => {
       icon: 'custom-icon',
     };
     const customStyles = {
-      root: { color: 'red' },
-      header: { color: 'blue' },
-      title: { color: 'green' },
-      body: { color: 'yellow' },
-      icon: { color: 'purple' },
+      root: { color: 'rgb(255, 0, 0)' },
+      header: { color: 'rgb(0, 0, 255)' },
+      title: { color: 'rgb(0, 128, 0)' },
+      body: { color: 'rgb(255, 255, 0)' },
+      icon: { color: 'rgb(128, 0, 128)' },
     };
     const { container } = render(
       <Collapse
         activeKey={['1']}
         styles={customStyles}
         classNames={customClassNames}
-        items={[
-          {
-            key: '1',
-            label: 'title',
-          },
-        ]}
+        items={[{ key: '1', label: 'title' }]}
       />,
     );
 
-    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
-    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
-    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-collapse');
+    const headerElement = container.querySelector<HTMLElement>('.ant-collapse-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-collapse-title');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-collapse-body');
+    const iconElement = container.querySelector<HTMLElement>('.ant-collapse-expand-icon');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -48,11 +43,11 @@ describe('Collapse.Semantic', () => {
     expect(iconElement).toHaveClass('custom-icon');
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: 'red' });
-    expect(headerElement).toHaveStyle({ color: 'blue' });
-    expect(titleElement).toHaveStyle({ color: 'green' });
-    expect(bodyElement).toHaveStyle({ color: 'yellow' });
-    expect(iconElement).toHaveStyle({ color: 'purple' });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(headerElement).toHaveStyle({ color: customStyles.header.color });
+    expect(titleElement).toHaveStyle({ color: customStyles.title.color });
+    expect(bodyElement).toHaveStyle({ color: customStyles.body.color });
+    expect(iconElement).toHaveStyle({ color: customStyles.icon.color });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -84,11 +79,11 @@ describe('Collapse.Semantic', () => {
       />,
     );
 
-    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
-    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
-    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-collapse');
+    const headerElement = container.querySelector<HTMLElement>('.ant-collapse-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-collapse-title');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-collapse-body');
+    const iconElement = container.querySelector<HTMLElement>('.ant-collapse-expand-icon');
 
     // check function-based classNames
     expect(rootElement).toHaveClass('size-large');

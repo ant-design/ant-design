@@ -23,13 +23,13 @@ describe('Slider.Semantic', () => {
       <Slider disabled defaultValue={30} classNames={classNamesFn} styles={stylesFn} />,
     );
 
-    const rootElement1 = container.querySelector('.ant-slider') as HTMLElement;
+    const rootElement1 = container.querySelector<HTMLElement>('.ant-slider');
     expect(rootElement1).toHaveClass('disabled-slider');
     expect(rootElement1).toHaveStyle({ margin: '10px' });
 
     rerender(<Slider vertical defaultValue={30} classNames={classNamesFn} styles={stylesFn} />);
 
-    const rootElement2 = container.querySelector('.ant-slider') as HTMLElement;
+    const rootElement2 = container.querySelector<HTMLElement>('.ant-slider');
     expect(rootElement2).toHaveClass('enabled-slider');
     expect(rootElement2).toHaveStyle({ padding: '10px' });
   });

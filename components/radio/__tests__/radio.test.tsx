@@ -118,9 +118,9 @@ describe('Radio', () => {
 
   it('should support custom styles', () => {
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      icon: { backgroundColor: 'black' },
-      label: { backgroundColor: 'gray' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      icon: { backgroundColor: 'rgb(0, 0, 0)' },
+      label: { backgroundColor: 'rgb(128, 128, 128)' },
     };
 
     const { container } = render(<Radio styles={customStyles}>Test</Radio>);
@@ -129,9 +129,9 @@ describe('Radio', () => {
     const iconElement = container.querySelector<HTMLElement>('.ant-radio');
     const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
 
-    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
-    expect(iconElement).toHaveStyle({ backgroundColor: 'black' });
-    expect(labelElement).toHaveStyle({ backgroundColor: 'gray' });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 
   it('should support both classNames and styles', () => {
@@ -142,9 +142,9 @@ describe('Radio', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      icon: { backgroundColor: 'black' },
-      label: { backgroundColor: 'gray' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      icon: { backgroundColor: 'rgb(0, 0, 0)' },
+      label: { backgroundColor: 'rgb(128, 128, 128)' },
     };
 
     const { container } = render(
@@ -163,8 +163,8 @@ describe('Radio', () => {
     expect(labelElement).toHaveClass('custom-label');
 
     // Test styles
-    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
-    expect(iconElement).toHaveStyle({ backgroundColor: 'black' });
-    expect(labelElement).toHaveStyle({ backgroundColor: 'gray' });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 });

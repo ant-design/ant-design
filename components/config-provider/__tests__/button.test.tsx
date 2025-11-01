@@ -36,9 +36,8 @@ describe('ConfigProvider.button', () => {
         <Button icon={<SearchOutlined />} />
       </ConfigProvider>,
     );
-
-    const item = container.querySelector('.ant-btn-icon') as HTMLElement;
-    expect(getComputedStyle(item)?.fontSize).toBe('14px');
+    const item = container.querySelector<HTMLElement>('.ant-btn-icon');
+    expect(item).toHaveStyle({ fontSize: '14px' });
   });
 
   it('ConfigProvider button classNames', () => {

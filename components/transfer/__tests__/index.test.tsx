@@ -593,10 +593,10 @@ describe('Transfer', () => {
     };
 
     const customStyles: TransferProps['styles'] = {
-      root: { backgroundColor: 'red' },
-      section: { backgroundColor: 'blue' },
-      header: { color: 'yellow' },
-      actions: { backgroundColor: 'green' },
+      root: { color: 'rgb(255, 0, 0)' },
+      section: { color: 'rgb(0, 0, 255)' },
+      header: { color: 'rgb(255, 255, 0)' },
+      actions: { color: 'rgb(0, 128, 0)' },
     };
 
     const { container } = render(
@@ -622,12 +622,12 @@ describe('Transfer', () => {
     expect(actionsElement).toHaveClass('custom-transfer-actions');
 
     // check styles
-    expect(rootElement).toHaveStyle({ backgroundColor: 'red' });
-    expect(sectionElements[0]).toHaveStyle({ backgroundColor: 'blue' });
-    expect(sectionElements[1]).toHaveStyle({ backgroundColor: 'blue' });
-    expect(headerElements[0]).toHaveStyle({ color: 'yellow' });
-    expect(headerElements[1]).toHaveStyle({ color: 'yellow' });
-    expect(actionsElement).toHaveStyle({ backgroundColor: 'green' });
+    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section?.color });
+    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section?.color });
+    expect(headerElements[0]).toHaveStyle({ color: customStyles.header?.color });
+    expect(headerElements[1]).toHaveStyle({ color: customStyles.header?.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions?.color });
   });
 
   it('should support classNames and styles as functions', () => {

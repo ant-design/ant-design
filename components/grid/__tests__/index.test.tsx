@@ -218,9 +218,8 @@ describe('Grid', () => {
         <Col span={4}>col-2</Col>
       </Row>,
     );
-
     const row = container.querySelector('.ant-row-space-evenly');
     expect(row).toBeTruthy();
-    expect(row && getComputedStyle(row).justifyContent).toEqual('space-evenly');
+    expect(row).toHaveStyle({ justifyContent: 'space-evenly' });
   });
 });

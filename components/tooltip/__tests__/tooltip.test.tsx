@@ -206,8 +206,8 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe('inline-flex');
-    expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
+    expect(containerInline.querySelector('button')).toHaveStyle({ display: 'inline-flex' });
+    expect(containerBlock.querySelector('button')).toHaveStyle({ display: 'block' });
   });
 
   it('should works for date picker', async () => {

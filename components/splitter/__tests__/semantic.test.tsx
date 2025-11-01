@@ -56,7 +56,10 @@ describe('Splitter.Semantic', () => {
 
   it('should support styles as function', async () => {
     const stylesFn = jest.fn(({ props }) => ({
-      root: { backgroundColor: props.orientation === 'horizontal' ? 'red' : 'blue' },
+      root: {
+        backgroundColor:
+          props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
+      },
       panel: { padding: '10px' },
       dragger: { width: '8px' },
     }));
@@ -68,13 +71,11 @@ describe('Splitter.Semantic', () => {
     await resizeSplitter();
 
     expect(stylesFn).toHaveBeenCalledWith({
-      props: expect.objectContaining({
-        orientation: 'vertical',
-      }),
+      props: expect.objectContaining({ orientation: 'vertical' }),
     });
 
     const splitterElement = container.querySelector<HTMLElement>('.ant-splitter');
-    expect(splitterElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(splitterElement).toHaveStyle({ backgroundColor: 'rgba(0, 0, 255, 0.5)' });
 
     const panelElements = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
     panelElements.forEach((panel) => {

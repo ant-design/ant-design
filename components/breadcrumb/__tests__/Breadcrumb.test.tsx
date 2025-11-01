@@ -326,9 +326,9 @@ describe('Breadcrumb', () => {
       separator: 'custom-separator',
     };
     const customStyles = {
-      root: { color: 'red' },
-      item: { color: 'green' },
-      separator: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 128, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Breadcrumb
@@ -360,9 +360,9 @@ describe('Breadcrumb', () => {
 
     expect(root).toHaveClass('custom-root');
     expect(separator).toHaveClass('custom-separator');
-    expect(root).toHaveStyle({ color: 'red' });
-    expect(item).toHaveStyle({ color: 'green' });
-    expect(separator).toHaveStyle({ color: 'blue' });
+    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(item).toHaveStyle({ color: 'rgb(0, 128, 0)' });
+    expect(separator).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('supports ConfigProvider separator', () => {

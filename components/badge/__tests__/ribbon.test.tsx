@@ -88,9 +88,9 @@ describe('Ribbon', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
-      indicator: { color: 'green' },
-      content: { color: 'yellow' },
+      root: { color: 'rgb(255, 0, 0)' },
+      indicator: { color: 'rgb(0, 128, 0)' },
+      content: { color: 'rgb(255, 255, 0)' },
     };
 
     const { container } = render(
@@ -109,9 +109,9 @@ describe('Ribbon', () => {
     expect(contentElement).toHaveClass('custom-content');
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: 'red' });
-    expect(indicatorElement).toHaveStyle({ color: 'green' });
-    expect(contentElement).toHaveStyle({ color: 'yellow' });
+    expect(rootElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(indicatorElement).toHaveStyle({ color: 'rgb(0, 128, 0)' });
+    expect(contentElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -126,7 +126,10 @@ describe('Ribbon', () => {
           content: 'ribbon-content',
         })}
         styles={({ props }) => ({
-          root: { border: props.placement === 'start' ? '1px solid red' : '1px solid blue' },
+          root: {
+            border:
+              props.placement === 'start' ? '1px solid rgb(255, 0, 0)' : '1px solid rgb(0, 0, 255)',
+          },
           indicator: { opacity: '0.8' },
           content: { fontWeight: 'bold' },
         })}
@@ -145,7 +148,7 @@ describe('Ribbon', () => {
     expect(contentElement).toHaveClass('ribbon-content');
 
     // check function-based styles
-    expect(rootElement).toHaveStyle({ border: '1px solid red' });
+    expect(rootElement).toHaveStyle({ border: '1px solid rgb(255, 0, 0)' });
     expect(indicatorElement).toHaveStyle({ opacity: '0.8' });
     expect(contentElement).toHaveStyle({ fontWeight: 'bold' });
   });

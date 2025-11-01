@@ -237,9 +237,9 @@ describe('Alert', () => {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
       section: { padding: '20px' },
-      title: { backgroundColor: 'blue' },
+      title: { backgroundColor: 'rgb(0, 0, 255)' },
       description: { fontSize: '20px' },
-      actions: { color: 'green' },
+      actions: { color: 'rgb(0, 128, 0)' },
     };
 
     render(
@@ -278,8 +278,8 @@ describe('Alert', () => {
     expect(rootElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(iconElement).toHaveStyle({ backgroundColor: 'rgba(0, 0, 0, 0.5)' });
     expect(sectionElement).toHaveStyle({ padding: '20px' });
-    expect(titleElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(titleElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
     expect(descriptionElement).toHaveStyle({ fontSize: '20px' });
-    expect(actionElement).toHaveStyle({ color: 'green' });
+    expect(actionElement).toHaveStyle({ color: 'rgb(0, 128, 0)' });
   });
 });

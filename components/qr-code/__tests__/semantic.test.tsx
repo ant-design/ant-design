@@ -11,8 +11,8 @@ describe('QRCode.Semantic', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
-      cover: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      cover: { color: 'rgb(0, 0, 255)' },
     };
 
     const { container } = render(
@@ -27,8 +27,8 @@ describe('QRCode.Semantic', () => {
     expect(QRCodeCoverElement).toHaveClass('custom-cover');
 
     // check styles
-    expect(QRCodeElement).toHaveStyle({ color: 'red' });
-    expect(QRCodeCoverElement).toHaveStyle({ color: 'blue' });
+    expect(QRCodeElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(QRCodeCoverElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('support classNames and styles as functions', () => {
