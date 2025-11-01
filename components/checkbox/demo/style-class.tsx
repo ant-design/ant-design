@@ -7,6 +7,10 @@ const useStyles = createStyles(({ token, css }) => ({
   root: css`
     border-radius: ${token.borderRadius};
     width: 300px;
+  `,
+  fnRoot: css`
+    border-radius: ${token.borderRadius};
+    width: 300px;
     & .ant-checkbox-checked .ant-checkbox-inner {
       border-color: lab(7.78201% -0.0000149012 0);
       background-color: lab(7.78201% -0.0000149012 0);
@@ -42,7 +46,13 @@ const App: React.FC = () => {
       <Checkbox classNames={classNames} styles={styles}>
         Object
       </Checkbox>
-      <Checkbox checked classNames={classNames} styles={stylesFn}>
+      <Checkbox
+        checked
+        classNames={{
+          root: classNames.fnRoot,
+        }}
+        styles={stylesFn}
+      >
         Function
       </Checkbox>
     </Flex>
