@@ -1043,31 +1043,19 @@ describe('Anchor Render', () => {
       indicator: 'custom-indicator',
     };
     const customStyles = {
-      root: { background: 'red' },
-      item: { background: 'blue' },
-      title: { background: 'green' },
-      indicator: { background: 'yellow' },
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
+      title: { color: 'rgb(0, 128, 0)' },
+      indicator: { color: 'rgb(255, 255, 0)' },
     };
     const { container } = render(
       <Anchor
         styles={customStyles}
         classNames={customClassnames}
         items={[
-          {
-            key: 'part-1',
-            href: '#part-1',
-            title: 'Part 1',
-          },
-          {
-            key: 'part-2',
-            href: '#part-2',
-            title: 'Part 2',
-          },
-          {
-            key: 'part-3',
-            href: '#part-3',
-            title: 'Part 3',
-          },
+          { key: 'part-1', href: '#part-1', title: 'Part 1' },
+          { key: 'part-2', href: '#part-2', title: 'Part 2' },
+          { key: 'part-3', href: '#part-3', title: 'Part 3' },
         ]}
       />,
     );
@@ -1081,9 +1069,9 @@ describe('Anchor Render', () => {
     expect(items).toHaveClass('custom-item');
     expect(title).toHaveClass('custom-title');
     expect(indicator).toHaveClass('custom-indicator');
-    expect(items).toHaveStyle({ background: 'blue' });
-    expect(root).toHaveStyle({ background: 'red' });
-    expect(title).toHaveStyle({ background: 'green' });
-    expect(indicator).toHaveStyle({ background: 'yellow' });
+    expect(items).toHaveStyle({ color: customStyles.item.color });
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(title).toHaveStyle({ color: customStyles.title.color });
+    expect(indicator).toHaveStyle({ color: customStyles.indicator.color });
   });
 });

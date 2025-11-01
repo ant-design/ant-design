@@ -360,9 +360,9 @@ describe('Breadcrumb', () => {
 
     expect(root).toHaveClass('custom-root');
     expect(separator).toHaveClass('custom-separator');
-    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
-    expect(item).toHaveStyle({ color: 'rgb(0, 128, 0)' });
-    expect(separator).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+    expect(root).toHaveStyle({ color: customStyles.root?.color });
+    expect(item).toHaveStyle({ color: customStyles.item?.color });
+    expect(separator).toHaveStyle({ color: customStyles.separator?.color });
   });
 
   it('supports ConfigProvider separator', () => {

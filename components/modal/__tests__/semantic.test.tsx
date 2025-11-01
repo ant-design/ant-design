@@ -27,14 +27,15 @@ describe('Modal.Semantic', () => {
       body: 'custom-body',
       footer: 'custom-footer',
     };
+
     const customStyles = {
-      root: { padding: 10 },
-      mask: { padding: 20 },
-      wrapper: { padding: 30 },
-      header: { padding: 40 },
-      title: { padding: 50 },
-      body: { padding: 60 },
-      footer: { padding: 70 },
+      root: { padding: '10px' },
+      mask: { padding: '20px' },
+      wrapper: { padding: '30px' },
+      header: { padding: '40px' },
+      title: { padding: '50px' },
+      body: { padding: '60px' },
+      footer: { padding: '70px' },
     };
 
     render(<Modal classNames={customClassNames} styles={customStyles} open title="title" />);

@@ -93,7 +93,7 @@ describe('Splitter.Semantic', () => {
     }));
 
     const stylesFn = jest.fn(() => ({
-      root: { color: 'red' },
+      root: { color: 'rgb(255, 0, 0)' },
       panel: { margin: '5px' },
     }));
 
@@ -108,7 +108,7 @@ describe('Splitter.Semantic', () => {
 
     const splitterElement = container.querySelector<HTMLElement>('.ant-splitter');
     expect(splitterElement).toHaveClass('fn-root');
-    expect(splitterElement).toHaveStyle({ color: 'red' });
+    expect(splitterElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
 
     const panelElements = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
 

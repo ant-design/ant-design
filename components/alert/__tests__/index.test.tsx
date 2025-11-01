@@ -275,11 +275,11 @@ describe('Alert', () => {
     expect(actionElement).toHaveClass('custom-actions');
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
-    expect(iconElement).toHaveStyle({ backgroundColor: 'rgba(0, 0, 0, 0.5)' });
-    expect(sectionElement).toHaveStyle({ padding: '20px' });
-    expect(titleElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
-    expect(descriptionElement).toHaveStyle({ fontSize: '20px' });
-    expect(actionElement).toHaveStyle({ color: 'rgb(0, 128, 0)' });
+    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon?.backgroundColor });
+    expect(sectionElement).toHaveStyle({ padding: customStyles.section?.padding });
+    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title?.backgroundColor });
+    expect(descriptionElement).toHaveStyle({ fontSize: customStyles.description?.fontSize });
+    expect(actionElement).toHaveStyle({ color: customStyles.actions?.color });
   });
 });
