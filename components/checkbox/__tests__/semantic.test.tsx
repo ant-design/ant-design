@@ -28,9 +28,9 @@ describe('Checkbox.Semantic', () => {
     const iconElement = container.querySelector<HTMLElement>('.ant-checkbox');
     const labelElement = container.querySelector<HTMLElement>('.ant-checkbox-label');
 
-    expect(rootElement).toHaveClass('custom-root');
-    expect(iconElement).toHaveClass('custom-icon');
-    expect(labelElement).toHaveClass('custom-label');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(iconElement).toHaveClass(customClassNames.icon);
+    expect(labelElement).toHaveClass(customClassNames.label);
 
     expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
     expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });

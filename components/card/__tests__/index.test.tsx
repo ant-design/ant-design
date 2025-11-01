@@ -222,13 +222,13 @@ describe('Card', () => {
     const coverElement = container.querySelector<HTMLElement>('.ant-card-cover');
 
     // check classNames
-    expect(rootElement).toHaveClass('custom-root');
-    expect(headerElement).toHaveClass('custom-header');
-    expect(bodyElement).toHaveClass('custom-body');
-    expect(extraElement).toHaveClass('custom-extra');
-    expect(titleElement).toHaveClass('custom-title');
-    expect(actionsElement).toHaveClass('custom-actions');
-    expect(coverElement).toHaveClass('custom-cover');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(headerElement).toHaveClass(customClassNames.header);
+    expect(bodyElement).toHaveClass(customClassNames.body);
+    expect(extraElement).toHaveClass(customClassNames.extra);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(actionsElement).toHaveClass(customClassNames.actions);
+    expect(coverElement).toHaveClass(customClassNames.cover);
 
     // check styles
     expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
@@ -282,11 +282,11 @@ describe('Card', () => {
     const titleElement = container.querySelector<HTMLElement>('.ant-card-meta-title');
     const descElement = container.querySelector<HTMLElement>('.ant-card-meta-description');
 
-    expect(rootElement).toHaveClass('custom-root');
-    expect(sectionElement).toHaveClass('custom-section');
-    expect(avatarElement).toHaveClass('custom-avatar');
-    expect(titleElement).toHaveClass('custom-title');
-    expect(descElement).toHaveClass('custom-description');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(sectionElement).toHaveClass(customClassNames.section);
+    expect(avatarElement).toHaveClass(customClassNames.avatar);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(descElement).toHaveClass(customClassNames.description);
 
     expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
     expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section.backgroundColor });

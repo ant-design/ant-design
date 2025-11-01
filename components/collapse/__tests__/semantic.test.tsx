@@ -36,11 +36,11 @@ describe('Collapse.Semantic', () => {
     const iconElement = container.querySelector<HTMLElement>('.ant-collapse-expand-icon');
 
     // check classNames
-    expect(rootElement).toHaveClass('custom-root');
-    expect(headerElement).toHaveClass('custom-header');
-    expect(titleElement).toHaveClass('custom-title');
-    expect(bodyElement).toHaveClass('custom-body');
-    expect(iconElement).toHaveClass('custom-icon');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(headerElement).toHaveClass(customClassNames.header);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(bodyElement).toHaveClass(customClassNames.body);
+    expect(iconElement).toHaveClass(customClassNames.icon);
 
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root.color });

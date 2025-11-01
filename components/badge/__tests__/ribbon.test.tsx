@@ -104,9 +104,9 @@ describe('Ribbon', () => {
     const contentElement = container.querySelector<HTMLElement>('.ant-ribbon-content');
 
     // check classNames
-    expect(rootElement).toHaveClass('custom-root');
-    expect(indicatorElement).toHaveClass('custom-indicator');
-    expect(contentElement).toHaveClass('custom-content');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(indicatorElement).toHaveClass(customClassNames.indicator);
+    expect(contentElement).toHaveClass(customClassNames.content);
 
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root?.color });

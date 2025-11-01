@@ -995,16 +995,8 @@ describe('Anchor Render', () => {
             <Anchor
               direction={direction}
               items={[
-                {
-                  title: 'part-1',
-                  href: 'part-1',
-                  key: 'part-1',
-                },
-                {
-                  title: 'part-2',
-                  href: 'part-2',
-                  key: 'part-2',
-                },
+                { title: 'part-1', href: 'part-1', key: 'part-1' },
+                { title: 'part-2', href: 'part-2', key: 'part-2' },
               ]}
             />
           </div>
