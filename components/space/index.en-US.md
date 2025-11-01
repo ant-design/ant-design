@@ -54,7 +54,9 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Space.Compact
 
-Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
+> This component is available since `antd@4.24.0`.
+
+Use `Space.Compact` when child form components are compactly connected and the border is collapsed. The supported components are：
 
 - Button
 - AutoComplete
@@ -71,6 +73,16 @@ Use Space.Compact when child form components are compactly connected and the bor
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+### Space.CompactCell
+
+> This component is available since `antd@5.28.0`.
+
+Used to create custom cells in compact layouts.
+
+| Property | Description    | Type      | Default | Version |
+| -------- | -------------- | --------- | ------- | ------- |
+| children | Custom content | ReactNode | -       | 5.28.0  |
 
 ## Semantic DOM
 

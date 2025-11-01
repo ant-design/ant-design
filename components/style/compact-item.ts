@@ -3,6 +3,8 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken, CSSUtil, FullToken, OverrideComponent } from '../theme/internal';
 
 interface CompactItemOptions {
+  componentCls?: string;
+
   focus?: boolean;
   /**
    * Some component borders are implemented on child elements
@@ -96,13 +98,16 @@ export function genCompactItemStyle<T extends OverrideComponent>(
   options: CompactItemOptions = { focus: true },
 ): CSSInterpolation {
   const { componentCls } = token;
+  const { componentCls: customizePrefixCls } = options;
 
-  const compactCls = `${componentCls}-compact`;
+  const mergedComponentCls = customizePrefixCls || componentCls;
+
+  const compactCls = `${mergedComponentCls}-compact`;
 
   return {
     [compactCls]: {
-      ...compactItemBorder(token, compactCls, options, componentCls),
-      ...compactItemBorderRadius(componentCls, compactCls, options),
+      ...compactItemBorder(token, compactCls, options, mergedComponentCls),
+      ...compactItemBorderRadius(mergedComponentCls, compactCls, options),
     },
   };
 }

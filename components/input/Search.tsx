@@ -1,12 +1,15 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -33,6 +36,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     inputPrefixCls: customizeInputPrefixCls,
     className,
+    style,
     size: customizeSize,
     suffix,
     enterButton = false,
@@ -45,6 +49,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionEnd,
     variant,
     onPressEnter: customOnPressEnter,
+    hidden,
     ...restProps
   } = props;
 
@@ -110,12 +115,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton
-        ? {
-            className: btnClassName,
-            size,
-          }
-        : {}),
+      ...(isAntdButton ? { className: btnClassName, size } : {}),
     });
   } else {
     button = (
@@ -143,12 +143,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   }
 
   if (addonAfter) {
-    button = [
-      button,
-      cloneElement(addonAfter, {
-        key: 'addonAfter',
-      }),
-    ];
+    button = [button, cloneElement(addonAfter, { key: 'addonAfter' })];
   }
 
   const cls = classNames(
@@ -171,23 +166,34 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionEnd?.(e);
   };
 
-  const inputProps: InputProps = {
-    ...restProps,
-    className: cls,
-    prefixCls: inputPrefixCls,
-    type: 'search',
-    size,
-    variant,
-    onPressEnter,
-    onCompositionStart: handleOnCompositionStart,
-    onCompositionEnd: handleOnCompositionEnd,
-    addonAfter: button,
-    suffix,
-    onChange,
-    disabled,
-  };
+  // ========================== Render ==========================
+  // >>> Root Props
+  const rootProps = pickAttrs(restProps, {
+    data: true,
+  });
 
-  return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
+  const inputProps: InputProps = omit(
+    {
+      ...restProps,
+      prefixCls: inputPrefixCls,
+      type: 'search',
+      size,
+      variant,
+      onPressEnter,
+      onCompositionStart: handleOnCompositionStart,
+      onCompositionEnd: handleOnCompositionEnd,
+      onChange,
+      disabled,
+    },
+    Object.keys(rootProps) as any[],
+  );
+
+  return (
+    <Space.Compact className={cls} style={style} {...rootProps} hidden={hidden} block>
+      <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
+      {button}
+    </Space.Compact>
+  );
 });
 
 if (process.env.NODE_ENV !== 'production') {
