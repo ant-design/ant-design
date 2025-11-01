@@ -16,14 +16,14 @@ export type CheckableTagOption<CheckableTagValue> = {
 };
 
 interface CheckableTagGroupSingleProps<CheckableTagValue> {
-  multiple?: false;
+  mode?: 'single' | 'radio';
   value?: CheckableTagValue | null;
   defaultValue?: CheckableTagValue | null;
   onChange?: (value: CheckableTagValue | null) => void;
 }
 
 interface CheckableTagGroupMultipleProps<CheckableTagValue> {
-  multiple: true;
+  mode: 'multiple';
   value?: CheckableTagValue[];
   defaultValue?: CheckableTagValue[];
   onChange?: (value: CheckableTagValue[]) => void;
@@ -71,7 +71,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     value,
     defaultValue,
     onChange,
-    multiple,
+    mode,
 
     ...restProps
   } = props;
@@ -108,11 +108,18 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   const handleChange = (checked: boolean, option: CheckableTagOption<CheckableTagValue>) => {
     let newValue: CheckableTagValue | CheckableTagValue[] | null = null;
 
-    if (multiple) {
+    if (mode === 'multiple') {
       const valueList = (mergedValue || []) as CheckableTagValue[];
       newValue = checked
         ? [...valueList, option.value]
         : valueList.filter((item) => item !== option.value);
+    } else if (mode === 'radio') {
+      if (checked) {
+        newValue = option.value;
+      } else {
+        // Radio mode always have one value
+        return;
+      }
     } else {
       newValue = checked ? option.value : null;
     }
@@ -163,7 +170,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
           className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item)}
           style={mergedStyles.item}
           checked={
-            multiple
+            mode === 'multiple'
               ? ((mergedValue as CheckableTagValue[]) || []).includes(option.value)
               : mergedValue === option.value
           }
