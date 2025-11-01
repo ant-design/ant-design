@@ -82,9 +82,9 @@ describe('Alert.Semantic', () => {
     // Check merged styles
     expect(rootElement).toHaveStyle({
       margin: contextStyles.root?.margin,
-      padding: contextStyles.root?.padding,
+      padding: componentStyles.root?.padding,
     });
     expect(iconElement).toHaveStyle({ fontSize: contextStyles.icon?.fontSize });
-    expect(titleElement).toHaveStyle({ fontWeight: contextStyles.title?.fontWeight });
+    expect(titleElement).toHaveStyle({ fontWeight: componentStyles.title?.fontWeight });
   });
 });
