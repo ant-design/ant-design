@@ -97,6 +97,15 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const mergedPicker = picker || props.picker;
 
+      // https://github.com/ant-design/ant-design/issues/52473
+      const onInternalBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
+        const target = e.target as HTMLInputElement;
+        if (target.value === '' && (restProps as any).value) {
+          (restProps as any).onChange?.(null, '');
+        }
+        (restProps as any).onBlur?.(e);
+      };
+
       const rootPrefixCls = getPrefixCls();
 
       // ==================== Legacy =====================
@@ -184,6 +193,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             onCalendarChange={onInternalCalendarChange}
             {...additionalProps}
             {...restProps}
+            onBlur={onInternalBlur}
             locale={locale!.lang}
             className={cls(
               {
