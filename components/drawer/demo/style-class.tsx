@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Flex } from 'antd';
-import type { DrawerProps } from 'antd';
+import type { DrawerProps, FlexProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const lineStyle: React.CSSProperties = {
@@ -63,23 +63,25 @@ const App: React.FC = () => {
     size: 500,
   };
 
-  const footer: React.ReactNode = (
-    <Flex gap="middle" justify="flex-end">
-      <Button
-        onClick={() => setFnOpen(false)}
-        styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
-      >
-        Cancel
-      </Button>
-      <Button
-        type="primary"
-        styles={{ root: { backgroundColor: '#171717' } }}
-        onClick={() => setOpen(true)}
-      >
-        Submit
-      </Button>
-    </Flex>
-  );
+  const renderFooter = (config: FlexProps): React.ReactNode => {
+    return (
+      <Flex {...config}>
+        <Button
+          onClick={() => setFnOpen(false)}
+          styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
+        >
+          Cancel
+        </Button>
+        <Button
+          type="primary"
+          styles={{ root: { backgroundColor: '#171717' } }}
+          onClick={() => setOpen(true)}
+        >
+          Submit
+        </Button>
+      </Flex>
+    );
+  };
 
   return (
     <Flex gap="middle">
@@ -89,9 +91,17 @@ const App: React.FC = () => {
       </Button>
       <Drawer
         {...sharedProps}
-        footer={null}
+        placement="bottom"
+        closeIcon={null}
+        footer={renderFooter({ vertical: true, gap: 16 })}
+        size={450}
         title="Custom Style Drawer"
-        styles={styles}
+        styles={{
+          ...styles,
+          section: { borderRadius: '10px 10px 0 0', display: 'flex', alignItems: 'center' },
+          footer: { borderTop: 'none', width: 600 },
+          body: { width: 600, padding: 20 },
+        }}
         open={drawerOpen}
         onClose={() => setOpen(false)}
       >
@@ -99,7 +109,7 @@ const App: React.FC = () => {
       </Drawer>
       <Drawer
         {...sharedProps}
-        footer={footer}
+        footer={renderFooter({ gap: 'middle', justify: 'flex-end' })}
         title="Custom Function drawer"
         styles={stylesFn}
         mask={{ enabled: true, blur: true }}

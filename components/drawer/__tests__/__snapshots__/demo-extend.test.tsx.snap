@@ -4550,7 +4550,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     </span>
   </button>
   <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-bottom css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -4565,12 +4565,13 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width: 500px;"
+      style="height: 450px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
+        style="border-radius: 10px 10px 0 0; display: flex; align-items: center;"
       >
         <div
           class="ant-drawer-header"
@@ -4578,32 +4579,6 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
           <div
             class="ant-drawer-header-title"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              type="button"
-            >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
             <div
               class="ant-drawer-title"
             >
@@ -4613,6 +4588,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
         </div>
         <div
           class="ant-drawer-body"
+          style="width: 600px; padding: 20px;"
         >
           <div
             style="line-height: 28px;"
@@ -4648,6 +4624,34 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
             style="line-height: 28px;"
           >
             🎨 Powerful theme customization in every detail.
+          </div>
+        </div>
+        <div
+          class="ant-drawer-footer"
+          style="width: 600px;"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+            style="gap: 16px;"
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              style="border-color: rgb(204, 204, 204); color: rgb(23, 23, 23); background-color: rgb(255, 255, 255);"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              style="background-color: rgb(23, 23, 23);"
+              type="button"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
           </div>
         </div>
       </div>
