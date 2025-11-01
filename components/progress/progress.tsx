@@ -205,7 +205,22 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         {text}
       </span>
     );
-  }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
+  }, [
+    showInfo,
+    percent,
+    percentNumber,
+    progressStatus,
+    type,
+    prefixCls,
+    format,
+    isLineType,
+    strokeColorIsBright,
+    infoPosition,
+    infoAlign,
+    isPureLineType,
+    mergedClassNames.indicator,
+    mergedStyles.indicator,
+  ]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
