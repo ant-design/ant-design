@@ -1,4 +1,5 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 import Alert from '..';
 import type { AlertProps } from '..';
@@ -75,9 +76,9 @@ describe('Alert.Semantic', () => {
     const titleElement = document.querySelector<HTMLElement>('.ant-alert-title');
 
     // Check merged classNames
-    expect(rootElement).toHaveClass('context-root component-root');
-    expect(iconElement).toHaveClass('context-icon');
-    expect(titleElement).toHaveClass('component-title');
+    expect(rootElement).toHaveClass(clsx(contextClassNames.root, componentClassNames.root));
+    expect(iconElement).toHaveClass(contextClassNames.icon!);
+    expect(titleElement).toHaveClass(componentClassNames.title!);
 
     // Check merged styles
     expect(rootElement).toHaveStyle({
