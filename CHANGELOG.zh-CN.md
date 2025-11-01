@@ -172,6 +172,33 @@ tag: vVERSION
 - 🆕 ConfigProvider 支持 Result 组件的 `classNames` 和 `styles` 配置。[#52171](https://github.com/ant-design/ant-design/pull/52171) [@thinkasany](https://github.com/thinkasany)
 - 🚫 Modal `closable` 支持 `onClose` 属性以任意方式关闭时触发。[#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🛠 移除 Dropdown.Button，请使用 Space.Compact。[#53793](https://github.com/ant-design/ant-design/pull/53793) [@Meet-student](https://github.com/Meet-student)
+
+## 5.28.0
+
+`2025-11-01`
+
+- 🆕 Drawer 支持 `closable.placement` 属性，用于指定关闭按钮的位置。[#54067](https://github.com/ant-design/ant-design/pull/54067) [@davidhsing](https://github.com/davidhsing)
+- 🆕 Image 组件支持 `fallback` 全局配置。[#54702](https://github.com/ant-design/ant-design/pull/54702) [@Jiyur](https://github.com/Jiyur)
+- 🆕 QRCode 组件支持 `boostLevel` 属性。[#55063](https://github.com/ant-design/ant-design/pull/55063) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Splitter 支持 `onCollapse` 属性。[#54673](https://github.com/ant-design/ant-design/pull/54673) [@ug-hero](https://github.com/ug-hero)
+- 🆕 Statistic 设置为 `loading` 时默认展现动画效果。[#55398](https://github.com/ant-design/ant-design/pull/55398) [@afc163](https://github.com/afc163)
+- 🆕 TreeSelect 支持切换器图标的全局配置。[#54821](https://github.com/ant-design/ant-design/pull/54821) [@Jiyur](https://github.com/Jiyur)
+- Segmented
+  - 💄 Segmented 的主题变量 `itemSelectedBg` 支持背景渐变。[#55391](https://github.com/ant-design/ant-design/pull/55391) [@zancheng](https://github.com/zancheng)
+  - 🐞 修复 Segmented 切换动画总是从第一项移动闪烁的问题。[#55438](https://github.com/ant-design/ant-design/pull/55438) [@afc163](https://github.com/afc163)
+- 🐞 修复 Tree 和 Transfer 组件的 `disabled` 继承问题。[#54831](https://github.com/ant-design/ant-design/pull/54831) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- 🐞 修复 Tree.DirectoryTree 定义 `fieldNames` 时 `defaultExpandAll` 不生效的问题。[#55420](https://github.com/ant-design/ant-design/pull/55420) [@Wxh16144](https://github.com/Wxh16144)
+- Upload
+  - 🆕 Upload 组件 `customRequest` 参数中增加 `info.defaultRequest`。[#55146](https://github.com/ant-design/ant-design/pull/55146) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 💄 Upload 组件支持 `pictureCardSize` token。[#54756](https://github.com/ant-design/ant-design/pull/54756) [@wanpan11](https://github.com/wanpan11)
+- 💄 Notification 支持配置背景颜色的 token。[#54802](https://github.com/ant-design/ant-design/pull/54802) [@thinkasany](https://github.com/thinkasany)
+- 💄 Pagination 支持通过 `itemActiveColor` 和 `itemActiveColorHover` token 修改高亮项的文字颜色。[#55195](https://github.com/ant-design/ant-design/pull/55195) [@Renderz](https://github.com/Renderz)
+- 🐞 修复 Select、DatePicker、TreeSelect、Cascader 等组件 `suffixIcon` 配置值为 undefined 时没有默认后缀图标的问题。[#54790](https://github.com/ant-design/ant-design/pull/54790) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Mentions 组件没有继承外部 Form 的 `disabled` 的问题。[#54829](https://github.com/ant-design/ant-design/pull/54829) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Watermark 组件内包裹 Modal 使用 `modalRender` 会导致崩溃的问题。[#55435](https://github.com/ant-design/ant-design/pull/55435) [@ug-hero](https://github.com/ug-hero)
+- 🗑 Input 组件废弃 `addonAfter` 和 `addonBefore` 属性，使用 Space.Compact 替换。[#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🤖 Row 组件 `gutter` 属性支持 string 类型定义。[#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
+
 ## 5.27.6
 
 `2025-10-20`
@@ -206,7 +233,7 @@ tag: vVERSION
   - 🐞 修复 Table 在使 `sticky` 表头或设置 `scroll.y` 时，筛选下拉与 Tooltip 重复显示的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
   - 🐞 修复 Table 表头在首次加载时未正确渲染的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
   - 🐞 修复 Table 在启用 `scroll.x` 时，固定列的对齐问题。[#54899](https://github.com/ant-design/ant-design/pull/54899) [@afc163](https://github.com/afc163)
-- 🐞 修复 Button 仅图标（icon-only）按钮的内边距受主题影响的问题。 [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Button 仅图标（icon-only）按钮的内边距受主题影响的问题。[#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修复 Splitter 在非受控模式下初次挂载时，`minSize` 和 `maxSize` 未生效的问题。[#54939](https://github.com/ant-design/ant-design/pull/54939) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Switch 波纹效果与 Tailwind CSS disabled 变体的兼容性问题。[#54933](https://github.com/ant-design/ant-design/pull/54933)  [@Jiyur](https://github.com/Jiyur)
 - 🐞 修复 Input.Search 在搜索按钮为 `disabled` 时，悬停仍会导致边框和图标变色的问题。[#54892](https://github.com/ant-design/ant-design/pull/54892) [@Jiyur](https://github.com/Jiyur)
