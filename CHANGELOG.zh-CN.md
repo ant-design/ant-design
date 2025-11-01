@@ -15,18 +15,44 @@ tag: vVERSION
 
 ---
 
+## 5.28.0
+
+`2025-11-01`
+
+- 🆕 Drawer 支持 `closable.placement` 属性，用于指定关闭按钮的位置。[#54067](https://github.com/ant-design/ant-design/pull/54067) [@davidhsing](https://github.com/davidhsing)
+- 🆕 Image 组件支持 `fallback` 全局配置。[#54702](https://github.com/ant-design/ant-design/pull/54702) [@Jiyur](https://github.com/Jiyur)
+- 🆕 QRCode 组件支持 `boostLevel` 属性。[#55063](https://github.com/ant-design/ant-design/pull/55063) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Splitter 支持 `onCollapse` 属性。[#54673](https://github.com/ant-design/ant-design/pull/54673) [@ug-hero](https://github.com/ug-hero)
+- 🆕 Statistic 设置为 `loading` 时默认展现动画效果。[#55398](https://github.com/ant-design/ant-design/pull/55398) [@afc163](https://github.com/afc163)
+- 🆕 TreeSelect 支持切换器图标的全局配置。[#54821](https://github.com/ant-design/ant-design/pull/54821) [@Jiyur](https://github.com/Jiyur)
+- Segmented
+  - 💄 Segmented 的主题变量 `itemSelectedBg` 支持背景渐变。[#55391](https://github.com/ant-design/ant-design/pull/55391) [@zancheng](https://github.com/zancheng)
+  - 🐞 修复 Segmented 切换动画总是从第一项移动闪烁的问题。[#55438](https://github.com/ant-design/ant-design/pull/55438) [@afc163](https://github.com/afc163)
+- 🐞 修复 Tree 和 Transfer 组件的 `disabled` 继承问题。[#54831](https://github.com/ant-design/ant-design/pull/54831) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- 🐞 修复 Tree.DirectoryTree 定义 `fieldNames` 时 `defaultExpandAll` 不生效的问题。[#55420](https://github.com/ant-design/ant-design/pull/55420) [@Wxh16144](https://github.com/Wxh16144)
+- Upload
+  - 🆕 Upload 组件 `customRequest` 参数中增加 `info.defaultRequest`。[#55146](https://github.com/ant-design/ant-design/pull/55146) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 💄 Upload 组件支持 `pictureCardSize` token。[#54756](https://github.com/ant-design/ant-design/pull/54756) [@wanpan11](https://github.com/wanpan11)
+- 💄 Notification 支持配置背景颜色的 token。[#54802](https://github.com/ant-design/ant-design/pull/54802) [@thinkasany](https://github.com/thinkasany)
+- 💄 Pagination 支持通过 `itemActiveColor` 和 `itemActiveColorHover` token 修改高亮项的文字颜色。[#55195](https://github.com/ant-design/ant-design/pull/55195) [@Renderz](https://github.com/Renderz)
+- 🐞 修复 Select、DatePicker、TreeSelect、Cascader 等组件 `suffixIcon` 配置值为 undefined 时没有默认后缀图标的问题。[#54790](https://github.com/ant-design/ant-design/pull/54790) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Mentions 组件没有继承外部 Form 的 `disabled` 的问题。[#54829](https://github.com/ant-design/ant-design/pull/54829) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Watermark 组件内包裹 Modal 使用 `modalRender` 会导致崩溃的问题。[#55435](https://github.com/ant-design/ant-design/pull/55435) [@ug-hero](https://github.com/ug-hero)
+- 🗑 Input 组件废弃 `addonAfter` 和 `addonBefore` 属性，使用 Space.Compat 替换。[#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🤖 Row 组件 `gutter` 参数支持 string 类型定义。[#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
+
 ## 5.27.6
 
 `2025-10-20`
 
 - Table
-  - 🐞 修复 Table `pagination.align` 属性失效的问题。[#55316](https://github.com/ant-design/ant-design/pull/55316) 
-  - 🛠 补充 Table 中 spinProps 的 useMemo 缺失能力。[#55344](https://github.com/ant-design/ant-design/pull/55344) 
-- 🛠 重构 Modal 中 ConfirmDialog 的 useMemo，以解决 Object.values 生成新数组导致 useMemo 失效的问题。[#55376](https://github.com/ant-design/ant-design/pull/55376) 
+  - 🐞 修复 Table `pagination.align` 属性失效的问题。[#55316](https://github.com/ant-design/ant-design/pull/55316)
+  - 🛠 补充 Table 中 spinProps 的 useMemo 缺失能力。[#55344](https://github.com/ant-design/ant-design/pull/55344)
+- 🛠 重构 Modal 中 ConfirmDialog 的 useMemo，以解决 Object.values 生成新数组导致 useMemo 失效的问题。[#55376](https://github.com/ant-design/ant-design/pull/55376)
 - TypeScript
   - 🤖 补充 ConfigProvider `getTargetContainer` 中 `Window` 类型定义。[#55313](https://github.com/ant-design/ant-design/pull/55313)
   - 🤖 补充 ConfigProvider 的 `getTargetContainer` 和 `getPopupContainer` 中 `ShadowRoot` 类型定义。[#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
-  - 🤖 优化 Modal 中类型定义。[#55371](https://github.com/ant-design/ant-design/pull/55371) 
+  - 🤖 优化 Modal 中类型定义。[#55371](https://github.com/ant-design/ant-design/pull/55371)
 
 ## 5.27.5
 

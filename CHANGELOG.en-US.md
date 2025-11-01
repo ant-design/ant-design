@@ -15,18 +15,44 @@ tag: vVERSION
 
 ---
 
+## 5.28.0
+
+`2025-11-01`
+
+- 🆕 Drawer supports `closable.placement` prop to specify the position of the close button. [#54067](https://github.com/ant-design/ant-design/pull/54067) [@davidhsing](https://github.com/davidhsing)
+- 🆕 Image component supports `fallback` global configuration. [#54702](https://github.com/ant-design/ant-design/pull/54702) [@Jiyur](https://github.com/Jiyur)
+- 🆕 QRCode component supports `boostLevel` prop. [#55063](https://github.com/ant-design/ant-design/pull/55063) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Splitter supports `onCollapse` prop. [#54673](https://github.com/ant-design/ant-design/pull/54673) [@ug-hero](https://github.com/ug-hero)
+- 🆕 Statistic displays animation effect by default when set to `loading`. [#55398](https://github.com/ant-design/ant-design/pull/55398) [@afc163](https://github.com/afc163)
+- 🆕 TreeSelect supports global configuration for switcher icon. [#54821](https://github.com/ant-design/ant-design/pull/54821) [@Jiyur](https://github.com/Jiyur)
+- Segmented
+  - 💄 Segmented theme variable `itemSelectedBg` supports background gradient. [#55391](https://github.com/ant-design/ant-design/pull/55391) [@zancheng](https://github.com/zancheng)
+  - 🐞 Fix Segmented abnormal animation after React DevTools upgrade. [#55438](https://github.com/ant-design/ant-design/pull/55438) [@afc163](https://github.com/afc163)
+- 🐞 Fix Tree and Transfer components `disabled` inheritance issue. [#54831](https://github.com/ant-design/ant-design/pull/54831) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- 🐞 Fix Tree.DirectoryTree `defaultExpandAll` not working when `fieldNames` is defined. [#55420](https://github.com/ant-design/ant-design/pull/55420) [@Wxh16144](https://github.com/Wxh16144)
+- Upload
+  - 🆕 Upload component adds `info.defaultRequest` in `customRequest` parameters. [#55146](https://github.com/ant-design/ant-design/pull/55146) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 💄 Upload component supports `pictureCardSize` token. [#54756](https://github.com/ant-design/ant-design/pull/54756) [@wanpan11](https://github.com/wanpan11)
+- 💄 Notification supports configuring background color token. [#54802](https://github.com/ant-design/ant-design/pull/54802) [@thinkasany](https://github.com/thinkasany)
+- 💄 Pagination supports modifying the text color of active items through `itemActiveColor` and `itemActiveColorHover` tokens. [#55195](https://github.com/ant-design/ant-design/pull/55195) [@Renderz](https://github.com/Renderz)
+- 🐞 Fix Select, DatePicker, TreeSelect, Cascader and other components not showing default suffix icon when `suffixIcon` is configured as undefined. [#54790](https://github.com/ant-design/ant-design/pull/54790) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Mentions component not inheriting `disabled` from external Form. [#54829](https://github.com/ant-design/ant-design/pull/54829) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Watermark component crashing when wrapping Modal with `modalRender`. [#55435](https://github.com/ant-design/ant-design/pull/55435) [@ug-hero](https://github.com/ug-hero)
+- 🗑 Input component deprecates `addonAfter` and `addonBefore` props, use Space.Compat instead. [#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🤖 Row component `gutter` prop supports string type definition. [#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
+
 ## 5.27.6
 
 `2025-10-20`
 
 - Table
-  - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316) 
-  - 🛠 Add Table missing useMemo capability to spinProps.  [#55344](https://github.com/ant-design/ant-design/pull/55344) 
-- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376) 
+  - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316)
+  - 🛠 Add Table missing useMemo capability to spinProps. [[#55344](https://github.com/ant-design/ant-design/pull/55344)
+- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376)
 - TypeScript
   - 🤖 Add ConfigProvider the `Window` type definition in `getTargetContainer` of . [#55313](https://github.com/ant-design/ant-design/pull/55313)
   - 🤖 Add ConfigProvider the `ShadowRoot` type definition in `getTargetContainer` and `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)
-  - 🤖 Improve Modal type definition. [#55371](https://github.com/ant-design/ant-design/pull/55371) 
+  - 🤖 Improve Modal type definition. [#55371](https://github.com/ant-design/ant-design/pull/55371)
 
 ## 5.27.5
 
