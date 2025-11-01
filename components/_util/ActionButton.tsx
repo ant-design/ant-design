@@ -99,7 +99,14 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     }
     let returnValueOfOnOk: PromiseLike<any>;
     if (emitEvent) {
-      returnValueOfOnOk = actionFn(e);
+      // if actionFn has been throw error, just reset clickedRef
+      try {
+        returnValueOfOnOk = actionFn(e);
+      } catch {
+        clickedRef.current = false;
+        return;
+      }
+
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
         onInternalClose(e);
