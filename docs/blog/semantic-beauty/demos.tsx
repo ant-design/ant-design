@@ -9,22 +9,8 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalDrawer } = Drawer;
 
 const SwitchNode = (
   <Flex orientation="horizontal" gap="middle">
-    <Switch
-      styles={{
-        root: {
-          width: 40,
-          backgroundColor: '#F5D2D2',
-        },
-      }}
-    />
-    <Switch
-      styles={{
-        root: {
-          width: 40,
-          backgroundColor: '#BDE3C3',
-        },
-      }}
-    />
+    <Switch styles={{ root: { width: 40, backgroundColor: '#F5D2D2' } }} />
+    <Switch styles={{ root: { width: 40, backgroundColor: '#BDE3C3' } }} />
   </Flex>
 );
 
@@ -45,23 +31,10 @@ const ModalNode = (
     width={400}
     title="Custom Function Modal"
     styles={{
-      container: {
-        borderRadius: 14,
-        border: '1px solid #ccc',
-        padding: 0,
-        overflow: 'hidden',
-      },
-      header: {
-        padding: 16,
-        margin: 0,
-      },
-      body: {
-        padding: '0 16px',
-      },
-      footer: {
-        padding: 10,
-        backgroundColor: '#fafafa',
-      },
+      container: { borderRadius: 14, border: '1px solid #ccc', padding: 0, overflow: 'hidden' },
+      header: { padding: 16, margin: 0 },
+      body: { padding: '0 16px' },
+      footer: { padding: 10, backgroundColor: '#fafafa' },
     }}
   >
     <div>
@@ -74,29 +47,16 @@ const ModalNode = (
 const DrawerNode = (
   <InternalDrawer
     title="Drawer"
-    style={{
-      height: '100%',
-      borderRadius: '10px 0 0 10px',
-      overflow: 'hidden',
-    }}
+    style={{ height: '100%', borderRadius: '10px 0 0 10px', overflow: 'hidden' }}
     styles={{
-      header: {
-        padding: 16,
-      },
-      body: {
-        padding: 16,
-      },
-      footer: {
-        padding: '16px 10px',
-        backgroundColor: '#fafafa',
-      },
+      header: { padding: 16 },
+      body: { padding: 16 },
+      footer: { padding: '16px 10px', backgroundColor: '#fafafa' },
     }}
     footer={
       <Flex gap="middle" justify="flex-end">
         <Button
-          styles={{
-            root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' },
-          }}
+          styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
         >
           Cancel
         </Button>
@@ -113,12 +73,13 @@ const DrawerNode = (
   </InternalDrawer>
 );
 
-const h1Style = {
+const h1Style: React.CSSProperties = {
   fontSize: 20,
   lineHeight: 2,
   fontWeight: 'bold',
 };
-export default () => {
+
+const Demo: React.FC = () => {
   return (
     <Flex orientation="horizontal" gap="middle" style={{ padding: 10 }}>
       <div>
@@ -137,3 +98,5 @@ export default () => {
     </Flex>
   );
 };
+
+export default Demo;

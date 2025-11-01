@@ -1,7 +1,7 @@
 ---
 title: Discover the Delicate Beauty of Components with Semantic Design
-date: 2025-10-31
-author: meet-student,thinkasany
+date: 2025-11-03
+author: meet-student, thinkasany
 ---
 
 Before Ant Design v6, the experience of customizing styles based on open tokens was already great, but there were still some pain points that were difficult to solve. Ant Design v6 made many changes and improvements to address this. Today, let’s talk about how semantic design helps you discover the delicate beauty of components.
@@ -24,23 +24,17 @@ The code might look like this
   Submit
 </Button>
 
-<Modal wrapClassName="wrap-class" style={{
-  backgroundColor: '#fff'
-}}>
+<Modal wrapClassName="wrap-class" style={{ backgroundColor: "#fff" }}>
   Modal
 </Modal>
 
-<Menu
-  style={{
-    backgroundColor: mode === 'horizontal' ? '#fff' : '#000'
-  }}>
+<Menu style={{ backgroundColor: mode === 'horizontal' ? '#fff' : '#000' }}>
   <Menu.SubMenu popupClassName="popup-class">
     <Menu.Item >
       MenuItem
     </Menu.Item>
   </Menu.SubMenu>
 </Menu>
-
 ```
 
 ### Method 2 (ConfigProvider)
@@ -107,17 +101,14 @@ const styles: ButtonProps['styles'] = {
   icon: { opacity: 0.85 },
 };
 
-<Button styles={styles} classNames={classNamesFn}>
-  Button
-</Button>;
+return (
+  <Button styles={styles} classNames={classNamesFn}>
+    Button
+  </Button>
+);
 ```
 
-<video src="https://github-production-user-asset-6210df.s3.amazonaws.com/59312002/508546689-0df4b356-209b-42d1-907e-c253d5b7220d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251101T132121Z&X-Amz-Expires=300&X-Amz-Signature=3d66c73eb40fd31661188230d19384afa9fcf698002710f27033d54af7481d8a&X-Amz-SignedHeaders=host"
-  autoplay
-  muted
-  loop
-  playsinline
-  controls ></video>
+<video src="https://github-production-user-asset-6210df.s3.amazonaws.com/59312002/508546689-0df4b356-209b-42d1-907e-c253d5b7220d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251101T132121Z&X-Amz-Expires=300&X-Amz-Signature=3d66c73eb40fd31661188230d19384afa9fcf698002710f27033d54af7481d8a&X-Amz-SignedHeaders=host" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
 
 ## Discover the Delicate Beauty of Components
 
@@ -125,4 +116,4 @@ Users can give components refined designs for different states based on their pr
 
 ---
 
-<code src="./semantic-beauty/demos.tsx" simplify="true"  iframe="430" ></code>
+<code src="./semantic-beauty/demos.tsx" simplify="true" iframe="430"></code>
