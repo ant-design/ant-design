@@ -56,6 +56,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
+| closable | Whether to show a close button. The position can be configured with `placement` | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true |  placement: 5.28.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 |
