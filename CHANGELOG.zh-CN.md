@@ -45,9 +45,7 @@ tag: vVERSION
 
 `2025-10-20`
 
-- Table
-  - 🐞 修复 Table `pagination.align` 属性失效的问题。[#55316](https://github.com/ant-design/ant-design/pull/55316)
-  - 🛠 补充 Table 中 spinProps 的 useMemo 缺失能力。[#55344](https://github.com/ant-design/ant-design/pull/55344)
+- 🐞 修复 Table `pagination.align` 属性失效的问题。[#55316](https://github.com/ant-design/ant-design/pull/55316)
 - 🛠 重构 Modal 中 ConfirmDialog 的 useMemo，以解决 Object.values 生成新数组导致 useMemo 失效的问题。[#55376](https://github.com/ant-design/ant-design/pull/55376)
 - TypeScript
   - 🤖 补充 ConfigProvider `getTargetContainer` 中 `Window` 类型定义。[#55313](https://github.com/ant-design/ant-design/pull/55313)
