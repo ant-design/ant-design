@@ -59,6 +59,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     direction,
     requiredMark: contextRequiredMark,
     colon: contextColon,
+    labelAlign: contextLabelAlign,
     scrollToFirstError: contextScrollToFirstError,
     className: contextClassName,
     style: contextStyle,
@@ -116,6 +117,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   }, [hideRequiredMark, requiredMark, contextRequiredMark]);
 
   const mergedColon = colon ?? contextColon;
+  const mergedLabelAlign = labelAlign ?? contextLabelAlign;
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -146,7 +148,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
-      labelAlign,
+      labelAlign: mergedLabelAlign,
       labelCol,
       labelWrap,
       wrapperCol,
@@ -159,7 +161,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     }),
     [
       name,
-      labelAlign,
+      mergedLabelAlign,
       labelCol,
       wrapperCol,
       layout,
