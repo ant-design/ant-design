@@ -11,7 +11,7 @@ const useStyles = createStyles(({ token, css }) => ({
   fnRoot: css`
     border-radius: ${token.borderRadius};
     width: 300px;
-    &:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner,
+    &:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox.ant-wave-target .ant-checkbox-inner,
     .ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
       border-color: lab(7.78201% -0.0000149012 0);
       background-color: lab(7.78201% -0.0000149012 0);

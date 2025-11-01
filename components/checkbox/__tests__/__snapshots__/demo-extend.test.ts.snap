@@ -998,7 +998,7 @@ exports[`renders components/checkbox/demo/style-class.tsx extend context correct
     </span>
   </label>
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked acss-5ai7uz css-var-test-id ant-checkbox-css-var"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked acss-1n300ok css-var-test-id ant-checkbox-css-var"
     style="padding: 8px; border-radius: 4px;"
   >
     <span
