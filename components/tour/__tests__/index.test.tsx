@@ -720,19 +720,19 @@ describe('Tour', () => {
       root: 'custom-root',
     };
     const customStyles = {
-      mask: { color: 'white' },
-      actions: { color: 'blue' },
+      mask: { color: 'rgb(255, 255, 255)' },
+      actions: { color: 'rgb(0, 0, 255)' },
       title: { fontSize: '20px' },
-      header: { backgroundColor: 'gray' },
+      header: { backgroundColor: 'rgb(128, 128, 128)' },
       section: { margin: '5px' },
-      footer: { borderTop: '1px solid black' },
+      footer: { borderTop: '1px solid rgb(0, 0, 0)' },
       description: { fontStyle: 'italic' },
-      cover: { color: 'red' },
-      indicator: { color: 'green' },
-      indicators: { color: 'yellow' },
-      root: { backgroundColor: 'yellow' },
+      cover: { color: 'rgb(255, 0, 0)' },
+      indicator: { color: 'rgb(0, 128, 0)' },
+      indicators: { color: 'rgb(255, 255, 0)' },
+      root: { backgroundColor: 'rgb(255, 200, 255)' },
     };
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const btnRef = useRef<HTMLButtonElement>(null);
       return (
         <div style={{ margin: 20 }}>
@@ -780,35 +780,38 @@ describe('Tour', () => {
     const rootElement = document.querySelector<HTMLElement>('.ant-tour-mask');
 
     // check classNames
-    expect(maskElement).toHaveClass('custom-mask');
-    expect(actionsElement).toHaveClass('custom-actions');
-    expect(titleElement).toHaveClass('custom-title');
-    expect(headerElement).toHaveClass('custom-header');
-    expect(sectionElement).toHaveClass('custom-section');
-    expect(footerElement).toHaveClass('custom-footer');
-    expect(descriptionElement).toHaveClass('custom-description');
-    expect(coverElement).toHaveClass('custom-cover');
-    expect(indicatorElement).toHaveClass('custom-indicator');
-    expect(indicatorsElement).toHaveClass('custom-indicators');
-    expect(rootElement).toHaveClass('custom-root');
+    expect(maskElement).toHaveClass(customClassnames.mask);
+    expect(actionsElement).toHaveClass(customClassnames.actions);
+    expect(titleElement).toHaveClass(customClassnames.title);
+    expect(headerElement).toHaveClass(customClassnames.header);
+    expect(sectionElement).toHaveClass(customClassnames.section);
+    expect(footerElement).toHaveClass(customClassnames.footer);
+    expect(descriptionElement).toHaveClass(customClassnames.description);
+    expect(coverElement).toHaveClass(customClassnames.cover);
+    expect(indicatorElement).toHaveClass(customClassnames.indicator);
+    expect(indicatorsElement).toHaveClass(customClassnames.indicators);
+    expect(rootElement).toHaveClass(customClassnames.root);
 
     // check styles
-    expect(maskElement).toHaveStyle({ color: 'white' });
-    expect(actionsElement).toHaveStyle({ color: 'blue' });
-    expect(titleElement).toHaveStyle({ fontSize: '20px' });
-    expect(headerElement).toHaveStyle({ backgroundColor: 'gray' });
-    expect(sectionElement).toHaveStyle({ margin: '5px' });
-    expect(footerElement).toHaveStyle({ borderTop: '1px solid black' });
-    expect(descriptionElement).toHaveStyle({ fontStyle: 'italic' });
-    expect(coverElement).toHaveStyle({ color: 'red' });
-    expect(indicatorElement).toHaveStyle({ color: 'green' });
-    expect(indicatorsElement).toHaveStyle({ color: 'yellow' });
-    expect(rootElement).toHaveStyle({ backgroundColor: 'yellow' });
+    expect(maskElement).toHaveStyle({ color: customStyles.mask.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions.color });
+    expect(titleElement).toHaveStyle({ fontSize: customStyles.title.fontSize });
+    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header.backgroundColor });
+    expect(sectionElement).toHaveStyle({ margin: customStyles.section.margin });
+    expect(footerElement).toHaveStyle({ borderTop: customStyles.footer.borderTop });
+    expect(descriptionElement).toHaveStyle({ fontStyle: customStyles.description.fontStyle });
+    expect(coverElement).toHaveStyle({ color: customStyles.cover.color });
+    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator.color });
+    expect(indicatorsElement).toHaveStyle({ color: customStyles.indicators.color });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
   });
 
   it('default aria-label', () => {
     const { container } = render(<Tour open steps={[{ title: 'test', description: 'test' }]} />);
-    expect(container.querySelector('.ant-tour-close')).toHaveAttribute('aria-label', 'Close');
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+      'aria-label',
+      'Close',
+    );
   });
 
   it('custom aria-label', () => {
@@ -816,17 +819,12 @@ describe('Tour', () => {
       <Tour
         open
         steps={[
-          {
-            title: 'test',
-            description: 'test',
-            closable: {
-              'aria-label': 'Custom Close Button',
-            },
-          },
+          { title: 'test', description: 'test', closable: { 'aria-label': 'Custom Close Button' } },
         ]}
       />,
     );
-    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe(
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+      'aria-label',
       'Custom Close Button',
     );
   });

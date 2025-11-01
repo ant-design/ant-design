@@ -11,8 +11,7 @@ describe('Typography keep prefixCls', () => {
           test prefixCls
         </Base>,
       );
-      expect(wrapper.firstChild).toHaveClass('custom-prefixCls');
-      expect(wrapper.firstChild).toHaveClass('custom-class');
+      expect(wrapper.firstChild).toHaveClass('custom-prefixCls custom-class');
     });
   });
 });
