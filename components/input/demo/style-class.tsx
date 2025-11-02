@@ -17,8 +17,9 @@ const useStyles = createStyles(({ css, token }) => ({
       border: 1px solid #d9d9d9;
     }
     &:focus-visible {
-      border-color: lab(66.128% 0 0);
-      box-shadow: 0 0 0 3px color-mix(in oklab, lab(66.128% 0 0) 50%, transparent);
+      border-color: lab(66.128% -0.0000298023 0.0000119209);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, lab(66.128% -0.0000298023 0.0000119209) 50%, transparent);
     }
   `,
 }));
@@ -45,7 +46,7 @@ const stylesFn: InputProps['styles'] = (info) => {
 const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
   if (info.props.showCount) {
     return {
-      root: { borderColor: '#BDE3C3', resize: 'none' },
+      root: { borderColor: '#BDE3C3' },
       count: { color: '#BDE3C3' },
     } satisfies TextAreaProps['styles'];
   }

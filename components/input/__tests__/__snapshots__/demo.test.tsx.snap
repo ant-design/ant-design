@@ -5324,7 +5324,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0 acss-sk517y"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0 acss-j97825"
     placeholder="Object"
     type="text"
     value=""
@@ -5339,10 +5339,11 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
   <span
     class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0"
     data-count="8"
-    style="border-color:#BDE3C3"
+    style="border-color:#BDE3C3;resize:none"
   >
     <textarea
       class="ant-input"
+      style="resize:none"
     >
       TextArea
     </textarea>
