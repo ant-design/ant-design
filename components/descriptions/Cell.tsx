@@ -49,6 +49,9 @@ const Cell: React.FC<CellProps> = (props) => {
   const descContext = React.useContext(DescriptionsContext);
   const { classNames: descriptionsClassNames } = descContext;
 
+  const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...styles?.label };
+  const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...styles?.content };
+
   if (bordered) {
     return (
       <Component
@@ -64,10 +67,8 @@ const Cell: React.FC<CellProps> = (props) => {
         style={style}
         colSpan={span}
       >
-        {isNonNullable(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {isNonNullable(content) && (
-          <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>
-        )}
+        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
@@ -84,7 +85,7 @@ const Cell: React.FC<CellProps> = (props) => {
             className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
-            style={{ ...labelStyle, ...styles?.label }}
+            style={mergedLabelStyle}
           >
             {label}
           </span>
@@ -92,7 +93,7 @@ const Cell: React.FC<CellProps> = (props) => {
         {isNonNullable(content) && (
           <span
             className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
-            style={{ ...contentStyle, ...styles?.content }}
+            style={mergedContentStyle}
           >
             {content}
           </span>
