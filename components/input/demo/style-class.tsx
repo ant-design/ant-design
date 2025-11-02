@@ -17,9 +17,8 @@ const useStyles = createStyles(({ css, token }) => ({
       border: 1px solid #d9d9d9;
     }
     &:focus-visible {
-      border-color: lab(66.128% -0.0000298023 0.0000119209);
-      box-shadow: 0 0 0 3px
-        color-mix(in oklab, lab(66.128% -0.0000298023 0.0000119209) 50%, transparent);
+      border-color: lab(66.128% 0 0);
+      box-shadow: 0 0 0 3px color-mix(in oklab, lab(66.128% 0 0) 50%, transparent);
     }
   `,
 }));
@@ -47,6 +46,7 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
   if (info.props.showCount) {
     return {
       root: { borderColor: '#BDE3C3' },
+      textarea: { resize: 'none' }, // TODO: textarea style 目前不起作用，需要修复
       count: { color: '#BDE3C3' },
     } satisfies TextAreaProps['styles'];
   }
@@ -100,12 +100,37 @@ const App: React.FC = () => {
       <Input
         classNames={{ root: clsx(classNames.root, classNames.focusEffect) }}
         placeholder="Object"
+        name="input-object"
       />
-      <Input classNames={classNames} styles={stylesFn} placeholder="Function" size="middle" />
-      <TextArea classNames={classNames} styles={stylesFnTextArea} value="TextArea" showCount />
-      <Password classNames={classNames} styles={stylesFnPassword} value="Password" size="middle" />
+      <Input
+        classNames={classNames}
+        styles={stylesFn}
+        placeholder="Function"
+        size="middle"
+        name="input-fn"
+      />
+      <TextArea
+        classNames={classNames}
+        styles={stylesFnTextArea}
+        value="TextArea"
+        showCount
+        name="textarea-fn"
+      />
+      <Password
+        classNames={classNames}
+        styles={stylesFnPassword}
+        value="Password"
+        size="middle"
+        name="password-fn"
+      />
       <OTP classNames={classNames} styles={stylesFnOTP} size="middle" length={6} separator="*" />
-      <Search classNames={classNames} styles={stylesFnSearch} size="large" placeholder="Search" />
+      <Search
+        classNames={classNames}
+        styles={stylesFnSearch}
+        size="large"
+        placeholder="Search"
+        name="search-fn"
+      />
     </Flex>
   );
 };
