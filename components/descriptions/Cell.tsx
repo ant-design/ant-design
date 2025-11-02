@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
+
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
@@ -64,7 +65,9 @@ const Cell: React.FC<CellProps> = (props) => {
         colSpan={span}
       >
         {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
+        {notEmpty(content) && (
+          <span style={{ ...contentStyle, ...styles?.content }}>{content}</span>
+        )}
       </Component>
     );
   }
