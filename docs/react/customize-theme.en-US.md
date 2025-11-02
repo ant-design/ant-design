@@ -442,7 +442,7 @@ const theme = {
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |  |
 | cssVar | CSS Variables Configuration, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |  |
 | hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |  |
-| zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional styles | boolean | true | 6.0.0 |
+| zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file | boolean | true | 6.0.0 |
 
 ### ComponentsConfig
 
