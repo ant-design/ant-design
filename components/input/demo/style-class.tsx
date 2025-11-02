@@ -2,23 +2,19 @@ import React from 'react';
 import { Flex, Input } from 'antd';
 import type { GetProps } from 'antd';
 import { createStyles } from 'antd-style';
-import { clsx } from 'clsx';
 
-const useStyles = createStyles(({ css, token }) => ({
-  root: {
-    width: 300,
-    marginBottom: 10,
-  },
+const useStyles = createStyles(({ css, cssVar }) => ({
   focusEffect: css`
-    border-width: ${token.lineWidth}px;
-    border-radius: 6px;
-    transition: box-shadow ${token.motionDurationMid};
+    width: 300px;
+    border-width: ${cssVar.lineWidth};
+    border-radius: ${cssVar.borderRadius};
+    transition: box-shadow ${cssVar.motionDurationMid};
     &:hover {
       border: 1px solid #d9d9d9;
     }
     &:focus-visible {
       border-color: lab(66.128% 0 0);
-      box-shadow: 0 0 0 3px color-mix(in oklab, lab(66.128% 0 0) 50%, transparent);
+      box-shadow: 0 0 0 4px color-mix(in oklab, lab(66.128% 0 0) 50%, transparent);
     }
   `,
 }));
@@ -96,9 +92,9 @@ const stylesFnSearch: SearchProps['styles'] = (info) => {
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="large">
       <Input
-        classNames={{ root: clsx(classNames.root, classNames.focusEffect) }}
+        classNames={{ root: classNames.focusEffect }}
         placeholder="Object"
         name="input-object"
       />
