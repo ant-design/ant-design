@@ -79,7 +79,7 @@ const Cell: React.FC<CellProps> = (props) => {
       colSpan={span}
     >
       <div className={`${itemPrefixCls}-item-container`}>
-        {(label || label === 0) && (
+        {isNonNullable(label) && (
           <span
             className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
@@ -89,7 +89,7 @@ const Cell: React.FC<CellProps> = (props) => {
             {label}
           </span>
         )}
-        {(content || content === 0) && (
+        {isNonNullable(content) && (
           <span
             className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
             style={{ ...contentStyle, ...styles?.content }}
