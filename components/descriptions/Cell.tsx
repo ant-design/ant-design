@@ -69,7 +69,8 @@ const Cell: React.FC<CellProps> = (props) => {
         style={style}
         className={clsx(className, {
           [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
-          [mergedClassNames[type as SemanticName]!]: type === 'label' || type === 'content',
+          [mergedClassNames.label!]: mergedClassNames.label && type === 'label',
+          [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
         })}
       >
         {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
