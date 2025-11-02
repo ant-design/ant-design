@@ -1,12 +1,13 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
+
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
-function notEmpty(val: any) {
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
   return val !== undefined && val !== null;
-}
+};
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -45,51 +46,50 @@ const Cell: React.FC<CellProps> = (props) => {
   } = props;
 
   const Component = component as keyof JSX.IntrinsicElements;
-  const descContext = React.useContext(DescriptionsContext);
-  const { classNames: descriptionsClassNames } = descContext;
+
+  const { classNames: ctxClassNames } = React.useContext(DescriptionsContext);
+
+  const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...styles?.label };
+  const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...styles?.content };
 
   if (bordered) {
     return (
       <Component
-        className={classNames(
-          {
-            [`${itemPrefixCls}-item-label`]: type === 'label',
-            [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
-          },
-          className,
-        )}
-        style={style}
         colSpan={span}
+        style={style}
+        className={classnames(className, {
+          [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
+          [ctxClassNames?.label!]: ctxClassNames?.label && type === 'label',
+          [ctxClassNames?.content!]: ctxClassNames?.content && type === 'content',
+        })}
       >
-        {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
+        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
 
   return (
     <Component
-      className={classNames(`${itemPrefixCls}-item`, className)}
-      style={style}
       colSpan={span}
+      style={style}
+      className={classnames(`${itemPrefixCls}-item`, className)}
     >
       <div className={`${itemPrefixCls}-item-container`}>
-        {(label || label === 0) && (
+        {isNonNullable(label) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
+            style={mergedLabelStyle}
+            className={classnames(`${itemPrefixCls}-item-label`, ctxClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
-            style={{ ...labelStyle, ...styles?.label }}
           >
             {label}
           </span>
         )}
-        {(content || content === 0) && (
+        {isNonNullable(content) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
-            style={{ ...contentStyle, ...styles?.content }}
+            style={mergedContentStyle}
+            className={classnames(`${itemPrefixCls}-item-content`, ctxClassNames?.content)}
           >
             {content}
           </span>
