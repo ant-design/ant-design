@@ -5,9 +5,9 @@ import classNames from 'classnames';
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
-function notEmpty(val: any) {
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
   return val !== undefined && val !== null;
-}
+};
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -57,18 +57,17 @@ const Cell: React.FC<CellProps> = (props) => {
       <Component
         className={classNames(
           {
-            [`${itemPrefixCls}-item-label`]: type === 'label',
-            [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
+            [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
+            [`${descriptionsClassNames?.label}`]: descriptionsClassNames && type === 'label',
+            [`${descriptionsClassNames?.content}`]: descriptionsClassNames && type === 'content',
           },
           className,
         )}
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) && <span style={mergedLabelStyle}>{label}</span>}
-        {notEmpty(content) && <span style={mergedContentStyle}>{content}</span>}
+        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
@@ -80,7 +79,7 @@ const Cell: React.FC<CellProps> = (props) => {
       colSpan={span}
     >
       <div className={`${itemPrefixCls}-item-container`}>
-        {(label || label === 0) && (
+        {isNonNullable(label) && (
           <span
             className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
@@ -90,7 +89,7 @@ const Cell: React.FC<CellProps> = (props) => {
             {label}
           </span>
         )}
-        {(content || content === 0) && (
+        {isNonNullable(content) && (
           <span
             className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
             style={mergedContentStyle}
