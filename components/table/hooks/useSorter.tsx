@@ -202,7 +202,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
             ) {
               return (
                 <div
-                  className={classNames(
+                  className={clsx(
                     columnSortersClass,
                     `${columnSortersClass}-tooltip-target-sorter`,
                   )}
