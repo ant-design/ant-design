@@ -4,10 +4,6 @@ import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
 import type { SorterResult } from 'antd/es/table/interface';
 
-const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
-  return val !== undefined && val !== null;
-};
-
 type ColumnsType<T extends object = object> = TableProps<T>['columns'];
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
@@ -66,7 +62,7 @@ const getRandomuserParams = (params: TableParams) => {
   // https://github.com/mockapi-io/docs/wiki/Code-examples#filtering
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
-      if (isNonNullable(value)) {
+      if (value !== undefined && value !== null) {
         result[key] = value;
       }
     });
@@ -80,7 +76,7 @@ const getRandomuserParams = (params: TableParams) => {
 
   // 处理其他参数
   Object.entries(restParams).forEach(([key, value]) => {
-    if (isNonNullable(value)) {
+    if (value !== undefined && value !== null) {
       result[key] = value;
     }
   });

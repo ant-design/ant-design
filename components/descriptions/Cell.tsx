@@ -57,10 +57,9 @@ const Cell: React.FC<CellProps> = (props) => {
       <Component
         className={classNames(
           {
-            [`${itemPrefixCls}-item-label`]: type === 'label',
-            [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
+            [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
+            [`${descriptionsClassNames?.label}`]: descriptionsClassNames && type === 'label',
+            [`${descriptionsClassNames?.content}`]: descriptionsClassNames && type === 'content',
           },
           className,
         )}
