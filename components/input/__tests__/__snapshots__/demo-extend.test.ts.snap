@@ -12012,28 +12012,31 @@ exports[`renders components/input/demo/status.tsx extend context correctly 2`] =
 
 exports[`renders components/input/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
 >
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0 acss-sk517y"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-809hvh"
+    name="input-object"
     placeholder="Object"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+    name="input-fn"
     placeholder="Function"
     style="border-color: rgb(105, 111, 199);"
     type="text"
     value=""
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var acss-14o0sn0"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
     data-count="8"
     style="border-color: rgb(189, 227, 195);"
   >
     <textarea
       class="ant-input"
+      name="textarea-fn"
     >
       TextArea
     </textarea>
@@ -12049,11 +12052,12 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var acss-14o0sn0"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var"
     style="border-color: rgb(245, 211, 196);"
   >
     <input
       class="ant-input"
+      name="password-fn"
       type="password"
       value="Password"
     />
@@ -12086,7 +12090,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </span>
   <div
-    class="ant-otp css-var-test-id acss-14o0sn0"
+    class="ant-otp css-var-test-id"
     role="group"
   >
     <span
@@ -12194,7 +12198,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </div>
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large acss-14o0sn0 css-var-test-id ant-input-css-var acss-14o0sn0"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large css-var-test-id ant-input-css-var"
     style="color: rgb(77, 168, 218);"
   >
     <span
@@ -12202,6 +12206,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     >
       <input
         class="ant-input ant-input-lg ant-input-outlined"
+        name="search-fn"
         placeholder="Search"
         style="color: rgb(77, 168, 218); border-color: rgb(77, 168, 218);"
         type="search"
