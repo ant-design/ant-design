@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
+
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
@@ -48,6 +49,9 @@ const Cell: React.FC<CellProps> = (props) => {
   const descContext = React.useContext(DescriptionsContext);
   const { classNames: descriptionsClassNames } = descContext;
 
+  const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...styles?.label };
+  const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...styles?.content };
+
   if (bordered) {
     return (
       <Component
@@ -63,8 +67,8 @@ const Cell: React.FC<CellProps> = (props) => {
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
+        {notEmpty(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {notEmpty(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
@@ -81,7 +85,7 @@ const Cell: React.FC<CellProps> = (props) => {
             className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
-            style={{ ...labelStyle, ...styles?.label }}
+            style={mergedLabelStyle}
           >
             {label}
           </span>
@@ -89,7 +93,7 @@ const Cell: React.FC<CellProps> = (props) => {
         {(content || content === 0) && (
           <span
             className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
-            style={{ ...contentStyle, ...styles?.content }}
+            style={mergedContentStyle}
           >
             {content}
           </span>
