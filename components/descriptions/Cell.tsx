@@ -1,12 +1,13 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
+
 import DescriptionsContext from './DescriptionsContext';
 import type { SemanticName } from './DescriptionsContext';
 
-function notEmpty(val: any) {
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
   return val !== undefined && val !== null;
-}
+};
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -63,8 +64,10 @@ const Cell: React.FC<CellProps> = (props) => {
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
+        {isNonNullable(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
+        {isNonNullable(content) && (
+          <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>
+        )}
       </Component>
     );
   }
