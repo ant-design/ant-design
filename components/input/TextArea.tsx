@@ -188,7 +188,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         contextClassName,
         mergedClassNames.root,
         // Only for wrapper
-        resizeDirty && `${prefixCls}-textarea-affix-wrapper-resize-dirty`,
+        {
+          [`${prefixCls}-textarea-affix-wrapper-resize-dirty`]: resizeDirty,
+        },
       )}
       classNames={{
         ...mergedClassNames,
