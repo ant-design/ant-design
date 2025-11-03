@@ -16268,7 +16268,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider 1`] = `
 <div
-  class="config-input-number config-input-number-outlined css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-outlined config-input-number-type-input css-var-root config-input-number-css-var"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16344,7 +16344,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-outlined css-var-root config-input-number-css-var config-input-number-disabled"
+  class="config-input-number config-input-number-outlined config-input-number-type-input css-var-root config-input-number-css-var config-input-number-disabled"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16421,7 +16421,7 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
 
 exports[`ConfigProvider components InputNumber configProvider componentSize large 1`] = `
 <div
-  class="config-input-number config-input-number-lg config-input-number-outlined css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-lg config-input-number-outlined config-input-number-type-input css-var-root config-input-number-css-var"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16497,7 +16497,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
 
 exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
 <div
-  class="config-input-number config-input-number-outlined css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-outlined config-input-number-type-input css-var-root config-input-number-css-var"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16573,7 +16573,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
 
 exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
 <div
-  class="config-input-number config-input-number-sm config-input-number-outlined css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-sm config-input-number-outlined config-input-number-type-input css-var-root config-input-number-css-var"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16649,7 +16649,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
 
 exports[`ConfigProvider components InputNumber normal 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-outlined ant-input-number-type-input css-var-root ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -16725,7 +16725,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
 
 exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 <div
-  class="prefix-InputNumber prefix-InputNumber-outlined css-var-root prefix-InputNumber-css-var"
+  class="prefix-InputNumber prefix-InputNumber-outlined prefix-InputNumber-type-input css-var-root prefix-InputNumber-css-var"
 >
   <div
     class="prefix-InputNumber-handler-wrap"

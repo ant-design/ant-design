@@ -4872,7 +4872,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-disabled"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -5549,7 +5549,7 @@ Array [
                             </span>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-disabled"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-disabled"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -10933,7 +10933,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -11875,7 +11875,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var"
+              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
               style="width: 100%;"
             >
               <div
@@ -14139,7 +14139,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -22747,7 +22747,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -23376,7 +23376,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -24890,7 +24890,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                         >
                           <div
                             class="ant-input-number-handler-wrap"
@@ -31252,7 +31252,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback css-var-test-id ant-input-number-css-var"
+              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback ant-input-number-type-input css-var-test-id ant-input-number-css-var"
               style="width: 100%;"
             >
               <div
@@ -32516,7 +32516,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled ant-input-number-type-input css-var-test-id ant-input-number-css-var"
               style="width: 100%;"
             >
               <div
@@ -35152,7 +35152,7 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
