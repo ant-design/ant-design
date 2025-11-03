@@ -138,6 +138,19 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ? { [DotDuration]: `${autoplaySpeed}ms` }
     : {};
 
+  // Fix dot active state not change issue when use CSS variables
+  React.useEffect(() => {
+    const activeNode = document.querySelector(
+      `.${prefixCls} .slick-dots li.slick-active`,
+    ) as HTMLElement;
+
+    if (activeNode) {
+      activeNode.classList.remove('slick-active');
+      void activeNode.offsetWidth; // 强制刷新
+      activeNode.classList.add('slick-active');
+    }
+  }, [prefixCls]);
+
   return wrapCSSVar(
     <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
