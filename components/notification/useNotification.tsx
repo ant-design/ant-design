@@ -95,13 +95,10 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
-  const meargeDuration = useMemo(() => {
-    if (typeof duration === 'number' && duration > 0) {
-      return duration;
-    } else {
-      return false;
-    }
-  }, [duration]);
+  const mergedDuration = useMemo(
+    () => (typeof duration === 'number' && duration > 0 ? duration : false),
+    [duration],
+  );
 
   // =============================== Style ===============================
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
@@ -119,7 +116,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     className: getClassName,
     motion: getNotificationMotion,
     closable: { closeIcon: getCloseIcon(prefixCls) },
-    duration: meargeDuration,
+    duration: mergedDuration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     pauseOnHover,
