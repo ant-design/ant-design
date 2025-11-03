@@ -1,7 +1,7 @@
 ---
 title: 语义化发现组件精致的美
 date: 2025-11-03
-author: meet-student, thinkasany
+author: meet-student,thinkasany
 ---
 
 在 Ant Design v6 之前，在样式的定制上基于开放的 token 已经有了非常好的体验, 但是依然存在一些难以解决的痛点。而 Ant Design v6 为此做了诸多的改变和设计。今天我们来聊聊语义化是如何让你发现精致的组件的。
@@ -127,7 +127,7 @@ return (
 );
 ```
 
-<video src="https://github-production-user-asset-6210df.s3.amazonaws.com/59312002/508546689-0df4b356-209b-42d1-907e-c253d5b7220d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251101T132121Z&X-Amz-Expires=300&X-Amz-Signature=3d66c73eb40fd31661188230d19384afa9fcf698002710f27033d54af7481d8a&X-Amz-SignedHeaders=host" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
+<video src="https://gw.alipayobjects.com/v/huamei_iwk9zp/afts/video/Ok8fTIm1TLIAAAAAgCAAAAgAfoeUAQBr" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
 
 ## 发现组件精致的美
 
