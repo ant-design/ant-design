@@ -5,7 +5,6 @@ import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ css, cssVar }) => ({
   focusEffect: css`
-    width: 300px;
     border-width: ${cssVar.lineWidth};
     border-radius: ${cssVar.borderRadius};
     transition: box-shadow ${cssVar.motionDurationMid};
@@ -42,7 +41,7 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
   if (info.props.showCount) {
     return {
       root: { borderColor: '#BDE3C3' },
-      textarea: { resize: 'none' }, // TODO: textarea style 目前不起作用，需要修复
+      textarea: { resize: 'none' },
       count: { color: '#BDE3C3' },
     } satisfies TextAreaProps['styles'];
   }

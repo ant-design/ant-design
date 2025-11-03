@@ -12015,7 +12015,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
 >
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-809hvh"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     name="input-object"
     placeholder="Object"
     type="text"
@@ -12037,6 +12037,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     <textarea
       class="ant-input"
       name="textarea-fn"
+      style="resize: none;"
     >
       TextArea
     </textarea>
