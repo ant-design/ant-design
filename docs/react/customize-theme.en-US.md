@@ -434,15 +434,15 @@ const theme = {
 
 ### Theme
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| token | Modify Design Token | `AliasToken` | - |
-| inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
-| algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
-| components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |
-| cssVar | CSS Variables Configuration, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |
-| hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |
-| zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime | boolean | true |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| token | Modify Design Token | `AliasToken` | - |  |
+| inherit | Inherit theme configured in upper ConfigProvider | boolean | true |  |
+| algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
+| components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |  |
+| cssVar | CSS Variables Configuration, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |  |
+| hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |  |
+| zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file | boolean | true | 6.0.0 |
 
 ### ComponentsConfig
 
