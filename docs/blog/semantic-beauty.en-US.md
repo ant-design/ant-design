@@ -24,7 +24,7 @@ The code might look like this
   Submit
 </Button>
 
-<Modal wrapClassName="wrap-class" style={{ backgroundColor: "#fff" }}>
+<Modal wrapClassName="wrap-class" style={{ backgroundColor: '#fff' }}>
   Modal
 </Modal>
 
