@@ -1,6 +1,6 @@
 ---
 title: Discover the Delicate Beauty of Components with Semantic Design
-date: 2025-11-03
+date: 2025-11-22
 author: meet-student,thinkasany
 ---
 
@@ -79,9 +79,11 @@ Each of these methods has its pain points:
 
 ## Now in v6
 
-- Define `semantic` areas for styles/classNames to customize local styles/themes more easily
-- More flexible and maintainable style/theming customization based on different `props`
-- The `DOM` structure has been simplified and refined
+To avoid token proliferation and the addition of numerous API props — which would increase maintenance costs — these elements were consolidated into a more semantic structure.
+
+- The DOM structure has been greatly simplified and refined.
+- Styles and themes can now be customized more flexibly and in a more maintainable way based on different props.
+- It’s possible to define styles or class names for specific semantic regions, making it easier to customize local styles or themes.or themes.
 
 ```tsx
 const classNamesFn: ButtonProps['classNames'] = (info) => {
@@ -135,3 +137,7 @@ Users can give components refined designs for different states based on their pr
 ---
 
 <code src="./semantic-beauty/demos.tsx" simplify="true" iframe="430"></code>
+
+## The Relationship Between Tokens and Semantic Styling
+
+In Ant Design’s design system, tokens are positioned as design variables — the atomic materials of the design language. Semantic styles, on the other hand, define how those materials are used. They are created by combining design tokens with component-level customizations, allowing for more flexible and expressive styling scenarios. Since semantic styles operate at the component level, they provide better control over styling scope. If you aim to design a fully customized Ant Design theme, the combination of tokens and semantic styling will be your most powerful tool — together, they enable you to craft a more refined and precisely tailored theme.

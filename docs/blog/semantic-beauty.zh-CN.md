@@ -1,10 +1,10 @@
 ---
 title: 语义化发现组件精致的美
-date: 2025-11-03
+date: 2025-11-22
 author: meet-student,thinkasany
 ---
 
-在 Ant Design v6 之前，在样式的定制上基于开放的 token 已经有了非常好的体验, 但是依然存在一些难以解决的痛点。而 Ant Design v6 为此做了诸多的改变和设计。今天我们来聊聊语义化是如何让你发现精致的组件的。
+在 Ant Design v6 之前，在样式的定制上基于开放的 token 已经有了非常好的体验，但是依然存在一些难以解决的痛点。而 Ant Design v6 为此做了诸多的改变和设计。今天我们来聊聊语义化是如何让你发现精致的组件的。
 
 ---
 
@@ -58,7 +58,7 @@ author: meet-student,thinkasany
 
 ### 方式三 (css)
 
-除去这两种方式, 你可能还写过更不为推荐的 css 样式的覆盖：
+除去这两种方式，你可能还写过更不为推荐的 css 样式的覆盖：
 
 ```css
 .wrapper-class .ant-table {
@@ -80,9 +80,11 @@ author: meet-student,thinkasany
 
 ## v6 现在
 
-- 可以定义 `semantic` 区域的样式/类名，更加友好的定制局部样式/主题
-- 根据不同的 `props` 更灵活的、更加可维护的定制样式/主题
+为了规避 `token` 泛滥和添加大量的 `api props`，因为这会导致维护成本升高，从而聚合成了语义化。
+
 - `DOM` 的结构也得到了非常好的简化和调整
+- 根据不同的 `props` 更灵活的、更加可维护的定制样式/主题，
+- 可以定义 `semantic` 区域的样式/类名，更加友好的定制局部样式/主题
 
 ```tsx
 const classNamesFn: ButtonProps['classNames'] = (info) => {
@@ -136,3 +138,7 @@ return (
 ---
 
 <code src="./semantic-beauty/demos.tsx" simplify="true" iframe="430"></code>
+
+## token 和语义化的关系
+
+在 Ant Design 的设计中 token 定位设计变量（Design Tokens），可以理解为设计能力中的原子原料。而语义化样式是样式定义用途，更多是使用 token 设计变量组合加上私有定制达到更自由的定制场景，且语义化作是组件维度的可以更好的控制范围，如果你想设计覆盖场景全的 Ant Design 主题，token 和语义化的的能力是你的利器，两者搭配能自由的定制更精致的主题。
