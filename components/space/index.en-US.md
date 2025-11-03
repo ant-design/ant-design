@@ -76,7 +76,7 @@ Use `Space.Compact` when child form components are compactly connected and the b
 
 ### Space.CompactCell
 
-> This component is available since `antd@5.28.0`.
+> This component is available since `antd@5.29.0`.
 
 Used to create custom cells in compact layouts.
 
