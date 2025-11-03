@@ -82,7 +82,7 @@ Used to create custom cells in compact layouts.
 
 | Property | Description    | Type      | Default | Version |
 | -------- | -------------- | --------- | ------- | ------- |
-| children | Custom content | ReactNode | -       | 5.28.0  |
+| children | Custom content | ReactNode | -       | 5.29.0  |
 
 ## Semantic DOM
 
