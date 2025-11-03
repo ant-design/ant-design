@@ -88,7 +88,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 | 参数     | 说明       | 类型      | 默认值 | 版本   |
 | -------- | ---------- | --------- | ------ | ------ |
-| children | 自定义内容 | ReactNode | -      | 5.28.0 |
+| children | 自定义内容 | ReactNode | -      | 5.29.0 |
 
 ## Semantic DOM
 
