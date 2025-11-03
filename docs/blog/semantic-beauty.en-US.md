@@ -71,7 +71,7 @@ Apart from these two methods, you might also have written less recommended CSS o
 }
 ```
 
-Each of these methods has its pain points:
+All of the above approaches come with various pain points:
 
 - Limited `props` make it difficult to modify certain areas; logic is scattered
 - Limited `token` configuration prevents differentiated styling by type/variant
@@ -83,7 +83,7 @@ To avoid token proliferation and the addition of numerous API props — which wo
 
 - The DOM structure has been greatly simplified and refined.
 - Styles and themes can now be customized more flexibly and in a more maintainable way based on different props.
-- It’s possible to define styles or class names for specific semantic regions, making it easier to customize local styles or themes.or themes.
+- It’s possible to define styles or class names for specific semantic regions, making it easier to customize local styles or themes.
 
 ```tsx
 const classNamesFn: ButtonProps['classNames'] = (info) => {
