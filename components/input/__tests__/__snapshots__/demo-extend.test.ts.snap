@@ -788,7 +788,7 @@ Array [
     </span>
   </span>,
   <div
-    class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+    class="ant-input-number ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
     style="width: 100px;"
   >
     <div
@@ -7215,7 +7215,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="input content"
     />
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
     >
       <span
         class="ant-input-number-prefix"
