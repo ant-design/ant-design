@@ -145,10 +145,21 @@ export interface ThemeConfig {
     key?: string;
   };
   /**
-   * @descCN 是否关闭运行时样式生成
-   * @descEN Disable runtime style generation.
-   * @default false
+   * @descCN 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件。
+   * @descEN Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file.
+   * @default true
    * @since 6.0.0
+   * @example
+   * ```tsx
+   * import { ConfigProvider } from 'antd';
+   * import 'antd/dist/antd.css';
+   *
+   * const Demo = () => (
+   *   <ConfigProvider theme={{ zeroRuntime: true }}>
+   *     <App />
+   *   </ConfigProvider>
+   *);
+   * ```
    */
   zeroRuntime?: boolean;
 }
