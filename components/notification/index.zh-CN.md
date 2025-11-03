@@ -60,7 +60,7 @@ config 参数如下：
 | closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
-| duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 | - |
+| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - |
 | showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
 | pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
 | icon | 自定义图标 | ReactNode | - | - |

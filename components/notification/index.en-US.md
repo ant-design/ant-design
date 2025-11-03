@@ -58,7 +58,7 @@ The properties of config are as follows:
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | [Record<SemanticDOM, string> \| (info: { props })=> Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | description | The content of notification box (required) | ReactNode | - | - |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 | - |
+| duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - |
 | showProgress | Show progress bar for auto-closing notification | boolean |  | 5.18.0 |
 | pauseOnHover | keep the timer running or not on hover | boolean | true | 5.18.0 |
 | icon | Customized icon | ReactNode | - | - |
