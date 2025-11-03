@@ -12,7 +12,7 @@ author: meet-student, thinkasany
 
 在过去的日子里，我们调整样式一般怎么写呢?
 
-### 方式一（props）
+### 方式一 (props)
 
 - 在 `className` 和 `style` 上写上大量的拼接组合的逻辑判断。
 - 在修改组件的不同区域的样式的时候充斥着大量的类似 `wrapClassName` 的 props。
@@ -93,7 +93,7 @@ const classNamesFn: ButtonProps['classNames'] = (info) => {
   }
   return {
     root: 'demo-btn-root--default',
-  };
+  } satisfies ButtonProps['classNames'];
 };
 
 const styles: ButtonProps['styles'] = {

@@ -92,7 +92,7 @@ const classNamesFn: ButtonProps['classNames'] = (info) => {
   }
   return {
     root: 'demo-btn-root--default',
-  };
+  } satisfies ButtonProps['classNames'];
 };
 
 const styles: ButtonProps['styles'] = {
