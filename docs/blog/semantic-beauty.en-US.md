@@ -10,14 +10,14 @@ Before Ant Design v6, the experience of customizing styles based on open tokens 
 
 ## Before v6
 
-In the past, how did we usually adjust styles?
+In the past, how did we typically adjust component styles?
 
 ### Method 1 (props)
 
-- Write a large number of conditional logic combinations in `className` and `style`
-- When modifying the styles of different parts of a component, use many props like `wrapClassName`
+- Write extensive conditional logic for combinations in `className` and `style` attributes
+- Use numerous props like `wrapClassName` when modifying styles of different component regions
 
-The code might look like this
+The code might look like this:
 
 ```tsx
 <Button className={variant === 'filled' ? 'btn-filled' : 'btn-outline'}>
@@ -39,7 +39,7 @@ The code might look like this
 
 ### Method 2 (ConfigProvider)
 
-Using the theme token design introduced in Ant Design v5
+Using the theme Design Token design introduced in Ant Design v5:
 
 ```tsx
 <ConfigProvider
@@ -56,9 +56,9 @@ Using the theme token design introduced in Ant Design v5
 </ConfigProvider>
 ```
 
-### Method 3 (css)
+### Method 3 (CSS)
 
-Apart from these two methods, you might also have written less recommended CSS overrides like this
+Apart from these two methods, you might also have written less recommended CSS overrides:
 
 ```css
 .wrapper-class .ant-table {
@@ -71,11 +71,11 @@ Apart from these two methods, you might also have written less recommended CSS o
 }
 ```
 
-All of the above approaches come with various pain points:
+All of the above approaches have various pain points:
 
-- Limited `props` make it difficult to modify certain areas; logic is scattered
-- Limited `token` configuration prevents differentiated styling by type/variant
-- CSS overrides increase cognitive load and maintenance costs; maintainability and semantics are poor
+- Limited available `props` make it impossible to modify certain regions, and logic is not well-organized
+- Limited `Design Token` configuration prevents differentiated styling based on different types/variants
+- CSS overrides introduce high cognitive load and maintenance costs, with poor maintainability and semantics
 
 ## Now in v6
 
@@ -112,7 +112,7 @@ return (
 
 ### Combining with Tailwind CSS
 
-What's more exciting is that the `classNames` property can be perfectly combined with atomic CSS frameworks like [Tailwind CSS](https://tailwindcss.com/). This gives developers unprecedented freedom: you can enjoy the preset behavior and semantic structure of antd components while using Tailwind's utility classes to quickly build any visual style you want. Semantics + Tailwind CSS makes component customization extremely flexible.
+What's more exciting is that the `classNames` property integrates perfectly with atomic CSS frameworks like [Tailwind CSS](https://tailwindcss.com/). This provides developers with unprecedented freedom: you can enjoy the preset behavior and semantic structure of antd components while leveraging Tailwind's utility classes to quickly build any visual style you want. Semantic design + Tailwind CSS makes component customization extremely flexible.
 
 ```tsx
 return (
