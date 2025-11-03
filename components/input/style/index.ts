@@ -463,7 +463,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       display: 'inline-flex',
 
       [`&:not(${componentCls}-disabled):hover`]: {
-        zIndex: 1,
+        // zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
           zIndex: 0,
         },
@@ -712,7 +712,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         height: token.controlHeight,
 
         '&:hover, &:focus': {
-          zIndex: 1,
+          // zIndex: 1,
         },
       },
 
