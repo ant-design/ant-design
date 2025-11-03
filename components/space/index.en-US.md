@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@4.24.0`.
 
-Use `Space.Compact` when child form components are compactly connected and the border is collapsed. The supported components are：
+Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
 
 - Button
 - AutoComplete
