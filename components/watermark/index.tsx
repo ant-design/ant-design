@@ -235,6 +235,16 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const onMutate = useEvent((mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
       if (reRendering(mutation, isWatermarkEle)) {
+        if (mutation.removedNodes.length) {
+          const isHardRemoved = Array.from<Node>(mutation.removedNodes).some((node) =>
+            isWatermarkEle(node),
+          );
+          if (isHardRemoved) {
+            targetElements.forEach((holder) => {
+              removeWatermark(holder, true);
+            });
+          }
+        }
         syncWatermark();
       } else if (mutation.target === container && mutation.attributeName === 'style') {
         // We've only force container not modify.

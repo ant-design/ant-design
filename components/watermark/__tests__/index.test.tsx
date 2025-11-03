@@ -191,12 +191,15 @@ describe('Watermark', () => {
     spy.mockRestore();
   });
 
-  it('should call onRemove when unmount', async () => {
+  it('should call onRemove when watermark is hard removed', async () => {
     const onRemove = jest.fn();
-    const { unmount } = render(<Watermark content="Ant" onRemove={onRemove} />);
+    const { container } = render(<Watermark content="Ant" onRemove={onRemove} />);
     await waitFakeTimer();
-    unmount();
+
+    const watermarkEle = container.querySelector<HTMLDivElement>('[style*="background-image"]');
+    watermarkEle?.remove();
     await waitFakeTimer();
+
     expect(onRemove).toHaveBeenCalledTimes(1);
   });
 });

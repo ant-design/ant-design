@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import { getStyleStr } from './utils';
 
@@ -25,15 +26,11 @@ export default function useWatermark(
   onRemove?: () => void,
 ): [
   appendWatermark: AppendWatermark,
-  removeWatermark: (container: HTMLElement) => void,
+  removeWatermark: (container: HTMLElement, isHardRemove?: boolean) => void,
   isWatermarkEle: (ele: Node) => boolean,
 ] {
   const watermarkMap = React.useRef(new Map<HTMLElement, HTMLDivElement>());
-  const onRemoveRef = React.useRef(onRemove);
-
-  React.useEffect(() => {
-    onRemoveRef.current = onRemove;
-  });
+  const onRemoveEvent = useEvent(onRemove || (() => {}));
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
@@ -65,7 +62,7 @@ export default function useWatermark(
     return watermarkMap.current.get(container);
   };
 
-  const removeWatermark = (container: HTMLElement) => {
+  const removeWatermark = (container: HTMLElement, isHardRemove = false) => {
     const watermarkEle = watermarkMap.current.get(container);
 
     if (watermarkEle && container && container.contains(watermarkEle)) {
@@ -74,9 +71,8 @@ export default function useWatermark(
 
     watermarkMap.current.delete(container);
 
-    // Call onRemove callback if all watermarks are removed
-    if (watermarkMap.current.size === 0) {
-      onRemoveRef.current?.();
+    if (isHardRemove && watermarkMap.current.size === 0 && onRemove) {
+      onRemoveEvent();
     }
   };
 
