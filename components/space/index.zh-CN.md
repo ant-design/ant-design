@@ -82,7 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ### Space.CompactCell
 
-> 自 antd@5.28.0 版本开始提供该组件。
+> 自 antd@5.29.0 版本开始提供该组件。
 
 用于在紧凑布局中创建自定义单元格。
 
