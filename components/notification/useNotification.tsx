@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import {
   NotificationProvider,
@@ -86,7 +86,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
     stack,
-    duration,
+    duration = DEFAULT_DURATION,
     pauseOnHover = true,
     showProgress,
   } = props;
@@ -95,6 +95,13 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
+  const meargeDuration = useMemo(() => {
+    if (typeof duration === 'number' && duration > 0) {
+      return duration;
+    } else {
+      return false;
+    }
+  }, [duration]);
 
   // =============================== Style ===============================
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
@@ -112,7 +119,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     className: getClassName,
     motion: getNotificationMotion,
     closable: { closeIcon: getCloseIcon(prefixCls) },
-    duration: duration ?? DEFAULT_DURATION,
+    duration: meargeDuration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     pauseOnHover,
