@@ -28,7 +28,6 @@ const ModalNode = (
         </Button>
       </>
     }
-    width={400}
     title="Custom Function Modal"
     styles={{
       container: { borderRadius: 14, border: '1px solid #ccc', padding: 0, overflow: 'hidden' },
@@ -37,10 +36,7 @@ const ModalNode = (
       footer: { padding: 10, backgroundColor: '#fafafa' },
     }}
   >
-    <div>
-      🌈 Following the Ant Design specification, we developed a React UI library antd,interactive
-      user interfaces.
-    </div>
+    <div>🌈 Following the Ant Design specification.</div>
   </InternalPanel>
 );
 
@@ -82,11 +78,11 @@ const h1Style: React.CSSProperties = {
 const Demo: React.FC = () => {
   return (
     <Flex orientation="horizontal" gap="middle" style={{ padding: 10 }}>
-      <div>
+      <div style={{ width: '35%' }}>
         <h1 style={h1Style}>Input</h1>
         <InputPreview />
       </div>
-      <div>
+      <div style={{ width: '35%' }}>
         <h1 style={h1Style}>Switch</h1>
         {SwitchNode}
         <h1 style={h1Style}>Breadcrumb</h1>
@@ -94,7 +90,7 @@ const Demo: React.FC = () => {
         <h1 style={h1Style}>Modal</h1>
         {ModalNode}
       </div>
-      <div>{DrawerNode}</div>
+      <div style={{ width: '30%' }}>{DrawerNode}</div>
     </Flex>
   );
 };
