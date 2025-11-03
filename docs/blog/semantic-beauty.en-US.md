@@ -108,6 +108,24 @@ return (
 );
 ```
 
+### Combining with Tailwind CSS
+
+What's more exciting is that the `classNames` property can be perfectly combined with atomic CSS frameworks like [Tailwind CSS](https://tailwindcss.com/). This gives developers unprecedented freedom: you can enjoy the preset behavior and semantic structure of antd components while using Tailwind's utility classes to quickly build any visual style you want. Semantics + Tailwind CSS makes component customization extremely flexible.
+
+```tsx
+return (
+  <Button
+    classNames={{
+      root: 'bg-black text-white border-none hover:bg-[#2e2e2e]',
+      icon: 'text-white/90',
+    }}
+    icon={<GiftOutlined />}
+  >
+    Ant Design
+  </Button>
+);
+```
+
 <video src="https://github-production-user-asset-6210df.s3.amazonaws.com/59312002/508546689-0df4b356-209b-42d1-907e-c253d5b7220d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251101T132121Z&X-Amz-Expires=300&X-Amz-Signature=3d66c73eb40fd31661188230d19384afa9fcf698002710f27033d54af7481d8a&X-Amz-SignedHeaders=host" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
 
 ## Discover the Delicate Beauty of Components

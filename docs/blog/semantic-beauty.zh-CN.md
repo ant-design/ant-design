@@ -109,6 +109,24 @@ return (
 );
 ```
 
+### 与 Tailwind CSS 结合
+
+更令人兴奋的是，`classNames` 属性可以与 [Tailwind CSS](https://tailwindcss.com/) 这类原子化 CSS 框架完美结合。这赋予了开发者前所未有的自由度：你可以在享受 antd 组件预设行为和语义化结构的同时，利用 Tailwind 的功能类快速构建出任何想要的视觉风格。语义化 + Tailwind CSS 让组件定制变得极其自由。
+
+```tsx
+return (
+  <Button
+    classNames={{
+      root: 'bg-black text-white border-none hover:bg-[#2e2e2e]',
+      icon: 'text-white/90',
+    }}
+    icon={<GiftOutlined />}
+  >
+    Ant Design
+  </Button>
+);
+```
+
 <video src="https://github-production-user-asset-6210df.s3.amazonaws.com/59312002/508546689-0df4b356-209b-42d1-907e-c253d5b7220d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251101T132121Z&X-Amz-Expires=300&X-Amz-Signature=3d66c73eb40fd31661188230d19384afa9fcf698002710f27033d54af7481d8a&X-Amz-SignedHeaders=host" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
 
 ## 发现组件精致的美
