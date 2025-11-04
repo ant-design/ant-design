@@ -15,6 +15,50 @@ tag: vVERSION
 
 ---
 
+## 6.0.0-alpha.4
+
+`2025-11-04`
+
+- 🔥 ConfigProvider 支持配置 `tooltip.unique` 让 Tooltip 支持平滑移动。[#55154](https://github.com/ant-design/ant-design/pull/55154) [@zombieJ](https://github.com/zombieJ)
+- 🔥 重构 Select, TreeSelect, Cascader 为新的语义化结构。[#55430](https://github.com/ant-design/ant-design/pull/55430) [@zombieJ](https://github.com/zombieJ)
+- 🔥 antd 全部组件语义化结构支持函数根据 props 动态生成。[#54967](https://github.com/ant-design/ant-design/pull/54967) [#54977](https://github.com/ant-design/ant-design/pull/54977) [#54962](https://github.com/ant-design/ant-design/pull/54962) [#54960](https://github.com/ant-design/ant-design/pull/54960) [#55099](https://github.com/ant-design/ant-design/pull/55099) [#54986](https://github.com/ant-design/ant-design/pull/54986) [#54988](https://github.com/ant-design/ant-design/pull/54988) [#54987](https://github.com/ant-design/ant-design/pull/54987) [#55199](https://github.com/ant-design/ant-design/pull/55199) [#54985](https://github.com/ant-design/ant-design/pull/54985) [#55119](https://github.com/ant-design/ant-design/pull/55119) [#54980](https://github.com/ant-design/ant-design/pull/54980) [#55054](https://github.com/ant-design/ant-design/pull/55054) [#54979](https://github.com/ant-design/ant-design/pull/54979) [#55161](https://github.com/ant-design/ant-design/pull/55161) [#55157](https://github.com/ant-design/ant-design/pull/55157) [#55021](https://github.com/ant-design/ant-design/pull/55021) [#55081](https://github.com/ant-design/ant-design/pull/55081) [#55096](https://github.com/ant-design/ant-design/pull/55096) [#55044](https://github.com/ant-design/ant-design/pull/55044) [#55060](https://github.com/ant-design/ant-design/pull/55060) [#54984](https://github.com/ant-design/ant-design/pull/54984) [#54983](https://github.com/ant-design/ant-design/pull/54983) [#55117](https://github.com/ant-design/ant-design/pull/55117) [#54982](https://github.com/ant-design/ant-design/pull/54982) [#55190](https://github.com/ant-design/ant-design/pull/55190) [#55007](https://github.com/ant-design/ant-design/pull/55007) [#55118](https://github.com/ant-design/ant-design/pull/55118) [#54978](https://github.com/ant-design/ant-design/pull/54978) [#54968](https://github.com/ant-design/ant-design/pull/54968) [#54966](https://github.com/ant-design/ant-design/pull/54966) [#54994](https://github.com/ant-design/ant-design/pull/54994) [#54965](https://github.com/ant-design/ant-design/pull/54965) [#55101](https://github.com/ant-design/ant-design/pull/55101) [#54963](https://github.com/ant-design/ant-design/pull/54963) [#55109](https://github.com/ant-design/ant-design/pull/55109) [#54996](https://github.com/ant-design/ant-design/pull/54996) [#54969](https://github.com/ant-design/ant-design/pull/54969) [#55126](https://github.com/ant-design/ant-design/pull/55126) [#54959](https://github.com/ant-design/ant-design/pull/54959) [#55056](https://github.com/ant-design/ant-design/pull/55056) [#55114](https://github.com/ant-design/ant-design/pull/55114) [#54956](https://github.com/ant-design/ant-design/pull/54956) [#54957](https://github.com/ant-design/ant-design/pull/54957) [#55013](https://github.com/ant-design/ant-design/pull/55013) [#54958](https://github.com/ant-design/ant-design/pull/54958) [#55031](https://github.com/ant-design/ant-design/pull/55031) [#54955](https://github.com/ant-design/ant-design/pull/54955) [#55058](https://github.com/ant-design/ant-design/pull/55058) [#55032](https://github.com/ant-design/ant-design/pull/55032) [#54948](https://github.com/ant-design/ant-design/pull/54948) [#54950](https://github.com/ant-design/ant-design/pull/54950) [#54949](https://github.com/ant-design/ant-design/pull/54949) [#54917](https://github.com/ant-design/ant-design/pull/54917) [#54919](https://github.com/ant-design/ant-design/pull/54919) [#54813](https://github.com/ant-design/ant-design/pull/54813)
+- 🆕 Breadcrumb 支持 ConfigProvider `separator` 全局配置。[#54680](https://github.com/ant-design/ant-design/pull/54680) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Alert `closable` 支持 onClose 和 afterClose 方法。[#54735](https://github.com/ant-design/ant-design/pull/54735) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Radio.Group 支持 `vertical` 纵向排列语法糖。[#54727](https://github.com/ant-design/ant-design/pull/54727) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Cascader.Panel 添加 optionRender 允许自定义渲染选项。[#54843](https://github.com/ant-design/ant-design/pull/54843) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Notification ComponentToken 支持自定义不同类型的通知框背景色。[#54776](https://github.com/ant-design/ant-design/pull/54776) [@afc163](https://github.com/afc163)
+- 🆕 Upload `accept` 配置支持自定义过滤逻辑。[#55543](https://github.com/ant-design/ant-design/pull/55543) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Rate 支持 `size` 以配置大小。[#55028](https://github.com/ant-design/ant-design/pull/55028) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Typography `copyable` 支持 HTTP 环境。[#55073](https://github.com/ant-design/ant-design/pull/55073) [@JeeekXY](https://github.com/JeeekXY)
+- 🆕 Form 现在取值会排除 `Form.List` 中未被注册的字段值。[#55526](https://github.com/ant-design/ant-design/pull/55526) [@crazyair](https://github.com/crazyair)
+- DatePicker
+  - 🆕 DatePicker 语义化结构新增面板 `container` 支持。[#55388](https://github.com/ant-design/ant-design/pull/55388) [@meet-student](https://github.com/meet-student)
+  - 🆕 DatePicker 新增 `previewValue` ，以控制鼠标悬停在选项时是否输入框展示预览值。[#55258](https://github.com/ant-design/ant-design/pull/55258) [@meet-student](https://github.com/meet-student)
+  - 🐞 修复 DatePicker 在清空时，`onChange` 参数 `dateString` 返回值错误的问题。[#55155](https://github.com/ant-design/ant-design/pull/55155) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Drawer
+  - 🆕 Drawer 新增 `resizable` 支持拖拽能力。[#54883](https://github.com/ant-design/ant-design/pull/54883) [@cactuser-Lu](https://github.com/cactuser-Lu)
+  - 💄 Drawer 遮罩添加模糊效果。[#54707](https://github.com/ant-design/ant-design/pull/54707) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Collapse
+  - 🐞 修复 Collapse 语义化结构 `icon` 作用元素不正确的问题。[#55499](https://github.com/ant-design/ant-design/pull/55499) [@thinkasany](https://github.com/thinkasany)
+  - 🐞 修复 Collapse 动态修改语义化 icon 不生效的问题。[#55452](https://github.com/ant-design/ant-design/pull/55452) [@thinkasany](https://github.com/thinkasany)
+- 💄 `reset.css` 移除对 IE 的兼容。[#55108](https://github.com/ant-design/ant-design/pull/55108) [@thinkasany](https://github.com/thinkasany)
+- 💄 移除 NumberInput 移动端对于控制器默认隐藏。[#54900](https://github.com/ant-design/ant-design/pull/54900) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 Image 遮罩添加模糊效果。[#54714](https://github.com/ant-design/ant-design/pull/54714) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 💄 Modal 遮罩添加模糊效果。[#54670](https://github.com/ant-design/ant-design/pull/54670) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🛠 Badge 重构 `offset` 样式偏移为 CSS 逻辑位置。[#55245](https://github.com/ant-design/ant-design/pull/55245) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 MISC: 替换 `classNames` 库为 `clsx`。[0246702](https://github.com/ant-design/ant-design/commit/0246702) [#55164](https://github.com/ant-design/ant-design/pull/55164) [@lijianan](https://github.com/lijianan)
+- 🛠 MISC: 移除 MediaQueryList 针对旧版浏览器的兼容代码。[#55396](https://github.com/ant-design/ant-design/pull/55396) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 MISC: 移除 React 19 兼容代码，现在 antd 默认支持 React 19。[#55274](https://github.com/ant-design/ant-design/pull/55274) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Table 在使用 `sticky` 或 `scroll.y` 时出现重复的筛选下拉框和提示气泡显示的问题。<br> 修复 Table 渲染初始阶段列头不显示的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
+- 🐞 修复 Input.TextArea 的 `styles.input` 无法覆盖内置样式的问题。[#55579](https://github.com/ant-design/ant-design/pull/55579) [@meet-student](https://github.com/meet-student)
+- 🐞 修复 Table 在动态修改 `childrenColumnName` 时，数据不会刷新的问题。[#55559](https://github.com/ant-design/ant-design/pull/55559) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Tag 通过 ConfigProvider 修改 `variant` 时，Tag 不会更新的问题。[#55555](https://github.com/ant-design/ant-design/pull/55555) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Progress 在变更 props 时，指示内容不会更新的问题。[#55554](https://github.com/ant-design/ant-design/pull/55554) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Tour dom 结构中 `panel` 的 `className` 拼写错误。[#55178](https://github.com/ant-design/ant-design/pull/55178) [@thinkasany](https://github.com/thinkasany)
+- 🌐 添加马拉地语国际化翻译。[#55179](https://github.com/ant-design/ant-design/pull/55179) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- TypeScript
+  - 🤖 优化 Notification `duration` 定义，现在禁止关闭为 `false`。[#55580](https://github.com/ant-design/ant-design/pull/55580) [@wanpan11](https://github.com/wanpan11)
+
 ## 6.0.0-alpha.2
 
 `2025-08-12`
@@ -170,7 +214,7 @@ tag: vVERSION
 - 🛠 BackTop 完成生命周期以被移除。[#52206](https://github.com/ant-design/ant-design/pull/52206) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Icon 占位组件完成生命周期以被移除。[#52241](https://github.com/ant-design/ant-design/pull/52241) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 ConfigProvider 支持 Result 组件的 `classNames` 和 `styles` 配置。[#52171](https://github.com/ant-design/ant-design/pull/52171) [@thinkasany](https://github.com/thinkasany)
-- 🚫 Modal `closable` 支持 `onClose` 属性以任意方式关闭时触发。[#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🛠 Modal `closable` 支持 `onClose` 属性以任意方式关闭时触发。[#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🛠 移除 Dropdown.Button，请使用 Space.Compact。[#53793](https://github.com/ant-design/ant-design/pull/53793) [@Meet-student](https://github.com/Meet-student)
 
 ## 5.28.0
