@@ -116,16 +116,75 @@ async function printLog() {
     });
   }
 
+  // Add exclude tag option
+  const excludeTagChoice = await select({
+    message: `🚫 Do you want to exclude commits from a specific tag/branch?`,
+    choices: [
+      { name: 'No exclusion', value: 'none' },
+      { name: 'Exclude from master', value: 'master' },
+      { name: 'Exclude from 4.x-stable', value: '4.x-stable' },
+      { name: 'Exclude from 3.x-stable', value: '3.x-stable' },
+      { name: 'Custom exclude tag ⌨️', value: 'custom' },
+    ],
+  });
+
+  let excludeTag: string | undefined;
+  if (excludeTagChoice === 'custom') {
+    excludeTag = await input({
+      message: '🚫 Please input tag/branch to exclude commits from:',
+      validate: (value: string) => {
+        if (!value.trim()) {
+          return 'Tag/branch name cannot be empty';
+        }
+        return true;
+      },
+    });
+  } else if (excludeTagChoice !== 'none') {
+    excludeTag = excludeTagChoice;
+  }
+
   if (!/\d+\.\d+\.\d+/.test(finalFromVersion)) {
     console.log(chalk.red(`🤪 tag (${chalk.magenta(finalFromVersion)}) is not valid.`));
   }
 
+  console.log(
+    chalk.blue(
+      `📊 Getting commits from ${chalk.magenta(finalFromVersion)} to ${chalk.magenta(toVersion)}${excludeTag ? ` excluding commits from ${chalk.magenta(excludeTag)}` : ''}...`,
+    ),
+  );
+
   const logs = await git.log({ from: finalFromVersion, to: toVersion });
+
+  // Get exclude commits if excludeTag is specified
+  let excludeCommitHashes: Set<string> = new Set();
+  if (excludeTag) {
+    try {
+      const excludeLogs = await git.log({ from: finalFromVersion, to: excludeTag });
+      excludeCommitHashes = new Set(excludeLogs.all.map((commit) => commit.hash));
+      console.log(
+        chalk.yellow(`🚫 Excluding ${excludeCommitHashes.size} commits from ${excludeTag}`),
+      );
+    } catch (error) {
+      console.log(chalk.red(`❌ Error getting exclude commits from ${excludeTag}: ${error}`));
+      console.log(chalk.yellow('⚠️  Continuing without exclusion...'));
+    }
+  }
 
   let prList: PR[] = [];
 
-  for (let i = 0; i < logs.all.length; i += 1) {
-    const { message, body, hash, author_name: author } = logs.all[i];
+  // Filter out excluded commits
+  const filteredLogs = logs.all.filter((commit) => !excludeCommitHashes.has(commit.hash));
+
+  if (excludeTag && filteredLogs.length !== logs.all.length) {
+    console.log(
+      chalk.green(
+        `✅ Filtered out ${logs.all.length - filteredLogs.length} commits that exist in ${excludeTag}`,
+      ),
+    );
+  }
+
+  for (let i = 0; i < filteredLogs.length; i += 1) {
+    const { message, body, hash, author_name: author } = filteredLogs[i];
 
     const text = `${message} ${body}`;
 
@@ -137,7 +196,7 @@ async function printLog() {
 
     console.log(
       chalk.green(
-        `[${i + 1}/${logs.all.length}]`,
+        `[${i + 1}/${filteredLogs.length}]`,
         hash.slice(0, 6),
         '-',
         prs.length
