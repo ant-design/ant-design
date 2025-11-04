@@ -30427,6 +30427,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
           </li>
           <li
             class="ant-pagination-simple-pager"
+            style="color: rgb(184, 189, 253);"
             title="1/2"
           >
             <input
