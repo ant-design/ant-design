@@ -344,7 +344,10 @@ const genDotsStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolat
             },
             '&::after': {
               background: colorBgContainer,
-              animation: `${animation.getName()} var(${DotDuration}) ease-out forwards`,
+              animationName: animation.getName(),
+              animationDuration: `var(${DotDuration})`,
+              animationTimingFunction: 'ease-out',
+              animationFillMode: 'forwards',
             },
           },
         },
@@ -422,7 +425,10 @@ const genCarouselVerticalStyle = (token: CarouselToken, animation: Keyframes): C
 
             '&::after': {
               ...reverseSizeOfDot,
-              animation: `${animation.getName()} var(${DotDuration}) ease-out forwards`,
+              animationName: animation.getName(),
+              animationDuration: `var(${DotDuration})`,
+              animationTimingFunction: 'ease-out',
+              animationFillMode: 'forwards',
             },
           },
         },
