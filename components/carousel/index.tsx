@@ -142,10 +142,10 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   // https://github.com/ant-design/ant-design/issues/55540
   const containerRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
-    if (typeof autoplay === 'object' && autoplay.dotDuration && containerRef.current) {
-      const activeNode = containerRef.current.querySelector(
+    if (autoplay && typeof autoplay === 'object' && autoplay.dotDuration && containerRef.current) {
+      const activeNode = containerRef.current.querySelector<HTMLElement>(
         '.slick-dots li.slick-active',
-      ) as HTMLElement;
+      );
 
       if (activeNode) {
         activeNode.classList.remove('slick-active');
@@ -153,7 +153,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         activeNode.classList.add('slick-active');
       }
     }
-  }, []);
+  }, [autoplay]);
 
   return wrapCSSVar(
     <div ref={containerRef} className={className} id={id} style={dotDurationStyle}>
