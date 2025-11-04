@@ -25,7 +25,6 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
 
   const prevContainerSizeRef = React.useRef<number | undefined>(undefined);
 
-
   // We do not need care the size state match the `items` length in `useState`.
   // It will calculate later.
   const [innerSizes, setInnerSizes] = React.useState<(string | number | undefined)[]>(() =>
@@ -40,12 +39,16 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
       return;
     }
 
-    const hasPixelValue = innerSizes.some(
-      (size) => typeof size === 'number' && size > 0
-    );
+    setInnerSizes((currentSizes) => {
+      const hasPixelValue = currentSizes.some(
+        (size) => typeof size === 'number' && size > 0
+      );
 
-    if (hasPixelValue) {
-      const updatedSizes = innerSizes.map((size) => {
+      if (!hasPixelValue) {
+        return currentSizes;
+      }
+
+      const updatedSizes = currentSizes.map((size) => {
         if (typeof size === 'number') {
           const percentage = size / prevSize;
           return percentage * containerSize;
@@ -53,11 +56,11 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
         return size;
       });
 
-      setInnerSizes(updatedSizes);
-    }
+      return updatedSizes;
+    });
 
     prevContainerSizeRef.current = containerSize;
-  }, [containerSize, innerSizes]);
+  }, [containerSize]);
 
   const sizes = React.useMemo(() => {
     const mergedSizes: PanelProps['size'][] = [];
