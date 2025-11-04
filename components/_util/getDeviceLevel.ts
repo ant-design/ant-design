@@ -1,6 +1,18 @@
 export type DeviceLevel = 'high' | 'medium' | 'basic';
 
+let memoizedLevel: DeviceLevel | null = null;
+let memoizedHasGPU: boolean | null = null;
+
 function getDeviceLevel(): DeviceLevel {
+  // SSR
+  if (typeof navigator === 'undefined' || typeof window === 'undefined') {
+    return 'basic';
+  }
+
+  if (memoizedLevel !== null) {
+    return memoizedLevel;
+  }
+
   const cpuCores = navigator.hardwareConcurrency ?? 1;
   const memory = (navigator as any).deviceMemory ?? 1;
 
@@ -24,31 +36,40 @@ function getDeviceLevel(): DeviceLevel {
     score += 2;
   } else if (memory >= 2) {
     score += 1;
-  } else {
-    score += 0;
   }
 
   // GPU
   if (gpu) score += 2;
 
   if (score >= 7) {
-    return 'high';
+    memoizedLevel = 'high';
   } else if (score >= 4) {
-    return 'medium';
+    memoizedLevel = 'medium';
   } else {
-    return 'basic';
+    memoizedLevel = 'basic';
   }
+
+  return memoizedLevel;
 }
 
 function hasGPU(): boolean {
+  if (memoizedHasGPU !== null) {
+    return memoizedHasGPU;
+  }
+
   try {
-    if ((navigator as any).gpu) {
+    if (typeof navigator !== 'undefined' && (navigator as any).gpu) {
+      memoizedHasGPU = true;
       return true;
     }
+
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-    return !!gl;
+
+    memoizedHasGPU = !!gl;
+    return memoizedHasGPU;
   } catch {
+    memoizedHasGPU = false;
     return false;
   }
 }

@@ -21,13 +21,12 @@ export enum ThemeType {
   TwoTone = 'TwoTone',
 }
 
-const debounceTime: number = (
-  {
-    high: 100,
-    medium: 200,
-    basic: 300,
-  } as Record<ReturnType<typeof getDeviceLevel>, number>
-)[getDeviceLevel()];
+const debounceTimes: Record<ReturnType<typeof getDeviceLevel>, number> = {
+  high: 100,
+  medium: 200,
+  basic: 300,
+};
+const debounceTime: number = debounceTimes[getDeviceLevel()];
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
