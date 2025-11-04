@@ -55,6 +55,20 @@ describe('InputNumber', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('renders correctly when controls has custom spinnerUpIcon and spinnerDownIcon', () => {
+    const { container } = render(
+      <InputNumber
+        mode="spinner"
+        controls={{
+          spinnerUpIcon: 'foo',
+          spinnerDownIcon: 'bar',
+        }}
+      />,
+    );
+    expect(container.querySelector('.ant-input-number-handler-up')).toHaveTextContent('foo');
+    expect(container.querySelector('.ant-input-number-handler-down')).toHaveTextContent('bar');
+  });
+
   it('should support className', () => {
     const { container } = render(
       <InputNumber

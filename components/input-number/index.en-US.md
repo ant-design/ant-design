@@ -31,6 +31,7 @@ When a numeric value needs to be provided.
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/focus.tsx" version="5.22.0">Focus</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/spinner.tsx">Spinner</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
@@ -47,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
-| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
+| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; spinnerUpIcon?: React.ReactNode, spinnerDownIcon?: React.ReactNode } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
 | placeholder | Placeholder | string | - |  |
 | defaultValue | The initial value | number | - | - |
@@ -66,6 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
+| mode | Show input or spinner | `'input' \| 'spinner'` | `'input'` |  |
 | value | The current value of the component | number | - | - |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |

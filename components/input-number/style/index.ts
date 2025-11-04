@@ -363,6 +363,38 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
       },
     },
+
+    // Spinner Handler
+    {
+      [`${componentCls}${componentCls}-mode-spinner`]: {
+        display: 'inline-flex',
+        alignItems: 'stretch',
+
+        [`${componentCls}-handler`]: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 'auto',
+          width: token.handleWidth,
+          flex: '0 0 auto',
+          borderRadius: 0,
+        },
+
+        [`${componentCls}-handler-up`]: {
+          borderInlineStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+          borderEndRadius: borderRadius,
+        },
+
+        [`${componentCls}-handler-down`]: {
+          borderInlineEnd: `${unit(lineWidth)} ${lineType} ${handleBorderColor} `,
+          borderInlineStart: 'none',
+        },
+
+        [`${componentCls}-input`]: {
+          textAlign: 'center',
+        },
+      },
+    },
   ];
 };
 

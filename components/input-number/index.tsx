@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import RcInputNumber from '@rc-component/input-number';
@@ -53,7 +54,14 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   status?: InputStatus;
-  controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
+  controls?:
+    | boolean
+    | {
+        upIcon?: React.ReactNode;
+        downIcon?: React.ReactNode;
+        spinnerUpIcon?: React.ReactNode;
+        spinnerDownIcon?: React.ReactNode;
+      };
   /**
    * @since 5.13.0
    * @default "outlined"
@@ -94,6 +102,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
     style,
     classNames,
     styles,
+    mode,
     ...others
   } = props;
 
@@ -113,24 +122,22 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-  let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-  let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+  let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
+  let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
 
   if (typeof controls === 'object') {
-    upIcon =
-      typeof controls.upIcon === 'undefined' ? (
-        upIcon
-      ) : (
-        <span className={`${prefixCls}-handler-up-inner`}>{controls.upIcon}</span>
-      );
-    downIcon =
-      typeof controls.downIcon === 'undefined' ? (
-        downIcon
-      ) : (
-        <span className={`${prefixCls}-handler-down-inner`}>{controls.downIcon}</span>
-      );
+    if (mode === 'spinner') {
+      upIcon = controls.spinnerUpIcon || upIcon;
+      downIcon = controls.spinnerDownIcon || downIcon;
+    } else {
+      upIcon = controls.upIcon || upIcon;
+      downIcon = controls.downIcon || downIcon;
+    }
   }
+
+  upIcon = <span className={`${prefixCls}-handler-up-inner`}>{upIcon}</span>;
+  downIcon = <span className={`${prefixCls}-handler-down-inner`}>{downIcon}</span>;
 
   const {
     hasFeedback,
@@ -170,6 +177,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
   return (
     <RcInputNumber
       ref={inputRef}
+      mode={mode}
       disabled={mergedDisabled}
       className={clsx(
         cssVarCls,

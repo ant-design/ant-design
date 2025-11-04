@@ -32,6 +32,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/focus.tsx" version="5.22.0">聚焦</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/spinner.tsx">拨轮</code>
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
@@ -48,7 +49,7 @@ demo:
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
-| controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
+| controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; spinnerUpIcon?: React.ReactNode, spinnerDownIcon?: React.ReactNode } | - | 4.19.0 |
 | decimalSeparator | 小数点 | string | - | - |
 | placeholder | 占位符 | string | - |  |
 | defaultValue | 初始值 | number | - | - |
@@ -67,6 +68,7 @@ demo:
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
+| mode | 展示输入框或拨轮 | `'input' \| 'spinner'` | `'input'` |  |
 | value | 当前值 | number | - | - |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
