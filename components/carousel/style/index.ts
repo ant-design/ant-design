@@ -55,7 +55,7 @@ const genCarouselAnimation = (token: CarouselToken) => {
       height: 0,
     },
     to: {
-      height: token.dotHeight,
+      height: token.dotActiveWidth,
     },
   });
 
