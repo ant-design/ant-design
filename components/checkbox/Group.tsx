@@ -117,6 +117,10 @@ const CheckboxGroup = React.forwardRef(
 
     const domProps = omit(restProps, ['value', 'disabled']);
 
+    // Optimized: Use Set for O(1) lookup when checking if value is checked
+    // This improves performance for large checkbox groups with many checked items
+    const valueSet = React.useMemo(() => new Set(value), [value]);
+
     const childrenNode = options.length
       ? memoizedOptions.map<React.ReactNode>((option) => (
           <Checkbox
@@ -124,7 +128,7 @@ const CheckboxGroup = React.forwardRef(
             key={option.value.toString()}
             disabled={'disabled' in option ? option.disabled : restProps.disabled}
             value={option.value}
-            checked={value.includes(option.value)}
+            checked={valueSet.has(option.value)}
             onChange={option.onChange}
             className={classNames(`${groupPrefixCls}-item`, option.className)}
             style={option.style}
