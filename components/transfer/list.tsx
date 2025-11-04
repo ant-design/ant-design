@@ -337,13 +337,16 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'removeCurrent',
             label: removeCurrent,
             onClick() {
-              // Optimized: use for loop to avoid intermediate array from map
+              // Optimized: extract enabled keys directly without intermediate arrays
               const pageItems = listBodyRef.current?.items || [];
-              const itemsToRemove: RecordType[] = [];
+              const keys: TransferKey[] = [];
               for (let i = 0; i < pageItems.length; i++) {
-                itemsToRemove.push(pageItems[i].item);
+                const item = pageItems[i].item;
+                if (!item.disabled) {
+                  keys.push(item.key);
+                }
               }
-              onItemRemove?.(getEnabledItemKeys(itemsToRemove));
+              onItemRemove?.(keys);
             },
           }
         : null,
@@ -373,13 +376,16 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'selectCurrent',
             label: selectCurrent,
             onClick() {
-              // Optimized: use for loop to avoid intermediate array from map
+              // Optimized: extract enabled keys directly without intermediate arrays
               const pageItems = listBodyRef.current?.items || [];
-              const itemsToSelect: RecordType[] = [];
+              const keys: TransferKey[] = [];
               for (let i = 0; i < pageItems.length; i++) {
-                itemsToSelect.push(pageItems[i].item);
+                const item = pageItems[i].item;
+                if (!item.disabled) {
+                  keys.push(item.key);
+                }
               }
-              onItemSelectAll?.(getEnabledItemKeys(itemsToSelect), true);
+              onItemSelectAll?.(keys, true);
             },
           }
         : null,
@@ -387,22 +393,22 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          // Optimized: use for loop to avoid intermediate array from map
+          // Optimized: extract enabled keys directly and invert selection
           const pageItems = listBodyRef.current?.items || [];
-          const itemsToInvert: RecordType[] = [];
-          for (let i = 0; i < pageItems.length; i++) {
-            itemsToInvert.push(pageItems[i].item);
-          }
-          const availablePageItemKeys = getEnabledItemKeys(itemsToInvert);
           const checkedKeySet = new Set(checkedKeys);
           const newCheckedKeysSet = new Set(checkedKeySet);
-          availablePageItemKeys.forEach((key) => {
-            if (checkedKeySet.has(key)) {
-              newCheckedKeysSet.delete(key);
-            } else {
-              newCheckedKeysSet.add(key);
+          
+          for (let i = 0; i < pageItems.length; i++) {
+            const item = pageItems[i].item;
+            if (!item.disabled) {
+              if (checkedKeySet.has(item.key)) {
+                newCheckedKeysSet.delete(item.key);
+              } else {
+                newCheckedKeysSet.add(item.key);
+              }
             }
-          });
+          }
+          
           onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
         },
       },
