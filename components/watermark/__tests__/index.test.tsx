@@ -202,4 +202,13 @@ describe('Watermark', () => {
 
     expect(onRemove).toHaveBeenCalledTimes(1);
   });
+
+  it('should not call onRemove when unmount', async () => {
+    const onRemove = jest.fn();
+    const { unmount } = render(<Watermark content="Ant" onRemove={onRemove} />);
+    await waitFakeTimer();
+    unmount();
+    await waitFakeTimer();
+    expect(onRemove).not.toHaveBeenCalled();
+  });
 });

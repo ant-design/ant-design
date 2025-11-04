@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Drawer, Flex, message, Modal, Watermark } from 'antd';
+import { Button, Drawer, Flex, Modal, Watermark } from 'antd';
 
 const style: React.CSSProperties = {
   height: 300,
@@ -15,28 +15,14 @@ const App: React.FC = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [showDrawer, setShowDrawer] = React.useState(false);
   const [showDrawer2, setShowDrawer2] = React.useState(false);
-  const watermarkRef = React.useRef<HTMLDivElement>(null);
 
   const closeModal = () => setShowModal(false);
   const closeDrawer = () => setShowDrawer(false);
   const closeDrawer2 = () => setShowDrawer2(false);
 
-  const onRemove = () => {
-    message.info('WaterMark dom is hard removed');
-  };
-
-  const hardRemoveWatermark = () => {
-    const watermarkElement = watermarkRef.current?.querySelector<HTMLDivElement>(
-      '[style*="background-image"]',
-    );
-    if (watermarkElement) {
-      watermarkElement.remove();
-    }
-  };
-
   return (
     <>
-      <Flex gap="middle" wrap>
+      <Flex gap="middle">
         <Button type="primary" onClick={() => setShowModal(true)}>
           Show in Modal
         </Button>
@@ -45,9 +31,6 @@ const App: React.FC = () => {
         </Button>
         <Button type="primary" onClick={() => setShowDrawer2(true)}>
           Not Show in Drawer
-        </Button>
-        <Button danger onClick={hardRemoveWatermark}>
-          Hard Remove Watermark
         </Button>
       </Flex>
       <Watermark content="Ant Design">
@@ -69,11 +52,6 @@ const App: React.FC = () => {
           {placeholder}
         </Drawer>
       </Watermark>
-      <div ref={watermarkRef} style={{ marginTop: 16 }}>
-        <Watermark content="Ant Design" onRemove={onRemove}>
-          {placeholder}
-        </Watermark>
-      </div>
     </>
   );
 };

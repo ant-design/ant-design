@@ -221,7 +221,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, onRemove);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
 
   useEffect(() => {
     if (watermarkInfo) {
@@ -229,7 +229,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         appendWatermark(watermarkInfo[0], watermarkInfo[1], holder);
       });
     }
-  }, [watermarkInfo, targetElements, appendWatermark]);
+  }, [watermarkInfo, targetElements]);
 
   // ============================ Observe =============================
   const onMutate = useEvent((mutations: MutationRecord[]) => {
@@ -239,10 +239,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           const isHardRemoved = Array.from<Node>(mutation.removedNodes).some((node) =>
             isWatermarkEle(node),
           );
-          if (isHardRemoved) {
-            targetElements.forEach((holder) => {
-              removeWatermark(holder, true);
-            });
+          if (isHardRemoved && onRemove) {
+            onRemove();
           }
         }
         syncWatermark();
@@ -284,15 +282,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offsetLeft,
     offsetTop,
   ]);
-
-  // Cleanup watermark on unmount
-  useEffect(() => {
-    return () => {
-      targetElements.forEach((holder) => {
-        removeWatermark(holder);
-      });
-    };
-  }, [targetElements, removeWatermark]);
 
   // ============================ Context =============================
   const watermarkContext = React.useMemo<WatermarkContextProps>(
