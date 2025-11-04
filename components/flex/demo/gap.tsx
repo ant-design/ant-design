@@ -21,8 +21,6 @@ const App: React.FC = () => {
         <Button type="dashed">Dashed</Button>
         <Button type="link">Link</Button>
       </Flex>
-
-      <Flex gap=""> 1</Flex>
     </Flex>
   );
 };
