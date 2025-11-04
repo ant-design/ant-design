@@ -1,6 +1,7 @@
 import React from 'react';
 
 export type SemanticName = 'label' | 'content';
+
 export interface DescriptionsContextProps {
   /** @deprecated Please use `styles={{ label: {} }}` instead */
   labelStyle?: React.CSSProperties;
