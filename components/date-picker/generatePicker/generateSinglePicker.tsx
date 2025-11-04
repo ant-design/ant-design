@@ -12,14 +12,13 @@ import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
-import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useSize from '../../config-provider/hooks/useSize';
-import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import usePickerCommonState from '../hooks/usePickerCommonState';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
+import usePickerDeprecatedWarnings from '../hooks/usePickerDeprecatedWarnings';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, useIcons } from '../util';
@@ -120,19 +119,10 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           'deprecated',
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
-
-        // ==================== Deprecated =====================
-        const deprecatedProps = {
-          dropdownClassName: 'classNames.popup.root',
-          popupClassName: 'classNames.popup.root',
-          popupStyle: 'styles.popup.root',
-          bordered: 'variant',
-          onSelect: 'onCalendarChange',
-        };
-        Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
-          warning.deprecated(!(oldProp in props), oldProp, newProp);
-        });
       }
+
+      // ==================== Deprecated Props =====================
+      usePickerDeprecatedWarnings(displayName! || 'DatePicker', props);
 
       const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
         consumerName,
@@ -148,15 +138,13 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ================== components ==================
       const mergedComponents = useComponents(components);
 
-      // ===================== Size =====================
-      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+      // ===================== Common State =====================
+      const { mergedSize, mergedDisabled, formItemContext } = usePickerCommonState({
+        customizeSize,
+        compactSize,
+        customDisabled,
+      });
 
-      // ===================== Disabled =====================
-      const disabled = React.useContext(DisabledContext);
-      const mergedDisabled = customDisabled ?? disabled;
-
-      // ===================== FormItemInput =====================
-      const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
       const mergedSuffixIcon = (

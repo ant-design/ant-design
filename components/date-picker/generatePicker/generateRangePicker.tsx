@@ -10,16 +10,14 @@ import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
-import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
-import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useSize from '../../config-provider/hooks/useSize';
-import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import usePickerCommonState from '../hooks/usePickerCommonState';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
+import usePickerDeprecatedWarnings from '../hooks/usePickerDeprecatedWarnings';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
@@ -72,21 +70,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
     // =================== Warning =====================
-    if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning('DatePicker.RangePicker');
-
-      // ==================== Deprecated =====================
-      const deprecatedProps = {
-        dropdownClassName: 'classNames.popup.root',
-        popupClassName: 'classNames.popup.root',
-        popupStyle: 'styles.popup.root',
-        bordered: 'variant',
-        onSelect: 'onCalendarChange',
-      };
-      Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
-        warning.deprecated(!(oldProp in props), oldProp, newProp);
-      });
-    }
+    usePickerDeprecatedWarnings('DatePicker.RangePicker', props);
 
     const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
       pickerType,
@@ -102,15 +86,13 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ================== components ==================
     const mergedComponents = useComponents(components);
 
-    // ===================== Size =====================
-    const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+    // ===================== Common State =====================
+    const { mergedSize, mergedDisabled, formItemContext } = usePickerCommonState({
+      customizeSize,
+      compactSize,
+      customDisabled,
+    });
 
-    // ===================== Disabled =====================
-    const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled ?? disabled;
-
-    // ===================== FormItemInput =====================
-    const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
     const mergedSuffixIcon = <SuffixIcon {...{ picker, hasFeedback, feedbackIcon, suffixIcon }} />;
     useImperativeHandle(ref, () => innerRef.current!);
