@@ -1,4 +1,5 @@
-import { unit } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -47,6 +48,28 @@ export interface ComponentToken {
 interface CarouselToken extends FullToken<'Carousel'> {}
 
 export const DotDuration = '--dot-duration';
+
+const genCarouselAnimation = (token: CarouselToken) => {
+  const verticalAnimation = new Keyframes(`${token.prefixCls}-dot-vertical-animation`, {
+    from: {
+      height: 0,
+    },
+    to: {
+      height: token.dotHeight,
+    },
+  });
+
+  const animation = new Keyframes(`${token.prefixCls}-dot-animation`, {
+    from: {
+      transform: `translate3d(-100%, 0, 0)`,
+    },
+    to: {
+      transform: `translate3d(0%, 0, 0)`,
+    },
+  });
+
+  return [verticalAnimation, animation];
+};
 
 const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls } = token;
@@ -220,7 +243,7 @@ const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
-const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
+const genDotsStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolation => {
   const {
     componentCls,
     dotOffset,
@@ -283,7 +306,6 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             outline: 'none',
             cursor: 'pointer',
             overflow: 'hidden',
-            transform: 'translate3d(-100%, 0, 0)',
           },
 
           button: {
@@ -322,8 +344,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             },
             '&::after': {
               background: colorBgContainer,
-              transform: 'translate3d(0, 0, 0)',
-              transition: `transform var(${DotDuration}) ease-out`,
+              animation: `${animation.getName()} var(${DotDuration}) ease-out forwards`,
             },
           },
         },
@@ -332,7 +353,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
-const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
+const genCarouselVerticalStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolation => {
   const { componentCls, dotOffset, arrowOffset, marginXXS } = token;
 
   const reverseSizeOfDot = {
@@ -401,7 +422,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
 
             '&::after': {
               ...reverseSizeOfDot,
-              transition: `height var(${DotDuration}) ease-out`,
+              animation: `${animation.getName()} var(${DotDuration}) ease-out forwards`,
             },
           },
         },
@@ -449,13 +470,18 @@ export const prepareComponentToken: GetDefaultToken<'Carousel'> = (token) => {
 // ============================== Export ==============================
 export default genStyleHooks(
   'Carousel',
-  (token) => [
-    genCarouselStyle(token),
-    genArrowsStyle(token),
-    genDotsStyle(token),
-    genCarouselVerticalStyle(token),
-    genCarouselRtlStyle(token),
-  ],
+  (token) => {
+    const [verticalAnimation, animation] = genCarouselAnimation(token);
+    return [
+      genCarouselStyle(token),
+      genArrowsStyle(token),
+      genDotsStyle(token, animation),
+      genCarouselVerticalStyle(token, verticalAnimation),
+      genCarouselRtlStyle(token),
+      animation,
+      verticalAnimation,
+    ];
+  },
   prepareComponentToken,
   {
     deprecatedTokens: [['dotWidthActive', 'dotActiveWidth']],

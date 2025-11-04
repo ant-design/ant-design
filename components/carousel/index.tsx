@@ -138,25 +138,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ? { [DotDuration]: `${autoplaySpeed}ms` }
     : {};
 
-  // When the drawing is first performed, the browser will skip the changes to `transform`.
-  // https://github.com/ant-design/ant-design/issues/55540
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  React.useEffect(() => {
-    if (autoplay && typeof autoplay === 'object' && autoplay.dotDuration && containerRef.current) {
-      const activeNode = containerRef.current.querySelector<HTMLElement>(
-        '.slick-dots li.slick-active',
-      );
-
-      if (activeNode) {
-        activeNode.classList.remove('slick-active');
-        void activeNode.offsetWidth; // reflow
-        activeNode.classList.add('slick-active');
-      }
-    }
-  }, [autoplay]);
-
   return wrapCSSVar(
-    <div ref={containerRef} className={className} id={id} style={dotDurationStyle}>
+    <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
