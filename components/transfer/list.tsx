@@ -3,7 +3,6 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
@@ -208,20 +207,24 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return [filterItems, filterRenderItems] as const;
   }, [dataSource, filterValue]);
 
+  // Memoize checkedKeys as a Set for O(1) lookup performance
+  const checkedKeysSet = useMemo(() => new Set(checkedKeys), [checkedKeys]);
+
   const checkedActiveItems = useMemo<RecordType[]>(() => {
-    return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
-  }, [checkedKeys, filteredItems]);
+    // Optimized: Use Set.has() for O(1) lookup instead of array.includes() O(n)
+    return filteredItems.filter((item) => checkedKeysSet.has(item.key) && !item.disabled);
+  }, [checkedKeysSet, filteredItems]);
 
   const checkStatus = useMemo<string>(() => {
     if (checkedActiveItems.length === 0) {
       return 'none';
     }
-    const checkedKeysMap = groupKeysMap(checkedKeys);
-    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
+    // Use checkedKeysSet for consistent O(1) lookups
+    if (filteredItems.every((item) => checkedKeysSet.has(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';
-  }, [checkedActiveItems.length, checkedKeys, filteredItems]);
+  }, [checkedActiveItems.length, checkedKeysSet, filteredItems]);
 
   // Memoize check if all items in dataSource are disabled
   const allItemsDisabled = useMemo(() => {
