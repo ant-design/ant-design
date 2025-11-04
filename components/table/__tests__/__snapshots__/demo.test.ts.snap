@@ -29203,6 +29203,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
           </li>
           <li
             class="ant-pagination-simple-pager"
+            style="color:#b8bdfd"
             title="1/2"
           >
             <input
