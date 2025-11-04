@@ -4,6 +4,34 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import useSelectIcons from '../select/useIcons';
 import type { PickerLocale, PickerProps } from './generatePicker';
 
+type PlaceholderType = 'single' | 'range';
+
+/**
+ * Helper function to get placeholder key based on picker type and placeholder type
+ */
+function getPlaceholderKey(
+  picker: PickerMode | undefined,
+  type: PlaceholderType,
+): keyof PickerLocale['lang'] {
+  const prefix = type === 'range' ? 'range' : '';
+  const pickerKey = picker ? picker.charAt(0).toUpperCase() + picker.slice(1) : '';
+  
+  if (picker === 'year') {
+    return type === 'range' ? 'rangeYearPlaceholder' : 'yearPlaceholder';
+  }
+  if (picker === 'quarter') {
+    return type === 'range' ? 'rangeQuarterPlaceholder' : 'quarterPlaceholder';
+  }
+  if (picker === 'month') {
+    return type === 'range' ? 'rangeMonthPlaceholder' : 'monthPlaceholder';
+  }
+  if (picker === 'week') {
+    return type === 'range' ? 'rangeWeekPlaceholder' : 'weekPlaceholder';
+  }
+  
+  return type === 'range' ? 'rangePlaceholder' : 'placeholder';
+}
+
 export function getPlaceholder(
   locale: PickerLocale,
   picker?: PickerMode,
@@ -13,22 +41,12 @@ export function getPlaceholder(
     return customizePlaceholder;
   }
 
-  if (picker === 'year' && locale.lang.yearPlaceholder) {
-    return locale.lang.yearPlaceholder;
-  }
-  if (picker === 'quarter' && locale.lang.quarterPlaceholder) {
-    return locale.lang.quarterPlaceholder;
-  }
-  if (picker === 'month' && locale.lang.monthPlaceholder) {
-    return locale.lang.monthPlaceholder;
-  }
-  if (picker === 'week' && locale.lang.weekPlaceholder) {
-    return locale.lang.weekPlaceholder;
-  }
   if (picker === 'time' && locale.timePickerLocale.placeholder) {
-    return locale!.timePickerLocale.placeholder;
+    return locale.timePickerLocale.placeholder;
   }
-  return locale.lang.placeholder;
+
+  const key = getPlaceholderKey(picker, 'single');
+  return locale.lang[key] as string || locale.lang.placeholder;
 }
 
 export function getRangePlaceholder(
@@ -40,22 +58,12 @@ export function getRangePlaceholder(
     return customizePlaceholder;
   }
 
-  if (picker === 'year' && locale.lang.yearPlaceholder) {
-    return locale.lang.rangeYearPlaceholder;
+  if (picker === 'time' && locale.timePickerLocale.rangePlaceholder) {
+    return locale.timePickerLocale.rangePlaceholder;
   }
-  if (picker === 'quarter' && locale.lang.quarterPlaceholder) {
-    return locale.lang.rangeQuarterPlaceholder;
-  }
-  if (picker === 'month' && locale.lang.monthPlaceholder) {
-    return locale.lang.rangeMonthPlaceholder;
-  }
-  if (picker === 'week' && locale.lang.weekPlaceholder) {
-    return locale.lang.rangeWeekPlaceholder;
-  }
-  if (picker === 'time' && locale.timePickerLocale.placeholder) {
-    return locale!.timePickerLocale.rangePlaceholder;
-  }
-  return locale.lang.rangePlaceholder;
+
+  const key = getPlaceholderKey(picker, 'range');
+  return locale.lang[key] as [string, string] || locale.lang.rangePlaceholder;
 }
 
 export function useIcons(props: Pick<PickerProps, 'allowClear' | 'removeIcon'>, prefixCls: string) {
