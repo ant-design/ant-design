@@ -242,20 +242,20 @@ const genBaseUnderlinedStyle = (
 
   return {
     [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
-      borderWidth: `0 0 ${unit(token.lineWidth)} 0`,
-      borderStyle: `none none ${token.lineType} none`,
-      borderColor: options.borderColor,
+      borderWidth: `${unit(token.lineWidth)} 0`,
+      borderStyle: `${token.lineType} none`,
+      borderColor: `transparent transparent ${options.borderColor} transparent`,
       background: token.selectorBg,
       borderRadius: 0,
     },
     [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${antCls}-pagination-size-changer)`]:
       {
         [`&:hover ${componentCls}-selector`]: {
-          borderColor: options.hoverBorderHover,
+          borderColor: `transparent transparent ${options.borderColor} transparent`,
         },
 
         [`${componentCls}-focused& ${componentCls}-selector`]: {
-          borderColor: options.activeBorderColor,
+          borderColor: `transparent transparent ${options.borderColor} transparent`,
           outline: 0,
         },
         [`${componentCls}-prefix`]: {
