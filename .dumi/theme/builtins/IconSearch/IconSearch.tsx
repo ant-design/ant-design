@@ -4,6 +4,7 @@ import Icon, * as AntdIcons from '@ant-design/icons';
 import { Affix, Empty, Input, Segmented } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import type { SegmentedOptions } from 'antd/es/segmented';
+import getDeviceLevel from 'antd/lib/_util/getDeviceLevel';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 
@@ -19,6 +20,14 @@ export enum ThemeType {
   Outlined = 'Outlined',
   TwoTone = 'TwoTone',
 }
+
+const debounceTime: number = (
+  {
+    high: 100,
+    medium: 200,
+    basic: 300,
+  } as Record<ReturnType<typeof getDeviceLevel>, number>
+)[getDeviceLevel()];
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
@@ -50,7 +59,7 @@ const IconSearch: React.FC = () => {
     setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
 
     document.getElementById('list-of-icons')?.scrollIntoView({ behavior: 'smooth' });
-  }, 300);
+  }, debounceTime);
 
   const handleChangeTheme = useCallback((value: ThemeType) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
