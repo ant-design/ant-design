@@ -112,7 +112,7 @@ return (
 
 ### Combining with Tailwind CSS
 
-What's more exciting is that the `classNames` property integrates perfectly with atomic CSS frameworks like [Tailwind CSS](https://tailwindcss.com/). This provides developers with unprecedented freedom: you can enjoy the preset behavior and semantic structure of antd components while leveraging Tailwind's utility classes to quickly build any visual style you want. Semantic design + Tailwind CSS makes component customization extremely flexible.
+What's more exciting is that the `classNames` property integrates perfectly with atomic CSS frameworks like [Tailwind CSS](https://tailwindcss.com/). This provides developers with unprecedented freedom: you can enjoy the preset behavior and semantic structure of antd components while leveraging Tailwind's utility classes to quickly build any visual style you want. Semantic design + Tailwind CSS, makes component customization extremely flexible.
 
 ```tsx
 return (
