@@ -414,7 +414,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             </span>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -779,7 +779,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -876,7 +876,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -1008,7 +1008,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -1104,7 +1104,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
