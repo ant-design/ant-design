@@ -27,7 +27,7 @@ const App: React.FC = () => {
   const sharedProps: NotificationArgsProps = {
     title: 'Notification Title',
     description: 'This is a notification description.',
-    duration: null,
+    duration: false,
     classNames: { root: styles.root },
   };
 
