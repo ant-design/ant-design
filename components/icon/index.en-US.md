@@ -3,21 +3,14 @@ category: Components
 group: General
 title: Icon
 description: Semantic vector graphics.
-showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
 ---
 
 ## How to use
 
-Before using icons, you need to install the [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
-
-<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
-
 <!-- prettier-ignore -->
-:::warning{title=Tips}
+:::info{title=Tips}
 Remember to use @ant-design/icons v5 with antd v5. See: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
