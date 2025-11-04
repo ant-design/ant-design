@@ -2410,7 +2410,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -7201,7 +7201,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -7953,7 +7953,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               style="width:100%"
             >
               <div
@@ -9207,7 +9207,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -10281,7 +10281,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -10753,7 +10753,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -13514,7 +13514,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               style="width:100%"
             >
               <div
@@ -14760,7 +14760,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               style="width:100%"
             >
               <div
@@ -15508,7 +15508,7 @@ exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"

@@ -707,7 +707,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
           class="ant-space-item"
         >
           <div
-            class="ant-input-number ant-input-number-outlined ant-input-number-type-input css-var-test-id ant-input-number-css-var"
+            class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
           >
             <div
               class="ant-input-number-handler-wrap"
