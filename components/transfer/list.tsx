@@ -32,7 +32,14 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 }
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
-  return items.filter((data) => !data.disabled).map((data) => data.key);
+  // Optimized: single-pass iteration instead of filter + map (avoids intermediate array)
+  const keys: TransferKey[] = [];
+  for (let i = 0; i < items.length; i++) {
+    if (!items[i].disabled) {
+      keys.push(items[i].key);
+    }
+  }
+  return keys;
 }
 
 const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
@@ -216,6 +223,22 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return 'part';
   }, [checkedActiveItems.length, checkedKeys, filteredItems]);
 
+  // Memoize check if all items in dataSource are disabled
+  const allItemsDisabled = useMemo(() => {
+    for (let i = 0; i < dataSource.length; i++) {
+      if (!dataSource[i].disabled) {
+        return false;
+      }
+    }
+    return true;
+  }, [dataSource]);
+
+  // Memoize enabled filtered item keys for reuse
+  const enabledFilteredKeys = useMemo(
+    () => getEnabledItemKeys(filteredItems),
+    [filteredItems],
+  );
+
   const renderListBody = () => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -262,16 +285,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
+      disabled={allItemsDisabled || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${prefixCls}-checkbox`}
       onChange={() => {
-        // Only select enabled items
-        onItemSelectAll?.(
-          filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-          checkStatus !== 'all',
-        );
+        // Only select enabled items (use memoized keys)
+        onItemSelectAll?.(enabledFilteredKeys, checkStatus !== 'all');
       }}
     />
   );
@@ -314,10 +334,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'removeCurrent',
             label: removeCurrent,
             onClick() {
-              const pageKeys = getEnabledItemKeys(
-                (listBodyRef.current?.items || []).map((entity) => entity.item),
-              );
-              onItemRemove?.(pageKeys);
+              // Optimized: use for loop to avoid intermediate array from map
+              const pageItems = listBodyRef.current?.items || [];
+              const itemsToRemove: RecordType[] = [];
+              for (let i = 0; i < pageItems.length; i++) {
+                itemsToRemove.push(pageItems[i].item);
+              }
+              onItemRemove?.(getEnabledItemKeys(itemsToRemove));
             },
           }
         : null,
@@ -326,7 +349,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'removeAll',
         label: removeAll,
         onClick() {
-          onItemRemove?.(getEnabledItemKeys(filteredItems));
+          onItemRemove?.(enabledFilteredKeys);
         },
       },
     ].filter(Boolean);
@@ -336,8 +359,10 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectAll',
         label: checkStatus === 'all' ? deselectAll : selectAll,
         onClick() {
-          const keys = getEnabledItemKeys(filteredItems);
-          onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
+          onItemSelectAll?.(
+            enabledFilteredKeys,
+            enabledFilteredKeys.length !== checkedKeys.length,
+          );
         },
       },
       pagination
@@ -345,8 +370,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'selectCurrent',
             label: selectCurrent,
             onClick() {
+              // Optimized: use for loop to avoid intermediate array from map
               const pageItems = listBodyRef.current?.items || [];
-              onItemSelectAll?.(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
+              const itemsToSelect: RecordType[] = [];
+              for (let i = 0; i < pageItems.length; i++) {
+                itemsToSelect.push(pageItems[i].item);
+              }
+              onItemSelectAll?.(getEnabledItemKeys(itemsToSelect), true);
             },
           }
         : null,
@@ -354,9 +384,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const availablePageItemKeys = getEnabledItemKeys(
-            (listBodyRef.current?.items || []).map((entity) => entity.item),
-          );
+          // Optimized: use for loop to avoid intermediate array from map
+          const pageItems = listBodyRef.current?.items || [];
+          const itemsToInvert: RecordType[] = [];
+          for (let i = 0; i < pageItems.length; i++) {
+            itemsToInvert.push(pageItems[i].item);
+          }
+          const availablePageItemKeys = getEnabledItemKeys(itemsToInvert);
           const checkedKeySet = new Set(checkedKeys);
           const newCheckedKeysSet = new Set(checkedKeySet);
           availablePageItemKeys.forEach((key) => {
