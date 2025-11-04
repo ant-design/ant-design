@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Flex, Radio, Slider } from 'antd';
-
-import type { FlexProps } from '../interface';
+import type { FlexProps } from 'antd';
 
 const App: React.FC = () => {
   const [gapSize, setGapSize] = React.useState<FlexProps['gap']>('small');
@@ -22,6 +21,8 @@ const App: React.FC = () => {
         <Button type="dashed">Dashed</Button>
         <Button type="link">Link</Button>
       </Flex>
+
+      <Flex gap=""> 1</Flex>
     </Flex>
   );
 };
