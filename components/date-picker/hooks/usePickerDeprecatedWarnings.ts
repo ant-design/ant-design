@@ -6,7 +6,7 @@ import useDeprecatedWarnings from '../../_util/useDeprecatedWarnings';
  */
 const usePickerDeprecatedWarnings = (
   componentName: string,
-  props: Record<string, any>,
+  props: Record<string, unknown>,
 ): void => {
   const deprecatedProps = {
     dropdownClassName: 'classNames.popup.root',

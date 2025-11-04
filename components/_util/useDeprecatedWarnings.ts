@@ -18,7 +18,7 @@ import { devUseWarning } from './warning';
  */
 const useDeprecatedWarnings = (
   componentName: string,
-  props: Record<string, any>,
+  props: Record<string, unknown>,
   deprecatedProps: Record<string, string>,
 ): void => {
   if (process.env.NODE_ENV !== 'production') {
