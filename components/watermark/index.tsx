@@ -221,7 +221,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, onRemove);
 
   useEffect(() => {
     if (watermarkInfo) {
@@ -235,14 +235,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const onMutate = useEvent((mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
       if (reRendering(mutation, isWatermarkEle)) {
-        if (mutation.removedNodes.length) {
-          const isHardRemoved = Array.from<Node>(mutation.removedNodes).some((node) =>
-            isWatermarkEle(node),
-          );
-          if (isHardRemoved && onRemove) {
-            onRemove();
-          }
-        }
         syncWatermark();
       } else if (mutation.target === container && mutation.attributeName === 'style') {
         // We've only force container not modify.

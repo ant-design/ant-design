@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import { getStyleStr } from './utils';
 
@@ -22,16 +23,20 @@ export type AppendWatermark = (
 
 export default function useWatermark(
   markStyle: React.CSSProperties,
+  onRemove?: () => void,
 ): [
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node) => boolean,
 ] {
   const watermarkMap = React.useRef(new Map<HTMLElement, HTMLDivElement>());
+  const onRemoveEvent = useEvent(onRemove || (() => {}));
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
-      if (!watermarkMap.current.get(container)) {
+      const exist = watermarkMap.current.get(container);
+
+      if (!exist) {
         const newWatermarkEle = document.createElement('div');
         watermarkMap.current.set(container, newWatermarkEle);
       }
@@ -52,6 +57,9 @@ export default function useWatermark(
       watermarkEle.removeAttribute('hidden');
 
       if (watermarkEle.parentElement !== container) {
+        if (exist && onRemove) {
+          onRemoveEvent();
+        }
         container.append(watermarkEle);
       }
     }
