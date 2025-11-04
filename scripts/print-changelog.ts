@@ -117,15 +117,18 @@ async function printLog() {
   }
 
   // Add exclude tag option
+  const excludeOptions = ['none', 'master', 'feature', 'next', 'custom'];
   const excludeTagChoice = await select({
     message: `🚫 Do you want to exclude commits from a specific tag/branch?`,
-    choices: [
-      { name: 'No exclusion', value: 'none' },
-      { name: 'Exclude from master', value: 'master' },
-      { name: 'Exclude from 4.x-stable', value: '4.x-stable' },
-      { name: 'Exclude from 3.x-stable', value: '3.x-stable' },
-      { name: 'Custom exclude tag ⌨️', value: 'custom' },
-    ],
+    choices: excludeOptions.map((option) => ({
+      name:
+        option === 'none'
+          ? 'No exclusion'
+          : option === 'custom'
+            ? 'Custom exclude tag ⌨️'
+            : `Exclude from ${option}`,
+      value: option,
+    })),
   });
 
   let excludeTag: string | undefined;
