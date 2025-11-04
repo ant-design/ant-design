@@ -138,21 +138,25 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ? { [DotDuration]: `${autoplaySpeed}ms` }
     : {};
 
-  // Fix dot active state not change issue when use CSS variables
+  // When the drawing is first performed, the browser will skip the changes to `transform`.
+  // https://github.com/ant-design/ant-design/issues/55540
+  const containerRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
-    const activeNode = document.querySelector(
-      `.${prefixCls} .slick-dots li.slick-active`,
-    ) as HTMLElement;
+    if (typeof autoplay === 'object' && autoplay.dotDuration && containerRef.current) {
+      const activeNode = containerRef.current.querySelector(
+        '.slick-dots li.slick-active',
+      ) as HTMLElement;
 
-    if (activeNode) {
-      activeNode.classList.remove('slick-active');
-      void activeNode.offsetWidth; // 强制刷新
-      activeNode.classList.add('slick-active');
+      if (activeNode) {
+        activeNode.classList.remove('slick-active');
+        void activeNode.offsetWidth; // reflow
+        activeNode.classList.add('slick-active');
+      }
     }
-  }, [prefixCls]);
+  }, []);
 
   return wrapCSSVar(
-    <div className={className} id={id} style={dotDurationStyle}>
+    <div ref={containerRef} className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}

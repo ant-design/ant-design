@@ -1,29 +1,59 @@
-import React from 'react';
-import { Carousel } from 'antd';
+import React, { useEffect } from 'react';
+import { HomeOutlined } from '@ant-design/icons';
+import { Button, Result } from 'antd';
+import { useLocation } from 'dumi';
 
-const contentStyle: React.CSSProperties = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
+import Link from '../../theme/common/Link';
+import * as utils from '../../theme/utils';
+
+export interface NotFoundProps {
+  router: {
+    push: (pathname: string) => void;
+    replace: (pathname: string) => void;
+  };
+}
+
+const DIRECT_MAP: Record<string, string> = {
+  'docs/spec/download': 'docs/resources',
+  'docs/spec/work-with-us': 'docs/resources',
 };
 
-const App: React.FC = () => (
-  <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={10000}>
-    <div>
-      <h3 style={contentStyle}>1</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>2</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>3</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>4</h3>
-    </div>
-  </Carousel>
-);
+const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
+  const { pathname } = useLocation();
 
-export default App;
+  const isZhCN = utils.isZhCN(pathname);
+
+  useEffect(() => {
+    const directLinks = Object.keys(DIRECT_MAP);
+    for (let i = 0; i < directLinks.length; i += 1) {
+      const matchPath = directLinks[i];
+      if (pathname.includes(matchPath)) {
+        router.replace(utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, isZhCN).pathname);
+      }
+    }
+
+    // Report if necessary
+    const { yuyanMonitor } = window as any;
+    yuyanMonitor?.log({
+      code: 11,
+      msg: `Page not found: ${location.href}; Source: ${document.referrer}`,
+    });
+  }, [isZhCN, pathname, router]);
+
+  return (
+    <Result
+      status="404"
+      title="404"
+      subTitle={isZhCN ? '你访问的页面貌似不存在？' : 'Sorry, the page you visited does not exist.'}
+      extra={
+        <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+          <Button type="primary" icon={<HomeOutlined />}>
+            {isZhCN ? '返回 Ant Design 首页' : 'Back to home page'}
+          </Button>
+        </Link>
+      }
+    />
+  );
+};
+
+export default NotFoundPage;
