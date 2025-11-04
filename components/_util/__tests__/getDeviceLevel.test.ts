@@ -24,7 +24,7 @@ describe('getDeviceLevel', () => {
     }
 
     const getContextMock = jest.fn(() => (webgl ? {} : null));
-    document.createElement = jest.fn(
+    jest.spyOn(document, 'createElement').mockImplementation(
       () =>
         ({
           getContext: getContextMock,
