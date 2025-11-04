@@ -397,7 +397,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
           const pageItems = listBodyRef.current?.items || [];
           const checkedKeySet = new Set(checkedKeys);
           const newCheckedKeysSet = new Set(checkedKeySet);
-          
           for (let i = 0; i < pageItems.length; i++) {
             const item = pageItems[i].item;
             if (!item.disabled) {
@@ -408,7 +407,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
               }
             }
           }
-          
           onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
         },
       },
