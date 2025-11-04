@@ -720,7 +720,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-root ant-input-number-css-var ant-input-number-disabled"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-disabled"
             >
               <div
                 class="ant-input-number-handler-wrap"

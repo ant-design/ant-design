@@ -351,7 +351,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width:100%"
                           >
                             <div
@@ -448,7 +448,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width:100%"
                           >
                             <div
@@ -580,7 +580,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width:100%"
                           >
                             <div
@@ -676,7 +676,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
                             style="width:100%"
                           >
                             <div

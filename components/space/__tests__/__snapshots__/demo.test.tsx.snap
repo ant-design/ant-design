@@ -812,7 +812,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="input content"
       />
       <div
-        class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -1720,7 +1720,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -1807,7 +1807,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -3397,7 +3397,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -3649,7 +3649,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -3854,7 +3854,7 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
+          class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
         >
           <div
             class="ant-input-number-handler-wrap"

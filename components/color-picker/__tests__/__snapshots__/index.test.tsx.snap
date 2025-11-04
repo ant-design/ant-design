@@ -211,7 +211,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-root ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -491,7 +491,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-root ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
                 <div
                   class="ant-input-number-handler-wrap"
