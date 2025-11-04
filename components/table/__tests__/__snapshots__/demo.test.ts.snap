@@ -24506,7 +24506,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
 exports[`renders components/table/demo/row-selection-debug.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
+    class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
   >
     <div
       class="ant-input-number-handler-wrap"

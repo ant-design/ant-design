@@ -648,7 +648,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-disabled"
+      class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
     >
       <div
         class="ant-input-number-handler-wrap"

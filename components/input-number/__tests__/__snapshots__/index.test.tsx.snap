@@ -2,7 +2,7 @@
 
 exports[`InputNumber renders correctly when controls has custom upIcon and downIcon 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -86,7 +86,7 @@ exports[`InputNumber renders correctly when controls has custom upIcon and downI
 
 exports[`InputNumber renders correctly when controls is {} 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -162,7 +162,7 @@ exports[`InputNumber renders correctly when controls is {} 1`] = `
 
 exports[`InputNumber renders correctly when controls is boolean 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
   <div
     class="ant-input-number-input-wrap"
@@ -180,7 +180,7 @@ exports[`InputNumber renders correctly when controls is boolean 1`] = `
 
 exports[`InputNumber rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-input-number ant-input-number-rtl ant-input-number-outlined css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-rtl ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
