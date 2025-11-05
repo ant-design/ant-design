@@ -19,7 +19,14 @@ const ComponentCustomizeRender: Record<
       <div />
     </Affix>
   ),
-  BackTop: () => <antd.FloatButton.BackTop />,
+  BackTop: () => (
+    <>
+      {/* Button should be the first since FloatButton will replace this */}
+      <antd.Button />
+      <antd.FloatButton />
+      <antd.FloatButton.BackTop />
+    </>
+  ),
   Cascader: () => (
     <>
       <antd.Cascader />
