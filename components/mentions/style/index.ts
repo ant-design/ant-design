@@ -171,7 +171,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           minHeight: token.calc(controlHeight).sub(2).equal(),
           margin: 0,
           padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
-          overflow: 'inherit',
+          overflow: 'hidden',
           overflowX: 'hidden',
           overflowY: 'auto',
           fontWeight: 'inherit',

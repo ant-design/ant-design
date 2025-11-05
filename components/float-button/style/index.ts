@@ -22,6 +22,11 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
    * @descEN Icon size of FloatButton
    */
   floatButtonIconSize: number | string;
+  /**
+   * @desc FloatButton 内部间距
+   * @descEN Gap inside FloatButton
+   */
+  floatButtonGap: number | string;
 
   // Position
   /**
@@ -42,11 +47,12 @@ export const prepareComponentToken: GetDefaultToken<'FloatButton'> = () => ({});
 export default genStyleHooks(
   'FloatButton',
   (token) => {
-    const { controlHeightLG, marginXXL, marginLG, fontSizeIcon, calc } = token;
+    const { controlHeightLG, marginXXL, marginLG, fontSizeIcon, paddingXXS, calc } = token;
 
     const floatButtonToken = mergeToken<FloatButtonToken>(token, {
       floatButtonIconSize: calc(fontSizeIcon).mul(1.5).equal(),
       floatButtonSize: controlHeightLG,
+      floatButtonGap: calc(paddingXXS).div(2).equal(),
       floatButtonInsetBlockEnd: marginXXL,
       floatButtonInsetInlineEnd: marginLG,
     });

@@ -6,7 +6,14 @@ import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
-  const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
+  const {
+    componentCls,
+    floatButtonSize,
+    iconCls,
+    antCls,
+    floatButtonIconSize,
+    floatButtonGap,
+  } = token;
 
   // Default: '--ant-float-btn-'
   const getCssVar = genCssVar(antCls, 'float-btn');
@@ -41,7 +48,7 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         height: 'auto',
         wordBreak: 'break-word',
         whiteSpace: 'normal',
-        gap: token.calc(token.paddingXXS).div(2).equal(),
+        gap: floatButtonGap,
 
         '&-rtl': {
           direction: 'rtl',
