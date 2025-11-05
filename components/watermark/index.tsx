@@ -296,7 +296,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         });
       },
     }),
-    [removeWatermark],
+    [],
   );
 
   // ============================= Render =============================
