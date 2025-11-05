@@ -139,7 +139,10 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   }, [component, repo, source]);
 
   // ======================== Render ========================
-  const importList = `import { ${transformComponentName(component)} } from "antd";`;
+  const importCode =
+    component === 'Icon'
+      ? `import { AntDesignOutlined } from '@ant-design/icons';`
+      : `import { ${transformComponentName(component)} } from 'antd';`;
 
   return (
     <Descriptions
@@ -153,14 +156,14 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           {
             label: locale.import,
             children: (
-              <CopyToClipboard text={`import { ${component} } from "antd";`} onCopy={onCopy}>
+              <CopyToClipboard text={importCode} onCopy={onCopy}>
                 <Tooltip
                   placement="right"
                   title={copied ? locale.copied : locale.copy}
                   onOpenChange={onOpenChange}
                 >
                   <Typography.Text className={styles.code} onClick={onCopy}>
-                    {importList}
+                    {importCode}
                   </Typography.Text>
                 </Tooltip>
               </CopyToClipboard>
