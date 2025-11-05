@@ -5,6 +5,7 @@ import { Carousel, Radio } from 'antd';
 type DotPlacement = CarouselProps['dotPlacement'];
 
 const contentStyle: React.CSSProperties = {
+  margin: 0,
   height: '160px',
   color: '#fff',
   lineHeight: '160px',
