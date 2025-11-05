@@ -10,6 +10,15 @@ const output = path.join(__dirname, '../components/style/antd.css');
 
 const blackList: string[] = ['ConfigProvider', 'Grid'];
 
+const orderBtn = () => (
+  <>
+    {/* Button should be the first since FloatButton will replace this */}
+    <antd.Button />
+    <antd.FloatButton />
+    <antd.FloatButton.BackTop />
+  </>
+);
+
 const ComponentCustomizeRender: Record<
   string,
   (component: React.ComponentType<any>) => React.ReactNode
@@ -19,14 +28,8 @@ const ComponentCustomizeRender: Record<
       <div />
     </Affix>
   ),
-  BackTop: () => (
-    <>
-      {/* Button should be the first since FloatButton will replace this */}
-      <antd.Button />
-      <antd.FloatButton />
-      <antd.FloatButton.BackTop />
-    </>
-  ),
+  Button: orderBtn,
+  BackTop: orderBtn,
   Cascader: () => (
     <>
       <antd.Cascader />
