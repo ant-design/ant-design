@@ -1,4 +1,3 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
@@ -48,28 +47,6 @@ export interface ComponentToken {
 interface CarouselToken extends FullToken<'Carousel'> {}
 
 export const DotDuration = '--dot-duration';
-
-const genCarouselAnimation = (token: CarouselToken) => {
-  const verticalAnimation = new Keyframes(`${token.prefixCls}-dot-vertical-animation`, {
-    from: {
-      height: 0,
-    },
-    to: {
-      height: token.dotWidth,
-    },
-  });
-
-  const animation = new Keyframes(`${token.prefixCls}-dot-animation`, {
-    from: {
-      transform: `translate3d(-100%, 0, 0)`,
-    },
-    to: {
-      transform: `translate3d(0%, 0, 0)`,
-    },
-  });
-
-  return [verticalAnimation, animation];
-};
 
 const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls } = token;
@@ -243,7 +220,7 @@ const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
-const genDotsStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolation => {
+const genDotsStyle: GenerateStyle<CarouselToken> = (token: CarouselToken) => {
   const {
     componentCls,
     dotOffset,
@@ -253,6 +230,16 @@ const genDotsStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolat
     colorBgContainer,
     motionDurationSlow,
   } = token;
+
+  const animation = new Keyframes(`${token.prefixCls}-dot-animation`, {
+    from: {
+      transform: `translate3d(-100%, 0, 0)`,
+    },
+    to: {
+      transform: `translate3d(0%, 0, 0)`,
+    },
+  });
+
   return {
     [componentCls]: {
       '.slick-dots': {
@@ -356,8 +343,17 @@ const genDotsStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolat
   };
 };
 
-const genCarouselVerticalStyle = (token: CarouselToken, animation: Keyframes): CSSInterpolation => {
+const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token: CarouselToken) => {
   const { componentCls, dotOffset, arrowOffset, marginXXS } = token;
+
+  const animation = new Keyframes(`${token.prefixCls}-dot-vertical-animation`, {
+    from: {
+      height: 0,
+    },
+    to: {
+      height: token.dotWidth,
+    },
+  });
 
   const reverseSizeOfDot = {
     width: token.dotHeight,
@@ -476,18 +472,13 @@ export const prepareComponentToken: GetDefaultToken<'Carousel'> = (token) => {
 // ============================== Export ==============================
 export default genStyleHooks(
   'Carousel',
-  (token) => {
-    const [verticalAnimation, animation] = genCarouselAnimation(token);
-    return [
-      genCarouselStyle(token),
-      genArrowsStyle(token),
-      genDotsStyle(token, animation),
-      genCarouselVerticalStyle(token, verticalAnimation),
-      genCarouselRtlStyle(token),
-      animation,
-      verticalAnimation,
-    ];
-  },
+  (token) => [
+    genCarouselStyle(token),
+    genArrowsStyle(token),
+    genDotsStyle(token),
+    genCarouselVerticalStyle(token),
+    genCarouselRtlStyle(token),
+  ],
   prepareComponentToken,
   {
     deprecatedTokens: [['dotWidthActive', 'dotActiveWidth']],
