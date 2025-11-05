@@ -1010,7 +1010,7 @@ exports[`renders components/carousel/demo/component-token.tsx extend context cor
 exports[`renders components/carousel/demo/dot-duration.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
-  style="--dot-duration: 100000ms;"
+  style="--dot-duration: 5000ms;"
 >
   <div
     class="slick-slider slick-initialized"
