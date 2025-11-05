@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel } from 'antd';
 
 const contentStyle: React.CSSProperties = {
+  margin: 0,
   height: '160px',
   color: '#fff',
   lineHeight: '160px',
@@ -10,7 +11,7 @@ const contentStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => (
-  <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
+  <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={100000}>
     <div>
       <h3 style={contentStyle}>1</h3>
     </div>

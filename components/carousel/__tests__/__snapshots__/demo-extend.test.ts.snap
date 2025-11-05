@@ -327,7 +327,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -347,7 +347,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 1
               </h3>
@@ -367,7 +367,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 2
               </h3>
@@ -387,7 +387,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 3
               </h3>
@@ -407,7 +407,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -427,7 +427,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 1
               </h3>
@@ -447,7 +447,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 2
               </h3>
@@ -467,7 +467,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 3
               </h3>
@@ -487,7 +487,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -1010,7 +1010,7 @@ exports[`renders components/carousel/demo/component-token.tsx extend context cor
 exports[`renders components/carousel/demo/dot-duration.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
-  style="--dot-duration: 5000ms;"
+  style="--dot-duration: 100000ms;"
 >
   <div
     class="slick-slider slick-initialized"
@@ -1036,7 +1036,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -1056,7 +1056,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 1
               </h3>
@@ -1076,7 +1076,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 2
               </h3>
@@ -1096,7 +1096,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 3
               </h3>
@@ -1116,7 +1116,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -1136,7 +1136,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 1
               </h3>
@@ -1156,7 +1156,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 2
               </h3>
@@ -1176,7 +1176,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 3
               </h3>
@@ -1196,7 +1196,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -1272,7 +1272,7 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 1
               </h3>
@@ -1292,7 +1292,7 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 2
               </h3>
@@ -1312,7 +1312,7 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 3
               </h3>
@@ -1332,7 +1332,7 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
               tabindex="-1"
             >
               <h3
-                style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
               >
                 4
               </h3>
@@ -1503,7 +1503,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   4
                 </h3>
@@ -1523,7 +1523,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   1
                 </h3>
@@ -1543,7 +1543,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   2
                 </h3>
@@ -1563,7 +1563,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   3
                 </h3>
@@ -1583,7 +1583,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   4
                 </h3>
@@ -1603,7 +1603,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   1
                 </h3>
@@ -1623,7 +1623,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   2
                 </h3>
@@ -1643,7 +1643,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   3
                 </h3>
@@ -1663,7 +1663,7 @@ Array [
                 tabindex="-1"
               >
                 <h3
-                  style="height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
                 >
                   4
                 </h3>
