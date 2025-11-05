@@ -220,7 +220,7 @@ const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
-const genDotsStyle: GenerateStyle<CarouselToken> = (token: CarouselToken) => {
+const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
   const {
     componentCls,
     dotOffset,
@@ -343,7 +343,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token: CarouselToken) => {
   };
 };
 
-const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token: CarouselToken) => {
+const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, dotOffset, arrowOffset, marginXXS } = token;
 
   const animation = new Keyframes(`${token.prefixCls}-dot-vertical-animation`, {
