@@ -1,7 +1,9 @@
 import type React from 'react';
 
+export type Primitive = null | undefined | string | number | boolean | symbol | bigint;
+
 /** https://github.com/Microsoft/TypeScript/issues/29729 */
-export type LiteralUnion<T extends string> = T | (string & {});
+export type LiteralUnion<T, U extends Primitive = string> = T | (U & Record<never, never>);
 
 export type AnyObject = Record<PropertyKey, any>;
 
