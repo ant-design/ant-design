@@ -881,4 +881,62 @@ describe('Splitter', () => {
     fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
     expect(onResize).toHaveBeenCalledWith([0, 200]);
   });
+
+  it('should maintain panel proportions with multiple panels when container resizes', async () => {
+    function mockDrag(draggerEle: HTMLElement, offset: number) {
+      const downEvent = createEvent.mouseDown(draggerEle);
+      Object.defineProperty(downEvent, 'pageX', { value: 0 });
+      Object.defineProperty(downEvent, 'pageY', { value: 0 });
+      fireEvent(draggerEle, downEvent);
+
+      const moveEvent = createEvent.mouseMove(draggerEle);
+      Object.defineProperty(moveEvent, 'pageX', { value: offset });
+      Object.defineProperty(moveEvent, 'pageY', { value: offset });
+      fireEvent(draggerEle, moveEvent);
+
+      fireEvent.mouseUp(draggerEle);
+    }
+
+    containerSize = 600;
+
+    const { container } = render(
+      <SplitterDemo items={[{ defaultSize: 180 }, {}, {}]} />,
+    );
+
+    await resizeSplitter();
+
+    // Initial sizes: 180px (30%), 210px (35%), 210px (35%)
+    let panels = container.querySelectorAll('.ant-splitter-panel');
+    expect(panels[0]).toHaveStyle('flex-basis: 180px');
+    expect(panels[1]).toHaveStyle('flex-basis: 210px');
+    expect(panels[2]).toHaveStyle('flex-basis: 210px');
+
+    // Drag first splitter: move 60px to right
+    const draggers = container.querySelectorAll('.ant-splitter-bar-dragger');
+    mockDrag(draggers[0] as HTMLElement, 60);
+
+    await act(async () => {
+      await waitFakeTimer();
+    });
+
+    // After drag: 240px (40%), 150px (25%), 210px (35%)
+    panels = container.querySelectorAll('.ant-splitter-panel');
+    expect(panels[0]).toHaveStyle('flex-basis: 240px');
+    expect(panels[1]).toHaveStyle('flex-basis: 150px');
+    expect(panels[2]).toHaveStyle('flex-basis: 210px');
+
+    // Change container size to 900px
+    containerSize = 900;
+    triggerResize(container.querySelector('.ant-splitter')!);
+
+    await act(async () => {
+      await waitFakeTimer();
+    });
+
+    // Should maintain proportions: 360px (40%), 225px (25%), 315px (35%)
+    panels = container.querySelectorAll('.ant-splitter-panel');
+    expect(panels[0]).toHaveStyle('flex-basis: 360px');
+    expect(panels[1]).toHaveStyle('flex-basis: 225px');
+    expect(panels[2]).toHaveStyle('flex-basis: 315px');
+  });
 });
