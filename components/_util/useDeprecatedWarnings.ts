@@ -10,10 +10,12 @@ import { devUseWarning } from './warning';
  *
  * @example
  * ```tsx
- * useDeprecatedWarnings('Select', props, {
- *   dropdownClassName: 'classNames.popup.root',
- *   bordered: 'variant'
- * });
+ * if (process.env.NODE_ENV !== 'production') {
+ *   useDeprecatedWarnings('Select', props, {
+ *     dropdownClassName: 'classNames.popup.root',
+ *     bordered: 'variant'
+ *   });
+ * }
  * ```
  */
 const useDeprecatedWarnings = (
@@ -21,13 +23,11 @@ const useDeprecatedWarnings = (
   props: Record<string, unknown>,
   deprecatedProps: Record<string, string>,
 ): void => {
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning(componentName);
+  const warning = devUseWarning(componentName);
 
-    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
-      warning.deprecated(!(oldProp in props), oldProp, newProp);
-    });
-  }
+  Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+    warning.deprecated(!(oldProp in props), oldProp, newProp);
+  });
 };
 
 export default useDeprecatedWarnings;
