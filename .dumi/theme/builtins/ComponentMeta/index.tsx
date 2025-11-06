@@ -111,8 +111,13 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   // ========================= Copy =========================
   const [copied, setCopied] = React.useState(false);
 
+  const importCode =
+    component === 'Icon'
+      ? `import { AntDesignOutlined } from '@ant-design/icons';`
+      : `import { ${transformComponentName(component)} } from 'antd';`;
+
   const onCopy = async () => {
-    await copy(`import { ${component} } from "antd";`);
+    await copy(importCode);
     setCopied(true);
   };
 
@@ -139,9 +144,6 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     return [source, source];
   }, [component, repo, source]);
 
-  // ======================== Render ========================
-  const importList = `import { ${transformComponentName(component)} } from "antd";`;
-
   return (
     <Descriptions
       size="small"
@@ -164,7 +166,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                   style={{ cursor: 'pointer' }}
                   onClick={onCopy}
                 >
-                  {importList}
+                  {importCode}
                 </Typography.Text>
               </Tooltip>
             ),
