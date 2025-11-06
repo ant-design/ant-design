@@ -1,12 +1,14 @@
 import React from 'react';
 import Icon from '@ant-design/icons';
 
-interface ExternalIconProps {
+interface SvgIconProps {
   className?: string;
+  style?: React.CSSProperties;
+  ref?: React.Ref<HTMLSpanElement>;
   color?: string;
 }
 
-const SVGIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
+const SVGIcon: React.FC<SvgIconProps> = ({ color = 'currentColor' }) => (
   <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill={color}>
     <title>External Link Icon</title>
     <path d="M853.333 469.333A42.667 42.667 0 0 0 810.667 512v256A42.667 42.667 0 0 1 768 810.667H256A42.667 42.667 0 0 1 213.333 768V256A42.667 42.667 0 0 1 256 213.333h256A42.667 42.667 0 0 0 512 128H256a128 128 0 0 0-128 128v512a128 128 0 0 0 128 128h512a128 128 0 0 0 128-128V512a42.667 42.667 0 0 0-42.667-42.667z" />
@@ -14,8 +16,9 @@ const SVGIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
   </svg>
 );
 
-const ExternalLinkIcon = React.forwardRef<HTMLSpanElement, ExternalIconProps>((props, ref) => (
-  <Icon component={() => <SVGIcon color={props.color} />} ref={ref} {...props} />
-));
+const ExternalLinkIcon: React.FC<SvgIconProps> = (props) => {
+  const { ref, color, ...rest } = props;
+  return <Icon component={() => <SVGIcon color={color} />} ref={ref} {...rest} />;
+};
 
 export default ExternalLinkIcon;
