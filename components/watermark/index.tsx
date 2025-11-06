@@ -36,6 +36,9 @@ export interface WatermarkProps {
   offset?: [number, number];
   children?: React.ReactNode;
   inherit?: boolean;
+  /**
+   * @since 6.0.0
+   */
   onRemove?: () => void;
 }
 
@@ -77,9 +80,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     inherit = true,
     onRemove,
   } = props;
+
   const { className: contextClassName, style: contextStyle } = useComponentConfig('watermark');
 
-  const mergedStyle = {
+  const mergedStyle: React.CSSProperties = {
     ...fixedStyle,
     ...contextStyle,
     ...style,
