@@ -36,6 +36,7 @@ export interface WatermarkProps {
   offset?: [number, number];
   children?: React.ReactNode;
   inherit?: boolean;
+  onRemove?: () => void;
 }
 
 /**
@@ -74,6 +75,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offset,
     children,
     inherit = true,
+    onRemove,
   } = props;
   const { className: contextClassName, style: contextStyle } = useComponentConfig('watermark');
 
@@ -222,7 +224,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, onRemove);
 
   useEffect(() => {
     if (watermarkInfo) {
