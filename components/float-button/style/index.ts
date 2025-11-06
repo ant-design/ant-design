@@ -57,4 +57,8 @@ export default genStyleHooks(
     ];
   },
   prepareComponentToken,
+  {
+    // Should be higher than Button (-999)
+    order: -998,
+  },
 );
