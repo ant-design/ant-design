@@ -1,5 +1,5 @@
 import React from 'react';
-import { AntDesignOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { AntDesignOutlined, CheckOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import {
   Alert,
   Button,
@@ -119,7 +119,7 @@ const ComponentsBlock: React.FC = () => {
         <ColorPicker style={{ flex: 'none' }} />
         <div style={{ flex: 'none' }}>
           <Space.Compact>
-            <Button type="primary">{locale.dropdown}</Button>
+            <Button>{locale.dropdown}</Button>
             <Dropdown
               menu={{
                 items: Array.from({ length: 5 }).map((_, index) => ({
@@ -128,7 +128,7 @@ const ComponentsBlock: React.FC = () => {
                 })),
               }}
             >
-              <Button type="primary" />
+              <Button icon={<DownOutlined />} />
             </Dropdown>
           </Space.Compact>
         </div>
