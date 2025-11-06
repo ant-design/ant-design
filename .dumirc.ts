@@ -131,17 +131,6 @@ export default defineConfig({
   headScripts: [
     `
     (function () {
-      function isLocalStorageNameSupported() {
-        const testKey = 'test';
-        const storage = window.localStorage;
-        try {
-          storage.setItem(testKey, '1');
-          storage.removeItem(testKey);
-          return true;
-        } catch (error) {
-          return false;
-        }
-      }
       // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
       const pathname = location.pathname;
 
@@ -171,7 +160,7 @@ export default defineConfig({
       }
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
-      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+      if (pathname === '/' || pathname === '/index-cn') {
         const lang =
           (window.localStorage && localStorage.getItem('locale')) ||
           ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
@@ -187,6 +176,10 @@ export default defineConfig({
     `,
   ],
   scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
+      async: true,
+    },
     {
       async: true,
       content: fs

@@ -8,7 +8,7 @@ const App: React.FC = () => {
     console.log('onChange:', value);
     setCurrent(value);
   };
-  const description = 'This is a description.';
+  const content = 'This is a content.';
 
   return (
     <>
@@ -18,15 +18,15 @@ const App: React.FC = () => {
         items={[
           {
             title: 'Step 1',
-            description,
+            content,
           },
           {
             title: 'Step 2',
-            description,
+            content,
           },
           {
             title: 'Step 3',
-            description,
+            content,
           },
         ]}
       />
@@ -36,19 +36,19 @@ const App: React.FC = () => {
       <Steps
         current={current}
         onChange={onChange}
-        direction="vertical"
+        orientation="vertical"
         items={[
           {
             title: 'Step 1',
-            description,
+            content,
           },
           {
             title: 'Step 2',
-            description,
+            content,
           },
           {
             title: 'Step 3',
-            description,
+            content,
           },
         ]}
       />

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { resetWarned } from 'rc-util/lib/warning';
+import { warning } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import type { AnchorDirection } from '../Anchor';
+
+const { resetWarned } = warning;
 
 const { Link } = Anchor;
 
@@ -90,25 +92,21 @@ describe('Anchor Render', () => {
         ]}
       />,
     );
-    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
-    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
-      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+    expect(container.querySelectorAll<HTMLElement>('.ant-anchor .ant-anchor-link').length).toBe(5);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes ?? []).map(
+      (n) => (n as HTMLElement).querySelector<HTMLAnchorElement>('.ant-anchor-link-title'),
     );
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#anchor-demo-basic');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#anchor-demo-static');
-    expect((linkTitles[3] as HTMLAnchorElement).href).toContain('#api');
+    expect(linkTitles[1]?.href).toContain('#anchor-demo-basic');
+    expect(linkTitles[2]?.href).toContain('#anchor-demo-static');
+    expect(linkTitles[3]?.href).toContain('#api');
     expect(
-      (
-        container.querySelector(
-          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
-        ) as HTMLAnchorElement
+      container.querySelector<HTMLAnchorElement>(
+        '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
       )?.href,
     ).toContain('#anchor-props');
     expect(
-      (
-        container.querySelector(
-          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
-        ) as HTMLAnchorElement
+      container.querySelector<HTMLAnchorElement>(
+        '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
       )?.href,
     ).toContain('#link-props');
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -118,31 +116,19 @@ describe('Anchor Render', () => {
     const { container, asFragment } = render(
       <Anchor
         items={[
-          {
-            key: '1',
-            href: '#anchor-demo-basic',
-            title: 'Item Basic Demo',
-          },
-          {
-            key: '2',
-            href: '#anchor-demo-static',
-            title: 'Static demo',
-          },
-          {
-            key: '3',
-            href: '#api',
-            title: 'API',
-          },
+          { key: '1', href: '#anchor-demo-basic', title: 'Item Basic Demo' },
+          { key: '2', href: '#anchor-demo-static', title: 'Static demo' },
+          { key: '3', href: '#api', title: 'API' },
         ]}
       />,
     );
-    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(3);
-    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
-      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+    expect(container.querySelectorAll<HTMLElement>('.ant-anchor .ant-anchor-link').length).toBe(3);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes ?? []).map(
+      (n) => (n as HTMLElement).querySelector<HTMLAnchorElement>('.ant-anchor-link-title'),
     );
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#anchor-demo-basic');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#anchor-demo-static');
-    expect((linkTitles[3] as HTMLAnchorElement).href).toContain('#api');
+    expect(linkTitles[1]?.href).toContain('#anchor-demo-basic');
+    expect(linkTitles[2]?.href).toContain('#anchor-demo-static');
+    expect(linkTitles[3]?.href).toContain('#api');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -185,7 +171,7 @@ describe('Anchor Render', () => {
     const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
     fireEvent.click(link);
     await waitFakeTimer();
-    expect(link.classList).toContain('ant-anchor-link-title-active');
+    expect(link).toHaveClass('ant-anchor-link-title-active');
   });
 
   it('scrolls the page when clicking a link', async () => {
@@ -737,11 +723,9 @@ describe('Anchor Render', () => {
         />,
       );
       expect(container.querySelectorAll('.ant-anchor-ink').length).toBe(1);
-      expect(
-        container
-          .querySelector('.ant-anchor-wrapper')
-          ?.classList.contains('ant-anchor-wrapper-horizontal'),
-      ).toBeTruthy();
+      expect(container.querySelector('.ant-anchor-wrapper')).toHaveClass(
+        'ant-anchor-wrapper-horizontal',
+      );
     });
 
     it('nested children via items should be filtered out when direction is horizontal', () => {
@@ -818,7 +802,7 @@ describe('Anchor Render', () => {
       const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
       fireEvent.click(link);
       await waitFakeTimer();
-      expect(link.classList).toContain('ant-anchor-link-title-active');
+      expect(link).toHaveClass('ant-anchor-link-title-active');
     });
 
     it('scrolls the page when clicking a link', async () => {
@@ -1011,40 +995,75 @@ describe('Anchor Render', () => {
             <Anchor
               direction={direction}
               items={[
-                {
-                  title: 'part-1',
-                  href: 'part-1',
-                  key: 'part-1',
-                },
-                {
-                  title: 'part-2',
-                  href: 'part-2',
-                  key: 'part-2',
-                },
+                { title: 'part-1', href: 'part-1', key: 'part-1' },
+                { title: 'part-2', href: 'part-2', key: 'part-2' },
               ]}
             />
           </div>
         );
       };
-      const wrapper = await render(<Foo />);
-      (await wrapper.findByText('part-1')).click();
+      const { container, findByText } = await render(<Foo />);
+      (await findByText('part-1')).click();
       await waitFakeTimer();
-      const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
-      const toggleButton = wrapper.container.querySelector('button')!;
+      const inkElement = container.querySelector<HTMLSpanElement>('.ant-anchor-ink');
+      const toggleButton = container.querySelector<HTMLElement>('button');
 
-      fireEvent.click(toggleButton);
-      act(() => jest.runAllTimers());
-      expect(!!ink.style.left).toBe(true);
-      expect(!!ink.style.width).toBe(true);
-      expect(ink.style.top).toBe('');
-      expect(ink.style.height).toBe('');
+      expect(toggleButton).toBeInTheDocument();
 
-      fireEvent.click(toggleButton);
+      fireEvent.click(toggleButton!);
       act(() => jest.runAllTimers());
-      expect(!!ink.style.top).toBe(true);
-      expect(!!ink.style.height).toBe(true);
-      expect(ink.style.left).toBe('');
-      expect(ink.style.width).toBe('');
+
+      expect(inkElement).toHaveStyle({
+        left: '0px',
+        width: '0px',
+      });
+
+      fireEvent.click(toggleButton!);
+      act(() => jest.runAllTimers());
+
+      expect(inkElement).toHaveStyle({
+        top: '0px',
+        height: '0px',
+      });
     });
+  });
+  it('support classnames and style', () => {
+    const customClassnames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      title: 'custom-title',
+      indicator: 'custom-indicator',
+    };
+    const customStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
+      title: { color: 'rgb(0, 128, 0)' },
+      indicator: { color: 'rgb(255, 255, 0)' },
+    };
+    const { container } = render(
+      <Anchor
+        styles={customStyles}
+        classNames={customClassnames}
+        items={[
+          { key: 'part-1', href: '#part-1', title: 'Part 1' },
+          { key: 'part-2', href: '#part-2', title: 'Part 2' },
+          { key: 'part-3', href: '#part-3', title: 'Part 3' },
+        ]}
+      />,
+    );
+
+    const root = container.querySelector<HTMLElement>('.ant-anchor-wrapper');
+    const items = container.querySelector<HTMLElement>('.ant-anchor-link');
+    const title = container.querySelector<HTMLElement>('.ant-anchor-link-title');
+    const indicator = container.querySelector<HTMLElement>('.ant-anchor-ink');
+
+    expect(root).toHaveClass('custom-root');
+    expect(items).toHaveClass('custom-item');
+    expect(title).toHaveClass('custom-title');
+    expect(indicator).toHaveClass('custom-indicator');
+    expect(items).toHaveStyle({ color: customStyles.item.color });
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(title).toHaveStyle({ color: customStyles.title.color });
+    expect(indicator).toHaveStyle({ color: customStyles.indicator.color });
   });
 });

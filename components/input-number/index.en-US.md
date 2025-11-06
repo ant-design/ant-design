@@ -30,6 +30,7 @@ When a numeric value needs to be provided.
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/focus.tsx" version="5.22.0">Focus</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
@@ -45,6 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoFocus | If the component gets focus when mounted | boolean | false | - |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
 | placeholder | Placeholder | string | - |  |
@@ -58,6 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If the input is readonly | boolean | false | - |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
 | suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
@@ -76,6 +79,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | blur() | Remove focus | - |  |
 | focus() | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.22.0 |
 | nativeElement | The native DOM element | - | 5.17.3 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

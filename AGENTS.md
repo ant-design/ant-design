@@ -96,13 +96,13 @@ ComponentRef {
 
 ### API 文档规范
 
-| Property      | Description                   | Type                           | Default |
-| --- | ---- | --- | --- |
-| htmlType | xxx        | string                               | `button `      |
-| type          | xxx           | `horizontal ` \| `vertical `  | `horizontal` |
-| disabled  | xxx           | boolean                            | false  |
-| minLength      | xxx                         | number                           | 0      |
-| style      | xxx                    | CSSProperties                  | -   |
+| Property  | Description | Type                         | Default      |
+| --------- | ----------- | ---------------------------- | ------------ |
+| htmlType  | xxx         | string                       | `button `    |
+| type      | xxx         | `horizontal ` \| `vertical ` | `horizontal` |
+| disabled  | xxx         | boolean                      | false        |
+| minLength | xxx         | number                       | 0            |
+| style     | xxx         | CSSProperties                | -            |
 
 #### API 文档要求
 
@@ -195,7 +195,7 @@ ComponentRef {
 - 使用 Jest 和 React Testing Library 编写单元测试
 - 对 UI 组件使用快照测试 (Snapshot Testing)
 - 测试覆盖率要求 100%
-- 测试文件放在 __tests__ 目录，命名格式为：index.test.tsx 或 xxx.test.tsx
+- 测试文件放在 **tests** 目录，命名格式为：index.test.tsx 或 xxx.test.tsx
 
 ### 运行测试
 
@@ -251,20 +251,16 @@ antd 的本地化配置的类型定义的入口文件是 `components/locale/inde
 使用 `components/locale/index.tsx` 文件中导出的 `useLocale` 获取全局上下文中配置的本地化：
 
 ```tsx
-import { useLocale } from "../locale";
+import { useLocale } from '../locale';
 import enUS from '../locale/en_US';
 
 export function TestComp(props) {
-    const { locale: propLocale } = props;
-    const [contextLocale] = useLocale("TestComp", enUs);
+  const { locale: propLocale } = props;
+  const [contextLocale] = useLocale('TestComp', enUs);
 
-    const locale = {...contextLocale, ...propLocale};
+  const locale = { ...contextLocale, ...propLocale };
 
-    return (
-        <div title={locale?.title}>
-            {locale?.text}
-        </div>
-    );
+  return <div title={locale?.title}>{locale?.text}</div>;
 }
 ```
 
@@ -275,6 +271,20 @@ export function TestComp(props) {
 - 提供中英文两个版本
 - 新的属性需要声明可用的版本号
 - 属性命名符合 antd 的 API 命名规则
+
+### 文档锚点 ID 规范
+
+- 针对 Markdown 文件中的标题（# 到 ######）自动生成锚点 ID
+  - 所有中文标题（H1-H6）必须手动指定一个简洁、有意义的英文锚点。
+  - 格式: ## 中文标题 {#english-anchor-id}
+  - 英文标题通常不需要手动指定锚点，但如果需要，可以使用相同的格式。
+- 锚点 ID 必须符合正则表达式 `^[a-zA-Z][\w-:\.]*$`, 且长度不应超过 32 个字符。
+- 用于演示（demo）且包含 `-demo-` 的 id 不受前面的长度限制。
+- FAQ 章节下的所有标题锚点必须以 `faq-` 作为前缀。
+- 为确保在不同语言间切换时锚点依然有效，同一问题的中英文锚点应保持完全一致。
+  - 例如：
+    - 中文标题：`### 如何使用组件 {#how-to-use-component}`
+    - 英文标题：`### How to Use the Component {#how-to-use-component}`
 
 ### Changelog 规范
 
@@ -304,6 +314,7 @@ export function TestComp(props) {
 ### 分支管理
 
 禁止直接提交到以下保护分支：
+
 - `master`：主分支，用于发布
 - `feature`：特性分支，用于开发新版本
 - `next`：下一个版本分支

@@ -1,4 +1,4 @@
-import { isValidWaveColor, getTargetWaveColor } from '../wave/util';
+import { getTargetWaveColor, isValidWaveColor } from '../wave/util';
 
 describe('wave util', () => {
   describe('isValidWaveColor', () => {
@@ -30,6 +30,10 @@ describe('wave util', () => {
 
     afterEach(() => {
       document.body.removeChild(mockElement);
+    });
+
+    afterAll(() => {
+      mockElement?.remove();
     });
 
     it('should return a valid color when available', () => {

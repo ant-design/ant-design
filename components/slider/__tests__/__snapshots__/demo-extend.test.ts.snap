@@ -3,7 +3,7 @@
 exports[`renders components/slider/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -28,28 +28,28 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -87,7 +87,7 @@ Array [
   Disabled: ,
   <button
     aria-checked="false"
-    class="ant-switch ant-switch-small"
+    class="ant-switch ant-switch-small css-var-test-id"
     role="switch"
     type="button"
   >
@@ -113,7 +113,7 @@ exports[`renders components/slider/demo/basic.tsx extend context correctly 2`] =
 exports[`renders components/slider/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-disabled ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-disabled ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -137,28 +137,28 @@ Array [
       style="left: 30%; transform: translateX(-50%);"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -197,7 +197,7 @@ Array [
     style="display: inline-block; height: 300px; margin-inline-start: 70px;"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -222,23 +222,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            30
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          30
         </div>
       </div>
     </div>
@@ -247,7 +247,7 @@ Array [
     style="display: inline-block; height: 300px; margin-inline-start: 70px;"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -287,7 +287,7 @@ Array [
     style="display: inline-block; height: 300px; margin-inline-start: 70px;"
   >
     <div
-      class="ant-slider ant-slider-vertical ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-vertical ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
@@ -377,7 +377,7 @@ exports[`renders components/slider/demo/component-token.tsx extend context corre
 
 exports[`renders components/slider/demo/draggableTrack.tsx extend context correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -418,7 +418,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
 
 exports[`renders components/slider/demo/editable.tsx extend context correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -460,7 +460,7 @@ exports[`renders components/slider/demo/editable.tsx extend context correctly 2`
 exports[`renders components/slider/demo/event.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -485,28 +485,28 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -570,7 +570,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     </svg>
   </span>
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -595,23 +595,23 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          0
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        0
       </div>
     </div>
   </div>
@@ -641,20 +641,20 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
 
 exports[`renders components/slider/demo/input-number.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-row"
+      class="ant-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 css-var-test-id"
       >
         <div
-          class="ant-slider ant-slider-horizontal"
+          class="ant-slider css-var-test-id ant-slider-horizontal"
         >
           <div
             class="ant-slider-rail"
@@ -679,32 +679,32 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             tabindex="0"
           />
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                1
-              </div>
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              1
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 css-var-test-id"
       >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
           style="margin: 0px 16px;"
         >
           <div
@@ -787,13 +787,13 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-row"
+      class="ant-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 css-var-test-id"
       >
         <div
-          class="ant-slider ant-slider-horizontal"
+          class="ant-slider css-var-test-id ant-slider-horizontal"
         >
           <div
             class="ant-slider-rail"
@@ -818,32 +818,32 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             tabindex="0"
           />
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
               style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-inner"
-                id="test-id"
-                role="tooltip"
-              >
-                0
-              </div>
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              0
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 css-var-test-id"
       >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
           style="margin: 0px 16px;"
         >
           <div
@@ -933,7 +933,7 @@ Array [
     included=true
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -975,23 +975,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1026,7 +1026,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1112,7 +1112,7 @@ Array [
     included=false
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1150,23 +1150,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1204,7 +1204,7 @@ Array [
     marks & step
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1246,23 +1246,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1300,7 +1300,7 @@ Array [
     step=null
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1342,23 +1342,23 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          37
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        37
       </div>
     </div>
     <div
@@ -1399,7 +1399,7 @@ exports[`renders components/slider/demo/mark.tsx extend context correctly 2`] = 
 
 exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -1460,7 +1460,7 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 2`
 exports[`renders components/slider/demo/reverse.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1485,28 +1485,28 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          30
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
       </div>
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1544,7 +1544,7 @@ Array [
   Reversed: ,
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-small ant-switch-checked"
+    class="ant-switch ant-switch-small css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -1569,7 +1569,7 @@ exports[`renders components/slider/demo/reverse.tsx extend context correctly 2`]
 
 exports[`renders components/slider/demo/show-tooltip.tsx extend context correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -1594,18 +1594,120 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      30
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/slider/demo/show-tooltip.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/slider/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-slider acss-1pw5qi4 css-var-test-id ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-slider-track"
+      style="left: 0%; width: 30%; background-image: linear-gradient(180deg, #91caff, #1677ff);"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-describedby="test-id"
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%); border-color: rgb(22, 119, 255); box-shadow: 0 2px 8px #1677ff;"
+      tabindex="0"
+    />
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-inner"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        30
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-slider acss-14altik css-var-test-id ant-slider-vertical"
+    style="height: 300px;"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="top: 0%; height: 30%; background-image: linear-gradient(180deg, #722cc0, #722ed1);"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-describedby="test-id"
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle acss-10vy2hp"
+      role="slider"
+      style="top: 30%; transform: translateY(-50%); border-color: rgb(114, 46, 209); box-shadow: 0 2px 8px #722ed1;"
+      tabindex="0"
+    />
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
@@ -1616,12 +1718,12 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/slider/demo/show-tooltip.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/slider/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/tip-formatter.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1646,28 +1748,28 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          0%
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        0%
       </div>
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1692,22 +1794,22 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
+        <span
+          class="ant-tooltip-arrow-content"
         />
       </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      />
     </div>
   </div>,
 ]
@@ -1721,7 +1823,7 @@ Array [
     style="display: inline-block; height: 300px; margin-inline-start: 70px;"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -1746,23 +1848,23 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            30
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          30
         </div>
       </div>
     </div>
@@ -1771,7 +1873,7 @@ Array [
     style="display: inline-block; height: 300px; margin-inline-start: 70px;"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -1811,7 +1913,7 @@ Array [
     style="display: inline-block; height: 300px; margin-inline-start: 70px;"
   >
     <div
-      class="ant-slider ant-slider-vertical ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-vertical ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"

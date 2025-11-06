@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type { InternalDescriptionsItemType } from '.';
 import Cell from './Cell';
 import type { DescriptionsContextProps } from './DescriptionsContext';
@@ -38,6 +37,7 @@ function renderCells(
         span = 1,
         key,
         styles,
+        classNames,
       },
       index,
     ) => {
@@ -47,6 +47,7 @@ function renderCells(
             key={`${type}-${key || index}`}
             className={className}
             style={style}
+            classNames={classNames}
             styles={{
               label: {
                 ...rootLabelStyle,

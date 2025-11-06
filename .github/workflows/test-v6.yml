@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - run: bun run lint
+      - uses: utooland/setup-utoo@v1
+      - run: ut install
+      - run: ut lint
 
   ################################ Test ################################
   test-react-legacy:
@@ -37,23 +37,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut
       - name: install react 18
         if: ${{ matrix.react == '18' }}
-        run: bun run bun-install-react-18
+        run: ut ut-install-react-18
       # dom test
       - name: dom test
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
 
   test-node:
     name: test-node
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - run: bun run test:node
+      - uses: utooland/setup-utoo@v1
+      - run: ut install
+      - run: ut run test:node
 
   test-react-latest:
     name: test-react-latest
@@ -64,19 +64,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut install --ignore-scripts
 
       # dom test
       - name: dom test
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
         run: |
           mkdir persist-coverage
           mv coverage/coverage-final.json persist-coverage/react-test-${{matrix.module}}-${{strategy.job-index}}.json
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         name: upload coverages
         with:
           name: coverage-artifacts-${{ matrix.module }}-${{ strategy.job-index }}
@@ -92,8 +92,8 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: restore cache from dist
         uses: actions/cache@v4
@@ -103,13 +103,13 @@ jobs:
 
       - name: dist-min test
         if: ${{ matrix.module == 'dist-min' }}
-        run: bun run test
+        run: ut test
         env:
           LIB_DIR: dist-min
 
       - name: dist test
         if: ${{ matrix.module == 'dist' }}
-        run: bun run test
+        run: ut test
         env:
           LIB_DIR: dist
 
@@ -120,18 +120,16 @@ jobs:
     needs: test-react-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-
-      - uses: actions/download-artifact@v5
+      - uses: utooland/setup-utoo@v1
+      - uses: actions/download-artifact@v6
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
-          bunx nyc merge persist-coverage/ coverage/coverage-final.json
-          bunx nyc report --reporter text -t coverage --report-dir coverage
+          utx nyc merge persist-coverage/ coverage/coverage-final.json
+          utx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v5
@@ -144,8 +142,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: cache lib
         uses: actions/cache@v4
@@ -160,7 +158,7 @@ jobs:
           key: es-${{ github.sha }}
 
       - name: compile
-        run: bun run compile
+        run: ut compile
 
       - name: cache dist
         uses: actions/cache@v4
@@ -169,18 +167,18 @@ jobs:
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: bun run dist
+        run: ut dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           CI: 1
 
       - name: check build files
-        run: bun run test:dekko
+        run: ut test:dekko
 
       # Artifact build files
       - uses: actions/upload-artifact@v4
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/next'
         with:
           name: build artifacts
           path: |
@@ -190,7 +188,7 @@ jobs:
             lib
 
       - name: zip builds
-        if: github.repository == 'ant-design/ant-design' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.repository == 'ant-design/ant-design' && github.event_name == 'push' && github.ref == 'refs/heads/next'
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
@@ -209,8 +207,8 @@ jobs:
         shard: [1/2, 2/2]
     steps:
       - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
@@ -223,11 +221,11 @@ jobs:
       - name: compile
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: bun run compile
+        run: ut compile
 
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}

@@ -73,7 +73,7 @@ The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works o
 
 ## Why does modifying props in mutable way not trigger a component update?
 
-antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://reactjs.org/docs/thinking-in-react.html)
+antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://react.dev/learn/thinking-in-react)
 
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
@@ -181,7 +181,7 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 ## Why shouldn't I use component internal props or state with ref?
 
-You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://reactjs.org/docs/hooks-intro.html) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
+You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://react.dev/reference/react/hooks) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
 
 <div id="why-open"></div>
 
@@ -273,6 +273,10 @@ If you encounter the above error, please check the current project `tsconfig.jso
 ```
 
 The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
+
+## Why doesn't antd handle precision issues encountered with browser zoom?
+
+Different browsers have different rendering behaviors when zooming. Fixing a precision issue in one browser often leads to issues in others. Additionally, zoom-related precision issues typically occur at extreme zoom levels, which are uncommon in regular use. The inconsistency in rendering arises from how browsers calculate and render elements during zoom operations, including subpixel rendering, rounding differences, and layout recalculations. Addressing these issues requires a significant amount of browser-specific code, which can negatively impact performance and maintainability, and may also be broken by iterations in the browsers themselves.
 
 ## The antd component reported an error when using the App Router of Next.js
 

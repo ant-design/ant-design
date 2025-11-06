@@ -1,4 +1,5 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
@@ -24,8 +25,13 @@ export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
-function splitCNCharsBySpace(child: React.ReactElement | string | number, needInserted: boolean) {
-  if (child === null || child === undefined) {
+function splitCNCharsBySpace(
+  child: React.ReactElement | string | number,
+  needInserted: boolean,
+  style?: React.CSSProperties,
+  className?: string,
+) {
+  if (child === null || child === undefined || child === '') {
     return;
   }
 
@@ -43,29 +49,43 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
       ).props.children,
     )
   ) {
-    return cloneElement(child, {
-      children: (
-        child as React.ReactElement<{
-          children: string;
-        }>
-      ).props.children
-        .split('')
-        .join(SPACE),
-    });
+    return cloneElement(child, (oriProps) => ({
+      ...oriProps,
+      children: oriProps.children.split('').join(SPACE),
+      className,
+      style,
+    }));
   }
 
   if (isString(child)) {
-    return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
+    return (
+      <span className={className} style={style}>
+        {isTwoCNChar(child) ? child.split('').join(SPACE) : child}
+      </span>
+    );
   }
 
   if (isFragment(child)) {
-    return <span>{child}</span>;
+    return (
+      <span className={className} style={style}>
+        {child}
+      </span>
+    );
   }
 
-  return child;
+  return cloneElement(child, (oriProps) => ({
+    ...oriProps,
+    className: clsx(oriProps.className, className) || undefined,
+    style: { ...oriProps.style, ...style },
+  }));
 }
 
-export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
+export function spaceChildren(
+  children: React.ReactNode,
+  needInserted: boolean,
+  style?: React.CSSProperties,
+  className?: string,
+) {
   let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
 
@@ -84,14 +104,19 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   });
 
   return React.Children.map(childList, (child) =>
-    splitCNCharsBySpace(child as React.ReactElement | string | number, needInserted),
+    splitCNCharsBySpace(
+      child as React.ReactElement | string | number,
+      needInserted,
+      style,
+      className,
+    ),
   );
 }
 
 const _ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
 export type ButtonType = (typeof _ButtonTypes)[number];
 
-const _ButtonShapes = ['default', 'circle', 'round'] as const;
+const _ButtonShapes = ['default', 'circle', 'round', 'square'] as const;
 export type ButtonShape = (typeof _ButtonShapes)[number];
 
 const _ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;

@@ -2,25 +2,32 @@ import React from 'react';
 import { SettingOutlined } from '@ant-design/icons';
 import { Cascader, InputNumber, Select, Space } from 'antd';
 
-const { Option } = Select;
-
 const selectBefore = (
-  <Select defaultValue="add" style={{ width: 60 }}>
-    <Option value="add">+</Option>
-    <Option value="minus">-</Option>
-  </Select>
+  <Select
+    defaultValue="add"
+    style={{ width: 60 }}
+    options={[
+      { label: '+', value: 'add' },
+      { label: '-', value: 'minus' },
+    ]}
+  />
 );
+
 const selectAfter = (
-  <Select defaultValue="USD" style={{ width: 60 }}>
-    <Option value="USD">$</Option>
-    <Option value="EUR">€</Option>
-    <Option value="GBP">£</Option>
-    <Option value="CNY">¥</Option>
-  </Select>
+  <Select
+    defaultValue="USD"
+    style={{ width: 60 }}
+    options={[
+      { label: '$', value: 'USD' },
+      { label: '€', value: 'EUR' },
+      { label: '£', value: 'GBP' },
+      { label: '¥', value: 'CNY' },
+    ]}
+  />
 );
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
     <InputNumber addonBefore={selectBefore} addonAfter={selectAfter} defaultValue={100} />
     <InputNumber addonAfter={<SettingOutlined />} defaultValue={100} />

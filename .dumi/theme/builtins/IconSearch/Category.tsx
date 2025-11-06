@@ -7,22 +7,22 @@ import CopyableIcon from './CopyableIcon';
 import type { CategoriesKeys } from './fields';
 import type { ThemeType } from './IconSearch';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   anticonsList: css`
-    margin: ${token.margin}px 0;
+    margin: ${cssVar.margin} 0;
     overflow: hidden;
     direction: ltr;
     list-style: none;
     display: grid;
-    grid-gap: ${token.margin}px;
+    grid-gap: ${cssVar.margin};
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding: 0;
   `,
   copiedCode: css`
-    padding: 0 ${token.paddingXXS}px;
-    font-size: ${token.fontSizeSM}px;
-    background-color: ${token.colorBgLayout};
-    border-radius: ${token.borderRadiusXS}px;
+    padding: 0 ${cssVar.paddingXXS};
+    font-size: ${cssVar.fontSizeSM};
+    background-color: ${cssVar.colorBgLayout};
+    border-radius: ${cssVar.borderRadiusXS};
   `,
 }));
 
@@ -30,7 +30,7 @@ interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
   theme: ThemeType;
-  newIcons: string[];
+  newIcons: ReadonlyArray<string> | string[];
 }
 
 const Category: React.FC<CategoryProps> = (props) => {
@@ -40,17 +40,20 @@ const Category: React.FC<CategoryProps> = (props) => {
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-  const onCopied = React.useCallback((type: string, text: string) => {
-    message.success(
-      <span>
-        <code className={styles.copiedCode}>{text}</code> copied 🎉
-      </span>,
-    );
-    setJustCopied(type);
-    copyId.current = setTimeout(() => {
-      setJustCopied(null);
-    }, 2000);
-  }, []);
+  const onCopied = React.useCallback(
+    (type: string, text: string) => {
+      message.success(
+        <span>
+          <code className={styles.copiedCode}>{text}</code> copied 🎉
+        </span>,
+      );
+      setJustCopied(type);
+      copyId.current = setTimeout(() => {
+        setJustCopied(null);
+      }, 2000);
+    },
+    [message, styles.copiedCode],
+  );
   React.useEffect(
     () => () => {
       if (copyId.current) {

@@ -22,10 +22,10 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   iconSearchAffix: css`
     display: flex;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     justify-content: space-between;
   `,
 }));
@@ -34,6 +34,8 @@ interface IconSearchState {
   theme: ThemeType;
   searchKey: string;
 }
+
+const NEW_ICON_NAMES: ReadonlyArray<string> = [];
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
@@ -44,10 +46,10 @@ const IconSearch: React.FC = () => {
   });
   const token = useTheme();
 
-  const newIconNames: string[] = [];
-
   const handleSearchIcon = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
     setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
+
+    document.getElementById('list-of-icons')?.scrollIntoView({ behavior: 'smooth' });
   }, 300);
 
   const handleChangeTheme = useCallback((value: ThemeType) => {
@@ -68,7 +70,7 @@ const IconSearch: React.FC = () => {
 
     const tagMatchedCategoryObj = matchCategoriesFromTag(normalizedSearchKey, metaInfo);
 
-    const namedMatchedCategoryObj = Object.keys(categories).reduce(
+    const namedMatchedCategoryObj = Object.keys(categories).reduce<Record<string, MatchedCategory>>(
       (acc, key) => {
         let iconList = categories[key as CategoriesKeys];
         if (normalizedSearchKey) {
@@ -89,7 +91,7 @@ const IconSearch: React.FC = () => {
 
         return acc;
       },
-      {} as Record<string, MatchedCategory>,
+      {},
     );
 
     // merge matched categories from tag search
@@ -110,13 +112,14 @@ const IconSearch: React.FC = () => {
         title={category as CategoriesKeys}
         theme={theme}
         icons={icons}
-        newIcons={newIconNames}
+        newIcons={NEW_ICON_NAMES}
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
-  }, [displayState.searchKey, displayState.theme]);
+  }, [displayState]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean | undefined>(false);
+
   const { borderRadius, colorBgContainer, anchorTop } = token;
 
   const affixedStyle: CSSProperties = {
@@ -183,36 +186,27 @@ type MatchedCategory = {
   icons: string[];
 };
 
-function matchCategoriesFromTag(
-  searchKey: string,
-  metaInfo: IconsMeta,
-): Record<string, MatchedCategory> {
+function matchCategoriesFromTag(searchKey: string, metaInfo: IconsMeta) {
   if (!searchKey) {
     return {};
   }
 
-  return Object.keys(metaInfo).reduce(
-    (acc, key) => {
-      const icon = metaInfo[key as IconName];
-      const category = icon.category;
+  return Object.keys(metaInfo).reduce<Record<string, MatchedCategory>>((acc, key) => {
+    const icon = metaInfo[key as IconName];
+    const category = icon.category;
 
-      if (icon.tags.some((tag) => tag.toLowerCase().includes(searchKey))) {
-        if (acc[category]) {
-          // if category exists, push icon to icons array
-          acc[category].icons.push(key);
-        } else {
-          // if category does not exist, create a new entry
-          acc[category] = {
-            category,
-            icons: [key],
-          };
-        }
+    if (icon.tags.some((tag) => tag.toLowerCase().includes(searchKey))) {
+      if (acc[category]) {
+        // if category exists, push icon to icons array
+        acc[category].icons.push(key);
+      } else {
+        // if category does not exist, create a new entry
+        acc[category] = { category, icons: [key] };
       }
+    }
 
-      return acc;
-    },
-    {} as Record<string, MatchedCategory>,
-  );
+    return acc;
+  }, {});
 }
 
 function mergeCategory(

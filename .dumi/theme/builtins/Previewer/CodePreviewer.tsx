@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo } from 'dumi';
 
 import type { AntdPreviewerProps } from '.';
@@ -14,8 +14,7 @@ import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
 import Actions from './Actions';
 
-const useStyle = createStyles(({ token }) => {
-  const { borderRadius } = token;
+const useStyle = createStyles(({ cssVar }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -26,17 +25,17 @@ const useStyle = createStyles(({ token }) => {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
-      border-top: 1px solid ${token.colorSplit};
-      color: ${token.colorTextSecondary};
-      transition: all ${token.motionDurationMid} ease-in-out;
-      background-color: ${token.colorBgElevated};
+      border-radius: 0 0 ${cssVar.borderRadius} ${cssVar.borderRadius};
+      border-top: 1px solid ${cssVar.colorSplit};
+      color: ${cssVar.colorTextSecondary};
+      transition: all ${cssVar.motionDurationMid} ease-in-out;
+      background-color: ${cssVar.colorBgElevated};
       cursor: pointer;
       &:hover {
-        color: ${token.colorPrimary};
+        color: ${cssVar.colorPrimary};
       }
       span {
-        margin-inline-end: ${token.marginXXS}px;
+        margin-inline-end: ${cssVar.marginXXS};
       }
     `,
   };
@@ -98,7 +97,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     if (asset.id === hash.slice(1)) {
       anchorRef.current?.click();
     }
-  }, []);
+  }, [asset.id, hash]);
 
   useEffect(() => {
     setCodeExpand(expand);
@@ -122,13 +121,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     );
   }
 
-  const codeBoxClass = classNames('code-box', {
+  const codeBoxClass = clsx('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
     'code-box-simplify': simplify,
   });
 
-  const highlightClass = classNames('highlight-wrapper', {
+  const highlightClass = clsx('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
 

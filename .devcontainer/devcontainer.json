@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "ant-design",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:3-22-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:4-22-bookworm",
   "postCreateCommand": "pnpm install",
   "customizations": {
     "vscode": {

@@ -21,8 +21,7 @@ const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '> *': {
           flex: 'none',
         },
-
-        '&-left': {
+        '&-start': {
           justifyContent: 'flex-start',
         },
 
@@ -30,7 +29,7 @@ const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           justifyContent: 'center',
         },
 
-        '&-right': {
+        '&-end': {
           justifyContent: 'flex-end',
         },
       },

@@ -53,7 +53,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   tableTitle: css`
     cursor: pointer;
     position: relative;
@@ -61,16 +61,16 @@ const useStyle = createStyles(({ token }) => ({
     align-items: center;
     justify-content: flex-start;
     line-height: 40px;
-    gap: ${token.marginXS}px;
+    gap: ${cssVar.marginXS};
   `,
   arrowIcon: css`
-    font-size: ${token.fontSizeLG}px;
+    font-size: ${cssVar.fontSizeLG};
     & svg {
-      transition: all ${token.motionDurationSlow};
+      transition: all ${cssVar.motionDurationSlow};
     }
   `,
   help: css`
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     font-weight: normal;
     color: #999;
     a {
@@ -78,7 +78,7 @@ const useStyle = createStyles(({ token }) => ({
     }
   `,
   tokenTitle: css`
-    font-size: ${token.fontSizeLG}px;
+    font-size: ${cssVar.fontSizeLG};
     font-weight: bold;
   `,
 }));

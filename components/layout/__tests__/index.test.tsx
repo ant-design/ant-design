@@ -110,8 +110,10 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.width).toBe('50%');
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.flex).toBe('0 0 50%');
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider')).toHaveStyle({
+      width: '50%',
+      flex: '0 0 50%',
+    });
   });
 
   describe('zeroWidth', () => {
@@ -231,7 +233,7 @@ describe('Layout', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
     rerender(
       <Sider collapsible collapsed>
         <Menu mode="inline">
@@ -246,7 +248,7 @@ describe('Layout', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeTruthy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
 
     jest.useRealTimers();
   });

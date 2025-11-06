@@ -10,16 +10,16 @@ describe('Test warning', () => {
     spy = jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
-  afterAll(() => {
-    spy.mockRestore();
-  });
-
   beforeEach(() => {
     jest.resetModules();
   });
 
   afterEach(() => {
     spy.mockReset();
+  });
+
+  afterAll(() => {
+    spy.mockRestore();
   });
 
   it('Test noop', async () => {

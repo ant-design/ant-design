@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -197,7 +197,7 @@ describe('Tour', () => {
     };
     const { getByText, baseElement } = render(<App />);
     expect(getByText('primary description.')).toBeTruthy();
-    expect(baseElement.querySelector('.ant-tour-content')?.parentElement).toHaveClass(
+    expect(baseElement.querySelector('.ant-tour-panel')?.parentElement).toHaveClass(
       'ant-tour-primary',
     );
     expect(baseElement).toMatchSnapshot();
@@ -233,10 +233,10 @@ describe('Tour', () => {
     };
     const { getByText, container, baseElement } = render(<App />);
     expect(getByText('cover description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-content')).toBeFalsy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeFalsy();
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-content')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -319,7 +319,7 @@ describe('Tour', () => {
     [undefined, null].forEach((total: any) => {
       const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-indicators'),
+        container.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-indicators'),
       ).toBeFalsy();
     });
   });
@@ -328,7 +328,7 @@ describe('Tour', () => {
     [undefined, null].forEach((title) => {
       const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-header'),
+        container.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-header'),
       ).toBeFalsy();
     });
   });
@@ -363,13 +363,11 @@ describe('Tour', () => {
 
     const { container } = render(<App />);
     // className
-    expect(screen.getByRole('button', { name: 'Next' }).className.includes('customClassName')).toBe(
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Next' })).toHaveClass('customClassName');
     // style
-    expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
-      'rgb(69, 69, 255)',
-    );
+    expect(screen.getByRole('button', { name: 'Next' })).toHaveStyle({
+      backgroundColor: 'rgb(69, 69, 255)',
+    });
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -442,7 +440,7 @@ describe('Tour', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'SetCurrent' }));
     expect(getByText('Primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-content')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -707,26 +705,126 @@ describe('Tour', () => {
       expect(container.querySelector('.little')).toBeTruthy();
     });
   });
+  it('support custom styles', () => {
+    const customClassnames = {
+      mask: 'custom-mask',
+      actions: 'custom-actions',
+      title: 'custom-title',
+      header: 'custom-header',
+      section: 'custom-section',
+      footer: 'custom-footer',
+      description: 'custom-description',
+      cover: 'custom-cover',
+      indicator: 'custom-indicator',
+      indicators: 'custom-indicators',
+      root: 'custom-root',
+    };
+    const customStyles = {
+      mask: { color: 'rgb(255, 255, 255)' },
+      actions: { color: 'rgb(0, 0, 255)' },
+      title: { fontSize: '20px' },
+      header: { backgroundColor: 'rgb(128, 128, 128)' },
+      section: { margin: '5px' },
+      footer: { borderTop: '1px solid rgb(0, 0, 0)' },
+      description: { fontStyle: 'italic' },
+      cover: { color: 'rgb(255, 0, 0)' },
+      indicator: { color: 'rgb(0, 128, 0)' },
+      indicators: { color: 'rgb(255, 255, 0)' },
+      root: { backgroundColor: 'rgb(255, 200, 255)' },
+    };
+    const Demo: React.FC = () => {
+      const btnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <div style={{ margin: 20 }}>
+          <button ref={btnRef} type="button">
+            按钮
+          </button>
+          <Tour
+            classNames={customClassnames}
+            styles={customStyles}
+            open
+            steps={[
+              {
+                title: '创建',
+                description: '创建一条数据',
+                cover: (
+                  <img
+                    alt="tour.png"
+                    src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+                  />
+                ),
+                target: () => btnRef.current!,
+              },
+              {
+                title: 'Save',
+                description: 'Save your changes.',
+                target: () => btnRef.current!,
+              },
+            ]}
+          />
+        </div>
+      );
+    };
+    render(<Demo />);
+
+    const maskElement = document.querySelector<HTMLElement>('.ant-tour-mask');
+    const actionsElement = document.querySelector<HTMLElement>('.ant-tour-actions');
+    const titleElement = document.querySelector<HTMLElement>('.ant-tour-title');
+    const headerElement = document.querySelector<HTMLElement>('.ant-tour-header');
+    const sectionElement = document.querySelector<HTMLElement>('.ant-tour-section');
+    const footerElement = document.querySelector<HTMLElement>('.ant-tour-footer');
+    const descriptionElement = document.querySelector<HTMLElement>('.ant-tour-description');
+    const coverElement = document.querySelector<HTMLElement>('.ant-tour-cover');
+    const indicatorElement = document.querySelector<HTMLElement>('.ant-tour-indicator');
+    const indicatorsElement = document.querySelector<HTMLElement>('.ant-tour-indicators');
+    const rootElement = document.querySelector<HTMLElement>('.ant-tour-mask');
+
+    // check classNames
+    expect(maskElement).toHaveClass(customClassnames.mask);
+    expect(actionsElement).toHaveClass(customClassnames.actions);
+    expect(titleElement).toHaveClass(customClassnames.title);
+    expect(headerElement).toHaveClass(customClassnames.header);
+    expect(sectionElement).toHaveClass(customClassnames.section);
+    expect(footerElement).toHaveClass(customClassnames.footer);
+    expect(descriptionElement).toHaveClass(customClassnames.description);
+    expect(coverElement).toHaveClass(customClassnames.cover);
+    expect(indicatorElement).toHaveClass(customClassnames.indicator);
+    expect(indicatorsElement).toHaveClass(customClassnames.indicators);
+    expect(rootElement).toHaveClass(customClassnames.root);
+
+    // check styles
+    expect(maskElement).toHaveStyle({ color: customStyles.mask.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions.color });
+    expect(titleElement).toHaveStyle({ fontSize: customStyles.title.fontSize });
+    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header.backgroundColor });
+    expect(sectionElement).toHaveStyle({ margin: customStyles.section.margin });
+    expect(footerElement).toHaveStyle({ borderTop: customStyles.footer.borderTop });
+    expect(descriptionElement).toHaveStyle({ fontStyle: customStyles.description.fontStyle });
+    expect(coverElement).toHaveStyle({ color: customStyles.cover.color });
+    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator.color });
+    expect(indicatorsElement).toHaveStyle({ color: customStyles.indicators.color });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+  });
+
   it('default aria-label', () => {
     const { container } = render(<Tour open steps={[{ title: 'test', description: 'test' }]} />);
-    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe('Close');
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+      'aria-label',
+      'Close',
+    );
   });
+
   it('custom aria-label', () => {
     const { container } = render(
       <Tour
         open
         steps={[
-          {
-            title: 'test',
-            description: 'test',
-            closable: {
-              'aria-label': 'Custom Close Button',
-            },
-          },
+          { title: 'test', description: 'test', closable: { 'aria-label': 'Custom Close Button' } },
         ]}
       />,
     );
-    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe(
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+      'aria-label',
       'Custom Close Button',
     );
   });

@@ -3,7 +3,7 @@
 exports[`renders components/mentions/demo/allowClear.tsx correctly 1`] = `
 Array [
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   >
     <div
       class="ant-mentions"
@@ -49,7 +49,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   >
     <div
       class="ant-mentions"
@@ -95,7 +95,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   >
     <div
       class="ant-mentions"
@@ -143,7 +143,7 @@ Array [
 
 exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -155,7 +155,7 @@ exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -165,9 +165,37 @@ exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/mentions/demo/autosize-textarea-debug.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:32px"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="can resize"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    style="resize:none"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="disable resize"
+      rows="1"
+      style="resize:none"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -184,7 +212,7 @@ exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
     style="width:100%;margin:0"
   >
     <textarea
@@ -199,16 +227,16 @@ exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var"
 >
   <div
-    class="ant-form-item ant-form-item-horizontal"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-6 ant-form-item-label"
+        class="ant-col ant-col-6 ant-form-item-label css-var-test-id"
       >
         <label
           class=""
@@ -219,7 +247,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-16 ant-form-item-control"
+        class="ant-col ant-col-16 ant-form-item-control css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -228,7 +256,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-outlined"
+              class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
             >
               <textarea
                 class="rc-textarea"
@@ -242,13 +270,13 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-horizontal"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-6 ant-form-item-label"
+        class="ant-col ant-col-6 ant-form-item-label css-var-test-id"
       >
         <label
           class="ant-form-item-required"
@@ -259,7 +287,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-16 ant-form-item-control"
+        class="ant-col ant-col-16 ant-form-item-control css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -268,7 +296,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-outlined"
+              class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
             >
               <textarea
                 aria-required="true"
@@ -284,13 +312,13 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-horizontal"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+        class="ant-col ant-col-16 ant-col-offset-6 ant-form-item-control css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -299,14 +327,14 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
               style="flex-wrap:wrap"
             >
               <div
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -318,7 +346,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -337,7 +365,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -349,7 +377,7 @@ exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/prefix.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -366,7 +394,7 @@ Array [
     style="margin-bottom:10px"
   >
     <div
-      class="ant-mentions ant-mentions-disabled ant-mentions-outlined"
+      class="ant-mentions ant-mentions-disabled ant-mentions-outlined css-var-test-id ant-mentions-css-var"
       style="width:100%"
     >
       <textarea
@@ -378,7 +406,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
     style="width:100%"
   >
     <textarea
@@ -396,7 +424,7 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
     style="width:100%;margin:0"
   >
     <textarea
@@ -411,13 +439,13 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-outlined ant-mentions-status-error"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-error css-var-test-id ant-mentions-css-var"
     >
       <textarea
         class="rc-textarea"
@@ -431,7 +459,7 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning css-var-test-id ant-mentions-css-var"
     >
       <textarea
         class="rc-textarea"
@@ -444,13 +472,40 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/mentions/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var acss-3jrxlv"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Object"
+      rows="1"
+      style="font-size:14px"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var acss-3jrxlv"
+    style="border:1px solid #722ed1"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Function"
+      rows="1"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap:12px"
 >
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -459,7 +514,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-filled"
+    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -468,7 +523,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-borderless"
+    class="ant-mentions ant-mentions-borderless css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -477,7 +532,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-underlined"
+    class="ant-mentions ant-mentions-underlined css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"

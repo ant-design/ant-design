@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
@@ -25,7 +25,7 @@ type ResponsiveLike<T> = {
   [key in Responsive]?: T;
 };
 
-export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
+export type Gutter = number | string | undefined | Partial<Record<Breakpoint, number>>;
 
 type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
 type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
@@ -93,10 +93,10 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
+  const [hashId, cssVarCls] = useRowStyle(prefixCls);
 
   const gutters = useGutter(gutter, screens);
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-no-wrap`]: wrap === false,
@@ -111,11 +111,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
-  const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
 
-  if (horizontalGutter) {
-    rowStyle.marginLeft = horizontalGutter;
-    rowStyle.marginRight = horizontalGutter;
+  if (gutters?.[0]) {
+    const horizontalGutter =
+      typeof gutters[0] === 'number' ? `${gutters[0] / -2}px` : `calc(${gutters[0]} / -2)`;
+    rowStyle.marginInline = horizontalGutter;
   }
 
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
@@ -129,12 +129,12 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     [gutterH, gutterV, wrap],
   );
 
-  return wrapCSSVar(
+  return (
     <RowContext.Provider value={rowContext}>
       <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
-    </RowContext.Provider>,
+    </RowContext.Provider>
   );
 });
 

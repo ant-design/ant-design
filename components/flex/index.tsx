@@ -1,15 +1,16 @@
 import React from 'react';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { isPresetSize } from '../_util/gapSize';
+import { useOrientation } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
 import useStyle from './style';
 import createFlexClassNames from './utils';
 
-const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
+const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
@@ -17,8 +18,10 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     style,
     flex,
     gap,
-    vertical = false,
+    vertical,
+    orientation,
     component: Component = 'div',
+    children,
     ...othersProps
   } = props;
 
@@ -30,11 +33,11 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('flex', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedVertical = vertical ?? ctxFlex?.vertical;
+  const [, mergedVertical] = useOrientation(orientation, vertical ?? ctxFlex?.vertical);
 
-  const mergedCls = classNames(
+  const mergedCls = clsx(
     className,
     rootClassName,
     ctxFlex?.className,
@@ -59,13 +62,15 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     mergedStyle.gap = gap;
   }
 
-  return wrapCSSVar(
+  return (
     <Component
       ref={ref}
       className={mergedCls}
       style={mergedStyle}
       {...omit(othersProps, ['justify', 'wrap', 'align'])}
-    />,
+    >
+      {children}
+    </Component>
   );
 });
 

@@ -24,6 +24,7 @@ demo:
 <code src="./demo/group.tsx">Checkbox 组</code>
 <code src="./demo/check-all.tsx">全选</code>
 <code src="./demo/layout.tsx">布局</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/debug-line.tsx" debug>同行布局</code>
 <code src="./demo/debug-disable-popover.tsx" debug>禁用下的 Tooltip</code>
 <code src="./demo/custom-line-width.tsx" debug>自定义 lineWidth</code>
@@ -38,12 +39,14 @@ demo:
 | --- | --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | checked | 指定当前是否选中 | boolean | false |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultChecked | 初始是否选中 | boolean | false |  |
 | disabled | 失效状态 | boolean | false |  |
 | indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |  |
 | onChange | 变化时的回调函数 | (e: CheckboxChangeEvent) => void | - |  |
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onFocus | 获得焦点时的回调 | function() | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 #### Checkbox.Group
 
@@ -78,6 +81,10 @@ interface Option {
 | blur()        | 移除焦点                  |        |
 | focus()       | 获取焦点                  |        |
 | nativeElement | 返回 Checkbox 的 DOM 节点 | 5.17.3 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

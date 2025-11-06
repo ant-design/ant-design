@@ -80,9 +80,7 @@ describe('Badge', () => {
 
   it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
-    expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
-      'Custom title',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-scroll-number')?.title).toBe('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626
@@ -146,11 +144,11 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/15349
   it('should color style  works on Badge', () => {
     const { container } = render(
-      <Badge style={{ color: 'red' }} status="success" text="Success" />,
+      <Badge style={{ color: 'rgb(255, 0, 0)' }} status="success" text="Success" />,
     );
-    expect((container.querySelector('.ant-badge-status-text')! as HTMLElement).style.color).toEqual(
-      'red',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-badge-status-text')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/15799
@@ -241,35 +239,5 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(0);
     rerender(<Badge count={0} showZero color="#ff0" />);
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(1);
-  });
-
-  it('should support classNames and styles', () => {
-    const { container } = render(
-      <Badge
-        count={10}
-        classNames={{
-          root: 'test-root',
-          indicator: 'test-indicator',
-        }}
-        styles={{
-          root: { backgroundColor: 'yellow' },
-          indicator: { backgroundColor: 'blue' },
-        }}
-      >
-        test
-      </Badge>,
-    );
-
-    const element = container.querySelector<HTMLSpanElement>('.ant-badge');
-
-    // classNames
-    expect(element).toHaveClass('test-root');
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
-
-    // styles
-    expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({
-      backgroundColor: 'rgb(0, 0, 255)',
-    });
   });
 });

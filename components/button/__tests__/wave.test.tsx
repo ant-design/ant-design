@@ -16,7 +16,7 @@ jest.mock('react-dom', () => {
   return realReactDOM;
 });
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
   return mockFn;
 });

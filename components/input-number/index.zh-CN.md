@@ -31,6 +31,7 @@ demo:
 <code src="./demo/presuffix.tsx">前缀/后缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/focus.tsx" version="5.22.0">聚焦</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
@@ -46,6 +47,7 @@ demo:
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | 小数点 | string | - | - |
 | placeholder | 占位符 | string | - |  |
@@ -59,6 +61,7 @@ demo:
 | precision | 数值精度，配置 `formatter` 时会以 `formatter` 为准 | number | - | - |
 | readOnly | 只读 | boolean | false | - |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | prefix | 带有前缀图标的 input | ReactNode | - | 4.17.0 |
 | suffix | 带有后缀图标的 input | ReactNode | - | 5.20.0 |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
@@ -77,6 +80,10 @@ demo:
 | blur() | 移除焦点 | - |  |
 | focus() | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.22.0 |
 | nativeElement | 获取原生 DOM 元素 | - | 5.17.3 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

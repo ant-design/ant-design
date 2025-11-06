@@ -1,11 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
-import raf from 'rc-util/lib/raf';
-import { composeRef } from 'rc-util/lib/ref';
+import CSSMotion from '@rc-component/motion';
+import raf from '@rc-component/util/lib/raf';
+import { render, unmount } from '@rc-component/util/lib/React/render';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
-import { unstableSetRender } from '../../config-provider/UnstableContext';
-import type { UnmountType } from '../../config-provider/UnstableContext';
+import type { WaveProps } from '.';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -18,19 +18,12 @@ export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
   component?: string;
-  registerUnmount: () => UnmountType | null;
+  colorSource?: WaveProps['colorSource'];
 }
 
 const WaveEffect = (props: WaveEffectProps) => {
-  const { className, target, component, registerUnmount } = props;
+  const { className, target, component, colorSource } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
-
-  // ====================== Refs ======================
-  const unmountRef = React.useRef<UnmountType>(null);
-
-  React.useEffect(() => {
-    unmountRef.current = registerUnmount();
-  }, []);
 
   // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
@@ -57,7 +50,7 @@ const WaveEffect = (props: WaveEffectProps) => {
     const nodeStyle = getComputedStyle(target);
 
     // Get wave color from target
-    setWaveColor(getTargetWaveColor(target));
+    setWaveColor(getTargetWaveColor(target, colorSource));
 
     const isStatic = nodeStyle.position === 'static';
 
@@ -109,7 +102,7 @@ const WaveEffect = (props: WaveEffectProps) => {
         resizeObserver?.disconnect();
       };
     }
-  }, []);
+  }, [target]);
 
   if (!enabled) {
     return null;
@@ -127,7 +120,7 @@ const WaveEffect = (props: WaveEffectProps) => {
       onAppearEnd={(_, event) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
           const holder = divRef.current?.parentElement!;
-          unmountRef.current?.().then(() => {
+          unmount(holder).then(() => {
             holder?.remove();
           });
         }
@@ -137,7 +130,7 @@ const WaveEffect = (props: WaveEffectProps) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={composeRef(divRef, ref)}
-          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
+          className={clsx(className, motionClassName, { 'wave-quick': isSmallComponent })}
           style={waveStyle}
         />
       )}
@@ -160,18 +153,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
 
-  const reactRender = unstableSetRender();
-
-  let unmountCallback: UnmountType | null = null;
-
-  function registerUnmount() {
-    return unmountCallback;
-  }
-
-  unmountCallback = reactRender(
-    <WaveEffect {...info} target={target} registerUnmount={registerUnmount} />,
-    holder,
-  );
+  render(<WaveEffect {...info} target={target} />, holder);
 };
 
 export default showWaveEffect;

@@ -11,7 +11,7 @@ const App: React.FC = () => (
     alt="test"
     preview={{
       imageRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
-      toolbarRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
+      actionsRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
     }}
   />
 );

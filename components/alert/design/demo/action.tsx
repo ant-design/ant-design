@@ -54,22 +54,21 @@ const locales = {
 
 const Demo: React.FC = () => {
   const [locale] = useLocale(locales);
-
   const [expandA, setExpandA] = React.useState(false);
   const [expandB, setExpandB] = React.useState(true);
   return (
     <Flex gap="large" vertical style={{ maxWidth: 600 }}>
       <Flex gap="middle" vertical>
         <div>{locale.closeAlertTitle}</div>
-        <Alert showIcon closable message={locale.welcomeMessage} />
-        <Alert showIcon closable message={locale.helpTitle} description={locale.helpDescription} />
+        <Alert showIcon closable title={locale.welcomeMessage} />
+        <Alert showIcon closable title={locale.helpTitle} description={locale.helpDescription} />
       </Flex>
       <Flex gap="middle" vertical>
         <div>{locale.expandCollapseTitle}</div>
         <Alert
           showIcon
           closable
-          message={
+          title={
             <div>
               <Typography.Paragraph ellipsis={!expandA && { rows: 2 }} style={{ marginBottom: 8 }}>
                 {locale.longMessage}
@@ -84,7 +83,7 @@ const Demo: React.FC = () => {
         <Alert
           showIcon
           closable
-          message={
+          title={
             <div>
               <Typography.Paragraph ellipsis={!expandB && { rows: 2 }} style={{ marginBottom: 8 }}>
                 {locale.longMessage}
@@ -102,13 +101,13 @@ const Demo: React.FC = () => {
         <Alert
           showIcon
           closable
-          message={locale.singleLineMessage}
+          title={locale.singleLineMessage}
           action={<Typography.Link>{locale.relatedAction}</Typography.Link>}
         />
         <Alert
           showIcon
           closable
-          message={
+          title={
             <div>
               <Typography.Paragraph style={{ marginBottom: 8 }}>
                 {locale.multiLineMessage}
@@ -124,7 +123,7 @@ const Demo: React.FC = () => {
         <Alert
           showIcon
           closable
-          message={locale.alertTitle}
+          title={locale.alertTitle}
           description={
             <div>
               <Typography.Paragraph style={{ marginBottom: 8 }}>

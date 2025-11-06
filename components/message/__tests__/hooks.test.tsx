@@ -291,11 +291,104 @@ describe('message.hooks', () => {
 
     render(<Demo />);
 
-    const msg = document.querySelector('.fontSize');
+    const msg = document.querySelector('.ant-message-css-var');
 
     expect(msg).toBeTruthy();
     expect(msg).toHaveStyle({
-      fontSize: '20px',
+      '--ant-font-size': '20px',
+    });
+  });
+  it('classNames and styles should work', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({
+          content: <div />,
+          classNames: {
+            root: 'custom-root',
+            icon: 'custom-icon',
+            content: 'custom-content',
+          },
+          styles: {
+            root: { color: 'rgb(255, 0, 0)' },
+            icon: { fontSize: 20 },
+            content: { backgroundColor: 'rgb(0, 255, 0)' },
+          },
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(<Demo />);
+
+    const root = document.querySelector('.custom-root');
+    const icon = document.querySelector('.custom-icon');
+    const content = document.querySelector('.custom-content');
+
+    expect(root).toBeTruthy();
+    expect(icon).toBeTruthy();
+    expect(content).toBeTruthy();
+    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(icon).toHaveStyle({ fontSize: '20px' });
+    expect(content).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+  });
+
+  describe('Message component with pauseOnHover', () => {
+    beforeEach(() => {
+      message.destroy();
+      jest.spyOn(global, 'clearTimeout');
+      jest.spyOn(global, 'setTimeout');
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+    const Demo = ({ pauseOnHover }: { pauseOnHover: boolean }) => {
+      const [api, holder] = message.useMessage();
+      return (
+        <div>
+          {holder}
+          <button
+            type="button"
+            onClick={() => {
+              api.info({
+                content: <span>test pauseOnHover</span>,
+                duration: 3,
+                pauseOnHover,
+              });
+            }}
+          >
+            open
+          </button>
+        </div>
+      );
+    };
+    it('should not pause the timer when pauseOnHover is true', async () => {
+      render(<Demo pauseOnHover />);
+      fireEvent.click(document.querySelector('button')!);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
+      await act(() => {
+        jest.runAllTimers();
+      });
+      // component is destroyed and hovers the component,clearTimeout calls exceeding 1
+      expect(clearTimeout).toHaveBeenCalledTimes(3);
+    });
+
+    it('should not pause the timer when pauseOnHover is false', async () => {
+      render(<Demo pauseOnHover={false} />);
+      fireEvent.click(document.querySelector('button')!);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
+      await act(() => {
+        jest.runAllTimers();
+      });
+      // when component is destroyed, clearTimeout calls only 1
+      expect(clearTimeout).toHaveBeenCalledTimes(1);
     });
   });
 });

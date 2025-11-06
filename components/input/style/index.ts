@@ -113,11 +113,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     // Fix https://github.com/ant-design/ant-design/issues/5754
-    [`&-lg ${antCls}-select-single ${antCls}-select-selector`]: {
+    [`&-lg ${antCls}-select-single`]: {
       height: token.controlHeightLG,
     },
 
-    [`&-sm ${antCls}-select-single ${antCls}-select-selector`]: {
+    [`&-sm ${antCls}-select-single`]: {
       height: token.controlHeightSM,
     },
 
@@ -164,11 +164,9 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
           [`&${antCls}-select-single:not(${antCls}-select-customize-input):not(${antCls}-pagination-size-changer)`]:
             {
-              [`${antCls}-select-selector`]: {
-                backgroundColor: 'inherit',
-                border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
-                boxShadow: 'none',
-              },
+              backgroundColor: 'inherit',
+              border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
+              boxShadow: 'none',
             },
         },
 
@@ -211,7 +209,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndEndRadius: 0,
 
       // Reset Select's style in addon
-      [`${antCls}-select ${antCls}-select-selector`]: {
+      [`${antCls}-select`]: {
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
       },
@@ -234,7 +232,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndStartRadius: 0,
 
       // Reset Select's style in addon
-      [`${antCls}-select ${antCls}-select-selector`]: {
+      [`${antCls}-select`]: {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
       },
@@ -296,7 +294,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
-      [`& > ${antCls}-select > ${antCls}-select-selector,
+      [`& > ${antCls}-select,
       & > ${antCls}-select-auto-complete ${componentCls},
       & > ${antCls}-cascader-picker ${componentCls},
       & > ${componentCls}-group-wrapper ${componentCls}`]: {
@@ -318,7 +316,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`& > *:first-child,
-      & > ${antCls}-select:first-child > ${antCls}-select-selector,
+      & > ${antCls}-select:first-child,
       & > ${antCls}-select-auto-complete:first-child ${componentCls},
       & > ${antCls}-cascader-picker:first-child ${componentCls}`]: {
         borderStartStartRadius: token.borderRadius,
@@ -326,7 +324,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`& > *:last-child,
-      & > ${antCls}-select:last-child > ${antCls}-select-selector,
+      & > ${antCls}-select:last-child,
       & > ${antCls}-cascader-picker:last-child ${componentCls},
       & > ${antCls}-cascader-picker-focused:last-child ${componentCls}`]: {
         borderInlineEndWidth: token.lineWidth,

@@ -7,17 +7,18 @@ import type { SeedToken } from './seeds';
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
-export type {
-  GlobalToken,
-  OverrideToken,
-  FullToken,
-  OverrideComponent,
-  GetDefaultToken,
-  GenStyleFn,
-} from './cssinjs-utils';
-
 export type { AliasToken } from './alias';
 export type { ComponentTokenMap } from './components';
+
+export type {
+  FullToken,
+  GenStyleFn,
+  GetDefaultToken,
+  GlobalToken,
+  OverrideComponent,
+  OverrideToken,
+} from './cssinjs-utils';
+
 export type {
   ColorMapToken,
   ColorNeutralMapToken,
@@ -30,8 +31,8 @@ export type {
 } from './maps';
 export { PresetColors } from './presetColors';
 export type {
-  LegacyColorPalettes,
   ColorPalettes,
+  LegacyColorPalettes,
   PresetColorKey,
   PresetColorType,
 } from './presetColors';

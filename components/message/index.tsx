@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { render } from '@rc-component/util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -132,13 +132,10 @@ const flushMessageQueue = () => {
 
     // Delay render to avoid sync issue
     act(() => {
-      const reactRender = unstableSetRender();
-
-      reactRender(
+      render(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
-
             // React 18 test env will throw if call immediately in ref
             Promise.resolve().then(() => {
               if (!newMessage.instance && instance) {

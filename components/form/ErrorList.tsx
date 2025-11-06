@@ -1,8 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { CSSMotionProps } from 'rc-motion';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
+import type { CSSMotionProps } from '@rc-component/motion';
+import CSSMotion, { CSSMotionList } from '@rc-component/motion';
+import { clsx } from 'clsx';
 
+import isNonNullable from '../_util/isNonNullable';
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemPrefixContext } from './context';
@@ -55,7 +56,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
   const baseClassName = `${prefixCls}-item-explain`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const collapseMotion = React.useMemo<CSSMotionProps>(
     () => initCollapseMotion(prefixCls),
@@ -68,10 +69,9 @@ const ErrorList: React.FC<ErrorListProps> = ({
   const debounceWarnings = useDebounce(warnings);
 
   const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
-    if (help !== undefined && help !== null) {
+    if (isNonNullable(help)) {
       return [toErrorEntity(help, 'help', helpStatus)];
     }
-
     return [
       ...debounceErrors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
       ...debounceWarnings.map((warning, index) =>
@@ -97,7 +97,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
     helpProps.id = `${fieldId}_help`;
   }
 
-  return wrapCSSVar(
+  return (
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
@@ -110,7 +110,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
         return (
           <div
             {...helpProps}
-            className={classNames(
+            className={clsx(
               baseClassName,
               holderClassName,
               cssVarCls,
@@ -138,7 +138,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
                 return (
                   <div
                     key={key}
-                    className={classNames(itemClassName, {
+                    className={clsx(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
                     style={itemStyle}
@@ -151,7 +151,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
           </div>
         );
       }}
-    </CSSMotion>,
+    </CSSMotion>
   );
 };
 

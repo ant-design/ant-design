@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
-import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import toList from '../_util/toList';
+import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
@@ -76,9 +77,11 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     inherit = true,
     onRemove,
   } = props;
+  const { className: contextClassName, style: contextStyle } = useComponentConfig('watermark');
 
   const mergedStyle = {
     ...fixedStyle,
+    ...contextStyle,
     ...style,
   };
 
@@ -307,7 +310,11 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   );
 
   return (
-    <div ref={setContainer} className={classNames(className, rootClassName)} style={mergedStyle}>
+    <div
+      ref={setContainer}
+      className={clsx(className, contextClassName, rootClassName)}
+      style={mergedStyle}
+    >
       {childNode}
     </div>
   );

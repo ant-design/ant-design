@@ -19,13 +19,13 @@ describe('Popover', () => {
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
     const { container } = render(
-      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
+      <Popover ref={ref} content={<div className="bamboo" />} title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+    expect(container.querySelector('.bamboo')).toBeFalsy();
     fireEvent.click(container.querySelector('span')!);
-    expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+    expect(container.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('should support defaultOpen', () => {
@@ -138,32 +138,68 @@ describe('Popover', () => {
     });
   });
 
-  it('should apply custom styles to Popover', () => {
-    const customClassNames = {
-      body: 'custom-body',
-      root: 'custom-root',
+  it('ConfigProvider support arrow props', () => {
+    const TooltipTestComponent = () => {
+      const [configArrow, setConfigArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          popover={{
+            arrow: configArrow,
+          }}
+        >
+          <button onClick={() => setConfigArrow(false)} className="configArrow" type="button">
+            showconfigArrow
+          </button>
+          <Popover open>
+            <div className="target">target</div>
+          </Popover>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<TooltipTestComponent />);
+    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    const configbtn = container.querySelector('.configArrow');
+
+    expect(getTooltipArrow()).not.toBeNull();
+    fireEvent.click(configbtn!);
+    expect(getTooltipArrow()).toBeNull();
+  });
+  it('ConfigProvider with arrow set to false, Tooltip arrow controlled by prop', () => {
+    const TooltipTestComponent = () => {
+      const [arrow, setArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          popover={{
+            arrow: false,
+          }}
+        >
+          <button onClick={() => setArrow(!arrow)} className="toggleArrow" type="button">
+            toggleArrow
+          </button>
+          <Popover open arrow={arrow}>
+            <div className="target">target</div>
+          </Popover>
+        </ConfigProvider>
+      );
     };
 
-    const customStyles = {
-      body: { color: 'red' },
-      root: { backgroundColor: 'blue' },
-    };
+    const { container } = render(<TooltipTestComponent />);
 
-    const { container } = render(
-      <Popover classNames={customClassNames} overlay={<div />} styles={customStyles} open>
-        <button type="button">button</button>
-      </Popover>,
-    );
+    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
 
-    const popoverElement = container.querySelector('.ant-popover') as HTMLElement;
-    const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+    const toggleArrowBtn = container.querySelector('.toggleArrow');
 
-    // 验证 classNames
-    expect(popoverElement.classList).toContain('custom-root');
-    expect(popoverBodyElement.classList).toContain('custom-body');
+    // Initial render, arrow should be visible because Tooltip's arrow prop is true
+    expect(getTooltipArrow()).not.toBeNull();
 
-    // 验证 styles
-    expect(popoverElement.style.backgroundColor).toBe('blue');
-    expect(popoverBodyElement.style.color).toBe('red');
+    // Click the toggleArrow button to hide the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).toBeNull();
+
+    // Click the toggleArrow button again to show the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).not.toBeNull();
   });
 });

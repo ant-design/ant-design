@@ -1,7 +1,13 @@
 import * as React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
 
+import type { ConfigComponentProps } from '../../../components/config-provider/context';
 import type { ThemeName } from '../common/ThemeSwitch';
+import { getBannerData } from '../../pages/index/components/util';
+
+export type SimpleComponentClassNames = Partial<
+  Record<keyof ConfigComponentProps, Record<string, string>>
+>;
 
 export interface SiteContextProps {
   isMobile: boolean;
@@ -9,11 +15,16 @@ export interface SiteContextProps {
   direction: DirectionType;
   theme: ThemeName[];
   updateSiteConfig: (props: Partial<SiteContextProps>) => void;
+
+  dynamicTheme?: {
+    algorithm?: 'light' | 'dark';
+    token: Record<string, string | number>;
+  } & SimpleComponentClassNames;
 }
 
 const SiteContext = React.createContext<SiteContextProps>({
   isMobile: false,
-  bannerVisible: false,
+  bannerVisible: !!getBannerData(),
   direction: 'ltr',
   theme: ['light'],
   updateSiteConfig: () => {},

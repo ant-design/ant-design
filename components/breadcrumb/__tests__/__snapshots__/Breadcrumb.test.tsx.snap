@@ -2,7 +2,7 @@
 
 exports[`Breadcrumb filter React.Fragment 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -38,7 +38,7 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
 
 exports[`Breadcrumb rtl render component should be rendered correctly in RTL direction 1`] = `
 <nav
-  class="ant-breadcrumb ant-breadcrumb-rtl"
+  class="ant-breadcrumb ant-breadcrumb-rtl css-var-root"
 >
   <ol />
 </nav>
@@ -46,7 +46,7 @@ exports[`Breadcrumb rtl render component should be rendered correctly in RTL dir
 
 exports[`Breadcrumb should accept undefined items 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol />
 </nav>
@@ -54,7 +54,7 @@ exports[`Breadcrumb should accept undefined items 1`] = `
 
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -70,7 +70,7 @@ exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 
 exports[`Breadcrumb should not display Breadcrumb Item when its children is falsy 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -99,7 +99,7 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
 
 exports[`Breadcrumb should render a menu 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -179,7 +179,7 @@ exports[`Breadcrumb should render a menu 1`] = `
 
 exports[`Breadcrumb should render correct 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -211,7 +211,7 @@ exports[`Breadcrumb should render correct 1`] = `
 
 exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -255,7 +255,7 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
 
 exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>
@@ -304,7 +304,7 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
 
 exports[`Breadcrumb should support custom attribute 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
   data-custom="custom"
 >
   <ol>
@@ -335,7 +335,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
 
 exports[`Breadcrumb should support string \`0\` and number \`0\` 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>

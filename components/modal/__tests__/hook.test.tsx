@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyCode from 'rc-util/lib/KeyCode';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -10,7 +10,7 @@ import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
-jest.mock('rc-util/lib/Portal');
+jest.mock('@rc-component/util/lib/Portal');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -266,10 +266,7 @@ describe('Modal.hook', () => {
       const [modal, contextHolder] = Modal.useModal();
 
       const openBrokenModal = React.useCallback(() => {
-        const instance = modal.info({
-          title: 'Light',
-        });
-
+        const instance = modal.info({ title: 'Light' });
         instance.destroy();
       }, [modal]);
 
@@ -285,7 +282,7 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
+    expect(document.body).not.toHaveClass('ant-modal-confirm-title');
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
@@ -421,6 +418,45 @@ describe('Modal.hook', () => {
     fireEvent.click(btns[btns.length - 1]);
 
     expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call afterClose in closable', () => {
+    const closableAfterClose = jest.fn();
+    const afterClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({
+          title: 'Confirm',
+          closable: { afterClose: closableAfterClose },
+          afterClose,
+        });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(afterClose).toHaveBeenCalledTimes(1);
+    expect(closableAfterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call onClose in closable', () => {
+    const onClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', closable: { onClose }, open: true });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('should be applied correctly locale', async () => {

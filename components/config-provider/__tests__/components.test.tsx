@@ -8,7 +8,6 @@ import Alert from '../../alert';
 import Anchor from '../../anchor';
 import AutoComplete from '../../auto-complete';
 import Avatar from '../../avatar';
-import BackTop from '../../back-top';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
@@ -59,11 +58,12 @@ import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
 dayjs.extend(customParseFormat);
-jest.mock('rc-util/lib/Portal');
+
+jest.mock('@rc-component/util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
-    function testPair(name: string, renderComponent: (props?: any) => React.ReactElement): void {
+    const testPair = (name: string, renderComponent: (props?: any) => React.ReactElement<any>) => {
       const isArray = ['Menu', 'TimePicker', 'Tooltip'].includes(name);
       describe(`${name}`, () => {
         // normal
@@ -122,7 +122,7 @@ describe('ConfigProvider', () => {
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
       });
-    }
+    };
 
     // Alert
     testPair('Alert', (props) => (
@@ -141,9 +141,6 @@ describe('ConfigProvider', () => {
 
     // Avatar
     testPair('Avatar', (props) => <Avatar {...props} />);
-
-    // BackTop
-    testPair('BackTop', (props) => <BackTop visibilityHeight={0} {...props} />);
 
     // Badge
     testPair('Badge', (props) => {
@@ -430,11 +427,12 @@ describe('ConfigProvider', () => {
 
     // Select
     testPair('Select', (props) => (
-      <Select {...props} open>
-        <Select.OptGroup key="grp">
-          <Select.Option key="Bamboo">Light</Select.Option>
-        </Select.OptGroup>
-      </Select>
+      <Select
+        open
+        defaultValue={'light'}
+        options={[{ label: 'Light', value: 'light' }]}
+        {...props}
+      />
     ));
 
     // Skeleton

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useState from 'rc-util/lib/hooks/useState';
+import useState from '@rc-component/util/lib/hooks/useState';
 
 import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
@@ -60,7 +60,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         clearTimeout(timeoutId);
       }
     };
-  }, []);
+  }, [autoFocus]);
 
   const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
     if (!isThenable(returnValueOfOnOk)) {

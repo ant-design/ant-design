@@ -1,20 +1,25 @@
 import type { Project, ProjectFiles } from '@stackblitz/sdk';
 
-const getStackblitzConfig = ({
-  title = '',
-  dependencies,
-  indexCssContent = '',
-  demoJsContent = '',
-  suffix = '',
-  isZhCN = false,
-}: {
+interface StackblitzConfigOptions {
   title?: string;
-  dependencies: Record<string, string>;
+  dependencies: Record<PropertyKey, string>;
+  devDependencies: Record<PropertyKey, string>;
   indexCssContent?: string;
   demoJsContent?: string;
   suffix?: string;
   isZhCN?: boolean;
-}) => {
+}
+
+const getStackblitzConfig = (options: StackblitzConfigOptions) => {
+  const {
+    title = '',
+    dependencies,
+    devDependencies,
+    indexCssContent = '',
+    demoJsContent = '',
+    suffix = '',
+    isZhCN = false,
+  } = options;
   const _suffix = suffix === 'tsx' ? suffix : 'jsx';
   const packageJSON = {
     name: 'vite-react-typescript-starter',
@@ -30,16 +35,18 @@ const getStackblitzConfig = ({
     dependencies,
     devDependencies: {
       '@eslint/js': '^9.32.0',
+      '@types/node': '^24.0.0',
       '@types/react': '^19.1.9',
       '@types/react-dom': '^19.1.7',
       '@vitejs/plugin-react': '^4.7.0',
       eslint: '^9.32.0',
-      'eslint-plugin-react-hooks': '^5.2.0',
+      'eslint-plugin-react-hooks': '^7.0.0',
       'eslint-plugin-react-refresh': '^0.4.20',
       globals: '^16.3.0',
       typescript: '~5.8.3',
       'typescript-eslint': '^8.39.0',
       vite: '^7.0.6',
+      ...devDependencies,
     },
   };
 
@@ -122,7 +129,6 @@ const getStackblitzConfig = ({
     // main.tsx
     [`src/main.${_suffix}`]: `import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@ant-design/v5-patch-for-react-19';
 import Demo from './demo';
 
 createRoot(document.getElementById('container')${suffix === 'tsx' ? '!' : ''}).render(

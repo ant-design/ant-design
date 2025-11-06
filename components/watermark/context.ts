@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from '@rc-component/util';
 
 export interface WatermarkContextProps {
   add: (ele: HTMLElement) => void;
@@ -19,9 +19,11 @@ export function usePanelRef(panelSelector?: string) {
   const panelEleRef = React.useRef<HTMLElement>(null);
   const panelRef = useEvent((ele: HTMLElement | null) => {
     if (ele) {
-      const innerContentEle = panelSelector ? ele.querySelector<HTMLElement>(panelSelector)! : ele;
-      watermark.add(innerContentEle);
-      panelEleRef.current = innerContentEle;
+      const innerContentEle = panelSelector ? ele.querySelector<HTMLElement>(panelSelector) : ele;
+      if (innerContentEle) {
+        watermark.add(innerContentEle);
+        panelEleRef.current = innerContentEle;
+      }
     } else {
       watermark.remove(panelEleRef.current!);
     }

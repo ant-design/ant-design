@@ -2,7 +2,7 @@ import React from 'react';
 import { Space, TimePicker } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <TimePicker status="error" />
     <TimePicker status="warning" />
     <TimePicker.RangePicker status="error" />

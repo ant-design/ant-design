@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { AnyObject } from '../_util/type';
 import type { TableLocale } from './interface';
@@ -23,7 +23,7 @@ function renderExpandIcon(locale: TableLocale) {
           onExpand(record, e!);
           e.stopPropagation();
         }}
-        className={classNames(iconPrefix, {
+        className={clsx(iconPrefix, {
           [`${iconPrefix}-spaced`]: !expandable,
           [`${iconPrefix}-expanded`]: expandable && expanded,
           [`${iconPrefix}-collapsed`]: expandable && !expanded,
