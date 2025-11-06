@@ -1,4 +1,4 @@
-import useDeprecatedWarnings from '../../_util/useDeprecatedWarnings';
+import { devUseWarning } from '../../_util/warning';
 
 /**
  * Shared hook for displaying deprecation warnings on DatePicker components.
@@ -9,6 +9,8 @@ const usePickerDeprecatedWarnings = (
   props: Record<string, unknown>,
 ): void => {
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning(componentName);
+
     const deprecatedProps = {
       dropdownClassName: 'classNames.popup.root',
       popupClassName: 'classNames.popup.root',
@@ -17,7 +19,9 @@ const usePickerDeprecatedWarnings = (
       onSelect: 'onCalendarChange',
     };
 
-    useDeprecatedWarnings(componentName, props, deprecatedProps);
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
   }
 };
 
