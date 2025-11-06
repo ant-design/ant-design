@@ -126,7 +126,7 @@
     "@rc-component/image": "~1.5.1",
     "@rc-component/input": "~1.1.0",
     "@rc-component/input-number": "~1.5.0",
-    "@rc-component/mentions": "~1.4.0",
+    "@rc-component/mentions": "~1.5.2",
     "@rc-component/menu": "~1.1.4",
     "@rc-component/motion": "~1.1.4",
     "@rc-component/mutate-observer": "^2.0.0",

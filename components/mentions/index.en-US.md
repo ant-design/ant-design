@@ -38,6 +38,7 @@ return (
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/size.tsx">Size</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/form.tsx">With Form</code>

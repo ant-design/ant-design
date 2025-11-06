@@ -57,7 +57,13 @@ export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadiusSM,
 });
 
-export const genBasicInputStyle = (token: InputToken): CSSObject => ({
+export const genBasicInputStyle = (
+  token: InputToken,
+  option: {
+    largeStyle?: CSSObject;
+    smallStyle?: CSSObject;
+  } = {},
+): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
   width: '100%',
@@ -73,9 +79,11 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   // Size
   '&-lg': {
     ...genInputLargeStyle(token),
+    ...option.largeStyle,
   },
   '&-sm': {
     ...genInputSmallStyle(token),
+    ...option.smallStyle,
   },
 
   // RTL

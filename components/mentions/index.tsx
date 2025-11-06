@@ -22,6 +22,8 @@ import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
@@ -61,6 +63,7 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNam
   variant?: Variant;
   classNames?: MentionsClassNamesType;
   styles?: MentionsStylesType;
+  size?: SizeType;
 }
 
 export interface MentionsProps extends MentionProps {}
@@ -95,11 +98,15 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     variant: customVariant,
     classNames,
     styles,
+    size: customSize,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>(null);
   const mergedRef = composeRef(ref, innerRef);
+
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => customSize ?? ctx);
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
@@ -209,6 +216,10 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     cssVarCls,
     rootCls,
     mergedClassNames.root,
+    {
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+    },
   );
 
   return (

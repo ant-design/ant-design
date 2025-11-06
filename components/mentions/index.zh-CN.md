@@ -39,6 +39,7 @@ return (
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/size.tsx">尺寸</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/async.tsx">异步加载</code>
 <code src="./demo/form.tsx">配合 Form 使用</code>
