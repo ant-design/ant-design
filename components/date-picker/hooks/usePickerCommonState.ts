@@ -2,17 +2,18 @@ import { useContext } from 'react';
 
 import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
+import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 
 interface UsePickerCommonStateOptions {
-  customizeSize?: 'small' | 'middle' | 'large';
-  compactSize?: 'small' | 'middle' | 'large';
+  customizeSize?: SizeType;
+  compactSize?: SizeType;
   customDisabled?: boolean;
 }
 
 interface UsePickerCommonStateResult {
-  mergedSize: 'small' | 'middle' | 'large' | undefined;
+  mergedSize: SizeType;
   mergedDisabled: boolean | undefined;
   formItemContext: FormItemStatusContextProps;
 }

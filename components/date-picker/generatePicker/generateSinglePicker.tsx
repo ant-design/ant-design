@@ -119,10 +119,10 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           'deprecated',
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
-      }
 
-      // ==================== Deprecated Props =====================
-      usePickerDeprecatedWarnings(displayName! || 'DatePicker', props);
+        // ==================== Deprecated Props =====================
+        usePickerDeprecatedWarnings(displayName! || 'DatePicker', props);
+      }
 
       const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
         consumerName,
