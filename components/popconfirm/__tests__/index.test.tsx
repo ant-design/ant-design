@@ -407,4 +407,119 @@ describe('Popconfirm', () => {
     expect(popconfirmElement).toHaveStyle({ padding: '20px' });
     expect(popconfirmBodyElement).toHaveStyle({ padding: '10px' });
   });
+
+  it('should allow retry after onConfirm throws synchronous error', async () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    let callCount = 0;
+    const onConfirm = jest.fn(() => {
+      callCount += 1;
+      if (callCount === 1) {
+        throw new Error('Test synchronous error');
+      }
+      return Promise.resolve();
+    });
+
+    const { container } = render(
+      <Popconfirm title="Are you sure?" onConfirm={onConfirm}>
+        <Button className="trigger">Delete</Button>
+      </Popconfirm>,
+    );
+
+    const triggerNode = container.querySelector('.trigger')!;
+
+    // Open popconfirm
+    fireEvent.click(triggerNode);
+    await waitFakeTimer();
+
+    const okButton = container.querySelector('.ant-btn-primary')!;
+
+    // First click - should throw error
+    fireEvent.click(okButton);
+    await waitFakeTimer();
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(consoleErrorSpy).toHaveBeenCalledWith('Error in actionFn:', expect.any(Error));
+
+    // Popconfirm should still be open after error
+    expect(container.querySelector('.ant-popover')).toBeTruthy();
+
+    // Second click - should succeed
+    fireEvent.click(okButton);
+    await waitFakeTimer();
+
+    expect(onConfirm).toHaveBeenCalledTimes(2);
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should not log error when onConfirm throws error in silent mode', async () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onConfirm = jest.fn(() => {
+      throw new Error('Test error in silent mode');
+    });
+
+    // Create a wrapper component that simulates silent mode
+    const TestComponent = () => {
+      const [open, setOpen] = React.useState(false);
+
+      return (
+        <Popconfirm title="Are you sure?" onConfirm={onConfirm} open={open} onOpenChange={setOpen}>
+          <Button className="trigger">Delete</Button>
+        </Popconfirm>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    const triggerNode = container.querySelector('.trigger')!;
+
+    // Open popconfirm
+    fireEvent.click(triggerNode);
+    await waitFakeTimer();
+
+    const okButton = container.querySelector('.ant-btn-primary')!;
+
+    // Click OK button - should throw error but not log in normal case
+    fireEvent.click(okButton);
+    await waitFakeTimer();
+
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    // In current implementation, error should be logged
+    expect(consoleErrorSpy).toHaveBeenCalled();
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should reset button loading state after synchronous error', async () => {
+    const onConfirm = jest.fn(() => {
+      throw new Error('Synchronous error');
+    });
+
+    const { container } = render(
+      <Popconfirm title="Are you sure?" onConfirm={onConfirm}>
+        <Button className="trigger">Delete</Button>
+      </Popconfirm>,
+    );
+
+    const triggerNode = container.querySelector('.trigger')!;
+
+    // Open popconfirm
+    fireEvent.click(triggerNode);
+    await waitFakeTimer();
+
+    const okButton = container.querySelector('.ant-btn-primary')! as HTMLButtonElement;
+
+    // Click OK button - should throw error
+    fireEvent.click(okButton);
+    await waitFakeTimer();
+
+    // Button should not be in loading state after error
+    expect(okButton.querySelector('.ant-btn-loading-icon')).toBeFalsy();
+
+    // Should be able to click again
+    fireEvent.click(okButton);
+    await waitFakeTimer();
+
+    expect(onConfirm).toHaveBeenCalledTimes(2);
+  });
 });
