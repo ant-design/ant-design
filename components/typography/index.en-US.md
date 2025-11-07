@@ -120,6 +120,8 @@ Common props ref：[Common props](/docs/react/common-props)
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
       tabIndex: number,
+      editAreaClassName: string,
+      editAreaStyle: React.CSSProperties,
     }
 
 | Property | Description | Type | Default | Version |
@@ -137,6 +139,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 | tabIndex | Set tabIndex of the edit button | number | 0 | 5.17.0 |
+| editAreaClassName | Custom class name for the editing textarea | string | - | 5.29.0 |
+| editAreaStyle | Custom style for the editing textarea | React.CSSProperties | - | 5.29.0 |
 
 ### ellipsis
 
