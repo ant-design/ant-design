@@ -257,6 +257,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             // https://github.com/ant-design/ant-design/pull/18151
             // https://codesandbox.io/s/wizardly-sun-u10br
             cursor: 'pointer',
+            border: 0,
+            background: 'transparent',
 
             '&:hover': {
               color: token.colorIcon,
