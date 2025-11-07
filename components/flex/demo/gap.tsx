@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button, Flex, Radio, Slider } from 'antd';
-import type { ConfigProviderProps } from 'antd';
-
-type SizeType = ConfigProviderProps['componentSize'];
+import type { FlexProps } from 'antd';
 
 const App: React.FC = () => {
-  const [gapSize, setGapSize] = React.useState<SizeType | 'customize'>('small');
+  const [gapSize, setGapSize] = React.useState<FlexProps['gap']>('small');
   const [customGapSize, setCustomGapSize] = React.useState<number>(0);
   return (
     <Flex gap="middle" vertical>
