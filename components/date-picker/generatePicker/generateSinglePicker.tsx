@@ -12,11 +12,13 @@ import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import useSize from '../../config-provider/hooks/useSize';
+import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
-import usePickerCommonState from '../hooks/usePickerCommonState';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import usePickerDeprecatedWarnings from '../hooks/usePickerDeprecatedWarnings';
 import enUS from '../locale/en_US';
@@ -138,13 +140,15 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ================== components ==================
       const mergedComponents = useComponents(components);
 
-      // ===================== Common State =====================
-      const [mergedSize, mergedDisabled, formItemContext] = usePickerCommonState(
-        customizeSize,
-        compactSize,
-        customDisabled,
-      );
+      // ===================== Size =====================
+      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
+      // ===================== Disabled =====================
+      const disabled = React.useContext(DisabledContext);
+      const mergedDisabled = customDisabled ?? disabled;
+
+      // ===================== FormItemInput =====================
+      const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
       const mergedSuffixIcon = (
