@@ -20,6 +20,49 @@ const resizeSplitter = async () => {
   await waitFakeTimer();
 };
 
+function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
+  // Down
+  const downEvent = createEvent.mouseDown(draggerEle);
+  Object.defineProperty(downEvent, 'pageX', { value: 0 });
+  Object.defineProperty(downEvent, 'pageY', { value: 0 });
+
+  fireEvent(draggerEle, downEvent);
+
+  // Move
+  const moveEvent = createEvent.mouseMove(draggerEle);
+  Object.defineProperty(moveEvent, 'pageX', { value: offset });
+  Object.defineProperty(moveEvent, 'pageY', { value: offset });
+
+  fireEvent(draggerEle, moveEvent);
+
+  // mask should exist
+  if (container) {
+    expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+  }
+
+  // Up
+  fireEvent.mouseUp(draggerEle);
+}
+
+function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
+  // Down
+  const touchStart = createEvent.touchStart(draggerEle, {
+    touches: [{}],
+  });
+  Object.defineProperty(touchStart, 'touches', { value: [{ pageX: 0, pageY: 0 }] });
+  fireEvent(draggerEle, touchStart);
+
+  // Move
+  const touchMove = createEvent.touchMove(draggerEle, {
+    touches: [{}],
+  });
+  Object.defineProperty(touchMove, 'touches', { value: [{ pageX: offset, pageY: offset }] });
+  fireEvent(draggerEle, touchMove);
+
+  // Up
+  fireEvent.touchEnd(draggerEle);
+}
+
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>
     {items?.map((item, idx) => {
@@ -103,49 +146,6 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
-      // Down
-      const downEvent = createEvent.mouseDown(draggerEle);
-      Object.defineProperty(downEvent, 'pageX', { value: 0 });
-      Object.defineProperty(downEvent, 'pageY', { value: 0 });
-
-      fireEvent(draggerEle, downEvent);
-
-      // Move
-      const moveEvent = createEvent.mouseMove(draggerEle);
-      Object.defineProperty(moveEvent, 'pageX', { value: offset });
-      Object.defineProperty(moveEvent, 'pageY', { value: offset });
-
-      fireEvent(draggerEle, moveEvent);
-
-      // mask should exist
-      if (container) {
-        expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
-      }
-
-      // Up
-      fireEvent.mouseUp(draggerEle);
-    }
-
-    function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
-      // Down
-      const touchStart = createEvent.touchStart(draggerEle, {
-        touches: [{}],
-      });
-      Object.defineProperty(touchStart, 'touches', { value: [{ pageX: 0, pageY: 0 }] });
-      fireEvent(draggerEle, touchStart);
-
-      // Move
-      const touchMove = createEvent.touchMove(draggerEle, {
-        touches: [{}],
-      });
-      Object.defineProperty(touchMove, 'touches', { value: [{ pageX: offset, pageY: offset }] });
-      fireEvent(draggerEle, touchMove);
-
-      // Up
-      fireEvent.touchEnd(draggerEle);
-    }
-
     it('The mousemove should work fine', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
@@ -883,60 +883,26 @@ describe('Splitter', () => {
   });
 
   it('should maintain panel proportions with multiple panels when container resizes', async () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number) {
-      const downEvent = createEvent.mouseDown(draggerEle);
-      Object.defineProperty(downEvent, 'pageX', { value: 0 });
-      Object.defineProperty(downEvent, 'pageY', { value: 0 });
-      fireEvent(draggerEle, downEvent);
-
-      const moveEvent = createEvent.mouseMove(draggerEle);
-      Object.defineProperty(moveEvent, 'pageX', { value: offset });
-      Object.defineProperty(moveEvent, 'pageY', { value: offset });
-      fireEvent(draggerEle, moveEvent);
-
-      fireEvent.mouseUp(draggerEle);
-    }
+    const { container } = render(<SplitterDemo items={[{ defaultSize: '30%' }, {}]} />);
 
     containerSize = 600;
-
-    const { container } = render(
-      <SplitterDemo items={[{ defaultSize: 180 }, {}, {}]} />,
-    );
-
     await resizeSplitter();
 
-    // Initial sizes: 180px (30%), 210px (35%), 210px (35%)
     let panels = container.querySelectorAll('.ant-splitter-panel');
     expect(panels[0]).toHaveStyle('flex-basis: 180px');
-    expect(panels[1]).toHaveStyle('flex-basis: 210px');
-    expect(panels[2]).toHaveStyle('flex-basis: 210px');
+    expect(panels[1]).toHaveStyle('flex-basis: 420px');
 
-    // Drag first splitter: move 60px to right
-    const draggers = container.querySelectorAll('.ant-splitter-bar-dragger');
-    mockDrag(draggers[0] as HTMLElement, 60);
-
-    await act(async () => {
-      await waitFakeTimer();
-    });
-
-    // After drag: 240px (40%), 150px (25%), 210px (35%)
+    containerSize = 1000;
+    await resizeSplitter();
+    mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 100);
     panels = container.querySelectorAll('.ant-splitter-panel');
-    expect(panels[0]).toHaveStyle('flex-basis: 240px');
-    expect(panels[1]).toHaveStyle('flex-basis: 150px');
-    expect(panels[2]).toHaveStyle('flex-basis: 210px');
+    expect(panels[0]).toHaveStyle('flex-basis: 400px');
+    expect(panels[1]).toHaveStyle('flex-basis: 600px');
 
-    // Change container size to 900px
-    containerSize = 900;
-    triggerResize(container.querySelector('.ant-splitter')!);
-
-    await act(async () => {
-      await waitFakeTimer();
-    });
-
-    // Should maintain proportions: 360px (40%), 225px (25%), 315px (35%)
+    containerSize = 2000;
+    await resizeSplitter();
     panels = container.querySelectorAll('.ant-splitter-panel');
-    expect(panels[0]).toHaveStyle('flex-basis: 360px');
-    expect(panels[1]).toHaveStyle('flex-basis: 225px');
-    expect(panels[2]).toHaveStyle('flex-basis: 315px');
+    expect(panels[0]).toHaveStyle('flex-basis: 800px');
+    expect(panels[1]).toHaveStyle('flex-basis: 1200px');
   });
 });
