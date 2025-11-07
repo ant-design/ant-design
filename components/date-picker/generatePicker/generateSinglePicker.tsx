@@ -139,7 +139,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const mergedComponents = useComponents(components);
 
       // ===================== Common State =====================
-      const { mergedSize, mergedDisabled, formItemContext } = usePickerCommonState({
+      const [mergedSize, mergedDisabled, formItemContext] = usePickerCommonState({
         customizeSize,
         compactSize,
         customDisabled,
