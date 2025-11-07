@@ -2021,19 +2021,15 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-input-with-clear-btn ant-mentions-outlined ant-mentions-status-success css-var-test-id ant-mentions-css-var"
+              class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-input-with-clear-btn ant-mentions-outlined ant-mentions-status-success ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-has-suffix"
             >
-              <div
-                class="ant-mentions"
+              <textarea
+                class="rc-textarea"
+                id="custom-feedback-icons_custom-feedback-test-item3"
+                rows="1"
               >
-                <textarea
-                  class="rc-textarea"
-                  id="custom-feedback-icons_custom-feedback-test-item3"
-                  rows="1"
-                >
-                  @mention1
-                </textarea>
-              </div>
+                @mention1
+              </textarea>
               <span
                 class="ant-mentions-suffix"
               >
@@ -5987,7 +5983,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-mentions ant-mentions-disabled ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+                class="ant-mentions ant-mentions-disabled ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
               >
                 <textarea
                   class="rc-textarea rc-textarea-disabled"
@@ -32008,16 +32004,12 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-status-error css-var-test-id ant-mentions-css-var"
+              class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-status-error ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-has-suffix"
             >
-              <div
-                class="ant-mentions"
-              >
-                <textarea
-                  class="rc-textarea"
-                  rows="1"
-                />
-              </div>
+              <textarea
+                class="rc-textarea"
+                rows="1"
+              />
               <span
                 class="ant-mentions-suffix"
               >
@@ -32659,7 +32651,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var"
+              class="ant-mentions ant-mentions-filled ant-mentions css-var-test-id ant-mentions-css-var"
             >
               <textarea
                 aria-required="true"
