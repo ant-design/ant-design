@@ -38,8 +38,8 @@ return (
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/size.tsx">Size</code>
-<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/size.tsx" version="6.0.0">Size</code>
+<code src="./demo/variant.tsx">Variants</code>
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/form.tsx">With Form</code>
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>

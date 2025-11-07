@@ -187,7 +187,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             outline: 'none',
             flex: 'auto',
             minWidth: 0,
-            // resize: 'none',
+            resize: 'none',
 
             '&:disabled': {
               color: colorTextDisabled,
@@ -199,7 +199,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           color: colorText,
           boxSizing: 'border-box',
           margin: 0,
-          minHeight: 'var(--mentions-control-height)',
+          minHeight: calc('var(--mentions-control-height)')
+            .sub(calc(token.lineWidth).mul(2).equal())
+            .equal(),
           paddingInline: 'var(--mentions-padding-inline)',
           paddingBlock: 'var(--mentions-padding-block)',
           overflow: 'inherit',

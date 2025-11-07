@@ -21,6 +21,8 @@ const options: MentionsProps['options'] = [
 const stylesObject: MentionsProps['styles'] = {
   textarea: {
     fontSize: 14,
+    resize: 'vertical',
+    fontWeight: 200,
   },
 };
 
@@ -47,7 +49,7 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="middle">
-      <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" />
+      <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" rows={2} />
       <Mentions {...sharedProps} styles={stylesFunction} variant="filled" placeholder="Function" />
     </Flex>
   );
