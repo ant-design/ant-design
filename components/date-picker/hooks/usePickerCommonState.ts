@@ -6,25 +6,15 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 
-interface UsePickerCommonStateOptions {
-  customizeSize?: SizeType;
-  compactSize?: SizeType;
-  customDisabled?: boolean;
-}
-
 /**
  * Shared hook for common picker state management including size, disabled state,
  * and form item context. Used by both DatePicker and RangePicker.
  */
-const usePickerCommonState = ({
-  customizeSize,
-  compactSize,
-  customDisabled,
-}: UsePickerCommonStateOptions): [
-  SizeType,
-  boolean | undefined,
-  FormItemStatusContextProps,
-] => {
+const usePickerCommonState = (
+  customizeSize?: SizeType,
+  compactSize?: SizeType,
+  customDisabled?: boolean,
+): [SizeType, boolean | undefined, FormItemStatusContextProps] => {
   // ===================== Size =====================
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
