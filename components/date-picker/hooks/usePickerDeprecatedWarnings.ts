@@ -8,19 +8,21 @@ const usePickerDeprecatedWarnings = (
   componentName: string,
   props: Record<string, unknown>,
 ): void => {
-  const warning = devUseWarning(componentName);
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning(componentName);
 
-  const deprecatedProps = {
-    dropdownClassName: 'classNames.popup.root',
-    popupClassName: 'classNames.popup.root',
-    popupStyle: 'styles.popup.root',
-    bordered: 'variant',
-    onSelect: 'onCalendarChange',
-  };
+    const deprecatedProps = {
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
+      popupStyle: 'styles.popup.root',
+      bordered: 'variant',
+      onSelect: 'onCalendarChange',
+    };
 
-  Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
-    warning.deprecated(!(oldProp in props), oldProp, newProp);
-  });
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
+  }
 };
 
 export default usePickerDeprecatedWarnings;

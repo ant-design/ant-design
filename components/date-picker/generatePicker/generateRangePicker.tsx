@@ -72,9 +72,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
     // =================== Warning =====================
-    if (process.env.NODE_ENV !== 'production') {
-      usePickerDeprecatedWarnings('DatePicker.RangePicker', props);
-    }
+    usePickerDeprecatedWarnings('DatePicker.RangePicker', props);
 
     const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
       pickerType,
