@@ -45,7 +45,7 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-type SemanticName = 'root' | 'textarea' | 'popup';
+type SemanticName = 'root' | 'textarea' | 'popup' | 'suffix';
 
 export type MentionsClassNamesType = SemanticClassNamesType<MentionProps, SemanticName>;
 export type MentionsStylesType = SemanticStylesType<MentionProps, SemanticName>;
@@ -239,7 +239,11 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       ref={mergedRef}
       options={mergedOptions}
       suffix={suffixNode}
-      styles={{ textarea: mergedStyles.textarea, popup: mergedStyles.popup }}
+      styles={{
+        textarea: mergedStyles.textarea,
+        popup: mergedStyles.popup,
+        suffix: mergedStyles.suffix,
+      }}
       classNames={{
         textarea: clsx(mergedClassNames.textarea),
         popup: clsx(
@@ -250,6 +254,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
           cssVarCls,
           rootCls,
         ),
+        suffix: mergedClassNames.suffix,
         mentions: clsx(
           {
             [`${prefixCls}-disabled`]: mergedDisabled,
