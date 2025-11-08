@@ -77,7 +77,11 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
         clickedRef.current = false;
-        return isSilent?.() ? undefined : Promise.reject(e);
+        // Do not throw if is `await` mode
+        if (isSilent?.()) {
+          return;
+        }
+        return Promise.reject(e);
       },
     );
   };
