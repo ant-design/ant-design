@@ -59,8 +59,6 @@ export interface InputNumberProps<T extends ValueType = ValueType>
     | {
         upIcon?: React.ReactNode;
         downIcon?: React.ReactNode;
-        spinnerUpIcon?: React.ReactNode;
-        spinnerDownIcon?: React.ReactNode;
       };
   /**
    * @since 5.13.0
@@ -127,13 +125,8 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
 
   if (typeof controls === 'object') {
-    if (mode === 'spinner') {
-      upIcon = controls.spinnerUpIcon || upIcon;
-      downIcon = controls.spinnerDownIcon || downIcon;
-    } else {
-      upIcon = controls.upIcon || upIcon;
-      downIcon = controls.downIcon || downIcon;
-    }
+    upIcon = controls.upIcon || upIcon;
+    downIcon = controls.downIcon || downIcon;
   }
 
   upIcon = <span className={`${prefixCls}-handler-up-inner`}>{upIcon}</span>;

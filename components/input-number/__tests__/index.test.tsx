@@ -55,13 +55,13 @@ describe('InputNumber', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('renders correctly when controls has custom spinnerUpIcon and spinnerDownIcon', () => {
+  it('renders spinner mode', () => {
     const { container } = render(
       <InputNumber
         mode="spinner"
         controls={{
-          spinnerUpIcon: 'foo',
-          spinnerDownIcon: 'bar',
+          upIcon: 'foo',
+          downIcon: 'bar',
         }}
       />,
     );
