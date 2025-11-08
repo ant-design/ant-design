@@ -3830,7 +3830,7 @@ exports[`renders components/button/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-gap-small"
 >
   <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-1n76m6j"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-nfftpo"
     style="box-shadow:0 1px 2px 0 rgba(0,0,0,0.05)"
     type="button"
   >
@@ -3841,7 +3841,7 @@ exports[`renders components/button/demo/style-class.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-1n76m6j"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-nfftpo"
     style="background-color:#171717"
     type="button"
   >
