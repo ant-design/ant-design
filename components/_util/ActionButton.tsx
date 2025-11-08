@@ -77,13 +77,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
         clickedRef.current = false;
-
-        // Do not throw if is `await` mode
-        if (isSilent?.()) {
-          return;
-        }
-
-        return Promise.reject(e);
+        return isSilent?.() ? undefined : Promise.reject(e);
       },
     );
   };
@@ -105,13 +99,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         returnValueOfOnOk = actionFn(e);
       } catch (error) {
         clickedRef.current = false;
-
-        // Log error for debugging unless in silent mode
-        if (!isSilent?.()) {
-          console.error('Error in actionFn:', error);
-        }
-
-        return;
+        return isSilent?.() ? undefined : Promise.reject(error);
       }
 
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
