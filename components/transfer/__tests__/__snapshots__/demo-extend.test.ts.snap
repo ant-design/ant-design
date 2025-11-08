@@ -11446,8 +11446,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
     class="ant-transfer ant-transfer-status-error css-var-test-id"
   >
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color: rgb(250, 250, 250);"
+      class="ant-transfer-section acss-yvv4da"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
@@ -11859,8 +11858,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-transfer-actions"
-      style="background-color: rgb(255, 242, 232);"
+      class="ant-transfer-actions acss-1b2q34z"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -11922,8 +11920,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
       </button>
     </div>
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color: rgb(250, 250, 250);"
+      class="ant-transfer-section acss-yvv4da"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
@@ -12289,8 +12286,8 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
     class="ant-transfer ant-transfer-status-warning css-var-test-id"
   >
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color: rgb(246, 255, 237); border-color: rgb(183, 235, 143);"
+      class="ant-transfer-section acss-yvv4da"
+      style="background-color: rgba(246, 255, 237, 0.6); border-color: rgb(183, 235, 143);"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
@@ -12702,7 +12699,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
       </div>
     </div>
     <div
-      class="ant-transfer-actions"
+      class="ant-transfer-actions acss-1b2q34z"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -12764,8 +12761,8 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
       </button>
     </div>
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color: rgb(246, 255, 237); border-color: rgb(183, 235, 143);"
+      class="ant-transfer-section acss-yvv4da"
+      style="background-color: rgba(246, 255, 237, 0.6); border-color: rgb(183, 235, 143);"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"

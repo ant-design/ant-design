@@ -4201,7 +4201,7 @@ exports[`renders components/input-number/demo/style-class.tsx correctly 1`] = `
   </div>
   <div
     class="ant-input-number ant-input-number-lg ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var acss-1tkizl6"
-    style="background-color:#fafafa;border-color:#722ed1"
+    style="background-color:rgba(250,250,250, 0.5);border-color:#722ed1"
   >
     <div
       class="ant-input-number-handler-wrap"

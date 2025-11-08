@@ -3,9 +3,14 @@ import { Flex, Transfer } from 'antd';
 import type { TransferProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  section: { backgroundColor: '#fafafa' },
+const useStyles = createStyles(({ token, css }) => ({
+  section: { backgroundColor: 'rgba(250,250,250, 0.5)' },
   header: { color: token.colorPrimary },
+  actions: css`
+    & button{
+      background-color: rgba(255,242,232,0.6)
+    }
+  `,
 }));
 
 const mockData = Array.from({ length: 20 }).map<any>((_, i) => ({
@@ -17,15 +22,13 @@ const mockData = Array.from({ length: 20 }).map<any>((_, i) => ({
 const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
 
 const stylesObject: TransferProps['styles'] = {
-  section: { backgroundColor: '#fafafa' },
   header: { fontWeight: 'bold' },
-  actions: { backgroundColor: '#fff2e8' },
 };
 
 const stylesFn: TransferProps['styles'] = (info) => {
   if (info.props.status === 'warning') {
     return {
-      section: { backgroundColor: '#f6ffed', borderColor: '#b7eb8f' },
+      section: { backgroundColor: 'rgba(246,255,237, 0.6)', borderColor: '#b7eb8f' },
       header: { color: '#8DBCC7', fontWeight: 'normal' },
     } satisfies TransferProps['styles'];
   }

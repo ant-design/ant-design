@@ -12,7 +12,8 @@ const useStyle = createStyles(({ css }) => ({
 const stylesObject: AutoCompleteProps['styles'] = {
   popup: {
     root: { borderWidth: 1, borderColor: '#1890ff' },
-    list: { backgroundColor: '#f9f9f9' },
+    list: { backgroundColor: 'rgba(240,240,240, 0.85)' },
+    listItem: { color: '#272727' },
   },
 };
 
@@ -21,7 +22,8 @@ const stylesFn: AutoCompleteProps['styles'] = ({ props }) => {
     return {
       popup: {
         root: { borderWidth: 1, borderColor: '#ccc' },
-        list: { backgroundColor: '#f0f0f0' },
+        list: { backgroundColor: 'rgba(240,240,240, 0.85)' },
+        listItem: { color: '#272727' },
       },
     } satisfies AutoCompleteProps['styles'];
   }

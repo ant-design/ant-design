@@ -7431,8 +7431,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
     class="ant-transfer ant-transfer-status-error css-var-test-id"
   >
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color:#fafafa"
+      class="ant-transfer-section acss-yvv4da"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
@@ -7769,8 +7768,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-actions"
-      style="background-color:#fff2e8"
+      class="ant-transfer-actions acss-1b2q34z"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -7832,8 +7830,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color:#fafafa"
+      class="ant-transfer-section acss-yvv4da"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
@@ -8124,8 +8121,8 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
     class="ant-transfer ant-transfer-status-warning css-var-test-id"
   >
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color:#f6ffed;border-color:#b7eb8f"
+      class="ant-transfer-section acss-yvv4da"
+      style="background-color:rgba(246,255,237, 0.6);border-color:#b7eb8f"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
@@ -8462,7 +8459,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-actions"
+      class="ant-transfer-actions acss-1b2q34z"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -8524,8 +8521,8 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-transfer-section acss-qd6duc"
-      style="background-color:#f6ffed;border-color:#b7eb8f"
+      class="ant-transfer-section acss-yvv4da"
+      style="background-color:rgba(246,255,237, 0.6);border-color:#b7eb8f"
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
