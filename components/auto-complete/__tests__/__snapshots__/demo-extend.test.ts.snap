@@ -2728,7 +2728,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
       </div>
       <div
         class="rc-virtual-list"
-        style="background-color: rgb(249, 249, 249); position: relative;"
+        style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
       >
         <div
           class="rc-virtual-list-holder"
@@ -2741,6 +2741,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
             >
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Burnaby"
               >
                 <div
@@ -2757,6 +2758,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Seattle"
               >
                 <div
@@ -2773,6 +2775,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Los Angeles"
               >
                 <div
@@ -2789,6 +2792,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="San Francisco"
               >
                 <div
@@ -2805,6 +2809,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Meet student"
               >
                 <div
@@ -2873,7 +2878,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
       </div>
       <div
         class="rc-virtual-list"
-        style="background-color: rgb(240, 240, 240); position: relative;"
+        style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
       >
         <div
           class="rc-virtual-list-holder"
@@ -2886,6 +2891,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
             >
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Burnaby"
               >
                 <div
@@ -2902,6 +2908,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Seattle"
               >
                 <div
@@ -2918,6 +2925,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Los Angeles"
               >
                 <div
@@ -2934,6 +2942,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="San Francisco"
               >
                 <div
@@ -2950,6 +2959,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               </div>
               <div
                 class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
                 title="Meet student"
               >
                 <div

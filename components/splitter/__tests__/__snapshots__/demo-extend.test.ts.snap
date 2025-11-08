@@ -1310,7 +1310,7 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space: nowrap;"
+          style="color: rgb(0, 0, 0);"
         >
           First
         </h5>
@@ -1338,7 +1338,7 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space: nowrap;"
+          style="color: rgb(0, 0, 0);"
         >
           Second
         </h5>
@@ -1359,7 +1359,6 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space: nowrap;"
         >
           First
         </h5>
@@ -1386,7 +1385,6 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space: nowrap;"
         >
           Second
         </h5>
