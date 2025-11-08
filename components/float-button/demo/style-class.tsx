@@ -6,7 +6,7 @@ import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
   root: {
-    border: '1px solid #e5e5e5',
+    border: `1px solid ${token.colorBorder}`,
     borderRadius: 8,
     padding: '6px 16px',
     height: 'auto',
