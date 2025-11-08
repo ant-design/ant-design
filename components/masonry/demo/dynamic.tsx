@@ -31,7 +31,7 @@ const Update: React.FC = () => {
     setItems((prevItems) => [
       ...prevItems,
       {
-        key: (prevItems[prevItems.length - 1]?.key || 0) + 1,
+        key: prevItems.length ? prevItems[prevItems.length - 1].key + 1 : 0,
         data: Math.floor(Math.random() * 100) + 50,
       },
     ]);

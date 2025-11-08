@@ -48,6 +48,8 @@ const IconSearch: React.FC = () => {
 
   const handleSearchIcon = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
     setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
+
+    document.getElementById('list-of-icons')?.scrollIntoView({ behavior: 'smooth' });
   }, 300);
 
   const handleChangeTheme = useCallback((value: ThemeType) => {

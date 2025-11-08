@@ -3,12 +3,24 @@ import { Flex, Slider } from 'antd';
 import type { SliderSingleProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ css, cssVar }) => ({
+const useStyles = createStyles(({ css }) => ({
   root: css`
     width: 300px;
   `,
+}));
+
+const useStylesFn = createStyles(({ css, cssVar }) => ({
+  root: css`
+    width: 100px;
+    &:hover .ant-slider-handle:after {
+      box-shadow: 0 0 0 ${cssVar.lineWidthBold} #722ed1;
+    }
+  `,
   handle: css`
-    &::after {
+    &.ant-slider-handle:hover::after,
+    &.ant-slider-handle:active::after,
+    &.ant-slider-handle:focus::after,
+    &.ant-slider-handle::after {
       box-shadow: 0 0 0 ${cssVar.lineWidthBold} #722ed1;
     }
   `,
@@ -31,17 +43,17 @@ const stylesFn: SliderSingleProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
+  const { styles: classNames } = useStyles();
+  const { styles: classNameFn } = useStylesFn();
   const sharedProps: SliderSingleProps = {
-    classNames: { root: styles.root },
     defaultValue: 30,
   };
   return (
     <Flex vertical gap="middle">
-      <Slider {...sharedProps} styles={stylesObject} />
+      <Slider {...sharedProps} classNames={classNames} styles={stylesObject} />
       <Slider
         {...sharedProps}
-        classNames={{ root: styles.root, handle: styles.handle }}
+        classNames={classNameFn}
         orientation="vertical"
         reverse
         styles={stylesFn}
