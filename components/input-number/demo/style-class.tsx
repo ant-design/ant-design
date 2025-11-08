@@ -21,7 +21,7 @@ const stylesFn: InputNumberProps['styles'] = ({ props }) => {
   if (props.size === 'large') {
     return {
       root: {
-        backgroundColor: '#fafafa',
+        backgroundColor: 'rgba(250,250,250, 0.5)',
         borderColor: '#722ed1',
       },
     } satisfies InputNumberProps['styles'];
