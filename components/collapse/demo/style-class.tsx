@@ -10,9 +10,6 @@ const useStyles = createStyles(() => ({
     border: '1px solid #e0e0e0',
     borderRadius: 8,
   },
-  header: {
-    color: '#141414',
-  },
 }));
 
 const element = (
@@ -49,6 +46,7 @@ const styles: CollapseProps['styles'] = {
   header: {
     backgroundColor: '#f0f0f0',
     padding: '12px 16px',
+    color: '#141414',
   },
 };
 
@@ -63,6 +61,7 @@ const stylesFn: CollapseProps['styles'] = ({ props }) => {
       header: {
         backgroundColor: '#F5EFFF',
         padding: '12px 16px',
+        color: '#141414',
       },
     } satisfies CollapseProps['styles'];
   }

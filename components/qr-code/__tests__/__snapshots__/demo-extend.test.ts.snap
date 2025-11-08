@@ -442,7 +442,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
     <div>
       <div
         class="ant-qrcode css-var-test-id"
-        style="background-color: rgb(255, 255, 255); margin-bottom: 16px; width: 160px; height: 160px;"
+        style="background-color: rgba(255, 255, 255, 0.5); margin-bottom: 16px; width: 160px; height: 160px;"
       >
         <canvas
           height="160"

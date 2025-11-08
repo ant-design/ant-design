@@ -1782,9 +1782,9 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       <div
         aria-disabled="false"
         aria-expanded="true"
-        class="ant-collapse-header acss-13ow3bs"
+        class="ant-collapse-header"
         role="button"
-        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px; color: rgb(20, 20, 20);"
         tabindex="0"
       >
         <div
@@ -1835,9 +1835,9 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header acss-13ow3bs"
+        class="ant-collapse-header"
         role="button"
-        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px; color: rgb(20, 20, 20);"
         tabindex="0"
       >
         <div
@@ -1876,9 +1876,9 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header acss-13ow3bs"
+        class="ant-collapse-header"
         role="button"
-        style="background-color: rgb(240, 240, 240); padding: 12px 16px;"
+        style="background-color: rgb(240, 240, 240); padding: 12px 16px; color: rgb(20, 20, 20);"
         tabindex="0"
       >
         <div
@@ -1922,9 +1922,9 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header acss-13ow3bs"
+        class="ant-collapse-header"
         role="button"
-        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px; color: rgb(20, 20, 20);"
         tabindex="0"
       >
         <div
@@ -1963,9 +1963,9 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       <div
         aria-disabled="false"
         aria-expanded="true"
-        class="ant-collapse-header acss-13ow3bs"
+        class="ant-collapse-header"
         role="button"
-        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px; color: rgb(20, 20, 20);"
         tabindex="0"
       >
         <div
@@ -2016,9 +2016,9 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       <div
         aria-disabled="false"
         aria-expanded="false"
-        class="ant-collapse-header acss-13ow3bs"
+        class="ant-collapse-header"
         role="button"
-        style="background-color: rgb(245, 239, 255); padding: 12px 16px;"
+        style="background-color: rgb(245, 239, 255); padding: 12px 16px; color: rgb(20, 20, 20);"
         tabindex="0"
       >
         <div
