@@ -35,7 +35,12 @@ const App: React.FC = () => {
   return (
     <Space size={[8, 16]} wrap>
       <Flex gap="small">
-        <ColorPicker defaultValue="#1677ff" styles={stylesObject} classNames={classNames} />
+        <ColorPicker
+          defaultValue="#1677ff"
+          arrow={false}
+          styles={stylesObject}
+          classNames={classNames}
+        />
       </Flex>
       <Flex gap="small">
         <ColorPicker

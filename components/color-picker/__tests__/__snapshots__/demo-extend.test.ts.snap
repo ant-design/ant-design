@@ -9630,14 +9630,6 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(255, 255, 255);"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
