@@ -18,8 +18,7 @@ const useStyles = createStyles(({ token }) => ({
 
 const stylesObject: FloatButtonProps['styles'] = {
   root: {
-    boxShadow:
-      'rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px',
+    boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)',
   },
 };
 

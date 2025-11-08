@@ -1654,7 +1654,7 @@ exports[`renders components/float-button/demo/style-class.tsx correctly 1`] = `
     <a
       aria-describedby="test-id"
       aria-disabled="false"
-      class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-primary ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only acss-g7wts4"
+      class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-primary ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only acss-1n76m6j"
       href="https://ant.design/index-cn"
       style="background-color:#171717"
       tabindex="0"
@@ -1684,8 +1684,8 @@ exports[`renders components/float-button/demo/style-class.tsx correctly 1`] = `
       </span>
     </a>
     <button
-      class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only acss-g7wts4"
-      style="box-shadow:rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px"
+      class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only acss-1n76m6j"
+      style="box-shadow:0 1px 2px 0 rgba(0,0,0,0.05)"
       type="button"
     >
       <span
