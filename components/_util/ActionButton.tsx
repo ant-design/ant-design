@@ -62,13 +62,8 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     };
   }, [autoFocus]);
 
-  const handlePromiseOnOk = (
-    returnValueOfOnOk: PromiseLike<any>,
-    event?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => {
-    if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
-      clickedRef.current = false;
-      onInternalClose(event);
+  const handlePromiseOnOk = (returnValueOfOnOk: PromiseLike<any>) => {
+    if (!isThenable(returnValueOfOnOk)) {
       return;
     }
     setLoading(true);
@@ -113,15 +108,22 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     // Currently only Popconfirm passes `emitEvent` as true
     if (emitEvent) {
       returnValueOfOnOk = attemptAction(() => actionFn(e));
-      handlePromiseOnOk(returnValueOfOnOk, e);
-      return;
-    }
-    if (actionFn.length) {
+      if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+        clickedRef.current = false;
+        onInternalClose(e);
+        return;
+      }
+    } else if (actionFn.length) {
       returnValueOfOnOk = attemptAction(() => actionFn(close));
-      handlePromiseOnOk(returnValueOfOnOk);
-      return;
+      // https://github.com/ant-design/ant-design/issues/23358
+      clickedRef.current = false;
+    } else {
+      returnValueOfOnOk = attemptAction(() => actionFn());
+      if (!isThenable(returnValueOfOnOk)) {
+        onInternalClose();
+        return;
+      }
     }
-    returnValueOfOnOk = attemptAction(() => actionFn());
     handlePromiseOnOk(returnValueOfOnOk);
   };
 
