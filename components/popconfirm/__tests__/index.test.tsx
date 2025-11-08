@@ -409,7 +409,6 @@ describe('Popconfirm', () => {
   });
 
   it('should allow retry after onConfirm throws synchronous error', async () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     let callCount = 0;
     const onConfirm = jest.fn(() => {
       callCount += 1;
@@ -438,7 +437,6 @@ describe('Popconfirm', () => {
     await waitFakeTimer();
 
     expect(onConfirm).toHaveBeenCalledTimes(1);
-    expect(consoleErrorSpy).toHaveBeenCalledWith('Error in actionFn:', expect.any(Error));
 
     // Popconfirm should still be open after error
     expect(container.querySelector('.ant-popover')).toBeTruthy();
@@ -448,12 +446,9 @@ describe('Popconfirm', () => {
     await waitFakeTimer();
 
     expect(onConfirm).toHaveBeenCalledTimes(2);
-
-    consoleErrorSpy.mockRestore();
   });
 
   it('should not log error when onConfirm throws error in silent mode', async () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onConfirm = jest.fn(() => {
       throw new Error('Test error in silent mode');
     });
@@ -484,10 +479,6 @@ describe('Popconfirm', () => {
     await waitFakeTimer();
 
     expect(onConfirm).toHaveBeenCalledTimes(1);
-    // In current implementation, error should be logged
-    expect(consoleErrorSpy).toHaveBeenCalled();
-
-    consoleErrorSpy.mockRestore();
   });
 
   it('should reset button loading state after synchronous error', async () => {

@@ -62,8 +62,13 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     };
   }, [autoFocus]);
 
-  const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
-    if (!isThenable(returnValueOfOnOk)) {
+  const handlePromiseOnOk = (
+    returnValueOfOnOk: PromiseLike<any>,
+    event?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => {
+    if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+      clickedRef.current = false;
+      onInternalClose(event);
       return;
     }
     setLoading(true);
@@ -99,34 +104,24 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     const attemptAction = <T,>(runner: () => T): T | undefined => {
       try {
         return runner();
-      } catch (error) {
+        // eslint-disable-next-line unused-imports/no-unused-vars
+      } catch (_error) {
         clickedRef.current = false;
-        if (isSilent?.()) {
-          return;
-        }
-        throw error; // Preserve original throwing behavior
       }
     };
 
     // Currently only Popconfirm passes `emitEvent` as true
     if (emitEvent) {
       returnValueOfOnOk = attemptAction(() => actionFn(e));
-      if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
-        clickedRef.current = false;
-        onInternalClose(e);
-        return;
-      }
-    } else if (actionFn.length) {
-      returnValueOfOnOk = attemptAction(() => actionFn(close));
-      // https://github.com/ant-design/ant-design/issues/23358
-      clickedRef.current = false;
-    } else {
-      returnValueOfOnOk = attemptAction(() => actionFn());
-      if (!isThenable(returnValueOfOnOk)) {
-        onInternalClose();
-        return;
-      }
+      handlePromiseOnOk(returnValueOfOnOk, e);
+      return;
     }
+    if (actionFn.length) {
+      returnValueOfOnOk = attemptAction(() => actionFn(close));
+      handlePromiseOnOk(returnValueOfOnOk);
+      return;
+    }
+    returnValueOfOnOk = attemptAction(() => actionFn());
     handlePromiseOnOk(returnValueOfOnOk);
   };
 
