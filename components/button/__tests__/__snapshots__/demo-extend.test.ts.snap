@@ -4342,65 +4342,31 @@ exports[`renders components/button/demo/size.tsx extend context correctly 2`] = 
 
 exports[`renders components/button/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
-  style="flex-wrap: wrap; column-gap: 8px; row-gap: 16px;"
+  class="ant-flex css-var-test-id ant-flex-gap-small"
 >
-  <div
-    class="ant-space-item"
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-g7wts4"
+    style="box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;"
+    type="button"
   >
-    <div
-      class="ant-flex css-var-test-id ant-flex-gap-small"
+    <span
+      class="acss-12ew5h6"
     >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined demo-btn-root"
-        type="button"
-      >
-        <span
-          class="demo-btn-content"
-        >
-          classNames Object
-        </span>
-      </button>
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid demo-btn-root--primary"
-        disabled=""
-        type="button"
-      >
-        <span>
-          classNames Function
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
+      Object
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-g7wts4"
+    style="background-color: rgb(23, 23, 23);"
+    type="button"
   >
-    <div
-      class="ant-flex css-var-test-id ant-flex-gap-small"
+    <span
+      class="acss-12ew5h6"
+      style="color: rgb(255, 255, 255);"
     >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        style="border-width: 2px; border-style: dashed;"
-        type="button"
-      >
-        <span
-          style="font-style: italic;"
-        >
-          styles Object
-        </span>
-      </button>
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        disabled=""
-        style="opacity: 0.5; cursor: not-allowed; border-color: red;"
-        type="button"
-      >
-        <span>
-          styles Function
-        </span>
-      </button>
-    </div>
-  </div>
+      Function
+    </span>
+  </button>
 </div>
 `;
 
