@@ -7,7 +7,7 @@ const useStyles = createStyles(({ token, css }) => ({
   section: { backgroundColor: 'rgba(250,250,250, 0.5)' },
   header: { color: token.colorPrimary },
   actions: css`
-    & button{
+    & button {
       background-color: rgba(255,242,232,0.6);
     }
   `,
