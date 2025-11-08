@@ -3,18 +3,14 @@
 exports[`renders components/mentions/demo/allowClear.tsx correctly 1`] = `
 Array [
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-has-suffix"
   >
-    <div
-      class="ant-mentions"
+    <textarea
+      class="rc-textarea"
+      rows="1"
     >
-      <textarea
-        class="rc-textarea"
-        rows="1"
-      >
-        hello world
-      </textarea>
-    </div>
+      hello world
+    </textarea>
     <span
       class="ant-mentions-suffix"
     >
@@ -49,18 +45,14 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-has-suffix"
   >
-    <div
-      class="ant-mentions"
+    <textarea
+      class="rc-textarea"
+      rows="1"
     >
-      <textarea
-        class="rc-textarea"
-        rows="1"
-      >
-        hello world
-      </textarea>
-    </div>
+      hello world
+    </textarea>
     <span
       class="ant-mentions-suffix"
     >
@@ -95,18 +87,14 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-has-suffix"
   >
-    <div
-      class="ant-mentions"
+    <textarea
+      class="rc-textarea"
+      rows="3"
     >
-      <textarea
-        class="rc-textarea"
-        rows="3"
-      >
-        hello world
-      </textarea>
-    </div>
+      hello world
+    </textarea>
     <span
       class="ant-mentions-suffix"
     >
@@ -143,7 +131,7 @@ Array [
 
 exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -155,7 +143,7 @@ exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -171,7 +159,7 @@ exports[`renders components/mentions/demo/autosize-textarea-debug.tsx correctly 
   style="gap:32px"
 >
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -180,7 +168,7 @@ exports[`renders components/mentions/demo/autosize-textarea-debug.tsx correctly 
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
     style="resize:none"
   >
     <textarea
@@ -195,7 +183,7 @@ exports[`renders components/mentions/demo/autosize-textarea-debug.tsx correctly 
 
 exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -212,7 +200,7 @@ exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
     style="width:100%;margin:0"
   >
     <textarea
@@ -256,7 +244,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+              class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
             >
               <textarea
                 class="rc-textarea"
@@ -296,7 +284,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+              class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
             >
               <textarea
                 aria-required="true"
@@ -365,7 +353,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -377,7 +365,7 @@ exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/prefix.tsx correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   style="width:100%"
 >
   <textarea
@@ -394,7 +382,7 @@ Array [
     style="margin-bottom:10px"
   >
     <div
-      class="ant-mentions ant-mentions-disabled ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+      class="ant-mentions ant-mentions-disabled ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
       style="width:100%"
     >
       <textarea
@@ -406,7 +394,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
     style="width:100%"
   >
     <textarea
@@ -424,7 +412,7 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
     style="width:100%;margin:0"
   >
     <textarea
@@ -437,6 +425,40 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/mentions/demo/size.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-lg"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="large size"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="default size"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-sm"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="small size"
+      rows="1"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -445,7 +467,7 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-outlined ant-mentions-status-error css-var-test-id ant-mentions-css-var"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-error ant-mentions css-var-test-id ant-mentions-css-var"
     >
       <textarea
         class="rc-textarea"
@@ -459,7 +481,7 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning css-var-test-id ant-mentions-css-var"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning ant-mentions css-var-test-id ant-mentions-css-var"
     >
       <textarea
         class="rc-textarea"
@@ -477,17 +499,17 @@ exports[`renders components/mentions/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var acss-3jrxlv"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var acss-3jrxlv"
   >
     <textarea
       class="rc-textarea"
       placeholder="Object"
-      rows="1"
-      style="font-size:14px"
+      rows="2"
+      style="resize:vertical;font-size:14px;font-weight:200"
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var acss-3jrxlv"
+    class="ant-mentions ant-mentions-filled ant-mentions css-var-test-id ant-mentions-css-var acss-3jrxlv"
     style="border:1px solid #722ed1"
   >
     <textarea
@@ -505,7 +527,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
   style="gap:12px"
 >
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -514,7 +536,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-filled css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-filled ant-mentions css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -523,7 +545,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-borderless css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-borderless ant-mentions css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -532,7 +554,7 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-underlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-underlined ant-mentions css-var-test-id ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"

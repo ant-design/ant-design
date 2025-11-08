@@ -393,7 +393,7 @@ exports[`renders components/input/demo/advance-count.tsx correctly 1`] = `
 exports[`renders components/input/demo/align.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
     style="width:100px"
   >
     <textarea
@@ -5104,7 +5104,9 @@ exports[`renders components/input/demo/show-count.tsx correctly 1`] = `
 `;
 
 exports[`renders components/input/demo/size.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-test-id ant-input-css-var"
   >
@@ -5137,9 +5139,7 @@ Array [
       type="text"
       value=""
     />
-  </span>,
-  <br />,
-  <br />,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
   >
@@ -5172,9 +5172,7 @@ Array [
       type="text"
       value=""
     />
-  </span>,
-  <br />,
-  <br />,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined css-var-test-id ant-input-css-var"
   >
@@ -5207,8 +5205,8 @@ Array [
       type="text"
       value=""
     />
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`renders components/input/demo/status.tsx correctly 1`] = `
