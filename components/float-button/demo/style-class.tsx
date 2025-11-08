@@ -8,7 +8,7 @@ const useStyles = createStyles(({ token }) => ({
   root: {
     border: `1px solid ${token.colorBorder}`,
     borderRadius: token.borderRadius,
-    padding: '6px 16px',
+    padding: `${token.paddingXS}px ${token.padding}px`,
     height: 'auto',
   },
   content: {
