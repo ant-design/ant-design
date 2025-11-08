@@ -92,27 +92,32 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       return;
     }
     let returnValueOfOnOk: PromiseLike<any>;
-    // Currently only Popconfirm passes `emitEvent` as true
-    if (emitEvent) {
-      // if actionFn has been throw error, just reset clickedRef
+    const attemptAction = <T,>(runner: () => T): T | undefined => {
       try {
-        returnValueOfOnOk = actionFn(e);
+        return runner();
       } catch (error) {
         clickedRef.current = false;
-        return isSilent?.() ? undefined : Promise.reject(error);
+        if (isSilent?.()) {
+          return;
+        }
+        throw error; // Preserve original throwing behavior
       }
+    };
 
+    // Currently only Popconfirm passes `emitEvent` as true
+    if (emitEvent) {
+      returnValueOfOnOk = attemptAction(() => actionFn(e));
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
         onInternalClose(e);
         return;
       }
     } else if (actionFn.length) {
-      returnValueOfOnOk = actionFn(close);
+      returnValueOfOnOk = attemptAction(() => actionFn(close));
       // https://github.com/ant-design/ant-design/issues/23358
       clickedRef.current = false;
     } else {
-      returnValueOfOnOk = actionFn();
+      returnValueOfOnOk = attemptAction(() => actionFn());
       if (!isThenable(returnValueOfOnOk)) {
         onInternalClose();
         return;
