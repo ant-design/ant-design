@@ -1,58 +1,60 @@
 import React from 'react';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 import type { FloatButtonProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: FloatButtonProps['classNames'] = {
-  root: 'demo-float-btn-root',
-  icon: 'demo-float-btn-icon',
-  content: 'demo-float-btn-content',
-};
-
-const classNamesFn: FloatButtonProps['classNames'] = (info) => {
-  if (info.props.type === 'primary') {
-    return {
-      root: 'demo-float-btn-root--primary',
-    } satisfies FloatButtonProps['classNames'];
-  }
-  return {
-    root: 'demo-float-btn-root--default',
-  } satisfies FloatButtonProps['classNames'];
-};
+const useStyles = createStyles(({ token }) => ({
+  root: {
+    border: `1px solid ${token.colorBorder}`,
+    borderRadius: token.borderRadius,
+    padding: `${token.paddingXS}px ${token.padding}px`,
+    height: 'auto',
+  },
+  content: {
+    color: token.colorText,
+  },
+}));
 
 const stylesObject: FloatButtonProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  icon: { opacity: 0.85 },
-  content: { fontStyle: 'italic' },
+  root: {
+    boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)',
+  },
 };
 
 const stylesFn: FloatButtonProps['styles'] = (info) => {
-  if (info.props.shape === 'square') {
+  if (info.props.type === 'primary') {
     return {
-      root: { backgroundColor: '#fffbe6', borderColor: '#d9d9d9' },
-    } satisfies FloatButtonProps['styles'];
-  } else {
-    return {
-      root: { backgroundColor: '#fafafa', borderColor: '#ffe58f' },
+      root: {
+        backgroundColor: '#171717',
+      },
+      content: {
+        color: '#fff',
+      },
     } satisfies FloatButtonProps['styles'];
   }
+  return {};
 };
 
-const App: React.FC = () => (
-  <>
+const App: React.FC = () => {
+  const { styles: classNames } = useStyles();
+  return (
     <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 + 70 }}>
       <FloatButton
         type="primary"
-        classNames={classNamesFn}
+        classNames={classNames}
         href="https://ant.design/index-cn"
+        styles={stylesFn}
         tooltip={<div>custom style class</div>}
       />
-      <FloatButton type="default" classNames={classNamesObject} />
+      <FloatButton
+        type="default"
+        classNames={classNames}
+        styles={stylesObject}
+        icon={<QuestionCircleOutlined />}
+      />
     </FloatButton.Group>
-    <FloatButton.Group shape="square">
-      <FloatButton styles={stylesObject} />
-      <FloatButton styles={stylesFn} />
-    </FloatButton.Group>
-  </>
-);
+  );
+};
 
 export default App;

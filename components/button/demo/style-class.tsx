@@ -1,68 +1,51 @@
 import React from 'react';
-import { Button, Flex, Space } from 'antd';
+import { Button, Flex } from 'antd';
 import type { ButtonProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: ButtonProps['classNames'] = {
-  root: 'demo-btn-root',
-  content: 'demo-btn-content',
-  icon: 'demo-btn-icon',
-};
-
-const classNamesFn: ButtonProps['classNames'] = (info) => {
-  if (info.props.type === 'primary') {
-    return {
-      root: 'demo-btn-root--primary',
-    } satisfies ButtonProps['classNames'];
-  }
-  return {
-    root: 'demo-btn-root--default',
-  } satisfies ButtonProps['classNames'];
-};
+const useStyles = createStyles(({ token }) => ({
+  root: {
+    border: `1px solid ${token.colorBorder}`,
+    borderRadius: token.borderRadius,
+    padding: `${token.paddingXS}px ${token.padding}px`,
+    height: 'auto',
+  },
+  content: {
+    color: token.colorText,
+  },
+}));
 
 const stylesObject: ButtonProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
-  content: { fontStyle: 'italic' },
-  icon: { opacity: 0.85 },
+  root: {
+    boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)',
+  },
 };
 
 const stylesFn: ButtonProps['styles'] = (info) => {
-  if (info.props.disabled) {
+  if (info.props.type === 'primary') {
     return {
       root: {
-        opacity: 0.5,
-        cursor: 'not-allowed',
-        borderColor: 'red',
+        backgroundColor: '#171717',
+      },
+      content: {
+        color: '#fff',
       },
     } satisfies ButtonProps['styles'];
   }
-  return {
-    root: {
-      backgroundColor: '#fafafa',
-      borderColor: '#d9d9d9',
-    },
-  } satisfies ButtonProps['styles'];
+  return {};
 };
 
 const App: React.FC = () => {
+  const { styles: classNames } = useStyles();
   return (
-    <Space size={[8, 16]} wrap>
-      <Flex gap="small">
-        <Button type="default" classNames={classNamesObject}>
-          classNames Object
-        </Button>
-        <Button type="primary" disabled classNames={classNamesFn}>
-          classNames Function
-        </Button>
-      </Flex>
-      <Flex gap="small">
-        <Button type="default" styles={stylesObject}>
-          styles Object
-        </Button>
-        <Button type="primary" disabled styles={stylesFn}>
-          styles Function
-        </Button>
-      </Flex>
-    </Space>
+    <Flex gap="small">
+      <Button type="default" classNames={classNames} styles={stylesObject}>
+        Object
+      </Button>
+      <Button type="primary" classNames={classNames} styles={stylesFn}>
+        Function
+      </Button>
+    </Flex>
   );
 };
 

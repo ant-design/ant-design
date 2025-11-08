@@ -3827,64 +3827,30 @@ Array [
 
 exports[`renders components/button/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
-  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
+  class="ant-flex css-var-test-id ant-flex-gap-small"
 >
-  <div
-    class="ant-space-item"
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-nfftpo"
+    style="box-shadow:0 1px 2px 0 rgba(0,0,0,0.05)"
+    type="button"
   >
-    <div
-      class="ant-flex css-var-test-id ant-flex-gap-small"
+    <span
+      class="acss-12ew5h6"
     >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined demo-btn-root"
-        type="button"
-      >
-        <span
-          class="demo-btn-content"
-        >
-          classNames Object
-        </span>
-      </button>
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid demo-btn-root--primary"
-        disabled=""
-        type="button"
-      >
-        <span>
-          classNames Function
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
+      Object
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-nfftpo"
+    style="background-color:#171717"
+    type="button"
   >
-    <div
-      class="ant-flex css-var-test-id ant-flex-gap-small"
+    <span
+      class="acss-12ew5h6"
+      style="color:#fff"
     >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        style="border-width:2px;border-style:dashed"
-        type="button"
-      >
-        <span
-          style="font-style:italic"
-        >
-          styles Object
-        </span>
-      </button>
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        disabled=""
-        style="opacity:0.5;cursor:not-allowed;border-color:red"
-        type="button"
-      >
-        <span>
-          styles Function
-        </span>
-      </button>
-    </div>
-  </div>
+      Function
+    </span>
+  </button>
 </div>
 `;
