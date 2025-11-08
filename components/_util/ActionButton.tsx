@@ -98,22 +98,8 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       return;
     }
     let returnValueOfOnOk: PromiseLike<any>;
-    // Currently only Popconfirm passes `emitEvent` as true
     if (emitEvent) {
-      // if actionFn has been throw error, just reset clickedRef
-      try {
-        returnValueOfOnOk = actionFn(e);
-      } catch (error) {
-        clickedRef.current = false;
-
-        // Log error for debugging unless in silent mode
-        if (!isSilent?.()) {
-          console.error('Error in actionFn:', error);
-        }
-
-        return;
-      }
-
+      returnValueOfOnOk = actionFn(e);
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
         onInternalClose(e);
