@@ -7768,7 +7768,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-actions acss-1b2q34z"
+      class="ant-transfer-actions acss-rzg7ne"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -8459,7 +8459,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-actions acss-1b2q34z"
+      class="ant-transfer-actions acss-rzg7ne"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
