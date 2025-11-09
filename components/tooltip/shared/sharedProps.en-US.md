@@ -6,6 +6,7 @@
 | align | Please refer to the settings [dom-align](https://github.com/yiminghe/dom-align) | object | - |  |
 | arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target. | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.23.0 |
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
 | ~~destroyTooltipOnHide~~ | Whether destroy dom when close | boolean | false |  |
@@ -18,6 +19,7 @@
 | ~~overlayStyle~~ | Style of the tooltip card, please use `styles={{ root: {} }}` | React.CSSProperties | - |  |
 | ~~overlayInnerStyle~~ | Style of the tooltip inner content, please use `styles={{ body: {} }}` | React.CSSProperties | - |  |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.23.0 |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
 | open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
 | zIndex | Config `z-index` of Tooltip | number | - |  |
