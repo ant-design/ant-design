@@ -351,7 +351,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
       height: 0,
     },
     to: {
-      height: token.dotWidth,
+      height: token.dotActiveWidth,
     },
   });
 
@@ -416,8 +416,12 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
 
           '&.slick-active': {
             ...reverseSizeOfDot,
+            height: token.dotActiveWidth,
 
-            button: reverseSizeOfDot,
+            button: {
+              ...reverseSizeOfDot,
+              height: token.dotActiveWidth,
+            },
 
             '&::after': {
               ...reverseSizeOfDot,

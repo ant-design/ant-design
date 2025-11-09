@@ -6,6 +6,7 @@
 | align | 请参考 [dom-align](https://github.com/yiminghe/dom-align) 进行配置 | object | - |  |
 | arrow | 修改箭头的显示状态以及修改箭头是否指向目标元素中心 | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.23.0 |
 | color | 背景颜色 | string | - | 4.3.0 |
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
 | ~~destroyTooltipOnHide~~ | 关闭后是否销毁 dom | boolean | false |  |
@@ -18,6 +19,7 @@
 | ~~overlayStyle~~ | 卡片样式, 请使用 `styles={{ root: {} }}` 替换| React.CSSProperties | - |  |
 | ~~overlayInnerStyle~~ | 卡片内容区域的样式对象, 请使用 `styles={{ body: {} }}` 替换 | React.CSSProperties | - |  |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.23.0 |
 | trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
 | open | 用于手动控制浮层显隐，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | false | 4.23.0 |
 | zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
