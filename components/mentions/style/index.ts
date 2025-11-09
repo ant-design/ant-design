@@ -283,7 +283,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
       // ========================= AllowClear =========================
       {
-        [`&-has-suffix`]: {
+        '&-has-suffix': {
           '> textarea': {
             paddingInlineEnd: calc(token.paddingXXS)
               .mul(1.5)
@@ -304,12 +304,12 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       },
       // ============================ Size ============================
       {
-        [`&-lg`]: {
+        '&-lg': {
           '--mentions-padding-inline': token.paddingInlineLG,
           '--mentions-padding-block': token.paddingBlockLG,
           '--mentions-control-height': token.controlHeightLG,
         },
-        [`&-sm`]: {
+        '&-sm': {
           '--mentions-padding-inline': token.paddingInlineSM,
           '--mentions-padding-block': token.paddingBlockSM,
           '--mentions-control-height': token.controlHeightSM,
