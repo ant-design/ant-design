@@ -22,7 +22,7 @@ tag: vVERSION
 - Carousel
   - 🐞 Fix Carousel style issue in vertical mode. [#55615](https://github.com/ant-design/ant-design/pull/55615) [@wanpan11](https://github.com/wanpan11)
   - 🐞 Fix Carousel dots animation missing when first render. [#55589](https://github.com/ant-design/ant-design/pull/55589) [@wanpan11](https://github.com/wanpan11)
-- 🐞 Fix Descriptions that content style wrongly used `labelStyle`. [#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Descriptions where content style wrongly used `labelStyle`. [#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 Adjust the height of the Select component to 32px when `variant="underlined"`. [#55607](https://github.com/ant-design/ant-design/pull/55607) [@ustcfury](https://github.com/ustcfury)
 - 💄 When the `underlined` property is enabled for the Input component, the border color changes on mouse hover. [#55609](https://github.com/ant-design/ant-design/pull/55609) [@ustcfury](https://github.com/ustcfury)
 - 🛠 Flex `gap` prop support number type. [#55591](https://github.com/ant-design/ant-design/pull/55591) [@ayangweb](https://github.com/ayangweb)

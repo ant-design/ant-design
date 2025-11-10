@@ -22,7 +22,7 @@ tag: vVERSION
 - Carousel
   - 🐞 修复 Carousel 组件纵向样式问题。[#55615](https://github.com/ant-design/ant-design/pull/55615) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Carousel 首次渲染时指示点动画丢失。[#55589](https://github.com/ant-design/ant-design/pull/55589) [@wanpan11](https://github.com/wanpan11)
-- 🐞 修复 Descriptions 组建内容样式错误使用 `labelStyle` 的问题。[#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Descriptions 组件内容样式错误使用 `labelStyle` 的问题。[#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 修正 `underlined` 变体的 Select 组件高度为 32px。[#55607](https://github.com/ant-design/ant-design/pull/55607) [@ustcfury](https://github.com/ustcfury)
 - 💄 为 `underlined` 变体的 Input 组件补全 hover 样式。[#55609](https://github.com/ant-design/ant-design/pull/55609) [@ustcfury](https://github.com/ustcfury)
 - 🛠 Flex `gap` 属性支持 number 类型。[#55591](https://github.com/ant-design/ant-design/pull/55591) [@ayangweb](https://github.com/ayangweb)
