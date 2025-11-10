@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 5.28.1
+
+`2025-11-10`
+
+- Carousel
+  - 🐞 修复 Carousel 组件纵向样式问题。[#55615](https://github.com/ant-design/ant-design/pull/55615) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 修复 Carousel 首次渲染时指示点动画丢失。[#55589](https://github.com/ant-design/ant-design/pull/55589) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Popconfirm 在 `actionFn` 出错时未重置 ref 的问题。[#55519](https://github.com/ant-design/ant-design/pull/55519) [@Taoister39](https://github.com/Taoister39)
+- 🐞 修复 Descriptions 组件内容样式错误使用 `labelStyle` 的问题。[#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修正 `underlined` 变体的 Select 组件高度为 32px。[#55607](https://github.com/ant-design/ant-design/pull/55607) [@ustcfury](https://github.com/ustcfury)
+- 💄 为 `underlined` 变体的 Input 组件补全 hover 边框颜色样式。[#55609](https://github.com/ant-design/ant-design/pull/55609) [@ustcfury](https://github.com/ustcfury)
+- 🛠 Flex `gap` 属性支持 number 类型。[#55591](https://github.com/ant-design/ant-design/pull/55591) [@ayangweb](https://github.com/ayangweb)
+- 🌐 补充 TimePicker 多语言翻译，覆盖以下语言：ar_EG、en_GB、gl_ES、bg_BG、ca_ES、cs_CZ、el_GR、es_ES、eu_ES、fi_FI、he_IL、hu_HU、is_IS、kn_IN、kmr_IQ、lv_LV、mk_MK、mn_MN、ms_MY、pl_PL、pt_BR、pt_PT、ro_RO、sk_SK、sl_SI、sv_SE、ta_IN、th_TH、zh_TW、et_EE。[#55656](https://github.com/ant-design/ant-design/pull/55656) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.28.0
 
 `2025-11-01`
