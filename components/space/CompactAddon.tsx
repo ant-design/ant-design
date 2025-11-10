@@ -13,7 +13,7 @@ const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>
   const { className, children, style, prefixCls: customizePrefixCls, ...restProps } = props;
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('space-compact-cell', customizePrefixCls);
+  const prefixCls = getPrefixCls('space-compact-addon', customizePrefixCls);
   const { compactItemClassnames, compactSize } = useCompactItemContext(prefixCls, directionConfig);
 
   const classes = classNames(

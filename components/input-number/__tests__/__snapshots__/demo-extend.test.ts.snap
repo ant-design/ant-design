@@ -3464,7 +3464,7 @@ Array [
     class="ant-space-compact"
   >
     <div
-      class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item"
+      class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item"
     >
       <span
         aria-label="user"

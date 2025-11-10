@@ -32,7 +32,7 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
   };
 };
 
-const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceCompactAddonStyle: GenerateStyle<SpaceToken> = (token) => {
   const {
     componentCls,
     borderRadius,
@@ -47,12 +47,12 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
     lineWidth,
   } = token;
 
-  const cellCls = `${componentCls}-cell`;
+  const addonCls = `${componentCls}-addon`;
 
   return {
     [componentCls]: [
       {
-        [cellCls]: {
+        [addonCls]: {
           display: 'inline-flex',
           alignItems: 'center',
           gap: 0,
@@ -78,7 +78,7 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
 
       genCompactItemStyle(token, {
         focus: false,
-        componentCls: cellCls,
+        componentCls: addonCls,
       }),
     ],
   };
@@ -87,7 +87,7 @@ const genSpaceCompactCellStyle: GenerateStyle<SpaceToken> = (token) => {
 // ============================== Export ==============================
 export default genStyleHooks(
   ['Space', 'Compact'],
-  (token) => [genSpaceCompactStyle(token), genSpaceCompactCellStyle(token)],
+  (token) => [genSpaceCompactStyle(token), genSpaceCompactAddonStyle(token)],
   () => ({}),
   {
     // Space component don't apply extra font style

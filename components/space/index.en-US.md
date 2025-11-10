@@ -74,7 +74,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-### Space.CompactCell
+### Space.CompactAddon
 
 > This component is available since `antd@5.29.0`.
 

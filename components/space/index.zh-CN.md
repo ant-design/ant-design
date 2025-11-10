@@ -80,7 +80,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-### Space.CompactCell
+### Space.CompactAddon
 
 > 自 antd@5.29.0 版本开始提供该组件。
 
