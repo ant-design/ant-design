@@ -25,7 +25,7 @@ When a numeric value needs to be provided.
 <code src="./demo/keyboard.tsx">Keyboard</code>
 <code src="./demo/change-on-wheel.tsx" version="5.14.0">Wheel</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
-<code src="./demo/spinner.tsx">Spinner</code>
+<code src="./demo/spinner.tsx" version="6.0.0">Spinner</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>

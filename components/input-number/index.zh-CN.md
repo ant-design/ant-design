@@ -26,7 +26,7 @@ demo:
 <code src="./demo/keyboard.tsx">键盘行为</code>
 <code src="./demo/change-on-wheel.tsx" version="5.14.0">鼠标滚轮</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
-<code src="./demo/spinner.tsx">拨轮</code>
+<code src="./demo/spinner.tsx" version="6.0.0">拨轮</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
 <code src="./demo/presuffix.tsx">前缀/后缀</code>
