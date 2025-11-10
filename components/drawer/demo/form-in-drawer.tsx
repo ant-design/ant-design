@@ -6,9 +6,9 @@ import type { InputProps } from 'antd';
 const UrlInput: React.FC<InputProps> = (props) => {
   return (
     <Space.Compact>
-      <Space.CompactAddon>http://</Space.CompactAddon>
+      <Space.Addon>http://</Space.Addon>
       <Input style={{ width: '100%' }} {...props} />
-      <Space.CompactAddon>.com</Space.CompactAddon>
+      <Space.Addon>.com</Space.Addon>
     </Space.Compact>
   );
 };

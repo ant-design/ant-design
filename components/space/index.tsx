@@ -6,7 +6,7 @@ import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
-import CompactAddon from './CompactAddon';
+import Addon from './Addon';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
@@ -151,13 +151,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
 type CompoundedComponent = typeof InternalSpace & {
   Compact: typeof Compact;
-  CompactAddon: typeof CompactAddon;
+  Addon: typeof Addon;
 };
 
 const Space = InternalSpace as CompoundedComponent;
 
 Space.Compact = Compact;
-Space.CompactAddon = CompactAddon;
+Space.Addon = Addon;
 
 if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';
