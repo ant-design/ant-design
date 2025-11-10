@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
 import omit from '@rc-component/util/lib/omit';
@@ -19,14 +19,13 @@ export interface BackTopProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
-  children?: React.ReactNode;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
 }
 
-const BackTop: React.FC<BackTopProps> = (props) => {
+const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -35,13 +34,14 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     target,
     onClick,
     duration = 450,
+    children,
   } = props;
+
   const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const getDefaultTarget = (): HTMLElement | Document | Window =>
-    ref.current?.ownerDocument || window;
+  const getDefaultTarget = () => ref.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
@@ -114,7 +114,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
         {({ className: motionClassName }) =>
-          cloneElement(props.children || defaultElement, ({ className: cloneCls }) => ({
+          cloneElement(children || defaultElement, ({ className: cloneCls }) => ({
             className: clsx(motionClassName, cloneCls),
           }))
         }
@@ -124,7 +124,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  BackTop.displayName = 'BackTop';
+  BackTop.displayName = 'Deprecated.BackTop';
 }
 
 export default BackTop;
