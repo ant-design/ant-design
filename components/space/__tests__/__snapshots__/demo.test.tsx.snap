@@ -1820,7 +1820,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        class="ant-space-compact-cell ant-space-compact-cell-compact-item"
+        class="ant-space-compact-addon ant-space-compact-addon-compact-item"
       >
         $
       </div>
@@ -1975,7 +1975,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-last-item"
+        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-last-item"
       >
         $
       </div>
@@ -2024,7 +2024,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-last-item"
+        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-last-item"
       >
         $
       </div>

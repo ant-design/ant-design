@@ -5803,7 +5803,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item"
+        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item"
       >
         https://
       </div>
@@ -6067,7 +6067,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item ant-space-compact-cell-large"
+        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item ant-space-compact-addon-large"
       >
         <span
           aria-label="search"
@@ -11498,7 +11498,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact-cell ant-space-compact-cell-compact-item ant-space-compact-cell-compact-first-item"
+        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item"
       >
         https://
       </div>
