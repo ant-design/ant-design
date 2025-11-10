@@ -124,7 +124,7 @@ const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  BackTop.displayName = 'Deprecated.BackTop';
+  BackTop.displayName = 'BackTop';
 }
 
 export default BackTop;
