@@ -16,7 +16,7 @@ const App: React.FC = () => (
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
     <Space.Compact>
-      <Space.CompactAddon>https://</Space.CompactAddon>
+      <Space.Addon>https://</Space.Addon>
       <Search placeholder="input search text" allowClear onSearch={onSearch} />
     </Space.Compact>
 

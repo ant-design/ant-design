@@ -8,9 +8,9 @@ const App: React.FC = () => (
     <br />
     <br />
     <Space.Compact>
-      <Space.CompactAddon>
+      <Space.Addon>
         <UserOutlined />
-      </Space.CompactAddon>
+      </Space.Addon>
       <InputNumber prefix="￥" style={{ width: '100%' }} />
     </Space.Compact>
 
