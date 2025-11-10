@@ -27,7 +27,7 @@ tag: vVERSION
 - 💄 为 `underlined` 变体的 Input 组件补全 hover 边框颜色样式。[#55609](https://github.com/ant-design/ant-design/pull/55609) [@ustcfury](https://github.com/ustcfury)
 - 🌐 补充 TimePicker 多语言翻译，覆盖以下语言：ar_EG、en_GB、gl_ES、bg_BG、ca_ES、cs_CZ、el_GR、es_ES、eu_ES、fi_FI、he_IL、hu_HU、is_IS、kn_IN、kmr_IQ、lv_LV、mk_MK、mn_MN、ms_MY、pl_PL、pt_BR、pt_PT、ro_RO、sk_SK、sl_SI、sv_SE、ta_IN、th_TH、zh_TW、et_EE。[#55656](https://github.com/ant-design/ant-design/pull/55656) [@li-jia-nan](https://github.com/li-jia-nan)
 - TypeScript
-  - 🤖 优化 Flex 组件 `gap` 属性类型定义，支持更友好的 IDE 类型提示. [#55591](https://github.com/ant-design/ant-design/pull/55591) [@ayangweb](https://github.com/ayangweb)
+  - 🤖 优化 Flex 组件 `gap` 属性类型定义，支持更友好的 IDE 类型提示 [#55591](https://github.com/ant-design/ant-design/pull/55591) [@ayangweb](https://github.com/ayangweb)
 
 ## 5.28.0
 
