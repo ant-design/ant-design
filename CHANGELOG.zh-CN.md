@@ -22,6 +22,7 @@ tag: vVERSION
 - Carousel
   - 🐞 修复 Carousel 组件纵向样式问题。[#55615](https://github.com/ant-design/ant-design/pull/55615) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Carousel 首次渲染时指示点动画丢失。[#55589](https://github.com/ant-design/ant-design/pull/55589) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Popconfirm 在 `actionFn` 出错时未重置 ref 的问题。[#55519](https://github.com/ant-design/ant-design/pull/55519) [@Taoister39](https://github.com/Taoister39)
 - 🐞 修复 Descriptions 组件内容样式错误使用 `labelStyle` 的问题。[#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 修正 `underlined` 变体的 Select 组件高度为 32px。[#55607](https://github.com/ant-design/ant-design/pull/55607) [@ustcfury](https://github.com/ustcfury)
 - 💄 为 `underlined` 变体的 Input 组件补全 hover 样式。[#55609](https://github.com/ant-design/ant-design/pull/55609) [@ustcfury](https://github.com/ustcfury)
