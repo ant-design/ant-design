@@ -57,10 +57,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     showSizeChanger,
     selectComponentClass,
     pageSizeOptions,
+    showQuickJumper,
+    simple,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
   const [, token] = useToken();
+  const paginationRef = React.useRef<HTMLDivElement>(null);
 
   const {
     getPrefixCls,
@@ -70,6 +73,54 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     style: contextStyle,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+
+  // Handle QuickJumper input to only accept numbers
+  React.useEffect(() => {
+    if (!showQuickJumper && !simple) {
+      return;
+    }
+
+    const handleInput = (e: Event) => {
+      const target = e.target;
+      // Type guard for better type safety
+      if (!(target instanceof HTMLInputElement)) {
+        return;
+      }
+      const input = target;
+
+      // Check if this is a QuickJumper input
+      const isQuickJumperInput =
+        input.closest(`.${prefixCls}-options-quick-jumper`) ||
+        input.closest(`.${prefixCls}-simple-pager`);
+
+      if (isQuickJumperInput) {
+        // Store the original value
+        const originalValue = input.value;
+        // Only allow digits
+        const numericValue = originalValue.replace(/\D/g, '');
+
+        if (originalValue !== numericValue) {
+          // Stop event propagation
+          e.stopPropagation();
+
+          // Set the filtered value
+          input.value = numericValue;
+
+          // Dispatch a new input event to notify rc-pagination
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }
+    };
+
+    // Add event listener for input events
+    const container = paginationRef.current;
+    if (container) {
+      container.addEventListener('input', handleInput, true);
+      return () => {
+        container.removeEventListener('input', handleInput, true);
+      };
+    }
+  }, [prefixCls, showQuickJumper, simple]);
 
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -214,7 +265,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
-    <>
+    <div ref={paginationRef}>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
       <RcPagination
         {...iconsProps}
@@ -227,8 +278,10 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         pageSizeOptions={mergedPageSizeOptions}
         showSizeChanger={mergedShowSizeChanger}
         sizeChangerRender={sizeChangerRender}
+        showQuickJumper={showQuickJumper}
+        simple={simple}
       />
-    </>,
+    </div>,
   );
 };
 

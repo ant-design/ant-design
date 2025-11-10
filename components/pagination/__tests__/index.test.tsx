@@ -126,4 +126,64 @@ describe('Pagination', () => {
     // Expect `input` is `readonly`
     expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
   });
+
+  // https://github.com/ant-design/ant-design/issues/55637
+  describe('QuickJumper should only accept numeric input', () => {
+    it('should filter non-numeric characters in QuickJumper input', () => {
+      const { container } = render(<Pagination total={100} showQuickJumper />);
+
+      const input = container.querySelector(
+        '.ant-pagination-options-quick-jumper input',
+      ) as HTMLInputElement;
+
+      expect(input).toBeTruthy();
+
+      // Try to input letters
+      fireEvent.input(input, { target: { value: 'abc' } });
+      expect(input.value).toBe('');
+
+      // Try to input mixed alphanumeric
+      fireEvent.input(input, { target: { value: '12abc34' } });
+      expect(input.value).toBe('1234');
+
+      // Normal numeric input should work
+      fireEvent.input(input, { target: { value: '5' } });
+      expect(input.value).toBe('5');
+    });
+
+    it('should filter non-numeric characters in simple mode', () => {
+      const { container } = render(<Pagination simple total={100} />);
+
+      const input = container.querySelector('.ant-pagination-simple input') as HTMLInputElement;
+
+      expect(input).toBeTruthy();
+
+      // Initial value should be "1"
+      expect(input.value).toBe('1');
+
+      // Try to input letters - should filter them to empty string
+      fireEvent.input(input, { target: { value: 'test' } });
+      expect(input.value).toBe('');
+
+      // Try to input mixed alphanumeric - only numbers should remain
+      fireEvent.input(input, { target: { value: '3abc' } });
+      expect(input.value).toBe('3');
+
+      // Normal numeric input should work
+      fireEvent.input(input, { target: { value: '7' } });
+      expect(input.value).toBe('7');
+    });
+
+    it('should handle paste with non-numeric content', () => {
+      const { container } = render(<Pagination total={100} showQuickJumper />);
+
+      const input = container.querySelector(
+        '.ant-pagination-options-quick-jumper input',
+      ) as HTMLInputElement;
+
+      // Simulate paste with mixed content
+      fireEvent.input(input, { target: { value: 'page123' } });
+      expect(input.value).toBe('123');
+    });
+  });
 });
