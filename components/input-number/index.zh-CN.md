@@ -41,8 +41,8 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 `Space.Compact` 替换 | ReactNode | - | 4.17.0 |
-| ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 `Space.Compact` 替换 | ReactNode | - | 4.17.0 |
+| ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 |
+| ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 |
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 |
