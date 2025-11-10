@@ -1494,15 +1494,24 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
     >
+      <input
+        aria-describedby="test-id"
+        autocomplete="off"
+        class="ant-input-number-input"
+        disabled=""
+        role="spinbutton"
+        step="1"
+        value=""
+      />
       <div
-        class="ant-input-number-handler-wrap"
+        class="ant-input-number-actions"
       >
         <span
           aria-disabled="false"
           aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up"
+          class="ant-input-number-action ant-input-number-action-up"
           role="button"
           unselectable="on"
         >
@@ -1533,7 +1542,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         <span
           aria-disabled="false"
           aria-label="Decrease Value"
-          class="ant-input-number-handler ant-input-number-handler-down"
+          class="ant-input-number-action ant-input-number-action-down"
           role="button"
           unselectable="on"
         >
@@ -1561,19 +1570,6 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
             </span>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-input-number-input-wrap"
-      >
-        <input
-          aria-describedby="test-id"
-          autocomplete="off"
-          class="ant-input-number-input"
-          disabled=""
-          role="spinbutton"
-          step="1"
-          value=""
-        />
       </div>
     </div>
     <div
@@ -1778,7 +1774,11 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
 </div>
 `;
 
-exports[`renders components/tooltip/demo/disabled-children.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tooltip/demo/disabled-children.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div

@@ -24506,15 +24506,23 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
 exports[`renders components/table/demo/row-selection-debug.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
   >
+    <input
+      aria-valuenow="50"
+      autocomplete="off"
+      class="ant-input-number-input"
+      role="spinbutton"
+      step="1"
+      value="50"
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
@@ -24545,7 +24553,7 @@ Array [
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
@@ -24573,18 +24581,6 @@ Array [
           </span>
         </span>
       </span>
-    </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        aria-valuenow="50"
-        autocomplete="off"
-        class="ant-input-number-input"
-        role="spinbutton"
-        step="1"
-        value="50"
-      />
     </div>
   </div>,
   <div

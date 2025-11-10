@@ -720,15 +720,23 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-disabled"
+              class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-disabled"
             >
+              <input
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                disabled=""
+                role="spinbutton"
+                step="1"
+                value=""
+              />
               <div
-                class="ant-input-number-handler-wrap"
+                class="ant-input-number-actions"
               >
                 <span
                   aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
+                  class="ant-input-number-action ant-input-number-action-up"
                   role="button"
                   unselectable="on"
                 >
@@ -759,7 +767,7 @@ exports[`Form form should support disabled 1`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
+                  class="ant-input-number-action ant-input-number-action-down"
                   role="button"
                   unselectable="on"
                 >
@@ -787,18 +795,6 @@ exports[`Form form should support disabled 1`] = `
                     </span>
                   </span>
                 </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  disabled=""
-                  role="spinbutton"
-                  step="1"
-                  value=""
-                />
               </div>
             </div>
           </div>

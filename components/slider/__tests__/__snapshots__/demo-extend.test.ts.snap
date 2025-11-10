@@ -704,16 +704,26 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
         class="ant-col ant-col-4 css-var-test-id"
       >
         <div
-          class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
           style="margin: 0px 16px;"
         >
+          <input
+            aria-valuemax="20"
+            aria-valuemin="1"
+            aria-valuenow="1"
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="1"
+            value="1"
+          />
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-input-number-actions"
           >
             <span
               aria-disabled="false"
               aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
+              class="ant-input-number-action ant-input-number-action-up"
               role="button"
               unselectable="on"
             >
@@ -744,7 +754,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             <span
               aria-disabled="true"
               aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+              class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
               role="button"
               unselectable="on"
             >
@@ -772,20 +782,6 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
                 </span>
               </span>
             </span>
-          </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
-              aria-valuemax="20"
-              aria-valuemin="1"
-              aria-valuenow="1"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="1"
-              value="1"
-            />
           </div>
         </div>
       </div>
@@ -851,16 +847,26 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
         class="ant-col ant-col-4 css-var-test-id"
       >
         <div
-          class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
           style="margin: 0px 16px;"
         >
+          <input
+            aria-valuemax="1"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="0.01"
+            value="0.00"
+          />
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-input-number-actions"
           >
             <span
               aria-disabled="false"
               aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
+              class="ant-input-number-action ant-input-number-action-up"
               role="button"
               unselectable="on"
             >
@@ -891,7 +897,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             <span
               aria-disabled="true"
               aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+              class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
               role="button"
               unselectable="on"
             >
@@ -920,20 +926,6 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
               </span>
             </span>
           </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
-              aria-valuemax="1"
-              aria-valuemin="0"
-              aria-valuenow="0"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="0.01"
-              value="0.00"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -941,7 +933,11 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/slider/demo/input-number.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/slider/demo/input-number.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/slider/demo/mark.tsx extend context correctly 1`] = `
 Array [

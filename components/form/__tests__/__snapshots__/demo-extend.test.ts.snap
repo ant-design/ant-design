@@ -4872,15 +4872,23 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-disabled"
               >
+                <input
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-in-form-item"
+                  disabled=""
+                  role="spinbutton"
+                  step="1"
+                  value=""
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -4911,7 +4919,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -4939,18 +4947,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    disabled=""
-                    role="spinbutton"
-                    step="1"
-                    value=""
-                  />
                 </div>
               </div>
             </div>
@@ -5557,15 +5553,26 @@ Array [
                             </span>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-disabled"
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-disabled"
                           >
+                            <input
+                              aria-valuemax="100"
+                              aria-valuemin="0"
+                              aria-valuenow="0"
+                              autocomplete="off"
+                              class="ant-input-number-input ant-input-number-sm"
+                              disabled=""
+                              role="spinbutton"
+                              step="1"
+                              value="0%"
+                            />
                             <div
-                              class="ant-input-number-handler-wrap"
+                              class="ant-input-number-actions"
                             >
                               <span
                                 aria-disabled="false"
                                 aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up"
+                                class="ant-input-number-action ant-input-number-action-up"
                                 role="button"
                                 unselectable="on"
                               >
@@ -5596,7 +5603,7 @@ Array [
                               <span
                                 aria-disabled="true"
                                 aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+                                class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
                                 role="button"
                                 unselectable="on"
                               >
@@ -5624,21 +5631,6 @@ Array [
                                   </span>
                                 </span>
                               </span>
-                            </div>
-                            <div
-                              class="ant-input-number-input-wrap"
-                            >
-                              <input
-                                aria-valuemax="100"
-                                aria-valuemin="0"
-                                aria-valuenow="0"
-                                autocomplete="off"
-                                class="ant-input-number-input"
-                                disabled=""
-                                role="spinbutton"
-                                step="1"
-                                value="0%"
-                              />
                             </div>
                           </div>
                         </div>
@@ -10949,15 +10941,23 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
+              <input
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                id="nest-messages_user_age"
+                role="spinbutton"
+                step="1"
+                value=""
+              />
               <div
-                class="ant-input-number-handler-wrap"
+                class="ant-input-number-actions"
               >
                 <span
                   aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
+                  class="ant-input-number-action ant-input-number-action-up"
                   role="button"
                   unselectable="on"
                 >
@@ -10988,7 +10988,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
                 <span
                   aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
+                  class="ant-input-number-action ant-input-number-action-down"
                   role="button"
                   unselectable="on"
                 >
@@ -11016,18 +11016,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
                     </span>
                   </span>
                 </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  id="nest-messages_user_age"
-                  role="spinbutton"
-                  step="1"
-                  value=""
-                />
               </div>
             </div>
           </div>
@@ -11899,230 +11887,84 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               style="width: 100%;"
             >
+              <input
+                addonafter="[object Object]"
+                aria-required="true"
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                id="register_donation"
+                role="spinbutton"
+                step="1"
+                value=""
+              />
               <div
-                class="ant-input-number-wrapper ant-input-number-group"
+                class="ant-input-number-actions"
               >
-                <div
-                  class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                <span
+                  aria-disabled="false"
+                  aria-label="Increase Value"
+                  class="ant-input-number-action ant-input-number-action-up"
+                  role="button"
+                  unselectable="on"
                 >
-                  <div
-                    class="ant-input-number-handler-wrap"
+                  <span
+                    class="ant-input-number-handler-up-inner"
                   >
                     <span
-                      aria-disabled="false"
-                      aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up"
-                      role="button"
-                      unselectable="on"
+                      aria-label="up"
+                      class="anticon anticon-up"
+                      role="img"
                     >
-                      <span
-                        class="ant-input-number-handler-up-inner"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="up"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <span
-                          aria-label="up"
-                          class="anticon anticon-up"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="up"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
+                        <path
+                          d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                        />
+                      </svg>
                     </span>
-                    <span
-                      aria-disabled="false"
-                      aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
-                      role="button"
-                      unselectable="on"
-                    >
-                      <span
-                        class="ant-input-number-handler-down-inner"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-required="true"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      id="register_donation"
-                      role="spinbutton"
-                      step="1"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-input-number-group-addon"
+                  </span>
+                </span>
+                <span
+                  aria-disabled="false"
+                  aria-label="Decrease Value"
+                  class="ant-input-number-action ant-input-number-action-down"
+                  role="button"
+                  unselectable="on"
                 >
-                  <div
-                    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-                    style="width: 70px;"
+                  <span
+                    class="ant-input-number-handler-down-inner"
                   >
-                    <div
-                      class="ant-select-content"
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="$"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        $
-                      </div>
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="register_suffix_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="register_suffix_list"
-                        autocomplete="off"
-                        class="ant-select-input"
-                        id="register_suffix"
-                        readonly=""
-                        role="combobox"
-                        type="search"
-                        value=""
-                      />
-                    </div>
-                    <div
-                      class="ant-select-suffix"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div>
-                      <div
-                        id="register_suffix_list"
-                        role="listbox"
-                        style="height: 0px; width: 0px; overflow: hidden;"
-                      >
-                        <div
-                          aria-label="$"
-                          aria-selected="true"
-                          id="register_suffix_list_0"
-                          role="option"
-                        >
-                          USD
-                        </div>
-                        <div
-                          aria-label="¥"
-                          aria-selected="false"
-                          id="register_suffix_list_1"
-                          role="option"
-                        >
-                          CNY
-                        </div>
-                      </div>
-                      <div
-                        class="rc-virtual-list"
-                        style="position: relative;"
-                      >
-                        <div
-                          class="rc-virtual-list-holder"
-                          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-                        >
-                          <div>
-                            <div
-                              class="rc-virtual-list-holder-inner"
-                              style="display: flex; flex-direction: column;"
-                            >
-                              <div
-                                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                                title="$"
-                              >
-                                <div
-                                  class="ant-select-item-option-content"
-                                >
-                                  $
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                              <div
-                                class="ant-select-item ant-select-item-option"
-                                title="¥"
-                              >
-                                <div
-                                  class="ant-select-item-option-content"
-                                >
-                                  ¥
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -14171,15 +14013,22 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
+              <input
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                role="spinbutton"
+                step="1"
+                value=""
+              />
               <div
-                class="ant-input-number-handler-wrap"
+                class="ant-input-number-actions"
               >
                 <span
                   aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
+                  class="ant-input-number-action ant-input-number-action-up"
                   role="button"
                   unselectable="on"
                 >
@@ -14210,7 +14059,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
+                  class="ant-input-number-action ant-input-number-action-down"
                   role="button"
                   unselectable="on"
                 >
@@ -14238,17 +14087,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     </span>
                   </span>
                 </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  role="spinbutton"
-                  step="1"
-                  value=""
-                />
               </div>
             </div>
           </div>
@@ -22787,15 +22625,23 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               >
+                <input
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-in-form-item"
+                  id="age"
+                  role="spinbutton"
+                  step="1"
+                  value=""
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -22826,7 +22672,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -22854,18 +22700,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    id="age"
-                    role="spinbutton"
-                    step="1"
-                    value=""
-                  />
                 </div>
               </div>
             </div>
@@ -23424,15 +23258,26 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
+              <input
+                aria-valuemax="10"
+                aria-valuemin="1"
+                aria-valuenow="3"
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                id="validate_other_input-number"
+                role="spinbutton"
+                step="1"
+                value="3"
+              />
               <div
-                class="ant-input-number-handler-wrap"
+                class="ant-input-number-actions"
               >
                 <span
                   aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
+                  class="ant-input-number-action ant-input-number-action-up"
                   role="button"
                   unselectable="on"
                 >
@@ -23463,7 +23308,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 <span
                   aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
+                  class="ant-input-number-action ant-input-number-action-down"
                   role="button"
                   unselectable="on"
                 >
@@ -23491,21 +23336,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     </span>
                   </span>
                 </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  aria-valuemax="10"
-                  aria-valuemin="1"
-                  aria-valuenow="3"
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  id="validate_other_input-number"
-                  role="spinbutton"
-                  step="1"
-                  value="3"
-                />
               </div>
             </div>
             <span
@@ -24946,15 +24776,25 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                         >
+                          <input
+                            aria-valuemax="100"
+                            aria-valuemin="0"
+                            aria-valuenow="0"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="0%"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
@@ -24985,7 +24825,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                             <span
                               aria-disabled="true"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+                              class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
                               role="button"
                               unselectable="on"
                             >
@@ -25013,20 +24853,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 </span>
                               </span>
                             </span>
-                          </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
-                              aria-valuenow="0"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="0%"
-                            />
                           </div>
                         </div>
                       </div>
@@ -31316,91 +31142,17 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               style="width: 100%;"
             >
+              <input
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                role="spinbutton"
+                step="1"
+                value=""
+              />
               <div
-                class="ant-input-number ant-input-number-in-form-item"
-              >
-                <div
-                  class="ant-input-number-handler-wrap"
-                >
-                  <span
-                    aria-disabled="false"
-                    aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up"
-                    role="button"
-                    unselectable="on"
-                  >
-                    <span
-                      class="ant-input-number-handler-up-inner"
-                    >
-                      <span
-                        aria-label="up"
-                        class="anticon anticon-up"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="up"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </span>
-                  <span
-                    aria-disabled="false"
-                    aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
-                    role="button"
-                    unselectable="on"
-                  >
-                    <span
-                      class="ant-input-number-handler-down-inner"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value=""
-                  />
-                </div>
-              </div>
-              <span
                 class="ant-input-number-suffix"
               >
                 <span
@@ -31426,7 +31178,73 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     </svg>
                   </span>
                 </span>
-              </span>
+              </div>
+              <div
+                class="ant-input-number-actions"
+              >
+                <span
+                  aria-disabled="false"
+                  aria-label="Increase Value"
+                  class="ant-input-number-action ant-input-number-action-up"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    class="ant-input-number-handler-up-inner"
+                  >
+                    <span
+                      aria-label="up"
+                      class="anticon anticon-up"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="up"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+                <span
+                  aria-disabled="false"
+                  aria-label="Decrease Value"
+                  class="ant-input-number-action ant-input-number-action-down"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    class="ant-input-number-handler-down-inner"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -32588,16 +32406,25 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
               style="width: 100%;"
             >
+              <input
+                aria-required="true"
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                id="InputNumber"
+                role="spinbutton"
+                step="1"
+                value=""
+              />
               <div
-                class="ant-input-number-handler-wrap"
+                class="ant-input-number-actions"
               >
                 <span
                   aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
+                  class="ant-input-number-action ant-input-number-action-up"
                   role="button"
                   unselectable="on"
                 >
@@ -32628,7 +32455,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 <span
                   aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
+                  class="ant-input-number-action ant-input-number-action-down"
                   role="button"
                   unselectable="on"
                 >
@@ -32656,19 +32483,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     </span>
                   </span>
                 </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  aria-required="true"
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  id="InputNumber"
-                  role="spinbutton"
-                  step="1"
-                  value=""
-                />
               </div>
             </div>
           </div>
@@ -35232,15 +35046,25 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+              class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
             >
+              <input
+                aria-valuemax="12"
+                aria-valuemin="8"
+                aria-valuenow="11"
+                autocomplete="off"
+                class="ant-input-number-input ant-input-number-in-form-item"
+                role="spinbutton"
+                step="1"
+                value="11"
+              />
               <div
-                class="ant-input-number-handler-wrap"
+                class="ant-input-number-actions"
               >
                 <span
                   aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
+                  class="ant-input-number-action ant-input-number-action-up"
                   role="button"
                   unselectable="on"
                 >
@@ -35271,7 +35095,7 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
                 <span
                   aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
+                  class="ant-input-number-action ant-input-number-action-down"
                   role="button"
                   unselectable="on"
                 >
@@ -35300,20 +35124,6 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
                   </span>
                 </span>
               </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  aria-valuemax="12"
-                  aria-valuemin="8"
-                  aria-valuenow="11"
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  role="spinbutton"
-                  step="1"
-                  value="11"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -35337,4 +35147,8 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
 </form>
 `;
 
-exports[`renders components/form/demo/without-form-create.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/without-form-create.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;

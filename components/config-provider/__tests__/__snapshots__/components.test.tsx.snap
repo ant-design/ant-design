@@ -16268,15 +16268,22 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider 1`] = `
 <div
-  class="config-input-number config-input-number-outlined config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="config-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="config-input-number-handler-wrap"
+    class="config-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up"
+      class="config-input-number-action config-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -16307,7 +16314,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down"
+      class="config-input-number-action config-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -16335,32 +16342,29 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="config-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="config-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-outlined config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-disabled"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-disabled"
 >
+  <input
+    autocomplete="off"
+    class="config-input-number-input"
+    disabled=""
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="config-input-number-handler-wrap"
+    class="config-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up"
+      class="config-input-number-action config-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -16391,7 +16395,7 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down"
+      class="config-input-number-action config-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -16419,33 +16423,28 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="config-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="config-input-number-input"
-      disabled=""
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber configProvider componentSize large 1`] = `
 <div
-  class="config-input-number config-input-number-lg config-input-number-outlined config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="config-input-number-input config-input-number-lg"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="config-input-number-handler-wrap"
+    class="config-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up"
+      class="config-input-number-action config-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -16476,7 +16475,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down"
+      class="config-input-number-action config-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -16504,32 +16503,28 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="config-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="config-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
 <div
-  class="config-input-number config-input-number-outlined config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="config-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="config-input-number-handler-wrap"
+    class="config-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up"
+      class="config-input-number-action config-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -16560,7 +16555,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down"
+      class="config-input-number-action config-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -16588,32 +16583,28 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="config-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="config-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
 <div
-  class="config-input-number config-input-number-sm config-input-number-outlined config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="config-input-number-input config-input-number-sm"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="config-input-number-handler-wrap"
+    class="config-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up"
+      class="config-input-number-action config-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -16644,7 +16635,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down"
+      class="config-input-number-action config-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -16673,31 +16664,27 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
       </span>
     </span>
   </div>
-  <div
-    class="config-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="config-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
-  </div>
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber normal 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="ant-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="ant-input-number-handler-wrap"
+    class="ant-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up"
+      class="ant-input-number-action ant-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -16728,7 +16715,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down"
+      class="ant-input-number-action ant-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -16757,31 +16744,27 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       </span>
     </span>
   </div>
-  <div
-    class="ant-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="ant-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
-  </div>
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 <div
-  class="prefix-InputNumber prefix-InputNumber-outlined prefix-InputNumber-mode-input css-var-root prefix-InputNumber-css-var"
+  class="prefix-InputNumber prefix-InputNumber-mode-input css-var-root prefix-InputNumber-css-var"
 >
+  <input
+    autocomplete="off"
+    class="prefix-InputNumber-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="prefix-InputNumber-handler-wrap"
+    class="prefix-InputNumber-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="prefix-InputNumber-handler prefix-InputNumber-handler-up"
+      class="prefix-InputNumber-action prefix-InputNumber-action-up"
       role="button"
       unselectable="on"
     >
@@ -16812,7 +16795,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="prefix-InputNumber-handler prefix-InputNumber-handler-down"
+      class="prefix-InputNumber-action prefix-InputNumber-action-down"
       role="button"
       unselectable="on"
     >
@@ -16840,17 +16823,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="prefix-InputNumber-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="prefix-InputNumber-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;

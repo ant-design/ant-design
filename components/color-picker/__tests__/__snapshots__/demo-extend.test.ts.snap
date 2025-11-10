@@ -301,15 +301,25 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-sm"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
@@ -340,7 +350,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -368,20 +378,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -689,15 +685,25 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-sm"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
@@ -728,7 +734,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -756,20 +762,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -1082,15 +1074,25 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -1121,7 +1123,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -1149,20 +1151,6 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -1467,15 +1455,25 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -1506,7 +1504,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -1534,20 +1532,6 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -1861,15 +1845,25 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-sm"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
@@ -1900,7 +1894,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -1928,20 +1922,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -2543,15 +2523,25 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -2582,7 +2572,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -2610,20 +2600,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -2931,15 +2907,25 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-color-picker-hsb-input"
                       >
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
                         >
+                          <input
+                            aria-valuemax="360"
+                            aria-valuemin="0"
+                            aria-valuenow="215"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="215"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
@@ -2970,7 +2956,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
@@ -2999,31 +2985,27 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="360"
-                              aria-valuemin="0"
-                              aria-valuenow="215"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="215"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
                         >
+                          <input
+                            aria-valuemax="100"
+                            aria-valuemin="0"
+                            aria-valuenow="91"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="91%"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
@@ -3054,7 +3036,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
@@ -3083,31 +3065,27 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
-                              aria-valuenow="91"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="91%"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
                         >
+                          <input
+                            aria-valuemax="100"
+                            aria-valuemin="0"
+                            aria-valuenow="100"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="100%"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="true"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                              class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                               role="button"
                               unselectable="on"
                             >
@@ -3138,7 +3116,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
@@ -3166,34 +3144,30 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </span>
                               </span>
                             </span>
-                          </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
-                              aria-valuenow="100"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="100%"
-                            />
                           </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -3224,7 +3198,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -3252,20 +3226,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -3573,15 +3533,25 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-color-picker-rgb-input"
                       >
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
                         >
+                          <input
+                            aria-valuemax="255"
+                            aria-valuemin="0"
+                            aria-valuenow="22"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="22"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
@@ -3612,7 +3582,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
@@ -3641,31 +3611,27 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="255"
-                              aria-valuemin="0"
-                              aria-valuenow="22"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="22"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
                         >
+                          <input
+                            aria-valuemax="255"
+                            aria-valuemin="0"
+                            aria-valuenow="119"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="119"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
@@ -3696,7 +3662,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
@@ -3725,31 +3691,27 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="255"
-                              aria-valuemin="0"
-                              aria-valuenow="119"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="119"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
                         >
+                          <input
+                            aria-valuemax="255"
+                            aria-valuemin="0"
+                            aria-valuenow="255"
+                            autocomplete="off"
+                            class="ant-input-number-input ant-input-number-sm"
+                            role="spinbutton"
+                            step="1"
+                            value="255"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="true"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                              class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                               role="button"
                               unselectable="on"
                             >
@@ -3780,7 +3742,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
@@ -3808,34 +3770,30 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </span>
                               </span>
                             </span>
-                          </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="255"
-                              aria-valuemin="0"
-                              aria-valuenow="255"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="255"
-                            />
                           </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -3866,7 +3824,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -3894,20 +3852,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -4330,15 +4274,25 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -4369,7 +4323,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -4397,20 +4351,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -4769,15 +4709,25 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -4808,7 +4758,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -4836,20 +4786,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -5184,15 +5120,25 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
+                        <input
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="100"
+                          autocomplete="off"
+                          class="ant-input-number-input ant-input-number-sm"
+                          role="spinbutton"
+                          step="1"
+                          value="100%"
+                        />
                         <div
-                          class="ant-input-number-handler-wrap"
+                          class="ant-input-number-actions"
                         >
                           <span
                             aria-disabled="true"
                             aria-label="Increase Value"
-                            class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                            class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                             role="button"
                             unselectable="on"
                           >
@@ -5223,7 +5169,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           <span
                             aria-disabled="false"
                             aria-label="Decrease Value"
-                            class="ant-input-number-handler ant-input-number-handler-down"
+                            class="ant-input-number-action ant-input-number-action-down"
                             role="button"
                             unselectable="on"
                           >
@@ -5251,20 +5197,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </span>
                           </span>
-                        </div>
-                        <div
-                          class="ant-input-number-input-wrap"
-                        >
-                          <input
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="100"
-                            autocomplete="off"
-                            class="ant-input-number-input"
-                            role="spinbutton"
-                            step="1"
-                            value="100%"
-                          />
                         </div>
                       </div>
                     </div>
@@ -6155,15 +6087,25 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
+                        <input
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="100"
+                          autocomplete="off"
+                          class="ant-input-number-input ant-input-number-sm"
+                          role="spinbutton"
+                          step="1"
+                          value="100%"
+                        />
                         <div
-                          class="ant-input-number-handler-wrap"
+                          class="ant-input-number-actions"
                         >
                           <span
                             aria-disabled="true"
                             aria-label="Increase Value"
-                            class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                            class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                             role="button"
                             unselectable="on"
                           >
@@ -6194,7 +6136,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           <span
                             aria-disabled="false"
                             aria-label="Decrease Value"
-                            class="ant-input-number-handler ant-input-number-handler-down"
+                            class="ant-input-number-action ant-input-number-action-down"
                             role="button"
                             unselectable="on"
                           >
@@ -6222,20 +6164,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </span>
                           </span>
-                        </div>
-                        <div
-                          class="ant-input-number-input-wrap"
-                        >
-                          <input
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="100"
-                            autocomplete="off"
-                            class="ant-input-number-input"
-                            role="spinbutton"
-                            step="1"
-                            value="100%"
-                          />
                         </div>
                       </div>
                     </div>
@@ -6547,15 +6475,25 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-sm"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
@@ -6586,7 +6524,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -6614,20 +6552,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -7364,15 +7288,25 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -7403,7 +7337,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -7431,20 +7365,6 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -7764,15 +7684,25 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -7803,7 +7733,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -7831,20 +7761,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -8149,15 +8065,25 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -8188,7 +8114,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -8216,20 +8142,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -8534,15 +8446,25 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -8573,7 +8495,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -8601,20 +8523,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -8932,15 +8840,25 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -8971,7 +8889,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -8999,20 +8917,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -9322,15 +9226,25 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -9361,7 +9275,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -9389,20 +9303,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -9712,15 +9612,25 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input ant-input-number-sm"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
@@ -9751,7 +9661,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
@@ -9779,20 +9689,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </span>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -10112,15 +10008,25 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
+                    <input
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="100"
+                      autocomplete="off"
+                      class="ant-input-number-input ant-input-number-sm"
+                      role="spinbutton"
+                      step="1"
+                      value="100%"
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="true"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                        class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                         role="button"
                         unselectable="on"
                       >
@@ -10151,7 +10057,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
@@ -10179,20 +10085,6 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                           </span>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
-                        aria-valuenow="100"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        role="spinbutton"
-                        step="1"
-                        value="100%"
-                      />
                     </div>
                   </div>
                 </div>
@@ -10493,15 +10385,25 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
+                    <input
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="100"
+                      autocomplete="off"
+                      class="ant-input-number-input ant-input-number-sm"
+                      role="spinbutton"
+                      step="1"
+                      value="100%"
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="true"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                        class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                         role="button"
                         unselectable="on"
                       >
@@ -10532,7 +10434,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
@@ -10560,20 +10462,6 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                           </span>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
-                        aria-valuenow="100"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        role="spinbutton"
-                        step="1"
-                        value="100%"
-                      />
                     </div>
                   </div>
                 </div>
@@ -10900,15 +10788,25 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -10939,7 +10837,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -10967,20 +10865,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -11292,15 +11176,25 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -11331,7 +11225,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -11359,20 +11253,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -11701,15 +11581,25 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input ant-input-number-sm"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -11740,7 +11630,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
@@ -11768,20 +11658,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </span>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -12087,15 +11963,25 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-sm"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
@@ -12126,7 +12012,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -12155,20 +12041,6 @@ Array [
                     </span>
                   </span>
                 </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -12179,7 +12051,11 @@ Array [
 ]
 `;
 
-exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 1`] = `
 Array [
@@ -12475,15 +12351,25 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input ant-input-number-sm"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
@@ -12514,7 +12400,7 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
@@ -12542,20 +12428,6 @@ Array [
                       </span>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>

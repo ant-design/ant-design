@@ -59,15 +59,25 @@ Array [
   <div>
     scaleStep: 
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
     >
+      <input
+        aria-valuemax="5"
+        aria-valuemin="0.1"
+        aria-valuenow="0.5"
+        autocomplete="off"
+        class="ant-input-number-input"
+        role="spinbutton"
+        step="0.1"
+        value="0.5"
+      />
       <div
-        class="ant-input-number-handler-wrap"
+        class="ant-input-number-actions"
       >
         <span
           aria-disabled="false"
           aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up"
+          class="ant-input-number-action ant-input-number-action-up"
           role="button"
           unselectable="on"
         >
@@ -98,7 +108,7 @@ Array [
         <span
           aria-disabled="false"
           aria-label="Decrease Value"
-          class="ant-input-number-handler ant-input-number-handler-down"
+          class="ant-input-number-action ant-input-number-action-down"
           role="button"
           unselectable="on"
         >
@@ -126,20 +136,6 @@ Array [
             </span>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-input-number-input-wrap"
-      >
-        <input
-          aria-valuemax="5"
-          aria-valuemin="0.1"
-          aria-valuenow="0.5"
-          autocomplete="off"
-          class="ant-input-number-input"
-          role="spinbutton"
-          step="0.1"
-          value="0.5"
-        />
       </div>
     </div>
   </div>,
@@ -171,7 +167,11 @@ Array [
 ]
 `;
 
-exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/image/demo/coverPlacement.tsx extend context correctly 1`] = `
 <div

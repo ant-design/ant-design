@@ -2,15 +2,22 @@
 
 exports[`InputNumber renders correctly when controls has custom upIcon and downIcon 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="ant-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="ant-input-number-handler-wrap"
+    class="ant-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up"
+      class="ant-input-number-action ant-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -41,7 +48,7 @@ exports[`InputNumber renders correctly when controls has custom upIcon and downI
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down"
+      class="ant-input-number-action ant-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -70,31 +77,27 @@ exports[`InputNumber renders correctly when controls has custom upIcon and downI
       </span>
     </span>
   </div>
-  <div
-    class="ant-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="ant-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
-  </div>
 </div>
 `;
 
 exports[`InputNumber renders correctly when controls is {} 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="ant-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="ant-input-number-handler-wrap"
+    class="ant-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up"
+      class="ant-input-number-action ant-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -125,7 +128,7 @@ exports[`InputNumber renders correctly when controls is {} 1`] = `
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down"
+      class="ant-input-number-action ant-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -153,50 +156,42 @@ exports[`InputNumber renders correctly when controls is {} 1`] = `
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="ant-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="ant-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;
 
 exports[`InputNumber renders correctly when controls is boolean 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
-  <div
-    class="ant-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="ant-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
-  </div>
+  <input
+    autocomplete="off"
+    class="ant-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
 </div>
 `;
 
 exports[`InputNumber rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-input-number ant-input-number-rtl ant-input-number-outlined ant-input-number-mode-input css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var"
 >
+  <input
+    autocomplete="off"
+    class="ant-input-number-input ant-input-number-rtl"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
   <div
-    class="ant-input-number-handler-wrap"
+    class="ant-input-number-actions"
   >
     <span
       aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up"
+      class="ant-input-number-action ant-input-number-action-up"
       role="button"
       unselectable="on"
     >
@@ -227,7 +222,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
     <span
       aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down"
+      class="ant-input-number-action ant-input-number-action-down"
       role="button"
       unselectable="on"
     >
@@ -255,17 +250,6 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
         </span>
       </span>
     </span>
-  </div>
-  <div
-    class="ant-input-number-input-wrap"
-  >
-    <input
-      autocomplete="off"
-      class="ant-input-number-input"
-      role="spinbutton"
-      step="1"
-      value=""
-    />
   </div>
 </div>
 `;
