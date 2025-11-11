@@ -125,7 +125,7 @@ export default function demoTest(component: string, options: Options = {}) {
     const { default: Component } = require(`../../components/${kebabName}`);
 
     if (options.nameCheckPathOnly !== true && Component.displayName) {
-      expect(kebabCase(Component.displayName).replace(/Deprecated-/, ' ')).toBe(kebabName);
+      expect(kebabCase(Component.displayName).replace(/^deprecated-/, '')).toBe(kebabName);
     }
   });
 
