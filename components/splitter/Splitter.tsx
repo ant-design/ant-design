@@ -53,16 +53,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Splitter');
 
-    let existSize = false;
-    let existUndefinedSize = false;
-
-    items.forEach((item) => {
-      if (item.size !== undefined) {
-        existSize = true;
-      } else {
-        existUndefinedSize = true;
-      }
-    });
+    const existSize = items.some((item) => item.size !== undefined);
+    const existUndefinedSize = items.some((item) => item.size === undefined);
 
     if (existSize && existUndefinedSize && !onResize) {
       warning(
@@ -131,6 +123,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
+    const collapsed = nextSizes.map((size) => Math.abs(size) < Number.EPSILON);
+    props.onCollapse?.(collapsed, nextSizes);
   });
 
   // ======================== Styles ========================
@@ -155,13 +149,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const mergedSizes: number[] = [];
 
     let stack = 0;
-    for (let i = 0; i < items.length; i += 1) {
+    const len = items.length;
+    for (let i = 0; i < len; i += 1) {
       stack += itemPtgSizes[i];
       mergedSizes.push(stack);
     }
 
     return mergedSizes;
-  }, [itemPtgSizes]);
+  }, [itemPtgSizes, items.length]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 

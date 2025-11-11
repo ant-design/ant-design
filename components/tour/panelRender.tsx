@@ -10,9 +10,9 @@ import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import type { TourStepProps } from './interface';
 
-function isValidNode(node: ReactNode): boolean {
-  return node !== undefined && node !== null;
-}
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
+  return val !== undefined && val !== null;
+};
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -79,17 +79,19 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     nextButtonProps?.onClick?.();
   };
 
-  const headerNode = isValidNode(title) ? (
+  const headerNode = isNonNullable(title) ? (
     <div className={`${prefixCls}-header`}>
       <div className={`${prefixCls}-title`}>{title}</div>
     </div>
   ) : null;
 
-  const descriptionNode = isValidNode(description) ? (
+  const descriptionNode = isNonNullable(description) ? (
     <div className={`${prefixCls}-description`}>{description}</div>
   ) : null;
 
-  const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+  const coverNode = isNonNullable(cover) ? (
+    <div className={`${prefixCls}-cover`}>{cover}</div>
+  ) : null;
 
   let mergedIndicatorNode: ReactNode;
 

@@ -89,7 +89,9 @@ describe('Image', () => {
     const { container, baseElement } = render(
       <>
         <div className="container" />
-        <ConfigProvider getPopupContainer={() => document.querySelector('.container')!}>
+        <ConfigProvider
+          getPopupContainer={() => document.querySelector<HTMLDivElement>('.container')!}
+        >
           <Image src={src} />
         </ConfigProvider>
       </>,
@@ -160,35 +162,27 @@ describe('Image', () => {
     fireEvent.click(baseElement.querySelector('.ant-image')!);
 
     expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-class .ant-image-preview-wrap',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1301');
+      baseElement.querySelector<HTMLElement>('.test-image-preview-class .ant-image-preview-wrap'),
+    ).toHaveStyle({ zIndex: 1301 });
+
     expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-class.ant-image-preview-operations-wrapper',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1302');
+      baseElement.querySelector<HTMLElement>(
+        '.test-image-preview-class.ant-image-preview-operations-wrapper',
+      ),
+    ).toHaveStyle({ zIndex: 1302 });
 
     fireEvent.click(baseElement.querySelectorAll('.ant-image')[1]!);
 
     expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-group-class .ant-image-preview-wrap',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1301');
+      baseElement.querySelector<HTMLElement>(
+        '.test-image-preview-group-class .ant-image-preview-wrap',
+      ),
+    ).toHaveStyle({ zIndex: 1301 });
+
     expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1302');
+      baseElement.querySelector<HTMLElement>(
+        '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
+      ),
+    ).toHaveStyle({ zIndex: 1302 });
   });
 });

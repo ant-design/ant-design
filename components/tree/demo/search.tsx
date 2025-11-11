@@ -74,7 +74,7 @@ const App: React.FC = () => {
     const { value } = e.target;
     const newExpandedKeys = dataList
       .map((item) => {
-        if (item.title.indexOf(value) > -1) {
+        if (item.title.includes(value)) {
           return getParentKey(item.key, defaultData);
         }
         return null;

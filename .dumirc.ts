@@ -1,12 +1,12 @@
+import os from 'node:os';
 import path from 'path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
-import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import rehypeChangelog from './.dumi/rehypeChangelog';
-import remarkAntd from './.dumi/remarkAntd';
 import remarkAnchor from './.dumi/remarkAnchor';
+import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
 export default defineConfig({
@@ -131,17 +131,6 @@ export default defineConfig({
   headScripts: [
     `
     (function () {
-      function isLocalStorageNameSupported() {
-        const testKey = 'test';
-        const storage = window.localStorage;
-        try {
-          storage.setItem(testKey, '1');
-          storage.removeItem(testKey);
-          return true;
-        } catch (error) {
-          return false;
-        }
-      }
       // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
       const pathname = location.pathname;
 
@@ -171,7 +160,7 @@ export default defineConfig({
       }
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
-      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+      if (pathname === '/' || pathname === '/index-cn') {
         const lang =
           (window.localStorage && localStorage.getItem('locale')) ||
           ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
@@ -193,9 +182,14 @@ export default defineConfig({
         .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-notify.js'))
         .toString(),
     },
-    {
-      async: true,
-      content: fs.readFileSync(path.join(__dirname, '.dumi', 'scripts', 'clarity.js')).toString(),
-    },
-  ],
+    // Only enable clarity in production environment
+    process.env.NODE_ENV === 'production'
+      ? {
+          async: true,
+          content: fs
+            .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'clarity.js'))
+            .toString(),
+        }
+      : null,
+  ].filter((script) => !!script),
 });

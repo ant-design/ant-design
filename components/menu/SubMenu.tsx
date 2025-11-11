@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import omit from 'rc-util/lib/omit';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import type { SubMenuType } from './interface';
 import type { MenuContextProps } from './MenuContext';

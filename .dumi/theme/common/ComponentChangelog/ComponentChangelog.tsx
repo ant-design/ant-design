@@ -3,8 +3,8 @@ import { BugOutlined } from '@ant-design/icons';
 import { Button, Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
+import useSWR from 'swr';
 
-import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import { matchDeprecated } from '../../utils';
@@ -189,6 +189,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
           <RefLinks refs={refs} contributors={contributors} />
           <br />
           <img
+            draggable={false}
             src={imgElement?.getAttribute('src') || ''}
             alt={imgElement?.getAttribute('alt') || ''}
             width={imgElement?.getAttribute('width') || ''}
@@ -211,17 +212,23 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
   const logFileName = `components-changelog-${lang}.json`;
 
-  const data = useFetch({
-    key: `component-changelog-${lang}`,
-    request: () => import(`../../../preset/${logFileName}`),
-  });
-  return React.useMemo(() => {
-    const component = componentPath.replace(/-/g, '');
-    const componentName = Object.keys(data).find(
-      (name) => name.toLowerCase() === component.toLowerCase(),
-    );
-    return data[componentName as keyof typeof data] as ChangelogInfo[];
-  }, [data, componentPath]);
+  const { data, error, isLoading } = useSWR(
+    `component-changelog-${lang}`,
+    () => import(`../../../preset/${logFileName}`),
+  );
+
+  if (error || isLoading) {
+    return [];
+  }
+
+  const component = componentPath.replace(/-/g, '');
+  const componentName = Object.keys(data).find(
+    (name) => name.toLowerCase() === component.toLowerCase(),
+  );
+  if (!componentName) {
+    return [];
+  }
+  return data?.[componentName] || [];
 };
 
 const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
@@ -294,7 +301,17 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
         ),
       };
     });
-  }, [list]);
+  }, [
+    lang,
+    list,
+    locale.bugList,
+    styles.bug,
+    styles.bugReasonList,
+    styles.bugReasonTitle,
+    styles.versionTag,
+    styles.versionTitle,
+    styles.versionWrap,
+  ]);
 
   const screens = Grid.useBreakpoint();
   const width = screens.md ? '48vw' : '90vw';

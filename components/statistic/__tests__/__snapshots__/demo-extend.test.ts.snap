@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/statistic/demo/animated.tsx extend context correctly 1`] = `
 <div
@@ -146,7 +146,7 @@ exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`
         Active Users
       </div>
       <div
-        class="ant-skeleton ant-statistic-skeleton"
+        class="ant-skeleton ant-skeleton-active ant-statistic-skeleton"
       >
         <div
           class="ant-skeleton-content"
@@ -397,7 +397,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
         Active Users
       </div>
       <div
-        class="ant-skeleton ant-statistic-skeleton"
+        class="ant-skeleton ant-skeleton-active ant-statistic-skeleton"
       >
         <div
           class="ant-skeleton-content"

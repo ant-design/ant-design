@@ -55,7 +55,10 @@ export interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 
-type InternalAffixProps = AffixProps & { onTestUpdatePosition?: any };
+interface InternalAffixProps extends AffixProps {
+  onTestUpdatePosition?: () => void;
+}
+
 const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const {
     style,
@@ -211,10 +214,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   };
 
   const removeListeners = () => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-      timer.current = null;
-    }
     const newTarget = targetFunc?.();
     TRIGGER_EVENTS.forEach((eventName) => {
       newTarget?.removeEventListener(eventName, lazyUpdatePosition);
@@ -233,7 +232,14 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     // [Legacy] Wait for parent component ref has its value.
     // We should use target as directly element instead of function which makes element check hard.
     timer.current = setTimeout(addListeners);
-    return () => removeListeners();
+
+    return () => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+        timer.current = null;
+      }
+      removeListeners();
+    };
   }, []);
 
   React.useEffect(() => {

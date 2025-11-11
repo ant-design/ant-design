@@ -1,4 +1,4 @@
-import { unit } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -230,6 +230,16 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
     colorBgContainer,
     motionDurationSlow,
   } = token;
+
+  const animation = new Keyframes(`${token.prefixCls}-dot-animation`, {
+    from: {
+      transform: `translate3d(-100%, 0, 0)`,
+    },
+    to: {
+      transform: `translate3d(0%, 0, 0)`,
+    },
+  });
+
   return {
     [componentCls]: {
       '.slick-dots': {
@@ -283,7 +293,6 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             outline: 'none',
             cursor: 'pointer',
             overflow: 'hidden',
-            transform: 'translate3d(-100%, 0, 0)',
           },
 
           button: {
@@ -322,8 +331,10 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             },
             '&::after': {
               background: colorBgContainer,
-              transform: 'translate3d(0, 0, 0)',
-              transition: `transform var(${DotDuration}) ease-out`,
+              animationName: animation,
+              animationDuration: `var(${DotDuration})`,
+              animationTimingFunction: 'ease-out',
+              animationFillMode: 'forwards',
             },
           },
         },
@@ -334,6 +345,15 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
 
 const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, dotOffset, arrowOffset, marginXXS } = token;
+
+  const animation = new Keyframes(`${token.prefixCls}-dot-vertical-animation`, {
+    from: {
+      height: 0,
+    },
+    to: {
+      height: token.dotActiveWidth,
+    },
+  });
 
   const reverseSizeOfDot = {
     width: token.dotHeight,
@@ -396,12 +416,19 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
 
           '&.slick-active': {
             ...reverseSizeOfDot,
+            height: token.dotActiveWidth,
 
-            button: reverseSizeOfDot,
+            button: {
+              ...reverseSizeOfDot,
+              height: token.dotActiveWidth,
+            },
 
             '&::after': {
               ...reverseSizeOfDot,
-              transition: `height var(${DotDuration}) ease-out`,
+              animationName: animation,
+              animationDuration: `var(${DotDuration})`,
+              animationTimingFunction: 'ease-out',
+              animationFillMode: 'forwards',
             },
           },
         },
@@ -417,13 +444,6 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
     {
       [`${componentCls}-rtl`]: {
         direction: 'rtl',
-
-        // Dots
-        '.slick-dots': {
-          [`${componentCls}-rtl&`]: {
-            flexDirection: 'row-reverse',
-          },
-        },
       },
     },
     {

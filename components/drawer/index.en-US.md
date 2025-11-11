@@ -34,6 +34,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/multi-level-drawer.tsx">Multi-level drawer</code>
 <code src="./demo/size.tsx">Preset size</code>
 <code src="./demo/classNames.tsx">Customize className for build-in module</code>
+<code src="./demo/closable-placement.tsx" version="5.28.0">Closable placement</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
 <code src="./demo/no-mask.tsx" debug>No mask</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -55,6 +56,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
+| closable | Whether to show a close button. The position can be configured with `placement` | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true |  placement: 5.28.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 |

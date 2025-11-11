@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender, UnmountType } from '../config-provider/UnstableContext';
+import { unstableSetRender } from '../config-provider/UnstableContext';
+import type { UnmountType } from '../config-provider/UnstableContext';
 import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -89,7 +90,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount();
   }
 
-  function render(props: any) {
+  const scheduleRender = (props: ConfirmDialogProps) => {
     clearTimeout(timeoutId);
 
     /**
@@ -108,12 +109,12 @@ export default function confirm(config: ModalFuncProps) {
 
       reactUnmount = reactRender(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
-          {global.holderRender ? global.holderRender(dom) : dom}
+          {typeof global.holderRender === 'function' ? global.holderRender(dom) : dom}
         </ConfigProvider>,
         container,
       );
     });
-  }
+  };
 
   function close(...args: any[]) {
     currentConfig = {
@@ -133,22 +134,19 @@ export default function confirm(config: ModalFuncProps) {
       delete currentConfig.visible;
     }
 
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
   function update(configUpdate: ConfigUpdate) {
     if (typeof configUpdate === 'function') {
       currentConfig = configUpdate(currentConfig);
     } else {
-      currentConfig = {
-        ...currentConfig,
-        ...configUpdate,
-      };
+      currentConfig = { ...currentConfig, ...configUpdate };
     }
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
-  render(currentConfig);
+  scheduleRender(currentConfig);
 
   destroyFns.push(close);
 

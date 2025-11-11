@@ -17,7 +17,7 @@ jobs:
     name: test image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
       - run: bun install
       - name: generate image snapshots
@@ -31,7 +31,7 @@ jobs:
 
       # Upload `imageSnapshots` on master
       - name: upload report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: image-snapshots
           path: imageSnapshots.tar.gz
@@ -43,7 +43,7 @@ jobs:
 
       - name: Upload persist key
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: visual-regression-ref
           path: ./visual-regression-ref.txt

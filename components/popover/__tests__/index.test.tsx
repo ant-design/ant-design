@@ -145,8 +145,8 @@ describe('Popover', () => {
     };
 
     const customStyles = {
-      body: { color: 'red' },
-      root: { backgroundColor: 'blue' },
+      body: { padding: 10 },
+      root: { padding: 20 },
     };
 
     const { container } = render(
@@ -155,15 +155,15 @@ describe('Popover', () => {
       </Popover>,
     );
 
-    const popoverElement = container.querySelector('.ant-popover') as HTMLElement;
-    const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+    const popoverElement = container.querySelector<HTMLElement>('.ant-popover');
+    const popoverBodyElement = container.querySelector<HTMLElement>('.ant-popover-inner');
 
     // 验证 classNames
-    expect(popoverElement.classList).toContain('custom-root');
-    expect(popoverBodyElement.classList).toContain('custom-body');
+    expect(popoverElement).toHaveClass('custom-root');
+    expect(popoverBodyElement).toHaveClass('custom-body');
 
     // 验证 styles
-    expect(popoverElement.style.backgroundColor).toBe('blue');
-    expect(popoverBodyElement.style.color).toBe('red');
+    expect(popoverElement).toHaveStyle({ padding: '20px' });
+    expect(popoverBodyElement).toHaveStyle({ padding: '10px' });
   });
 });

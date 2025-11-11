@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
 <div
@@ -461,7 +461,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            This panel can only be collapsed by clicking text
+            This panel can be collapsed by clicking text or icon
           </span>
         </div>
         <div

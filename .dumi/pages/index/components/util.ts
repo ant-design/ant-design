@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable compat/compat */
 import { css } from 'antd-style';
-import fetch from 'cross-fetch';
+import useSWR from 'swr';
 
 export interface Author {
   avatar: string;
@@ -60,7 +60,15 @@ export type Extras = {
 
 export type Icons = Icon[];
 
+export type HeadingBanner = {
+  [key in 'cn' | 'en']: {
+    title?: string;
+    href?: string;
+  };
+};
+
 export type SiteData = {
+  headingBanner: HeadingBanner;
   articles: Articles;
   authors: Authors;
   recommendations: Recommendations;
@@ -82,19 +90,30 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData(): Partial<SiteData> | undefined {
-  const [data, setData] = useState<SiteData | undefined>(undefined);
+// Banner 硬编码，以防止页面闪烁问题
+export const getBannerData = (): null | {
+  title: string;
+  href: string;
+} => {
+  return {
+    title: 'See Conf 2025 震撼来袭 - 探索 AI 时代的用户体验与工程实践',
+    href: 'https://seeconf.antfin.com/',
+  };
+};
 
-  useEffect(() => {
-    fetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json').then(
-      async (res) => {
-        setData(await res.json());
-      },
-    );
-  }, []);
-
-  return data;
-}
+export const useAntdSiteConfig = () => {
+  const { data, error, isLoading } = useSWR<Partial<SiteData>, Error>(
+    `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`,
+    (url: string) => fetch(url).then((res) => res.json()),
+    {
+      suspense: false,
+      // revalidateOnMount: false,
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+    },
+  );
+  return { data, error, isLoading };
+};
 
 export const getCarouselStyle = () => ({
   carousel: css`

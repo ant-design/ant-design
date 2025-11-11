@@ -7,7 +7,7 @@ import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tr
 import type { DataNode } from 'rc-tree-select/lib/interface';
 import omit from 'rc-util/lib/omit';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -122,7 +122,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     listItemHeight: customListItemHeight,
     placement,
     notFoundContent,
-    switcherIcon,
+    switcherIcon: customSwitcherIcon,
     treeLine,
     getPopupContainer,
     popupClassName,
@@ -160,7 +160,11 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupOverflow,
   } = React.useContext(ConfigContext);
 
-  const { styles: contextStyles, classNames: contextClassNames } = useComponentConfig('treeSelect');
+  const {
+    styles: contextStyles,
+    classNames: contextClassNames,
+    switcherIcon,
+  } = useComponentConfig('treeSelect');
 
   const [, token] = useToken();
   const listItemHeight = customListItemHeight ?? token?.controlHeightSM + token?.paddingXXS;
@@ -325,10 +329,12 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     hashId,
   );
 
+  const mergedSwitcherIcon = customSwitcherIcon ?? switcherIcon;
+
   const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={treePrefixCls}
-      switcherIcon={switcherIcon as SwitcherIcon}
+      switcherIcon={mergedSwitcherIcon as SwitcherIcon}
       treeNodeProps={nodeProps}
       showLine={treeLine}
     />

@@ -53,17 +53,16 @@ const Palette: React.FC<PaletteProps> = (props) => {
 
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
 
-  const colors: React.ReactNode[] = [];
-
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
     default: ['rgba(0, 0, 0, 0.85)', '#fff'],
   };
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
-  for (let i = 1; i <= count; i += 1) {
-    const colorText = `${name}-${i}`;
-    const defaultBgStyle = dark && name ? presetDarkPalettes[name][i - 1] : '';
-    colors.push(
+
+  const colors: React.ReactNode[] = Array.from({ length: count }, (_, i) => {
+    const colorText = `${name}-${i + 1}`;
+    const defaultBgStyle = dark && name ? presetDarkPalettes[name][i] : '';
+    return (
       <CopyToClipboard
         text={hexColors[colorText]}
         onCopy={() => message.success(`@${colorText} copied: ${hexColors[colorText]}`)}
@@ -73,10 +72,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
           key={i}
           ref={(node) => {
             if (node) {
-              colorNodesRef.current[`${name}-${i}`] = node;
+              colorNodesRef.current[`${name}-${i + 1}`] = node;
             }
           }}
-          className={`main-color-item palette-${name}-${i}`}
+          className={`main-color-item palette-${name}-${i + 1}`}
           style={{
             color: (name === 'yellow' ? i > 6 : i > 5) ? firstColor : lastColor,
             fontWeight: i === 6 ? 'bold' : 'normal',
@@ -87,9 +86,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
           <span className="main-color-text">{colorText}</span>
           <span className="main-color-value">{hexColors[colorText]}</span>
         </div>
-      </CopyToClipboard>,
+      </CopyToClipboard>
     );
-  }
+  });
+
   return (
     <div className={className}>
       {showTitle && (

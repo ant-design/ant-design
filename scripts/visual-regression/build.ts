@@ -4,15 +4,15 @@ import os from 'os';
 import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
+import blazediff from '@blazediff/core';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
+import filter from 'lodash/filter';
 import minimist from 'minimist';
-import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
 import simpleGit from 'simple-git';
-import filter from 'lodash/filter';
 
 import markdown2Html from './convert';
 import { generate as genAlternativeReport } from './reportAdapter';
@@ -62,7 +62,7 @@ const compareScreenshots = async (
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
-  const mismatchedPixels = pixelmatch(
+  const mismatchedPixels = blazediff(
     resizedBasePng.data,
     resizedCurrentPng.data,
     diffPng.data,
@@ -157,7 +157,7 @@ async function parseArgs() {
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
 
-  const maxWorkers = argv['max-workers'] ? parseInt(argv['max-workers'], 10) : 1;
+  const maxWorkers = argv['max-workers'] ? Number.parseInt(argv['max-workers'], 10) : 1;
 
   const { latest } = await git.log();
 

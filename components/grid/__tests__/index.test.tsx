@@ -78,8 +78,10 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const { container } = render(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-4px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
+    expect(container.querySelector<HTMLElement>('div')).toHaveStyle({
+      marginLeft: '-4px',
+      marginRight: '-4px',
+    });
   });
 
   it('when typeof gutter is object array', () => {
@@ -91,8 +93,10 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-4px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
+    expect(container.querySelector<HTMLElement>('div')).toHaveStyle({
+      marginLeft: '-4px',
+      marginRight: '-4px',
+    });
   });
 
   it('renders wrapped Col correctly', () => {
@@ -116,18 +120,31 @@ describe('Grid', () => {
     expect((global as any).unsubscribeCnt).toEqual(called + 1);
   });
 
+  it('should work correct when gutter is string', () => {
+    const { container } = render(<Row gutter={['2rem', '4rem']} />);
+    expect(container.querySelector<HTMLElement>('div')).toHaveStyle({
+      marginLeft: 'calc(-1rem)',
+      marginRight: 'calc(-1rem)',
+      rowGap: '4rem',
+    });
+  });
+
   it('should work correct when gutter is object', () => {
     const { container } = render(<Row gutter={{ xs: 20 }} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-10px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-10px');
+    expect(container.querySelector<HTMLElement>('div')).toHaveStyle({
+      marginLeft: '-10px',
+      marginRight: '-10px',
+    });
   });
 
   it('should work current when gutter is array', () => {
     const { container } = render(<Row gutter={[16, 20]} />);
-    expect(container.querySelector('div')?.style.marginLeft).toBe('-8px');
-    expect(container.querySelector('div')?.style.marginRight).toBe('-8px');
-    expect(container.querySelector('div')?.style.marginTop).toBe('');
-    expect(container.querySelector('div')?.style.marginBottom).toBe('');
+    expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({
+      marginLeft: '-8px',
+      marginRight: '-8px',
+      marginTop: '',
+      marginBottom: '',
+    });
   });
 
   createImplFn('(min-width: 1200px)').forEach((impl, i) => {
@@ -142,10 +159,12 @@ describe('Grid', () => {
         />,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
-      expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
-      expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
-      expect(container.querySelector('div')?.style.marginTop).toBe('');
-      expect(container.querySelector('div')?.style.marginBottom).toBe('');
+      expect(container.querySelector<HTMLDivElement>('div')).toHaveStyle({
+        marginLeft: '-20px',
+        marginRight: '-20px',
+        marginTop: '',
+        marginBottom: '',
+      });
     });
   });
 

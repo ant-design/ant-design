@@ -2,7 +2,8 @@ import * as React from 'react';
 import { BugOutlined } from '@ant-design/icons';
 import { Button, Flex, Popover, theme } from 'antd';
 import { createStyles } from 'antd-style';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 
 import useLocale from '../../../hooks/useLocale';
 import { matchDeprecated } from '../../utils';
@@ -118,7 +119,10 @@ const Version: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 const DateComp: React.FC<React.PropsWithChildren> = (props) => props.children;
 
-const DetailsComp: React.FC<React.PropsWithChildren> = (props) => props.children;
+const DetailsComp: React.FC<React.PropsWithChildren<HTMLDivElement>> = (props) => {
+  const { children, className } = props;
+  return <div className={className}>{children}</div>;
+};
 
 export default Object.assign(RefinedChangelog, {
   Version,

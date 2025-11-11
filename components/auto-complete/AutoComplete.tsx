@@ -4,7 +4,7 @@ import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -24,6 +24,7 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
+
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export interface AutoCompleteProps<

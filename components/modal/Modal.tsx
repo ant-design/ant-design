@@ -5,10 +5,9 @@ import Dialog from 'rc-dialog';
 import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { pickClosable, useClosable, useZIndex } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
-import { Breakpoint } from '../_util/responsiveObserver';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -68,6 +67,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     destroyOnHidden,
     destroyOnClose,
     panelRef = null,
+    modalRender,
     ...restProps
   } = props;
 
@@ -128,9 +128,15 @@ const Modal: React.FC<ModalProps> = (props) => {
     },
   );
 
+  // ============================ modalRender ============================
+  const mergedModalRender = modalRender
+    ? (node: React.ReactNode) => <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
+    : undefined;
+
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`
-  const innerPanelRef = usePanelRef(`.${prefixCls}-content`);
+  const panelClassName = `.${prefixCls}-${modalRender ? 'render' : 'content'}`;
+  const innerPanelRef = usePanelRef(panelClassName);
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
@@ -158,7 +164,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       });
     }
     return vars;
-  }, [responsiveWidth]);
+  }, [prefixCls, responsiveWidth]);
 
   // =========================== Render ===========================
   return wrapCSSVar(
@@ -195,6 +201,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           panelRef={mergedPanelRef}
           // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          modalRender={mergedModalRender}
         >
           {loading ? (
             <Skeleton

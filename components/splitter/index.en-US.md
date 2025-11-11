@@ -29,6 +29,7 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/size-mix.tsx" debug>Size Mix</code>
 
 ## API
 
@@ -41,6 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | layout | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
+| onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 |
 | onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |

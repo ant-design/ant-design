@@ -281,7 +281,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    const newPageSize = parseInt(
+    const newPageSize = Number.parseInt(
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
@@ -308,7 +308,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    const newPageSize = parseInt(
+    const newPageSize = Number.parseInt(
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
@@ -411,6 +411,11 @@ describe('Table.pagination', () => {
       }),
     );
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+  });
+
+  it('should support align props', () => {
+    const { container } = render(createTable({ pagination: { align: 'center' } }));
+    expect(container.querySelector('.ant-pagination-center')).toBeTruthy();
   });
 
   /**
@@ -638,15 +643,13 @@ describe('Table.pagination', () => {
         {...dataProp}
         columns={[]}
         pagination={{
-          className: 'pagination',
+          className: 'my-pagination',
           total: 200,
           current: 1,
           pageSize: 10,
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination')?.className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
-    );
+    expect(container.querySelector('.ant-pagination')).toHaveClass('my-pagination');
   });
 });

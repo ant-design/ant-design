@@ -16,8 +16,9 @@ const App: React.FC = () => {
     fetch(`https://api.github.com/search/users?q=${key}`)
       .then((res) => res.json())
       .then(({ items = [] }) => {
-        if (ref.current !== key) return;
-
+        if (ref.current !== key) {
+          return;
+        }
         setLoading(false);
         setUsers(items.slice(0, 10));
       });
@@ -45,7 +46,7 @@ const App: React.FC = () => {
         className: 'antd-demo-dynamic-option',
         label: (
           <>
-            <img src={avatar} alt={login} />
+            <img draggable={false} src={avatar} alt={login} />
             <span>{login}</span>
           </>
         ),

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
 <button
@@ -161,6 +161,7 @@ Array [
       width="160"
     />
     <img
+      alt="QR-Code"
       crossorigin="anonymous"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       style="display:none"
@@ -404,6 +405,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
           width="160"
         />
         <img
+          alt="QR-Code"
           crossorigin="anonymous"
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           style="display:none"
@@ -524,6 +526,7 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
     width="160"
   />
   <img
+    alt="QR-Code"
     crossorigin="anonymous"
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     style="display:none"

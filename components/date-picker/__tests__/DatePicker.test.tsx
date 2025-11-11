@@ -427,7 +427,9 @@ describe('DatePicker', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: rgb(255, 0, 0)');
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+      'background-color: rgb(255, 0, 0)',
+    );
 
     errSpy.mockRestore();
   });
@@ -477,5 +479,23 @@ describe('DatePicker', () => {
 
     rerender(<DatePicker value={somePoint} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
+  });
+
+  it('suffixIcon', () => {
+    const { rerender, container } = render(<DatePicker />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
+
+    rerender(<DatePicker suffixIcon />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
+
+    rerender(<DatePicker suffixIcon={false} />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+
+    rerender(<DatePicker suffixIcon={null} />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+
+    rerender(<DatePicker suffixIcon={'123'} />);
+    expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
+    expect(container.children).toMatchSnapshot();
   });
 });

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button, Form, Input, Select, Space, Tooltip, Typography } from 'antd';
 
-const { Option } = Select;
-
 const onFinish = (values: any) => {
   console.log('Received values of form: ', values);
 };
@@ -36,10 +34,13 @@ const App: React.FC = () => (
           noStyle
           rules={[{ required: true, message: 'Province is required' }]}
         >
-          <Select placeholder="Select province">
-            <Option value="Zhejiang">Zhejiang</Option>
-            <Option value="Jiangsu">Jiangsu</Option>
-          </Select>
+          <Select
+            placeholder="Select province"
+            options={[
+              { label: 'Zhejiang', value: 'Zhejiang' },
+              { label: 'Jiangsu', value: 'Jiangsu' },
+            ]}
+          />
         </Form.Item>
         <Form.Item
           name={['address', 'street']}

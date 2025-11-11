@@ -33,6 +33,7 @@ import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
+const { Option } = Select;
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -1364,9 +1365,7 @@ describe('Form', () => {
           <Input />
         </Form.Item>
         <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
+          <Select options={[{ value: 'demo', label: 'Demo' }]} />
         </Form.Item>
         <Form.Item label="TreeSelect">
           <TreeSelect
@@ -1581,7 +1580,7 @@ describe('Form', () => {
     // if form name is empty and item name is parentNode
     // will get parentNode
     mockFn.mockImplementation(() => itemName);
-    const { Option } = Select;
+
     const Demo: React.FC = () => {
       const [open, setOpen] = useState(false);
       return (
@@ -1898,10 +1897,10 @@ describe('Form', () => {
       </Form>
     );
     const { container } = render(<Demo />, { container: document.body });
-    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('status-error');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('status-error');
   });
 
   it('should be set up correctly marginBottom', () => {
@@ -1955,14 +1954,12 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.className).toContain(
-      'custom-input-status-',
-    );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-warning')).toHaveClass(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+    expect(container.querySelector('.custom-input')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -1972,7 +1969,7 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('.submit-button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass(
       'custom-input-status-error',
     );
   });
@@ -2597,5 +2594,40 @@ describe('Form', () => {
 
     await changeValue(0, '100');
     expectErrors([]);
+  });
+
+  it('Nest Form.Item should not pass style to child Form', async () => {
+    const formRef = React.createRef<FormInstance<any>>();
+    const subFormRef = React.createRef<FormInstance<any>>();
+
+    const { container } = render(
+      <Form ref={formRef}>
+        <Form.Item name="root" rules={[{ required: true }]}>
+          <Form component={false} ref={subFormRef}>
+            <Form.Item noStyle name="child" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </Form.Item>
+      </Form>,
+    );
+
+    // Parent validation
+    await formRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeFalsy();
+
+    // Child validation
+    await subFormRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeTruthy();
   });
 });

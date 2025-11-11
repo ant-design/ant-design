@@ -1,7 +1,12 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genBorderlessStyle, genFilledStyle, genOutlinedStyle, genUnderlinedStyle } from '../../input/style/variants';
+import {
+  genBorderlessStyle,
+  genFilledStyle,
+  genOutlinedStyle,
+  genUnderlinedStyle,
+} from '../../input/style/variants';
 import type { PickerToken } from './token';
 
 const genVariantsStyle = (token: PickerToken): CSSObject => {

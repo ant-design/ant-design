@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
 
-const { Option } = Select;
-
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
 
@@ -72,10 +70,13 @@ const App: React.FC = () => {
                 label="Owner"
                 rules={[{ required: true, message: 'Please select an owner' }]}
               >
-                <Select placeholder="Please select an owner">
-                  <Option value="xiao">Xiaoxiao Fu</Option>
-                  <Option value="mao">Maomao Zhou</Option>
-                </Select>
+                <Select
+                  placeholder="Please select an owner"
+                  options={[
+                    { label: 'Xiaoxiao Fu', value: 'xiao' },
+                    { label: 'Maomao Zhou', value: 'mao' },
+                  ]}
+                />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -84,10 +85,13 @@ const App: React.FC = () => {
                 label="Type"
                 rules={[{ required: true, message: 'Please choose the type' }]}
               >
-                <Select placeholder="Please choose the type">
-                  <Option value="private">Private</Option>
-                  <Option value="public">Public</Option>
-                </Select>
+                <Select
+                  placeholder="Please choose the type"
+                  options={[
+                    { label: 'private', value: 'private' },
+                    { label: 'public', value: 'public' },
+                  ]}
+                />
               </Form.Item>
             </Col>
           </Row>
@@ -98,10 +102,13 @@ const App: React.FC = () => {
                 label="Approver"
                 rules={[{ required: true, message: 'Please choose the approver' }]}
               >
-                <Select placeholder="Please choose the approver">
-                  <Option value="jack">Jack Ma</Option>
-                  <Option value="tom">Tom Liu</Option>
-                </Select>
+                <Select
+                  placeholder="Please choose the approver"
+                  options={[
+                    { label: 'Jack Ma', value: 'jack' },
+                    { label: 'Tom Liu', value: 'tom' },
+                  ]}
+                />
               </Form.Item>
             </Col>
             <Col span={12}>

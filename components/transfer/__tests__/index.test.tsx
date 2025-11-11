@@ -8,6 +8,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -544,16 +546,16 @@ describe('Transfer', () => {
 
   it('should add custom styles when their props are provided', () => {
     const style: React.CSSProperties = {
-      backgroundColor: 'red',
+      padding: 10,
     };
     const leftStyle: React.CSSProperties = {
-      backgroundColor: 'blue',
+      padding: 20,
     };
     const rightStyle: React.CSSProperties = {
-      backgroundColor: 'red',
+      padding: 30,
     };
     const operationStyle: React.CSSProperties = {
-      backgroundColor: 'yellow',
+      padding: 40,
     };
 
     const { container } = render(
@@ -570,10 +572,10 @@ describe('Transfer', () => {
     const listTarget = container.querySelectorAll<HTMLDivElement>('.ant-transfer-list').item(1);
     const operation = container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation').item(0);
 
-    expect(wrapper?.style.backgroundColor).toEqual('red');
-    expect(listSource.style.backgroundColor).toEqual('blue');
-    expect(listTarget.style.backgroundColor).toEqual('red');
-    expect(operation.style.backgroundColor).toEqual('yellow');
+    expect(wrapper).toHaveStyle({ padding: '10px' });
+    expect(listSource).toHaveStyle({ padding: '20px' });
+    expect(listTarget).toHaveStyle({ padding: '30px' });
+    expect(operation).toHaveStyle({ padding: '40px' });
   });
 
   it('should support onScroll', () => {
@@ -860,6 +862,39 @@ describe('Transfer', () => {
     searchInputs.forEach((input) => {
       expect(input.getAttribute('placeholder')).toBe('Search placeholder');
       expect(input).toHaveValue('values');
+    });
+  });
+
+  describe('form disabled', () => {
+    it('should support Form disabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <Form.Item name="transfer1" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('.ant-transfer.ant-transfer-disabled')).toBeTruthy();
+    });
+
+    it('set Transfer enabled when ConfigProvider componentDisabled is false', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="transfer1" label="启用">
+              <Transfer {...listCommonProps} />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="transfer2" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      const transfers = container.querySelectorAll('.ant-transfer');
+      expect(transfers[0]).not.toHaveClass('ant-transfer-disabled');
+      expect(transfers[1]).toHaveClass('ant-transfer-disabled');
     });
   });
 });

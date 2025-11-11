@@ -5,11 +5,12 @@ import type { Reference as RcReference, TableProps as RcTableProps } from 'rc-ta
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 
-import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
+import { useProxyImperativeHandle } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import ConfigProvider from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -477,58 +478,76 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   );
 
-  let topPaginationNode: React.ReactNode;
-  let bottomPaginationNode: React.ReactNode;
-  if (pagination !== false && mergedPagination?.total) {
-    let paginationSize: TablePaginationConfig['size'];
-    if (mergedPagination.size) {
-      paginationSize = mergedPagination.size;
-    } else {
-      paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
+  const getPaginationNodes = (): { top?: React.ReactNode; bottom?: React.ReactNode } => {
+    if (pagination === false || !mergedPagination?.total) {
+      return {};
     }
 
-    const renderPagination = (position: string) => (
-      <Pagination
-        {...mergedPagination}
-        className={classNames(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
-          mergedPagination.className,
-        )}
-        size={paginationSize}
-      />
-    );
+    const getPaginationSize = (): TablePaginationConfig['size'] =>
+      mergedPagination.size ||
+      (mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined);
+
+    const renderPagination = (position: string) => {
+      const align = (position === 'left' ? 'start' : position === 'right' ? 'end' : position) as
+        | 'start'
+        | 'center'
+        | 'end';
+      return (
+        <Pagination
+          {...mergedPagination}
+          align={mergedPagination.align || align}
+          className={classNames(`${prefixCls}-pagination`, mergedPagination.className)}
+          size={getPaginationSize()}
+        />
+      );
+    };
+
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    const { position } = mergedPagination;
-    if (position !== null && Array.isArray(position)) {
-      const topPos = position.find((p) => p.includes('top'));
-      const bottomPos = position.find((p) => p.includes('bottom'));
-      const isDisable = position.every((p) => `${p}` === 'none');
-      if (!topPos && !bottomPos && !isDisable) {
-        bottomPaginationNode = renderPagination(defaultPosition);
-      }
-      if (topPos) {
-        topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
-      }
-      if (bottomPos) {
-        bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
-      }
-    } else {
-      bottomPaginationNode = renderPagination(defaultPosition);
+    const positions = mergedPagination.position;
+
+    if (positions === null || !Array.isArray(positions)) {
+      return { bottom: renderPagination(defaultPosition) };
     }
-  }
+
+    const topPosition = positions.find(
+      (pos) => typeof pos === 'string' && pos.toLowerCase().includes('top'),
+    );
+    const bottomPosition = positions.find(
+      (pos) => typeof pos === 'string' && pos.toLowerCase().includes('bottom'),
+    );
+    const isNone = positions.every((pos) => `${pos}` === 'none');
+
+    const topAlign = topPosition ? topPosition.toLowerCase().replace('top', '') : '';
+    const bottomAlign = bottomPosition ? bottomPosition.toLowerCase().replace('bottom', '') : '';
+    const shouldDefaultBottom = !topPosition && !bottomPosition && !isNone;
+
+    const renderTop = () => (topAlign ? renderPagination(topAlign) : undefined);
+    const renderBottom = () => {
+      if (bottomAlign) {
+        return renderPagination(bottomAlign);
+      }
+      if (shouldDefaultBottom) {
+        return renderPagination(defaultPosition);
+      }
+      return undefined;
+    };
+
+    return {
+      top: renderTop(),
+      bottom: renderBottom(),
+    };
+  };
 
   // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
-    };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
-  }
+  const spinProps = React.useMemo<SpinProps | undefined>(() => {
+    if (typeof loading === 'boolean') {
+      return { spinning: loading };
+    } else if (typeof loading === 'object' && loading !== null) {
+      return { spinning: true, ...loading };
+    } else {
+      return undefined;
+    }
+  }, [loading]);
 
   const wrapperClassNames = classNames(
     cssVarCls,
@@ -545,10 +564,20 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
-  const emptyText =
-    typeof locale?.emptyText !== 'undefined'
-      ? locale.emptyText
-      : renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
+  // ========== empty ==========
+  const mergedEmptyNode = React.useMemo<RcTableProps['emptyText']>(() => {
+    // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
+    // and the table is in a loading state, we only show the loading spinner without the empty placeholder.
+    // For empty arrays (datasource={[]}), both loading and empty states would normally be shown.
+    // discussion https://github.com/ant-design/ant-design/issues/54601#issuecomment-3158091383
+    if (spinProps?.spinning && rawData === EMPTY_LIST) {
+      return null;
+    }
+    if (typeof locale?.emptyText !== 'undefined') {
+      return locale.emptyText;
+    }
+    return renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
+  }, [spinProps?.spinning, rawData, locale?.emptyText, renderEmpty]);
 
   // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;
@@ -576,6 +605,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
+  const { top: topPaginationNode, bottom: bottomPaginationNode } = getPaginationNodes();
+
   return wrapCSSVar(
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
@@ -602,12 +633,17 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={emptyText}
+          emptyText={mergedEmptyNode}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
+          measureRowRender={(measureRow: React.ReactNode) => (
+            <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
+              {measureRow}
+            </ConfigProvider>
+          )}
         />
         {bottomPaginationNode}
       </Spin>

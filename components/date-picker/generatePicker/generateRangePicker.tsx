@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import cls from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
@@ -9,7 +7,7 @@ import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
 import ContextIsolator from '../../_util/ContextIsolator';
-import { useZIndex } from '../../_util/hooks/useZIndex';
+import { useZIndex } from '../../_util/hooks';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -21,13 +19,14 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
+import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
-import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -55,6 +54,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       picker,
       styles,
       classNames,
+      suffixIcon,
       ...restProps
     } = props;
 
@@ -112,14 +112,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
-
-    const suffixNode = (
-      <>
-        {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
-        {hasFeedback && feedbackIcon}
-      </>
-    );
-
+    const mergedSuffixIcon = <SuffixIcon {...{ picker, hasFeedback, feedbackIcon, suffixIcon }} />;
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
@@ -141,7 +134,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           ref={innerRef as any} // Need to modify PickerRef
           placement={placement}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
-          suffixIcon={suffixNode}
+          suffixIcon={mergedSuffixIcon}
           prevIcon={<span className={`${prefixCls}-prev-icon`} />}
           nextIcon={<span className={`${prefixCls}-next-icon`} />}
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}

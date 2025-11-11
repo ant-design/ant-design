@@ -179,7 +179,9 @@ describe('RangePicker', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: rgb(255, 0, 0)');
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+      'background-color: rgb(255, 0, 0)',
+    );
 
     errSpy.mockRestore();
   });

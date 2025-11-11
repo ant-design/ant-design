@@ -33,6 +33,10 @@ export interface CompatibilityProps {
   destroyOnHidden?: boolean;
 }
 
+export interface TabsRef {
+  nativeElement: React.ComponentRef<typeof RcTabs> | null;
+}
+
 export interface TabsProps
   extends CompatibilityProps,
     Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane' | 'items'> {
@@ -52,7 +56,7 @@ export interface TabsProps
   items?: (Omit<Tab, 'destroyInactiveTabPane'> & CompatibilityProps)[];
 }
 
-const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
+const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
   const {
     type,
     className,
@@ -81,6 +85,12 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const tabsRef = React.useRef<TabsRef['nativeElement']>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: tabsRef.current,
+  }));
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -134,6 +144,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   return wrapCSSVar(
     <RcTabs
+      ref={tabsRef}
       direction={direction}
       getPopupContainer={getPopupContainer}
       {...otherProps}
@@ -167,8 +178,11 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       destroyInactiveTabPane={destroyOnHidden ?? destroyInactiveTabPane}
     />,
   );
-};
+});
 
+type CompoundedComponent = typeof InternalTabs & { TabPane: typeof TabPane };
+
+const Tabs = InternalTabs as CompoundedComponent;
 Tabs.TabPane = TabPane;
 
 if (process.env.NODE_ENV !== 'production') {

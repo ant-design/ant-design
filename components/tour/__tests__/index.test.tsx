@@ -363,13 +363,11 @@ describe('Tour', () => {
 
     const { container } = render(<App />);
     // className
-    expect(screen.getByRole('button', { name: 'Next' }).className.includes('customClassName')).toBe(
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Next' })).toHaveClass('customClassName');
     // style
-    expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
-      'rgb(69, 69, 255)',
-    );
+    expect(screen.getByRole('button', { name: 'Next' })).toHaveStyle({
+      backgroundColor: 'rgb(69, 69, 255)',
+    });
     expect(container.firstChild).toMatchSnapshot();
   });
 

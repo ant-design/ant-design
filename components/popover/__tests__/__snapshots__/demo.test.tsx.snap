@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/popover/demo/arrow.tsx correctly 1`] = `
 Array [
@@ -733,7 +733,7 @@ exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
   type="button"
 >
   <span>
-    Hover and click / 悬停并单击
+    Hover and click
   </span>
 </button>
 `;

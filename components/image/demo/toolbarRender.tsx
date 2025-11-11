@@ -64,7 +64,10 @@ const App: React.FC = () => {
         ) => (
           <Space size={12} className="toolbar-wrapper">
             <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
-            <RightOutlined disabled={current === imageList.length - 1} onClick={() => onActive?.(1)} />
+            <RightOutlined
+              disabled={current === imageList.length - 1}
+              onClick={() => onActive?.(1)}
+            />
             <DownloadOutlined onClick={onDownload} />
             <SwapOutlined rotate={90} onClick={onFlipY} />
             <SwapOutlined onClick={onFlipX} />

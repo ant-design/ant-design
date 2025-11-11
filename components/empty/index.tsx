@@ -72,7 +72,7 @@ const Empty: CompoundedComponent = (props) => {
   let imageNode: React.ReactNode = null;
 
   if (typeof mergedImage === 'string') {
-    imageNode = <img alt={alt} src={mergedImage} />;
+    imageNode = <img draggable={false} alt={alt} src={mergedImage} />;
   } else {
     imageNode = mergedImage;
   }

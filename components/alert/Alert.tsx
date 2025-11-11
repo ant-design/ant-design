@@ -10,7 +10,7 @@ import CSSMotion from 'rc-motion';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 import { composeRef } from 'rc-util/lib/ref';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -176,7 +176,9 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
-    if (typeof closable === 'object' && closable.closeIcon) return true;
+    if (typeof closable === 'object' && closable.closeIcon) {
+      return true;
+    }
     if (closeText) {
       return true;
     }
@@ -226,7 +228,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       return contextClosable.closeIcon;
     }
     return contextCloseIcon;
-  }, [closeIcon, closable, closeText, contextCloseIcon]);
+  }, [closeIcon, closable, contextClosable, closeText, contextCloseIcon]);
 
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? contextClosable;

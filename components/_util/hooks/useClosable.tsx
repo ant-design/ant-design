@@ -56,10 +56,7 @@ function useClosableConfig(closableCollection?: ClosableCollection | null) {
       closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
     };
     if (closable && typeof closable === 'object') {
-      closableConfig = {
-        ...closableConfig,
-        ...closable,
-      };
+      closableConfig = { ...closableConfig, ...closable };
     }
     return closableConfig;
   }, [closable, closeIcon]);
@@ -82,7 +79,7 @@ interface FallbackCloseCollection extends ClosableCollection {
 /** Use same object to support `useMemo` optimization */
 const EmptyFallbackCloseCollection: FallbackCloseCollection = {};
 
-export default function useClosable(
+export const useClosable = (
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
@@ -91,7 +88,7 @@ export default function useClosable(
   closeIcon: React.ReactNode,
   closeBtnIsDisabled: boolean,
   ariaOrDataProps?: HTMLAriaDataAttributes,
-] {
+] => {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
@@ -166,5 +163,10 @@ export default function useClosable(
     }
 
     return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
-  }, [mergedClosableConfig, mergedFallbackCloseCollection]);
-}
+  }, [
+    closeBtnIsDisabled,
+    contextLocale.close,
+    mergedClosableConfig,
+    mergedFallbackCloseCollection,
+  ]);
+};

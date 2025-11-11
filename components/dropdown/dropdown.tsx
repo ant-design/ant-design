@@ -4,12 +4,12 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
+import type { MenuProps as RcMenuProps } from 'rc-menu';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
-import type { MenuProps as RcMenuProps } from 'rc-menu';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -234,13 +234,13 @@ const Dropdown: CompoundedComponent = (props) => {
     borderRadius: token.borderRadius,
   });
 
-  const onMenuClick = React.useCallback(() => {
+  const onMenuClick = useEvent(() => {
     if (menu?.selectable && menu?.multiple) {
       return;
     }
     onOpenChange?.(false, { source: 'menu' });
     setOpen(false);
-  }, [menu?.selectable, menu?.multiple]);
+  });
 
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.

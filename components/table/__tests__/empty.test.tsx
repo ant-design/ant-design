@@ -63,9 +63,6 @@ describe('Table', () => {
         },
       });
     });
-    afterAll(() => {
-      domSpy.mockRestore();
-    });
 
     beforeEach(() => {
       jest.useFakeTimers();
@@ -73,6 +70,10 @@ describe('Table', () => {
 
     afterEach(() => {
       jest.useRealTimers();
+    });
+
+    afterAll(() => {
+      domSpy.mockRestore();
     });
 
     it('should work', async () => {
@@ -115,6 +116,14 @@ describe('Table', () => {
 
   it('renders empty table without emptyText when loading', () => {
     const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/54601#issuecomment-3158091383
+  it('should not render empty when loading', () => {
+    const { asFragment } = render(<Table columns={columns} loading />);
+    expect(asFragment().querySelector('.ant-spin-spinning')).toBeTruthy();
+    expect(asFragment().querySelectorAll('*[class^="ant-empty"]').length).toBeFalsy();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

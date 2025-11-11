@@ -40,6 +40,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
     </article>
     <img
       alt="img"
+      draggable="false"
       src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
       style="z-index:10;width:100%;max-width:800px;position:relative"
     />

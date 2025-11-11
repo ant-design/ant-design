@@ -1,9 +1,9 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 import copy from 'copy-to-clipboard';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import userEvent from '@testing-library/user-event';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -328,8 +328,8 @@ describe('Typography', () => {
             ).toBe(0);
           } else {
             expect(
-              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
-            ).not.toContain('anticon-enter');
+              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0],
+            ).not.toHaveClass('anticon-enter');
           }
 
           if (submitFunc) {

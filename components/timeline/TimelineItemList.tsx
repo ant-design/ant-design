@@ -22,13 +22,23 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
 }) => {
   const getPositionCls = (position: string, idx: number) => {
     if (mode === 'alternate') {
-      if (position === 'right') return `${prefixCls}-item-right`;
-      if (position === 'left') return `${prefixCls}-item-left`;
+      if (position === 'right') {
+        return `${prefixCls}-item-right`;
+      }
+      if (position === 'left') {
+        return `${prefixCls}-item-left`;
+      }
       return idx % 2 === 0 ? `${prefixCls}-item-left` : `${prefixCls}-item-right`;
     }
-    if (mode === 'left') return `${prefixCls}-item-left`;
-    if (mode === 'right') return `${prefixCls}-item-right`;
-    if (position === 'right') return `${prefixCls}-item-right`;
+    if (mode === 'left') {
+      return `${prefixCls}-item-left`;
+    }
+    if (mode === 'right') {
+      return `${prefixCls}-item-right`;
+    }
+    if (position === 'right') {
+      return `${prefixCls}-item-right`;
+    }
     return '';
   };
   const mergedItems = [...(items || [])];

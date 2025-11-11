@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table.expand click to expand 1`] = `
 <div
@@ -22,7 +22,6 @@ exports[`Table.expand click to expand 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -82,7 +81,7 @@ exports[`Table.expand click to expand 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-end ant-table-pagination"
       >
         <li
           aria-disabled="true"

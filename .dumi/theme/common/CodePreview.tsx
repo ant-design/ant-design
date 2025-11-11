@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 import React, { useEffect, useMemo } from 'react';
-import { Button, Tabs, Typography } from 'antd';
+import { Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
@@ -109,12 +109,16 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
   const { codeType, setCodeType } = React.use(DemoContext);
-  const sourceCodes = {
-    // omit trailing line break
-    tsx: sourceCode?.trim(),
-    jsx: jsxCode?.trim(),
-    style: styleCode?.trim(),
-  } as Record<'tsx' | 'jsx' | 'style', string>;
+
+  const sourceCodes = useMemo<Record<'tsx' | 'jsx' | 'style', string>>(() => {
+    return {
+      // omit trailing line break
+      tsx: sourceCode?.trim(),
+      jsx: jsxCode?.trim(),
+      style: styleCode?.trim(),
+    };
+  }, [sourceCode, jsxCode, styleCode]);
+
   useEffect(() => {
     const codes = {
       tsx: Prism.highlight(sourceCode, Prism.languages.javascript, 'jsx'),
@@ -153,13 +157,23 @@ const CodePreview: React.FC<CodePreviewProps> = ({
             ) : (
               toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])
             )}
-            <Button type="text" className={styles.copyButton}>
+            {/* button 嵌套 button 会导致水合失败，这里需要用 div 标签，不能用 button */}
+            <div className={styles.copyButton}>
               <Typography.Text className={styles.copyIcon} copyable={{ text: sourceCodes[lang] }} />
-            </Button>
+            </div>
           </div>
         ),
       })),
-    [JSON.stringify(highlightedCodes), styles.code, styles.copyButton, styles.copyIcon],
+    [
+      entryName,
+      error,
+      highlightedCodes,
+      langList,
+      sourceCodes,
+      styles.code,
+      styles.copyButton,
+      styles.copyIcon,
+    ],
   );
 
   if (!langList.length) {
