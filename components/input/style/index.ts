@@ -459,6 +459,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
   return {
     [affixCls]: {
+      ...resetComponent(token),
       ...genBasicInputStyle(token),
       display: 'inline-flex',
 

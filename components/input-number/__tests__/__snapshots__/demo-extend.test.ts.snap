@@ -3374,7 +3374,9 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
 exports[`renders components/input-number/demo/out-of-range.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input-number/demo/presuffix.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-input-number-affix-wrapper ant-input-number-outlined"
     style="width: 100%;"
@@ -3457,11 +3459,9 @@ Array [
         />
       </div>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item"
@@ -3569,9 +3569,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-affix-wrapper-without-controls ant-input-number-outlined"
     style="width: 100%;"
@@ -3655,9 +3653,7 @@ Array [
         />
       </div>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-input-number-affix-wrapper ant-input-number-outlined"
     style="width: 100%;"
@@ -3740,8 +3736,8 @@ Array [
     >
       RMB
     </span>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/input-number/demo/presuffix.tsx extend context correctly 2`] = `[]`;

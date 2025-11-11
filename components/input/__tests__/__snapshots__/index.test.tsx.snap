@@ -446,11 +446,7 @@ exports[`Input rtl render component should be rendered correctly in RTL directio
 />
 `;
 
-exports[`Input rtl render component should be rendered correctly in RTL direction 2`] = `
-<span
-  class="ant-input-group ant-input-group-rtl"
-/>
-`;
+exports[`Input rtl render component should be rendered correctly in RTL direction 2`] = `null`;
 
 exports[`Input should support maxLength 1`] = `
 <input
