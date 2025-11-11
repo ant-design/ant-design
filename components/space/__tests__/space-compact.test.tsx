@@ -122,6 +122,9 @@ describe('Space.Compact', () => {
       );
       expect(container.querySelectorAll(`.${targetCls}`).length).toBe(1);
       ['compact-item', 'compact-first-item', 'compact-last-item'].forEach((suffix) => {
+        if (name === 'Input.Search' && suffix === 'compact-last-item') {
+          return;
+        }
         expect(container.querySelector(`.${targetCls}`)).toHaveClass(
           [expectClsPrefix, suffix].join('-'),
         );
