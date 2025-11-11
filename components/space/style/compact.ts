@@ -1,4 +1,3 @@
-import { genCompactItemStyle } from '../../style/compact-item';
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
@@ -32,62 +31,10 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
   };
 };
 
-const genSpaceCompactAddonStyle: GenerateStyle<SpaceToken> = (token) => {
-  const {
-    componentCls,
-    borderRadius,
-    paddingSM,
-    colorBorder,
-    paddingXS,
-    fontSizeLG,
-    fontSizeSM,
-    borderRadiusLG,
-    borderRadiusSM,
-    colorBgContainerDisabled,
-    lineWidth,
-  } = token;
-
-  const addonCls = `${componentCls}-addon`;
-
-  return {
-    [componentCls]: [
-      {
-        [addonCls]: {
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: 0,
-          paddingInline: paddingSM,
-          margin: 0,
-          background: colorBgContainerDisabled,
-          borderWidth: lineWidth,
-          borderStyle: 'solid',
-          borderColor: colorBorder,
-          borderRadius,
-
-          '&-large': {
-            fontSize: fontSizeLG,
-            borderRadius: borderRadiusLG,
-          },
-          '&-small': {
-            paddingInline: paddingXS,
-            borderRadius: borderRadiusSM,
-            fontSize: fontSizeSM,
-          },
-        },
-      },
-
-      genCompactItemStyle(token, {
-        focus: false,
-        componentCls: addonCls,
-      }),
-    ],
-  };
-};
-
 // ============================== Export ==============================
 export default genStyleHooks(
   ['Space', 'Compact'],
-  (token) => [genSpaceCompactStyle(token), genSpaceCompactAddonStyle(token)],
+  (token) => [genSpaceCompactStyle(token)],
   () => ({}),
   {
     // Space component don't apply extra font style

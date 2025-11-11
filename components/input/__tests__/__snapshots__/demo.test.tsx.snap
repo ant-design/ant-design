@@ -1674,7 +1674,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item"
       >
         https://
       </div>
@@ -1857,7 +1857,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item ant-space-compact-addon-large"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item ant-space-addon-large"
       >
         <span
           aria-label="search"
@@ -4782,7 +4782,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item"
       >
         https://
       </div>
