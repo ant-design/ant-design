@@ -78,7 +78,7 @@ const localeValues: Locale = {
   Text: {
     edit: '수정',
     copy: '복사',
-    copied: '복사 됨',
+    copied: '복사됨',
     expand: '확장',
   },
   Form: {
