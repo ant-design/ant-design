@@ -71,13 +71,4 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(
-  ['Space', 'Addon'],
-  (token) => [genSpaceAddonStyle(token)],
-  () => ({}),
-  {
-    // Space component don't apply extra font style
-    // https://github.com/ant-design/ant-design/issues/40315
-    resetStyle: false,
-  },
-);
+export default genStyleHooks(['Space', 'Addon'], (token) => [genSpaceAddonStyle(token)]);
