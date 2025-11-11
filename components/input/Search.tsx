@@ -13,6 +13,7 @@ import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
+import useStyle from './style/search';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -59,6 +60,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
   const size = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
@@ -148,11 +150,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const cls = classNames(
     prefixCls,
+    cssVarCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-with-button`]: !!enterButton,
     },
+    hashId,
     className,
   );
 
@@ -188,11 +192,11 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     Object.keys(rootProps) as any[],
   );
 
-  return (
-    <Space.Compact className={cls} style={style} {...rootProps} hidden={hidden} block>
+  return wrapCSSVar(
+    <Space.Compact className={cls} style={style} {...rootProps} hidden={hidden}>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
-    </Space.Compact>
+    </Space.Compact>,
   );
 });
 
