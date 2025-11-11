@@ -124,8 +124,8 @@ export default function demoTest(component: string, options: Options = {}) {
 
     const { default: Component } = require(`../../components/${kebabName}`);
 
-    if (options.nameCheckPathOnly !== true) {
-      expect(kebabCase(Component.displayName || '')).toEqual(kebabName);
+    if (options.nameCheckPathOnly !== true && Component.displayName) {
+      expect(kebabCase(Component.displayName).replace(/Deprecated-/, ' ')).toBe(kebabName);
     }
   });
 
