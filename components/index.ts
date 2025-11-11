@@ -12,6 +12,8 @@ export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
+export { default as BackTop } from './back-top';
+export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps } from './badge';
 export { default as Breadcrumb } from './breadcrumb';
