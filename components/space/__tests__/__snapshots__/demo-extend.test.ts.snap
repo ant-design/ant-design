@@ -8790,7 +8790,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <div
-        class="ant-space-compact-addon ant-space-compact-addon-compact-item"
+        class="ant-space-addon ant-space-addon-compact-item"
       >
         $
       </div>
@@ -8945,7 +8945,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-last-item"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item"
       >
         $
       </div>
@@ -9369,7 +9369,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <div
-        class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-last-item"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item"
       >
         $
       </div>

@@ -1032,7 +1032,7 @@ Array [
                             class="ant-space-compact"
                           >
                             <div
-                              class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-first-item"
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item"
                             >
                               http://
                             </div>
@@ -1046,7 +1046,7 @@ Array [
                               value=""
                             />
                             <div
-                              class="ant-space-compact-addon ant-space-compact-addon-compact-item ant-space-compact-addon-compact-last-item"
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item"
                             >
                               .com
                             </div>
