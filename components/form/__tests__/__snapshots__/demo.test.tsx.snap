@@ -7993,7 +7993,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-space-compact"
+              class="ant-space-compact ant-space-compact-block"
               id="register_phone"
             >
               <div
@@ -8101,7 +8101,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-space-compact"
+              class="ant-space-compact ant-space-compact-block"
               id="register_donation"
             >
               <div
