@@ -122,7 +122,7 @@ export default function demoTest(component: string, options: Options = {}) {
 
     // Path should exist
 
-    const { default: Component } = require(`../../components/${kebabName}`);
+    const Component: React.ComponentType<any> = require(`../../components/${kebabName}`).default;
 
     if (options.nameCheckPathOnly !== true && Component.displayName) {
       expect(kebabCase(Component.displayName).replace(/^deprecated-/, '')).toBe(kebabName);
