@@ -24,6 +24,7 @@ describe('Button', () => {
   rtlTest(Button);
   rtlTest(() => <Button size="large" />);
   rtlTest(() => <Button size="small" />);
+
   rtlTest(Button.Group);
   rtlTest(() => <Button.Group size="large" />);
   rtlTest(() => <Button.Group size="small" />);
