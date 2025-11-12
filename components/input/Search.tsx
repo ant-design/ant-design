@@ -10,7 +10,6 @@ import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
-import useStyle from './style/search';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -55,7 +54,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
   const size = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
@@ -155,13 +153,11 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const cls = classNames(
     prefixCls,
-    cssVarCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-with-button`]: !!enterButton,
     },
-    hashId,
     className,
   );
 

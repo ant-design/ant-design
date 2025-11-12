@@ -2519,8 +2519,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
 <div
   class="site-input-group-wrapper"
 >
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-lg"
+  <span
+    class="ant-input-group ant-input-group-lg"
   >
     <div
       class="ant-row"
@@ -2531,7 +2531,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         style="padding-left:4px;padding-right:4px"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
+          class="ant-input ant-input-outlined"
           type="text"
           value="0571"
         />
@@ -2541,62 +2541,62 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         style="padding-left:4px;padding-right:4px"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
+          class="ant-input ant-input-outlined"
           type="text"
           value="26888888"
         />
       </div>
     </div>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined"
       style="width:20%"
       type="text"
       value="0571"
     />
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input ant-input-outlined"
       style="width:30%"
       type="text"
       value="26888888"
     />
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined"
       style="width:calc(100% - 200px)"
       type="text"
       value="https://ant.design"
     />
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
         Submit
       </span>
     </button>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined"
       style="width:calc(100% - 200px)"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2623,13 +2623,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </button>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2692,18 +2692,18 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input ant-input-outlined"
       style="width:50%"
       type="text"
       value="Xihu District, Hangzhou"
     />
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width:40%"
     >
       <span
@@ -2783,7 +2783,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width:40%"
     >
       <span
@@ -2862,13 +2862,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </span>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2931,13 +2931,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item"
+      class="ant-input ant-input-outlined"
       style="width:50%"
       type="text"
       value="input content"
     />
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
+      class="ant-input-number-affix-wrapper ant-input-number-outlined"
     >
       <span
         class="ant-input-number-prefix"
@@ -3018,19 +3018,19 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined"
       style="width:50%"
       type="text"
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
+      class="ant-picker ant-picker-outlined"
       style="width:50%"
     >
       <div
@@ -3068,19 +3068,19 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </div>
     </div>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-outlined"
       style="width:30%"
       type="text"
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
+      class="ant-picker ant-picker-range ant-picker-outlined"
       style="width:70%"
     >
       <div
@@ -3163,13 +3163,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3232,7 +3232,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3294,13 +3294,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3363,14 +3363,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <input
-      class="ant-input ant-input-outlined ant-input-compact-item"
+      class="ant-input ant-input-outlined"
       placeholder="Minimum"
       style="width:100px;text-align:center"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined site-input-split ant-input-compact-item"
+      class="ant-input ant-input-disabled ant-input-outlined site-input-split"
       disabled=""
       placeholder="~"
       style="width:30px;border-inline-start:0;border-inline-end:0;pointer-events:none"
@@ -3378,19 +3378,19 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input ant-input-outlined site-input-right ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input ant-input-outlined site-input-right"
       placeholder="Maximum"
       style="width:100px;text-align:center"
       type="text"
       value=""
     />
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width:30%"
     >
       <div
@@ -3454,7 +3454,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
       style="width:70%"
     >
       <div
@@ -3487,13 +3487,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </div>
     </div>
-  </div>
+  </span>
   <br />
-  <div
-    class="ant-space-compact ant-input-group ant-input-group-compact"
+  <span
+    class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width:30%"
     >
       <div
@@ -3557,7 +3557,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width:70%"
     >
       <div
@@ -3619,7 +3619,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </span>
 </div>
 `;
 

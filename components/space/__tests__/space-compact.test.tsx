@@ -98,6 +98,12 @@ describe('Space.Compact', () => {
       expectClsPrefix: 'ant-input',
     },
     {
+      name: 'Input.Search',
+      component: Input.Search,
+      targetCls: 'ant-input-search',
+      expectClsPrefix: 'ant-input',
+    },
+    {
       name: 'Select',
       component: Select,
       targetCls: 'ant-select',
