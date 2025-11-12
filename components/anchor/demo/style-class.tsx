@@ -5,7 +5,7 @@ import type { AnchorProps } from 'antd';
 const classNamesObject: AnchorProps['classNames'] = {
   root: 'demo-anchor-root',
   item: 'demo-anchor-item',
-  title: 'demo-anchor-title',
+  itemTitle: 'demo-anchor-title',
   indicator: 'demo-anchor-indicator',
 };
 
