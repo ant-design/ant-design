@@ -10,7 +10,7 @@ export interface SpaceCompactCellProps extends React.HTMLAttributes<HTMLDivEleme
   prefixCls?: string;
 }
 
-const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>((props, ref) => {
+const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>((props, ref) => {
   const { className, children, style, prefixCls: customizePrefixCls, ...restProps } = props;
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
@@ -36,4 +36,4 @@ const SpaceCompactCell = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>
   );
 });
 
-export default SpaceCompactCell;
+export default SpaceAddon;

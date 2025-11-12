@@ -740,52 +740,60 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
       <span
         class="ant-select-selection-search"
       >
-        <div
-          class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-large ant-select-selection-search-input"
+        <span
+          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-select-selection-search-input"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
-            id="rc_select_TEST_OR_SSR"
-            placeholder="input here"
-            role="combobox"
-            type="search"
-            value=""
-          />
-          <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
-            type="button"
+          <span
+            class="ant-input-wrapper ant-input-group"
           >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-input ant-input-lg ant-input-outlined"
+              id="rc_select_TEST_OR_SSR"
+              placeholder="input here"
+              role="combobox"
+              type="search"
+              value=""
+            />
             <span
-              class="ant-btn-icon"
+              class="ant-input-group-addon"
             >
-              <span
-                aria-label="search"
-                class="anticon anticon-search"
-                role="img"
+              <button
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="search"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  class="ant-btn-icon"
                 >
-                  <path
-                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  />
-                </svg>
-              </span>
+                  <span
+                    aria-label="search"
+                    class="anticon anticon-search"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="search"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
             </span>
-          </button>
-        </div>
+          </span>
+        </span>
       </span>
       <span
         class="ant-select-selection-placeholder"
@@ -1088,7 +1096,11 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
@@ -2061,51 +2073,59 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     <span
                       class="ant-select-selection-search"
                     >
-                      <div
-                        class="ant-space-compact ant-space-compact-block ant-input-search ant-select-selection-search-input"
+                      <span
+                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
-                          id="rc_select_TEST_OR_SSR"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                        <button
-                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
-                          type="button"
+                        <span
+                          class="ant-input-wrapper ant-input-group"
                         >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-input ant-input-outlined"
+                            id="rc_select_TEST_OR_SSR"
+                            role="combobox"
+                            type="search"
+                            value=""
+                          />
                           <span
-                            class="ant-btn-icon"
+                            class="ant-input-group-addon"
                           >
-                            <span
-                              aria-label="search"
-                              class="anticon anticon-search"
-                              role="img"
+                            <button
+                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+                              type="button"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="search"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                class="ant-btn-icon"
                               >
-                                <path
-                                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                />
-                              </svg>
-                            </span>
+                                <span
+                                  aria-label="search"
+                                  class="anticon anticon-search"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="search"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </button>
                           </span>
-                        </button>
-                      </div>
+                        </span>
+                      </span>
                     </span>
                     <span
                       class="ant-select-selection-placeholder"
@@ -2293,51 +2313,59 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     <span
                       class="ant-select-selection-search"
                     >
-                      <div
-                        class="ant-space-compact ant-space-compact-block ant-input-search ant-select-selection-search-input"
+                      <span
+                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
-                          id="rc_select_TEST_OR_SSR"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                        <button
-                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
-                          type="button"
+                        <span
+                          class="ant-input-wrapper ant-input-group"
                         >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-input ant-input-outlined"
+                            id="rc_select_TEST_OR_SSR"
+                            role="combobox"
+                            type="search"
+                            value=""
+                          />
                           <span
-                            class="ant-btn-icon"
+                            class="ant-input-group-addon"
                           >
-                            <span
-                              aria-label="search"
-                              class="anticon anticon-search"
-                              role="img"
+                            <button
+                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+                              type="button"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="search"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                class="ant-btn-icon"
                               >
-                                <path
-                                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                />
-                              </svg>
-                            </span>
+                                <span
+                                  aria-label="search"
+                                  class="anticon anticon-search"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="search"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </button>
                           </span>
-                        </button>
-                      </div>
+                        </span>
+                      </span>
                     </span>
                     <span
                       class="ant-select-selection-placeholder"
@@ -2400,6 +2428,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
@@ -2883,52 +2912,60 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
       <span
         class="ant-select-selection-search"
       >
-        <div
-          class="ant-space-compact ant-space-compact-block ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+        <span
+          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
-            id="rc_select_TEST_OR_SSR"
-            placeholder="input here"
-            role="combobox"
-            type="search"
-            value=""
-          />
-          <button
-            class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
-            type="button"
+          <span
+            class="ant-input-wrapper ant-input-group"
           >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-input ant-input-lg ant-input-outlined"
+              id="rc_select_TEST_OR_SSR"
+              placeholder="input here"
+              role="combobox"
+              type="search"
+              value=""
+            />
             <span
-              class="ant-btn-icon"
+              class="ant-input-group-addon"
             >
-              <span
-                aria-label="search"
-                class="anticon anticon-search"
-                role="img"
+              <button
+                class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="search"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  class="ant-btn-icon"
                 >
-                  <path
-                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  />
-                </svg>
-              </span>
+                  <span
+                    aria-label="search"
+                    class="anticon anticon-search"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="search"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
             </span>
-          </button>
-        </div>
+          </span>
+        </span>
       </span>
       <span
         class="ant-select-selection-placeholder"
@@ -2950,7 +2987,11 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 1`] = `
 <div
