@@ -7052,7 +7052,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-space-compact ant-input-group ant-input-group-compact"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
       style="width: 40%;"
     >
       <span
@@ -7132,7 +7132,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-last-item"
       style="width: 40%;"
     >
       <span
@@ -7211,7 +7211,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <br />
   <div
     class="ant-space-compact ant-input-group ant-input-group-compact"
