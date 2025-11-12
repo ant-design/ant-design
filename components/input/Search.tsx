@@ -55,7 +55,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
   const size = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
