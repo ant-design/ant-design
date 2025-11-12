@@ -737,7 +737,7 @@ exports[`renders components/anchor/demo/style-class.tsx extend context correctly
               class="ant-anchor-link demo-anchor-item ant-anchor-link-active"
             >
               <a
-                class="ant-anchor-link-title demo-anchor-title ant-anchor-link-title-active"
+                class="ant-anchor-link-title ant-anchor-link-title-active"
                 href="#part-1"
                 title="Part 1"
               >
@@ -748,7 +748,7 @@ exports[`renders components/anchor/demo/style-class.tsx extend context correctly
               class="ant-anchor-link demo-anchor-item"
             >
               <a
-                class="ant-anchor-link-title demo-anchor-title"
+                class="ant-anchor-link-title"
                 href="#part-2"
                 title="Part 2"
               >
@@ -759,7 +759,7 @@ exports[`renders components/anchor/demo/style-class.tsx extend context correctly
               class="ant-anchor-link demo-anchor-item"
             >
               <a
-                class="ant-anchor-link-title demo-anchor-title"
+                class="ant-anchor-link-title"
                 href="#part-3"
                 title="Part 3"
               >

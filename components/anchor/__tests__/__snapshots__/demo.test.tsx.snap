@@ -709,7 +709,7 @@ exports[`renders components/anchor/demo/style-class.tsx correctly 1`] = `
               class="ant-anchor-link demo-anchor-item"
             >
               <a
-                class="ant-anchor-link-title demo-anchor-title"
+                class="ant-anchor-link-title"
                 href="#part-1"
                 title="Part 1"
               >
@@ -720,7 +720,7 @@ exports[`renders components/anchor/demo/style-class.tsx correctly 1`] = `
               class="ant-anchor-link demo-anchor-item"
             >
               <a
-                class="ant-anchor-link-title demo-anchor-title"
+                class="ant-anchor-link-title"
                 href="#part-2"
                 title="Part 2"
               >
@@ -731,7 +731,7 @@ exports[`renders components/anchor/demo/style-class.tsx correctly 1`] = `
               class="ant-anchor-link demo-anchor-item"
             >
               <a
-                class="ant-anchor-link-title demo-anchor-title"
+                class="ant-anchor-link-title"
                 href="#part-3"
                 title="Part 3"
               >
