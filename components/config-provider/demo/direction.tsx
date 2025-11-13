@@ -302,7 +302,11 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <br />
           <br />
           <div style={{ marginBottom: 16 }}>
-            <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+            <Space.Compact>
+              {selectBefore}
+              <Input defaultValue="mysite" />
+              {selectAfter}
+            </Space.Compact>
           </div>
           <br />
           <Row>
