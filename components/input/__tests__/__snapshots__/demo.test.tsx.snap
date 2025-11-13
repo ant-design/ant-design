@@ -1585,7 +1585,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
         class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
-          class="ant-input-wrapper ant-input-group"
+          class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         >
           <span
             class="ant-input-affix-wrapper ant-input-outlined"
@@ -1597,70 +1597,81 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
               value=""
             />
             <span
-              class="ant-input-suffix"
+              class="ant-input-group-addon"
             >
-              <button
-                class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
-                type="button"
+              https://
+            </span>
+            <span
+              class="ant-input-affix-wrapper ant-input-outlined"
+            >
+              <input
+                class="ant-input"
+                placeholder="input search text"
+                type="search"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
               >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle"
-                  role="img"
+                <button
+                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                  tabindex="-1"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
           </span>
-          <span
-            class="ant-input-group-addon"
-          >
-            <button
-              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="search"
-                  class="anticon anticon-search"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="search"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
         </span>
-      </span>
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -2411,8 +2422,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
 <div
   class="site-input-group-wrapper"
 >
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-lg"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-lg"
   >
     <div
       class="ant-row css-var-test-id"
@@ -2423,7 +2434,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         style="padding-inline:4px"
       >
         <input
-          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
           type="text"
           value="0571"
         />
@@ -2433,62 +2444,62 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         style="padding-inline:4px"
       >
         <input
-          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
           type="text"
           value="26888888"
         />
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       style="width:20%"
       type="text"
       value="0571"
     />
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       style="width:30%"
       type="text"
       value="26888888"
     />
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       style="width:calc(100% - 200px)"
       type="text"
       value="https://ant.design"
     />
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
         Submit
       </span>
     </button>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       style="width:calc(100% - 200px)"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
       aria-describedby="test-id"
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
@@ -2515,13 +2526,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </button>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-content"
@@ -2573,183 +2584,167 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       style="width:50%"
       type="text"
       value="Xihu District, Hangzhou"
     />
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
-  >
-    <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
-      style="width:40%"
-    >
-      <span
-        class="ant-input-wrapper ant-input-group"
-      >
-        <span
-          class="ant-input-affix-wrapper ant-input-outlined"
-        >
-          <input
-            class="ant-input"
-            type="search"
-            value="0571"
-          />
-          <span
-            class="ant-input-suffix"
-          >
-            <button
-              class="ant-input-clear-icon"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </span>
-        </span>
-        <span
-          class="ant-input-group-addon"
-        >
-          <button
-            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-            type="button"
-          >
-            <span
-              class="ant-btn-icon"
-            >
-              <span
-                aria-label="search"
-                class="anticon anticon-search"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="search"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </button>
-        </span>
-      </span>
-    </span>
-    <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
-      style="width:40%"
-    >
-      <span
-        class="ant-input-wrapper ant-input-group"
-      >
-        <span
-          class="ant-input-affix-wrapper ant-input-outlined"
-        >
-          <input
-            class="ant-input"
-            type="search"
-            value="26888888"
-          />
-          <span
-            class="ant-input-suffix"
-          >
-            <button
-              class="ant-input-clear-icon"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </span>
-        </span>
-        <span
-          class="ant-input-group-addon"
-        >
-          <button
-            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-            type="button"
-          >
-            <span
-              class="ant-btn-icon"
-            >
-              <span
-                aria-label="search"
-                class="anticon anticon-search"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="search"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </button>
-        </span>
-      </span>
-    </span>
-  </span>
-  <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+      style="width:40%"
+    >
+      <span
+        class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      >
+        <input
+          class="ant-input"
+          type="search"
+          value="0571"
+        />
+        <span
+          class="ant-input-suffix"
+        >
+          <button
+            class="ant-input-clear-icon"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+      style="width:40%"
+    >
+      <span
+        class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
+      >
+        <input
+          class="ant-input"
+          type="search"
+          value="26888888"
+        />
+        <span
+          class="ant-input-suffix"
+        >
+          <button
+            class="ant-input-clear-icon"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-content"
@@ -2801,13 +2796,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
       style="width:50%"
       type="text"
       value="input content"
     />
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
     >
       <span
         class="ant-input-number-prefix"
@@ -2888,19 +2883,19 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       style="width:50%"
       type="text"
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
+      class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item css-var-test-id ant-picker-css-var"
       style="width:50%"
     >
       <div
@@ -2938,19 +2933,19 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       style="width:30%"
       type="text"
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item css-var-test-id ant-picker-css-var"
       style="width:70%"
     >
       <div
@@ -3033,13 +3028,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </span>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-content"
@@ -3091,7 +3086,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-content"
@@ -3142,13 +3137,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-content"
@@ -3200,14 +3195,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
       placeholder="Minimum"
       style="width:100px;text-align:center"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var ant-input-compact-item"
       disabled=""
       placeholder="~"
       style="width:30px;border-inline-start:0;border-inline-end:0;pointer-events:none"
@@ -3215,19 +3210,19 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input ant-input-outlined site-input-right css-var-test-id ant-input-css-var"
+      class="ant-input ant-input-outlined site-input-right css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       placeholder="Maximum"
       style="width:100px;text-align:center"
       type="text"
       value=""
     />
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width:30%"
     >
       <div
@@ -3280,7 +3275,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:70%"
     >
       <div
@@ -3307,13 +3302,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         />
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-input-group css-var-test-id ant-input-group-compact"
+  <div
+    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width:30%"
     >
       <div
@@ -3366,7 +3361,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
       style="width:70%"
     >
       <div
@@ -3417,7 +3412,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </span>
       </div>
     </div>
-  </span>
+  </div>
 </div>
 `;
 
@@ -4480,24 +4475,68 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+      style="width:200px"
+    >
+      <input
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+        placeholder="input search text"
+        type="search"
+        value=""
+      />
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
       style="width:200px"
     >
       <span
-        class="ant-input-wrapper ant-input-group"
+        class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <input
-          class="ant-input ant-input-outlined"
+          class="ant-input"
           placeholder="input search text"
           type="search"
           value=""
         />
         <span
-          class="ant-input-group-addon"
+          class="ant-input-suffix"
         >
           <button
-            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+            class="ant-input-clear-icon ant-input-clear-icon-hidden"
+            tabindex="-1"
             type="button"
           >
             <span
@@ -4845,189 +4884,419 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
               aria-label="audio"
               class="anticon anticon-audio"
               role="img"
-              style="font-size:16px;color:#1677ff"
             >
               <svg
                 aria-hidden="true"
-                data-icon="audio"
+                data-icon="close-circle"
                 fill="currentColor"
+                fill-rule="evenodd"
                 focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M842 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 140.3-113.7 254-254 254S258 594.3 258 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 168.7 126.6 307.9 290 327.6V884H326.7c-13.7 0-24.7 14.3-24.7 32v36c0 4.4 2.8 8 6.2 8h407.6c3.4 0 6.2-3.6 6.2-8v-36c0-17.7-11-32-24.7-32H548V782.1c165.3-18 294-158 294-328.1zM512 624c93.9 0 170-75.2 170-168V232c0-92.8-76.1-168-170-168s-170 75.2-170 168v224c0 92.8 76.1 168 170 168zm-94-392c0-50.6 41.9-92 94-92s94 41.4 94 92v224c0 50.6-41.9 92-94 92s-94-41.4-94-92V232z"
+                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                 />
               </svg>
-            </span>
-          </span>
-        </span>
-        <span
-          class="ant-input-group-addon"
-        >
-          <button
-            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
-            type="button"
-          >
-            <span>
-              Search
             </span>
           </button>
         </span>
       </span>
-    </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+      style="width:304px"
+    >
+      <span
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <span
+            class="ant-input-group-addon"
+          >
+            https://
+          </span>
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined"
+          >
+            <input
+              class="ant-input"
+              placeholder="input search text"
+              type="search"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <button
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </span>
+      </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-with-button"
+    >
+      <input
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+        placeholder="input search text"
+        type="search"
+        value=""
+      />
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button"
+    >
+      <span
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          placeholder="input search text"
+          type="search"
+          value=""
+        />
+        <span
+          class="ant-input-suffix"
+        >
+          <button
+            class="ant-input-clear-icon ant-input-clear-icon-hidden"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span>
+          Search
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button"
+    >
+      <span
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          placeholder="input search text"
+          type="search"
+          value=""
+        />
+        <span
+          class="ant-input-suffix"
+        >
+          <span
+            aria-label="audio"
+            class="anticon anticon-audio"
+            role="img"
+            style="font-size:16px;color:#1677ff"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="audio"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M842 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 140.3-113.7 254-254 254S258 594.3 258 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 168.7 126.6 307.9 290 327.6V884H326.7c-13.7 0-24.7 14.3-24.7 32v36c0 4.4 2.8 8 6.2 8h407.6c3.4 0 6.2-3.6 6.2-8v-36c0-17.7-11-32-24.7-32H548V782.1c165.3-18 294-158 294-328.1zM512 624c93.9 0 170-75.2 170-168V232c0-92.8-76.1-168-170-168s-170 75.2-170 168v224c0 92.8 76.1 168 170 168zm-94-392c0-50.6 41.9-92 94-92s94 41.4 94 92v224c0 50.6-41.9 92-94 92s-94-41.4-94-92V232z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        type="button"
+      >
+        <span>
+          Search
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
 
 exports[`renders components/input/demo/search-input-loading.tsx correctly 1`] = `
 Array [
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
+  <div
+    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
   >
-    <span
-      class="ant-input-wrapper ant-input-group"
+    <input
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      placeholder="input search loading default"
+      type="search"
+      value=""
+    />
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+      type="button"
     >
-      <input
-        class="ant-input ant-input-outlined"
-        placeholder="input search loading default"
-        type="search"
-        value=""
-      />
       <span
-        class="ant-input-group-addon"
+        class="ant-btn-icon ant-btn-loading-icon"
       >
-        <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
-          type="button"
+        <span
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin"
+          role="img"
         >
-          <span
-            class="ant-btn-icon ant-btn-loading-icon"
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
           >
-            <span
-              aria-label="loading"
-              class="anticon anticon-loading anticon-spin"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="loading"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-  </span>,
+    </button>
+  </div>,
   <br />,
   <br />,
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button css-var-test-id ant-input-css-var"
+  <div
+    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-with-button"
   >
-    <span
-      class="ant-input-wrapper ant-input-group"
+    <input
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      placeholder="input search loading with enterButton"
+      type="search"
+      value=""
+    />
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+      type="button"
     >
-      <input
-        class="ant-input ant-input-outlined"
-        placeholder="input search loading with enterButton"
-        type="search"
-        value=""
-      />
       <span
-        class="ant-input-group-addon"
+        class="ant-btn-icon ant-btn-loading-icon"
       >
-        <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
-          type="button"
+        <span
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin"
+          role="img"
         >
-          <span
-            class="ant-btn-icon ant-btn-loading-icon"
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
           >
-            <span
-              aria-label="loading"
-              class="anticon anticon-loading anticon-spin"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="loading"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-  </span>,
+    </button>
+  </div>,
   <br />,
   <br />,
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button css-var-test-id ant-input-css-var"
+  <div
+    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button"
   >
-    <span
-      class="ant-input-wrapper ant-input-group"
+    <input
+      class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      placeholder="input search text"
+      type="search"
+      value=""
+    />
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+      type="button"
     >
-      <input
-        class="ant-input ant-input-lg ant-input-outlined"
-        placeholder="input search text"
-        type="search"
-        value=""
-      />
       <span
-        class="ant-input-group-addon"
+        class="ant-btn-icon ant-btn-loading-icon"
       >
-        <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-loading ant-input-search-button"
-          type="button"
+        <span
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin"
+          role="img"
         >
-          <span
-            class="ant-btn-icon ant-btn-loading-icon"
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
           >
-            <span
-              aria-label="loading"
-              class="anticon anticon-loading anticon-spin"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="loading"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span>
-            Search
-          </span>
-        </button>
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-  </span>,
+      <span>
+        Search
+      </span>
+    </button>
+  </div>,
 ]
 `;
 
@@ -5500,57 +5769,49 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       />
     </span>
   </div>
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large css-var-test-id ant-input-css-var"
+  <div
+    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large"
     style="color:#4DA8DA"
   >
-    <span
-      class="ant-input-wrapper ant-input-group"
+    <input
+      class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      name="search-fn"
+      placeholder="Search"
+      style="color:#4DA8DA;border-color:#4DA8DA"
+      type="search"
+      value=""
+    />
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+      style="color:#4DA8DA;border-color:#4DA8DA"
+      type="button"
     >
-      <input
-        class="ant-input ant-input-lg ant-input-outlined"
-        name="search-fn"
-        placeholder="Search"
-        style="color:#4DA8DA;border-color:#4DA8DA"
-        type="search"
-        value=""
-      />
       <span
-        class="ant-input-group-addon"
+        class="ant-btn-icon"
+        style="color:#4DA8DA"
       >
-        <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
-          style="color:#4DA8DA;border-color:#4DA8DA"
-          type="button"
+        <span
+          aria-label="search"
+          class="anticon anticon-search"
+          role="img"
         >
-          <span
-            class="ant-btn-icon"
-            style="color:#4DA8DA"
+          <svg
+            aria-hidden="true"
+            data-icon="search"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-  </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -5690,51 +5951,43 @@ exports[`renders components/input/demo/variant.tsx correctly 1`] = `
     type="text"
     value=""
   />
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-search css-var-test-id ant-input-css-var"
+  <div
+    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
   >
-    <span
-      class="ant-input-wrapper ant-input-group"
+    <input
+      class="ant-input ant-input-filled css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      placeholder="Filled"
+      type="search"
+      value=""
+    />
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+      type="button"
     >
-      <input
-        class="ant-input ant-input-filled"
-        placeholder="Filled"
-        type="search"
-        value=""
-      />
       <span
-        class="ant-input-group-addon"
+        class="ant-btn-icon"
       >
-        <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-icon-only ant-input-search-button"
-          type="button"
+        <span
+          aria-label="search"
+          class="anticon anticon-search"
+          role="img"
         >
-          <span
-            class="ant-btn-icon"
+          <svg
+            aria-hidden="true"
+            data-icon="search"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <span
-              aria-label="search"
-              class="anticon anticon-search"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="search"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-  </span>
+    </button>
+  </div>
 </div>
 `;
