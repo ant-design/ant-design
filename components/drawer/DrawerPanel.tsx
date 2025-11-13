@@ -21,7 +21,7 @@ export interface DrawerStyles extends NonNullable<RCDrawerProps['styles']> {
 
 export interface DrawerPanelProps {
   prefixCls: string;
-
+  ariaId?: string;
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
@@ -62,6 +62,7 @@ export interface DrawerPanelProps {
 const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   const {
     prefixCls,
+    ariaId,
     title,
     footer,
     extra,
@@ -128,7 +129,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       >
         <div className={`${prefixCls}-header-title`}>
           {closablePlacement === 'start' && mergedCloseIcon}
-          {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {title && (
+            <div className={`${prefixCls}-title`} id={ariaId}>
+              {title}
+            </div>
+          )}
         </div>
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
         {closablePlacement === 'end' && mergedCloseIcon}

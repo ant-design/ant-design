@@ -379,6 +379,7 @@ exports[`Drawer have a title 1`] = `
     style="width: 378px;"
   >
     <div
+      aria-labelledby="test-id"
       aria-modal="true"
       class="ant-drawer-content"
       role="dialog"
@@ -417,6 +418,7 @@ exports[`Drawer have a title 1`] = `
           </button>
           <div
             class="ant-drawer-title"
+            id="test-id"
           >
             Test Title
           </div>
