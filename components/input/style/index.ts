@@ -348,7 +348,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       [`${componentCls}-group-wrapper + ${componentCls}-group-wrapper`]: {
         marginInlineStart: token.calc(token.lineWidth).mul(-1).equal(),
         [`${componentCls}-affix-wrapper`]: {
-          borderRadius: 0,
+          // borderRadius: 0,
         },
       },
 
@@ -469,7 +469,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       display: 'inline-flex',
 
       [`&:not(${componentCls}-disabled):hover`]: {
-        zIndex: 1,
+        // zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
           zIndex: 0,
         },
@@ -672,7 +672,29 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             },
         },
       },
+      [`${searchPrefixCls}-button`]: {
+        // Fix https://github.com/ant-design/ant-design/issues/47150
+        marginInlineEnd: -1,
+        borderStartStartRadius: 0,
+        borderEndStartRadius: 0,
+        boxShadow: 'none',
+      },
 
+      [`${searchPrefixCls}-button:not(${antCls}-btn-color-primary)`]: {
+        color: token.colorTextDescription,
+
+        '&:not([disabled]):hover': {
+          color: token.colorPrimaryHover,
+        },
+
+        '&:active': {
+          color: token.colorPrimaryActive,
+        },
+
+        [`&${antCls}-btn-loading::before`]: {
+          inset: 0,
+        },
+      },
       [`${componentCls}-affix-wrapper`]: {
         height: token.controlHeight,
         borderRadius: 0,
@@ -689,30 +711,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           insetInlineStart: -1,
           padding: 0,
           border: 0,
-
-          [`${searchPrefixCls}-button`]: {
-            // Fix https://github.com/ant-design/ant-design/issues/47150
-            marginInlineEnd: -1,
-            borderStartStartRadius: 0,
-            borderEndStartRadius: 0,
-            boxShadow: 'none',
-          },
-
-          [`${searchPrefixCls}-button:not(${antCls}-btn-color-primary)`]: {
-            color: token.colorTextDescription,
-
-            '&:not([disabled]):hover': {
-              color: token.colorPrimaryHover,
-            },
-
-            '&:active': {
-              color: token.colorPrimaryActive,
-            },
-
-            [`&${antCls}-btn-loading::before`]: {
-              inset: 0,
-            },
-          },
         },
       },
 
@@ -720,7 +718,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         height: token.controlHeight,
 
         '&:hover, &:focus': {
-          zIndex: 1,
+          // zIndex: 1,
         },
       },
 
