@@ -69,7 +69,7 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivElement>) {
+const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivElement>) => {
   const {
     pagination = false,
     prefixCls: customizePrefixCls,
@@ -314,7 +314,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
       </div>
     </ListContext.Provider>
   );
-}
+};
 
 const ListWithForwardRef = React.forwardRef(InternalList) as (<T>(
   props: ListProps<T> & {
@@ -324,7 +324,7 @@ const ListWithForwardRef = React.forwardRef(InternalList) as (<T>(
   Pick<React.FC, 'displayName'>;
 
 if (process.env.NODE_ENV !== 'production') {
-  ListWithForwardRef.displayName = 'List';
+  ListWithForwardRef.displayName = 'Deprecated.List';
 }
 
 type CompoundedComponent = typeof ListWithForwardRef & {

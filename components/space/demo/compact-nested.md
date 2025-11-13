@@ -4,4 +4,4 @@
 
 ## en-US
 
-Nested `Space.Compact`.
+Nested Space.Compact.

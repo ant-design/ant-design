@@ -64,9 +64,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ### Space.Compact
 
-> 自 antd@4.24.0 版本开始提供该组件。
-
-需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact。支持的组件有：
+需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact，支持的组件有：
 
 - Button
 - AutoComplete
@@ -85,6 +83,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | orientation | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` |  |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 | vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
+
+### Space.Addon
+
+> 自 antd@5.29.0 版本开始提供该组件。
+
+用于在紧凑布局中创建自定义单元格。
+
+| 参数     | 说明       | 类型      | 默认值 | 版本   |
+| -------- | ---------- | --------- | ------ | ------ |
+| children | 自定义内容 | ReactNode | -      | 5.29.0 |
 
 ## Semantic DOM
 

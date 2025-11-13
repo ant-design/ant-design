@@ -10,6 +10,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
+import Addon from './Addon';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
@@ -203,11 +204,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
 type CompoundedComponent = typeof InternalSpace & {
   Compact: typeof Compact;
+  Addon: typeof Addon;
 };
 
 const Space = InternalSpace as CompoundedComponent;
 
 Space.Compact = Compact;
+Space.Addon = Addon;
 
 if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';

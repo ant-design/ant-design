@@ -49,6 +49,34 @@ export interface InputProps
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, Input } from 'antd';
+   *
+   * <Space.Compact>
+   *   {addon}
+   *   <Input defaultValue="name" />
+   * </Space.Compact>
+   * ```
+   */
+  addonBefore?: React.ReactNode;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, Input } from 'antd';
+   *
+   * <Space.Compact>
+   *   <Input defaultValue="name" />
+   *   {addon}
+   * </Space.Compact>
+   * ```
+   */
+  addonAfter?: React.ReactNode;
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
   /**
