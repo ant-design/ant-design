@@ -57,7 +57,7 @@ interface Section {
   top: number;
 }
 
-type SemanticName = 'root' | 'item' | 'title' | 'indicator';
+type SemanticName = 'root' | 'item' | 'itemTitle' | 'indicator';
 export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, SemanticName>;
 export type AnchorStylesType = SemanticStylesType<AnchorProps, SemanticName>;
 export interface AnchorProps {
