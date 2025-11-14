@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
 | action | Uploading URL | string \| (file) => Promise&lt;string> | - |  |
-| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file: RcFile, fileList: RcFile[]) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
+| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file: [RcFile](#rcfile), fileList: [RcFile[]](#rcfile)) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
 | customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#request-options), info: { defaultRequest: (option: [RequestOptions](#request-options)) => void; } ) => void | - | defaultRequest: 5.28.0 |
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
@@ -80,9 +80,18 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPreview | A callback function, will be executed when the file link or preview icon is clicked | function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when the return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
 
+### RcFile
+
+Extends [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File)。
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| uid | unique id. Will auto-generate when not provided | string | - | - |
+| lastModifiedDate | A Date object indicating the date and time at which the file was last modified | date | - | - |
+
 ### UploadFile
 
-Extends File with additional props.
+Extends [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File) with additional props.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
