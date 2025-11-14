@@ -96,7 +96,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     [`${prefixCls}-link-active`]: active,
   });
 
-  const titleClassName = clsx(`${prefixCls}-link-title`, mergedClassNames?.title, {
+  const titleClassName = clsx(`${prefixCls}-link-title`, mergedClassNames?.itemTitle, {
     [`${prefixCls}-link-title-active`]: active,
   });
 
@@ -104,7 +104,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     <div className={wrapperClassName} style={mergedStyles?.item}>
       <a
         className={titleClassName}
-        style={mergedStyles?.title}
+        style={mergedStyles?.itemTitle}
         href={href}
         title={typeof title === 'string' ? title : ''}
         target={target}
