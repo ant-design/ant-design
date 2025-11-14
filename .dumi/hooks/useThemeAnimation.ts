@@ -93,6 +93,12 @@ const useThemeAnimation = () => {
       .ready.then(() => {
         // eslint-disable-next-line no-console
         console.log(`Theme transition finished in ${Date.now() - time}ms`);
+        
+        // Synchronously update data-prefers-color to match the new theme
+        // This prevents flicker when color-scheme override is removed
+        const html = document.querySelector<HTMLHtmlElement>('html');
+        html?.setAttribute('data-prefers-color', isDark ? 'light' : 'dark');
+        
         const clipPath = [
           `circle(0px at ${x}px ${y}px)`,
           `circle(${endRadius}px at ${x}px ${y}px)`,
