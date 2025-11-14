@@ -2,8 +2,8 @@ import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
-import omit from 'rc-util/lib/omit';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import omit from '@rc-component/util/lib/omit';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type {
