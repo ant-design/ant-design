@@ -77,6 +77,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     calc,
   } = token;
 
+  const borderStyle = `${unit(lineWidth)} ${lineType} ${handleBorderColor}`;
+
   return [
     // ==========================================================
     // ==                         Base                         ==
@@ -97,7 +99,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           [`${componentCls}-actions`]: {
             background: handleBg,
             [`${componentCls}-action-down`]: {
-              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+              borderBlockStart: borderStyle,
             },
           },
         }),
@@ -105,7 +107,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           [`${componentCls}-actions`]: {
             background: filledHandleBg,
             [`${componentCls}-action-down`]: {
-              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+              borderBlockStart: borderStyle,
             },
           },
           '&:focus-within': {
@@ -118,7 +120,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           [`${componentCls}-actions`]: {
             background: handleBg,
             [`${componentCls}-action-down`]: {
-              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+              borderBlockStart: borderStyle,
             },
           },
         }),
@@ -268,6 +270,26 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           cursor: 'not-allowed',
         },
 
+        [`${componentCls}-action`]: {
+          ...resetIcon(),
+
+          userSelect: 'none',
+          overflow: 'hidden',
+          fontWeight: 'bold',
+          lineHeight: 0,
+          textAlign: 'center',
+          cursor: 'pointer',
+          transition: `all ${motionDurationMid} linear`,
+
+          '&:active': {
+            background: handleActiveBg,
+          },
+          // Hover
+          '&:hover': {
+            color: handleHoverColor,
+          },
+        },
+
         // ===================== Input Mode =====================
         '&-mode-input': {
           overflow: 'hidden',
@@ -306,25 +328,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
 
           [`${componentCls}-action`]: {
-            ...resetIcon(),
             color: colorIcon,
-            userSelect: 'none',
             height: '50%',
-            overflow: 'hidden',
-            fontWeight: 'bold',
-            lineHeight: 0,
-            textAlign: 'center',
-            cursor: 'pointer',
-            borderInlineStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
-            transition: `all ${motionDurationMid} linear`,
+            borderInlineStart: borderStyle,
 
-            '&:active': {
-              background: handleActiveBg,
-            },
             // Hover
             '&:hover': {
               height: `60%`,
-              color: handleHoverColor,
             },
           },
 
@@ -336,40 +346,58 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         // ==================== Spinner Mode ====================
+        '&-mode-spinner': {
+          [`${componentCls}-action`]: {
+            flex: 'none',
+            paddingInline: token.paddingXXS,
+
+            '&-up': {
+              borderInlineStart: borderStyle,
+            },
+
+            '&-down': {
+              borderInlineEnd: borderStyle,
+            },
+          },
+
+          [`${componentCls}-input`]: {
+            textAlign: 'center',
+          },
+        },
       },
     },
 
     // Spinner Handler
-    {
-      [`${componentCls}${componentCls}-mode-spinner`]: {
-        display: 'inline-flex',
-        alignItems: 'stretch',
+    // {
+    //   [`${componentCls}${componentCls}-mode-spinner`]: {
+    //     display: 'inline-flex',
+    //     alignItems: 'stretch',
 
-        [`${componentCls}-handler`]: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: 'auto',
-          width: token.handleWidth,
-          flex: '0 0 auto',
-          borderRadius: 0,
-        },
+    //     [`${componentCls}-handler`]: {
+    //       display: 'flex',
+    //       alignItems: 'center',
+    //       justifyContent: 'center',
+    //       height: 'auto',
+    //       width: token.handleWidth,
+    //       flex: '0 0 auto',
+    //       borderRadius: 0,
+    //     },
 
-        [`${componentCls}-handler-up`]: {
-          borderInlineStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
-          borderEndRadius: borderRadius,
-        },
+    //     [`${componentCls}-handler-up`]: {
+    //       borderInlineStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+    //       borderEndRadius: borderRadius,
+    //     },
 
-        [`${componentCls}-handler-down`]: {
-          borderInlineEnd: `${unit(lineWidth)} ${lineType} ${handleBorderColor} `,
-          borderInlineStart: 'none',
-        },
+    //     [`${componentCls}-handler-down`]: {
+    //       borderInlineEnd: `${unit(lineWidth)} ${lineType} ${handleBorderColor} `,
+    //       borderInlineStart: 'none',
+    //     },
 
-        [`${componentCls}-input`]: {
-          textAlign: 'center',
-        },
-      },
-    },
+    //     [`${componentCls}-input`]: {
+    //       textAlign: 'center',
+    //     },
+    //   },
+    // },
   ];
 };
 
