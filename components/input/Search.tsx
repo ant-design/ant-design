@@ -145,7 +145,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
-  const btnClassName = clsx(`${prefixCls}-button`, mergedClassNames.button?.root);
+  const btnPrefixCls = `${prefixCls}-btn`;
+  const btnClassName = clsx(btnPrefixCls, {
+    [`${btnPrefixCls}-${variant}`]: variant,
+  });
 
   let button: React.ReactNode;
   const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
