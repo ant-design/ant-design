@@ -91,7 +91,7 @@ Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File)。
 
 ### UploadFile
 
-Extends [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File) with additional props.
+Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File) with additional props.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
