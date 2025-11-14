@@ -15824,7 +15824,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       value=""
     />
     <div
-      class="config-space-compact config-space-compact-block config-input-search css-var-root"
+      class="config-space-compact config-input-search css-var-root"
     >
       <input
         class="config-input config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -15832,7 +15832,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
         value=""
       />
       <button
-        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-button"
+        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-btn"
         type="button"
       >
         <span
@@ -15915,7 +15915,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
       value=""
     />
     <div
-      class="config-space-compact config-space-compact-block config-input-search css-var-root"
+      class="config-space-compact config-input-search css-var-root"
     >
       <input
         class="config-input config-input-disabled config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -15924,7 +15924,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
         value=""
       />
       <button
-        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-button"
+        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-btn"
         disabled=""
         type="button"
       >
@@ -16009,7 +16009,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <div
-      class="config-space-compact config-space-compact-block config-input-search css-var-root config-input-search-large"
+      class="config-space-compact config-input-search css-var-root config-input-search-large"
     >
       <input
         class="config-input config-input-lg config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -16017,7 +16017,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
         value=""
       />
       <button
-        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-button"
+        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-btn"
         type="button"
       >
         <span
@@ -16099,7 +16099,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       value=""
     />
     <div
-      class="config-space-compact config-space-compact-block config-input-search css-var-root config-input-search-middle"
+      class="config-space-compact config-input-search css-var-root config-input-search-middle"
     >
       <input
         class="config-input config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -16107,7 +16107,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
         value=""
       />
       <button
-        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-button"
+        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-btn"
         type="button"
       >
         <span
@@ -16189,7 +16189,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       value=""
     />
     <div
-      class="config-space-compact config-space-compact-block config-input-search css-var-root config-input-search-small"
+      class="config-space-compact config-input-search css-var-root config-input-search-small"
     >
       <input
         class="config-input config-input-sm config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -16197,7 +16197,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
         value=""
       />
       <button
-        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-button"
+        class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-input-search-btn"
         type="button"
       >
         <span
@@ -16279,7 +16279,7 @@ exports[`ConfigProvider components Input normal 1`] = `
       value=""
     />
     <div
-      class="ant-space-compact ant-space-compact-block ant-input-search css-var-root"
+      class="ant-space-compact ant-input-search css-var-root"
     >
       <input
         class="ant-input ant-input-outlined css-var-root ant-input-css-var ant-input-compact-item"
@@ -16287,7 +16287,7 @@ exports[`ConfigProvider components Input normal 1`] = `
         value=""
       />
       <button
-        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
         type="button"
       >
         <span
@@ -16369,7 +16369,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       value=""
     />
     <div
-      class="ant-space-compact ant-space-compact-block prefix-Input css-var-root"
+      class="ant-space-compact prefix-Input css-var-root"
     >
       <input
         class="ant-input ant-input-outlined css-var-root ant-input-css-var ant-input-compact-item"
@@ -16377,7 +16377,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
         value=""
       />
       <button
-        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item prefix-Input-button"
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item prefix-Input-btn"
         type="button"
       >
         <span
