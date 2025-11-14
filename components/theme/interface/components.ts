@@ -4,6 +4,7 @@ import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
@@ -70,6 +71,7 @@ export interface ComponentTokenMap {
   Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
   Avatar?: AvatarComponentToken;
+  BackTop?: BackTopComponentToken;
   Badge?: BadgeComponentToken;
   Button?: ButtonComponentToken;
   Breadcrumb?: BreadcrumbComponentToken;

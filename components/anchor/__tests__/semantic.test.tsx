@@ -33,4 +33,44 @@ describe('Anchor.Semantic', () => {
     expect(root).toHaveClass('anchor-horizontal');
     expect(root).toHaveStyle({ padding: '12px' });
   });
+
+  it('support classnames and style', () => {
+    const customClassnames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      itemTitle: 'custom-title',
+      indicator: 'custom-indicator',
+    };
+    const customStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
+      itemTitle: { color: 'rgb(0, 128, 0)' },
+      indicator: { color: 'rgb(255, 255, 0)' },
+    };
+    const { container } = render(
+      <Anchor
+        styles={customStyles}
+        classNames={customClassnames}
+        items={[
+          { key: 'part-1', href: '#part-1', title: 'Part 1' },
+          { key: 'part-2', href: '#part-2', title: 'Part 2' },
+          { key: 'part-3', href: '#part-3', title: 'Part 3' },
+        ]}
+      />,
+    );
+
+    const root = container.querySelector<HTMLElement>('.ant-anchor-wrapper');
+    const items = container.querySelector<HTMLElement>('.ant-anchor-link');
+    const title = container.querySelector<HTMLElement>('.ant-anchor-link-title');
+    const indicator = container.querySelector<HTMLElement>('.ant-anchor-ink');
+
+    expect(root).toHaveClass('custom-root');
+    expect(items).toHaveClass('custom-item');
+    expect(title).toHaveClass('custom-title');
+    expect(indicator).toHaveClass('custom-indicator');
+    expect(items).toHaveStyle({ color: customStyles.item.color });
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(title).toHaveStyle({ color: customStyles.itemTitle.color });
+    expect(indicator).toHaveStyle({ color: customStyles.indicator.color });
+  });
 });

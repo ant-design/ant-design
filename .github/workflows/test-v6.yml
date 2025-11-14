@@ -76,7 +76,7 @@ jobs:
           mkdir persist-coverage
           mv coverage/coverage-final.json persist-coverage/react-test-${{matrix.module}}-${{strategy.job-index}}.json
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v4
         name: upload coverages
         with:
           name: coverage-artifacts-${{ matrix.module }}-${{ strategy.job-index }}

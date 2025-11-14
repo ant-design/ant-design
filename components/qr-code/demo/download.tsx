@@ -37,7 +37,7 @@ const App: React.FC = () => {
         <QRCode
           type={renderType}
           value="https://ant.design/"
-          bgColor="#fff"
+          bgColor="rgba(255,255,255,0.5)"
           style={{ marginBottom: 16 }}
           icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
         />

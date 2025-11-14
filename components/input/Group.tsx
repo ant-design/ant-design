@@ -6,6 +6,7 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
+import Space from '../space';
 import useStyle from './style';
 
 export interface GroupProps {
@@ -58,18 +59,18 @@ const Group: React.FC<GroupProps> = (props) => {
   }
 
   return (
-    <span
-      className={cls}
-      style={props.style}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-    >
-      <FormItemInputContext.Provider value={groupFormItemContext}>
+    <FormItemInputContext.Provider value={groupFormItemContext}>
+      <Space.Compact
+        className={cls}
+        style={props.style}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
+      >
         {props.children}
-      </FormItemInputContext.Provider>
-    </span>
+      </Space.Compact>
+    </FormItemInputContext.Provider>
   );
 };
 

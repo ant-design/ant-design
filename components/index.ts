@@ -12,6 +12,8 @@ export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
+export { default as BackTop } from './back-top';
+export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps } from './badge';
 export { default as Breadcrumb } from './breadcrumb';
@@ -94,7 +96,7 @@ export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from 
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
-export type { ModalFuncProps, ModalProps } from './modal';
+export type { ModalFuncProps, ModalLocale, ModalProps } from './modal';
 export { default as notification } from './notification';
 export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';

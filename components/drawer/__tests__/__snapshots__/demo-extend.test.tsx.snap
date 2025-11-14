@@ -1028,33 +1028,29 @@ Array [
                         <div
                           class="ant-form-item-control-input-content"
                         >
-                          <span
-                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
-                            style="width: 100%;"
+                          <div
+                            class="ant-space-compact"
                           >
-                            <span
-                              class="ant-input-wrapper ant-input-group"
+                            <div
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id"
                             >
-                              <span
-                                class="ant-input-group-addon"
-                              >
-                                http://
-                              </span>
-                              <input
-                                aria-required="true"
-                                class="ant-input ant-input-outlined"
-                                id="url"
-                                placeholder="Please enter url"
-                                type="text"
-                                value=""
-                              />
-                              <span
-                                class="ant-input-group-addon"
-                              >
-                                .com
-                              </span>
-                            </span>
-                          </span>
+                              http://
+                            </div>
+                            <input
+                              aria-required="true"
+                              class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
+                              id="url"
+                              placeholder="Please enter url"
+                              style="width: 100%;"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id"
+                            >
+                              .com
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2871,12 +2867,7 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
 Array [

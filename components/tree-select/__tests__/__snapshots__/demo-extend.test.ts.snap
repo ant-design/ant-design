@@ -2712,7 +2712,7 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
         id="test-id"
         readonly=""
         role="combobox"
-        style="background-color: rgb(246, 255, 237); font-size: 16px;"
+        style="font-size: 16px;"
         type="search"
         value=""
       />

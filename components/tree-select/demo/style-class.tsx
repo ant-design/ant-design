@@ -12,8 +12,7 @@ const useStyles = createStyles(({ token }) => ({
 
 const styleObject: TreeSelectProps['styles'] = {
   input: {
-    backgroundColor: '#f6ffed',
-    fontSize: '16px',
+    fontSize: 16,
   },
   suffix: {
     color: '#1890ff',

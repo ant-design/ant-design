@@ -15,13 +15,11 @@ const App: React.FC = () => (
   <Space vertical>
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
-    <Search
-      addonBefore="https://"
-      placeholder="input search text"
-      allowClear
-      onSearch={onSearch}
-      style={{ width: 304 }}
-    />
+    <Space.Compact>
+      <Space.Addon>https://</Space.Addon>
+      <Search placeholder="input search text" allowClear onSearch={onSearch} />
+    </Space.Compact>
+
     <Search placeholder="input search text" onSearch={onSearch} enterButton />
     <Search
       placeholder="input search text"
