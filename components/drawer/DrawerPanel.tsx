@@ -26,7 +26,7 @@ export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
-
+  ariaId?: string;
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
@@ -64,6 +64,7 @@ export interface DrawerPanelProps {
 const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   const {
     prefixCls,
+    ariaId,
     title,
     footer,
     extra,
@@ -140,6 +141,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
             <div
               className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
               style={mergedStyles.title}
+              id={ariaId}
             >
               {title}
             </div>

@@ -4,6 +4,7 @@ import RcDrawer from '@rc-component/drawer';
 import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
 import { composeRef } from '@rc-component/util/lib/ref';
+import useId from '@rc-component/util/lib/hooks/useId';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -39,7 +40,7 @@ export interface DrawerProps
       RcDrawerProps,
       'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable' | 'classNames' | 'styles'
     >,
-    Omit<DrawerPanelProps, 'prefixCls'> {
+    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
   size?: sizeType | number;
   resizable?: DrawerResizableConfig;
   open?: boolean;
@@ -77,6 +78,7 @@ const Drawer: React.FC<DrawerProps> & {
     style,
     className,
     resizable,
+    'aria-labelledby': ariaLabelledby,
 
     // Deprecated
     maskStyle,
@@ -88,6 +90,8 @@ const Drawer: React.FC<DrawerProps> & {
   } = props;
 
   const { placement } = rest;
+  let ariaId: string | undefined = useId();
+  ariaId = rest.title ? ariaId : undefined;
 
   const {
     getPopupContainer,
@@ -251,9 +255,16 @@ const Drawer: React.FC<DrawerProps> & {
           panelRef={mergedPanelRef}
           zIndex={zIndex}
           {...(resizable ? { resizable } : {})}
+          aria-labelledby={ariaLabelledby ?? ariaId}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
-          <DrawerPanel prefixCls={prefixCls} size={size} {...rest} onClose={onClose} />
+          <DrawerPanel
+            prefixCls={prefixCls}
+            size={size}
+            {...rest}
+            ariaId={ariaId}
+            onClose={onClose}
+          />
         </RcDrawer>
       </zIndexContext.Provider>
     </ContextIsolator>
