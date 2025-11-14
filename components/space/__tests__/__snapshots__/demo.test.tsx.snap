@@ -574,7 +574,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+        class="ant-space-compact ant-input-search css-var-test-id"
         style="width:30%"
       >
         <input
@@ -583,7 +583,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           value="0571"
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
           type="button"
         >
           <span
@@ -612,7 +612,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </button>
       </div>
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+        class="ant-space-compact ant-input-search css-var-test-id"
         style="width:50%"
       >
         <span
@@ -655,7 +655,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           </span>
         </span>
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
           type="button"
         >
           <span
@@ -684,7 +684,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </button>
       </div>
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+        class="ant-space-compact ant-input-search css-var-test-id"
         style="width:20%"
       >
         <input
@@ -693,7 +693,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           value="+1"
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
           type="button"
         >
           <span
@@ -2760,7 +2760,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+        class="ant-space-compact ant-input-search css-var-test-id"
       >
         <input
           class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -2768,7 +2768,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           value=""
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
           type="button"
         >
           <span
@@ -2797,7 +2797,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </button>
       </div>
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+        class="ant-space-compact ant-input-search css-var-test-id"
       >
         <input
           class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
@@ -2805,7 +2805,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           value=""
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
           type="button"
         >
           <span
@@ -3934,7 +3934,7 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id"
+          class="ant-space-compact ant-input-search css-var-test-id"
           style="width:110px"
         >
           <input
@@ -3944,7 +3944,7 @@ Array [
             value=""
           />
           <button
-            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
             type="button"
           >
             <span
