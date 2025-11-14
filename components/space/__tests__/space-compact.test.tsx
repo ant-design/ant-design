@@ -53,17 +53,17 @@ describe('Space.Compact', () => {
   it('compact-item className', () => {
     const { container } = render(
       <Space.Compact>
-        <Input defaultValue="https://ant.design" />
-        <Input.Search />
-        <Button type="primary">Submit</Button>
+        <Input className="test-input" />
+        <Input.Search className="test-input-search" />
+        <Button className="test-button">Submit</Button>
       </Space.Compact>,
     );
-    expect(container.querySelector('.ant-input')).toHaveClass('ant-input-compact-item');
-    expect(container.querySelector('.ant-input-search')).toHaveClass('ant-input-compact-item');
-    expect(container.querySelector('.ant-input')).toHaveClass('ant-input-compact-first-item');
-    expect(container.querySelector('.ant-btn-compact-item')).toHaveClass(
-      'ant-btn-compact-last-item',
+    expect(container.querySelector('.test-input')).toHaveClass('ant-input-compact-first-item');
+    expect(container.querySelector('.test-input-search')).toHaveClass('ant-space-compact');
+    expect(container.querySelector('.test-input-search input')).toHaveClass(
+      'ant-input-compact-item',
     );
+    expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
   [
@@ -98,12 +98,6 @@ describe('Space.Compact', () => {
       expectClsPrefix: 'ant-input',
     },
     {
-      name: 'Input.Search',
-      component: Input.Search,
-      targetCls: 'ant-input-search',
-      expectClsPrefix: 'ant-input',
-    },
-    {
       name: 'Select',
       component: Select,
       targetCls: 'ant-select',
@@ -133,6 +127,16 @@ describe('Space.Compact', () => {
         );
       });
     });
+  });
+
+  it('compact-item for Input.Search', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Input.Search />
+      </Space.Compact>,
+    );
+    expect(container.querySelector('.ant-input-search')).toBeTruthy();
+    expect(container.querySelector(`.ant-input-search`)).toHaveClass('ant-space-compact');
   });
 
   it('size', () => {
