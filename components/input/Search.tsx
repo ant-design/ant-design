@@ -249,7 +249,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       style={{ ...style, ...mergedStyles.root }}
       {...rootProps}
       hidden={hidden}
-      block
     >
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
