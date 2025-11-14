@@ -82,7 +82,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### RcFile
 
-Extends [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File)。
+Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File)。
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
