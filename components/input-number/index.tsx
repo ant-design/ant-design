@@ -25,7 +25,8 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
-import { useCompactItemContext } from '../space/Compact';
+import SpaceAddon from '../space/Addon';
+import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
@@ -93,7 +94,193 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   variant?: Variant;
 }
 
+type InternalInputNumberProps = InputNumberProps & {
+  prefixCls: string;
+};
+
+const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumberProps>(
+  (props, ref) => {
+    const inputRef = React.useRef<RcInputNumberRef>(null);
+
+    React.useImperativeHandle(ref, () => inputRef.current!);
+
+    const {
+      rootClassName,
+      size: customizeSize,
+      disabled: customDisabled,
+      prefixCls,
+      addonBefore,
+      addonAfter,
+      prefix,
+      suffix,
+      bordered,
+      readOnly,
+      status: customStatus,
+      controls,
+      variant: customVariant,
+      className,
+      style,
+      classNames,
+      styles,
+      mode,
+      ...others
+    } = props;
+
+    const {
+      direction,
+      className: contextClassName,
+      style: contextStyle,
+      styles: contextStyles,
+      classNames: contextClassNames,
+    } = useComponentConfig('inputNumber');
+
+    // Style
+    // const rootCls = useCSSVarCls(prefixCls);
+    // const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+    const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+    let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
+    let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
+    const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
+
+    if (typeof controls === 'object') {
+      upIcon = controls.upIcon || upIcon;
+      downIcon = controls.downIcon || downIcon;
+    }
+
+    // upIcon = <span className={`${prefixCls}-handler-up-inner`}>{upIcon}</span>;
+    // downIcon = <span className={`${prefixCls}-handler-down-inner`}>{downIcon}</span>;
+
+    const {
+      hasFeedback,
+      status: contextStatus,
+      isFormItemInput,
+      feedbackIcon,
+    } = React.useContext(FormItemInputContext);
+    const mergedStatus = getMergedStatus(contextStatus, customStatus);
+
+    const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled ?? disabled;
+
+    const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
+
+    const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+
+    // =========== Merged Props for Semantic ==========
+    const mergedProps: InputNumberProps = {
+      ...props,
+      size: mergedSize,
+      disabled: mergedDisabled,
+    };
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      InputNumberClassNamesType,
+      InputNumberStylesType,
+      InputNumberProps
+    >([contextClassNames, classNames], [contextStyles, styles], {
+      props: mergedProps,
+    });
+
+    return (
+      <RcInputNumber
+        ref={inputRef}
+        mode={mode}
+        disabled={mergedDisabled}
+        className={clsx(
+          className,
+          rootClassName,
+          mergedClassNames.root,
+          contextClassName,
+          compactItemClassnames,
+
+          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-in-form-item`]: isFormItemInput,
+          },
+        )}
+        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        upHandler={upIcon}
+        downHandler={downIcon}
+        prefixCls={prefixCls}
+        readOnly={readOnly}
+        controls={controlsTemp}
+        prefix={prefix}
+        suffix={suffixNode || suffix}
+        // addonBefore={
+        //   addonBefore && (
+        //     <ContextIsolator form space>
+        //       {addonBefore}
+        //     </ContextIsolator>
+        //   )
+        // }
+        // addonAfter={
+        //   addonAfter && (
+        //     <ContextIsolator form space>
+        //       {addonAfter}
+        //     </ContextIsolator>
+        //   )
+        // }
+        classNames={{
+          ...mergedClassNames,
+          input: clsx(
+            // {
+            //   [`${prefixCls}-lg`]: mergedSize === 'large',
+            //   [`${prefixCls}-sm`]: mergedSize === 'small',
+            //   [`${prefixCls}-rtl`]: direction === 'rtl',
+            //   [`${prefixCls}-in-form-item`]: isFormItemInput,
+            // },
+            // hashId,
+            mergedClassNames.input,
+          ),
+          // variant: clsx(
+          //   { [`${prefixCls}-${variant}`]: enableVariantCls },
+          //   getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+          // ),
+          // affixWrapper: clsx(
+          //   {
+          //     [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+          //     [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+          //     [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+          //     [`${prefixCls}-affix-wrapper-without-controls`]:
+          //       controls === false || mergedDisabled || readOnly,
+          //   },
+          //   hashId,
+          // ),
+          // wrapper: clsx({ [`${wrapperClassName}-rtl`]: direction === 'rtl' }, hashId),
+          // groupWrapper: clsx(
+          //   {
+          //     [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+          //     [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+          //     [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+          //     [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
+          //   },
+          //   getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+          //   hashId,
+          // ),
+        }}
+        styles={mergedStyles}
+        {...others}
+      />
+    );
+  },
+);
+
 const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
+  const { addonBefore, addonAfter, prefixCls: customizePrefixCls, className, ...rest } = props;
+
+  const { getPrefixCls } = useComponentConfig('inputNumber');
+  const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
     [
@@ -110,173 +297,42 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
     );
   }
 
-  const inputRef = React.useRef<RcInputNumberRef>(null);
-
-  React.useImperativeHandle(ref, () => inputRef.current!);
-
-  const {
-    rootClassName,
-    size: customizeSize,
-    disabled: customDisabled,
-    prefixCls: customizePrefixCls,
-    addonBefore,
-    addonAfter,
-    prefix,
-    suffix,
-    bordered,
-    readOnly,
-    status: customStatus,
-    controls,
-    variant: customVariant,
-    className,
-    style,
-    classNames,
-    styles,
-    mode,
-    ...others
-  } = props;
-
-  const {
-    direction,
-    getPrefixCls,
-    className: contextClassName,
-    style: contextStyle,
-    styles: contextStyles,
-    classNames: contextClassNames,
-  } = useComponentConfig('inputNumber');
-
-  const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-
-  // Style
-  const rootCls = useCSSVarCls(prefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-  let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
-  let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
-  const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
-
-  if (typeof controls === 'object') {
-    upIcon = controls.upIcon || upIcon;
-    downIcon = controls.downIcon || downIcon;
-  }
-
-  upIcon = <span className={`${prefixCls}-handler-up-inner`}>{upIcon}</span>;
-  downIcon = <span className={`${prefixCls}-handler-down-inner`}>{downIcon}</span>;
-
-  const {
-    hasFeedback,
-    status: contextStatus,
-    isFormItemInput,
-    feedbackIcon,
-  } = React.useContext(FormItemInputContext);
-  const mergedStatus = getMergedStatus(contextStatus, customStatus);
-
-  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
-
-  const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
-
-  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
-
-  // =========== Merged Props for Semantic ==========
-  const mergedProps: InputNumberProps = {
-    ...props,
-    size: mergedSize,
-    disabled: mergedDisabled,
-  };
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    InputNumberClassNamesType,
-    InputNumberStylesType,
-    InputNumberProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
-
-  const wrapperClassName = `${prefixCls}-group`;
-
-  return (
-    <RcInputNumber
-      ref={inputRef}
-      mode={mode}
-      disabled={mergedDisabled}
-      className={clsx(
-        cssVarCls,
-        rootCls,
-        className,
-        rootClassName,
-        mergedClassNames.root,
-        contextClassName,
-        compactItemClassnames,
-      )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      upHandler={upIcon}
-      downHandler={downIcon}
+  const inputNumberNode = (
+    <InternalInputNumber
+      ref={ref}
+      {...rest}
       prefixCls={prefixCls}
-      readOnly={readOnly}
-      controls={controlsTemp}
-      prefix={prefix}
-      suffix={suffixNode || suffix}
-      addonBefore={
-        addonBefore && (
-          <ContextIsolator form space>
-            {addonBefore}
-          </ContextIsolator>
-        )
-      }
-      addonAfter={
-        addonAfter && (
-          <ContextIsolator form space>
-            {addonAfter}
-          </ContextIsolator>
-        )
-      }
-      classNames={{
-        ...mergedClassNames,
-        input: clsx(
-          {
-            [`${prefixCls}-lg`]: mergedSize === 'large',
-            [`${prefixCls}-sm`]: mergedSize === 'small',
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-in-form-item`]: isFormItemInput,
-          },
-          hashId,
-          mergedClassNames.input,
-        ),
-        variant: clsx(
-          { [`${prefixCls}-${variant}`]: enableVariantCls },
-          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-        ),
-        affixWrapper: clsx(
-          {
-            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-without-controls`]:
-              controls === false || mergedDisabled || readOnly,
-          },
-          hashId,
-        ),
-        wrapper: clsx({ [`${wrapperClassName}-rtl`]: direction === 'rtl' }, hashId),
-        groupWrapper: clsx(
-          {
-            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
-          },
-          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-          hashId,
-        ),
-      }}
-      styles={mergedStyles}
-      {...others}
+      className={clsx(cssVarCls, rootCls, hashId, className)}
     />
   );
+
+  if (addonBefore || addonAfter) {
+    const renderAddon = (node?: React.ReactNode) => {
+      if (!node) {
+        return null;
+      }
+
+      return (
+        <SpaceAddon className={clsx(`${prefixCls}-addon`, cssVarCls, hashId)}>
+          <ContextIsolator form>{node}</ContextIsolator>
+        </SpaceAddon>
+      );
+    };
+
+    const addonBeforeNode = renderAddon(addonBefore);
+
+    const addonAfterNode = renderAddon(addonAfter);
+
+    return (
+      <Compact>
+        {addonBeforeNode}
+        {inputNumberNode}
+        {addonAfterNode}
+      </Compact>
+    );
+  }
+
+  return inputNumberNode;
 });
 
 const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(
@@ -294,6 +350,7 @@ const PureInputNumber: React.FC<InputNumberProps> = (props) => (
 );
 
 if (process.env.NODE_ENV !== 'production') {
+  InternalInputNumber.displayName = 'InternalInputNumber';
   TypedInputNumber.displayName = 'InputNumber';
 }
 
