@@ -1660,7 +1660,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large"
+        class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large"
         style="width: 100px;"
       >
         <input
@@ -1669,7 +1669,7 @@ Array [
           value=""
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
           type="button"
         >
           <span

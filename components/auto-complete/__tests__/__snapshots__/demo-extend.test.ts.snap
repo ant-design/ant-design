@@ -676,7 +676,7 @@ Array [
         style="visibility: visible;"
       />
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large ant-select-input"
+        class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-select-input"
       >
         <input
           aria-autocomplete="list"
@@ -693,7 +693,7 @@ Array [
           value=""
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
           type="button"
         >
           <span
@@ -1905,7 +1905,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     style="visibility: visible;"
                   />
                   <div
-                    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-select-input"
+                    class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
                   >
                     <input
                       aria-autocomplete="list"
@@ -1921,7 +1921,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       value=""
                     />
                     <button
-                      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+                      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
                       type="button"
                     >
                       <span
@@ -2118,7 +2118,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     style="visibility: visible;"
                   />
                   <div
-                    class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-select-input"
+                    class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
                   >
                     <input
                       aria-autocomplete="list"
@@ -2134,7 +2134,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       value=""
                     />
                     <button
-                      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-button"
+                      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
                       type="button"
                     >
                       <span
@@ -2970,7 +2970,7 @@ Array [
         style="visibility: visible;"
       />
       <div
-        class="ant-space-compact ant-space-compact-block ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button ant-select-input"
+        class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button ant-select-input"
       >
         <input
           aria-autocomplete="list"
@@ -2987,7 +2987,7 @@ Array [
           value=""
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
           type="button"
         >
           <span
