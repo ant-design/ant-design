@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import { useCompactItemContext } from './Compact';
@@ -18,7 +18,7 @@ const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>((prop
   const [hashId, cssVarCls] = useStyle(prefixCls);
   const { compactItemClassnames, compactSize } = useCompactItemContext(prefixCls, directionConfig);
 
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     hashId,
     compactItemClassnames,
