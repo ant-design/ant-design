@@ -84,7 +84,7 @@ const Drawer: React.FC<DrawerProps> & {
     ...rest
   } = props;
 
-  const id: string | undefined = useId();
+  const id = useId();
   const ariaId = rest.title ? id : undefined;
 
   const {
