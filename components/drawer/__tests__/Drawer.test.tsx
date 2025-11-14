@@ -559,7 +559,7 @@ describe('Drawer', () => {
 
   it('should have aria-labelledby on drawer content when title is provided', () => {
     const { baseElement, rerender } = render(<Drawer open>Here is content of Drawer</Drawer>);
-    const content = baseElement.querySelector('.ant-drawer-content');
+    const content = baseElement.querySelector('.ant-drawer-section');
     expect(content).not.toHaveAttribute('aria-labelledby');
 
     rerender(
