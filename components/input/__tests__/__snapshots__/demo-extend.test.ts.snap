@@ -788,7 +788,7 @@ Array [
     </span>
   </span>,
   <div
-    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var"
+    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
     style="width: 100px;"
   >
     <input
@@ -809,27 +809,23 @@ Array [
         unselectable="on"
       >
         <span
-          class="ant-input-number-handler-up-inner"
+          aria-label="up"
+          class="anticon anticon-up"
+          role="img"
         >
-          <span
-            aria-label="up"
-            class="anticon anticon-up"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="up"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
         </span>
       </span>
       <span
@@ -840,27 +836,23 @@ Array [
         unselectable="on"
       >
         <span
-          class="ant-input-number-handler-down-inner"
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
         >
-          <span
-            aria-label="down"
-            class="anticon anticon-down"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
         </span>
       </span>
     </div>
@@ -5689,7 +5681,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
       >
         https://
       </div>
@@ -5939,7 +5931,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-large"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined ant-space-addon-large"
       >
         <span
           aria-label="search"
@@ -7182,7 +7174,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="input content"
     />
     <div
-      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item ant-input-number-outlined"
     >
       <div
         class="ant-input-number-prefix"
@@ -7207,27 +7199,23 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           unselectable="on"
         >
           <span
-            class="ant-input-number-handler-up-inner"
+            aria-label="up"
+            class="anticon anticon-up"
+            role="img"
           >
-            <span
-              aria-label="up"
-              class="anticon anticon-up"
-              role="img"
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="up"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
           </span>
         </span>
         <span
@@ -7238,27 +7226,23 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           unselectable="on"
         >
           <span
-            class="ant-input-number-handler-down-inner"
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down"
-              role="img"
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
           </span>
         </span>
       </div>
@@ -10033,7 +10017,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 
 exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
 [
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
@@ -11251,7 +11234,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
       class="ant-space-compact"
     >
       <div
-        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
       >
         https://
       </div>

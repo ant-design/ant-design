@@ -266,6 +266,9 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
   },
 );
 
+// ===================================================================
+// ==                          InputNumber                          ==
+// ===================================================================
 const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
   const {
     addonBefore,
@@ -273,6 +276,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
     prefixCls: customizePrefixCls,
     className,
     status: customStatus,
+    rootClassName,
     ...rest
   } = props;
 
@@ -285,6 +289,9 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  const hasLegacyAddon = addonBefore || addonAfter;
+
+  // ======================= Warn =======================
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
     [
@@ -301,6 +308,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
     );
   }
 
+  // ====================== Render ======================
   const inputNumberNode = (
     <InternalInputNumber
       ref={ref}
@@ -308,10 +316,11 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
       prefixCls={prefixCls}
       status={mergedStatus}
       className={clsx(cssVarCls, rootCls, hashId, className)}
+      rootClassName={!hasLegacyAddon ? rootClassName : undefined}
     />
   );
 
-  if (addonBefore || addonAfter) {
+  if (hasLegacyAddon) {
     const renderAddon = (node?: React.ReactNode) => {
       if (!node) {
         return null;
@@ -334,7 +343,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
     const addonAfterNode = renderAddon(addonAfter);
 
     return (
-      <Compact>
+      <Compact rootClassName={rootClassName}>
         {addonBeforeNode}
         {inputNumberNode}
         {addonAfterNode}

@@ -16450,7 +16450,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider 1`] = `
 <div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined"
 >
   <input
     autocomplete="off"
@@ -16470,27 +16470,23 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-up-inner"
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
       >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
       </span>
     </span>
     <span
@@ -16501,27 +16497,23 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-down-inner"
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
   </div>
@@ -16530,7 +16522,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-disabled"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-disabled"
 >
   <input
     autocomplete="off"
@@ -16551,27 +16543,23 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-up-inner"
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
       >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
       </span>
     </span>
     <span
@@ -16582,27 +16570,23 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-down-inner"
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
   </div>
@@ -16611,87 +16595,7 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
 
 exports[`ConfigProvider components InputNumber configProvider componentSize large 1`] = `
 <div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
->
-  <input
-    autocomplete="off"
-    class="config-input-number-input config-input-number-lg"
-    role="spinbutton"
-    step="1"
-    value=""
-  />
-  <div
-    class="config-input-number-actions"
-  >
-    <span
-      aria-disabled="false"
-      aria-label="Increase Value"
-      class="config-input-number-action config-input-number-action-up"
-      role="button"
-      unselectable="on"
-    >
-      <span
-        class="config-input-number-handler-up-inner"
-      >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
-      </span>
-    </span>
-    <span
-      aria-disabled="false"
-      aria-label="Decrease Value"
-      class="config-input-number-action config-input-number-action-down"
-      role="button"
-      unselectable="on"
-    >
-      <span
-        class="config-input-number-handler-down-inner"
-      >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
-<div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-lg"
 >
   <input
     autocomplete="off"
@@ -16711,27 +16615,23 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-up-inner"
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
       >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
       </span>
     </span>
     <span
@@ -16742,40 +16642,36 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-down-inner"
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
   </div>
 </div>
 `;
 
-exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
 <div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined"
 >
   <input
     autocomplete="off"
-    class="config-input-number-input config-input-number-sm"
+    class="config-input-number-input"
     role="spinbutton"
     step="1"
     value=""
@@ -16791,27 +16687,23 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-up-inner"
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
       >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
       </span>
     </span>
     <span
@@ -16822,27 +16714,95 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
       unselectable="on"
     >
       <span
-        class="config-input-number-handler-down-inner"
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
+<div
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-sm"
+>
+  <input
+    autocomplete="off"
+    class="config-input-number-input"
+    role="spinbutton"
+    step="1"
+    value=""
+  />
+  <div
+    class="config-input-number-actions"
+  >
+    <span
+      aria-disabled="false"
+      aria-label="Increase Value"
+      class="config-input-number-action config-input-number-action-up"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      aria-disabled="false"
+      aria-label="Decrease Value"
+      class="config-input-number-action config-input-number-action-down"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
   </div>
@@ -16851,7 +16811,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
 
 exports[`ConfigProvider components InputNumber normal 1`] = `
 <div
-  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
 >
   <input
     autocomplete="off"
@@ -16871,27 +16831,23 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       unselectable="on"
     >
       <span
-        class="ant-input-number-handler-up-inner"
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
       >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
       </span>
     </span>
     <span
@@ -16902,27 +16858,23 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       unselectable="on"
     >
       <span
-        class="ant-input-number-handler-down-inner"
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
   </div>
@@ -16931,7 +16883,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
 
 exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 <div
-  class="prefix-InputNumber prefix-InputNumber-mode-input css-var-root prefix-InputNumber-css-var"
+  class="prefix-InputNumber prefix-InputNumber-mode-input css-var-root prefix-InputNumber-css-var prefix-InputNumber-outlined"
 >
   <input
     autocomplete="off"
@@ -16951,27 +16903,23 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       unselectable="on"
     >
       <span
-        class="prefix-InputNumber-handler-up-inner"
+        aria-label="up"
+        class="anticon anticon-up"
+        role="img"
       >
-        <span
-          aria-label="up"
-          class="anticon anticon-up"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="up"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
       </span>
     </span>
     <span
@@ -16982,27 +16930,23 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       unselectable="on"
     >
       <span
-        class="prefix-InputNumber-handler-down-inner"
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <span
-          aria-label="down"
-          class="anticon anticon-down"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
   </div>
