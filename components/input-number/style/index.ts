@@ -1,16 +1,9 @@
 import { unit } from '@ant-design/cssinjs';
 
-import {
-  genBasicInputStyle,
-  genInputGroupStyle,
-  genPlaceholderStyle,
-  initInputToken,
-} from '../../input/style';
+import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
 import {
   genBorderlessStyle,
-  genFilledGroupStyle,
   genFilledStyle,
-  genOutlinedGroupStyle,
   genOutlinedStyle,
   genUnderlinedStyle,
 } from '../../input/style/variants';
@@ -52,8 +45,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     borderRadius,
     inputFontSizeSM,
     inputFontSizeLG,
-    controlHeightLG,
-    controlHeightSM,
     colorError,
     paddingInlineSM,
     paddingBlockSM,
@@ -67,15 +58,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     paddingBlock,
     handleBg,
     handleActiveBg,
-    colorTextDisabled,
     inputAffixPadding,
     borderRadiusSM,
-    borderRadiusLG,
     controlWidth,
     handleBorderColor,
     filledHandleBg,
     lineHeightLG,
-    calc,
   } = token;
 
   const borderStyle = `${unit(lineWidth)} ${lineType} ${handleBorderColor}`;
@@ -145,62 +133,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             color: colorError,
           },
         },
-
-        // // Style for input-group: input with label, with button or dropdown...
-        // '&-group': {
-        //   ...resetComponent(token),
-        //   ...genInputGroupStyle(token),
-
-        //   '&-wrapper': {
-        //     display: 'inline-block',
-        //     textAlign: 'start',
-        //     verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
-
-        //     [`${componentCls}-affix-wrapper`]: {
-        //       width: '100%',
-        //     },
-
-        //     // Size
-        //     '&-lg': {
-        //       [`${componentCls}-group-addon`]: {
-        //         borderRadius: borderRadiusLG,
-        //         fontSize: token.fontSizeLG,
-        //       },
-        //     },
-        //     '&-sm': {
-        //       [`${componentCls}-group-addon`]: {
-        //         borderRadius: borderRadiusSM,
-        //       },
-        //     },
-
-        //     // Variants
-        //     ...genOutlinedGroupStyle(token),
-        //     ...genFilledGroupStyle(token),
-
-        //     // Fix the issue of using icons in Space Compact mode
-        //     // https://github.com/ant-design/ant-design/issues/45764
-        //     [`&:not(${componentCls}-compact-first-item):not(${componentCls}-compact-last-item)${componentCls}-compact-item`]:
-        //       {
-        //         [`${componentCls}, ${componentCls}-group-addon`]: {
-        //           borderRadius: 0,
-        //         },
-        //       },
-
-        //     [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-first-item`]: {
-        //       [`${componentCls}, ${componentCls}-group-addon`]: {
-        //         borderStartEndRadius: 0,
-        //         borderEndEndRadius: 0,
-        //       },
-        //     },
-
-        //     [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-last-item`]: {
-        //       [`${componentCls}, ${componentCls}-group-addon`]: {
-        //         borderStartStartRadius: 0,
-        //         borderEndStartRadius: 0,
-        //       },
-        //     },
-        //   },
-        // },
 
         [`&-disabled ${componentCls}-input`]: {
           cursor: 'not-allowed',
@@ -358,31 +290,18 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '--input-number-input-padding-block': unit(paddingBlockLG),
           '--input-number-input-padding-inline': unit(paddingInlineLG),
 
-          //   padding: 0,
           paddingBlock: 0,
           fontSize: inputFontSizeLG,
           lineHeight: lineHeightLG,
-          // borderRadius: borderRadiusLG,
-
-          //   [`input${componentCls}-input`]: {
-          //     height: calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal(),
-          //     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-          //   },
         },
 
         '&-sm': {
           '--input-number-input-padding-block': unit(paddingBlockSM),
           '--input-number-input-padding-inline': unit(paddingInlineSM),
 
-          //   padding: 0,
           paddingBlock: 0,
           fontSize: inputFontSizeSM,
           borderRadius: borderRadiusSM,
-
-          //   [`input${componentCls}-input`]: {
-          //     height: calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal(),
-          //     padding: `${unit(paddingBlockSM)} ${unit(paddingInlineSM)}`,
-          //   },
         },
       },
     },
@@ -405,10 +324,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         [`${componentCls}-suffix`]: {
-          // insetBlockStart: 0,
-          // insetInlineEnd: 0,
           height: '100%',
-          // marginInlineEnd: paddingInline,
           marginInlineStart: inputAffixPadding,
           transition: `margin ${motionDurationMid}`,
         },
@@ -421,124 +337,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
       },
     },
   ];
-};
-
-const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
-  const {
-    componentCls,
-    paddingBlock,
-    paddingInline,
-    inputAffixPadding,
-    controlWidth,
-    borderRadiusLG,
-    borderRadiusSM,
-    paddingInlineLG,
-    paddingInlineSM,
-    paddingBlockLG,
-    paddingBlockSM,
-    motionDurationMid,
-  } = token;
-
-  return {
-    [`${componentCls}-affix-wrapper`]: {
-      [`input${componentCls}-input`]: {
-        padding: `${unit(paddingBlock)} 0`,
-      },
-
-      ...genBasicInputStyle(token),
-      // or number handler will cover form status
-      position: 'relative',
-      display: 'inline-flex',
-      alignItems: 'center',
-      width: controlWidth,
-      padding: 0,
-      paddingInlineStart: paddingInline,
-
-      '&-lg': {
-        borderRadius: borderRadiusLG,
-        paddingInlineStart: paddingInlineLG,
-
-        [`input${componentCls}-input`]: {
-          padding: `${unit(paddingBlockLG)} 0`,
-        },
-      },
-
-      '&-sm': {
-        borderRadius: borderRadiusSM,
-        paddingInlineStart: paddingInlineSM,
-
-        [`input${componentCls}-input`]: {
-          padding: `${unit(paddingBlockSM)} 0`,
-        },
-      },
-
-      [`&:not(${componentCls}-disabled):hover`]: {
-        zIndex: 1,
-      },
-
-      '&-focused, &:focus': {
-        zIndex: 1,
-      },
-
-      [`&-disabled > ${componentCls}-disabled`]: {
-        background: 'transparent',
-      },
-
-      [`> div${componentCls}`]: {
-        width: '100%',
-        border: 'none',
-        outline: 'none',
-
-        [`&${componentCls}-focused`]: {
-          boxShadow: 'none !important',
-        },
-      },
-
-      '&::before': {
-        display: 'inline-block',
-        width: 0,
-        visibility: 'hidden',
-        content: '"\\a0"',
-      },
-
-      [`${componentCls}-handler-wrap`]: {
-        zIndex: 2,
-      },
-
-      [componentCls]: {
-        position: 'static',
-        color: 'inherit',
-
-        '&-prefix, &-suffix': {
-          display: 'flex',
-          flex: 'none',
-          alignItems: 'center',
-          pointerEvents: 'none',
-        },
-
-        '&-prefix': {
-          marginInlineEnd: inputAffixPadding,
-        },
-
-        '&-suffix': {
-          insetBlockStart: 0,
-          insetInlineEnd: 0,
-          height: '100%',
-          marginInlineEnd: paddingInline,
-          marginInlineStart: inputAffixPadding,
-          transition: `margin ${motionDurationMid}`,
-        },
-      },
-
-      [`&:not(${componentCls}-affix-wrapper-without-controls):hover ${componentCls}-suffix`]: {
-        marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
-      },
-    },
-    // 覆盖 affix-wrapper borderRadius！
-    [`${componentCls}-underlined`]: {
-      borderRadius: 0,
-    },
-  };
 };
 
 const genCompatibleStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
@@ -560,7 +358,6 @@ export default genStyleHooks(
     const inputNumberToken = mergeToken<InputNumberToken>(token, initInputToken(token));
     return [
       genInputNumberStyles(inputNumberToken),
-      // genAffixWrapperStyles(inputNumberToken),
       genCompatibleStyles(inputNumberToken),
       // =====================================================
       // ==             Space Compact                       ==
