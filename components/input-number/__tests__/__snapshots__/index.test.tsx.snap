@@ -146,7 +146,7 @@ exports[`InputNumber renders correctly when controls is {} 1`] = `
 
 exports[`InputNumber renders correctly when controls is boolean 1`] = `
 <div
-  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
+  class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined ant-input-number-without-controls"
 >
   <input
     autocomplete="off"
