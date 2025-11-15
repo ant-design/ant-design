@@ -68,6 +68,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     handleBg,
     handleActiveBg,
     colorTextDisabled,
+    inputAffixPadding,
     borderRadiusSM,
     borderRadiusLG,
     controlWidth,
@@ -88,10 +89,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         ...resetComponent(token),
         ...genBasicInputStyle(token),
 
+        '--input-number-input-padding-block': unit(paddingBlock),
+        '--input-number-input-padding-inline': unit(paddingInline),
+
         display: 'inline-flex',
         width: controlWidth,
         margin: 0,
-        padding: 0,
+        paddingBlock: 0,
         borderRadius,
 
         // ======================= Variants =======================
@@ -135,36 +139,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
         },
 
-        // ========================= Size =========================
-        '&-lg': {
-          padding: 0,
-          fontSize: inputFontSizeLG,
-          lineHeight: lineHeightLG,
-          borderRadius: borderRadiusLG,
-
-          [`input${componentCls}-input`]: {
-            height: calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal(),
-            padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-          },
-        },
-
-        '&-sm': {
-          padding: 0,
-          fontSize: inputFontSizeSM,
-          borderRadius: borderRadiusSM,
-
-          [`input${componentCls}-input`]: {
-            height: calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal(),
-            padding: `${unit(paddingBlockSM)} ${unit(paddingInlineSM)}`,
-          },
-        },
-
         // ===================== Out Of Range =====================
-        '&-out-of-range': {
-          [`${componentCls}-input-wrap`]: {
-            input: {
-              color: colorError,
-            },
+        [`&${componentCls}-out-of-range`]: {
+          [`${componentCls}-input`]: {
+            color: colorError,
           },
         },
 
@@ -228,27 +206,28 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           cursor: 'not-allowed',
         },
 
-        [componentCls]: {
-          '&-input': {
-            ...resetComponent(token),
-            width: '100%',
-            padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
-            textAlign: 'start',
-            backgroundColor: 'transparent',
-            border: 0,
-            borderRadius,
-            outline: 0,
-            transition: `all ${motionDurationMid} linear`,
-            appearance: 'textfield',
-            fontSize: 'inherit',
-            ...genPlaceholderStyle(token.colorTextPlaceholder),
+        // ======================== Input =========================
+        [`${componentCls}-input`]: {
+          ...resetComponent(token),
+          width: '100%',
+          // padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
+          paddingBlock: `var(--input-number-input-padding-block)`,
+          textAlign: 'start',
+          backgroundColor: 'transparent',
+          border: 0,
+          borderRadius,
+          outline: 0,
+          transition: `all ${motionDurationMid} linear`,
+          appearance: 'textfield',
+          fontSize: 'inherit',
+          lineHeight: 'inherit',
+          ...genPlaceholderStyle(token.colorTextPlaceholder),
 
-            '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
-              {
-                margin: 0,
-                appearance: 'none',
-              },
-          },
+          '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
+            {
+              margin: 0,
+              appearance: 'none',
+            },
         },
         [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
           width: token.handleWidth,
@@ -346,10 +325,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         // ==================== Spinner Mode ====================
-        '&-mode-spinner': {
+        [`&${componentCls}-mode-spinner`]: {
+          padding: 0,
+
           [`${componentCls}-action`]: {
             flex: 'none',
-            paddingInline: token.paddingXXS,
+            paddingInline: 'var(--input-number-input-padding-inline)',
 
             '&-up': {
               borderInlineStart: borderStyle,
@@ -362,42 +343,83 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`${componentCls}-input`]: {
             textAlign: 'center',
+            paddingInline: 'var(--input-number-input-padding-inline)',
           },
         },
       },
     },
 
-    // Spinner Handler
-    // {
-    //   [`${componentCls}${componentCls}-mode-spinner`]: {
-    //     display: 'inline-flex',
-    //     alignItems: 'stretch',
+    // ==========================================================
+    // ==                         Size                         ==
+    // ==========================================================
+    {
+      [componentCls]: {
+        '&-lg': {
+          '--input-number-input-padding-block': unit(paddingBlockLG),
+          '--input-number-input-padding-inline': unit(paddingInlineLG),
 
-    //     [`${componentCls}-handler`]: {
-    //       display: 'flex',
-    //       alignItems: 'center',
-    //       justifyContent: 'center',
-    //       height: 'auto',
-    //       width: token.handleWidth,
-    //       flex: '0 0 auto',
-    //       borderRadius: 0,
-    //     },
+          //   padding: 0,
+          paddingBlock: 0,
+          fontSize: inputFontSizeLG,
+          lineHeight: lineHeightLG,
+          // borderRadius: borderRadiusLG,
 
-    //     [`${componentCls}-handler-up`]: {
-    //       borderInlineStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
-    //       borderEndRadius: borderRadius,
-    //     },
+          //   [`input${componentCls}-input`]: {
+          //     height: calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal(),
+          //     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
+          //   },
+        },
 
-    //     [`${componentCls}-handler-down`]: {
-    //       borderInlineEnd: `${unit(lineWidth)} ${lineType} ${handleBorderColor} `,
-    //       borderInlineStart: 'none',
-    //     },
+        '&-sm': {
+          '--input-number-input-padding-block': unit(paddingBlockSM),
+          '--input-number-input-padding-inline': unit(paddingInlineSM),
 
-    //     [`${componentCls}-input`]: {
-    //       textAlign: 'center',
-    //     },
-    //   },
-    // },
+          //   padding: 0,
+          paddingBlock: 0,
+          fontSize: inputFontSizeSM,
+          borderRadius: borderRadiusSM,
+
+          //   [`input${componentCls}-input`]: {
+          //     height: calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal(),
+          //     padding: `${unit(paddingBlockSM)} ${unit(paddingInlineSM)}`,
+          //   },
+        },
+      },
+    },
+
+    // ==========================================================
+    // ==                      Pre/Suffix                      ==
+    // ==========================================================
+    {
+      [componentCls]: {
+        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          display: 'flex',
+          flex: 'none',
+          alignItems: 'center',
+          alignSelf: 'center',
+          pointerEvents: 'none',
+        },
+
+        [`${componentCls}-prefix`]: {
+          marginInlineEnd: inputAffixPadding,
+        },
+
+        [`${componentCls}-suffix`]: {
+          // insetBlockStart: 0,
+          // insetInlineEnd: 0,
+          height: '100%',
+          // marginInlineEnd: paddingInline,
+          marginInlineStart: inputAffixPadding,
+          transition: `margin ${motionDurationMid}`,
+        },
+
+        '&:hover': {
+          [`${componentCls}-suffix`]: {
+            marginInlineEnd: token.handleWidth,
+          },
+        },
+      },
+    },
   ];
 };
 
