@@ -115,7 +115,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       suffix,
       bordered,
       readOnly,
-      status: customStatus,
+      status,
       controls,
       variant: customVariant,
       className,
@@ -151,13 +151,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     // upIcon = <span className={`${prefixCls}-handler-up-inner`}>{upIcon}</span>;
     // downIcon = <span className={`${prefixCls}-handler-down-inner`}>{downIcon}</span>;
 
-    const {
-      hasFeedback,
-      status: contextStatus,
-      isFormItemInput,
-      feedbackIcon,
-    } = React.useContext(FormItemInputContext);
-    const mergedStatus = getMergedStatus(contextStatus, customStatus);
+    const { hasFeedback, isFormItemInput, feedbackIcon } = React.useContext(FormItemInputContext);
 
     const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -196,7 +190,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
           contextClassName,
           compactItemClassnames,
 
-          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+          getStatusClassNames(prefixCls, status, hasFeedback),
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
             [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -273,10 +267,20 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
 );
 
 const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
-  const { addonBefore, addonAfter, prefixCls: customizePrefixCls, className, ...rest } = props;
+  const {
+    addonBefore,
+    addonAfter,
+    prefixCls: customizePrefixCls,
+    className,
+    status: customStatus,
+    ...rest
+  } = props;
 
   const { getPrefixCls } = useComponentConfig('inputNumber');
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+
+  const { status: contextStatus } = React.useContext(FormItemInputContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -302,6 +306,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
       ref={ref}
       {...rest}
       prefixCls={prefixCls}
+      status={mergedStatus}
       className={clsx(cssVarCls, rootCls, hashId, className)}
     />
   );
@@ -313,7 +318,12 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
       }
 
       return (
-        <SpaceAddon className={clsx(`${prefixCls}-addon`, cssVarCls, hashId)}>
+        <SpaceAddon
+          className={clsx(`${prefixCls}-addon`, cssVarCls, hashId)}
+          variant={props.variant}
+          disabled={props.disabled}
+          status={mergedStatus}
+        >
           <ContextIsolator form>{node}</ContextIsolator>
         </SpaceAddon>
       );
