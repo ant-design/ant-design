@@ -116,7 +116,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       bordered,
       readOnly,
       status,
-      controls,
+      controls = true,
       variant: customVariant,
       className,
       style,
@@ -134,14 +134,23 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       classNames: contextClassNames,
     } = useComponentConfig('inputNumber');
 
+    //controls && !props.disabled && !props.readOnly;
+    const mergedControls = React.useMemo(() => {
+      if (!controls || props.disabled || props.readOnly) {
+        return false;
+      }
+
+      return controls;
+    }, [controls, props.disabled, props.readOnly]);
+
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
     let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
-    const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
+    const controlsTemp = typeof mergedControls === 'boolean' ? mergedControls : undefined;
 
-    if (typeof controls === 'object') {
-      upIcon = controls.upIcon || upIcon;
-      downIcon = controls.downIcon || downIcon;
+    if (typeof mergedControls === 'object') {
+      upIcon = mergedControls.upIcon || upIcon;
+      downIcon = mergedControls.downIcon || downIcon;
     }
 
     const { hasFeedback, isFormItemInput, feedbackIcon } = React.useContext(FormItemInputContext);
@@ -161,6 +170,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       ...props,
       size: mergedSize,
       disabled: mergedDisabled,
+      controls: mergedControls,
     };
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -190,6 +200,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-rtl`]: direction === 'rtl',
             [`${prefixCls}-in-form-item`]: isFormItemInput,
+            [`${prefixCls}-without-controls`]: !mergedControls,
           },
         )}
         style={{ ...mergedStyles.root, ...contextStyle, ...style }}

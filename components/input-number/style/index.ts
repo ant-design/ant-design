@@ -329,7 +329,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           transition: `margin ${motionDurationMid}`,
         },
 
-        '&:hover': {
+        [`&:hover:not(${componentCls}-without-controls)`]: {
           [`${componentCls}-suffix`]: {
             marginInlineEnd: token.handleWidth,
           },

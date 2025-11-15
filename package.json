@@ -125,7 +125,7 @@
     "@rc-component/form": "~1.4.0",
     "@rc-component/image": "~1.5.1",
     "@rc-component/input": "~1.1.0",
-    "@rc-component/input-number": "~1.6.0",
+    "@rc-component/input-number": "~1.6.2",
     "@rc-component/mentions": "~1.5.5",
     "@rc-component/menu": "~1.1.4",
     "@rc-component/motion": "~1.1.4",

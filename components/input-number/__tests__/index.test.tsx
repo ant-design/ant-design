@@ -24,11 +24,11 @@ describe('InputNumber', () => {
   it('should call onStep when press up or down button', () => {
     const onStep = jest.fn();
     const { container } = render(<InputNumber defaultValue={1} onStep={onStep} />);
-    fireEvent.mouseDown(container.querySelector('.ant-input-number-handler-up')!);
+    fireEvent.mouseDown(container.querySelector('.ant-input-number-action-up')!);
     expect(onStep).toHaveBeenCalledTimes(1);
     expect(onStep).toHaveBeenLastCalledWith(2, { emitter: 'handler', offset: 1, type: 'up' });
 
-    fireEvent.mouseDown(container.querySelector('.ant-input-number-handler-down')!);
+    fireEvent.mouseDown(container.querySelector('.ant-input-number-action-down')!);
     expect(onStep).toHaveBeenCalledTimes(2);
     expect(onStep).toHaveBeenLastCalledWith(1, { emitter: 'handler', offset: 1, type: 'down' });
   });
@@ -65,8 +65,8 @@ describe('InputNumber', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-input-number-handler-up')).toHaveTextContent('foo');
-    expect(container.querySelector('.ant-input-number-handler-down')).toHaveTextContent('bar');
+    expect(container.querySelector('.ant-input-number-action-up')).toHaveTextContent('foo');
+    expect(container.querySelector('.ant-input-number-action-down')).toHaveTextContent('bar');
   });
 
   it('should support className', () => {
