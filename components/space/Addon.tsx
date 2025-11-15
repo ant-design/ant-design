@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { getStatusClassNames } from '../_util/statusUtils';
 import type { InputStatus } from '../_util/statusUtils';
@@ -35,7 +35,7 @@ const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>((prop
 
   const statusCls = getStatusClassNames(prefixCls, status);
 
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     hashId,
     compactItemClassnames,
