@@ -16,27 +16,6 @@ import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
-export const genRadiusStyle = (
-  { componentCls, borderRadiusSM, borderRadiusLG }: InputNumberToken,
-  size: 'lg' | 'sm',
-) => {
-  const borderRadius = size === 'lg' ? borderRadiusLG : borderRadiusSM;
-  return {
-    [`&-${size}`]: {
-      [`${componentCls}-handler-wrap`]: {
-        borderStartEndRadius: borderRadius,
-        borderEndEndRadius: borderRadius,
-      },
-      [`${componentCls}-handler-up`]: {
-        borderStartEndRadius: borderRadius,
-      },
-      [`${componentCls}-handler-down`]: {
-        borderEndEndRadius: borderRadius,
-      },
-    },
-  };
-};
-
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     componentCls,
