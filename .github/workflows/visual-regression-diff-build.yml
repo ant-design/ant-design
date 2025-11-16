@@ -37,7 +37,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         name: artifact snapshot
         with:
           name: snapshot-artifacts-${{ strategy.job-index }}
@@ -71,7 +71,7 @@ jobs:
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ always() }}
         with:
           name: visual-regression-report
@@ -85,7 +85,7 @@ jobs:
 
       - name: Upload persist key
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: visual-regression-diff-ref
           path: ./visual-regression-pr-id.txt
