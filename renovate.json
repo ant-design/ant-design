@@ -3,7 +3,7 @@
   "automerge": false,
   "dependencyDashboard": true,
   "rebaseWhen": "conflicted",
-  "ignoreDeps": [],
+  "ignoreDeps": ["actions/upload-artifact"],
   "labels": ["dependencies"],
   "postUpdateOptions": ["yarnDedupeHighest"],
   "prConcurrentLimit": 30,
