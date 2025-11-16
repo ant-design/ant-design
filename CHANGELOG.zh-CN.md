@@ -15,6 +15,13 @@ tag: vVERSION
 
 ---
 
+## 5.29.0
+
+`2025-11-17`
+
+- ⌨️ 优化 Drawer 组件的可访问性，新增 `ariaId` 属性[#55697](https://github.com/ant-design/ant-design/pull/55697) [@rxy001](https://github.com/rxy001)
+- 🌐 修复韩语本地化中“복사됨”文本的空格规则问题。[#55672](https://github.com/ant-design/ant-design/pull/55672) [@rapsealk](https://github.com/rapsealk)
+
 ## 5.28.1
 
 `2025-11-11`
