@@ -335,16 +335,20 @@ const InternalCompoundedButton = React.forwardRef<
     ...(contextStyles.icon || {}),
   };
 
-  const iconNode =
-    icon && !innerLoading ? (
+  /**
+   * 图标节点抽离
+   * 有自定义图标且不在加载状态：显示自定义图标
+   */
+  const iconWrapperElement = (child: React.ReactNode) => {
+    return (
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
-        {icon}
+        {child}
       </IconWrapper>
-    ) : loading && typeof loading === 'object' && loading.icon ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
-        {loading.icon}
-      </IconWrapper>
-    ) : (
+    );
+  };
+
+  const defaultLoadingIconElement = () => {
+    return (
       <DefaultLoadingIcon
         existIcon={!!icon}
         prefixCls={prefixCls}
@@ -352,6 +356,26 @@ const InternalCompoundedButton = React.forwardRef<
         mount={isMountRef.current}
       />
     );
+  };
+
+  const customIconNotLoading = icon && !innerLoading;
+  const customLoadingIconInLoading = loading && typeof loading === 'object' && loading.icon;
+
+  const iconMap = {
+    customIconNotLoading: iconWrapperElement(icon),
+    customLoadingIconInLoading: iconWrapperElement(typeof loading === 'object' && loading.icon),
+    defaultLoadingIcon: defaultLoadingIconElement(),
+  };
+
+  const currentState = customIconNotLoading
+    ? 'customIconNotLoading'
+    : customLoadingIconInLoading
+      ? 'customLoadingIconInLoading'
+      : 'defaultLoadingIcon';
+  /**
+   * 通过 map 查询， 利于阅读与扩展，避免嵌套
+   */
+  const iconNode = iconMap[currentState];
 
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
