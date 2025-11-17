@@ -362,6 +362,8 @@ const InternalCompoundedButton = React.forwardRef<
   const customLoadingIconInLoading = innerLoading && typeof loading === 'object' && loading.icon;
   /**
    * 通过 if else 可读性和性能都更好，后续扩展也不影响
+   * 有一种情况，用户输入{icon: null}，此时 icon 为 falsy，但 loading.icon 为 null，此时会自动 fallback 到默认 loading icon
+   * 暂时未处理这种情况，后续如需扩展，需要处理这种情况，增加null和undefined判断即可
    */
   let iconNode: React.ReactNode;
   if (customIconNotLoading) {
