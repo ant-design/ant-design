@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
-import { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 export interface CheckableTagProps {
