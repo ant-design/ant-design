@@ -360,22 +360,17 @@ const InternalCompoundedButton = React.forwardRef<
 
   const customIconNotLoading = icon && !innerLoading;
   const customLoadingIconInLoading = loading && typeof loading === 'object' && loading.icon;
-
-  const iconMap = {
-    customIconNotLoading: iconWrapperElement(icon),
-    customLoadingIconInLoading: iconWrapperElement(typeof loading === 'object' && loading.icon),
-    defaultLoadingIcon: defaultLoadingIconElement(),
-  };
-
-  const currentState = customIconNotLoading
-    ? 'customIconNotLoading'
-    : customLoadingIconInLoading
-      ? 'customLoadingIconInLoading'
-      : 'defaultLoadingIcon';
   /**
-   * 通过 map 查询， 利于阅读与扩展，避免嵌套
+   * 通过 if else 可读性和性能都更好，后续扩展也不影响
    */
-  const iconNode = iconMap[currentState];
+  let iconNode: React.ReactNode;
+  if (customIconNotLoading) {
+    iconNode = iconWrapperElement(icon);
+  } else if (customLoadingIconInLoading) {
+    iconNode = iconWrapperElement(loading.icon);
+  } else {
+    iconNode = defaultLoadingIconElement();
+  }
 
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
