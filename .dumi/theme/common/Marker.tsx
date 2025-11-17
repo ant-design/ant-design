@@ -10,7 +10,7 @@ const useStyle = createStyles(({ token, cx }) => {
     position: absolute;
     border: var(--mark-border-size) solid ${token.colorWarning};
     box-sizing: border-box;
-    z-index: 999999;
+    z-index: 10;
     pointer-events: none;
     left: calc(var(--rect-left) * 1px - var(--mark-border-size));
     top: calc(var(--rect-top) * 1px - var(--mark-border-size));
@@ -32,7 +32,7 @@ const useStyle = createStyles(({ token, cx }) => {
       --mark-border-size: 2px;
       opacity: 1;
       box-shadow: 0 0 0 1px #fff;
-      z-index: 1000000;
+      z-index: 11;
     }
   `;
 
