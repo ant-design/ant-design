@@ -788,21 +788,29 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="input content"
       />
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item ant-input-number-outlined"
       >
+        <input
+          aria-valuenow="12"
+          autocomplete="off"
+          class="ant-input-number-input"
+          role="spinbutton"
+          step="1"
+          value="12"
+        />
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number-actions"
         >
           <span
             aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
+            class="ant-input-number-action ant-input-number-action-up"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
+              class="anticon anticon-up"
               role="img"
             >
               <svg
@@ -823,13 +831,13 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           <span
             aria-disabled="false"
             aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down"
+            class="ant-input-number-action ant-input-number-action-down"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
+              class="anticon anticon-down"
               role="img"
             >
               <svg
@@ -847,18 +855,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
               </svg>
             </span>
           </span>
-        </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            aria-valuenow="12"
-            autocomplete="off"
-            class="ant-input-number-input"
-            role="spinbutton"
-            step="1"
-            value="12"
-          />
         </div>
       </div>
     </div>
@@ -1696,27 +1692,35 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        class="ant-space-addon ant-space-addon-compact-item css-var-test-id"
+        class="ant-space-addon ant-space-addon-compact-item css-var-test-id ant-space-addon-variant-outlined"
       >
         $
       </div>
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
+        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-outlined"
         style="width:100%"
       >
+        <input
+          autocomplete="off"
+          class="ant-input-number-input"
+          placeholder="another input"
+          role="spinbutton"
+          step="1"
+          value=""
+        />
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number-actions"
         >
           <span
             aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
+            class="ant-input-number-action ant-input-number-action-up"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
+              class="anticon anticon-up"
               role="img"
             >
               <svg
@@ -1737,13 +1741,13 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           <span
             aria-disabled="false"
             aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down"
+            class="ant-input-number-action ant-input-number-action-down"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
+              class="anticon anticon-down"
               role="img"
             >
               <svg
@@ -1762,36 +1766,32 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             </span>
           </span>
         </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            autocomplete="off"
-            class="ant-input-number-input"
-            placeholder="another input"
-            role="spinbutton"
-            step="1"
-            value=""
-          />
-        </div>
       </div>
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
+        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-outlined"
         style="width:100%"
       >
+        <input
+          autocomplete="off"
+          class="ant-input-number-input"
+          placeholder="another input"
+          role="spinbutton"
+          step="1"
+          value=""
+        />
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number-actions"
         >
           <span
             aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
+            class="ant-input-number-action ant-input-number-action-up"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
+              class="anticon anticon-up"
               role="img"
             >
               <svg
@@ -1812,13 +1812,13 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           <span
             aria-disabled="false"
             aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down"
+            class="ant-input-number-action ant-input-number-action-down"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
+              class="anticon anticon-down"
               role="img"
             >
               <svg
@@ -1837,21 +1837,9 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             </span>
           </span>
         </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            autocomplete="off"
-            class="ant-input-number-input"
-            placeholder="another input"
-            role="spinbutton"
-            step="1"
-            value=""
-          />
-        </div>
       </div>
       <div
-        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id ant-space-addon-variant-outlined"
       >
         $
       </div>
@@ -1900,7 +1888,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id"
+        class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id ant-space-addon-variant-outlined"
       >
         $
       </div>
@@ -3335,95 +3323,87 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-space-compact"
       >
         <div
-          class="ant-input-number-wrapper ant-input-number-group"
+          class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined ant-input-number-addon css-var-test-id"
         >
+          +
+        </div>
+        <div
+          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-outlined"
+        >
+          <input
+            aria-valuenow="100"
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="1"
+            value="100"
+          />
           <div
-            class="ant-input-number-group-addon"
+            class="ant-input-number-actions"
           >
-            +
-          </div>
-          <div
-            class="ant-input-number ant-input-number-outlined"
-          >
-            <div
-              class="ant-input-number-handler-wrap"
+            <span
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-action ant-input-number-action-up"
+              role="button"
+              unselectable="on"
             >
               <span
-                aria-disabled="false"
-                aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up"
-                role="button"
-                unselectable="on"
+                aria-label="up"
+                class="anticon anticon-up"
+                role="img"
               >
-                <span
-                  aria-label="up"
-                  class="anticon anticon-up ant-input-number-handler-up-inner"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="up"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
               </span>
-              <span
-                aria-disabled="false"
-                aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down"
-                role="button"
-                unselectable="on"
-              >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-input-number-handler-down-inner"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </div>
-            <div
-              class="ant-input-number-input-wrap"
+            </span>
+            <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
+              class="ant-input-number-action ant-input-number-action-down"
+              role="button"
+              unselectable="on"
             >
-              <input
-                aria-valuenow="100"
-                autocomplete="off"
-                class="ant-input-number-input"
-                role="spinbutton"
-                step="1"
-                value="100"
-              />
-            </div>
+              <span
+                aria-label="down"
+                class="anticon anticon-down"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
           </div>
-          <div
-            class="ant-input-number-group-addon"
-          >
-            $
-          </div>
+        </div>
+        <div
+          class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id ant-space-addon-variant-outlined ant-input-number-addon css-var-test-id"
+        >
+          $
         </div>
       </div>
     </div>
@@ -3587,21 +3567,29 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item ant-input-number-outlined"
       >
+        <input
+          aria-valuenow="12"
+          autocomplete="off"
+          class="ant-input-number-input"
+          role="spinbutton"
+          step="1"
+          value="12"
+        />
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number-actions"
         >
           <span
             aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
+            class="ant-input-number-action ant-input-number-action-up"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
+              class="anticon anticon-up"
               role="img"
             >
               <svg
@@ -3622,13 +3610,13 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             aria-disabled="false"
             aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down"
+            class="ant-input-number-action ant-input-number-action-down"
             role="button"
             unselectable="on"
           >
             <span
               aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
+              class="anticon anticon-down"
               role="img"
             >
               <svg
@@ -3646,18 +3634,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               </svg>
             </span>
           </span>
-        </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            aria-valuenow="12"
-            autocomplete="off"
-            class="ant-input-number-input"
-            role="spinbutton"
-            step="1"
-            value="12"
-          />
         </div>
       </div>
     </div>
@@ -3792,21 +3768,29 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-input-number ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
+          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-outlined"
         >
+          <input
+            aria-valuenow="12"
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="1"
+            value="12"
+          />
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-input-number-actions"
           >
             <span
               aria-disabled="false"
               aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
+              class="ant-input-number-action ant-input-number-action-up"
               role="button"
               unselectable="on"
             >
               <span
                 aria-label="up"
-                class="anticon anticon-up ant-input-number-handler-up-inner"
+                class="anticon anticon-up"
                 role="img"
               >
                 <svg
@@ -3827,13 +3811,13 @@ Array [
             <span
               aria-disabled="false"
               aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down"
+              class="ant-input-number-action ant-input-number-action-down"
               role="button"
               unselectable="on"
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-input-number-handler-down-inner"
+                class="anticon anticon-down"
                 role="img"
               >
                 <svg
@@ -3851,18 +3835,6 @@ Array [
                 </svg>
               </span>
             </span>
-          </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
-              aria-valuenow="12"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="1"
-              value="12"
-            />
           </div>
         </div>
         <div

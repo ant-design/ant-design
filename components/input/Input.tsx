@@ -1,8 +1,8 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { triggerFocus } from '@rc-component/util/lib/Dom/focus';
 import type { InputFocusOptions } from '@rc-component/util/lib/Dom/focus';
+import { triggerFocus } from '@rc-component/util/lib/Dom/focus';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 

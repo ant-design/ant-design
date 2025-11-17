@@ -301,21 +301,31 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -336,13 +346,13 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -360,20 +370,6 @@ Array [
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -681,21 +677,31 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -716,13 +722,13 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -740,20 +746,6 @@ Array [
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -1066,21 +1058,31 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -1101,13 +1103,13 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -1125,20 +1127,6 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -1443,21 +1431,31 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -1478,13 +1476,13 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -1502,20 +1500,6 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -1829,21 +1813,31 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -1864,13 +1858,13 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -1888,20 +1882,6 @@ Array [
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -2503,21 +2483,31 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -2538,13 +2528,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -2562,20 +2552,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -2883,21 +2859,31 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-color-picker-hsb-input"
                       >
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-outlined ant-input-number-sm"
                         >
+                          <input
+                            aria-valuemax="360"
+                            aria-valuemin="0"
+                            aria-valuenow="215"
+                            autocomplete="off"
+                            class="ant-input-number-input"
+                            role="spinbutton"
+                            step="1"
+                            value="215"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="up"
-                                class="anticon anticon-up ant-input-number-handler-up-inner"
+                                class="anticon anticon-up"
                                 role="img"
                               >
                                 <svg
@@ -2918,13 +2904,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-input-number-handler-down-inner"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -2943,37 +2929,33 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="360"
-                              aria-valuemin="0"
-                              aria-valuenow="215"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="215"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-outlined ant-input-number-sm"
                         >
+                          <input
+                            aria-valuemax="100"
+                            aria-valuemin="0"
+                            aria-valuenow="91"
+                            autocomplete="off"
+                            class="ant-input-number-input"
+                            role="spinbutton"
+                            step="1"
+                            value="91%"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="up"
-                                class="anticon anticon-up ant-input-number-handler-up-inner"
+                                class="anticon anticon-up"
                                 role="img"
                               >
                                 <svg
@@ -2994,13 +2976,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-input-number-handler-down-inner"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -3019,37 +3001,33 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
-                              aria-valuenow="91"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="91%"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-outlined ant-input-number-sm"
                         >
+                          <input
+                            aria-valuemax="100"
+                            aria-valuemin="0"
+                            aria-valuenow="100"
+                            autocomplete="off"
+                            class="ant-input-number-input"
+                            role="spinbutton"
+                            step="1"
+                            value="100%"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="true"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                              class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="up"
-                                class="anticon anticon-up ant-input-number-handler-up-inner"
+                                class="anticon anticon-up"
                                 role="img"
                               >
                                 <svg
@@ -3070,13 +3048,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-input-number-handler-down-inner"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -3094,40 +3072,36 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </svg>
                               </span>
                             </span>
-                          </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
-                              aria-valuenow="100"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="100%"
-                            />
                           </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -3148,13 +3122,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -3172,20 +3146,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -3493,21 +3453,31 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-color-picker-rgb-input"
                       >
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-outlined ant-input-number-sm"
                         >
+                          <input
+                            aria-valuemax="255"
+                            aria-valuemin="0"
+                            aria-valuenow="22"
+                            autocomplete="off"
+                            class="ant-input-number-input"
+                            role="spinbutton"
+                            step="1"
+                            value="22"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="up"
-                                class="anticon anticon-up ant-input-number-handler-up-inner"
+                                class="anticon anticon-up"
                                 role="img"
                               >
                                 <svg
@@ -3528,13 +3498,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-input-number-handler-down-inner"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -3553,37 +3523,33 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="255"
-                              aria-valuemin="0"
-                              aria-valuenow="22"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="22"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-outlined ant-input-number-sm"
                         >
+                          <input
+                            aria-valuemax="255"
+                            aria-valuemin="0"
+                            aria-valuenow="119"
+                            autocomplete="off"
+                            class="ant-input-number-input"
+                            role="spinbutton"
+                            step="1"
+                            value="119"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="false"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up"
+                              class="ant-input-number-action ant-input-number-action-up"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="up"
-                                class="anticon anticon-up ant-input-number-handler-up-inner"
+                                class="anticon anticon-up"
                                 role="img"
                               >
                                 <svg
@@ -3604,13 +3570,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-input-number-handler-down-inner"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -3629,37 +3595,33 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               </span>
                             </span>
                           </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="255"
-                              aria-valuemin="0"
-                              aria-valuenow="119"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="119"
-                            />
-                          </div>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
+                          class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-outlined ant-input-number-sm"
                         >
+                          <input
+                            aria-valuemax="255"
+                            aria-valuemin="0"
+                            aria-valuenow="255"
+                            autocomplete="off"
+                            class="ant-input-number-input"
+                            role="spinbutton"
+                            step="1"
+                            value="255"
+                          />
                           <div
-                            class="ant-input-number-handler-wrap"
+                            class="ant-input-number-actions"
                           >
                             <span
                               aria-disabled="true"
                               aria-label="Increase Value"
-                              class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                              class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="up"
-                                class="anticon anticon-up ant-input-number-handler-up-inner"
+                                class="anticon anticon-up"
                                 role="img"
                               >
                                 <svg
@@ -3680,13 +3642,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <span
                               aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-handler ant-input-number-handler-down"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-input-number-handler-down-inner"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -3704,40 +3666,36 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 </svg>
                               </span>
                             </span>
-                          </div>
-                          <div
-                            class="ant-input-number-input-wrap"
-                          >
-                            <input
-                              aria-valuemax="255"
-                              aria-valuemin="0"
-                              aria-valuenow="255"
-                              autocomplete="off"
-                              class="ant-input-number-input"
-                              role="spinbutton"
-                              step="1"
-                              value="255"
-                            />
                           </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -3758,13 +3716,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -3782,20 +3740,6 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -4218,21 +4162,31 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -4253,13 +4207,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -4277,20 +4231,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -4649,21 +4589,31 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -4684,13 +4634,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -4708,20 +4658,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -5056,21 +4992,31 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                       >
+                        <input
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="100"
+                          autocomplete="off"
+                          class="ant-input-number-input"
+                          role="spinbutton"
+                          step="1"
+                          value="100%"
+                        />
                         <div
-                          class="ant-input-number-handler-wrap"
+                          class="ant-input-number-actions"
                         >
                           <span
                             aria-disabled="true"
                             aria-label="Increase Value"
-                            class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                            class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="up"
-                              class="anticon anticon-up ant-input-number-handler-up-inner"
+                              class="anticon anticon-up"
                               role="img"
                             >
                               <svg
@@ -5091,13 +5037,13 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           <span
                             aria-disabled="false"
                             aria-label="Decrease Value"
-                            class="ant-input-number-handler ant-input-number-handler-down"
+                            class="ant-input-number-action ant-input-number-action-down"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="down"
-                              class="anticon anticon-down ant-input-number-handler-down-inner"
+                              class="anticon anticon-down"
                               role="img"
                             >
                               <svg
@@ -5115,20 +5061,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </svg>
                             </span>
                           </span>
-                        </div>
-                        <div
-                          class="ant-input-number-input-wrap"
-                        >
-                          <input
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="100"
-                            autocomplete="off"
-                            class="ant-input-number-input"
-                            role="spinbutton"
-                            step="1"
-                            value="100%"
-                          />
                         </div>
                       </div>
                     </div>
@@ -6019,21 +5951,31 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                       >
+                        <input
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="100"
+                          autocomplete="off"
+                          class="ant-input-number-input"
+                          role="spinbutton"
+                          step="1"
+                          value="100%"
+                        />
                         <div
-                          class="ant-input-number-handler-wrap"
+                          class="ant-input-number-actions"
                         >
                           <span
                             aria-disabled="true"
                             aria-label="Increase Value"
-                            class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                            class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="up"
-                              class="anticon anticon-up ant-input-number-handler-up-inner"
+                              class="anticon anticon-up"
                               role="img"
                             >
                               <svg
@@ -6054,13 +5996,13 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           <span
                             aria-disabled="false"
                             aria-label="Decrease Value"
-                            class="ant-input-number-handler ant-input-number-handler-down"
+                            class="ant-input-number-action ant-input-number-action-down"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="down"
-                              class="anticon anticon-down ant-input-number-handler-down-inner"
+                              class="anticon anticon-down"
                               role="img"
                             >
                               <svg
@@ -6078,20 +6020,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </svg>
                             </span>
                           </span>
-                        </div>
-                        <div
-                          class="ant-input-number-input-wrap"
-                        >
-                          <input
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="100"
-                            autocomplete="off"
-                            class="ant-input-number-input"
-                            role="spinbutton"
-                            step="1"
-                            value="100%"
-                          />
                         </div>
                       </div>
                     </div>
@@ -6403,21 +6331,31 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -6438,13 +6376,13 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -6462,20 +6400,6 @@ Array [
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -7212,21 +7136,31 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -7247,13 +7181,13 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -7271,20 +7205,6 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -7604,21 +7524,31 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -7639,13 +7569,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -7663,20 +7593,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -7981,21 +7897,31 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -8016,13 +7942,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -8040,20 +7966,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -8358,21 +8270,31 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -8393,13 +8315,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -8417,20 +8339,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -8748,21 +8656,31 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -8783,13 +8701,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -8807,20 +8725,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -9130,21 +9034,31 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -9165,13 +9079,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -9189,20 +9103,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -9512,21 +9412,31 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="true"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -9547,13 +9457,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -9571,20 +9481,6 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
-                          aria-valuenow="100"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          role="spinbutton"
-                          step="1"
-                          value="100%"
-                        />
                       </div>
                     </div>
                   </div>
@@ -9896,21 +9792,31 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                   >
+                    <input
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="100"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      role="spinbutton"
+                      step="1"
+                      value="100%"
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="true"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                        class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -9931,13 +9837,13 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -9955,20 +9861,6 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
-                        aria-valuenow="100"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        role="spinbutton"
-                        step="1"
-                        value="100%"
-                      />
                     </div>
                   </div>
                 </div>
@@ -10269,21 +10161,31 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                   >
+                    <input
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="100"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      role="spinbutton"
+                      step="1"
+                      value="100%"
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="true"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                        class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -10304,13 +10206,13 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -10328,20 +10230,6 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
-                        aria-valuenow="100"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        role="spinbutton"
-                        step="1"
-                        value="100%"
-                      />
                     </div>
                   </div>
                 </div>
@@ -10668,21 +10556,31 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -10703,13 +10601,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -10727,20 +10625,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -11052,21 +10936,31 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -11087,13 +10981,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -11111,20 +11005,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -11453,21 +11333,31 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="true"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -11488,13 +11378,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -11512,20 +11402,6 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </svg>
                       </span>
                     </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
                   </div>
                 </div>
               </div>
@@ -11831,21 +11707,31 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -11866,13 +11752,13 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -11890,20 +11776,6 @@ Array [
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>
@@ -12211,21 +12083,31 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
+                <input
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="100"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value="100%"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="true"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -12246,13 +12128,13 @@ Array [
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -12270,20 +12152,6 @@ Array [
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    role="spinbutton"
-                    step="1"
-                    value="100%"
-                  />
                 </div>
               </div>
             </div>

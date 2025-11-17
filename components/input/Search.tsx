@@ -1,9 +1,9 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import { composeRef } from '@rc-component/util/lib/ref';
-import { clsx } from 'clsx';
 import omit from '@rc-component/util/lib/omit';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type {
@@ -17,8 +17,7 @@ import Button from '../button';
 import type { ButtonSemanticName } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
-import Space from '../space';
-import { useCompactItemContext } from '../space/Compact';
+import Compact, { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 import useStyle from './style/search';
@@ -247,7 +246,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   );
 
   return (
-    <Space.Compact
+    <Compact
       className={mergedClassName}
       style={{ ...style, ...mergedStyles.root }}
       {...rootProps}
@@ -255,7 +254,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     >
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
-    </Space.Compact>
+    </Compact>
   );
 });
 

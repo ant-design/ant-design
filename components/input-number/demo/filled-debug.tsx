@@ -40,6 +40,22 @@ const App: React.FC = () => (
       <InputNumber addonBefore="http://" placeholder="Filled" variant="filled" disabled />
       <InputNumber addonBefore="http://" placeholder="Filled" variant="filled" status="error" />
     </Flex>
+    <Flex gap={12}>
+      <InputNumber
+        addonBefore="http://"
+        placeholder="Outlined"
+        variant="outlined"
+        status="warning"
+      />
+      <InputNumber
+        addonBefore="http://"
+        placeholder="Filled"
+        variant="filled"
+        status="warning"
+        disabled
+      />
+      <InputNumber addonBefore="http://" placeholder="Filled" variant="filled" status="warning" />
+    </Flex>
   </Flex>
 );
 
