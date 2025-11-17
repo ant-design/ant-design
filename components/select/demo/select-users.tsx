@@ -81,12 +81,10 @@ function mockFetchUserList(username: string): Promise<UserValue[]> {
         }),
       );
 
-      const results = mockUsers
-        .filter((user) => user.name.toLowerCase().includes((username || '').toLowerCase()))
-        .map((user) => ({
-          label: user.name,
-          value: user.id,
-        }));
+      const results = mockUsers.map((user) => ({
+        label: user.name,
+        value: user.id,
+      }));
 
       resolve(results);
     }, 300);

@@ -33,15 +33,11 @@ const App: React.FC = () => {
   const [page, setPage] = useState(1);
 
   const appendData = (showMessage = true) => {
-    mockFetch(page, PAGE_SIZE)
-      .then((results) => {
-        setData(data.concat(results));
-        setPage(page + 1);
-        showMessage && message.success(`${results.length} more items loaded!`);
-      })
-      .catch(() => {
-        showMessage && message.error('Failed to load data');
-      });
+    mockFetch(page, PAGE_SIZE).then((results) => {
+      setData(data.concat(results));
+      setPage(page + 1);
+      showMessage && message.success(`${results.length} more items loaded!`);
+    });
   };
 
   useEffect(() => {
