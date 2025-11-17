@@ -359,7 +359,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   const customIconNotLoading = icon && !innerLoading;
-  const customLoadingIconInLoading = loading && typeof loading === 'object' && loading.icon;
+  const customLoadingIconInLoading = innerLoading && typeof loading === 'object' && loading.icon;
   /**
    * 通过 if else 可读性和性能都更好，后续扩展也不影响
    */
