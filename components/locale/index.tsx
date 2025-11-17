@@ -4,7 +4,7 @@ import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import { devUseWarning } from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
-import type { ModalLocale } from '../modal/locale';
+import type { ModalLocale } from '../modal/interface';
 import { changeConfirmLocale } from '../modal/locale';
 import type { PaginationLocale } from '../pagination/Pagination';
 import type { PopconfirmLocale } from '../popconfirm/PurePanel';

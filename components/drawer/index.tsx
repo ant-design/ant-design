@@ -4,6 +4,7 @@ import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
+import useId from 'rc-util/lib/hooks/useId';
 import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -28,7 +29,7 @@ export interface PushState {
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
   extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
-    Omit<DrawerPanelProps, 'prefixCls'> {
+    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
   size?: sizeType;
 
   open?: boolean;
@@ -70,6 +71,7 @@ const Drawer: React.FC<DrawerProps> & {
     panelRef = null,
     style,
     className,
+    'aria-labelledby': ariaLabelledby,
 
     // Deprecated
     visible,
@@ -81,6 +83,9 @@ const Drawer: React.FC<DrawerProps> & {
     destroyOnHidden,
     ...rest
   } = props;
+
+  const id = useId();
+  const ariaId = rest.title ? id : undefined;
 
   const {
     getPopupContainer,
@@ -221,10 +226,11 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
           panelRef={mergedPanelRef}
           zIndex={zIndex}
+          aria-labelledby={ariaLabelledby ?? ariaId}
           // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
-          <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+          <DrawerPanel prefixCls={prefixCls} {...rest} ariaId={ariaId} onClose={onClose} />
         </RcDrawer>
       </zIndexContext.Provider>
     </ContextIsolator>,
