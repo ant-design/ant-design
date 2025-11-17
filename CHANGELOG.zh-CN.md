@@ -218,6 +218,14 @@ tag: vVERSION
 - 🛠 Modal `closable` 支持 `onClose` 属性以任意方式关闭时触发。[#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🛠 移除 Dropdown.Button，请使用 Space.Compact。[#53793](https://github.com/ant-design/ant-design/pull/53793) [@Meet-student](https://github.com/Meet-student)
 
+## 5.29.0
+
+`2025-11-17`
+
+- 🆕 InputNumber 组件废弃 `addonAfter` 和 `addonBefore` 属性，使用 Space.Compact 替换。 [#55505](https://github.com/ant-design/ant-design/pull/55505) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- ⌨️ 优化 Drawer 组件的可访问性，存在标题时的属性 `aria-labelledby`。[#55697](https://github.com/ant-design/ant-design/pull/55697) [@rxy001](https://github.com/rxy001)
+- 🌐 修复韩语本地化中“복사됨”文本的空格规则问题。[#55672](https://github.com/ant-design/ant-design/pull/55672) [@rapsealk](https://github.com/rapsealk)
+
 ## 5.28.1
 
 `2025-11-11`

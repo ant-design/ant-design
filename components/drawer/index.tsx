@@ -90,8 +90,8 @@ const Drawer: React.FC<DrawerProps> & {
   } = props;
 
   const { placement } = rest;
-  let ariaId: string | undefined = useId();
-  ariaId = rest.title ? ariaId : undefined;
+  const id = useId();
+  const ariaId = rest.title ? id : undefined;
 
   const {
     getPopupContainer,
