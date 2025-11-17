@@ -20,7 +20,7 @@ tag: vVERSION
 `2025-11-17`
 
 - 🆕 InputNumber 组件废弃 `addonAfter` 和 `addonBefore` 属性，使用 Space.Compact 替换。 [#55505](https://github.com/ant-design/ant-design/pull/55505) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- ⌨️ 优化 Drawer 组件的可访问性，新增 `ariaId` 属性。[#55697](https://github.com/ant-design/ant-design/pull/55697) [@rxy001](https://github.com/rxy001)
+- ⌨️ 优化 Drawer 组件的可访问性，存在标题时的属性 `aria-labelledby`。[#55697](https://github.com/ant-design/ant-design/pull/55697) [@rxy001](https://github.com/rxy001)
 - 🌐 修复韩语本地化中“복사됨”文本的空格规则问题。[#55672](https://github.com/ant-design/ant-design/pull/55672) [@rapsealk](https://github.com/rapsealk)
 
 ## 5.28.1
