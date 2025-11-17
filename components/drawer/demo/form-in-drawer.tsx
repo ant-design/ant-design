@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
+import type { InputProps } from 'antd';
+
+const UrlInput: React.FC<InputProps> = (props) => {
+  return (
+    <Space.Compact>
+      <Space.Addon>http://</Space.Addon>
+      <Input style={{ width: '100%' }} {...props} />
+      <Space.Addon>.com</Space.Addon>
+    </Space.Compact>
+  );
+};
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -54,12 +65,7 @@ const App: React.FC = () => {
                 label="Url"
                 rules={[{ required: true, message: 'Please enter url' }]}
               >
-                <Input
-                  style={{ width: '100%' }}
-                  addonBefore="http://"
-                  addonAfter=".com"
-                  placeholder="Please enter url"
-                />
+                <UrlInput placeholder="Please enter url" />
               </Form.Item>
             </Col>
           </Row>
