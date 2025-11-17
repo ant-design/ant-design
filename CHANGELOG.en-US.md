@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.29.0
+
+`2025-11-17`
+
+- 🆕 InputNumber component deprecates `addonAfter` and `addonBefore` props, use Space.Compact instead. [#55505](https://github.com/ant-design/ant-design/pull/55505) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- ⌨️ Improve Drawer accessibility by adding `aria-labelledby` when a title is present. [#55697](https://github.com/ant-design/ant-design/pull/55697) [@rxy001](https://github.com/rxy001)
+- 🌐 Fixed spacing in Korean localization for “복사됨” message. [#55672](https://github.com/ant-design/ant-design/pull/55672) [@rapsealk](https://github.com/rapsealk)
+
 ## 5.28.1
 
 `2025-11-11`
