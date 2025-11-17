@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Select, Spin, Avatar } from 'antd';
+import { Avatar, Select, Spin } from 'antd';
 import type { SelectProps } from 'antd';
 import debounce from 'lodash/debounce';
 
@@ -52,7 +52,9 @@ function DebounceSelect<
       options={options}
       optionRender={(option) => (
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          {option.data.avatar && <Avatar src={option.data.avatar} style={{ marginRight: 8 }} />}
+          <Avatar style={{ marginRight: 8 }}>
+            {option.label?.toString().charAt(0).toUpperCase()}
+          </Avatar>
           {option.label}
         </div>
       )}
@@ -67,18 +69,28 @@ interface UserValue {
   avatar?: string;
 }
 
-async function fetchUserList(username: string): Promise<UserValue[]> {
+function mockFetchUserList(username: string): Promise<UserValue[]> {
   console.log('fetching user', username);
-  return fetch(`https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?search=${username}`)
-    .then((res) => res.json())
-    .then((res) => {
-      const results = Array.isArray(res) ? res : [];
-      return results.map((user) => ({
-        label: user.name,
-        value: user.id,
-        avatar: user.avatar,
-      }));
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const mockUsers = Array.from(
+        { length: Math.min(10, Math.max(0, 10 - username.length)) },
+        (_, index) => ({
+          id: `user-${username}-${index}`,
+          name: `${username || 'User'}-${index + 1}`,
+        }),
+      );
+
+      const results = mockUsers
+        .filter((user) => user.name.toLowerCase().includes((username || '').toLowerCase()))
+        .map((user) => ({
+          label: user.name,
+          value: user.id,
+        }));
+
+      resolve(results);
+    }, 300);
+  });
 }
 
 const App: React.FC = () => {
@@ -89,7 +101,7 @@ const App: React.FC = () => {
       mode="multiple"
       value={value}
       placeholder="Select users"
-      fetchOptions={fetchUserList}
+      fetchOptions={mockFetchUserList}
       style={{ width: '100%' }}
       onChange={(newValue) => {
         if (Array.isArray(newValue)) {

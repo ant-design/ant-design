@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 import React, { useEffect, useState } from 'react';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
@@ -43,13 +42,45 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const toURLSearchParams = <T extends Record<string, any>>(record: T) => {
-  const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(record)) {
-    params.append(key, value);
-  }
-  return params;
-};
+function mockFetchUsers(params: Record<string, any>): Promise<{ data: DataType[]; total: number }> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const { page = 1, limit = 10, gender, orderby, order } = params;
+
+      // Generate mock data
+      const allUsers: DataType[] = Array.from({ length: 100 }, (_, index) => ({
+        id: `user-${index + 1}`,
+        name: `User ${index + 1}`,
+        gender: Math.random() > 0.5 ? 'male' : 'female',
+        email: `user${index + 1}@example.com`,
+      }));
+
+      // Filter by gender
+      let filteredUsers = allUsers;
+      if (gender && Array.isArray(gender)) {
+        filteredUsers = allUsers.filter((user) => gender.includes(user.gender));
+      }
+
+      // Sort by name
+      if (orderby === 'name') {
+        filteredUsers.sort((a, b) => {
+          const comparison = a.name.localeCompare(b.name);
+          return order === 'desc' ? -comparison : comparison;
+        });
+      }
+
+      // Pagination
+      const startIndex = (page - 1) * limit;
+      const endIndex = startIndex + limit;
+      const paginatedUsers = filteredUsers.slice(startIndex, endIndex);
+
+      resolve({
+        data: paginatedUsers,
+        total: filteredUsers.length,
+      });
+    }, 500);
+  });
+}
 
 const getRandomuserParams = (params: TableParams) => {
   const { pagination, filters, sortField, sortOrder, ...restParams } = params;
@@ -94,24 +125,24 @@ const App: React.FC = () => {
     },
   });
 
-  const params = toURLSearchParams(getRandomuserParams(tableParams));
-
   const fetchData = () => {
     setLoading(true);
-    fetch(`https://660d2bd96ddfa2943b33731c.mockapi.io/api/users?${params.toString()}`)
-      .then((res) => res.json())
+    const requestParams = getRandomuserParams(tableParams);
+
+    mockFetchUsers(requestParams)
       .then((res) => {
-        setData(Array.isArray(res) ? res : []);
+        setData(res.data);
         setLoading(false);
         setTableParams({
           ...tableParams,
           pagination: {
             ...tableParams.pagination,
-            total: 100,
-            // 100 is mock data, you should read it from server
-            // total: data.totalCount,
+            total: res.total,
           },
         });
+      })
+      .catch(() => {
+        setLoading(false);
       });
   };
 

@@ -6,8 +6,6 @@
 
 当使用 `rowSelection` 时，请设置 `rowSelection.preserveSelectedRowKeys` 属性以保留 `key`。
 
-**注意，此示例使用 [模拟接口](https://mocky.io)，展示数据可能不准确，请打开网络面板查看请求。**
-
 > 🛎️ 想要 3 分钟实现？试试 [ProTable](https://procomponents.ant.design/components/table)！
 
 ## en-US
@@ -15,5 +13,3 @@
 This example shows how to fetch and present data from a remote server, and how to implement filtering and sorting in server side by sending related parameters to server.
 
 Setting `rowSelection.preserveSelectedRowKeys` to keep the `key` when enable selection.
-
-**Note, this example use [Mock API](https://mocky.io) that you can look up in Network Console.**

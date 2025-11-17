@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { UserOutlined } from '@ant-design/icons';
 import { Avatar, List, message } from 'antd';
 import VirtualList from 'rc-virtual-list';
 
@@ -6,7 +7,22 @@ interface UserItem {
   email: string;
   gender: string;
   name: string;
-  avatar: string;
+  avatar?: string;
+  id: string;
+}
+
+function mockFetch(page: number, limit: number): Promise<UserItem[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const mockData: UserItem[] = Array.from({ length: limit }, (_, index) => ({
+        id: `${page}-${index}`,
+        name: `User ${(page - 1) * limit + index + 1}`,
+        email: `user${(page - 1) * limit + index + 1}@example.com`,
+        gender: Math.random() > 0.5 ? 'male' : 'female',
+      }));
+      resolve(mockData);
+    }, 1000);
+  });
 }
 
 const CONTAINER_HEIGHT = 400;
@@ -17,14 +33,14 @@ const App: React.FC = () => {
   const [page, setPage] = useState(1);
 
   const appendData = (showMessage = true) => {
-    const fakeDataUrl = `https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?page=${page}&limit=${PAGE_SIZE}`;
-    fetch(fakeDataUrl)
-      .then((res) => res.json())
-      .then((body) => {
-        const results = Array.isArray(body) ? body : [];
+    mockFetch(page, PAGE_SIZE)
+      .then((results) => {
         setData(data.concat(results));
         setPage(page + 1);
         showMessage && message.success(`${results.length} more items loaded!`);
+      })
+      .catch(() => {
+        showMessage && message.error('Failed to load data');
       });
   };
 
@@ -53,7 +69,7 @@ const App: React.FC = () => {
         {(item: UserItem) => (
           <List.Item key={item.email}>
             <List.Item.Meta
-              avatar={<Avatar src={item.avatar} />}
+              avatar={<Avatar icon={<UserOutlined />} />}
               title={<a href="https://ant.design">{item.name}</a>}
               description={item.email}
             />
