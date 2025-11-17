@@ -3145,7 +3145,7 @@ exports[`renders components/input-number/demo/spinner.tsx correctly 1`] = `
 >
   <div
     class="ant-input-number ant-input-number-mode-spinner css-var-test-id ant-input-number-css-var ant-input-number-outlined"
-    style="width:200px"
+    style="width:150px"
   >
     <span
       aria-disabled="false"
@@ -3218,7 +3218,7 @@ exports[`renders components/input-number/demo/spinner.tsx correctly 1`] = `
   </div>
   <div
     class="ant-input-number ant-input-number-mode-spinner css-var-test-id ant-input-number-css-var ant-input-number-filled"
-    style="width:200px"
+    style="width:150px"
   >
     <span
       aria-disabled="false"

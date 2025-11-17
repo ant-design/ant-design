@@ -113,15 +113,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
         },
 
-        [`&-disabled ${componentCls}-input`]: {
-          cursor: 'not-allowed',
-        },
-
         // ======================== Input =========================
         [`${componentCls}-input`]: {
           ...resetComponent(token),
           width: '100%',
-          // padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
           paddingBlock: `var(--input-number-input-padding-block)`,
           textAlign: 'start',
           backgroundColor: 'transparent',
@@ -143,6 +138,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
           width: token.handleWidth,
           opacity: 1,
+        },
+
+        // ======================= Disabled =======================
+        [`&-disabled ${componentCls}-input`]: {
+          cursor: 'not-allowed',
+          color: token.colorTextDisabled,
         },
       },
     },
@@ -238,6 +239,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         // ==================== Spinner Mode ====================
         [`&${componentCls}-mode-spinner`]: {
           padding: 0,
+          width: 'auto',
 
           [`${componentCls}-action`]: {
             flex: 'none',

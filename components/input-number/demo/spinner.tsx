@@ -12,7 +12,7 @@ const sharedProps = {
   max: 10,
   defaultValue: 3,
   onChange,
-  style: { width: 200 },
+  style: { width: 150 },
 };
 
 const App: React.FC = () => (
