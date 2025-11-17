@@ -32,7 +32,7 @@ An enterprise-class UI design language and React UI library.
 [twitter-url]: https://twitter.com/AntDesignUI
 [jsdelivr-image]: https://data.jsdelivr.com/v1/package/npm/antd/badge
 [jsdelivr-url]: https://www.jsdelivr.com/package/npm/antd
-[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/antd
+[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/antd?style=flat-square
 [bundlephobia-url]: https://bundlephobia.com/package/antd
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
