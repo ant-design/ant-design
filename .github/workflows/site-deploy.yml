@@ -73,7 +73,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          exclude_files: ./_site/report.html # 👈 这个功能是 beta, 但即便不排除，也不 care
+          exclude_assets: ./_site/report.html
           force_orphan: true
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here

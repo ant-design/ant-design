@@ -218,6 +218,12 @@ tag: vVERSION
 - 🛠 Modal `closable` 支持 `onClose` 属性以任意方式关闭时触发。[#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🛠 移除 Dropdown.Button，请使用 Space.Compact。[#53793](https://github.com/ant-design/ant-design/pull/53793) [@Meet-student](https://github.com/Meet-student)
 
+## 5.29.1
+
+`2025-11-18`
+
+- 🐞 修复 Carousel 选择器在垂直位置无法点击的问题。 [#55757](https://github.com/ant-design/ant-design/pull/55757) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.29.0
 
 `2025-11-17`
