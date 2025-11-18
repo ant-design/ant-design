@@ -83,8 +83,8 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
     [key],
   );
 
-  const shouldSyncCustomEvent = (ev: CustomEvent) => {
-    return ev && ev.detail && ev.detail.key === key && ev.detail.storageArea === storage;
+  const shouldSyncCustomEvent = (ev: CustomEvent<{ key: string; storageArea: Storage }>) => {
+    return ev?.detail?.key === key && ev?.detail?.storageArea === storage;
   };
 
   const onCustomStorage = useCallback(
