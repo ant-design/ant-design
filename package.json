@@ -227,7 +227,7 @@
     "ali-oss": "^6.21.0",
     "antd-img-crop": "^4.27.0",
     "antd-style": "^3.7.1",
-    "antd-token-previewer": "^2.0.0",
+    "antd-token-previewer": "^2.0.8",
     "axios": "^1.7.7",
     "chalk": "^5.0.0",
     "cheerio": "^1.0.0",
