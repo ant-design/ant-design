@@ -1,3 +1,4 @@
+import getReactMajorVersion from './_util/getReactMajorVersionCanDelMe';
 import warning from './_util/warning';
 
 export type { Breakpoint } from './_util/responsiveObserver';
@@ -187,3 +188,13 @@ export const unstableSetRender: any = () => {
     "antd v6 support React 19 already, it's no need to call the compatible function or just remove `@ant-design/v5-patch-for-react-19`",
   );
 };
+
+// Warning if React is less than 18 (not include 18)
+if (process.env.NODE_ENV !== 'production') {
+  const majorVersion = getReactMajorVersion();
+  warning(
+    majorVersion >= 18,
+    'version',
+    `antd v6 no longer supports React versions below 18. Please upgrade to React 18 or higher.`,
+  );
+}
