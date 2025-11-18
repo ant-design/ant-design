@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.29.0",
+  "version": "5.29.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -252,7 +252,7 @@
     "fs-extra": "^11.2.0",
     "gh-pages": "^6.2.0",
     "github-slugger": "^2.0.0",
-    "glob": "^11.0.0",
+    "glob": "^12.0.0",
     "hast-util-to-string": "^3.0.1",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",
