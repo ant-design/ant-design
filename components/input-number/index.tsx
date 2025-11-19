@@ -28,7 +28,33 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
   prefixCls?: string;
   rootClassName?: string;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, InputNumber } from 'antd';
+   *
+   * <Space.Compact>
+   *   {addon}
+   *   <InputNumber defaultValue={1} />
+   * </Space.Compact>
+   * ```
+   */
   addonBefore?: React.ReactNode;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, InputNumber } from 'antd';
+   *
+   * <Space.Compact>
+   *   <InputNumber defaultValue={1} />
+   *   {addon}
+   * </Space.Compact>
+   * ```
+   */
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -48,7 +74,13 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
-    typeWarning.deprecated(!('bordered' in props), 'bordered', 'variant');
+    [
+      ['bordered', 'variant'],
+      ['addonAfter', 'Space.Compact'],
+      ['addonBefore', 'Space.Compact'],
+    ].forEach(([prop, newProp]) => {
+      typeWarning.deprecated(!(prop in props), prop, newProp);
+    });
     typeWarning(
       !(props.type === 'number' && props.changeOnWheel),
       'usage',

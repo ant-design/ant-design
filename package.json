@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.28.1",
+  "version": "5.29.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -280,7 +280,7 @@
     "mockdate": "^3.0.5",
     "node-fetch": "^3.3.2",
     "node-notifier": "^10.0.1",
-    "open": "^10.1.0",
+    "open": "^11.0.0",
     "ora": "^9.0.0",
     "p-all": "^5.0.0",
     "package-manager-detector": "^1.0.0",
