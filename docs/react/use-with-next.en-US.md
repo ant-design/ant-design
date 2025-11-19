@@ -86,7 +86,7 @@ For more detailed information, please refer to [with-nextjs-app-router-inline-st
 
 If you are using the Pages Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
-1. Install `@ant-design/cssinjs`
+1. Install `@ant-design/cssinjs@1.x`
 
 > Notes for developers
 >
