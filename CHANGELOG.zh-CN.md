@@ -15,6 +15,16 @@ tag: vVERSION
 
 ---
 
+## 6.0.0-alpha.5
+
+`2025-11-19`
+
+- 🔥 InputNumber 增加 `mode="spinner"` 拨轮模式。[#55592](https://github.com/ant-design/ant-design/pull/55592) [@guoyunhe](https://github.com/guoyunhe)
+- 🗑 Input.Search 重构废弃内部 `addon*` 的使用，用 Space.Compact 替换。[#55705](https://github.com/ant-design/ant-design/pull/55705) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Pagination 快速跳转输入框现在限制只能输入数字。[#55700](https://github.com/ant-design/ant-design/pull/55700) [@afc163](https://github.com/afc163)
+- 🛠 重构 Mentions DOM 结构并支持 `suffix` 语义化结构以及 `size` 属性。[#55638](https://github.com/ant-design/ant-design/pull/55638) [@zombieJ](https://github.com/zombieJ)
+- 🆕 WaterMark 新增 `onRemove` 以支持被用户手工删除的事件触发。[#55551](https://github.com/ant-design/ant-design/pull/55551) [@984507092](https://github.com/984507092)
+
 ## 6.0.0-alpha.4
 
 `2025-11-04`
