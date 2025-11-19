@@ -339,24 +339,20 @@ const InternalCompoundedButton = React.forwardRef<
    * 图标节点抽离
    * 有自定义图标且不在加载状态：显示自定义图标
    */
-  const iconWrapperElement = (child: React.ReactNode) => {
-    return (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
-        {child}
-      </IconWrapper>
-    );
-  };
+  const iconWrapperElement = (child: React.ReactNode) => (
+    <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      {child}
+    </IconWrapper>
+  );
 
-  const defaultLoadingIconElement = () => {
-    return (
-      <DefaultLoadingIcon
-        existIcon={!!icon}
-        prefixCls={prefixCls}
-        loading={innerLoading}
-        mount={isMountRef.current}
-      />
-    );
-  };
+  const defaultLoadingIconElement = () => (
+    <DefaultLoadingIcon
+      existIcon={!!icon}
+      prefixCls={prefixCls}
+      loading={innerLoading}
+      mount={isMountRef.current}
+    />
+  );
 
   const customIconNotLoading = icon && !innerLoading;
   const customLoadingIconInLoading = innerLoading && typeof loading === 'object' && loading.icon;
