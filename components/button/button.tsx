@@ -353,16 +353,13 @@ const InternalCompoundedButton = React.forwardRef<
       mount={isMountRef.current}
     />
   );
-
-  const customIconNotLoading = icon && !innerLoading;
-  const customLoadingIconInLoading = innerLoading && typeof loading === 'object' && loading.icon;
   /**
-   * Using if-else statements improves readability and performance, and doesn't affect future expansion.
+   * Using if-else statements can improve code readability without affecting future expansion.
    */
   let iconNode: React.ReactNode;
-  if (customIconNotLoading) {
+  if (icon && !innerLoading) {
     iconNode = iconWrapperElement(icon);
-  } else if (customLoadingIconInLoading) {
+  } else if (innerLoading && typeof loading === 'object' && loading.icon) {
     iconNode = iconWrapperElement(loading.icon);
   } else {
     iconNode = defaultLoadingIconElement();
