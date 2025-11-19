@@ -336,8 +336,8 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   /**
-   * 图标节点抽离
-   * 有自定义图标且不在加载状态：显示自定义图标
+   * Extract icon node
+   * If there is a custom icon and not in loading state: show custom icon
    */
   const iconWrapperElement = (child: React.ReactNode) => (
     <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
@@ -357,7 +357,7 @@ const InternalCompoundedButton = React.forwardRef<
   const customIconNotLoading = icon && !innerLoading;
   const customLoadingIconInLoading = innerLoading && typeof loading === 'object' && loading.icon;
   /**
-   * 通过 if else 可读性和性能都更好，后续扩展也不影响
+   * Using if-else statements improves readability and performance, and doesn't affect future expansion.
    */
   let iconNode: React.ReactNode;
   if (customIconNotLoading) {
