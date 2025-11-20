@@ -51,6 +51,7 @@ const ComponentCustomizeRender: Record<
       <Space />
       <Space.Compact>
         <antd.Button />
+        <antd.Space.Addon>1</antd.Space.Addon>
       </Space.Compact>
     </>
   ),
