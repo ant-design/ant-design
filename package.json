@@ -160,7 +160,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.4",
     "@ant-design/happy-work-theme": "^1.0.1",
-    "@ant-design/tools": "^19.0.3",
+    "@ant-design/tools": "^19.1.0",
     "@ant-design/x": "^1.6.1",
     "@antfu/eslint-config": "^6.0.0",
     "@antv/g6": "^4.8.25",
@@ -335,12 +335,12 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "514 KiB",
+      "limit": "535 KiB",
       "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "603 KiB",
+      "limit": "625 KiB",
       "gzip": true
     }
   ],
