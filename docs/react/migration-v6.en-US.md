@@ -6,7 +6,7 @@ order: 0
 title: From v5 to v6
 ---
 
-This document will help you upgrade antd from version `5.x` to `6.x`. This release is primarily a technical upgrade — almost no breaking changes are required in user code, and existing public APIs remain compatible. Some deprecated APIs will show runtime warnings to encourage replacement.
+This document will help you upgrade antd from version `5.x` to `6.x`. This release is primarily a technical upgrade, most component APIs remain compatible, you will need to ensure your environment meets the new requirements before upgrading.
 
 ## Before you upgrade
 
