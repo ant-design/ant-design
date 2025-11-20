@@ -96,6 +96,9 @@ export interface SelectProps<
   popupMatchSelectWidth?: boolean | number;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+  /**
+   * @since 5.25.0
+   */
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
