@@ -156,21 +156,11 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       wordWrap: 'break-word',
       borderRadius: borderRadiusLG,
       overflow: 'hidden',
-
       // Type-specific background colors
-      ...Object.entries({
-        success: colorSuccessBg,
-        error: colorErrorBg,
-        info: colorInfoBg,
-        warning: colorWarningBg,
-      }).reduce<CSSObject>((acc, [type, color]) => {
-        if (color) {
-          acc[`&-${type}`] = {
-            background: color,
-          };
-        }
-        return acc;
-      }, {}),
+      '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
+      '&-error': colorErrorBg ? { background: colorErrorBg } : {},
+      '&-info': colorInfoBg ? { background: colorInfoBg } : {},
+      '&-warning': colorWarningBg ? { background: colorWarningBg } : {},
     },
 
     [`${noticeCls}-message`]: {
