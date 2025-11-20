@@ -33,7 +33,7 @@ pnpm add antd@6
 - import '@ant-design/v5-patch-for-react-19';
 ```
 
-### DOM 结构优化提示
+### DOM 调整
 
 - v6 对大量组件的 DOM 结构进行了升级和优化，以提升可维护性和一致性。
 - 对于大多数正常使用 antd 样式的项目，这不会产生影响。
@@ -45,9 +45,9 @@ pnpm add antd@6
 - 默认开启，可通过以下方式关闭模糊：
 
 ```tsx
-import { ConfigProvider, Modal, Drawer } from 'antd';
+import { ConfigProvider, Drawer, Modal } from 'antd';
 
-export () => (
+export default () => (
   <ConfigProvider
     modal={{
       mask: {
@@ -64,6 +64,45 @@ export () => (
     <Drawer />
   </ConfigProvider>
 );
+```
+
+### Tag margin 调整
+
+v6 移除了 `Tag` 组件末尾的默认外边距（以前 Tag 末尾会额外留出一段 `margin-inline-end`）。如果你的布局或自定义样式依赖这一行为，请使用 `ConfigProvider` 的 `tag.styles` 进行补充：
+
+```tsx
+import { ConfigProvider, Tag } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    tag={{
+      styles: {
+        root: {
+          marginInlineEnd: 8,
+        },
+      },
+    }}
+  >
+    <Tag>Tag A</Tag>
+    <Tag>Tag B</Tag>
+    <Tag>Tag C</Tag>
+  </ConfigProvider>
+);
+```
+
+### Form `onFinish` 取值不再包含 Form.List 全部数据
+
+v5 版本中，Form.List 会被认为是一个 Field，以至于提交时会包含 Form.List 下的所有数据结构即便其子元素的 Form.Item 没有注册过。在 v6 中，Form.List 不再包含未注册的子项数据。因而你不再需要通过 `getFieldsValue({ strict: true })` 来过滤未注册字段。
+
+```diff
+    const onFinish = (values) => {
+--    const realValues = getFieldsValue({ strict: true });
+++    const realValues = values;
+
+      // ...
+    }
+
+    <Form onFinish={onFinish} />
 ```
 
 ### 浏览器支持调整

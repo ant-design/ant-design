@@ -35,7 +35,7 @@ pnpm add antd@6
 - import '@ant-design/v5-patch-for-react-19';
 ```
 
-### DOM structure optimizations
+### DOM adjustments
 
 - v6 upgrades and optimizes the DOM structure of many components to improve maintainability and consistency.
 - For most projects that rely on standard antd styling this should have no effect.
@@ -66,6 +66,47 @@ export default () => (
     <Drawer />
   </ConfigProvider>
 );
+```
+
+### Tag margin adjustment
+
+v6 removes the trailing default margin from the `Tag` component (previously a horizontal list of Tags left an extra `margin-inline-end` on the last one). If your layout or custom styles relied on that implicit spacing, reintroduce it via `ConfigProvider` `tag.styles`:
+
+```tsx
+import { ConfigProvider, Tag } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    tag={{
+      styles: {
+        root: {
+          marginInlineEnd: 8,
+        },
+      },
+    }}
+  >
+    <Tag>Tag A</Tag>
+    <Tag>Tag B</Tag>
+    <Tag>Tag C</Tag>
+  </ConfigProvider>
+);
+```
+
+If you only need the old spacing in specific areas, prefer local container overrides instead of global configuration to avoid unintended impact elsewhere.
+
+### Form `onFinish` no longer includes all data from Form.List
+
+In v5, Form.List was treated as a single Field, causing `onFinish` to include all data within the Form.List structure, even for items without a registered Form.Item. In v6, Form.List no longer includes data from unregistered child items. Therefore, you no longer need to use `getFieldsValue({ strict: true })` to filter out unregistered fields.
+
+```diff
+    const onFinish = (values) => {
+--    const realValues = getFieldsValue({ strict: true });
+++    const realValues = values;
+
+      // ...
+    }
+
+    <Form onFinish={onFinish} />
 ```
 
 ### Browser support changes
