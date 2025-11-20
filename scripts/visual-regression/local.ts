@@ -182,7 +182,6 @@ async function run() {
     message: '📚 请选择需要测试的组件，不建议选择全部【全量快照生成需要耗费很长时间】\n',
     pageSize: Math.floor(components.length / 4),
     loop: false,
-    theme: { helpMode: 'always' },
     choices: components.map((component) => ({
       value: component,
       checked: component.endsWith('components/button'), // 默认选中 button
