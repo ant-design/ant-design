@@ -137,26 +137,29 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
     return null;
   }
 
+  const processLabel = (label: ReactElement, navStyle: string) => {
+    const modifiedChildren = React.Children.map(label.props.children, (child) => {
+      if (React.isValidElement(child) && child.props.className?.includes('subtitle')) {
+        return React.cloneElement(child as ReactElement<any>, {
+          className: 'chinese',
+        });
+      }
+      return child;
+    });
+
+    return React.cloneElement(
+      label,
+      {
+        className: classNames(styles.pageNav, navStyle, label.props.className),
+      },
+      modifiedChildren,
+    );
+  };
+
   return (
     <section className={styles.prevNextNav}>
-      {prev &&
-        React.cloneElement(
-          prev.label as ReactElement<{
-            className: string;
-          }>,
-          {
-            className: classNames(styles.pageNav, styles.prevNav, prev.className),
-          },
-        )}
-      {next &&
-        React.cloneElement(
-          next.label as ReactElement<{
-            className: string;
-          }>,
-          {
-            className: classNames(styles.pageNav, styles.nextNav, next.className),
-          },
-        )}
+      {prev && processLabel(prev.label as ReactElement<any>, styles.prevNav)}
+      {next && processLabel(next.label as ReactElement<any>, styles.nextNav)}
     </section>
   );
 };
