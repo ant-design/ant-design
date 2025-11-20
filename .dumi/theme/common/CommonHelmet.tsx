@@ -9,9 +9,9 @@ const CommonHelmet: React.FC = () => {
     if (!meta.frontmatter.subtitle && !meta.frontmatter.title) {
       helmetTitle = '404 Not Found - Ant Design';
     } else {
-      const titlePart = meta.frontmatter?.title || '';
-      const subtitlePart = meta.frontmatter.subtitle ? ` ${meta.frontmatter.subtitle}` : '';
-      helmetTitle = `${titlePart}${subtitlePart} - Ant Design`;
+      helmetTitle = `${meta.frontmatter.subtitle || ''} ${
+        meta.frontmatter?.title || ''
+      } - Ant Design`;
     }
     const helmetDescription = meta.frontmatter.description || '';
     return [helmetTitle, helmetDescription];

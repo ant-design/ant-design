@@ -58,10 +58,8 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             <Flex justify="space-between">
               <Typography.Title style={{ fontSize: 32, position: 'relative' }}>
                 <Space>
-                  <span>
-                    {meta.frontmatter?.title}
-                    {meta.frontmatter?.subtitle && ` ${meta.frontmatter.subtitle}`}
-                  </span>
+                  <span>{meta.frontmatter?.title}</span>
+                  <span>{meta.frontmatter?.subtitle}</span>
                   {!pathname.startsWith('/components/overview') && (
                     <EditButton
                       title={<FormattedMessage id="app.content.edit-page" />}

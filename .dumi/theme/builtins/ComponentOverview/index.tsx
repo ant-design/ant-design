@@ -217,8 +217,7 @@ const Overview: React.FC = () => {
                         className={styles.componentsOverviewCard}
                         title={
                           <div className={styles.componentsOverviewTitle}>
-                            {component.title}
-                            {component.subtitle && ` ${component.subtitle}`}
+                            {component.title} {component.subtitle}
                           </div>
                         }
                       >

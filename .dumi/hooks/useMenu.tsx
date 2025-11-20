@@ -63,8 +63,10 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
         <Flex justify="flex-start" align="center" gap="small">
-          <span>{title}</span>
-          {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
+          <span>
+            {title}
+            {subtitle && ` ${subtitle}`}
+          </span>
         </Flex>
         {tag && (
           <Tag bordered={false} className={classnames(styles.tag)} color={getTagColor(tag)}>
@@ -78,7 +80,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
     <Link to={`${link}${search}`} className={className}>
       {before}
       {title}
-      {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
+      {subtitle && ` ${subtitle}`}
       {after}
     </Link>
   );
