@@ -335,23 +335,35 @@ const InternalCompoundedButton = React.forwardRef<
     ...(contextStyles.icon || {}),
   };
 
-  const iconNode =
-    icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
-        {icon}
-      </IconWrapper>
-    ) : loading && typeof loading === 'object' && loading.icon ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
-        {loading.icon}
-      </IconWrapper>
-    ) : (
-      <DefaultLoadingIcon
-        existIcon={!!icon}
-        prefixCls={prefixCls}
-        loading={innerLoading}
-        mount={isMountRef.current}
-      />
-    );
+  /**
+   * Extract icon node
+   * If there is a custom icon and not in loading state: show custom icon
+   */
+  const iconWrapperElement = (child: React.ReactNode) => (
+    <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      {child}
+    </IconWrapper>
+  );
+
+  const defaultLoadingIconElement = () => (
+    <DefaultLoadingIcon
+      existIcon={!!icon}
+      prefixCls={prefixCls}
+      loading={innerLoading}
+      mount={isMountRef.current}
+    />
+  );
+  /**
+   * Using if-else statements can improve code readability without affecting future expansion.
+   */
+  let iconNode: React.ReactNode;
+  if (icon && !innerLoading) {
+    iconNode = iconWrapperElement(icon);
+  } else if (innerLoading && typeof loading === 'object' && loading.icon) {
+    iconNode = iconWrapperElement(loading.icon);
+  } else {
+    iconNode = defaultLoadingIconElement();
+  }
 
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
