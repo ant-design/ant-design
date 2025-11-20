@@ -158,26 +158,19 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       overflow: 'hidden',
 
       // Type-specific background colors
-      ...(colorSuccessBg && {
-        '&-success': {
-          background: colorSuccessBg,
-        },
-      }),
-      ...(colorErrorBg && {
-        '&-error': {
-          background: colorErrorBg,
-        },
-      }),
-      ...(colorInfoBg && {
-        '&-info': {
-          background: colorInfoBg,
-        },
-      }),
-      ...(colorWarningBg && {
-        '&-warning': {
-          background: colorWarningBg,
-        },
-      }),
+      ...Object.entries({
+        success: colorSuccessBg,
+        error: colorErrorBg,
+        info: colorInfoBg,
+        warning: colorWarningBg,
+      }).reduce<CSSObject>((acc, [type, color]) => {
+        if (color) {
+          acc[`&-${type}`] = {
+            background: color,
+          };
+        }
+        return acc;
+      }, {}),
     },
 
     [`${noticeCls}-message`]: {
