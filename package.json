@@ -177,7 +177,7 @@
     "@emotion/server": "^11.11.0",
     "@eslint-react/eslint-plugin": "^2.0.6",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "@inquirer/prompts": "^7.8.6",
+    "@inquirer/prompts": "^8.0.1",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.4",
     "@npmcli/run-script": "^10.0.0",
@@ -251,7 +251,7 @@
     "fs-extra": "^11.3.2",
     "gh-pages": "^6.3.0",
     "github-slugger": "^2.0.0",
-    "glob": "^12.0.0",
+    "glob": "^13.0.0",
     "hast-util-to-string": "^3.0.1",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",
@@ -326,7 +326,7 @@
     "vanilla-jsoneditor": "^3.10.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.102.0",
-    "webpack-bundle-analyzer": "^4.10.2",
+    "webpack-bundle-analyzer": "^5.0.1",
     "xhr-mock": "^2.5.1"
   },
   "publishConfig": {

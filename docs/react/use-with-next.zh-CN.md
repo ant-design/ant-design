@@ -86,7 +86,7 @@ export default RootLayout;
 
 如果你在 Next.js 当中使用了 Pages Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
-1. 安装 `@ant-design/cssinjs`
+1. 安装 `@ant-design/cssinjs@1.x`
 
 > 开发者注意事项：
 >

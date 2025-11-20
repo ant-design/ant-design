@@ -164,6 +164,9 @@ const InternalSelect = <
     maxCount,
     prefix,
     dropdownRender,
+    /**
+     * @since 5.25.0
+     */
     popupRender,
     onDropdownVisibleChange,
     onOpenChange,
