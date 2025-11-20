@@ -409,6 +409,7 @@ const InternalCompoundedButton = React.forwardRef<
       prefixCls={prefixCls}
       loading={innerLoading}
       mount={isMountRef.current}
+      {...iconSharedProps}
     />
   );
 
