@@ -799,6 +799,14 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/tooltip/demo/lazy.tsx correctly 1`] = `
+<div>
+  <span>
+    Tooltip will show on mouse enter.
+  </span>
+</div>
+`;
+
 exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 <div
   class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"

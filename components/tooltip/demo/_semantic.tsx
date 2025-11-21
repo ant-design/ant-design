@@ -9,10 +9,12 @@ const locales = {
   cn: {
     root: '根元素 (包含箭头、内容元素)',
     body: '内容元素',
+    lazy: '懒加载容器元素',
   },
   en: {
     root: 'Root element (including arrows, content elements)',
     body: 'Body element',
+    lazy: 'Lazy loading container element',
   },
 };
 
@@ -43,6 +45,7 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'body', desc: locale.body, version: '5.23.0' },
+        { name: 'lazy', desc: locale.lazy, version: '5.27.x' },
       ]}
     >
       <BlockList />
