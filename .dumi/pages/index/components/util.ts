@@ -90,15 +90,19 @@ export function preLoad(list: string[]) {
   }
 }
 
-// Banner 硬编码，以防止页面闪烁问题
+/**
+ * Banner 硬编码，以防止页面闪烁问题
+ * 返回 null 表示不显示
+ */
 export const getBannerData = (): null | {
   title: string;
   href: string;
 } => {
-  return {
-    title: 'See Conf 2025 震撼来袭 - 探索 AI 时代的用户体验与工程实践',
-    href: 'https://seeconf.antfin.com/',
-  };
+  // return {
+  //   title: 'See Conf 2025 震撼来袭 - 探索 AI 时代的用户体验与工程实践',
+  //   href: 'https://seeconf.antfin.com/',
+  // };
+  return null;
 };
 
 export const useAntdSiteConfig = () => {
