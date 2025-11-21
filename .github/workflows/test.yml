@@ -30,7 +30,7 @@ jobs:
     name: test-react-legacy
     strategy:
       matrix:
-        react: ['16', '17']
+        react: ['18']
         shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
