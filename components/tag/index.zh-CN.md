@@ -39,14 +39,14 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| classNames | 自定义语义化结构类名 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | 自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | false | 4.4.0 |
 | color | 标签色 | string | - |  |
 | disabled | 是否禁用标签 | boolean | false | 6.0.0 |
 | href | 点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签 | string | - | 6.0.0 |
 | icon | 设置图标 | ReactNode | - |  |
 | onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
-| styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - | 6.0.0 |
 | variant | 标签变体 | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
 
@@ -62,12 +62,13 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-group), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), string> | - |  |
 | defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | 禁用选中 | `boolean` | - |  |
 | multiple | 多选模式 | `boolean` | - |  |
-| value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties> | - |  |
+| value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |
 
 ## Semantic DOM
@@ -76,7 +77,7 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-### Tag.CheckableTagGroup
+### Tag.CheckableTagGroup {#semantic-group}
 
 <code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
