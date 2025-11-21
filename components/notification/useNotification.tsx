@@ -299,7 +299,7 @@ export function useInternalNotification(
     });
 
     return clone;
-  }, []);
+  }, [notificationConfig, notificationContext]);
 
   // ============================== Return ===============================
   return [
