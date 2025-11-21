@@ -7,11 +7,15 @@ import { render } from '../../../tests/utils';
 describe('Empty.Semantic', () => {
   it('should apply dynamic classNames and styles from props function', () => {
     const classNames: EmptyProps['classNames'] = (info) => {
-      if (info.props.description) return { root: 'empty-with-desc' };
+      if (info.props.description) {
+        return { root: 'empty-with-desc' };
+      }
       return { root: 'empty-no-desc' };
     };
     const styles: EmptyProps['styles'] = (info) => {
-      if (info.props.description) return { root: { background: 'red' } };
+      if (info.props.description) {
+        return { root: { background: 'red' } };
+      }
       return { root: { background: 'blue' } };
     };
 

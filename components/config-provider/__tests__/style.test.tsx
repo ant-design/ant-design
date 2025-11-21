@@ -2,7 +2,7 @@ import React from 'react';
 import Masonry from 'antd/es/masonry';
 
 import ConfigProvider from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { fireEvent, render } from '../../../tests/utils';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -987,12 +987,8 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Alert style works', () => {
     const { container } = render(
-      <ConfigProvider
-        alert={{
-          style: { color: 'rgb(255, 0, 0)' },
-        }}
-      >
-        <Alert style={{ fontSize: '16px' }} message="Test Message" />
+      <ConfigProvider alert={{ style: { color: 'rgb(255, 0, 0)' } }}>
+        <Alert style={{ fontSize: '16px' }} title="Test Message" />
       </ConfigProvider>,
     );
 

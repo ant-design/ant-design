@@ -188,6 +188,7 @@ describe('Popover', () => {
     const { container } = render(<TooltipTestComponent />);
 
     const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+
     const toggleArrowBtn = container.querySelector('.toggleArrow');
 
     // Initial render, arrow should be visible because Tooltip's arrow prop is true

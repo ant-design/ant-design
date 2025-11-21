@@ -4,13 +4,13 @@ import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+} from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -57,7 +57,7 @@ interface Section {
   top: number;
 }
 
-type SemanticName = 'root' | 'item' | 'title' | 'indicator';
+type SemanticName = 'root' | 'item' | 'itemTitle' | 'indicator';
 export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, SemanticName>;
 export type AnchorStylesType = SemanticStylesType<AnchorProps, SemanticName>;
 export interface AnchorProps {
@@ -264,7 +264,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     );
 
     setCurrentActiveLink(currentActiveLink);
-  }, [dependencyListItem, targetOffset, offsetTop]);
+  }, [links, targetOffset, offsetTop, bounds]);
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
     (link) => {

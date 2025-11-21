@@ -1,6 +1,6 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { BugOutlined } from '@ant-design/icons';
-import { Button, Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
+import { Button, Drawer, Flex, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import useSWR from 'swr';
@@ -313,17 +313,14 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
     styles.versionWrap,
   ]);
 
-  const screens = Grid.useBreakpoint();
-  const width = screens.md ? '48vw' : '90vw';
-
   if (!pathname.startsWith('/components/') || !list || !list.length) {
     return null;
   }
 
   return (
     <>
-      {isValidElement(children) &&
-        cloneElement(children as React.ReactElement<any>, {
+      {isValidElement<React.HTMLAttributes<HTMLElement>>(children) &&
+        cloneElement(children, {
           onClick: () => setShow(true),
         })}
       <Drawer
@@ -336,7 +333,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
           </Link>
         }
         open={show}
-        width={width}
+        size="large"
         onClose={() => setShow(false)}
       >
         <Timeline items={timelineItems} />

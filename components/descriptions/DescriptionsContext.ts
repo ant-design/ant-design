@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 
 export type SemanticName = 'label' | 'content';
 

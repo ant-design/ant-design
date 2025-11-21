@@ -832,91 +832,13 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <nav
-    aria-label="Breadcrumb with classNames Object"
-    class="ant-breadcrumb demo-breadcrumb-root css-var-test-id"
-  >
-    <ol>
-      <li
-        class="demo-breadcrumb-item"
-      >
-        <span
-          class="ant-breadcrumb-link"
-        >
-          Ant Design
-        </span>
-      </li>
-      <li
-        aria-hidden="true"
-        class="ant-breadcrumb-separator demo-breadcrumb-separator"
-      >
-        /
-      </li>
-      <li
-        class="demo-breadcrumb-item"
-      >
-        <span
-          class="ant-breadcrumb-link"
-        >
-          <a
-            href=""
-          >
-            Component
-          </a>
-        </span>
-      </li>
-    </ol>
-  </nav>
-  <nav
-    aria-label="Breadcrumb with classNames Function"
-    class="ant-breadcrumb demo-breadcrumb-root--long css-var-test-id"
-  >
-    <ol>
-      <li>
-        <span
-          class="ant-breadcrumb-link"
-        >
-          Ant Design
-        </span>
-      </li>
-      <li
-        aria-hidden="true"
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </li>
-      <li>
-        <span
-          class="ant-breadcrumb-link"
-        >
-          <a
-            href=""
-          >
-            Component
-          </a>
-        </span>
-      </li>
-      <li
-        aria-hidden="true"
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </li>
-      <li>
-        <span
-          class="ant-breadcrumb-link"
-        >
-          Breadcrumb
-        </span>
-      </li>
-    </ol>
-  </nav>
-  <nav
-    aria-label="Breadcrumb with styles Object"
-    class="ant-breadcrumb css-var-test-id"
+    aria-label="Breadcrumb with Object"
+    class="ant-breadcrumb acss-lz3q7n css-var-test-id"
     style="border: 1px solid rgb(240, 240, 240); padding: 8px; border-radius: 4px;"
   >
     <ol>
       <li
+        class="acss-3btzkp"
         style="color: rgb(24, 144, 255);"
       >
         <span
@@ -927,12 +849,13 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator"
+        class="ant-breadcrumb-separator acss-t9kin8"
         style="color: rgba(0, 0, 0, 0.45);"
       >
         /
       </li>
       <li
+        class="acss-3btzkp"
         style="color: rgb(24, 144, 255);"
       >
         <span
@@ -948,12 +871,15 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
     </ol>
   </nav>
   <nav
-    aria-label="Breadcrumb with styles Function"
-    class="ant-breadcrumb css-var-test-id"
-    style="background-color: rgb(240, 249, 255);"
+    aria-label="Breadcrumb with Function"
+    class="ant-breadcrumb acss-lz3q7n css-var-test-id"
+    style="border: 1px solid rgb(245, 239, 255); padding: 8px; border-radius: 4px;"
   >
     <ol>
-      <li>
+      <li
+        class="acss-3btzkp"
+        style="color: rgb(143, 135, 241);"
+      >
         <span
           class="ant-breadcrumb-link"
         >
@@ -962,11 +888,14 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator"
+        class="ant-breadcrumb-separator acss-t9kin8"
       >
         /
       </li>
-      <li>
+      <li
+        class="acss-3btzkp"
+        style="color: rgb(143, 135, 241);"
+      >
         <span
           class="ant-breadcrumb-link"
         >
@@ -979,11 +908,14 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator"
+        class="ant-breadcrumb-separator acss-t9kin8"
       >
         /
       </li>
-      <li>
+      <li
+        class="acss-3btzkp"
+        style="color: rgb(143, 135, 241);"
+      >
         <span
           class="ant-breadcrumb-link"
         >

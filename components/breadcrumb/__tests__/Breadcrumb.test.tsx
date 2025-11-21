@@ -316,14 +316,7 @@ describe('Breadcrumb', () => {
       key1?: number;
       key2?: string;
     }
-    expect(
-      <Breadcrumb<Params>
-        params={{
-          key1: 1,
-          key2: 'test',
-        }}
-      />,
-    ).toBeTruthy();
+    expect(<Breadcrumb<Params> params={{ key1: 1, key2: 'test' }} />).toBeTruthy();
   });
 
   it('support classNames and styles', async () => {
@@ -333,9 +326,9 @@ describe('Breadcrumb', () => {
       separator: 'custom-separator',
     };
     const customStyles = {
-      root: { color: 'red' },
-      item: { color: 'green' },
-      separator: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 128, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Breadcrumb
@@ -360,22 +353,26 @@ describe('Breadcrumb', () => {
         ]}
       />,
     );
-    const root = container.querySelector('.ant-breadcrumb') as HTMLElement;
-    const item = container.querySelector('.custom-item') as HTMLElement;
-    const separator = container.querySelector('.ant-breadcrumb-separator') as HTMLElement;
-    expect(root.classList).toContain('custom-root');
-    expect(separator.classList).toContain('custom-separator');
-    expect(root.style.color).toBe('red');
-    expect(item.style.color).toBe('green');
-    expect(separator.style.color).toBe('blue');
+
+    const root = container.querySelector<HTMLElement>('.ant-breadcrumb');
+    const item = container.querySelector<HTMLElement>('.custom-item');
+    const separator = container.querySelector<HTMLElement>('.ant-breadcrumb-separator');
+
+    expect(root).toHaveClass(customClassNames.root);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(separator).toHaveClass(customClassNames.separator);
+
+    expect(root).toHaveStyle({ color: customStyles.root?.color });
+    expect(item).toHaveStyle({ color: customStyles.item?.color });
+    expect(separator).toHaveStyle({ color: customStyles.separator?.color });
   });
 
   it('supports ConfigProvider separator', () => {
-    const wrapper = render(
+    const { getByText } = render(
       <ConfigProvider breadcrumb={{ separator: '666' }}>
         <Breadcrumb items={[{ title: 'foo' }, { title: 'bar' }]} />
       </ConfigProvider>,
     );
-    wrapper.getByText('666');
+    getByText('666');
   });
 });

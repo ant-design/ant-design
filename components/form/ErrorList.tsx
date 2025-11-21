@@ -3,6 +3,7 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import { clsx } from 'clsx';
 
+import isNonNullable from '../_util/isNonNullable';
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemPrefixContext } from './context';
@@ -68,10 +69,9 @@ const ErrorList: React.FC<ErrorListProps> = ({
   const debounceWarnings = useDebounce(warnings);
 
   const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
-    if (help !== undefined && help !== null) {
+    if (isNonNullable(help)) {
       return [toErrorEntity(help, 'help', helpStatus)];
     }
-
     return [
       ...debounceErrors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
       ...debounceWarnings.map((warning, index) =>

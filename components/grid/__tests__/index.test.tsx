@@ -71,13 +71,13 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const { container, unmount } = render(<Row gutter={{ xs: 8, sm: 16, md: 24 }}>test</Row>);
-    expect(container.querySelector('div')?.style.marginInline).toEqual('-4px');
+    expect(container.querySelector('div')).toHaveStyle({ marginInline: '-4px' });
     unmount();
   });
 
   it('should work correct when gutter is object', () => {
     const { container, unmount } = render(<Row gutter={{ xs: 20 }}>test</Row>);
-    expect(container.querySelector('div')?.style.marginInline).toBe('-10px');
+    expect(container.querySelector('div')).toHaveStyle({ marginInline: '-10px' });
     unmount();
   });
 
@@ -90,7 +90,7 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(container.querySelector('div')?.style.marginInline).toEqual('-4px');
+    expect(container.querySelector('div')).toHaveStyle({ marginInline: '-4px' });
   });
 
   it(`when typeof gutter is object array in large screen`, () => {
@@ -104,9 +104,12 @@ describe('Grid', () => {
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
-    expect(container.querySelector('div')?.style.marginInline).toBe('-20px');
-    expect(container.querySelector('div')?.style.marginTop).toBe('');
-    expect(container.querySelector('div')?.style.marginBottom).toBe('');
+
+    expect(container.querySelector('div')).toHaveStyle({
+      marginInline: '-20px',
+      marginTop: '',
+      marginBottom: '',
+    });
   });
 
   it('renders wrapped Col correctly', () => {
@@ -132,15 +135,19 @@ describe('Grid', () => {
 
   it('should work correct when gutter is string', () => {
     const { container } = render(<Row gutter={['2rem', '4rem']} />);
-    expect(container.querySelector('div')!.style.marginInline).toEqual('calc(2rem / -2)');
-    expect(container.querySelector('div')!.style.rowGap).toEqual('4rem');
+    expect(container.querySelector('div')).toHaveStyle({
+      marginInline: 'calc(2rem / -2)',
+      rowGap: '4rem',
+    });
   });
 
   it('should work current when gutter is array', () => {
     const { container } = render(<Row gutter={[16, 20]} />);
-    expect(container.querySelector('div')?.style.marginInline).toBe('-8px');
-    expect(container.querySelector('div')?.style.marginTop).toBe('');
-    expect(container.querySelector('div')?.style.marginBottom).toBe('');
+    expect(container.querySelector('div')).toHaveStyle({
+      marginInline: '-8px',
+      marginTop: '',
+      marginBottom: '',
+    });
   });
 
   // By jsdom mock, actual jsdom not implemented matchMedia
@@ -186,7 +193,7 @@ describe('Grid', () => {
 
   // https://github.com/ant-design/ant-design/issues/39690
   it('Justify and align properties should reactive for Row', () => {
-    const ReactiveTest = () => {
+    const ReactiveTest: React.FC = () => {
       const [justify, setJustify] = useState<any>('start');
       return (
         <>
@@ -211,9 +218,8 @@ describe('Grid', () => {
         <Col span={4}>col-2</Col>
       </Row>,
     );
-
     const row = container.querySelector('.ant-row-space-evenly');
     expect(row).toBeTruthy();
-    expect(row && getComputedStyle(row).justifyContent).toEqual('space-evenly');
+    expect(row).toHaveStyle({ justifyContent: 'space-evenly' });
   });
 });

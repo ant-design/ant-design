@@ -513,9 +513,7 @@ form.getFieldsValue([
 ]);
 ```
 
-#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
-
-`5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
+#### getFieldsValue({ filter?: FilterFunc })
 
 ### FilterFunc
 

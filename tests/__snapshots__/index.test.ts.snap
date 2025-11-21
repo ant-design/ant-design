@@ -8,6 +8,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "App",
   "AutoComplete",
   "Avatar",
+  "BackTop",
   "Badge",
   "Breadcrumb",
   "Button",
@@ -74,6 +75,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "message",
   "notification",
   "theme",
+  "unstableSetRender",
   "version",
 ]
 `;

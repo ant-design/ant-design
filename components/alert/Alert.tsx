@@ -10,9 +10,9 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -227,7 +227,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       return closable;
     }
     // should be true when closeIcon is 0 or ''
-    if (closeIcon !== false && closeIcon !== null && closeIcon !== undefined) {
+    if (closeIcon !== false && isNonNullable(closeIcon)) {
       return true;
     }
 
@@ -287,7 +287,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       return contextClosable.closeIcon;
     }
     return contextCloseIcon;
-  }, [closeIcon, closable, closeText, contextCloseIcon]);
+  }, [closeIcon, closable, contextClosable, closeText, contextCloseIcon]);
 
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? contextClosable;

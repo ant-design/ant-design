@@ -15,6 +15,60 @@ tag: vVERSION
 
 ---
 
+## 6.0.0-alpha.5
+
+`2025-11-19`
+
+- 🔥 InputNumber support `mode="spinner"`. [#55592](https://github.com/ant-design/ant-design/pull/55592) [@guoyunhe](https://github.com/guoyunhe)
+- 🗑 Input.Search refactor to remove `addon*` code and use Space.Compact instead. [#55705](https://github.com/ant-design/ant-design/pull/55705) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Pagination quick jumper now accept numberic value only. [#55700](https://github.com/ant-design/ant-design/pull/55700) [@afc163](https://github.com/afc163)
+- 🛠 Refactor Mentions DOM structure to support `suffix` semantic and `size` props. [#55638](https://github.com/ant-design/ant-design/pull/55638) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Watermark support `onRemove` callback when delete by manully. [#55551](https://github.com/ant-design/ant-design/pull/55551) [@984507092](https://github.com/984507092)
+
+## 6.0.0-alpha.4
+
+`2025-11-04`
+
+- 🔥 ConfigProvider supports configuring `tooltip.unique` to enable Tooltip smooth movement. [#55154](https://github.com/ant-design/ant-design/pull/55154) [@zombieJ](https://github.com/zombieJ)
+- 🔥 Refactor Select, TreeSelect, Cascader with new semantic structure. [#55430](https://github.com/ant-design/ant-design/pull/55430) [@zombieJ](https://github.com/zombieJ)
+- 🔥 All antd components semantic structure support dynamic generation via function based on props. [#54967](https://github.com/ant-design/ant-design/pull/54967) [#54977](https://github.com/ant-design/ant-design/pull/54977) [#54962](https://github.com/ant-design/ant-design/pull/54962) [#54960](https://github.com/ant-design/ant-design/pull/54960) [#55099](https://github.com/ant-design/ant-design/pull/55099) [#54986](https://github.com/ant-design/ant-design/pull/54986) [#54988](https://github.com/ant-design/ant-design/pull/54988) [#54987](https://github.com/ant-design/ant-design/pull/54987) [#55199](https://github.com/ant-design/ant-design/pull/55199) [#54985](https://github.com/ant-design/ant-design/pull/54985) [#55119](https://github.com/ant-design/ant-design/pull/55119) [#54980](https://github.com/ant-design/ant-design/pull/54980) [#55054](https://github.com/ant-design/ant-design/pull/55054) [#54979](https://github.com/ant-design/ant-design/pull/54979) [#55161](https://github.com/ant-design/ant-design/pull/55161) [#55157](https://github.com/ant-design/ant-design/pull/55157) [#55021](https://github.com/ant-design/ant-design/pull/55021) [#55081](https://github.com/ant-design/ant-design/pull/55081) [#55096](https://github.com/ant-design/ant-design/pull/55096) [#55044](https://github.com/ant-design/ant-design/pull/55044) [#55060](https://github.com/ant-design/ant-design/pull/55060) [#54984](https://github.com/ant-design/ant-design/pull/54984) [#54983](https://github.com/ant-design/ant-design/pull/54983) [#55117](https://github.com/ant-design/ant-design/pull/55117) [#54982](https://github.com/ant-design/ant-design/pull/54982) [#55190](https://github.com/ant-design/ant-design/pull/55190) [#55007](https://github.com/ant-design/ant-design/pull/55007) [#55118](https://github.com/ant-design/ant-design/pull/55118) [#54978](https://github.com/ant-design/ant-design/pull/54978) [#54968](https://github.com/ant-design/ant-design/pull/54968) [#54966](https://github.com/ant-design/ant-design/pull/54966) [#54994](https://github.com/ant-design/ant-design/pull/54994) [#54965](https://github.com/ant-design/ant-design/pull/54965) [#55101](https://github.com/ant-design/ant-design/pull/55101) [#54963](https://github.com/ant-design/ant-design/pull/54963) [#55109](https://github.com/ant-design/ant-design/pull/55109) [#54996](https://github.com/ant-design/ant-design/pull/54996) [#54969](https://github.com/ant-design/ant-design/pull/54969) [#55126](https://github.com/ant-design/ant-design/pull/55126) [#54959](https://github.com/ant-design/ant-design/pull/54959) [#55056](https://github.com/ant-design/ant-design/pull/55056) [#55114](https://github.com/ant-design/ant-design/pull/55114) [#54956](https://github.com/ant-design/ant-design/pull/54956) [#54957](https://github.com/ant-design/ant-design/pull/54957) [#55013](https://github.com/ant-design/ant-design/pull/55013) [#54958](https://github.com/ant-design/ant-design/pull/54958) [#55031](https://github.com/ant-design/ant-design/pull/55031) [#54955](https://github.com/ant-design/ant-design/pull/54955) [#55058](https://github.com/ant-design/ant-design/pull/55058) [#55032](https://github.com/ant-design/ant-design/pull/55032) [#54948](https://github.com/ant-design/ant-design/pull/54948) [#54950](https://github.com/ant-design/ant-design/pull/54950) [#54949](https://github.com/ant-design/ant-design/pull/54949) [#54917](https://github.com/ant-design/ant-design/pull/54917) [#54919](https://github.com/ant-design/ant-design/pull/54919) [#54813](https://github.com/ant-design/ant-design/pull/54813) [@meet-student](https://github.com/meet-student) [@hcjlxl](https://github.com/hcjlxl) [@Arktomson](https://github.com/Arktomson) [@zjr222](https://github.com/zjr222) [@Linkodt](https://github.com/Linkodt) [@xkhanhan](https://github.com/xkhanhan) [@lovelts](https://github.com/lovelts) [@tanjiahao24](https://github.com/tanjiahao24) [@li-jia-nan](https://github.com/li-jia-nan) [@Susuperli](https://github.com/Susuperli) [@ccc1018](https://github.com/ccc1018) [@nmsn](https://github.com/nmsn) [@GinWU05](https://github.com/GinWU05)
+- 🆕 Breadcrumb supports ConfigProvider `separator` global configuration. [#54680](https://github.com/ant-design/ant-design/pull/54680) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Alert `closable` supports onClose and afterClose methods. [#54735](https://github.com/ant-design/ant-design/pull/54735) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Radio.Group supports `vertical` layout syntax sugar. [#54727](https://github.com/ant-design/ant-design/pull/54727) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Cascader.Panel adds optionRender to allow custom option rendering. [#54843](https://github.com/ant-design/ant-design/pull/54843) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Notification ComponentToken supports customizing background colors for different types of notifications. [#54776](https://github.com/ant-design/ant-design/pull/54776) [@afc163](https://github.com/afc163)
+- 🆕 Upload `accept` config supports custom filtering logic. [#55543](https://github.com/ant-design/ant-design/pull/55543) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Rate supports `size` to configure dimensions. [#55028](https://github.com/ant-design/ant-design/pull/55028) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Typography `copyable` supports HTTP environment. [#55073](https://github.com/ant-design/ant-design/pull/55073) [@JeeekXY](https://github.com/JeeekXY)
+- 🆕 Form now excludes unregistered field values from `Form.List` when getting values. [#55526](https://github.com/ant-design/ant-design/pull/55526) [@crazyair](https://github.com/crazyair)
+- DatePicker
+  - 🆕 DatePicker semantic structure adds panel `container` support. [#55388](https://github.com/ant-design/ant-design/pull/55388) [@meet-student](https://github.com/meet-student)
+  - 🆕 DatePicker adds `previewValue` to control whether to display preview value in input when hovering over options. [#55258](https://github.com/ant-design/ant-design/pull/55258) [@meet-student](https://github.com/meet-student)
+  - 🐞 Fix DatePicker `onChange` parameter `dateString` returning incorrect value when clearing. [#55155](https://github.com/ant-design/ant-design/pull/55155) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Drawer
+  - 🆕 Drawer adds `resizable` to support drag capability. [#54883](https://github.com/ant-design/ant-design/pull/54883) [@cactuser-Lu](https://github.com/cactuser-Lu)
+  - 💄 Drawer mask adds blur effect. [#54707](https://github.com/ant-design/ant-design/pull/54707) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Collapse
+  - 🐞 Fix Collapse semantic structure `icon` targeting incorrect element. [#55499](https://github.com/ant-design/ant-design/pull/55499) [@thinkasany](https://github.com/thinkasany)
+  - 🐞 Fix Collapse dynamic modification of semantic icon not taking effect. [#55452](https://github.com/ant-design/ant-design/pull/55452) [@thinkasany](https://github.com/thinkasany)
+- 💄 `reset.css` removes IE compatibility. [#55108](https://github.com/ant-design/ant-design/pull/55108) [@thinkasany](https://github.com/thinkasany)
+- 💄 Remove InputNumber mobile default hidden controls. [#54900](https://github.com/ant-design/ant-design/pull/54900) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 Image mask adds blur effect. [#54714](https://github.com/ant-design/ant-design/pull/54714) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 💄 Modal mask adds blur effect. [#54670](https://github.com/ant-design/ant-design/pull/54670) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🛠 Badge refactor `offset` style offset to CSS logical position. [#55245](https://github.com/ant-design/ant-design/pull/55245) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 MISC: Replace `classNames` library with `clsx`. [0246702](https://github.com/ant-design/ant-design/commit/0246702) [#55164](https://github.com/ant-design/ant-design/pull/55164) [@lijianan](https://github.com/lijianan)
+- 🛠 MISC: Remove MediaQueryList compatibility code for legacy browsers. [#55396](https://github.com/ant-design/ant-design/pull/55396) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 MISC: Remove React 19 compatibility code, antd now supports React 19 by default. [#55274](https://github.com/ant-design/ant-design/pull/55274) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Table showing duplicate filter dropdowns and tooltips when using `sticky` or `scroll.y`.<br> Fix Table column headers not displaying during initial render phase. [#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
+- 🐞 Fix Input.TextArea `styles.input` unable to override built-in styles. [#55579](https://github.com/ant-design/ant-design/pull/55579) [@meet-student](https://github.com/meet-student)
+- 🐞 Fix Table data not refreshing when dynamically modifying `childrenColumnName`. [#55559](https://github.com/ant-design/ant-design/pull/55559) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Tag not updating when modifying `variant` via ConfigProvider. [#55555](https://github.com/ant-design/ant-design/pull/55555) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Progress indicator content not updating when props change. [#55554](https://github.com/ant-design/ant-design/pull/55554) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Tour DOM structure `panel` className typo. [#55178](https://github.com/ant-design/ant-design/pull/55178) [@thinkasany](https://github.com/thinkasany)
+- 🌐 Add Marathi locale translation. [#55179](https://github.com/ant-design/ant-design/pull/55179) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- TypeScript
+  - 🤖 Optimize Notification `duration` definition, now disable close is `false`. [#55580](https://github.com/ant-design/ant-design/pull/55580) [@wanpan11](https://github.com/wanpan11)
+
 ## 6.0.0-alpha.2
 
 `2025-08-12`
@@ -173,14 +227,66 @@ tag: vVERSION
 - 🚫 Modal `closable` support `onClose` props that trigger by any type of close. [#54607](https://github.com/ant-design/ant-design/pull/54607) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🛠 Remove Dropdown.Button, please use Space.Compact instead. [#53793](https://github.com/ant-design/ant-design/pull/53793) [@Meet-student](https://github.com/Meet-student)
 
+## 5.29.1
+
+`2025-11-18`
+
+- 🐞 Fix Carousel dot can not click when in vertical mode.[#55757](https://github.com/ant-design/ant-design/pull/55757) [@wanpan11](https://github.com/wanpan11)
+
+## 5.29.0
+
+`2025-11-17`
+
+- 🆕 InputNumber component deprecates `addonAfter` and `addonBefore` props, use Space.Compact instead. [#55505](https://github.com/ant-design/ant-design/pull/55505) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- ⌨️ Improve Drawer accessibility by adding `aria-labelledby` when a title is present. [#55697](https://github.com/ant-design/ant-design/pull/55697) [@rxy001](https://github.com/rxy001)
+- 🌐 Fixed spacing in Korean localization for “복사됨” message. [#55672](https://github.com/ant-design/ant-design/pull/55672) [@rapsealk](https://github.com/rapsealk)
+
+## 5.28.1
+
+`2025-11-11`
+
+- Carousel
+  - 🐞 Fix Carousel style issue in vertical mode. [#55615](https://github.com/ant-design/ant-design/pull/55615) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix Carousel dots animation missing when first render. [#55589](https://github.com/ant-design/ant-design/pull/55589) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Descriptions where content style wrongly used `labelStyle`. [#55572](https://github.com/ant-design/ant-design/pull/55572) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Adjust the height of the Select component to 32px when `variant="underlined"`. [#55607](https://github.com/ant-design/ant-design/pull/55607) [@ustcfury](https://github.com/ustcfury)
+- 💄 When the `underlined` property is enabled for the Input component, the border color changes on mouse hover. [#55609](https://github.com/ant-design/ant-design/pull/55609) [@ustcfury](https://github.com/ustcfury)
+- 🌐 Add missing TimePicker translations for locales: ar_EG, en_GB, gl_ES, bg_BG, ca_ES, cs_CZ, el_GR, es_ES, eu_ES, fi_FI, he_IL, hu_HU, is_IS, kn_IN, kmr_IQ, lv_LV, mk_MK, mn_MN, ms_MY, pl_PL, pt_BR, pt_PT, ro_RO, sk_SK, sl_SI, sv_SE, ta_IN, th_TH, zh_TW, et_EE. [#55656](https://github.com/ant-design/ant-design/pull/55656) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 Improve Flex component `gap` prop typing, for better IDE autocomplete and type inference. [#55591](https://github.com/ant-design/ant-design/pull/55591) [@ayangweb](https://github.com/ayangweb)
+
+## 5.28.0
+
+`2025-11-01`
+
+- 🆕 Drawer supports `closable.placement` prop to specify the position of the close button. [#54067](https://github.com/ant-design/ant-design/pull/54067) [@davidhsing](https://github.com/davidhsing)
+- 🆕 Image component supports `fallback` global configuration. [#54702](https://github.com/ant-design/ant-design/pull/54702) [@Jiyur](https://github.com/Jiyur)
+- 🆕 QRCode component supports `boostLevel` prop. [#55063](https://github.com/ant-design/ant-design/pull/55063) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Splitter supports `onCollapse` prop. [#54673](https://github.com/ant-design/ant-design/pull/54673) [@ug-hero](https://github.com/ug-hero)
+- 🆕 Statistic displays animation effect by default when set to `loading`. [#55398](https://github.com/ant-design/ant-design/pull/55398) [@afc163](https://github.com/afc163)
+- 🆕 TreeSelect supports global configuration for switcher icon. [#54821](https://github.com/ant-design/ant-design/pull/54821) [@Jiyur](https://github.com/Jiyur)
+- Segmented
+  - 💄 Segmented theme variable `itemSelectedBg` supports background gradient. [#55391](https://github.com/ant-design/ant-design/pull/55391) [@zancheng](https://github.com/zancheng)
+  - 🐞 Fix Segmented abnormal animation after React DevTools upgrade. [#55438](https://github.com/ant-design/ant-design/pull/55438) [@afc163](https://github.com/afc163)
+- 🐞 Fix Tree and Transfer components `disabled` inheritance issue. [#54831](https://github.com/ant-design/ant-design/pull/54831) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- 🐞 Fix Tree.DirectoryTree `defaultExpandAll` not working when `fieldNames` is defined. [#55420](https://github.com/ant-design/ant-design/pull/55420) [@Wxh16144](https://github.com/Wxh16144)
+- Upload
+  - 🆕 Upload component adds `info.defaultRequest` in `customRequest` parameters. [#55146](https://github.com/ant-design/ant-design/pull/55146) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 💄 Upload component supports `pictureCardSize` token. [#54756](https://github.com/ant-design/ant-design/pull/54756) [@wanpan11](https://github.com/wanpan11)
+- 💄 Notification supports configuring background color token. [#54802](https://github.com/ant-design/ant-design/pull/54802) [@thinkasany](https://github.com/thinkasany)
+- 💄 Pagination supports modifying the text color of active items through `itemActiveColor` and `itemActiveColorHover` tokens. [#55195](https://github.com/ant-design/ant-design/pull/55195) [@Renderz](https://github.com/Renderz)
+- 🐞 Fix Select, DatePicker, TreeSelect, Cascader and other components not showing default suffix icon when `suffixIcon` is configured as undefined. [#54790](https://github.com/ant-design/ant-design/pull/54790) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Mentions component not inheriting `disabled` from external Form. [#54829](https://github.com/ant-design/ant-design/pull/54829) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Watermark component crashing when wrapping Modal with `modalRender`. [#55435](https://github.com/ant-design/ant-design/pull/55435) [@ug-hero](https://github.com/ug-hero)
+- 🗑 Input component deprecates `addonAfter` and `addonBefore` props, use Space.Compact instead. [#55315](https://github.com/ant-design/ant-design/pull/55315) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🤖 Row component `gutter` prop supports string type definition. [#54628](https://github.com/ant-design/ant-design/pull/54628) [@ug-hero](https://github.com/ug-hero)
+
 ## 5.27.6
 
 `2025-10-20`
 
-- Table
-  - 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316)
-  - 🛠 Add Table missing useMemo capability to spinProps.  [#55344](https://github.com/ant-design/ant-design/pull/55344)
-- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values ​​generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376)
+- 🐞 Fix Table `pagination.align` is not working. [#55316](https://github.com/ant-design/ant-design/pull/55316)
+- 🛠 Refactor Modal useMemo of ConfirmDialog to resolve useMemo invalid where Object.values generates a new array. [#55376](https://github.com/ant-design/ant-design/pull/55376)
 - TypeScript
   - 🤖 Add ConfigProvider the `Window` type definition in `getTargetContainer` of . [#55313](https://github.com/ant-design/ant-design/pull/55313)
   - 🤖 Add ConfigProvider the `ShadowRoot` type definition in `getTargetContainer` and `getPopupContainer`. [#55278](https://github.com/ant-design/ant-design/pull/55278) [@leshalv](https://github.com/leshalv)

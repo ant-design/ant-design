@@ -514,9 +514,7 @@ form.getFieldsValue([
 ]);
 ```
 
-#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
-
-New in `5.8.0`. Accept configuration parameters. When `strict` is `true`, only the value of Item will be matched. For example, in `{ list: [{ bamboo: 1, little: 2 }] }`, if List is only bound to the `bamboo` field, then `getFieldsValue({ strict: true })` will only get `{ list: [{ bamboo: 1 }] }`.
+#### getFieldsValue({ filter?: FilterFunc })
 
 ### FilterFunc
 

@@ -222,6 +222,7 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBeTruthy();
     expect(alertRef.current?.nativeElement).toBe(element);
   });
+
   it('should apply custom styles to Alert', () => {
     const customClassNames: AlertProps['classNames'] = {
       root: 'custom-root',
@@ -231,13 +232,14 @@ describe('Alert', () => {
       description: 'custom-description',
       actions: 'custom-actions',
     };
+
     const customStyles: AlertProps['styles'] = {
-      root: { color: 'red' },
+      root: { color: 'rgb(255, 0, 0)' },
       icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
       section: { padding: '20px' },
-      title: { backgroundColor: 'blue' },
+      title: { backgroundColor: 'rgb(0, 0, 255)' },
       description: { fontSize: '20px' },
-      actions: { color: 'green' },
+      actions: { color: 'rgb(0, 128, 0)' },
     };
 
     render(
@@ -257,27 +259,27 @@ describe('Alert', () => {
       />,
     );
 
-    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
-    const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
-    const sectionElement = document.querySelector('.ant-alert-section') as HTMLElement;
-    const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
-    const descriptionElement = document.querySelector('.ant-alert-description') as HTMLElement;
-    const actionElement = document.querySelector('.ant-alert-actions') as HTMLElement;
+    const rootElement = document.querySelector<HTMLElement>('.ant-alert');
+    const iconElement = document.querySelector<HTMLElement>('.ant-alert-icon');
+    const sectionElement = document.querySelector<HTMLElement>('.ant-alert-section');
+    const titleElement = document.querySelector<HTMLElement>('.ant-alert-title');
+    const descriptionElement = document.querySelector<HTMLElement>('.ant-alert-description');
+    const actionElement = document.querySelector<HTMLElement>('.ant-alert-actions');
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(sectionElement.classList).toContain('custom-section');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(descriptionElement.classList).toContain('custom-description');
-    expect(actionElement.classList).toContain('custom-actions');
+    expect(rootElement).toHaveClass(customClassNames.root!);
+    expect(iconElement).toHaveClass(customClassNames.icon!);
+    expect(sectionElement).toHaveClass(customClassNames.section!);
+    expect(titleElement).toHaveClass(customClassNames.title!);
+    expect(descriptionElement).toHaveClass(customClassNames.description!);
+    expect(actionElement).toHaveClass(customClassNames.actions!);
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
-    expect(sectionElement.style.padding).toBe('20px');
-    expect(titleElement.style.backgroundColor).toBe('blue');
-    expect(descriptionElement.style.fontSize).toBe('20px');
-    expect(actionElement.style.color).toBe('green');
+    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon?.backgroundColor });
+    expect(sectionElement).toHaveStyle({ padding: customStyles.section?.padding });
+    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title?.backgroundColor });
+    expect(descriptionElement).toHaveStyle({ fontSize: customStyles.description?.fontSize });
+    expect(actionElement).toHaveStyle({ color: customStyles.actions?.color });
   });
 });

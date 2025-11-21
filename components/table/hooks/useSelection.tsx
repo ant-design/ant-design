@@ -10,7 +10,7 @@ import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
+import { useMultipleSelect } from '../../_util/hooks';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';

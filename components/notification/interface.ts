@@ -1,7 +1,6 @@
 import type * as React from 'react';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -36,7 +35,7 @@ export interface ArgsProps {
   actions?: React.ReactNode;
   key?: React.Key;
   onClose?: () => void;
-  duration?: number | null;
+  duration?: number | false;
   showProgress?: boolean;
   pauseOnHover?: boolean;
   icon?: React.ReactNode;
@@ -71,7 +70,7 @@ export interface NotificationInstance {
 export interface GlobalConfigProps {
   top?: number;
   bottom?: number;
-  duration?: number;
+  duration?: number | false;
   showProgress?: boolean;
   pauseOnHover?: boolean;
   prefixCls?: string;
@@ -93,7 +92,7 @@ export interface NotificationConfig {
   maxCount?: number;
   rtl?: boolean;
   stack?: boolean | { threshold?: number };
-  duration?: number;
+  duration?: number | false;
   showProgress?: boolean;
   pauseOnHover?: boolean;
   closeIcon?: React.ReactNode;

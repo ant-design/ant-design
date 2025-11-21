@@ -9,7 +9,7 @@ import type {
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+} from '../_util/hooks';
 
 export type TourSemanticName =
   | 'root'

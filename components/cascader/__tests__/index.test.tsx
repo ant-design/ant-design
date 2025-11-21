@@ -15,7 +15,7 @@ import ConfigProvider from '../../config-provider';
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
 function toggleOpen(container: ReturnType<typeof render>['container']) {
-  fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+  fireEvent.mouseDown(container.querySelector('.ant-select')!);
 }
 
 function isOpen(container: ReturnType<typeof render>['container']) {
@@ -210,11 +210,11 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
       'Zhejiang / Hangzhou',
     );
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('.ant-select-selection-item')).toBeFalsy();
+    expect(container.querySelector('.ant-select-content-value')).toBeFalsy();
   });
 
   it('should clear search input when clear selection', () => {
@@ -299,7 +299,7 @@ describe('Cascader', () => {
     clickOption(container, 0, 0);
     clickOption(container, 1, 0);
     clickOption(container, 2, 0);
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
@@ -382,11 +382,11 @@ describe('Cascader', () => {
 
   it('placeholder works correctly', () => {
     const { container, rerender } = render(<Cascader options={[]} />);
-    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual('');
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toEqual('');
 
     const customPlaceholder = 'Custom placeholder';
     rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
-    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toEqual(
       customPlaceholder,
     );
   });
@@ -485,7 +485,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['options1', 'options2']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
       'options1 / options2',
     );
   });
@@ -547,14 +547,14 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const customStyle = { background: 'red' };
-      const { container } = render(<Cascader dropdownStyle={customStyle} open />);
+
+      const { container } = render(<Cascader dropdownStyle={{ padding: 10 }} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
-      expect(container.querySelector('.ant-select-dropdown')?.getAttribute('style')).toContain(
-        'background: red',
-      );
+      expect(container.querySelector<HTMLElement>('.ant-select-dropdown')).toHaveStyle({
+        padding: '10px',
+      });
 
       errSpy.mockRestore();
     });
@@ -584,11 +584,11 @@ describe('Cascader', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const columnStyle = { background: 'red' };
+
       const { getByRole } = render(
         <Cascader
           options={[{ label: 'test', value: 1 }]}
-          dropdownMenuColumnStyle={columnStyle}
+          dropdownMenuColumnStyle={{ padding: 10 }}
           open
         />,
       );
@@ -596,7 +596,7 @@ describe('Cascader', () => {
         'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `popupMenuColumnStyle` instead.',
       );
       const menuColumn = getByRole('menuitemcheckbox');
-      expect(menuColumn.style.background).toBe('red');
+      expect(menuColumn).toHaveStyle({ padding: '10px' });
 
       errSpy.mockRestore();
     });
@@ -771,7 +771,7 @@ describe('Cascader', () => {
         ]}
       />,
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     // disabled className
     fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
     expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);

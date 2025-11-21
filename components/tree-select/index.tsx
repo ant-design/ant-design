@@ -12,14 +12,13 @@ import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+} from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -58,7 +57,16 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-type SemanticName = 'root' | 'prefix' | 'input' | 'suffix';
+type SemanticName =
+  | 'root'
+  | 'prefix'
+  | 'input'
+  | 'suffix'
+  | 'content'
+  | 'placeholder'
+  | 'item'
+  | 'itemContent'
+  | 'itemRemove';
 
 type PopupSemantic = 'item' | 'itemTitle' | 'root';
 

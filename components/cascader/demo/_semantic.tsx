@@ -23,8 +23,8 @@ const options: Option[] = [
         label: 'thinkasany',
       },
       {
-        value: 'Meet-student',
-        label: 'Meet-student',
+        value: 'meet-student',
+        label: 'meet-student',
       },
     ],
   },
@@ -40,6 +40,7 @@ const App: React.FC = () => {
       prefix="prefix"
       style={{ width: 200 }}
       options={options}
+      multipleProps={{ multiple: true }}
     />
   );
 };

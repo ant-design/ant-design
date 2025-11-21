@@ -37,11 +37,11 @@ exports[`renders components/masonry/demo/style-class.tsx correctly 1`] = `
     <h4
       class="ant-typography css-var-test-id"
     >
-      classNames and styles object
+      classNames and styles Object
     </h4>
     <div
-      class="ant-masonry custom-masonry-root css-var-test-id"
-      style="height:260px;border:1px solid #d9d9d9;border-radius:8px;padding:16px;background-color:#fafafa"
+      class="ant-masonry acss-1ejhsap css-var-test-id"
+      style="height:260px;border-radius:12px;padding:20px;background-color:rgba(250,250,250,0.5)"
     />
   </div>
   <div
@@ -52,11 +52,11 @@ exports[`renders components/masonry/demo/style-class.tsx correctly 1`] = `
     <h4
       class="ant-typography css-var-test-id"
     >
-      classNames and styles function
+      classNames and styles Function
     </h4>
     <div
-      class="ant-masonry dynamic-masonry-3-cols css-var-test-id"
-      style="height:280px;border:2px solid #1890ff;border-radius:12px;padding:20px;background-color:#f0f8ff"
+      class="ant-masonry acss-1ejhsap css-var-test-id"
+      style="height:280px;border:2px solid #1890ff;padding:20px;background-color:rgba(240,248,255,.6)"
     />
   </div>
 </div>

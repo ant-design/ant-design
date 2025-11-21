@@ -80,9 +80,7 @@ describe('Badge', () => {
 
   it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
-    expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
-      'Custom title',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-scroll-number')?.title).toBe('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626
@@ -146,11 +144,11 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/15349
   it('should color style  works on Badge', () => {
     const { container } = render(
-      <Badge style={{ color: 'red' }} status="success" text="Success" />,
+      <Badge style={{ color: 'rgb(255, 0, 0)' }} status="success" text="Success" />,
     );
-    expect((container.querySelector('.ant-badge-status-text')! as HTMLElement).style.color).toEqual(
-      'red',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-badge-status-text')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/15799

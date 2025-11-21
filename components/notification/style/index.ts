@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
-import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
+import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { genFocusStyle, resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -156,20 +156,11 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       wordWrap: 'break-word',
       borderRadius: borderRadiusLG,
       overflow: 'hidden',
-
       // Type-specific background colors
-      '&-success': {
-        background: colorSuccessBg,
-      },
-      '&-error': {
-        background: colorErrorBg,
-      },
-      '&-info': {
-        background: colorInfoBg,
-      },
-      '&-warning': {
-        background: colorWarningBg,
-      },
+      '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
+      '&-error': colorErrorBg ? { background: colorErrorBg } : {},
+      '&-info': colorInfoBg ? { background: colorInfoBg } : {},
+      '&-warning': colorWarningBg ? { background: colorWarningBg } : {},
     },
 
     [`${noticeCls}-title`]: {

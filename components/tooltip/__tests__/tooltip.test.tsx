@@ -206,8 +206,8 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe('inline-flex');
-    expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
+    expect(containerInline.querySelector('button')).toHaveStyle({ display: 'inline-flex' });
+    expect(containerBlock.querySelector('button')).toHaveStyle({ display: 'block' });
   });
 
   it('should works for date picker', async () => {
@@ -509,8 +509,8 @@ describe('Tooltip', () => {
     };
 
     const customStyles = {
-      container: { color: 'red' },
-      root: { backgroundColor: 'blue' },
+      container: { padding: 10 },
+      root: { padding: 20 },
     };
 
     const { container } = render(
@@ -519,30 +519,24 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
-    const tooltipContainerElement = container.querySelector(
-      '.ant-tooltip-container',
-    ) as HTMLElement;
+    const tooltipElement = container.querySelector<HTMLElement>('.ant-tooltip');
+    const tooltipContainerElement = container.querySelector<HTMLElement>('.ant-tooltip-container');
 
     // 验证 classNames
-    expect(tooltipElement.classList).toContain('custom-root');
-    expect(tooltipContainerElement.classList).toContain('custom-container');
+    expect(tooltipElement).toHaveClass(customClassNames.root);
+    expect(tooltipContainerElement).toHaveClass(customClassNames.container);
 
     // 验证 styles
-    expect(tooltipElement.style.backgroundColor).toBe('blue');
-    expect(tooltipContainerElement.style.color).toBe('red');
+    expect(tooltipElement).toHaveStyle({ padding: '20px' });
+    expect(tooltipContainerElement).toHaveStyle({ padding: '10px' });
   });
 
   it('ConfigProvider support arrow props', () => {
-    const TooltipTestComponent = () => {
+    const TooltipTestComponent: React.FC = () => {
       const [configArrow, setConfigArrow] = React.useState(true);
 
       return (
-        <ConfigProvider
-          tooltip={{
-            arrow: configArrow,
-          }}
-        >
+        <ConfigProvider tooltip={{ arrow: configArrow }}>
           <button onClick={() => setConfigArrow(false)} className="configArrow" type="button">
             showconfigArrow
           </button>
@@ -565,11 +559,7 @@ describe('Tooltip', () => {
       const [arrow, setArrow] = React.useState(true);
 
       return (
-        <ConfigProvider
-          tooltip={{
-            arrow: false,
-          }}
-        >
+        <ConfigProvider tooltip={{ arrow: false }}>
           <button onClick={() => setArrow(!arrow)} className="toggleArrow" type="button">
             toggleArrow
           </button>

@@ -28,6 +28,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -66,6 +67,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Basic Drawer
             </div>
@@ -146,6 +148,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section acss-10412ne"
         role="dialog"
@@ -186,6 +189,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Basic Drawer
             </div>
@@ -238,6 +242,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section acss-10412ne"
         role="dialog"
@@ -278,6 +283,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Basic Drawer
             </div>
@@ -345,6 +351,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -357,6 +364,7 @@ Array [
           >
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Drawer Closable Placement
             </div>
@@ -509,6 +517,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -547,6 +556,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               ConfigProvider
             </div>
@@ -712,6 +722,7 @@ Array [
       style="width: 500px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -750,6 +761,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Drawer with extra actions
             </div>
@@ -868,6 +880,7 @@ Array [
       style="width: 720px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -906,6 +919,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Create a new account
             </div>
@@ -1028,33 +1042,29 @@ Array [
                         <div
                           class="ant-form-item-control-input-content"
                         >
-                          <span
-                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
-                            style="width: 100%;"
+                          <div
+                            class="ant-space-compact"
                           >
-                            <span
-                              class="ant-input-wrapper ant-input-group"
+                            <div
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
                             >
-                              <span
-                                class="ant-input-group-addon"
-                              >
-                                http://
-                              </span>
-                              <input
-                                aria-required="true"
-                                class="ant-input ant-input-outlined"
-                                id="url"
-                                placeholder="Please enter url"
-                                type="text"
-                                value=""
-                              />
-                              <span
-                                class="ant-input-group-addon"
-                              >
-                                .com
-                              </span>
-                            </span>
-                          </span>
+                              http://
+                            </div>
+                            <input
+                              aria-required="true"
+                              class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
+                              id="url"
+                              placeholder="Please enter url"
+                              style="width: 100%;"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id ant-space-addon-variant-outlined"
+                            >
+                              .com
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1101,126 +1111,36 @@ Array [
                             class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
-                              class="ant-select-selector"
+                              class="ant-select-content"
                             >
-                              <span
-                                class="ant-select-selection-wrap"
+                              <div
+                                class="ant-select-placeholder"
+                                style="visibility: visible;"
                               >
-                                <span
-                                  class="ant-select-selection-search"
-                                >
-                                  <input
-                                    aria-autocomplete="list"
-                                    aria-controls="owner_list"
-                                    aria-expanded="false"
-                                    aria-haspopup="listbox"
-                                    aria-owns="owner_list"
-                                    aria-required="true"
-                                    autocomplete="off"
-                                    class="ant-select-selection-search-input"
-                                    id="owner"
-                                    readonly=""
-                                    role="combobox"
-                                    style="opacity: 0;"
-                                    type="search"
-                                    unselectable="on"
-                                    value=""
-                                  />
-                                </span>
-                                <span
-                                  class="ant-select-selection-placeholder"
-                                >
-                                  Please select an owner
-                                </span>
-                              </span>
+                                Please select an owner
+                              </div>
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="owner_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="owner_list"
+                                aria-required="true"
+                                autocomplete="off"
+                                class="ant-select-input"
+                                id="owner"
+                                readonly=""
+                                role="combobox"
+                                type="search"
+                                value=""
+                              />
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
-                            >
-                              <div>
-                                <div
-                                  id="owner_list"
-                                  role="listbox"
-                                  style="height: 0px; width: 0px; overflow: hidden;"
-                                >
-                                  <div
-                                    aria-label="Xiaoxiao Fu"
-                                    aria-selected="false"
-                                    id="owner_list_0"
-                                    role="option"
-                                  >
-                                    xiao
-                                  </div>
-                                  <div
-                                    aria-label="Maomao Zhou"
-                                    aria-selected="false"
-                                    id="owner_list_1"
-                                    role="option"
-                                  >
-                                    mao
-                                  </div>
-                                </div>
-                                <div
-                                  class="rc-virtual-list"
-                                  style="position: relative;"
-                                >
-                                  <div
-                                    class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-                                  >
-                                    <div>
-                                      <div
-                                        class="rc-virtual-list-holder-inner"
-                                        style="display: flex; flex-direction: column;"
-                                      >
-                                        <div
-                                          class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                                          title="Xiaoxiao Fu"
-                                        >
-                                          <div
-                                            class="ant-select-item-option-content"
-                                          >
-                                            Xiaoxiao Fu
-                                          </div>
-                                          <span
-                                            aria-hidden="true"
-                                            class="ant-select-item-option-state"
-                                            style="user-select: none;"
-                                            unselectable="on"
-                                          />
-                                        </div>
-                                        <div
-                                          class="ant-select-item ant-select-item-option"
-                                          title="Maomao Zhou"
-                                        >
-                                          <div
-                                            class="ant-select-item-option-content"
-                                          >
-                                            Maomao Zhou
-                                          </div>
-                                          <span
-                                            aria-hidden="true"
-                                            class="ant-select-item-option-state"
-                                            style="user-select: none;"
-                                            unselectable="on"
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
+                              class="ant-select-suffix"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-select-suffix"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -1237,7 +1157,85 @@ Array [
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </div>
+                          </div>
+                          <div
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
+                          >
+                            <div>
+                              <div
+                                id="owner_list"
+                                role="listbox"
+                                style="height: 0px; width: 0px; overflow: hidden;"
+                              >
+                                <div
+                                  aria-label="Xiaoxiao Fu"
+                                  aria-selected="false"
+                                  id="owner_list_0"
+                                  role="option"
+                                >
+                                  xiao
+                                </div>
+                                <div
+                                  aria-label="Maomao Zhou"
+                                  aria-selected="false"
+                                  id="owner_list_1"
+                                  role="option"
+                                >
+                                  mao
+                                </div>
+                              </div>
+                              <div
+                                class="rc-virtual-list"
+                                style="position: relative;"
+                              >
+                                <div
+                                  class="rc-virtual-list-holder"
+                                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                >
+                                  <div>
+                                    <div
+                                      class="rc-virtual-list-holder-inner"
+                                      style="display: flex; flex-direction: column;"
+                                    >
+                                      <div
+                                        class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                                        title="Xiaoxiao Fu"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          Xiaoxiao Fu
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-select-item ant-select-item-option"
+                                        title="Maomao Zhou"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          Maomao Zhou
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1280,126 +1278,36 @@ Array [
                             class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
-                              class="ant-select-selector"
+                              class="ant-select-content"
                             >
-                              <span
-                                class="ant-select-selection-wrap"
+                              <div
+                                class="ant-select-placeholder"
+                                style="visibility: visible;"
                               >
-                                <span
-                                  class="ant-select-selection-search"
-                                >
-                                  <input
-                                    aria-autocomplete="list"
-                                    aria-controls="type_list"
-                                    aria-expanded="false"
-                                    aria-haspopup="listbox"
-                                    aria-owns="type_list"
-                                    aria-required="true"
-                                    autocomplete="off"
-                                    class="ant-select-selection-search-input"
-                                    id="type"
-                                    readonly=""
-                                    role="combobox"
-                                    style="opacity: 0;"
-                                    type="search"
-                                    unselectable="on"
-                                    value=""
-                                  />
-                                </span>
-                                <span
-                                  class="ant-select-selection-placeholder"
-                                >
-                                  Please choose the type
-                                </span>
-                              </span>
+                                Please choose the type
+                              </div>
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="type_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="type_list"
+                                aria-required="true"
+                                autocomplete="off"
+                                class="ant-select-input"
+                                id="type"
+                                readonly=""
+                                role="combobox"
+                                type="search"
+                                value=""
+                              />
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
-                            >
-                              <div>
-                                <div
-                                  id="type_list"
-                                  role="listbox"
-                                  style="height: 0px; width: 0px; overflow: hidden;"
-                                >
-                                  <div
-                                    aria-label="Private"
-                                    aria-selected="false"
-                                    id="type_list_0"
-                                    role="option"
-                                  >
-                                    private
-                                  </div>
-                                  <div
-                                    aria-label="Public"
-                                    aria-selected="false"
-                                    id="type_list_1"
-                                    role="option"
-                                  >
-                                    public
-                                  </div>
-                                </div>
-                                <div
-                                  class="rc-virtual-list"
-                                  style="position: relative;"
-                                >
-                                  <div
-                                    class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-                                  >
-                                    <div>
-                                      <div
-                                        class="rc-virtual-list-holder-inner"
-                                        style="display: flex; flex-direction: column;"
-                                      >
-                                        <div
-                                          class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                                          title="Private"
-                                        >
-                                          <div
-                                            class="ant-select-item-option-content"
-                                          >
-                                            Private
-                                          </div>
-                                          <span
-                                            aria-hidden="true"
-                                            class="ant-select-item-option-state"
-                                            style="user-select: none;"
-                                            unselectable="on"
-                                          />
-                                        </div>
-                                        <div
-                                          class="ant-select-item ant-select-item-option"
-                                          title="Public"
-                                        >
-                                          <div
-                                            class="ant-select-item-option-content"
-                                          >
-                                            Public
-                                          </div>
-                                          <span
-                                            aria-hidden="true"
-                                            class="ant-select-item-option-state"
-                                            style="user-select: none;"
-                                            unselectable="on"
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
+                              class="ant-select-suffix"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-select-suffix"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -1416,7 +1324,85 @@ Array [
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </div>
+                          </div>
+                          <div
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
+                          >
+                            <div>
+                              <div
+                                id="type_list"
+                                role="listbox"
+                                style="height: 0px; width: 0px; overflow: hidden;"
+                              >
+                                <div
+                                  aria-label="private"
+                                  aria-selected="false"
+                                  id="type_list_0"
+                                  role="option"
+                                >
+                                  private
+                                </div>
+                                <div
+                                  aria-label="public"
+                                  aria-selected="false"
+                                  id="type_list_1"
+                                  role="option"
+                                >
+                                  public
+                                </div>
+                              </div>
+                              <div
+                                class="rc-virtual-list"
+                                style="position: relative;"
+                              >
+                                <div
+                                  class="rc-virtual-list-holder"
+                                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                >
+                                  <div>
+                                    <div
+                                      class="rc-virtual-list-holder-inner"
+                                      style="display: flex; flex-direction: column;"
+                                    >
+                                      <div
+                                        class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                                        title="private"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          private
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-select-item ant-select-item-option"
+                                        title="public"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          public
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1464,126 +1450,36 @@ Array [
                             class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
-                              class="ant-select-selector"
+                              class="ant-select-content"
                             >
-                              <span
-                                class="ant-select-selection-wrap"
+                              <div
+                                class="ant-select-placeholder"
+                                style="visibility: visible;"
                               >
-                                <span
-                                  class="ant-select-selection-search"
-                                >
-                                  <input
-                                    aria-autocomplete="list"
-                                    aria-controls="approver_list"
-                                    aria-expanded="false"
-                                    aria-haspopup="listbox"
-                                    aria-owns="approver_list"
-                                    aria-required="true"
-                                    autocomplete="off"
-                                    class="ant-select-selection-search-input"
-                                    id="approver"
-                                    readonly=""
-                                    role="combobox"
-                                    style="opacity: 0;"
-                                    type="search"
-                                    unselectable="on"
-                                    value=""
-                                  />
-                                </span>
-                                <span
-                                  class="ant-select-selection-placeholder"
-                                >
-                                  Please choose the approver
-                                </span>
-                              </span>
+                                Please choose the approver
+                              </div>
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="approver_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="approver_list"
+                                aria-required="true"
+                                autocomplete="off"
+                                class="ant-select-input"
+                                id="approver"
+                                readonly=""
+                                role="combobox"
+                                type="search"
+                                value=""
+                              />
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
-                            >
-                              <div>
-                                <div
-                                  id="approver_list"
-                                  role="listbox"
-                                  style="height: 0px; width: 0px; overflow: hidden;"
-                                >
-                                  <div
-                                    aria-label="Jack Ma"
-                                    aria-selected="false"
-                                    id="approver_list_0"
-                                    role="option"
-                                  >
-                                    jack
-                                  </div>
-                                  <div
-                                    aria-label="Tom Liu"
-                                    aria-selected="false"
-                                    id="approver_list_1"
-                                    role="option"
-                                  >
-                                    tom
-                                  </div>
-                                </div>
-                                <div
-                                  class="rc-virtual-list"
-                                  style="position: relative;"
-                                >
-                                  <div
-                                    class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-                                  >
-                                    <div>
-                                      <div
-                                        class="rc-virtual-list-holder-inner"
-                                        style="display: flex; flex-direction: column;"
-                                      >
-                                        <div
-                                          class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                                          title="Jack Ma"
-                                        >
-                                          <div
-                                            class="ant-select-item-option-content"
-                                          >
-                                            Jack Ma
-                                          </div>
-                                          <span
-                                            aria-hidden="true"
-                                            class="ant-select-item-option-state"
-                                            style="user-select: none;"
-                                            unselectable="on"
-                                          />
-                                        </div>
-                                        <div
-                                          class="ant-select-item ant-select-item-option"
-                                          title="Tom Liu"
-                                        >
-                                          <div
-                                            class="ant-select-item-option-content"
-                                          >
-                                            Tom Liu
-                                          </div>
-                                          <span
-                                            aria-hidden="true"
-                                            class="ant-select-item-option-state"
-                                            style="user-select: none;"
-                                            unselectable="on"
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
+                              class="ant-select-suffix"
                             >
                               <span
                                 aria-label="down"
-                                class="anticon anticon-down ant-select-suffix"
+                                class="anticon anticon-down"
                                 role="img"
                               >
                                 <svg
@@ -1600,7 +1496,85 @@ Array [
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </div>
+                          </div>
+                          <div
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
+                          >
+                            <div>
+                              <div
+                                id="approver_list"
+                                role="listbox"
+                                style="height: 0px; width: 0px; overflow: hidden;"
+                              >
+                                <div
+                                  aria-label="Jack Ma"
+                                  aria-selected="false"
+                                  id="approver_list_0"
+                                  role="option"
+                                >
+                                  jack
+                                </div>
+                                <div
+                                  aria-label="Tom Liu"
+                                  aria-selected="false"
+                                  id="approver_list_1"
+                                  role="option"
+                                >
+                                  tom
+                                </div>
+                              </div>
+                              <div
+                                class="rc-virtual-list"
+                                style="position: relative;"
+                              >
+                                <div
+                                  class="rc-virtual-list-holder"
+                                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                >
+                                  <div>
+                                    <div
+                                      class="rc-virtual-list-holder-inner"
+                                      style="display: flex; flex-direction: column;"
+                                    >
+                                      <div
+                                        class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                                        title="Jack Ma"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          Jack Ma
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-select-item ant-select-item-option"
+                                        title="Tom Liu"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          Tom Liu
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -2907,12 +2881,7 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
-  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compat\` instead.",
-]
-`;
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
 Array [
@@ -2942,6 +2911,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -2980,6 +2950,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               <p>
                 Loading Drawer
@@ -3062,6 +3033,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
         style="width: 378px;"
       >
         <div
+          aria-labelledby="test-id"
           aria-modal="true"
           class="ant-drawer-section"
           role="dialog"
@@ -3100,6 +3072,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
               </button>
               <div
                 class="ant-drawer-title"
+                id="test-id"
               >
                 Drawer blur
               </div>
@@ -3161,6 +3134,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
         style="width: 378px;"
       >
         <div
+          aria-labelledby="test-id"
           aria-modal="true"
           class="ant-drawer-section"
           role="dialog"
@@ -3199,6 +3173,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
               </button>
               <div
                 class="ant-drawer-title"
+                id="test-id"
               >
                 Drawer blur
               </div>
@@ -3257,6 +3232,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
         style="width: 378px;"
       >
         <div
+          aria-labelledby="test-id"
           aria-modal="true"
           class="ant-drawer-section"
           role="dialog"
@@ -3295,6 +3271,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
               </button>
               <div
                 class="ant-drawer-title"
+                id="test-id"
               >
                 Drawer blur
               </div>
@@ -3356,6 +3333,7 @@ Array [
       style="width: 520px; transform: translateX(-180px);"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -3368,6 +3346,7 @@ Array [
           >
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Multi-level drawer
             </div>
@@ -3403,6 +3382,7 @@ Array [
               style="width: 320px;"
             >
               <div
+                aria-labelledby="test-id"
                 aria-modal="true"
                 class="ant-drawer-section"
                 role="dialog"
@@ -3415,6 +3395,7 @@ Array [
                   >
                     <div
                       class="ant-drawer-title"
+                      id="test-id"
                     >
                       Two-level Drawer
                     </div>
@@ -3474,6 +3455,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -3512,6 +3494,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Drawer without mask
             </div>
@@ -3677,6 +3660,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -3689,6 +3673,7 @@ Array [
           >
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Basic Drawer
             </div>
@@ -3756,6 +3741,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -3768,6 +3754,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
           >
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Basic Drawer
             </div>
@@ -3997,6 +3984,7 @@ Array [
         class="ant-drawer-resizable-dragger ant-drawer-resizable-dragger-right ant-drawer-resizable-dragger-horizontal"
       />
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -4035,6 +4023,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Resizable Drawer
             </div>
@@ -4202,6 +4191,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
       style="width: 378px; transform: translateX(-180px);"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -4240,6 +4230,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Drawer
             </div>
@@ -4268,6 +4259,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
               style="width: 378px;"
             >
               <div
+                aria-labelledby="test-id"
                 aria-modal="true"
                 class="ant-drawer-section"
                 role="dialog"
@@ -4306,6 +4298,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
                     </button>
                     <div
                       class="ant-drawer-title"
+                      id="test-id"
                     >
                       Drawer Sub
                     </div>
@@ -4353,6 +4346,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -4391,6 +4385,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Drawer2
             </div>
@@ -4463,6 +4458,7 @@ Array [
       style="width: 378px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -4501,6 +4497,7 @@ Array [
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               undefined Drawer
             </div>
@@ -4604,6 +4601,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
       style="width: 500px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -4642,6 +4640,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Custom Style Drawer
             </div>
@@ -4713,6 +4712,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
       style="width: 500px;"
     >
       <div
+        aria-labelledby="test-id"
         aria-modal="true"
         class="ant-drawer-section"
         role="dialog"
@@ -4752,6 +4752,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
             </button>
             <div
               class="ant-drawer-title"
+              id="test-id"
             >
               Custom Function drawer
             </div>

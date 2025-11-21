@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 
 type SemanticName = 'label' | 'content';

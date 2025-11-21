@@ -2081,6 +2081,7 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     >
       <div
         class="ant-popover-content"
+        style="color: rgb(38, 38, 38);"
       >
         Object text
       </div>

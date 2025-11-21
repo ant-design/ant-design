@@ -14,12 +14,15 @@ const useStyles = createStyles(({ token }) => ({
 const options: MentionsProps['options'] = [
   { value: 'afc163', label: 'afc163' },
   { value: 'zombieJ', label: 'zombieJ' },
-  { value: 'Meet-student', label: 'Meet-student' },
+  { value: 'meet-student', label: 'meet-student' },
+  { value: 'thinkasany', label: 'thinkasany' },
 ];
 
 const stylesObject: MentionsProps['styles'] = {
   textarea: {
     fontSize: 14,
+    resize: 'vertical',
+    fontWeight: 200,
   },
 };
 
@@ -46,7 +49,7 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="middle">
-      <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" />
+      <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" rows={2} />
       <Mentions {...sharedProps} styles={stylesFunction} variant="filled" placeholder="Function" />
     </Flex>
   );

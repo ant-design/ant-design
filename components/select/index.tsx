@@ -7,14 +7,13 @@ import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+} from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -165,6 +164,9 @@ const InternalSelect = <
     maxCount,
     prefix,
     dropdownRender,
+    /**
+     * @since 5.25.0
+     */
     popupRender,
     onDropdownVisibleChange,
     onOpenChange,

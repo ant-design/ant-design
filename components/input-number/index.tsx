@@ -1,13 +1,18 @@
 import * as React from 'react';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
-import type { InputNumberProps as RcInputNumberProps, ValueType } from '@rc-component/input-number';
 import RcInputNumber from '@rc-component/input-number';
+import type {
+  InputNumberProps as RcInputNumberProps,
+  InputNumberRef as RcInputNumberRef,
+  ValueType,
+} from '@rc-component/input-number';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -20,7 +25,8 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
-import { useCompactItemContext } from '../space/Compact';
+import SpaceAddon from '../space/Addon';
+import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
@@ -40,7 +46,33 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   rootClassName?: string;
   classNames?: InputNumberClassNamesType;
   styles?: InputNumberStylesType;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, InputNumber } from 'antd';
+   *
+   * <Space.Compact>
+   *   {addon}
+   *   <InputNumber defaultValue={1} />
+   * </Space.Compact>
+   * ```
+   */
   addonBefore?: React.ReactNode;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, InputNumber } from 'antd';
+   *
+   * <Space.Compact>
+   *   <InputNumber defaultValue={1} />
+   *   {addon}
+   * </Space.Compact>
+   * ```
+   */
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -49,7 +81,12 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   status?: InputStatus;
-  controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
+  controls?:
+    | boolean
+    | {
+        upIcon?: React.ReactNode;
+        downIcon?: React.ReactNode;
+      };
   /**
    * @since 5.13.0
    * @default "outlined"
@@ -57,10 +94,166 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   variant?: Variant;
 }
 
-const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
+type InternalInputNumberProps = InputNumberProps & {
+  prefixCls: string;
+};
+
+const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumberProps>(
+  (props, ref) => {
+    const inputRef = React.useRef<RcInputNumberRef>(null);
+
+    React.useImperativeHandle(ref, () => inputRef.current!);
+
+    const {
+      rootClassName,
+      size: customizeSize,
+      disabled: customDisabled,
+      prefixCls,
+      addonBefore,
+      addonAfter,
+      prefix,
+      suffix,
+      bordered,
+      readOnly,
+      status,
+      controls = true,
+      variant: customVariant,
+      className,
+      style,
+      classNames,
+      styles,
+      mode,
+      ...others
+    } = props;
+
+    const {
+      direction,
+      className: contextClassName,
+      style: contextStyle,
+      styles: contextStyles,
+      classNames: contextClassNames,
+    } = useComponentConfig('inputNumber');
+
+    //controls && !props.disabled && !props.readOnly;
+    const mergedControls = React.useMemo(() => {
+      if (!controls || props.disabled || props.readOnly) {
+        return false;
+      }
+
+      return controls;
+    }, [controls, props.disabled, props.readOnly]);
+
+    const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+    let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
+    let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
+    const controlsTemp = typeof mergedControls === 'boolean' ? mergedControls : undefined;
+
+    if (typeof mergedControls === 'object') {
+      upIcon = mergedControls.upIcon || upIcon;
+      downIcon = mergedControls.downIcon || downIcon;
+    }
+
+    const { hasFeedback, isFormItemInput, feedbackIcon } = React.useContext(FormItemInputContext);
+
+    const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled ?? disabled;
+
+    const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
+
+    const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+
+    // =========== Merged Props for Semantic ==========
+    const mergedProps: InputNumberProps = {
+      ...props,
+      size: mergedSize,
+      disabled: mergedDisabled,
+      controls: mergedControls,
+    };
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      InputNumberClassNamesType,
+      InputNumberStylesType,
+      InputNumberProps
+    >([contextClassNames, classNames], [contextStyles, styles], {
+      props: mergedProps,
+    });
+
+    return (
+      <RcInputNumber
+        ref={inputRef}
+        mode={mode}
+        disabled={mergedDisabled}
+        className={clsx(
+          className,
+          rootClassName,
+          mergedClassNames.root,
+          contextClassName,
+          compactItemClassnames,
+
+          getStatusClassNames(prefixCls, status, hasFeedback),
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-in-form-item`]: isFormItemInput,
+            [`${prefixCls}-without-controls`]: !mergedControls,
+          },
+        )}
+        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        upHandler={upIcon}
+        downHandler={downIcon}
+        prefixCls={prefixCls}
+        readOnly={readOnly}
+        controls={controlsTemp}
+        prefix={prefix}
+        suffix={suffixNode || suffix}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
+        {...others}
+      />
+    );
+  },
+);
+
+// ===================================================================
+// ==                          InputNumber                          ==
+// ===================================================================
+const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props, ref) => {
+  const {
+    addonBefore,
+    addonAfter,
+    prefixCls: customizePrefixCls,
+    className,
+    status: customStatus,
+    rootClassName,
+    ...rest
+  } = props;
+
+  const { getPrefixCls } = useComponentConfig('inputNumber');
+  const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+
+  const { status: contextStatus } = React.useContext(FormItemInputContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
+
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const hasLegacyAddon = addonBefore || addonAfter;
+
+  // ======================= Warn =======================
   if (process.env.NODE_ENV !== 'production') {
     const typeWarning = devUseWarning('InputNumber');
-    typeWarning.deprecated(!('bordered' in props), 'bordered', 'variant');
+    [
+      ['bordered', 'variant'],
+      ['addonAfter', 'Space.Compact'],
+      ['addonBefore', 'Space.Compact'],
+    ].forEach(([prop, newProp]) => {
+      typeWarning.deprecated(!(prop in props), prop, newProp);
+    });
     typeWarning(
       !(props.type === 'number' && props.changeOnWheel),
       'usage',
@@ -68,182 +261,54 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     );
   }
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
-  React.useImperativeHandle(ref, () => inputRef.current!);
-
-  const {
-    rootClassName,
-    size: customizeSize,
-    disabled: customDisabled,
-    prefixCls: customizePrefixCls,
-    addonBefore,
-    addonAfter,
-    prefix,
-    suffix,
-    bordered,
-    readOnly,
-    status: customStatus,
-    controls,
-    variant: customVariant,
-    className,
-    style,
-    classNames,
-    styles,
-    ...others
-  } = props;
-
-  const {
-    direction,
-    getPrefixCls,
-    className: contextClassName,
-    style: contextStyle,
-    styles: contextStyles,
-    classNames: contextClassNames,
-  } = useComponentConfig('inputNumber');
-
-  const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-
-  // Style
-  const rootCls = useCSSVarCls(prefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-  let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-  let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
-  const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
-
-  if (typeof controls === 'object') {
-    upIcon =
-      typeof controls.upIcon === 'undefined' ? (
-        upIcon
-      ) : (
-        <span className={`${prefixCls}-handler-up-inner`}>{controls.upIcon}</span>
-      );
-    downIcon =
-      typeof controls.downIcon === 'undefined' ? (
-        downIcon
-      ) : (
-        <span className={`${prefixCls}-handler-down-inner`}>{controls.downIcon}</span>
-      );
-  }
-
-  const {
-    hasFeedback,
-    status: contextStatus,
-    isFormItemInput,
-    feedbackIcon,
-  } = React.useContext(FormItemInputContext);
-  const mergedStatus = getMergedStatus(contextStatus, customStatus);
-
-  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
-
-  const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
-
-  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
-
-  // =========== Merged Props for Semantic ==========
-  const mergedProps: InputNumberProps = {
-    ...props,
-    size: mergedSize,
-    disabled: mergedDisabled,
-  };
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    InputNumberClassNamesType,
-    InputNumberStylesType,
-    InputNumberProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
-
-  const wrapperClassName = `${prefixCls}-group`;
-
-  return (
-    <RcInputNumber
-      ref={inputRef}
-      disabled={mergedDisabled}
-      className={clsx(
-        cssVarCls,
-        rootCls,
-        className,
-        rootClassName,
-        mergedClassNames.root,
-        contextClassName,
-        compactItemClassnames,
-      )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      upHandler={upIcon}
-      downHandler={downIcon}
+  // ====================== Render ======================
+  const inputNumberNode = (
+    <InternalInputNumber
+      ref={ref}
+      {...rest}
       prefixCls={prefixCls}
-      readOnly={readOnly}
-      controls={controlsTemp}
-      prefix={prefix}
-      suffix={suffixNode || suffix}
-      addonBefore={
-        addonBefore && (
-          <ContextIsolator form space>
-            {addonBefore}
-          </ContextIsolator>
-        )
-      }
-      addonAfter={
-        addonAfter && (
-          <ContextIsolator form space>
-            {addonAfter}
-          </ContextIsolator>
-        )
-      }
-      classNames={{
-        ...mergedClassNames,
-        input: clsx(
-          {
-            [`${prefixCls}-lg`]: mergedSize === 'large',
-            [`${prefixCls}-sm`]: mergedSize === 'small',
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-in-form-item`]: isFormItemInput,
-          },
-          hashId,
-          mergedClassNames.input,
-        ),
-        variant: clsx(
-          { [`${prefixCls}-${variant}`]: enableVariantCls },
-          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-        ),
-        affixWrapper: clsx(
-          {
-            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-without-controls`]:
-              controls === false || mergedDisabled || readOnly,
-          },
-          hashId,
-        ),
-        wrapper: clsx({ [`${wrapperClassName}-rtl`]: direction === 'rtl' }, hashId),
-        groupWrapper: clsx(
-          {
-            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
-          },
-          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-          hashId,
-        ),
-      }}
-      styles={mergedStyles}
-      {...others}
+      status={mergedStatus}
+      className={clsx(cssVarCls, rootCls, hashId, className)}
+      rootClassName={!hasLegacyAddon ? rootClassName : undefined}
     />
   );
+
+  if (hasLegacyAddon) {
+    const renderAddon = (node?: React.ReactNode) => {
+      if (!node) {
+        return null;
+      }
+
+      return (
+        <SpaceAddon
+          className={clsx(`${prefixCls}-addon`, cssVarCls, hashId)}
+          variant={props.variant}
+          disabled={props.disabled}
+          status={mergedStatus}
+        >
+          <ContextIsolator form>{node}</ContextIsolator>
+        </SpaceAddon>
+      );
+    };
+
+    const addonBeforeNode = renderAddon(addonBefore);
+
+    const addonAfterNode = renderAddon(addonAfter);
+
+    return (
+      <Compact rootClassName={rootClassName}>
+        {addonBeforeNode}
+        {inputNumberNode}
+        {addonAfterNode}
+      </Compact>
+    );
+  }
+
+  return inputNumberNode;
 });
 
 const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(
-  props: React.PropsWithChildren<InputNumberProps<T>> & React.RefAttributes<HTMLInputElement>,
+  props: React.PropsWithChildren<InputNumberProps<T>> & React.RefAttributes<RcInputNumberRef>,
 ) => React.ReactElement) & {
   displayName?: string;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;
@@ -257,6 +322,7 @@ const PureInputNumber: React.FC<InputNumberProps> = (props) => (
 );
 
 if (process.env.NODE_ENV !== 'production') {
+  InternalInputNumber.displayName = 'InternalInputNumber';
   TypedInputNumber.displayName = 'InputNumber';
 }
 

@@ -19,8 +19,8 @@ interface Option {
 
 const options: Option[] = [
   {
-    value: 'Meet-student',
-    label: 'Meet-student',
+    value: 'meet-student',
+    label: 'meet-student',
     children: [
       {
         value: 'hangzhou',

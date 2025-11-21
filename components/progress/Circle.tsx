@@ -4,7 +4,7 @@ import { Circle as RCCircle } from '@rc-component/progress';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
 import type { GapPosition, ProgressGradient, ProgressProps, SemanticName } from './progress';

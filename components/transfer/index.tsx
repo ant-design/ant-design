@@ -2,10 +2,8 @@ import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
-import useMultipleSelect from '../_util/hooks/useMultipleSelect';
+import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
+import type { PrevSelectedIndex, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -232,6 +230,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     KeyWise<RecordType>,
     TransferKey
   >((item) => item.key);
+
   const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
     TransferKey

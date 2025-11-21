@@ -1320,9 +1320,7 @@ describe('Form', () => {
           <Input />
         </Form.Item>
         <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
+          <Select options={[{ value: 'demo', label: 'Demo' }]} />
         </Form.Item>
         <Form.Item label="TreeSelect">
           <TreeSelect
@@ -1537,7 +1535,7 @@ describe('Form', () => {
     // if form name is empty and item name is parentNode
     // will get parentNode
     mockFn.mockImplementation(() => itemName);
-    const { Option } = Select;
+
     const Demo: React.FC = () => {
       const [open, setOpen] = useState(false);
       return (
@@ -1549,11 +1547,12 @@ describe('Form', () => {
                 defaultValue="lucy"
                 open={open}
                 style={{ width: 120 }}
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
+                options={[
+                  { value: 'jack', label: 'Jack' },
+                  { value: 'lucy', label: 'Lucy' },
+                  { value: 'Yiminghe', label: 'yiminghe' },
+                ]}
+              />
             </Form.Item>
           </Form>
           <button
@@ -1854,10 +1853,10 @@ describe('Form', () => {
       </Form>
     );
     const { container } = render(<Demo />, { container: document.body });
-    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('status-error');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('status-error');
   });
 
   // eslint-disable-next-line jest/no-disabled-tests
@@ -1912,14 +1911,12 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.className).toContain(
-      'custom-input-status-',
-    );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-warning')).toHaveClass(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+    expect(container.querySelector('.custom-input')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -1929,7 +1926,7 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('.submit-button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass(
       'custom-input-status-error',
     );
   });

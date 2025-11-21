@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
+import isNonNullable from '../_util/isNonNullable';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
@@ -82,7 +83,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
   // wrap to dropDown
   const link = renderBreadcrumbNode(children);
 
-  if (link !== undefined && link !== null) {
+  if (isNonNullable(link)) {
     return (
       <>
         <li className={mergedClassNames?.item} style={mergedStyles?.item}>

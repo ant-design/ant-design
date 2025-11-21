@@ -11,14 +11,13 @@ import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+} from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -58,7 +57,16 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-type SemanticName = 'root' | 'prefix' | 'suffix';
+type SemanticName =
+  | 'root'
+  | 'prefix'
+  | 'suffix'
+  | 'input'
+  | 'placeholder'
+  | 'content'
+  | 'item'
+  | 'itemContent'
+  | 'itemRemove';
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;

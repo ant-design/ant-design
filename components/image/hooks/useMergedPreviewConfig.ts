@@ -2,13 +2,12 @@ import React from 'react';
 import { clsx } from 'clsx';
 
 import type { PreviewConfig } from '..';
-import useMergedMask from '../../_util/hooks/useMergedMask';
-import type { MaskType } from '../../_util/hooks/useMergedMask';
-import { useZIndex } from '../../_util/hooks/useZIndex';
+import { useMergedMask, useZIndex } from '../../_util/hooks';
+import type { MaskType } from '../../_util/hooks';
 import { getTransitionName } from '../../_util/motion';
 import type { GroupPreviewConfig } from '../PreviewGroup';
 
-export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
+const useMergedPreviewConfig = <T extends PreviewConfig | GroupPreviewConfig>(
   previewConfig: T,
   contextPreviewConfig: T,
   prefixCls: string,
@@ -16,9 +15,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
   getContextPopupContainer: PreviewConfig['getContainer'],
   icons: PreviewConfig['icons'],
   defaultCover?: React.ReactNode,
-): T & {
-  blurClassName?: string;
-} {
+): T & { blurClassName?: string } => {
   const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
   const [mergedPreviewMask, blurClassName] = useMergedMask(
     previewConfig?.mask as MaskType,
@@ -62,4 +59,6 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
     mergedPreviewMask,
     blurClassName,
   ]);
-}
+};
+
+export default useMergedPreviewConfig;

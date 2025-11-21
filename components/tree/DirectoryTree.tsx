@@ -52,7 +52,9 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const cachedSelectedKeys = React.useRef<Key[]>(null);
 
   const getInitExpandedKeys = () => {
-    const { keyEntities } = convertDataToEntities(getTreeData(props));
+    const { keyEntities } = convertDataToEntities(getTreeData(props), {
+      fieldNames: props.fieldNames,
+    });
 
     let initExpandedKeys: Key[];
 

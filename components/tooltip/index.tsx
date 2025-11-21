@@ -12,9 +12,8 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -130,7 +129,15 @@ export interface TooltipProps extends AbstractTooltipProps {
   styles?: TooltipStylesType;
 }
 
-const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+/**
+ * @internal
+ * Internal props type with hidden properties
+ */
+interface InternalTooltipProps extends TooltipProps {
+  'data-popover-inject'?: boolean;
+}
+
+const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     openClassName,
@@ -238,7 +245,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         visibleFirst: true,
       })
     );
-  }, [mergedArrow, builtinPlacements, token]);
+  }, [mergedArrow, builtinPlacements, token, mergedShowArrow, autoAdjustOverflow]);
 
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
@@ -280,7 +287,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   const rootPrefixCls = getPrefixCls();
 
-  const injectFromPopover = (props as any)['data-popover-inject'];
+  const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title
@@ -320,7 +327,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
-  const containerStyle = {
+  const containerStyle: React.CSSProperties = {
     ...mergedStyles.container,
     ...overlayInnerStyle,
     ...colorInfo.overlayStyle,

@@ -363,13 +363,11 @@ describe('Tour', () => {
 
     const { container } = render(<App />);
     // className
-    expect(screen.getByRole('button', { name: 'Next' }).className.includes('customClassName')).toBe(
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Next' })).toHaveClass('customClassName');
     // style
-    expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
-      'rgb(69, 69, 255)',
-    );
+    expect(screen.getByRole('button', { name: 'Next' })).toHaveStyle({
+      backgroundColor: 'rgb(69, 69, 255)',
+    });
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -722,19 +720,19 @@ describe('Tour', () => {
       root: 'custom-root',
     };
     const customStyles = {
-      mask: { color: 'white' },
-      actions: { color: 'blue' },
+      mask: { color: 'rgb(255, 255, 255)' },
+      actions: { color: 'rgb(0, 0, 255)' },
       title: { fontSize: '20px' },
-      header: { backgroundColor: 'gray' },
+      header: { backgroundColor: 'rgb(128, 128, 128)' },
       section: { margin: '5px' },
-      footer: { borderTop: '1px solid black' },
+      footer: { borderTop: '1px solid rgb(0, 0, 0)' },
       description: { fontStyle: 'italic' },
-      cover: { color: 'red' },
-      indicator: { color: 'green' },
-      indicators: { color: 'yellow' },
-      root: { backgroundColor: 'yellow' },
+      cover: { color: 'rgb(255, 0, 0)' },
+      indicator: { color: 'rgb(0, 128, 0)' },
+      indicators: { color: 'rgb(255, 255, 0)' },
+      root: { backgroundColor: 'rgb(255, 200, 255)' },
     };
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const btnRef = useRef<HTMLButtonElement>(null);
       return (
         <div style={{ margin: 20 }}>
@@ -769,65 +767,64 @@ describe('Tour', () => {
     };
     render(<Demo />);
 
-    const maskElement = document.querySelector('.ant-tour-mask') as HTMLElement;
-    const actionsElement = document.querySelector('.ant-tour-actions') as HTMLElement;
-    const titleElement = document.querySelector('.ant-tour-title') as HTMLElement;
-    const headerElement = document.querySelector('.ant-tour-header') as HTMLElement;
-    const sectionElement = document.querySelector('.ant-tour-section') as HTMLElement;
-    const footerElement = document.querySelector('.ant-tour-footer') as HTMLElement;
-    const descriptionElement = document.querySelector('.ant-tour-description') as HTMLElement;
-    const coverElement = document.querySelector('.ant-tour-cover') as HTMLElement;
-    const indicatorElement = document.querySelector('.ant-tour-indicator') as HTMLElement;
-    const indicatorsElement = document.querySelector('.ant-tour-indicators') as HTMLElement;
-    const rootElement = document.querySelector('.ant-tour-mask') as HTMLElement;
+    const maskElement = document.querySelector<HTMLElement>('.ant-tour-mask');
+    const actionsElement = document.querySelector<HTMLElement>('.ant-tour-actions');
+    const titleElement = document.querySelector<HTMLElement>('.ant-tour-title');
+    const headerElement = document.querySelector<HTMLElement>('.ant-tour-header');
+    const sectionElement = document.querySelector<HTMLElement>('.ant-tour-section');
+    const footerElement = document.querySelector<HTMLElement>('.ant-tour-footer');
+    const descriptionElement = document.querySelector<HTMLElement>('.ant-tour-description');
+    const coverElement = document.querySelector<HTMLElement>('.ant-tour-cover');
+    const indicatorElement = document.querySelector<HTMLElement>('.ant-tour-indicator');
+    const indicatorsElement = document.querySelector<HTMLElement>('.ant-tour-indicators');
+    const rootElement = document.querySelector<HTMLElement>('.ant-tour-mask');
 
     // check classNames
-    expect(maskElement.classList).toContain('custom-mask');
-    expect(actionsElement.classList).toContain('custom-actions');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(sectionElement.classList).toContain('custom-section');
-    expect(footerElement.classList).toContain('custom-footer');
-    expect(descriptionElement.classList).toContain('custom-description');
-    expect(coverElement.classList).toContain('custom-cover');
-    expect(indicatorElement.classList).toContain('custom-indicator');
-    expect(indicatorsElement.classList).toContain('custom-indicators');
-    expect(rootElement.classList).toContain('custom-root');
+    expect(maskElement).toHaveClass(customClassnames.mask);
+    expect(actionsElement).toHaveClass(customClassnames.actions);
+    expect(titleElement).toHaveClass(customClassnames.title);
+    expect(headerElement).toHaveClass(customClassnames.header);
+    expect(sectionElement).toHaveClass(customClassnames.section);
+    expect(footerElement).toHaveClass(customClassnames.footer);
+    expect(descriptionElement).toHaveClass(customClassnames.description);
+    expect(coverElement).toHaveClass(customClassnames.cover);
+    expect(indicatorElement).toHaveClass(customClassnames.indicator);
+    expect(indicatorsElement).toHaveClass(customClassnames.indicators);
+    expect(rootElement).toHaveClass(customClassnames.root);
 
     // check styles
-    expect(maskElement.style.color).toBe('white');
-    expect(actionsElement.style.color).toBe('blue');
-    expect(titleElement.style.fontSize).toBe('20px');
-    expect(headerElement.style.backgroundColor).toBe('gray');
-    expect(sectionElement.style.margin).toBe('5px');
-    expect(footerElement.style.borderTop).toBe('1px solid black');
-    expect(descriptionElement.style.fontStyle).toBe('italic');
-    expect(coverElement.style.color).toBe('red');
-    expect(indicatorElement.style.color).toBe('green');
-    expect(indicatorsElement.style.color).toBe('yellow');
-    expect(rootElement.style.backgroundColor).toBe('yellow');
+    expect(maskElement).toHaveStyle({ color: customStyles.mask.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions.color });
+    expect(titleElement).toHaveStyle({ fontSize: customStyles.title.fontSize });
+    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header.backgroundColor });
+    expect(sectionElement).toHaveStyle({ margin: customStyles.section.margin });
+    expect(footerElement).toHaveStyle({ borderTop: customStyles.footer.borderTop });
+    expect(descriptionElement).toHaveStyle({ fontStyle: customStyles.description.fontStyle });
+    expect(coverElement).toHaveStyle({ color: customStyles.cover.color });
+    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator.color });
+    expect(indicatorsElement).toHaveStyle({ color: customStyles.indicators.color });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
   });
 
   it('default aria-label', () => {
     const { container } = render(<Tour open steps={[{ title: 'test', description: 'test' }]} />);
-    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe('Close');
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+      'aria-label',
+      'Close',
+    );
   });
+
   it('custom aria-label', () => {
     const { container } = render(
       <Tour
         open
         steps={[
-          {
-            title: 'test',
-            description: 'test',
-            closable: {
-              'aria-label': 'Custom Close Button',
-            },
-          },
+          { title: 'test', description: 'test', closable: { 'aria-label': 'Custom Close Button' } },
         ]}
       />,
     );
-    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe(
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+      'aria-label',
       'Custom Close Button',
     );
   });

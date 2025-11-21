@@ -52,8 +52,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use `Space.Compat` instead | ReactNode | - |  |
-| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use `Space.Compat` instead | ReactNode | - |  |
+| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  |
+| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  |

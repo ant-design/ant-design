@@ -48,10 +48,12 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.left).toBe('150px');
-    expect(target?.style.top).toBe('150px');
-    expect(target?.style.width).toBe('calc(100% - 150px)');
-    expect(target?.style.height).toBe('calc(100% - 150px)');
+    expect(target).toHaveStyle({
+      left: '150px',
+      top: '150px',
+      width: 'calc(100% - 150px)',
+      height: 'calc(100% - 150px)',
+    });
     expect(container).toMatchSnapshot();
   });
 
@@ -66,7 +68,7 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.backgroundSize).toBe('720px');
+    expect(target).toHaveStyle({ backgroundSize: '720px' });
     expect(container).toMatchSnapshot();
   });
 
@@ -189,5 +191,26 @@ describe('Watermark', () => {
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, -0);
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, -0);
     spy.mockRestore();
+  });
+
+  it('should call onRemove when watermark is hard removed', async () => {
+    const onRemove = jest.fn();
+    const { container } = render(<Watermark content="Ant" onRemove={onRemove} />);
+    await waitFakeTimer();
+
+    const watermarkEle = container.querySelector<HTMLDivElement>('[style*="background-image"]');
+    watermarkEle?.remove();
+    await waitFakeTimer();
+
+    expect(onRemove).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not call onRemove when unmount', async () => {
+    const onRemove = jest.fn();
+    const { unmount } = render(<Watermark content="Ant" onRemove={onRemove} />);
+    await waitFakeTimer();
+    unmount();
+    await waitFakeTimer();
+    expect(onRemove).not.toHaveBeenCalled();
   });
 });

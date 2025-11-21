@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import Select from '..';
-import { render } from '../../../tests/utils';
 import type { SelectProps } from '..';
+import { render } from '../../../tests/utils';
 
 describe('Select.Semantic', () => {
   const options = [
@@ -16,18 +16,26 @@ describe('Select.Semantic', () => {
     },
   ];
   it('support classNames and styles', () => {
-    const customClassNames = {
+    const classNames = {
       root: 'custom-root',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
       input: 'custom-input',
+      placeholder: 'custom-placeholder',
+      content: 'custom-content',
       popup: {
         root: 'custom-popup',
         list: 'custom-list',
         listItem: 'custom-list-item',
       },
     };
-    const customStyles = {
+    const styles = {
       root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 128, 255)' },
+      suffix: { color: 'rgb(255, 128, 0)' },
       input: { color: 'rgb(0, 255, 0)' },
+      placeholder: { color: 'rgb(255, 192, 203)' },
+      content: { color: 'rgb(255, 165, 0)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
         list: { color: 'rgb(0, 0, 255)' },
@@ -39,29 +47,94 @@ describe('Select.Semantic', () => {
       <Select
         open
         options={options}
-        defaultValue={'GuangZhou'}
+        placeholder="placeholder text"
+        classNames={classNames}
+        styles={styles}
+        prefix={<span>Pre</span>}
+        suffix={<span>Suf</span>}
+      />,
+    );
+    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
+    expect(container.querySelector(`.${classNames.prefix}`)).toHaveStyle(styles.prefix);
+    expect(container.querySelector(`.${classNames.suffix}`)).toHaveStyle(styles.suffix);
+    expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
+    expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
+    expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
+    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
+    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
+    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+      styles.popup.listItem,
+    );
+  });
+
+  it('support multiple mode classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
+      popup: {
+        root: 'custom-popup',
+        list: 'custom-list',
+        listItem: 'custom-list-item',
+      },
+    };
+    const customStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 128, 255)' },
+      suffix: { color: 'rgb(255, 128, 0)' },
+      popup: {
+        root: { color: 'rgb(128, 0, 128)' },
+        list: { color: 'rgb(0, 0, 255)' },
+        listItem: { color: 'rgb(255, 255, 0)' },
+      },
+    };
+
+    const { container } = render(
+      <Select
+        mode="multiple"
+        open
+        options={options}
+        defaultValue={['GuangZhou']}
         classNames={customClassNames}
         styles={customStyles}
+        prefix={<span>Pre</span>}
+        suffix={<span>Suf</span>}
       />,
     );
     const root = container.querySelector('.ant-select');
-    const input = container.querySelector('.ant-select-selection-search-input');
+    const prefix = container.querySelector('.ant-select-prefix');
+    const suffix = container.querySelector('.ant-select-suffix');
     const list = container.querySelector('.rc-virtual-list');
     const listItem = container.querySelector('.ant-select-item');
     const popup = container.querySelector('.ant-select-dropdown');
 
     expect(root).toHaveClass(customClassNames.root);
-    expect(input).toHaveClass(customClassNames.input);
-    expect(list).toHaveClass(customClassNames.popup.list);
-    expect(listItem).toHaveClass(customClassNames.popup.listItem);
-    expect(popup).toHaveClass(customClassNames.popup.root);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    if (list) {
+      expect(list).toHaveClass(customClassNames.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveClass(customClassNames.popup.root);
+    }
 
     expect(root).toHaveStyle(customStyles.root);
-    expect(input).toHaveStyle(customStyles.input);
-    expect(list).toHaveStyle(customStyles.popup.list);
-    expect(listItem).toHaveStyle(customStyles.popup.listItem);
-    expect(popup).toHaveStyle(customStyles.popup.root);
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    if (list) {
+      expect(list).toHaveStyle(customStyles.popup.list);
+    }
+    if (listItem) {
+      expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    }
+    if (popup) {
+      expect(popup).toHaveStyle(customStyles.popup.root);
+    }
   });
+
   it('should support function-based classNames and styles', () => {
     const classNamesFn: SelectProps['classNames'] = (info) => {
       const { props } = info;

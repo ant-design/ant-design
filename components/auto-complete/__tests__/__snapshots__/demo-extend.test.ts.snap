@@ -13,107 +13,35 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="centered"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="centered"
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            style="visibility: hidden;"
-            title="centered"
-          >
-            centered
-          </span>
-        </span>
+          centered
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value="centered"
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          >
-            <div
-              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-            >
-              <div
-                class="ant-empty-image"
-              >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>
-                    No data
-                  </title>
-                  <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
-                  >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
-                    />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -130,48 +58,108 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        >
+          <div
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="centered"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="centered"
-            />
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          />
+          centered
         </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="text"
+          value="centered"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>
@@ -183,107 +171,35 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="centered"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="centered"
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            style="visibility: hidden;"
-            title="centered"
-          >
-            centered
-          </span>
-        </span>
+          centered
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value="centered"
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          >
-            <div
-              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-            >
-              <div
-                class="ant-empty-image"
-              >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>
-                    No data
-                  </title>
-                  <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
-                  >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
-                    />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -300,48 +216,108 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        >
+          <div
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="centered"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="centered"
-            />
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          />
+          centered
         </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="text"
+          value="centered"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>
@@ -353,107 +329,35 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="centered"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="centered"
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            style="visibility: hidden;"
-            title="centered"
-          >
-            centered
-          </span>
-        </span>
+          centered
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="search"
+          value="centered"
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          >
-            <div
-              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-            >
-              <div
-                class="ant-empty-image"
-              >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>
-                    No data
-                  </title>
-                  <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
-                  >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
-                    />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -470,48 +374,108 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        >
+          <div
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="centered"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="centered"
-            />
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          />
+          centered
         </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="text"
+          value="centered"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>
@@ -527,95 +491,81 @@ Array [
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          UnClearable
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        UnClearable
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>,
   <br />,
   <br />,
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Customized clear icon
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        Customized clear icon
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>,
 ]
@@ -630,46 +580,39 @@ Array [
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          input here
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        input here
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>,
   <br />,
@@ -679,46 +622,39 @@ Array [
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          control mode
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        control mode
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>,
 ]
@@ -727,79 +663,66 @@ Array [
 exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
-<div
-  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  style="width: 250px;"
->
+Array [
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+    style="width: 250px;"
   >
-    <span
-      class="ant-select-selection-wrap"
+    <div
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-search"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <div
+        class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-select-input"
       >
-        <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-select-selection-search-input css-var-test-id ant-input-css-var"
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+          id="test-id"
+          placeholder="input here"
+          role="combobox"
+          type="search"
+          value=""
+        />
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
+          type="button"
         >
           <span
-            class="ant-input-wrapper ant-input-group"
+            class="ant-btn-icon"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-input ant-input-lg ant-input-outlined"
-              id="test-id"
-              placeholder="input here"
-              role="combobox"
-              type="search"
-              value=""
-            />
             <span
-              class="ant-input-group-addon"
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
-                type="button"
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <span
-                  class="ant-btn-icon"
-                >
-                  <span
-                    aria-label="search"
-                    class="anticon anticon-search"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="search"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
             </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
-    </span>
-  </div>
+        </button>
+      </div>
+    </div>
+  </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up certain-category-search-dropdown css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; width: 500px;"
@@ -1087,50 +1010,41 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
         </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  </div>,
 ]
 `;
 
+exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
-<div
-  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  style="width: 200px;"
->
+Array [
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+    style="width: 200px;"
   >
-    <span
-      class="ant-select-selection-wrap"
+    <div
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-search"
-      >
-        <textarea
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-select-selection-search-input custom"
-          id="test-id"
-          placeholder="input here"
-          role="combobox"
-          style="height: 50px;"
-          type="search"
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       />
-    </span>
-  </div>
+      <textarea
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var custom"
+        id="test-id"
+        placeholder="input here"
+        role="combobox"
+        style="height: 50px;"
+        type="text"
+      />
+    </div>
+  </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
@@ -1142,8 +1056,8 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
         role="listbox"
       />
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 2`] = `[]`;
@@ -1182,44 +1096,37 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
-                <span
-                  class="ant-select-selection-wrap"
-                >
-                  <span
-                    class="ant-select-selection-search"
-                  >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      role="combobox"
-                      type="search"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility: visible;"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
               </div>
-              <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div>
-                  <div
-                    class="ant-select-item-empty"
-                    id="test-id_list"
-                    role="listbox"
-                  />
-                </div>
+            </div>
+            <div
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div>
+                <div
+                  class="ant-select-item-empty"
+                  id="test-id_list"
+                  role="listbox"
+                />
               </div>
             </div>
           </div>
@@ -1256,35 +1163,193 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
+              >
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility: visible;"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="test-id_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="test-id_list"
+                  autocomplete="off"
+                  class="ant-select-input"
+                  id="test-id"
+                  readonly=""
+                  role="combobox"
+                  type="search"
+                  value=""
+                />
+              </div>
+              <div
+                class="ant-select-suffix"
               >
                 <span
-                  class="ant-select-selection-wrap"
+                  aria-label="down"
+                  class="anticon anticon-down"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div>
+                <div
+                  class="ant-select-empty"
+                  role="listbox"
+                >
+                  <div
+                    class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+                  >
+                    <div
+                      class="ant-empty-image"
+                    >
+                      <svg
+                        height="41"
+                        viewBox="0 0 64 41"
+                        width="64"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title>
+                          No data
+                        </title>
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          transform="translate(0 1)"
+                        >
+                          <ellipse
+                            cx="32"
+                            cy="33"
+                            fill="#f5f5f5"
+                            rx="32"
+                            ry="7"
+                          />
+                          <g
+                            fill-rule="nonzero"
+                            stroke="#d9d9d9"
+                          >
+                            <path
+                              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                            />
+                            <path
+                              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              fill="#fafafa"
+                            />
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div
+                      class="ant-empty-description"
+                    >
+                      No data
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-test-id"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
+      >
+        <label
+          class=""
+          title="添加 Input.Group 正常"
+        >
+          添加 Input.Group 正常
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+            >
+              <div
+                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                style="width: 30%;"
+              >
+                <div
+                  class="ant-select-content"
+                >
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="ant-select-suffix"
                 >
                   <span
-                    class="ant-select-selection-search"
+                    aria-label="down"
+                    class="anticon anticon-down"
+                    role="img"
                   >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="test-id_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="test-id_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="test-id"
-                      readonly=""
-                      role="combobox"
-                      style="opacity: 0;"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
+                    <svg
+                      aria-hidden="true"
+                      data-icon="down"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                      />
+                    </svg>
                   </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
-                </span>
+                </div>
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
@@ -1346,233 +1411,44 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </div>
                 </div>
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select: none;"
-                unselectable="on"
+              <div
+                class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
               >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
-                  role="img"
+                <div
+                  class="ant-select-content"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="test-id"
+                    role="combobox"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="test-id_list"
+                    role="listbox"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
-  >
-    <div
-      class="ant-row ant-form-item-row css-var-test-id"
-    >
-      <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
-      >
-        <label
-          class=""
-          title="添加 Input.Group 正常"
-        >
-          添加 Input.Group 正常
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <span
-              class="ant-input-group css-var-test-id ant-input-group-compact"
-            >
-              <div
-                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                style="width: 30%;"
-              >
-                <div
-                  class="ant-select-selector"
-                >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-empty"
-                      role="listbox"
-                    >
-                      <div
-                        class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-                      >
-                        <div
-                          class="ant-empty-image"
-                        >
-                          <svg
-                            height="41"
-                            viewBox="0 0 64 41"
-                            width="64"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <title>
-                              No data
-                            </title>
-                            <g
-                              fill="none"
-                              fill-rule="evenodd"
-                              transform="translate(0 1)"
-                            >
-                              <ellipse
-                                cx="32"
-                                cy="33"
-                                fill="#f5f5f5"
-                                rx="32"
-                                ry="7"
-                              />
-                              <g
-                                fill-rule="nonzero"
-                                stroke="#d9d9d9"
-                              >
-                                <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                />
-                                <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                  fill="#fafafa"
-                                />
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
-                        <div
-                          class="ant-empty-description"
-                        >
-                          No data
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select: none;"
-                  unselectable="on"
-                >
-                  <span
-                    aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="down"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-              >
-                <div
-                  class="ant-select-selector"
-                >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        role="combobox"
-                        type="search"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-item-empty"
-                      id="test-id_list"
-                      role="listbox"
-                    />
-                  </div>
-                </div>
-              </div>
-            </span>
           </div>
         </div>
       </div>
@@ -1604,74 +1480,67 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
-                class="ant-select-selector"
+                class="ant-select-content"
               >
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility: visible;"
+                />
                 <span
-                  class="ant-select-selection-wrap"
+                  class="ant-input-affix-wrapper ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
                 >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-input"
+                    id="test-id"
+                    role="combobox"
+                    type="text"
+                    value=""
+                  />
                   <span
-                    class="ant-select-selection-search"
+                    class="ant-input-suffix"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input css-var-test-id ant-input-css-var"
+                      aria-label="search"
+                      class="anticon anticon-search"
+                      role="img"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-input"
-                        id="test-id"
-                        role="combobox"
-                        type="search"
-                        value=""
-                      />
-                      <span
-                        class="ant-input-suffix"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="search"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <span
-                          aria-label="search"
-                          class="anticon anticon-search"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="search"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
+                        <path
+                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                        />
+                      </svg>
                     </span>
                   </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
                 </span>
               </div>
-              <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div>
-                  <div
-                    class="ant-select-item-empty"
-                    id="test-id_list"
-                    role="listbox"
-                  />
-                </div>
+            </div>
+            <div
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            >
+              <div>
+                <div
+                  class="ant-select-item-empty"
+                  id="test-id_list"
+                  role="listbox"
+                />
               </div>
             </div>
           </div>
@@ -1704,113 +1573,41 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
-              class="ant-input-group css-var-test-id ant-input-group-compact"
+            <div
+              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-empty"
-                      role="listbox"
-                    >
-                      <div
-                        class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-                      >
-                        <div
-                          class="ant-empty-image"
-                        >
-                          <svg
-                            height="41"
-                            viewBox="0 0 64 41"
-                            width="64"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <title>
-                              No data
-                            </title>
-                            <g
-                              fill="none"
-                              fill-rule="evenodd"
-                              transform="translate(0 1)"
-                            >
-                              <ellipse
-                                cx="32"
-                                cy="33"
-                                fill="#f5f5f5"
-                                rx="32"
-                                ry="7"
-                              />
-                              <g
-                                fill-rule="nonzero"
-                                stroke="#d9d9d9"
-                              >
-                                <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                />
-                                <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                  fill="#fafafa"
-                                />
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
-                        <div
-                          class="ant-empty-description"
-                        >
-                          No data
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select: none;"
-                  unselectable="on"
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -1827,80 +1624,133 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
-                <div
-                  class="ant-select-selector"
-                >
-                  <span
-                    class="ant-select-selection-wrap"
+                <div>
+                  <div
+                    class="ant-select-empty"
+                    role="listbox"
                   >
-                    <span
-                      class="ant-select-selection-search"
+                    <div
+                      class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                     >
-                      <span
-                        class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input css-var-test-id ant-input-css-var"
+                      <div
+                        class="ant-empty-image"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="test-id_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="test-id_list"
-                          autocomplete="off"
-                          class="ant-input"
-                          id="test-id"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                        <span
-                          class="ant-input-suffix"
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <span
-                            aria-label="search"
-                            class="anticon anticon-search"
-                            role="img"
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="search"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
                             >
                               <path
-                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-item-empty"
-                      id="test-id_list"
-                      role="listbox"
-                    />
+                              <path
+                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </span>
+              <div
+                class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              >
+                <div
+                  class="ant-select-content"
+                >
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <span
+                    class="ant-input-affix-wrapper ant-input-outlined ant-select-input css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="test-id_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="test-id_list"
+                      autocomplete="off"
+                      class="ant-input"
+                      id="test-id"
+                      role="combobox"
+                      type="text"
+                      value=""
+                    />
+                    <span
+                      class="ant-input-suffix"
+                    >
+                      <span
+                        aria-label="search"
+                        class="anticon anticon-search"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="search"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="test-id_list"
+                    role="listbox"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1931,113 +1781,41 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
-              class="ant-input-group css-var-test-id ant-input-group-compact"
+            <div
+              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-empty"
-                      role="listbox"
-                    >
-                      <div
-                        class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-                      >
-                        <div
-                          class="ant-empty-image"
-                        >
-                          <svg
-                            height="41"
-                            viewBox="0 0 64 41"
-                            width="64"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <title>
-                              No data
-                            </title>
-                            <g
-                              fill="none"
-                              fill-rule="evenodd"
-                              transform="translate(0 1)"
-                            >
-                              <ellipse
-                                cx="32"
-                                cy="33"
-                                fill="#f5f5f5"
-                                rx="32"
-                                ry="7"
-                              />
-                              <g
-                                fill-rule="nonzero"
-                                stroke="#d9d9d9"
-                              >
-                                <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                />
-                                <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                  fill="#fafafa"
-                                />
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
-                        <div
-                          class="ant-empty-description"
-                        >
-                          No data
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select: none;"
-                  unselectable="on"
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -2054,93 +1832,138 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
-                <div
-                  class="ant-select-selector"
-                >
-                  <span
-                    class="ant-select-selection-wrap"
+                <div>
+                  <div
+                    class="ant-select-empty"
+                    role="listbox"
                   >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <span
-                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input css-var-test-id ant-input-css-var"
-                      >
-                        <span
-                          class="ant-input-wrapper ant-input-group"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="test-id_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="test-id_list"
-                            autocomplete="off"
-                            class="ant-input ant-input-outlined"
-                            id="test-id"
-                            role="combobox"
-                            type="search"
-                            value=""
-                          />
-                          <span
-                            class="ant-input-group-addon"
-                          >
-                            <button
-                              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-                              type="button"
-                            >
-                              <span
-                                class="ant-btn-icon"
-                              >
-                                <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </button>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
                     <div
-                      class="ant-select-item-empty"
-                      id="test-id_list"
-                      role="listbox"
-                    />
+                      class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
+                            >
+                              <path
+                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              />
+                              <path
+                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </span>
+              <div
+                class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              >
+                <div
+                  class="ant-select-content"
+                >
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <div
+                    class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="test-id_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="test-id_list"
+                      autocomplete="off"
+                      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
+                      id="test-id"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                    <button
+                      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
+                      type="button"
+                    >
+                      <span
+                        class="ant-btn-icon"
+                      >
+                        <span
+                          aria-label="search"
+                          class="anticon anticon-search"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="search"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="test-id_list"
+                    role="listbox"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2171,113 +1994,41 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
-              class="ant-input-group css-var-test-id ant-input-group-compact"
+            <div
+              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 20%;"
               >
                 <div
-                  class="ant-select-selector"
+                  class="ant-select-content"
                 >
-                  <span
-                    class="ant-select-selection-wrap"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="test-id_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="test-id_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="test-id"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-select-input"
+                    id="test-id"
+                    readonly=""
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
-                    <div
-                      class="ant-select-empty"
-                      role="listbox"
-                    >
-                      <div
-                        class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
-                      >
-                        <div
-                          class="ant-empty-image"
-                        >
-                          <svg
-                            height="41"
-                            viewBox="0 0 64 41"
-                            width="64"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <title>
-                              No data
-                            </title>
-                            <g
-                              fill="none"
-                              fill-rule="evenodd"
-                              transform="translate(0 1)"
-                            >
-                              <ellipse
-                                cx="32"
-                                cy="33"
-                                fill="#f5f5f5"
-                                rx="32"
-                                ry="7"
-                              />
-                              <g
-                                fill-rule="nonzero"
-                                stroke="#d9d9d9"
-                              >
-                                <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                />
-                                <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                  fill="#fafafa"
-                                />
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
-                        <div
-                          class="ant-empty-description"
-                        >
-                          No data
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select: none;"
-                  unselectable="on"
+                  class="ant-select-suffix"
                 >
                   <span
                     aria-label="down"
-                    class="anticon anticon-down ant-select-suffix"
+                    class="anticon anticon-down"
                     role="img"
                   >
                     <svg
@@ -2294,94 +2045,139 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       />
                     </svg>
                   </span>
-                </span>
+                </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
-                <div
-                  class="ant-select-selector"
-                >
-                  <span
-                    class="ant-select-selection-wrap"
+                <div>
+                  <div
+                    class="ant-select-empty"
+                    role="listbox"
                   >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <span
-                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input css-var-test-id ant-input-css-var"
-                      >
-                        <span
-                          class="ant-input-wrapper ant-input-group"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="test-id_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="test-id_list"
-                            autocomplete="off"
-                            class="ant-input ant-input-outlined"
-                            id="test-id"
-                            role="combobox"
-                            type="search"
-                            value=""
-                          />
-                          <span
-                            class="ant-input-group-addon"
-                          >
-                            <button
-                              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
-                              type="button"
-                            >
-                              <span
-                                class="ant-btn-icon"
-                              >
-                                <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </button>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      class="ant-select-selection-placeholder"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div>
                     <div
-                      class="ant-select-item-empty"
-                      id="test-id_list"
-                      role="listbox"
-                    />
+                      class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
+                            >
+                              <path
+                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              />
+                              <path
+                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div
+                class="ant-select ant-select-outlined ant-select-compact-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              >
+                <div
+                  class="ant-select-content"
+                >
+                  <div
+                    class="ant-select-placeholder"
+                    style="visibility: visible;"
+                  />
+                  <div
+                    class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="test-id_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="test-id_list"
+                      autocomplete="off"
+                      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
+                      id="test-id"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                    <button
+                      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
+                      type="button"
+                    >
+                      <span
+                        class="ant-btn-icon"
+                      >
+                        <span
+                          aria-label="search"
+                          class="anticon anticon-search"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="search"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="test-id_list"
+                    role="listbox"
+                  />
+                </div>
+              </div>
               <button
-                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
                 type="button"
               >
                 <span
@@ -2411,7 +2207,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   Search
                 </span>
               </button>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2423,45 +2219,39 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
 ]
 `;
 
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
-<div
-  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-  style="width: 200px;"
->
+Array [
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+    style="width: 200px;"
   >
-    <span
-      class="ant-select-selection-wrap"
+    <div
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
         try to type \`b\`
-      </span>
-    </span>
-  </div>
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
@@ -2546,47 +2336,42 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/options.tsx extend context correctly 1`] = `
-<div
-  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-  style="width: 200px;"
->
+Array [
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+    style="width: 200px;"
   >
-    <span
-      class="ant-select-selection-wrap"
+    <div
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="test-id_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="test-id_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="test-id"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
         input here
-      </span>
-    </span>
-  </div>
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
@@ -2598,8 +2383,8 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
         role="listbox"
       />
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders components/auto-complete/demo/options.tsx extend context correctly 2`] = `[]`;
@@ -2636,126 +2421,125 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
       style="width: 120px; margin: 0px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: hidden;"
+          title="Lucy"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value="lucy"
-            />
-          </span>
-        </span>
+          Lucy
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="text"
+          value="lucy"
+        />
       </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
           <div
-            id="test-id_list"
-            role="listbox"
-            style="height: 0px; width: 0px; overflow: hidden;"
+            aria-label="Jack"
+            aria-selected="false"
+            id="test-id_list_0"
+            role="option"
           >
-            <div
-              aria-label="Jack"
-              aria-selected="false"
-              id="test-id_list_0"
-              role="option"
-            >
-              jack
-            </div>
+            jack
           </div>
+        </div>
+        <div
+          class="rc-virtual-list"
+          style="position: relative;"
+        >
           <div
-            class="rc-virtual-list"
-            style="position: relative;"
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-            >
-              <div>
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
+              >
                 <div
-                  class="rc-virtual-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
+                  class="ant-select-item ant-select-item-option"
+                  title="Jack"
                 >
                   <div
-                    class="ant-select-item ant-select-item-option"
-                    title="Jack"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      Jack
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
+                    Jack
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Lucy"
+                >
                   <div
-                    class="ant-select-item ant-select-item-option"
-                    title="Lucy"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      Lucy
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
+                    Lucy
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Disabled"
+                >
                   <div
-                    class="ant-select-item ant-select-item-option"
-                    title="Disabled"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      Disabled
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
+                    Disabled
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Bamboo"
+                >
                   <div
-                    class="ant-select-item ant-select-item-option"
-                    title="Bamboo"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      Bamboo
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
+                    Bamboo
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
                 </div>
               </div>
             </div>
@@ -2782,44 +2566,37 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
-        >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          />
-        </span>
+        <div
+          class="ant-select-placeholder"
+          style="visibility: visible;"
+        />
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="text"
+          value=""
+        />
       </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          />
-        </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>
@@ -2831,44 +2608,37 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       style="width: 200px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
-        >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="test-id"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          />
-        </span>
+        <div
+          class="ant-select-placeholder"
+          style="visibility: visible;"
+        />
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          type="text"
+          value=""
+        />
       </div>
-      <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="test-id_list"
-            role="listbox"
-          />
-        </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="test-id_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>
@@ -2886,146 +2656,144 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          object styles
-        </span>
-      </span>
+        object styles
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
     </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(24, 144, 255);"
-    >
-      <div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(24, 144, 255);"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="test-id_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="test-id_list_0"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="test-id_list_0"
-            role="option"
-          >
-            Burnaby
-          </div>
+          Burnaby
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="background-color: rgb(249, 249, 249); position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Burnaby"
               >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Burnaby"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Burnaby
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Burnaby
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Seattle"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Seattle"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Seattle
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Seattle
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Los Angeles"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Los Angeles"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Los Angeles
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Los Angeles
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="San Francisco"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="San Francisco"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    San Francisco
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  San Francisco
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Meet student"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Meet student"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Meet student
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Meet student
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -3038,146 +2806,144 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          function styles
-        </span>
-      </span>
+        function styles
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
     </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(204, 204, 204);"
-    >
-      <div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border-width: 1px; border-color: rgb(204, 204, 204);"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="test-id_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="test-id_list_0"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="test-id_list_0"
-            role="option"
-          >
-            Burnaby
-          </div>
+          Burnaby
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="background-color: rgb(240, 240, 240); position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Burnaby"
               >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Burnaby"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Burnaby
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Burnaby
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Seattle"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Seattle"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Seattle
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Seattle
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Los Angeles"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Los Angeles"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Los Angeles
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Los Angeles
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="San Francisco"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="San Francisco"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    San Francisco
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  San Francisco
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                style="color: rgb(39, 39, 39);"
+                title="Meet student"
+              >
                 <div
-                  class="ant-select-item ant-select-item-option"
-                  title="Meet student"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Meet student
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
+                  Meet student
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -3191,79 +2957,66 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
 exports[`renders components/auto-complete/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
-<div
-  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  style="width: 300px;"
->
+Array [
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+    style="width: 300px;"
   >
-    <span
-      class="ant-select-selection-wrap"
+    <div
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-search"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <div
+        class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button ant-select-input"
       >
-        <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input css-var-test-id ant-input-css-var"
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+          id="test-id"
+          placeholder="input here"
+          role="combobox"
+          type="search"
+          value=""
+        />
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
+          type="button"
         >
           <span
-            class="ant-input-wrapper ant-input-group"
+            class="ant-btn-icon"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="test-id_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="test-id_list"
-              autocomplete="off"
-              class="ant-input ant-input-lg ant-input-outlined"
-              id="test-id"
-              placeholder="input here"
-              role="combobox"
-              type="search"
-              value=""
-            />
             <span
-              class="ant-input-group-addon"
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
             >
-              <button
-                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
-                type="button"
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <span
-                  class="ant-btn-icon"
-                >
-                  <span
-                    aria-label="search"
-                    class="anticon anticon-search"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="search"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
             </span>
           </span>
-        </span>
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
-    </span>
-  </div>
+        </button>
+      </div>
+    </div>
+  </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; width: 252px;"
@@ -3275,15 +3028,11 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
         role="listbox"
       />
     </div>
-  </div>
-</div>
-`;
-
-exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compat\` instead.",
+  </div>,
 ]
 `;
+
+exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 1`] = `
 <div
@@ -3295,46 +3044,39 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Outlined
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        Outlined
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>
   <div
@@ -3342,46 +3084,39 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Filled
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        Filled
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>
   <div
@@ -3389,46 +3124,39 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Borderless
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        Borderless
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>
   <div
@@ -3436,46 +3164,39 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     style="width: 200px;"
   >
     <div
-      class="ant-select-selector"
+      class="ant-select-content"
     >
-      <span
-        class="ant-select-selection-wrap"
+      <div
+        class="ant-select-placeholder"
+        style="visibility: visible;"
       >
-        <span
-          class="ant-select-selection-search"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-controls="test-id_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="test-id_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="test-id"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Underlined
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="test-id_list"
-          role="listbox"
-        />
+        Underlined
       </div>
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="test-id_list"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      />
     </div>
   </div>
 </div>

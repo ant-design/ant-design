@@ -126,7 +126,7 @@ jobs:
       - uses: utooland/setup-utoo@v1
       - run: ut
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true

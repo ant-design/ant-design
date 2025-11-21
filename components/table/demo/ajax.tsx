@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
-import type { AnyObject } from 'antd/es/_util/type';
 import type { SorterResult } from 'antd/es/table/interface';
 
 type ColumnsType<T extends object = object> = TableProps<T>['columns'];
+
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
 interface DataType {
@@ -44,7 +44,11 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const toURLSearchParams = <T extends AnyObject>(record: T) => {
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
+  return val !== undefined && val !== null;
+};
+
+const toURLSearchParams = <T extends Record<PropertyKey, any>>(record: T) => {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(record)) {
     params.append(key, value);
@@ -63,7 +67,7 @@ const getRandomuserParams = (params: TableParams) => {
   // https://github.com/mockapi-io/docs/wiki/Code-examples#filtering
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
+      if (isNonNullable(value)) {
         result[key] = value;
       }
     });
@@ -77,7 +81,7 @@ const getRandomuserParams = (params: TableParams) => {
 
   // 处理其他参数
   Object.entries(restParams).forEach(([key, value]) => {
-    if (value !== undefined && value !== null) {
+    if (isNonNullable(value)) {
       result[key] = value;
     }
   });

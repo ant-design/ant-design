@@ -112,7 +112,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  BackTop.displayName = 'BackTop';
+  BackTop.displayName = 'FloatButton.BackTop';
 }
 
 export default BackTop;

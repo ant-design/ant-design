@@ -16,21 +16,28 @@ import {
   Tooltip,
 } from 'antd';
 
-const { Option } = Select;
-
 const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
+  <Select
+    defaultValue="http"
+    className="select-before"
+    options={[
+      { label: 'http://', value: 'http' },
+      { label: 'https://', value: 'https' },
+    ]}
+  />
 );
+
 const selectAfter = (
-  <Select defaultValue=".com" className="select-after">
-    <Option value=".com">.com</Option>
-    <Option value=".jp">.jp</Option>
-    <Option value=".cn">.cn</Option>
-    <Option value=".org">.org</Option>
-  </Select>
+  <Select
+    defaultValue=".com"
+    className="select-after"
+    options={[
+      { label: '.com', value: '.com' },
+      { label: '.jp', value: '.jp' },
+      { label: '.cn', value: '.cn' },
+      { label: '.org', value: '.org' },
+    ]}
+  />
 );
 
 const App: React.FC = () => {
@@ -173,10 +180,13 @@ const App: React.FC = () => {
         <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
       </Space.Compact>
       <Space.Compact>
-        <Select defaultValue="Sign Up">
-          <Option value="Sign Up">Sign Up</Option>
-          <Option value="Sign In">Sign In</Option>
-        </Select>
+        <Select
+          defaultValue="Sign Up"
+          options={[
+            { label: 'Sign Up', value: 'Sign Up' },
+            { label: 'Sign In', value: 'Sign In' },
+          ]}
+        />
       </Space.Compact>
       <Space.Compact>
         <DatePicker.RangePicker style={{ width: '70%' }} />

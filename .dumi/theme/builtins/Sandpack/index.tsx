@@ -4,6 +4,8 @@ import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
 
+import { version } from '../../../../package.json';
+
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
 const indexContent = `import React from 'react';
@@ -57,7 +59,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = (props) => {
     dependencies: {
       react: '^19.0.0',
       'react-dom': '^19.0.0',
-      antd: '6.0.0-alpha.3', // TODO: update to ^6.0.0 when released
+      antd: version,
       ...extraDependencies,
     },
     devDependencies: {

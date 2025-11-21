@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ConfigProvider } from 'antd';
 
 import Divider from '..';
-import type { Orientation } from '../../_util/hooks/useOrientation';
+import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import type { TitlePlacement } from '../index';
@@ -104,11 +104,9 @@ describe('Divider', () => {
       );
       expect(container.querySelector<HTMLSpanElement>(expected)).not.toBeNull();
       if (params[4]) {
-        expect(
-          container
-            .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
-            ?.style.getPropertyValue('margin-inline-start'),
-        ).toBe('20px');
+        expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toHaveStyle({
+          marginInlineStart: `${params[4]}px`,
+        });
       }
     });
   });

@@ -62,5 +62,5 @@ export default function useColor(
     }
 
     return [nextVariant, nextColor, nextIsPreset, nextIsStatus, tagStyle] as const;
-  }, [color, variant, bordered]);
+  }, [color, variant, bordered, contextVariant]);
 }

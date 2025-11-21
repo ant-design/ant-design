@@ -1,4 +1,5 @@
 import React from 'react';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { fireEvent, render } from '@testing-library/react';
 
 import focusTest from '../../../tests/shared/focusTest';
@@ -8,7 +9,6 @@ import Button from '../../button';
 import type { InputRef } from '../Input';
 import Search from '../Search';
 import type { SearchProps } from '../Search';
-import { EditOutlined, UserOutlined } from '@ant-design/icons';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
@@ -213,13 +213,10 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/27258
   it('Search with allowClear should have one className only', () => {
-    const { container } = render(<Search allowClear className="className" />);
-    expect(
-      container.querySelector('.ant-input-group-wrapper')?.classList.contains('className'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-input-affix-wrapper')?.classList.contains('className'),
-    ).toBe(false);
+    const { container } = render(<Search allowClear className="bamboo" />);
+    expect(container.querySelectorAll('.bamboo')).toHaveLength(1);
+    expect(container.querySelector('.ant-input-search')).toHaveClass('bamboo');
+    expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('bamboo');
   });
 
   // https://github.com/ant-design/ant-design/issues/53897

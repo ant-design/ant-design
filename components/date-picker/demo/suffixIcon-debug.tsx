@@ -2,7 +2,7 @@ import React from 'react';
 import { DatePicker, Space } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space orientation="vertical">
     <DatePicker suffixIcon />
     <DatePicker suffixIcon={false} />
     <DatePicker />

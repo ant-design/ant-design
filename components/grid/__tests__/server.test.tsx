@@ -12,11 +12,19 @@ describe('Grid.Server', () => {
         <Col />
       </Row>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginInline).toBe('-4px');
-    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginTop).toBe('');
-    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginBottom).toBe('');
-    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingInline).toBe('4px');
-    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingTop).toBe('');
-    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingBottom).toBe('');
+
+    const rowElement = container.querySelector<HTMLElement>('.ant-row');
+    expect(rowElement).toHaveStyle({
+      marginInline: '-4px',
+      marginTop: '',
+      marginBottom: '',
+    });
+
+    const colElement = container.querySelector<HTMLElement>('.ant-col');
+    expect(colElement).toHaveStyle({
+      paddingInline: '4px',
+      paddingTop: '',
+      paddingBottom: '',
+    });
   });
 });

@@ -3072,7 +3072,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
     >
       <span
         class="ant-badge css-var-test-id"
-        style="background-color: rgb(240, 240, 240);"
+        style="border-radius: 8px;"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"

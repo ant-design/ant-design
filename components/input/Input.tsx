@@ -1,15 +1,15 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
-import type { InputFocusOptions } from '@rc-component/input/lib/utils/commonUtils';
+import type { InputFocusOptions } from '@rc-component/util/lib/Dom/focus';
+import { triggerFocus } from '@rc-component/util/lib/Dom/focus';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -49,6 +49,34 @@ export interface InputProps
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, Input } from 'antd';
+   *
+   * <Space.Compact>
+   *   {addon}
+   *   <Input defaultValue="name" />
+   * </Space.Compact>
+   * ```
+   */
+  addonBefore?: React.ReactNode;
+  /**
+   * @deprecated Use `Space.Compact` instead.
+   *
+   * @example
+   * ```tsx
+   * import { Space, Input } from 'antd';
+   *
+   * <Space.Compact>
+   *   <Input defaultValue="name" />
+   *   {addon}
+   * </Space.Compact>
+   * ```
+   */
+  addonAfter?: React.ReactNode;
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
   /**
@@ -88,8 +116,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     const { deprecated } = devUseWarning('Input');
     [
       ['bordered', 'variant'],
-      ['addonAfter', 'Space.Compat'],
-      ['addonBefore', 'Space.Compat'],
+      ['addonAfter', 'Space.Compact'],
+      ['addonBefore', 'Space.Compact'],
     ].forEach(([prop, newProp]) => {
       deprecated(!(prop in props), prop, newProp);
     });

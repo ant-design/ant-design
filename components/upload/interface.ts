@@ -1,5 +1,6 @@
 import type * as React from 'react';
 import type {
+  AcceptConfig,
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
@@ -10,7 +11,7 @@ import type {
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+} from '../_util/hooks';
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
@@ -111,7 +112,7 @@ export interface UploadProps<T = any>
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface<T>;
   multiple?: boolean;
-  accept?: string;
+  accept?: string | AcceptConfig;
   beforeUpload?: (
     file: RcFile,
     fileList: RcFile[],

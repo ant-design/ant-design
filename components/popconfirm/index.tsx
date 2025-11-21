@@ -4,8 +4,8 @@ import { omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps, PopoverSemanticName } from '../popover';

@@ -32,6 +32,10 @@ describe('wave util', () => {
       document.body.removeChild(mockElement);
     });
 
+    afterAll(() => {
+      mockElement?.remove();
+    });
+
     it('should return a valid color when available', () => {
       mockElement.style.backgroundColor = 'green';
 

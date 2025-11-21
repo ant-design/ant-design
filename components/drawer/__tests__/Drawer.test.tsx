@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
-import type { MaskType } from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -555,5 +555,26 @@ describe('Drawer', () => {
       // 添加快照断言
       expect(container.firstChild).toMatchSnapshot();
     });
+  });
+
+  it('should have aria-labelledby on drawer content when title is provided', () => {
+    const { baseElement, rerender } = render(<Drawer open>Here is content of Drawer</Drawer>);
+    const content = baseElement.querySelector('.ant-drawer-section');
+    expect(content).not.toHaveAttribute('aria-labelledby');
+
+    rerender(
+      <Drawer open title="Test Title">
+        Here is content of Drawer
+      </Drawer>,
+    );
+    const title = baseElement.querySelector('.ant-drawer-title');
+    expect(content).toHaveAttribute('aria-labelledby', title?.getAttribute('id'));
+
+    rerender(
+      <Drawer open title="Test Title" aria-labelledby="custom-id">
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(content).toHaveAttribute('aria-labelledby', 'custom-id');
   });
 });

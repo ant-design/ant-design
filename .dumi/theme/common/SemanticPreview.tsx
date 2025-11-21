@@ -15,6 +15,7 @@ export interface SemanticPreviewInjectionProps {
 const useStyle = createStyles(({ cssVar }) => ({
   container: css`
     position: relative;
+    z-index: 0;
   `,
   colWrap: css`
     border-inline-end: 1px solid ${cssVar.colorBorderSecondary};

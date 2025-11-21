@@ -977,7 +977,7 @@ exports[`renders components/checkbox/demo/style-class.tsx extend context correct
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <label
-    class="ant-checkbox-wrapper acss-1308e5j css-var-test-id ant-checkbox-css-var"
+    class="ant-checkbox-wrapper acss-1clh36n css-var-test-id ant-checkbox-css-var"
     style="padding: 8px; border-radius: 4px; border-color: rgb(204, 204, 204);"
   >
     <span
@@ -998,8 +998,8 @@ exports[`renders components/checkbox/demo/style-class.tsx extend context correct
     </span>
   </label>
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked acss-1308e5j css-var-test-id ant-checkbox-css-var"
-    style="padding: 8px; border-radius: 4px; border-color: rgb(24, 144, 255);"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked acss-1n300ok css-var-test-id ant-checkbox-css-var"
+    style="padding: 8px; border-radius: 4px;"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked"

@@ -234,7 +234,6 @@ const locales = [
   uzUZ,
 ];
 
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const columns: TableProps['columns'] = [
@@ -249,10 +248,14 @@ const columns: TableProps['columns'] = [
 const App: React.FC = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
-    <Select showSearch style={{ width: 200 }}>
-      <Option value="jack">jack</Option>
-      <Option value="lucy">lucy</Option>
-    </Select>
+    <Select
+      showSearch
+      style={{ width: 200 }}
+      options={[
+        { label: 'jack', value: 'jack' },
+        { label: 'lucy', value: 'lucy' },
+      ]}
+    />
     <DatePicker open />
     <TimePicker open defaultOpenValue={dayjs()} />
     <RangePicker open style={{ width: 200 }} />

@@ -7,13 +7,13 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+} from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Circle from './Circle';
@@ -205,7 +205,22 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         {text}
       </span>
     );
-  }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
+  }, [
+    showInfo,
+    percent,
+    percentNumber,
+    progressStatus,
+    type,
+    prefixCls,
+    format,
+    isLineType,
+    strokeColorIsBright,
+    infoPosition,
+    infoAlign,
+    isPureLineType,
+    mergedClassNames.indicator,
+    mergedStyles.indicator,
+  ]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');

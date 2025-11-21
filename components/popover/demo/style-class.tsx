@@ -14,6 +14,9 @@ const styles: PopoverProps['styles'] = {
     background: '#eee',
     boxShadow: 'inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2)',
   },
+  content: {
+    color: '#262626',
+  },
 };
 
 const stylesFn: PopoverProps['styles'] = (info) => {

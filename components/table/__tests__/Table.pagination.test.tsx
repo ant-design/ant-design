@@ -135,7 +135,7 @@ describe('Table.pagination', () => {
     fireEvent.click(container.querySelector('.ant-pagination-next')!);
     expect(scrollTo).toHaveBeenCalledTimes(1);
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     fireEvent.click(container.querySelectorAll('.ant-select-item')[1]);
     expect(scrollTo).toHaveBeenCalledTimes(2);
   });
@@ -241,7 +241,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(1, 20);
@@ -278,7 +278,7 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     const newPageSize = Number.parseInt(
@@ -305,7 +305,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     const newPageSize = Number.parseInt(
@@ -330,7 +330,7 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(4, 20);
@@ -478,7 +478,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     //  resolve Warning: An update to Align ran an effect, but was not wrapped in act(...)
     act(() => {
       jest.runAllTimers();
@@ -547,7 +547,7 @@ describe('Table.pagination', () => {
         onChange,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
     expect(onChange).toHaveBeenCalledTimes(1);
   });
@@ -645,7 +645,7 @@ describe('Table.pagination', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination')?.className).toEqual(
+    expect(container.querySelector('.ant-pagination')).toHaveClass(
       'ant-pagination ant-table-pagination ant-table-pagination-end pagination css-var-root',
     );
   });

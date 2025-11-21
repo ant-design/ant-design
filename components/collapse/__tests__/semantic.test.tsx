@@ -14,45 +14,40 @@ describe('Collapse.Semantic', () => {
       icon: 'custom-icon',
     };
     const customStyles = {
-      root: { color: 'red' },
-      header: { color: 'blue' },
-      title: { color: 'green' },
-      body: { color: 'yellow' },
-      icon: { color: 'purple' },
+      root: { color: 'rgb(255, 0, 0)' },
+      header: { color: 'rgb(0, 0, 255)' },
+      title: { color: 'rgb(0, 128, 0)' },
+      body: { color: 'rgb(255, 255, 0)' },
+      icon: { color: 'rgb(128, 0, 128)' },
     };
     const { container } = render(
       <Collapse
         activeKey={['1']}
         styles={customStyles}
         classNames={customClassNames}
-        items={[
-          {
-            key: '1',
-            label: 'title',
-          },
-        ]}
+        items={[{ key: '1', label: 'title' }]}
       />,
     );
 
-    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
-    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
-    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-collapse');
+    const headerElement = container.querySelector<HTMLElement>('.ant-collapse-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-collapse-title');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-collapse-body');
+    const iconElement = container.querySelector<HTMLElement>('.ant-collapse-expand-icon');
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(bodyElement.classList).toContain('custom-body');
-    expect(iconElement.classList).toContain('custom-icon');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(headerElement).toHaveClass(customClassNames.header);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(bodyElement).toHaveClass(customClassNames.body);
+    expect(iconElement).toHaveClass(customClassNames.icon);
 
     // check styles
-    expect(rootElement.style.color).toBe('red');
-    expect(headerElement.style.color).toBe('blue');
-    expect(titleElement.style.color).toBe('green');
-    expect(bodyElement.style.color).toBe('yellow');
-    expect(iconElement.style.color).toBe('purple');
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(headerElement).toHaveStyle({ color: customStyles.header.color });
+    expect(titleElement).toHaveStyle({ color: customStyles.title.color });
+    expect(bodyElement).toHaveStyle({ color: customStyles.body.color });
+    expect(iconElement).toHaveStyle({ color: customStyles.icon.color });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -80,33 +75,28 @@ describe('Collapse.Semantic', () => {
         expandIconPlacement="end"
         styles={fnStyles}
         classNames={fnClassNames}
-        items={[
-          {
-            key: '1',
-            label: 'title',
-          },
-        ]}
+        items={[{ key: '1', label: 'title' }]}
       />,
     );
 
-    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
-    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
-    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-collapse');
+    const headerElement = container.querySelector<HTMLElement>('.ant-collapse-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-collapse-title');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-collapse-body');
+    const iconElement = container.querySelector<HTMLElement>('.ant-collapse-expand-icon');
 
     // check function-based classNames
-    expect(rootElement.classList).toContain('size-large');
-    expect(headerElement.classList).toContain('ghost-header');
-    expect(titleElement.classList).toContain('dynamic-title');
-    expect(bodyElement.classList).toContain('dynamic-body');
-    expect(iconElement.classList).toContain('end-icon');
+    expect(rootElement).toHaveClass('size-large');
+    expect(headerElement).toHaveClass('ghost-header');
+    expect(titleElement).toHaveClass('dynamic-title');
+    expect(bodyElement).toHaveClass('dynamic-body');
+    expect(iconElement).toHaveClass('end-icon');
 
     // check function-based styles
-    expect(rootElement.style.borderWidth).toBe('0px');
-    expect(headerElement.style.fontSize).toBe('18px');
-    expect(titleElement.style.fontWeight).toBe('bold');
-    expect(bodyElement.style.padding).toBe('16px');
-    expect(iconElement.style.transform).toBe('rotate(90deg)');
+    expect(rootElement).toHaveStyle({ borderWidth: '0px' });
+    expect(headerElement).toHaveStyle({ fontSize: '18px' });
+    expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
+    expect(bodyElement).toHaveStyle({ padding: '16px' });
+    expect(iconElement).toHaveStyle({ transform: 'rotate(90deg)' });
   });
 });

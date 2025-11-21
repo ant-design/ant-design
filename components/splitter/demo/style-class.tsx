@@ -3,10 +3,12 @@ import { Flex, Splitter, Typography } from 'antd';
 import type { SplitterProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => {
+const Desc: React.FC<Readonly<{ text?: string | number; style?: React.CSSProperties }>> = (
+  props,
+) => {
   return (
     <Flex justify="center" align="center" style={{ height: '100%' }}>
-      <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+      <Typography.Title type="secondary" level={5} style={props.style}>
         {props.text}
       </Typography.Title>
     </Flex>
@@ -21,6 +23,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 
 const stylesObject: SplitterProps['styles'] = {
   root: { backgroundColor: '#fffbe6' },
+  dragger: { backgroundColor: 'rgba(194,223,252,0.4)' },
 };
 
 const stylesFn: SplitterProps['styles'] = ({ props }) => {
@@ -48,10 +51,10 @@ const App: React.FC = () => {
     <Flex vertical gap="large">
       <Splitter {...splitSharedProps} styles={stylesObject}>
         <Splitter.Panel>
-          <Desc text="First" />
+          <Desc text="First" style={{ color: '#000' }} />
         </Splitter.Panel>
         <Splitter.Panel>
-          <Desc text="Second" />
+          <Desc text="Second" style={{ color: '#000' }} />
         </Splitter.Panel>
       </Splitter>
       <Splitter {...splitSharedProps} styles={stylesFn}>

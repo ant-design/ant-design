@@ -3042,7 +3042,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
     >
       <span
         class="ant-badge css-var-test-id"
-        style="background-color:#f0f0f0"
+        style="border-radius:8px"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"

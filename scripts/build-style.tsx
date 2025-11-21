@@ -20,6 +20,12 @@ const ComponentCustomizeRender: Record<
     </Affix>
   ),
   BackTop: () => <antd.FloatButton.BackTop />,
+  Cascader: () => (
+    <>
+      <antd.Cascader />
+      <antd.Cascader.Panel />
+    </>
+  ),
   Dropdown: (Dropdown) => (
     <Dropdown menu={{ items: [] }}>
       <div />
@@ -45,6 +51,7 @@ const ComponentCustomizeRender: Record<
       <Space />
       <Space.Compact>
         <antd.Button />
+        <antd.Space.Addon>1</antd.Space.Addon>
       </Space.Compact>
     </>
   ),

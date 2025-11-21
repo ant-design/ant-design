@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';

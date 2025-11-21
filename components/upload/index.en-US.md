@@ -51,10 +51,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
+| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string \| [AcceptObject](#acceptobject) | - |  |
 | action | Uploading URL | string \| (file) => Promise&lt;string> | - |  |
-| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file, fileList) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
-| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#requestoptions), info: { defaultRequest: (option: [RequestOptions](#requestoptions)) => void; } ) => void | - | defaultRequest: 5.28.0 |
+| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file: [RcFile](#rcfile), fileList: [RcFile[]](#rcfile)) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
+| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#request-options), info: { defaultRequest: (option: [RequestOptions](#request-options)) => void; } ) => void | - | defaultRequest: 5.28.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
@@ -83,9 +83,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPreview | A callback function, will be executed when the file link or preview icon is clicked | function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when the return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
 
+## Interface
+
+### RcFile
+
+Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File).
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| uid | unique id. Will auto-generate when not provided | string | - | - |
+| lastModifiedDate | A Date object indicating the date and time at which the file was last modified | date | - | - |
+
 ### UploadFile
 
-Extends File with additional props.
+Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File) with additional props.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -97,7 +108,7 @@ Extends File with additional props.
 | uid | unique id. Will auto-generate when not provided | string | - | - |
 | url | Download url | string | - | - |
 
-### RequestOptions
+### RequestOptions {#request-options}
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -108,9 +119,9 @@ Extends File with additional props.
 | withCredentials | The ajax upload with cookie sent | boolean | - | - |
 | headers | Set request headers, valid above IE10 | Record<string, string> | - | - |
 | method | The http method of upload request | string | - | - |
-| onProgress | Progress event callback | (event: object, file:UploadFile ) => void | - | - |
+| onProgress | Progress event callback | (event: object, file: UploadFile) => void | - | - |
 | onError | Error callback when upload fails | (event: object, body?: object) => void | - | - |
-| onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) | - | - |
+| onSuccess | Success callback when upload completes | (body: object, fileOrXhr?: UploadFile \| XMLHttpRequest) => void | - | - |
 
 ### onChange
 
@@ -142,6 +153,22 @@ When uploading state change, it returns:
 2. `fileList` current list of files
 
 3. `event` response from the server, including uploading progress, supported by advanced browsers.
+
+### AcceptObject
+
+```typescript
+{
+  format: string;
+  filter?: 'native' | ((file: RcFile) => boolean);
+}
+```
+
+Configuration object for file type acceptance rules.
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| format | Accepted file types, same as native input accept attribute. Supports MIME types, file extensions, etc. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
+| filter | File filtering rule. When set to `'native'`, uses browser native filtering behavior; when set to a function, allows custom filtering logic. Function returns `true` to accept the file, `false` to reject | `'native'` \| `(file: RcFile) => boolean` | - |  |
 
 ## Semantic DOM
 
@@ -189,8 +216,13 @@ Ref:
 
 ### Can still select files when uploading a folder in Safari?
 
-Inside the upload component, we use the `directory` and `webkitdirectory` properties to control only directories can be selected. However, in Safari's implementation it doesn't seem to work. See [here](https://stackoverflow.com/q/55649945/3040605). Please try passing an additional `accept` attribute that cannot match any files. For example:
+Inside the upload component, we use the `directory` and `webkitdirectory` properties to control the input to implement folder selection, but it seems that in Safari's implementation, [it doesn't prevent users from selecting files](https://stackoverflow.com/q/55649945/3040605). You can solve this issue through `accept` configuration, for example:
 
-```jsx
-accept: `.${'n'.repeat(100)}`;
+```tsx
+accept = {
+  // Do not allow selecting any files
+  format: `.${'n'.repeat(100)}`,
+  // Accept all files within the folder after folder selection
+  filter: () => true,
+};
 ```

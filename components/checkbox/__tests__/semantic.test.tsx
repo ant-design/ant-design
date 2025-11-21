@@ -13,27 +13,28 @@ describe('Checkbox.Semantic', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      icon: { backgroundColor: 'black' },
-      label: { backgroundColor: 'gray' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      icon: { backgroundColor: 'rgb(0, 0, 0)' },
+      label: { backgroundColor: 'rgb(128, 128, 128)' },
     };
+
     const { container } = render(
       <Checkbox classNames={customClassNames} styles={customStyles}>
         Checkbox
       </Checkbox>,
     );
 
-    const rootElement = container.querySelector('.ant-checkbox-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-checkbox') as HTMLElement;
-    const labelElement = container.querySelector('.ant-checkbox-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-checkbox-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-checkbox');
+    const labelElement = container.querySelector<HTMLElement>('.ant-checkbox-label');
 
-    expect(rootElement.classList).toContain('custom-root');
-    expect(iconElement.classList).toContain('custom-icon');
-    expect(labelElement.classList).toContain('custom-label');
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(iconElement).toHaveClass(customClassNames.icon);
+    expect(labelElement).toHaveClass(customClassNames.label);
 
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(iconElement.style.backgroundColor).toBe('black');
-    expect(labelElement.style.backgroundColor).toBe('gray');
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 
   it('should support function-based classNames and styles', () => {
@@ -47,15 +48,15 @@ describe('Checkbox.Semantic', () => {
     const stylesFn = ({ props }: { props: CheckboxProps }) => {
       if (props.disabled) {
         return {
-          root: { backgroundColor: 'gray' },
-          icon: { color: 'darkgray' },
-          label: { color: 'lightgray' },
+          root: { color: 'rgb(128, 128, 128)' },
+          icon: { color: 'rgb(169, 169, 169)' },
+          label: { color: 'rgb(69, 69, 69)' },
         };
       }
       return {
-        root: { backgroundColor: 'lightblue' },
-        icon: { color: 'blue' },
-        label: { color: 'darkblue' },
+        root: { color: 'rgb(173, 216, 230)' },
+        icon: { color: 'rgb(0, 0, 255)' },
+        label: { color: 'rgb(139, 0, 139)' },
       };
     };
 
@@ -65,16 +66,16 @@ describe('Checkbox.Semantic', () => {
       </Checkbox>,
     );
 
-    const rootElement = container.querySelector('.ant-checkbox-wrapper') as HTMLElement;
-    const iconElement = container.querySelector('.ant-checkbox') as HTMLElement;
-    const labelElement = container.querySelector('.ant-checkbox-label') as HTMLElement;
+    const rootElement = container.querySelector<HTMLElement>('.ant-checkbox-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-checkbox');
+    const labelElement = container.querySelector<HTMLElement>('.ant-checkbox-label');
 
-    expect(rootElement.classList).toContain('enabled-checkbox');
-    expect(iconElement.classList).toContain('enabled-icon');
-    expect(labelElement.classList).toContain('enabled-label');
+    expect(rootElement).toHaveClass('enabled-checkbox');
+    expect(iconElement).toHaveClass('enabled-icon');
+    expect(labelElement).toHaveClass('enabled-label');
 
-    expect(rootElement.style.backgroundColor).toBe('lightblue');
-    expect(iconElement.style.color).toBe('blue');
-    expect(labelElement.style.color).toBe('darkblue');
+    expect(rootElement).toHaveStyle({ color: 'rgb(173, 216, 230)' });
+    expect(iconElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+    expect(labelElement).toHaveStyle({ color: 'rgb(139, 0, 139)' });
   });
 });

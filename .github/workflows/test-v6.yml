@@ -121,7 +121,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true

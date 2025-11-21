@@ -23,14 +23,23 @@ After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` wi
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::
 
-```jsx
+```tsx
 // works when >=5.11.0, recommended ✅
-return <Select options={[{ value: 'sample', label: <span>sample</span> }]} />;
+return (
+  <Select
+    onChange={onChange}
+    options={[
+      { value: '1', label: <span>Option 1</span> },
+      { value: '2', label: <span>Option 2</span> },
+    ]}
+  />
+);
 
 // works when <5.11.0, deprecated when >=5.11.0 🙅🏻‍♀️
 return (
   <Select onChange={onChange}>
-    <Select.Option value="sample">Sample</Select.Option>
+    <Select.Option value="1">Option 1</Select.Option>
+    <Select.Option value="2">Option 2</Select.Option>
   </Select>
 );
 ```
@@ -91,7 +100,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - |  |
-| popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
+| popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - | 5.25.0 |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | fieldNames | Customize node label, value, options，groupLabel field name | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0 (`groupLabel` added in 5.6.0) |
 | ~~filterOption~~ | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |

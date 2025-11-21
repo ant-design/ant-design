@@ -1293,7 +1293,7 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space:nowrap"
+          style="color:#000"
         >
           First
         </h5>
@@ -1308,6 +1308,7 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-splitter-bar-dragger"
+        style="background-color:rgba(194,223,252,0.4)"
       />
     </div>
     <div
@@ -1320,7 +1321,7 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space:nowrap"
+          style="color:#000"
         >
           Second
         </h5>
@@ -1341,7 +1342,6 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space:nowrap"
         >
           First
         </h5>
@@ -1368,7 +1368,6 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
       >
         <h5
           class="ant-typography ant-typography-secondary css-var-test-id"
-          style="white-space:nowrap"
         >
           Second
         </h5>

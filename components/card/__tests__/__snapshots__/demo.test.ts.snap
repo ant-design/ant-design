@@ -1059,7 +1059,7 @@ exports[`renders components/card/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-card css-var-test-id acss-1otm8r8"
+    class="ant-card css-var-test-id acss-1ri7sgv"
     style="box-shadow:0 2px 8px rgba(0,0,0,0.06);border-radius:8px"
   >
     <div
@@ -1070,7 +1070,7 @@ exports[`renders components/card/demo/style-class.tsx correctly 1`] = `
       >
         <div
           class="ant-card-head-title"
-          style="font-size:16px;font-weight:500;color:#262626"
+          style="font-size:16px;font-weight:500"
         >
           Object Card
         </div>
@@ -1205,7 +1205,7 @@ exports[`renders components/card/demo/style-class.tsx correctly 1`] = `
     </ul>
   </div>
   <div
-    class="ant-card ant-card-bordered css-var-test-id acss-1otm8r8"
+    class="ant-card ant-card-bordered css-var-test-id acss-1ri7sgv"
     style="border-color:#696FC7;box-shadow:0 2px 8px #A7AAE1;border-radius:8px"
   >
     <div

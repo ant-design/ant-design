@@ -1,3 +1,6 @@
+import getReactMajorVersion from './_util/getReactMajorVersionCanDelMe';
+import warning from './_util/warning';
+
 export type { Breakpoint } from './_util/responsiveObserver';
 export type { GetProp, GetProps, GetRef } from './_util/type';
 export { default as Affix } from './affix';
@@ -12,6 +15,8 @@ export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
+export { default as BackTop } from './back-top';
+export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps } from './badge';
 export { default as Breadcrumb } from './breadcrumb';
@@ -94,7 +99,7 @@ export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from 
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
-export type { ModalFuncProps, ModalProps } from './modal';
+export type { ModalFuncProps, ModalLocale, ModalProps } from './modal';
 export { default as notification } from './notification';
 export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';
@@ -175,3 +180,21 @@ export type { DraggerProps, UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
+
+export const unstableSetRender: any = () => {
+  warning(
+    false,
+    'compatible',
+    "antd v6 support React 19 already, it's no need to call the compatible function or just remove `@ant-design/v5-patch-for-react-19`",
+  );
+};
+
+// Warning if React is less than 18 (not include 18)
+if (process.env.NODE_ENV !== 'production') {
+  const majorVersion = getReactMajorVersion();
+  warning(
+    majorVersion >= 18,
+    'version',
+    `antd v6 no longer supports React versions below 18. Please upgrade to React 18 or higher.`,
+  );
+}

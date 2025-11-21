@@ -18,13 +18,14 @@ When a numeric value needs to be provided.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/size.tsx">Sizes</code>
-<code src="./demo/addon.tsx">Pre / Post tab</code>
+<code src="./demo/addon.tsx" debug>Pre / Post tab</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/digit.tsx">High precision decimals</code>
 <code src="./demo/formatter.tsx">Formatter</code>
 <code src="./demo/keyboard.tsx">Keyboard</code>
 <code src="./demo/change-on-wheel.tsx" version="5.14.0">Wheel</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/spinner.tsx" version="6.0.0">Spinner</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
@@ -41,36 +42,37 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
-| addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
+| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  |
+| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  |
 | autoFocus | If the component gets focus when mounted | boolean | false | - |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
-| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
+| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - |  |
 | decimalSeparator | Decimal separator | string | - | - |
 | placeholder | Placeholder | string | - |  |
 | defaultValue | The initial value | number | - | - |
 | disabled | If the input is disabled | boolean | false | - |
-| formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
-| keyboard | If keyboard behavior is enabled | boolean | true | 4.12.0 |
+| formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - |  |
+| keyboard | If keyboard behavior is enabled | boolean | true |  |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - |
 | readOnly | If the input is readonly | boolean | false | - |
-| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
+| status | Set validation status | 'error' \| 'warning' | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
-| prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
+| prefix | The prefix icon for the Input | ReactNode | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
-| stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
+| stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false |  |
+| mode | Show input or spinner | `'input' \| 'spinner'` | `'input'` |  |
 | value | The current value of the component | number | - | - |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
-| onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
+| onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - |  |
 
 ## Ref
 

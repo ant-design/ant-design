@@ -3,9 +3,9 @@ import { omit, toArray, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
-import isValidNode from '../_util/isValidNode';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -172,7 +172,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return ['default', 'outlined'];
-  }, [type, color, variant, danger, button?.variant, button?.color]);
+  }, [color, variant, type, danger, button?.color, button?.variant, mergedType]);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (ghost && parsedVariant === 'solid') {
@@ -393,26 +393,39 @@ const InternalCompoundedButton = React.forwardRef<
     style: mergedStyles.icon,
   };
 
-  const iconNode =
-    icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
-        {icon}
-      </IconWrapper>
-    ) : loading && typeof loading === 'object' && loading.icon ? (
-      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
-        {loading.icon}
-      </IconWrapper>
-    ) : (
-      <DefaultLoadingIcon
-        existIcon={!!icon}
-        prefixCls={prefixCls}
-        loading={innerLoading}
-        mount={isMountRef.current}
-        {...iconSharedProps}
-      />
-    );
+  /**
+   * Extract icon node
+   * If there is a custom icon and not in loading state: show custom icon
+   */
+  const iconWrapperElement = (child: React.ReactNode) => (
+    <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
+      {child}
+    </IconWrapper>
+  );
 
-  const contentNode = isValidNode(children)
+  const defaultLoadingIconElement = (
+    <DefaultLoadingIcon
+      existIcon={!!icon}
+      prefixCls={prefixCls}
+      loading={innerLoading}
+      mount={isMountRef.current}
+      {...iconSharedProps}
+    />
+  );
+
+  /**
+   * Using if-else statements can improve code readability without affecting future expansion.
+   */
+  let iconNode: React.ReactNode;
+  if (icon && !innerLoading) {
+    iconNode = iconWrapperElement(icon);
+  } else if (loading && typeof loading === 'object' && loading.icon) {
+    iconNode = iconWrapperElement(loading.icon);
+  } else {
+    iconNode = defaultLoadingIconElement;
+  }
+
+  const contentNode = isNonNullable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,

@@ -217,9 +217,7 @@ describe('ColorPicker', () => {
     ).toBeTruthy();
 
     fireEvent.click(presetsColors[0]);
-    expect(
-      presetsColors[0].classList.contains('ant-color-picker-presets-color-bright'),
-    ).toBeFalsy();
+    expect(presetsColors[0]).not.toHaveClass('ant-color-picker-presets-color-bright');
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
@@ -228,9 +226,7 @@ describe('ColorPicker', () => {
     );
 
     fireEvent.click(presetsColors[9]);
-    expect(
-      presetsColors[9].classList.contains('ant-color-picker-presets-color-bright'),
-    ).toBeTruthy();
+    expect(presetsColors[9]).toHaveClass('ant-color-picker-presets-color-bright');
     expect(
       container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
     ).toEqual('000000');
@@ -284,17 +280,13 @@ describe('ColorPicker', () => {
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker-hex-input')).toBeTruthy();
-    fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
-    );
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker-hsb-input')).toBeTruthy();
 
-    fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
-    );
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
     await waitFakeTimer();
@@ -417,25 +409,19 @@ describe('ColorPicker', () => {
     const targetEle = container.querySelector('.ant-color-picker-trigger-text');
     expect(targetEle).toBeTruthy();
 
-    fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
-    );
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
     await waitFakeTimer();
     expect(targetEle?.innerHTML).toEqual('hsb(215, 91%, 100%)');
 
-    fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
-    );
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
     await waitFakeTimer();
     expect(targetEle?.innerHTML).toEqual('rgb(22,119,255)');
 
-    fireEvent.mouseDown(
-      container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
-    );
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="HEX"]')!);
     await waitFakeTimer();

@@ -5,10 +5,13 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import useMergedMask from '../_util/hooks/useMergedMask';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import {
+  pickClosable,
+  useClosable,
+  useMergedMask,
+  useMergeSemantic,
+  useZIndex,
+} from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -73,6 +76,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     panelRef = null,
     closable,
     mask: modalMask,
+    modalRender,
     ...restProps
   } = props;
 
@@ -166,9 +170,15 @@ const Modal: React.FC<ModalProps> = (props) => {
         ...ariaProps,
       }
     : false;
+
+  // ============================ modalRender ============================
+  const mergedModalRender = modalRender
+    ? (node: React.ReactNode) => <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
+    : undefined;
   // ============================ Refs ============================
   // Select `ant-modal-container` by `panelRef`
-  const innerPanelRef = usePanelRef(`.${prefixCls}-container`);
+  const panelClassName = `.${prefixCls}-${modalRender ? 'render' : 'container'}`;
+  const innerPanelRef = usePanelRef(panelClassName);
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
@@ -246,6 +256,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           styles={mergedStyles}
           panelRef={mergedPanelRef}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          modalRender={mergedModalRender}
         >
           {loading ? (
             <Skeleton

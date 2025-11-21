@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button } from 'antd';
 
 const { ErrorBoundary } = Alert;
+
 const ThrowError: React.FC = () => {
   const [error, setError] = useState<Error>();
   const onClick = () => {

@@ -59,14 +59,14 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
 | classNames | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
+| closable | 是否显示关闭按钮。可通过 `placement` 配置其位置 | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true | placement: 5.28.0 |
 | ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
 | destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | 5.25.0 |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
 | getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
-| ~~height~~ | 高度，在 `placement` 为 `top` 或 `bottom` 时使用 | string \| number | 378 |  |
+| ~~height~~ | 高度，在 `placement` 为 `top` 或 `bottom` 时使用，请使用 `size` 替换 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
@@ -79,7 +79,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | title | 标题 | ReactNode | - |  |
 | loading | 显示骨架屏 | boolean | false | 5.17.0 |
 | open | Drawer 是否可见 | boolean | - |
-| ~~width~~ | 宽度 | string \| number | 378 |  |
+| ~~width~~ | 宽度，请使用 `size` 替换 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
 | drawerRender | 自定义渲染抽屉 | (node: ReactNode) => ReactNode | - | 5.18.0 |

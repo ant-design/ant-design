@@ -1,23 +1,26 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import omit from '@rc-component/util/lib/omit';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks';
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
   SemanticStyles,
   SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+} from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import type { ButtonSemanticName } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
-import { useCompactItemContext } from '../space/Compact';
+import Compact, { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
+import useStyle from './style/search';
 
 type SemanticName = 'root' | 'input' | 'prefix' | 'suffix' | 'count';
 
@@ -54,7 +57,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     inputPrefixCls: customizeInputPrefixCls,
     className,
     size: customizeSize,
-    suffix,
+    style,
     enterButton = false,
     addonAfter,
     loading,
@@ -67,6 +70,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onPressEnter: customOnPressEnter,
     classNames,
     styles,
+    hidden,
     ...restProps
   } = props;
 
@@ -101,6 +105,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
   const size = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
@@ -139,7 +144,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
-  const btnClassName = clsx(`${prefixCls}-button`, mergedClassNames.button?.root);
+  const btnPrefixCls = `${prefixCls}-btn`;
+  const btnClassName = clsx(btnPrefixCls, {
+    [`${btnPrefixCls}-${variant}`]: variant,
+  });
 
   let button: React.ReactNode;
   const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
@@ -157,12 +165,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton
-        ? {
-            className: btnClassName,
-            size,
-          }
-        : {}),
+      ...(isAntdButton ? { className: btnClassName, size } : {}),
     });
   } else {
     button = (
@@ -197,12 +200,14 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const mergedClassName = clsx(
     prefixCls,
+    cssVarCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-with-button`]: !!enterButton,
     },
     className,
+    hashId,
     mergedClassNames.root,
   );
 
@@ -216,25 +221,41 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionEnd?.(e);
   };
 
-  const inputProps: InputProps = {
-    ...restProps,
-    className: mergedClassName,
-    classNames: mergedClassNames,
-    styles: mergedStyles,
-    prefixCls: inputPrefixCls,
-    type: 'search',
-    size,
-    variant,
-    onPressEnter,
-    onCompositionStart: handleOnCompositionStart,
-    onCompositionEnd: handleOnCompositionEnd,
-    addonAfter: button,
-    suffix,
-    onChange,
-    disabled,
-  };
+  // ========================== Render ==========================
+  // >>> Root Props
+  const rootProps = pickAttrs(restProps, {
+    data: true,
+  });
 
-  return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
+  const inputProps: InputProps = omit(
+    {
+      ...restProps,
+      classNames: omit(mergedClassNames, ['button', 'root']),
+      styles: omit(mergedStyles, ['button', 'root']),
+      prefixCls: inputPrefixCls,
+      type: 'search',
+      size,
+      variant,
+      onPressEnter,
+      onCompositionStart: handleOnCompositionStart,
+      onCompositionEnd: handleOnCompositionEnd,
+      onChange,
+      disabled,
+    },
+    Object.keys(rootProps) as any[],
+  );
+
+  return (
+    <Compact
+      className={mergedClassName}
+      style={{ ...style, ...mergedStyles.root }}
+      {...rootProps}
+      hidden={hidden}
+    >
+      <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
+      {button}
+    </Compact>
+  );
 });
 
 if (process.env.NODE_ENV !== 'production') {

@@ -9,12 +9,12 @@ const App: React.FC = () => {
       component={Select}
       componentName="Select"
       prefix="prefix"
-      style={{ width: 200 }}
-      defaultValue="aojunhao123"
+      style={{ width: 300 }}
+      multipleProps={{ mode: 'multiple' }}
       options={[
         { value: 'aojunhao123', label: 'aojunhao123' },
         { value: 'thinkasany', label: 'thinkasany' },
-        { value: 'Meet-student', label: 'Meet-student' },
+        { value: 'meet-student', label: 'meet-student' },
       ]}
     />
   );

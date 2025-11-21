@@ -3,11 +3,8 @@ import { useEvent } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
-import type {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
