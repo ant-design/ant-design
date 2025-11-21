@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertFilled, CloseSquareFilled } from '@ant-design/icons';
-import { Button, Form, Input, Tooltip, Mentions } from 'antd';
+import { Button, Form, Input, Mentions, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import uniqueId from 'lodash/uniqueId';
 

@@ -8,8 +8,6 @@ declare module '*.svg' {
   export default src;
 }
 
-declare module 'rc-util*';
-
 declare module 'jsonml-to-react-element';
 
 declare module 'jsonml.js/*';

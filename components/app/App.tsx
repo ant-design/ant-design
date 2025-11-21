@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { AnyObject, CustomComponent } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -35,9 +35,9 @@ const App: React.FC<AppProps> = (props) => {
   } = props;
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls, {
+  const customClassName = clsx(hashId, prefixCls, className, rootClassName, cssVarCls, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -81,7 +81,7 @@ const App: React.FC<AppProps> = (props) => {
     style,
   };
 
-  return wrapCSSVar(
+  return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
         <Component {...(component === false ? undefined : rootProps)}>
@@ -91,7 +91,7 @@ const App: React.FC<AppProps> = (props) => {
           {children}
         </Component>
       </AppConfigContext.Provider>
-    </AppContext.Provider>,
+    </AppContext.Provider>
   );
 };
 

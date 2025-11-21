@@ -3,138 +3,91 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
-const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    lineWidth,
-    colorSplit,
-    motionDurationSlow,
-    zIndexTableFixed,
-    tableBg,
-    zIndexTableSticky,
-    calc,
-  } = token;
+export function getShadowStyle({
+  colorSplit: shadowColor,
+}: Pick<TableToken, 'colorSplit'>): [left: CSSObject, right: CSSObject] {
+  const leftShadowStyle: CSSObject = { boxShadow: `inset 10px 0 8px -8px ${shadowColor}` };
 
-  const shadowColor = colorSplit;
+  const rightShadowStyle: CSSObject = {
+    boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
+  };
+
+  return [leftShadowStyle, rightShadowStyle];
+}
+
+const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
+  const { componentCls, lineWidth, motionDurationSlow, zIndexTableFixed, tableBg, calc } = token;
+
+  const cellCls = `${componentCls}-cell`;
+  const fixCellCls = `${cellCls}-fix`;
+
+  const sharedShadowStyle: CSSObject = {
+    position: 'absolute',
+    top: 0,
+    bottom: calc(lineWidth).mul(-1).equal(),
+    width: 30,
+    transition: `box-shadow ${motionDurationSlow}`,
+    content: '""',
+    pointerEvents: 'none',
+  };
+
+  const [leftShadowStyle, rightShadowStyle] = getShadowStyle(token);
 
   // Follow style is magic of shadow which should not follow token:
   return {
     [`${componentCls}-wrapper`]: {
-      [`
-        ${componentCls}-cell-fix-left,
-        ${componentCls}-cell-fix-right
-      `]: {
-        position: 'sticky !important' as 'sticky',
-        zIndex: zIndexTableFixed,
+      // ====================== Cell ======================
+      [`${cellCls}${fixCellCls}`]: {
+        position: 'sticky',
+      },
+
+      [fixCellCls]: {
+        zIndex: `calc(var(--z-offset-reverse) + ${zIndexTableFixed})`,
         background: tableBg,
-      },
 
-      [`
-        ${componentCls}-cell-fix-left-first::after,
-        ${componentCls}-cell-fix-left-last::after
-      `]: {
-        position: 'absolute',
-        top: 0,
-        right: {
-          _skip_check_: true,
-          value: 0,
+        '&:after': sharedShadowStyle,
+
+        // Position
+        '&-start:after': {
+          insetInlineStart: '100%',
         },
-        bottom: calc(lineWidth).mul(-1).equal(),
-        width: 30,
-        transform: 'translateX(100%)',
-        transition: `box-shadow ${motionDurationSlow}`,
-        content: '""',
-        pointerEvents: 'none',
-        // fix issues: https://github.com/ant-design/ant-design/issues/54587
-        willChange: 'transform',
-      },
 
-      [`${componentCls}-cell-fix-left-all::after`]: {
-        display: 'none',
-      },
-
-      [`
-        ${componentCls}-cell-fix-right-first::after,
-        ${componentCls}-cell-fix-right-last::after
-      `]: {
-        position: 'absolute',
-        top: 0,
-        bottom: calc(lineWidth).mul(-1).equal(),
-        left: {
-          _skip_check_: true,
-          value: 0,
+        '&-end:after': {
+          insetInlineEnd: '100%',
         },
-        width: 30,
-        transform: 'translateX(-100%)',
-        transition: `box-shadow ${motionDurationSlow}`,
-        content: '""',
-        pointerEvents: 'none',
+
+        // visible
+        '&-start-shadow-show:after': leftShadowStyle,
+        '&-end-shadow-show:after': rightShadowStyle,
       },
 
+      // =================== Container ====================
       [`${componentCls}-container`]: {
         position: 'relative',
 
-        '&::before, &::after': {
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          zIndex: calc(zIndexTableSticky).add(1).equal({ unit: false }),
-          width: 30,
-          transition: `box-shadow ${motionDurationSlow}`,
-          content: '""',
-          pointerEvents: 'none',
+        '&:before, &:after': {
+          ...sharedShadowStyle,
+          zIndex: `calc(var(--columns-count) * 2 + ${zIndexTableFixed} + 1)`,
         },
 
-        '&::before': {
+        '&:before': {
           insetInlineStart: 0,
         },
-
-        '&::after': {
+        '&:after': {
           insetInlineEnd: 0,
         },
       },
 
-      [`${componentCls}-ping-left`]: {
-        [`&:not(${componentCls}-has-fix-left) ${componentCls}-container::before`]: {
-          boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
-        },
-
-        [`
-          ${componentCls}-cell-fix-left-first::after,
-          ${componentCls}-cell-fix-left-last::after
-        `]: {
-          boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
-        },
-
-        [`${componentCls}-cell-fix-left-last::before`]: {
-          backgroundColor: 'transparent !important',
-        },
+      [`${componentCls}-has-fix-start ${componentCls}-container:before`]: {
+        display: 'none',
       },
 
-      [`${componentCls}-ping-right`]: {
-        [`&:not(${componentCls}-has-fix-right) ${componentCls}-container::after`]: {
-          boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
-        },
-
-        [`
-          ${componentCls}-cell-fix-right-first::after,
-          ${componentCls}-cell-fix-right-last::after
-        `]: {
-          boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
-        },
+      [`${componentCls}-has-fix-end ${componentCls}-container:after`]: {
+        display: 'none',
       },
 
-      // Gapped fixed Columns do not show the shadow
-      [`${componentCls}-fixed-column-gapped`]: {
-        [`
-        ${componentCls}-cell-fix-left-first::after,
-        ${componentCls}-cell-fix-left-last::after,
-        ${componentCls}-cell-fix-right-first::after,
-        ${componentCls}-cell-fix-right-last::after
-      `]: {
-          boxShadow: 'none',
-        },
-      },
+      [`${componentCls}-fix-start-shadow-show ${componentCls}-container:before`]: leftShadowStyle,
+      [`${componentCls}-fix-end-shadow-show ${componentCls}-container:after`]: rightShadowStyle,
     },
   };
 };

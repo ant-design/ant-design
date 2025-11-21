@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Select, Tabs } from 'antd';
 
-const positionList = ['left', 'right', 'top', 'bottom'];
+const placementList = ['start', 'end', 'top', 'bottom'];
 
 const App: React.FC = () => {
   const [parentPos, setParentPos] = useState(undefined);
@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <Select
         style={{ width: 200 }}
         onChange={(val) => setParentPos(val)}
-        options={positionList.map((pos) => {
+        options={placementList.map((pos) => {
           return {
             value: pos,
             label: `Parent - ${pos}`,
@@ -24,7 +24,7 @@ const App: React.FC = () => {
       <Select
         style={{ width: 200 }}
         onChange={(val) => setChildPos(val)}
-        options={positionList.map((pos) => {
+        options={placementList.map((pos) => {
           return {
             value: pos,
             label: `Child - ${pos}`,
@@ -51,7 +51,7 @@ const App: React.FC = () => {
       />
       <Tabs
         defaultActiveKey="1"
-        tabPosition={parentPos}
+        tabPlacement={parentPos}
         type={parentType}
         items={[
           {
@@ -60,7 +60,7 @@ const App: React.FC = () => {
             children: (
               <Tabs
                 defaultActiveKey="1"
-                tabPosition={childPos}
+                tabPlacement={childPos}
                 type={childType}
                 style={{ height: 300 }}
                 items={Array.from({ length: 20 }).map((_, index) => {

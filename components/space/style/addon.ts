@@ -27,17 +27,26 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
 
   return {
     [componentCls]: [
+      // ==========================================================
+      // ==                         Base                         ==
+      // ==========================================================
       {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
         paddingInline: paddingSM,
         margin: 0,
-        background: colorBgContainerDisabled,
         borderWidth: lineWidth,
         borderStyle: 'solid',
-        borderColor: colorBorder,
         borderRadius,
+
+        '&:hover': {
+          zIndex: 0,
+        },
+
+        [`&${componentCls}-disabled`]: {
+          color: token.colorTextDisabled,
+        },
 
         '&-large': {
           fontSize: fontSizeLG,
@@ -62,13 +71,79 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
         '&-compact-item:not(:last-child)': {
           borderInlineEndWidth: 0,
         },
+        '&-compact-item:not(:first-child)': {
+          borderInlineStartWidth: 0,
+        },
       },
-      genCompactItemStyle(token, {
-        focus: false,
-      }),
+
+      // ==========================================================
+      // ==                       Variants                       ==
+      // ==========================================================
+      {
+        '--space-addon-border-color': colorBorder,
+        '--space-addon-background': colorBgContainerDisabled,
+
+        // Filled
+        '--space-addon-border-color-outlined': colorBorder,
+        '--space-addon-background-filled': colorBgContainerDisabled,
+
+        borderColor: 'var(--space-addon-border-color)',
+        background: 'var(--space-addon-background)',
+
+        // ======================= Outlined =======================
+        [`&-variant-outlined`]: {
+          '--space-addon-border-color': 'var(--space-addon-border-color-outlined)',
+        },
+
+        // ======================== Filled ========================
+        [`&-variant-filled`]: {
+          '--space-addon-border-color': 'transparent',
+          '--space-addon-background': 'var(--space-addon-background-filled)',
+
+          // Disabled
+          [`&${componentCls}-disabled`]: {
+            '--space-addon-border-color': colorBorder,
+            '--space-addon-background': colorBgContainerDisabled,
+          },
+        },
+
+        // ====================== Borderless ======================
+        [`&-variant-borderless`]: {
+          border: 'none',
+          background: 'transparent',
+        },
+
+        // ====================== Underlined ======================
+        [`&-variant-underlined`]: {
+          border: 'none',
+          background: 'transparent',
+        },
+      },
+
+      // ==========================================================
+      // ==                        Status                        ==
+      // ==========================================================
+      {
+        '&-status-error': {
+          '--space-addon-border-color-outlined': token.colorError,
+          '--space-addon-background-filled': token.colorErrorBg,
+
+          color: token.colorError,
+        },
+
+        '&-status-warning': {
+          '--space-addon-border-color-outlined': token.colorWarning,
+          '--space-addon-background-filled': token.colorWarningBg,
+
+          color: token.colorWarning,
+        },
+      },
     ],
   };
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(['Space', 'Addon'], (token) => [genSpaceAddonStyle(token)]);
+export default genStyleHooks(['Space', 'Addon'], (token) => [
+  genSpaceAddonStyle(token),
+  genCompactItemStyle(token, { focus: false }),
+]);

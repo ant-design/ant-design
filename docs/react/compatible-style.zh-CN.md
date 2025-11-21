@@ -97,6 +97,36 @@ export default () => (
 }
 ```
 
+## autoPrefixer
+
+- 支持版本：`>=6.0.0`
+- 浏览器兼容性：自动添加浏览器前缀以支持更多浏览器
+- 默认启用：否
+
+部分样式依赖于浏览器前缀来实现兼容性。`autoPrefixer` 转换器可以自动为样式添加浏览器前缀，确保在不同浏览器中都能正常工作。
+
+```tsx | pure
+import { autoPrefixTransformer, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider transformers={[autoPrefixTransformer]}>
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+最终转换后的样式：
+
+```diff
+  .sample-box {
+--  user-select: none;
+++  -webkit-user-select: none;
+++  -moz-user-select: none;
+++  -ms-user-select: none;
+++  user-select: none;
+  }
+```
+
 ## `@layer` 样式优先级降权
 
 - 支持版本：`>=5.17.0`

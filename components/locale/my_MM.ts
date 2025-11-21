@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/my_MM';
+import Pagination from '@rc-component/pagination/lib/locale/my_MM';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/my_MM';
@@ -128,9 +128,6 @@ const localeValues: Locale = {
         mismatch: '${label} သည် ပုံစံ ${pattern} နှင့် မကိုက်ညီပါ',
       },
     },
-  },
-  Image: {
-    preview: 'စမ်းကြည့်ပါ။',
   },
   QRCode: {
     expired: 'QR ကုဒ် သက်တမ်းကုန်သွားပါပြီ။',

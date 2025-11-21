@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Input, Radio } from 'antd';
 
-const style: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 8,
-};
-
 const App: React.FC = () => {
   const [value, setValue] = useState(1);
 
@@ -17,7 +11,7 @@ const App: React.FC = () => {
 
   return (
     <Radio.Group
-      style={style}
+      vertical
       onChange={onChange}
       value={value}
       options={[

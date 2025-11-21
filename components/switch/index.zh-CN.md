@@ -24,6 +24,7 @@ demo:
 <code src="./demo/size.tsx">两种大小</code>
 <code src="./demo/loading.tsx">加载中</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 
@@ -35,11 +36,13 @@ demo:
 | checked | 指定当前是否选中 | boolean | false |  |
 | checkedChildren | 选中时的内容 | ReactNode | - |  |
 | className | Switch 器类名 | string | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |
 | defaultChecked | 初始是否选中 | boolean | false |  |
 | defaultValue | `defaultChecked` 的别名 | boolean | - | 5.12.0 |
 | disabled | 是否禁用 | boolean | false |  |
 | loading | 加载中的开关 | boolean | false |  |
 | size | 开关大小，可选值：`default` `small` | string | `default` |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |
 | unCheckedChildren | 非选中时的内容 | ReactNode | - |  |
 | value | `checked` 的别名 | boolean | - | 5.12.0 |
 | onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |  |
@@ -51,6 +54,10 @@ demo:
 | ------- | -------- |
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

@@ -13,7 +13,7 @@ describe('suffix', () => {
     const { container } = render(<InputNumber suffix={<i>antd</i>} />);
 
     const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-    fireEvent.click(container.querySelector('i')!);
+    fireEvent.mouseDown(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });
 
@@ -25,8 +25,6 @@ describe('suffix', () => {
     ['readOnly', { readOnly: true }],
   ])('should not show the control buttons when inputNumber is %s', (_, props) => {
     const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} {...props} />);
-    expect(
-      container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
-    ).toBeTruthy();
+    expect(container.querySelector('.ant-input-number-without-controls')).toBeTruthy();
   });
 });

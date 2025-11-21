@@ -49,180 +49,26 @@ type MentionsToken = FullToken<'Mentions'> &
     itemPaddingVertical: string | number;
   };
 
-const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
+// ============================= Mentions =============================
+const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
     componentCls,
-    antCls,
-    colorTextDisabled,
-    controlItemBgHover,
-    controlPaddingHorizontal,
-    colorText,
-    motionDurationSlow,
-    lineHeight,
-    controlHeight,
-    paddingInline,
-    paddingBlock,
     fontSize,
-    fontSizeIcon,
-    colorIcon,
-    colorTextQuaternary,
-    colorBgElevated,
     paddingXXS,
-    borderRadius,
+    colorBgElevated,
     borderRadiusLG,
     boxShadowSecondary,
     itemPaddingVertical,
-    calc,
+    controlPaddingHorizontal,
+    colorText,
+    borderRadius,
+    lineHeight,
+    colorTextDisabled,
+    controlItemBgHover,
+    motionDurationSlow,
   } = token;
   return {
     [componentCls]: {
-      ...resetComponent(token),
-      ...genBasicInputStyle(token),
-
-      position: 'relative',
-      display: 'inline-block',
-      height: 'auto',
-      padding: `0 ${unit(token.paddingInline)}`,
-      overflow: 'hidden',
-      lineHeight,
-      whiteSpace: 'pre-wrap',
-      verticalAlign: 'bottom',
-
-      // Variants
-      ...genOutlinedStyle(token),
-      ...genFilledStyle(token),
-      ...genBorderlessStyle(token),
-
-      '&-affix-wrapper': {
-        ...genBasicInputStyle(token),
-        display: 'inline-flex',
-        paddingBlock: 0,
-        paddingInlineStart: 0,
-        paddingInlineEnd: token.paddingInline,
-
-        '&::before': {
-          display: 'inline-block',
-          width: 0,
-          visibility: 'hidden',
-          content: '"\\a0"',
-        },
-
-        [`${componentCls}-suffix`]: {
-          display: 'inline-flex',
-          alignItems: 'center',
-
-          // 当页面中存在 feedback-icon 时，给 clear-icon 添加右边距
-          [`&:has(${antCls}-form-item-feedback-icon) ${componentCls}-clear-icon`]: {
-            marginInlineEnd: token.marginXS,
-          },
-
-          [`${antCls}-form-item-feedback-icon`]: {
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
-        },
-
-        [`${componentCls}-clear-icon`]: {
-          insetInlineEnd: 0,
-          insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
-          padding: 0,
-          lineHeight: 0,
-          color: colorTextQuaternary,
-          fontSize: fontSizeIcon,
-          verticalAlign: -1,
-          // https://github.com/ant-design/ant-design/pull/18151
-          // https://codesandbox.io/s/wizardly-sun-u10br
-          cursor: 'pointer',
-          transition: `color ${motionDurationSlow}`,
-
-          border: 'none',
-          outline: 'none',
-          backgroundColor: 'transparent',
-
-          '&:hover': {
-            color: colorIcon,
-          },
-
-          '&:active': {
-            color: colorText,
-          },
-
-          '&-hidden': {
-            visibility: 'hidden',
-          },
-        },
-      },
-
-      // 覆盖 affix-wrapper borderRadius！
-      ...genUnderlinedStyle(token),
-
-      '&-disabled': {
-        '> textarea': {
-          ...genDisabledStyle(token),
-        },
-      },
-
-      // ================= Input Area =================
-      [`&, &-affix-wrapper > ${componentCls}`]: {
-        [`> textarea, ${componentCls}-measure`]: {
-          color: colorText,
-          boxSizing: 'border-box',
-          minHeight: token.calc(controlHeight).sub(2).equal(),
-          margin: 0,
-          padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
-          overflow: 'inherit',
-          overflowX: 'hidden',
-          overflowY: 'auto',
-          fontWeight: 'inherit',
-          fontSize: 'inherit',
-          fontFamily: 'inherit',
-          fontStyle: 'inherit',
-          fontVariant: 'inherit',
-          fontSizeAdjust: 'inherit',
-          fontStretch: 'inherit',
-          lineHeight: 'inherit',
-          direction: 'inherit',
-          letterSpacing: 'inherit',
-          whiteSpace: 'inherit',
-          textAlign: 'inherit',
-          verticalAlign: 'top',
-          wordWrap: 'break-word',
-          wordBreak: 'inherit',
-          tabSize: 'inherit',
-        },
-
-        '> textarea:disabled': {
-          color: colorTextDisabled,
-        },
-
-        '> textarea': {
-          width: '100%',
-          border: 'none',
-          outline: 'none',
-          resize: 'none',
-          backgroundColor: 'transparent',
-          ...genPlaceholderStyle(token.colorTextPlaceholder),
-          padding: `${unit(token.paddingBlock)} 0`,
-        },
-
-        [`${componentCls}-measure`]: {
-          position: 'absolute',
-          top: 0,
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
-          zIndex: -1,
-          color: 'transparent',
-          pointerEvents: 'none',
-
-          '> span': {
-            display: 'inline-block',
-            minHeight: '1em',
-          },
-        },
-      },
-
       // ================== Dropdown ==================
       '&-dropdown': {
         // Ref select dropdown style
@@ -297,6 +143,183 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   };
 };
 
+const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
+  const { componentCls, calc, colorText, antCls, colorTextDisabled } = token;
+
+  return {
+    [componentCls]: [
+      // =========================== Common ===========================
+      resetComponent(token),
+      genBasicInputStyle(token, {
+        largeStyle: {
+          padding: undefined,
+        },
+        smallStyle: {
+          padding: undefined,
+        },
+      }),
+
+      // ========================== Variants ==========================
+      genOutlinedStyle(token),
+      genFilledStyle(token),
+      genBorderlessStyle(token),
+      genUnderlinedStyle(token),
+
+      // ========================== Mentions ==========================
+      {
+        '--mentions-padding-inline': token.paddingInline,
+        '--mentions-padding-block': token.paddingBlock,
+        '--mentions-control-height': token.controlHeight,
+
+        display: 'flex',
+        padding: 0,
+        whiteSpace: 'pre-wrap',
+
+        // ========================= Textarea =========================
+        '> textarea': [
+          resetComponent(token),
+          genPlaceholderStyle(token.colorTextPlaceholder),
+
+          {
+            background: 'transparent',
+            border: 'none',
+            borderRadius: 'inherit',
+            outline: 'none',
+            flex: 'auto',
+            minWidth: 0,
+            resize: 'none',
+
+            '&:disabled': {
+              color: colorTextDisabled,
+            },
+          },
+        ],
+
+        [`> textarea, ${componentCls}-measure`]: {
+          color: colorText,
+          boxSizing: 'border-box',
+          margin: 0,
+          minHeight: calc('var(--mentions-control-height)')
+            .sub(calc(token.lineWidth).mul(2).equal())
+            .equal(),
+          paddingInline: 'var(--mentions-padding-inline)',
+          paddingBlock: 'var(--mentions-padding-block)',
+          overflow: 'inherit',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+          fontWeight: 'inherit',
+          fontSize: 'inherit',
+          fontFamily: 'inherit',
+          fontStyle: 'inherit',
+          fontVariant: 'inherit',
+          fontSizeAdjust: 'inherit',
+          fontStretch: 'inherit',
+          lineHeight: 'inherit',
+          direction: 'inherit',
+          letterSpacing: 'inherit',
+          whiteSpace: 'inherit',
+          textAlign: 'inherit',
+          verticalAlign: 'top',
+          wordWrap: 'break-word',
+          wordBreak: 'inherit',
+          tabSize: 'inherit',
+        },
+
+        // ========================= Measure ==========================
+        [`${componentCls}-measure`]: {
+          position: 'absolute',
+          inset: 0,
+          zIndex: -1,
+          color: 'transparent',
+          pointerEvents: 'none',
+
+          '> span': {
+            display: 'inline-block',
+            minHeight: '1em',
+          },
+        },
+
+        // ========================== Suffix ==========================
+        '&-suffix': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          flex: 'none',
+          color: token.colorTextQuaternary,
+          fontSize: token.fontSizeIcon,
+          lineHeight: 1,
+          position: 'absolute',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          insetInlineEnd: 'var(--mentions-padding-inline)',
+          columnGap: token.marginXS,
+
+          [`${componentCls}-clear-icon`]: {
+            // https://github.com/ant-design/ant-design/pull/18151
+            // https://codesandbox.io/s/wizardly-sun-u10br
+            cursor: 'pointer',
+            border: 0,
+            background: 'transparent',
+
+            '&:hover': {
+              color: token.colorIcon,
+            },
+
+            '&:active': {
+              color: token.colorText,
+            },
+
+            '&-hidden': {
+              visibility: 'hidden',
+            },
+          },
+
+          [`${antCls}-form-item-feedback-icon`]: {
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        },
+      },
+
+      // ========================= AllowClear =========================
+      {
+        '&-has-suffix': {
+          '> textarea': {
+            paddingInlineEnd: calc(token.paddingXXS)
+              .mul(1.5)
+              .add(token.fontSizeIcon)
+              .add('var(--mentions-padding-inline)')
+              .equal(),
+          },
+        },
+      },
+
+      // ========================== Disabled ==========================
+      {
+        '&-disabled': {
+          '> textarea': {
+            ...genDisabledStyle(token),
+          },
+        },
+      },
+      // ============================ Size ============================
+      {
+        '&-lg': {
+          '--mentions-padding-inline': token.paddingInlineLG,
+          '--mentions-padding-block': token.paddingBlockLG,
+          '--mentions-control-height': token.controlHeightLG,
+        },
+        '&-sm': {
+          '--mentions-padding-inline': token.paddingInlineSM,
+          '--mentions-padding-block': token.paddingBlockSM,
+          '--mentions-control-height': token.controlHeightSM,
+        },
+      },
+    ],
+  };
+};
+
+// ============================== Tokens ==============================
 export const prepareComponentToken: GetDefaultToken<'Mentions'> = (token) => ({
   ...initComponentToken(token),
   dropdownHeight: 250,
@@ -310,7 +333,7 @@ export default genStyleHooks(
   'Mentions',
   (token) => {
     const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));
-    return genMentionsStyle(mentionsToken);
+    return [genMentionsStyle(mentionsToken), genDropdownStyle(mentionsToken)];
   },
   prepareComponentToken,
 );

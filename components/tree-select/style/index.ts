@@ -91,5 +91,8 @@ export default function useTreeSelectStyle(
       return genBaseStyle(treeSelectToken);
     },
     initComponentToken,
+    {
+      resetFont: false,
+    },
   )(prefixCls, rootCls);
 }

@@ -1,8 +1,12 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
+import { useMergeSemantic, useOrientation } from '../_util/hooks';
+import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
@@ -16,19 +20,30 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
+type SemanticName = 'root' | 'item' | 'separator';
+
+export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>;
+
+export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>;
+
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use `orientation` instead */
+  direction?: Orientation;
+  vertical?: boolean;
+  orientation?: Orientation;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
+  /** @deprecated please use `separator` instead */
   split?: React.ReactNode;
+  separator?: React.ReactNode;
   wrap?: boolean;
-  classNames?: { item: string };
-  styles?: { item: React.CSSProperties };
+  classNames?: SpaceClassNamesType;
+  styles?: SpaceStylesType;
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -48,14 +63,17 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     className,
     rootClassName,
     children,
-    direction = 'horizontal',
+    direction,
+    orientation,
     prefixCls: customizePrefixCls,
     split,
+    separator,
     style,
+    vertical,
     wrap = false,
-    classNames: customClassNames,
+    classNames,
     styles,
-    ...otherProps
+    ...restProps
   } = props;
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
@@ -70,15 +88,37 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const childNodes = toArray(children, { keepEmpty: true });
 
-  const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
-  const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
 
-  const cls = classNames(
+  const mergedAlign = align === undefined && !mergedVertical ? 'center' : align;
+
+  const mergedSeparator = separator ?? split;
+
+  const prefixCls = getPrefixCls('space', customizePrefixCls);
+
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: SpaceProps = {
+    ...props,
+    size,
+    orientation: mergedOrientation,
+    align: mergedAlign,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SpaceClassNamesType,
+    SpaceStylesType,
+    SpaceProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const rootClassNames = clsx(
     prefixCls,
     contextClassName,
     hashId,
-    `${prefixCls}-${direction}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
@@ -88,31 +128,44 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     className,
     rootClassName,
     cssVarCls,
+    mergedClassNames.root,
   );
 
-  const itemClassName = classNames(
-    `${prefixCls}-item`,
-    customClassNames?.item ?? contextClassNames.item,
-  );
-
-  const mergedItemStyle: React.CSSProperties = {
-    ...contextStyles.item,
-    ...styles?.item,
-  };
+  const itemClassName = clsx(`${prefixCls}-item`, mergedClassNames.item);
 
   // Calculate latest one
   const renderedItems = childNodes.map<React.ReactNode>((child, i) => {
     const key = child?.key || `${itemClassName}-${i}`;
     return (
-      <Item className={itemClassName} key={key} index={i} split={split} style={mergedItemStyle}>
+      <Item
+        prefix={prefixCls}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
+        className={itemClassName}
+        key={key}
+        index={i}
+        separator={mergedSeparator}
+        style={mergedStyles.item}
+      >
         {child}
       </Item>
     );
   });
 
+  // ======================== Warning ==========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Space');
+    [
+      ['direction', 'orientation'],
+      ['split', 'separator'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
+
   const memoizedSpaceContext = React.useMemo<SpaceContextType>(() => {
     const calcLatestIndex = childNodes.reduce<number>(
-      (latest, child, i) => (child !== null && child !== undefined ? i : latest),
+      (latest, child, i) => (isNonNullable(child) ? i : latest),
       0,
     );
     return { latestIndex: calcLatestIndex };
@@ -137,15 +190,15 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     gapStyle.rowGap = verticalSize;
   }
 
-  return wrapCSSVar(
+  return (
     <div
       ref={ref}
-      className={cls}
-      style={{ ...gapStyle, ...contextStyle, ...style }}
-      {...otherProps}
+      className={rootClassNames}
+      style={{ ...gapStyle, ...mergedStyles.root, ...contextStyle, ...style }}
+      {...restProps}
     >
       <SpaceContextProvider value={memoizedSpaceContext}>{renderedItems}</SpaceContextProvider>
-    </div>,
+    </div>
   );
 });
 

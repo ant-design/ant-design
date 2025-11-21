@@ -14,7 +14,7 @@ import { Octokit } from '@octokit/rest';
 import { spawnSync } from 'child_process';
 import difference from 'lodash/difference';
 import open from 'open';
-import { select, input, checkbox, confirm } from '@inquirer/prompts';
+import { checkbox, confirm, input, select } from '@inquirer/prompts';
 import { getUserAgent, resolveCommand } from 'package-manager-detector';
 
 const ROOT = path.resolve(__dirname, '../../');

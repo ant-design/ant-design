@@ -1,6 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
@@ -17,32 +16,42 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    classNames,
     active,
+    style,
+    styles,
     block = false,
     size = 'default',
+    ...rest
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const otherProps = omit(props, ['prefixCls']);
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-element`,
     {
       [`${prefixCls}-active`]: active,
       [`${prefixCls}-block`]: block,
     },
+    classNames?.root,
     className,
     rootClassName,
     hashId,
     cssVarCls,
   );
 
-  return wrapCSSVar(
-    <div className={cls}>
-      <Element prefixCls={`${prefixCls}-button`} size={size} {...otherProps} />
-    </div>,
+  return (
+    <div className={cls} style={styles?.root}>
+      <Element
+        prefixCls={`${prefixCls}-button`}
+        className={classNames?.content}
+        style={{ ...styles?.content, ...style }}
+        size={size}
+        {...rest}
+      />
+    </div>
   );
 };
 

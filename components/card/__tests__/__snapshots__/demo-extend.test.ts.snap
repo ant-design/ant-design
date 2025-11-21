@@ -2,14 +2,14 @@
 
 exports[`renders components/card/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap: 16px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-card ant-card-bordered css-var-test-id"
       style="width: 300px;"
     >
       <div
@@ -53,7 +53,7 @@ exports[`renders components/card/demo/basic.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       style="width: 300px;"
     >
       <div
@@ -100,7 +100,7 @@ exports[`renders components/card/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/card/demo/border-less.tsx extend context correctly 1`] = `
 <div
-  class="ant-card"
+  class="ant-card css-var-test-id"
   style="width: 300px;"
 >
   <div
@@ -137,7 +137,7 @@ exports[`renders components/card/demo/border-less.tsx extend context correctly 2
 exports[`renders components/card/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    class="ant-card ant-card-bordered ant-card-contain-tabs css-var-test-id"
   >
     <div
       class="ant-card-head"
@@ -157,7 +157,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -239,7 +239,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <ul
@@ -269,7 +269,7 @@ Array [
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               id="rc-tabs-test-panel-tab1"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -369,7 +369,7 @@ Array [
     </ul>
   </div>,
   <div
-    class="ant-card ant-card-bordered ant-card-small"
+    class="ant-card ant-card-bordered ant-card-small css-var-test-id"
     style="width: 300px;"
   >
     <div
@@ -415,7 +415,7 @@ exports[`renders components/card/demo/component-token.tsx extend context correct
 
 exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable"
+  class="ant-card ant-card-bordered ant-card-hoverable css-var-test-id"
   style="width: 240px;"
 >
   <div
@@ -434,7 +434,7 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
       class="ant-card-meta"
     >
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
@@ -456,7 +456,7 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
 
 exports[`renders components/card/demo/grid-card.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-contain-grid"
+  class="ant-card ant-card-bordered ant-card-contain-grid css-var-test-id"
 >
   <div
     class="ant-card-head"
@@ -524,15 +524,15 @@ exports[`renders components/card/demo/grid-card.tsx extend context correctly 2`]
 
 exports[`renders components/card/demo/in-column.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
-  style="margin-left: -8px; margin-right: -8px;"
+  class="ant-row css-var-test-id"
+  style="margin-inline: -8px;"
 >
   <div
-    class="ant-col ant-col-8"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-8 css-var-test-id"
+    style="padding-inline: 8px;"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -555,11 +555,11 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
     </div>
   </div>
   <div
-    class="ant-col ant-col-8"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-8 css-var-test-id"
+    style="padding-inline: 8px;"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -582,11 +582,11 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
     </div>
   </div>
   <div
-    class="ant-col ant-col-8"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-8 css-var-test-id"
+    style="padding-inline: 8px;"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -615,7 +615,7 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 2`]
 
 exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-test-id"
 >
   <div
     class="ant-card-head"
@@ -634,7 +634,7 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
     class="ant-card-body"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-type-inner"
+      class="ant-card ant-card-bordered ant-card-type-inner css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -665,7 +665,7 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-card ant-card-bordered ant-card-type-inner"
+      class="ant-card ant-card-bordered ant-card-type-inner css-var-test-id"
       style="margin-top: 16px;"
     >
       <div
@@ -704,11 +704,11 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 2`] = `
 
 exports[`renders components/card/demo/loading.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
 >
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -727,17 +727,17 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 1`] =
     </span>
   </button>
   <div
-    class="ant-card ant-card-loading ant-card-bordered"
+    class="ant-card ant-card-loading ant-card-bordered css-var-test-id"
     style="min-width: 300px;"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-active"
+        class="ant-skeleton ant-skeleton-active css-var-test-id"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <ul
             class="ant-skeleton-paragraph"
@@ -833,17 +833,17 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 1`] =
     </ul>
   </div>
   <div
-    class="ant-card ant-card-loading ant-card-bordered"
+    class="ant-card ant-card-loading ant-card-bordered css-var-test-id"
     style="min-width: 300px;"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-active"
+        class="ant-skeleton ant-skeleton-active css-var-test-id"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <ul
             class="ant-skeleton-paragraph"
@@ -945,7 +945,7 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 2`] =
 
 exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-test-id"
   style="width: 300px;"
 >
   <div
@@ -967,7 +967,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
         class="ant-card-meta-avatar"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
+          class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         >
           <img
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
@@ -975,7 +975,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
@@ -1076,7 +1076,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 2`] = `[
 
 exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-test-id"
   style="width: 300px;"
 >
   <div
@@ -1097,10 +1097,315 @@ exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = 
 
 exports[`renders components/card/demo/simple.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/card/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <div
+    class="ant-card css-var-test-id acss-1ri7sgv"
+    style="box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px;"
+  >
+    <div
+      class="ant-card-head acss-xxf1ab"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+          style="font-size: 16px; font-weight: 500;"
+        >
+          Object Card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <button
+            class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
+            type="button"
+          >
+            <span>
+              More
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body acss-1dacand"
+    >
+      <div
+        class="ant-card-meta"
+      >
+        <div
+          class="ant-card-meta-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-card-meta-section"
+        >
+          <div
+            class="ant-card-meta-title"
+          >
+            Object Card Meta title
+          </div>
+          <div
+            class="ant-card-meta-description"
+          >
+            This is the description
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="ant-card-actions"
+    >
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="heart"
+            class="anticon anticon-heart"
+            role="img"
+            style="color: rgb(255, 107, 107);"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="heart"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="share-alt"
+            class="anticon anticon-share-alt"
+            role="img"
+            style="color: rgb(78, 205, 196);"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="share-alt"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M752 664c-28.5 0-54.8 10-75.4 26.7L469.4 540.8a160.68 160.68 0 000-57.6l207.2-149.9C697.2 350 723.5 360 752 360c66.2 0 120-53.8 120-120s-53.8-120-120-120-120 53.8-120 120c0 11.6 1.6 22.7 4.7 33.3L439.9 415.8C410.7 377.1 364.3 352 312 352c-88.4 0-160 71.6-160 160s71.6 160 160 160c52.3 0 98.7-25.1 127.9-63.8l196.8 142.5c-3.1 10.6-4.7 21.8-4.7 33.3 0 66.2 53.8 120 120 120s120-53.8 120-120-53.8-120-120-120zm0-476c28.7 0 52 23.3 52 52s-23.3 52-52 52-52-23.3-52-52 23.3-52 52-52zM312 600c-48.5 0-88-39.5-88-88s39.5-88 88-88 88 39.5 88 88-39.5 88-88 88zm440 236c-28.7 0-52-23.3-52-52s23.3-52 52-52 52 23.3 52 52-23.3 52-52 52z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="edit"
+            class="anticon anticon-edit"
+            role="img"
+            style="color: rgb(69, 183, 209);"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="edit"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id acss-1ri7sgv"
+    style="border-color: rgb(105, 111, 199); box-shadow: 0 2px 8px #A7AAE1; border-radius: 8px;"
+  >
+    <div
+      class="ant-card-head acss-xxf1ab"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+          style="font-size: 16px; font-weight: 500; color: rgb(167, 170, 225);"
+        >
+          Function Card
+        </div>
+        <div
+          class="ant-card-extra"
+          style="color: rgb(105, 111, 199);"
+        >
+          <button
+            class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
+            style="color: rgb(167, 170, 225);"
+            type="button"
+          >
+            <span>
+              More
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body acss-1dacand"
+    >
+      <div
+        class="ant-card-meta"
+      >
+        <div
+          class="ant-card-meta-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-card-meta-section"
+        >
+          <div
+            class="ant-card-meta-title"
+            style="color: rgb(167, 170, 225);"
+          >
+            Function Card Meta title
+          </div>
+          <div
+            class="ant-card-meta-description"
+            style="color: rgb(167, 170, 225);"
+          >
+            This is the description
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="ant-card-actions"
+    >
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="heart"
+            class="anticon anticon-heart"
+            role="img"
+            style="color: rgb(255, 107, 107);"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="heart"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="share-alt"
+            class="anticon anticon-share-alt"
+            role="img"
+            style="color: rgb(78, 205, 196);"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="share-alt"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M752 664c-28.5 0-54.8 10-75.4 26.7L469.4 540.8a160.68 160.68 0 000-57.6l207.2-149.9C697.2 350 723.5 360 752 360c66.2 0 120-53.8 120-120s-53.8-120-120-120-120 53.8-120 120c0 11.6 1.6 22.7 4.7 33.3L439.9 415.8C410.7 377.1 364.3 352 312 352c-88.4 0-160 71.6-160 160s71.6 160 160 160c52.3 0 98.7-25.1 127.9-63.8l196.8 142.5c-3.1 10.6-4.7 21.8-4.7 33.3 0 66.2 53.8 120 120 120s120-53.8 120-120-53.8-120-120-120zm0-476c28.7 0 52 23.3 52 52s-23.3 52-52 52-52-23.3-52-52 23.3-52 52-52zM312 600c-48.5 0-88-39.5-88-88s39.5-88 88-88 88 39.5 88 88-39.5 88-88 88zm440 236c-28.7 0-52-23.3-52-52s23.3-52 52-52 52 23.3 52 52-23.3 52-52 52z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+      <li
+        style="width: 33.333333333333336%;"
+      >
+        <span>
+          <span
+            aria-label="edit"
+            class="anticon anticon-edit"
+            role="img"
+            style="color: rgb(69, 183, 209);"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="edit"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+              />
+            </svg>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders components/card/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/tabs.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    class="ant-card ant-card-bordered ant-card-contain-tabs css-var-test-id"
     style="width: 100%;"
   >
     <div
@@ -1125,7 +1430,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -1207,7 +1512,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <ul
@@ -1237,7 +1542,7 @@ Array [
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               id="rc-tabs-test-panel-tab1"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -1254,7 +1559,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    class="ant-card ant-card-bordered ant-card-contain-tabs css-var-test-id"
     style="width: 100%;"
   >
     <div
@@ -1264,7 +1569,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -1361,7 +1666,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <ul
@@ -1400,7 +1705,7 @@ Array [
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               id="rc-tabs-test-panel-app"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>

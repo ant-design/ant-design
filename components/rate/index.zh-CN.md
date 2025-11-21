@@ -19,6 +19,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/size.tsx" version="6.0.0">尺寸</code>
 <code src="./demo/half.tsx">半星</code>
 <code src="./demo/text.tsx">文案展现</code>
 <code src="./demo/disabled.tsx">只读</code>
@@ -42,8 +43,9 @@ demo:
 | defaultValue | 默认值 | number | 0 |  |
 | disabled | 只读，无法进行交互 | boolean | false |  |
 | keyboard | 支持使用键盘操作 | boolean | true | 5.18.0 |
+| size | 星星尺寸 | 'small' \| 'middle' \| 'large' | 'middle' |  |
 | style | 自定义样式对象 | CSSProperties | - |  |
-| tooltips | 自定义每项的提示信息 | string\[] | - |  |
+| tooltips | 自定义每项的提示信息 | [TooltipProps](/components/tooltip-cn#api)[] \| string\[] | - |  |
 | value | 当前数，受控值 | number | - |  |
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onChange | 选择时的回调 | function(value: number) | - |  |

@@ -3,7 +3,7 @@
 exports[`renders components/message/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-message-notice ant-message-notice-pure-panel"
+    class="ant-message-notice ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
   >
     <div
       class="ant-message-notice-content"
@@ -38,7 +38,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-message-notice ant-message-notice-pure-panel"
+    class="ant-message-notice ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
   >
     <div
       class="ant-message-notice-content"
@@ -79,7 +79,7 @@ exports[`renders components/message/demo/component-token.tsx extend context corr
 
 exports[`renders components/message/demo/custom-style.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -92,7 +92,7 @@ exports[`renders components/message/demo/custom-style.tsx extend context correct
 
 exports[`renders components/message/demo/duration.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -105,7 +105,7 @@ exports[`renders components/message/demo/duration.tsx extend context correctly 2
 
 exports[`renders components/message/demo/hooks.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -118,7 +118,7 @@ exports[`renders components/message/demo/hooks.tsx extend context correctly 2`] 
 
 exports[`renders components/message/demo/info.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -131,7 +131,7 @@ exports[`renders components/message/demo/info.tsx extend context correctly 2`] =
 
 exports[`renders components/message/demo/loading.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -144,13 +144,13 @@ exports[`renders components/message/demo/loading.tsx extend context correctly 2`
 
 exports[`renders components/message/demo/other.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -162,7 +162,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -174,7 +174,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -189,7 +189,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 2`] 
 
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-message-notice ant-message-notice-pure-panel"
+  class="ant-message-notice ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
 >
   <div
     class="ant-message-notice-content"
@@ -227,9 +227,42 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
 
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/message/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Object style
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Function style
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/message/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/message/demo/thenable.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -242,7 +275,7 @@ exports[`renders components/message/demo/thenable.tsx extend context correctly 2
 
 exports[`renders components/message/demo/update.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>

@@ -5,7 +5,7 @@ const App: React.FC = () => (
   <Flex align="center" gap="small">
     <Progress
       type="circle"
-      trailColor="#e6f4ff"
+      railColor="#e6f4ff"
       percent={60}
       strokeWidth={20}
       size={14}

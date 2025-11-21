@@ -34,7 +34,7 @@ const App: React.FC = () => {
       />
       <Divider />
       <ConfigProvider renderEmpty={customize ? customizeRenderEmpty : undefined}>
-        <Space direction="vertical" style={{ width: '100%' }}>
+        <Space vertical style={{ width: '100%' }}>
           <h4>Select</h4>
           <Select style={style} />
           <h4>TreeSelect</h4>

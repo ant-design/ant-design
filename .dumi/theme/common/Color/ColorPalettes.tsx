@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 import Palette from './Palette';
@@ -107,7 +107,7 @@ const ColorPalettes: React.FC<{ dark?: boolean }> = (props) => {
     }));
   }, [locale]);
   return (
-    <div className={classNames('color-palettes', { 'color-palettes-dark': dark })}>
+    <div className={clsx('color-palettes', { 'color-palettes-dark': dark })}>
       {memoizedColors.map((color) => (
         <Palette key={`item-${color.name}`} color={color} dark={dark} showTitle />
       ))}

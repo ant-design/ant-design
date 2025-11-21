@@ -2,7 +2,7 @@
 
 exports[`Result rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-result ant-result-info ant-result-rtl"
+  class="ant-result ant-result-info ant-result-rtl css-var-root"
 >
   <div
     class="ant-result-icon"

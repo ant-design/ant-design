@@ -8,20 +8,16 @@ tag: New
 
 Since `5.12.0`, Ant Design 5.x enabled CSS variables again. Unlike 4.x, this time we have integrated the capabilities of CSS-in-JS, and all Design Tokens have been included in the management scope of CSS variables.
 
-> Currently, the CSS variable mode has been globally enabled on the official website.
+Since `6.0.0`, CSS variable mode has become the default mode.
 
-## When to Use
+## Features
 
 CSS variable mode brings two important improvements to Ant Design's styling capabilities:
 
 1. The styles of the same component under different themes can be shared, reducing the total size of the styles
 2. When switching themes, there is no need to re-serialize the styles, which improves the performance of theme switching
 
-Therefore, if your application depends on Ant Design's theme capabilities, we strongly recommend that you enable the CSS variable mode.
-
-## Quick Start
-
-To enable CSS variable mode, use the `cssVar` configuration in the `theme` property of ConfigProvider. This configuration will be inherited, so if you want to enable CSS variable mode globally, you only need to configure it in the root of your application.
+## Tips
 
 <!-- prettier-ignore -->
 :::warning
@@ -29,18 +25,13 @@ CSS variable mode requires a unique key for each theme to ensure style isolation
 :::
 
 ```tsx
-// React 18
-<ConfigProvider theme={{ cssVar: true }}>
-  <App />
-</ConfigProvider>
-
 // React 17 or 16
 <ConfigProvider theme={{ cssVar: { key: 'app' } }}>
   <App />
 </ConfigProvider>
 ```
 
-After enabling it, you can see that some specific values in the antd component styles have been replaced with CSS variables:
+You can see that some specific values in the antd component styles have been replaced with CSS variables:
 
 ![image](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*p5NrRJmUNHgAAAAAAAAAAAAADrJ8AQ/original)
 
@@ -58,7 +49,32 @@ However, after enabling CSS variables, the component styles of the same antd ver
 </ConfigProvider>
 ```
 
-By the way, we strongly recommend using [extractStyle](/docs/react/server-side-rendering) to extract static styles, which will bring a certain amount of performance improvement to the application.
+### Enable zeroRuntime Mode
+
+Since 6.0.0, we provide the `zeroRuntime` mode to further improve application performance. After enabling it, Ant Design will no longer generate component styles at runtime, so you need to import the style files yourself.
+
+```tsx
+import 'antd/dist/antd.css';
+
+export default () => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>
+    <App />
+  </ConfigProvider>
+);
+```
+
+`antd/dist/antd.css` is the compiled style file of all components. If you want to reduce the size of the styles, or you have modified `prefix` that cannot use the default styles, it is recommended to use [@ant-design/static-style-extract](https://github.com/ant-design/static-style-extract).
+
+```tsx
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const cssText = extractStyle({
+  includes: ['Button'], // Only include style of Button
+});
+
+fs.writeFileSync('/path/to/somewhere', cssText);
+```
 
 ### Customize Theme
 

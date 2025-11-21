@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { clsx } from 'clsx';
 
 import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
 
@@ -46,14 +46,14 @@ export function renderItem(
 
   if (href !== undefined) {
     return (
-      <a {...passedProps} className={classNames(`${prefixCls}-link`, className)} href={href}>
+      <a {...passedProps} className={clsx(`${prefixCls}-link`, className)} href={href}>
         {children}
       </a>
     );
   }
 
   return (
-    <span {...passedProps} className={classNames(`${prefixCls}-link`, className)}>
+    <span {...passedProps} className={clsx(`${prefixCls}-link`, className)}>
       {children}
     </span>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
+import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
 import { Button, Input, Space } from 'antd';
-import type { SingleValueType } from 'rc-cascader/lib/Cascader';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -15,7 +15,7 @@ import ConfigProvider from '../../config-provider';
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
 function toggleOpen(container: ReturnType<typeof render>['container']) {
-  fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+  fireEvent.mouseDown(container.querySelector('.ant-select')!);
 }
 
 function isOpen(container: ReturnType<typeof render>['container']) {
@@ -41,10 +41,14 @@ const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
+    'aria-label': 'Zhejiang',
+    'data-title': 'Zhejiang',
     children: [
       {
         value: 'hangzhou',
         label: 'Hangzhou',
+        'aria-label': 'Hangzhou',
+        'data-title': 'Hangzhou',
         children: [
           {
             value: 'xihu',
@@ -113,15 +117,6 @@ describe('Cascader', () => {
     );
     toggleOpen(container);
     expect(getDropdown(container)).toMatchSnapshot();
-  });
-
-  it('should support popupVisible', () => {
-    const { container, rerender } = render(
-      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
-    );
-    expect(isOpen(container)).toBeFalsy();
-    rerender(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} popupVisible />);
-    expect(isOpen(container)).toBeTruthy();
   });
 
   it('can be selected', () => {
@@ -215,11 +210,11 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
       'Zhejiang / Hangzhou',
     );
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('.ant-select-selection-item')).toBeFalsy();
+    expect(container.querySelector('.ant-select-content-value')).toBeFalsy();
   });
 
   it('should clear search input when clear selection', () => {
@@ -304,7 +299,7 @@ describe('Cascader', () => {
     clickOption(container, 0, 0);
     clickOption(container, 1, 0);
     clickOption(container, 2, 0);
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
@@ -354,7 +349,7 @@ describe('Cascader', () => {
     });
   });
 
-  // FIXME: Move to `rc-tree-select` instead
+  // FIXME: Move to `@rc-component/tree-select` instead
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -387,11 +382,11 @@ describe('Cascader', () => {
 
   it('placeholder works correctly', () => {
     const { container, rerender } = render(<Cascader options={[]} />);
-    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual('');
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toEqual('');
 
     const customPlaceholder = 'Custom placeholder';
     rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
-    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toEqual(
       customPlaceholder,
     );
   });
@@ -412,7 +407,7 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
     expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
   });
 
@@ -467,7 +462,7 @@ describe('Cascader', () => {
           options={options2}
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
-          popupPlacement="bottomRight"
+          placement="bottomRight"
           open
         />
       </ConfigProvider>,
@@ -490,7 +485,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['options1', 'options2']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
       'options1 / options2',
     );
   });
@@ -530,17 +525,11 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
     expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
-    it('popupPlacement', () => {
-      render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in tests/__mocks__/rc-trigger.js
-      expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
-    });
-
     it('legacy dropdownClassName', () => {
       resetWarned();
 
@@ -782,7 +771,7 @@ describe('Cascader', () => {
         ]}
       />,
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     // disabled className
     fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
     expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);
@@ -804,7 +793,16 @@ describe('Cascader', () => {
 
     errSpy.mockRestore();
   });
-
+  it('Support aria-* and data-* in options', () => {
+    const { container } = render(
+      <Cascader options={options} open defaultValue={['zhejiang', 'hangzhou']} />,
+    );
+    const menuItems = container.querySelectorAll('.ant-cascader-menu-item');
+    expect(menuItems[0].getAttribute('aria-label')).toBe('Zhejiang');
+    expect(menuItems[0].getAttribute('data-title')).toBe('Zhejiang');
+    expect(menuItems[2].getAttribute('aria-label')).toBe('Hangzhou');
+    expect(menuItems[2].getAttribute('data-title')).toBe('Hangzhou');
+  });
   it('Cascader ContextIsolator', () => {
     const { container } = render(
       <Space.Compact>

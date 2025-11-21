@@ -24,7 +24,7 @@ const customWeekStartEndFormat: DatePickerProps['format'] = (value) =>
     .format(weekFormat)}`;
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker defaultValue={dayjs('2015/01/01', dateFormat)} format={dateFormat} />
     <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
     <DatePicker defaultValue={dayjs('2015/01', monthFormat)} format={monthFormat} picker="month" />

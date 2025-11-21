@@ -96,7 +96,7 @@ Now add the following jsx inside the `render` function.
   <DatePicker onChange={value => this.handleChange(value)} />
   <div style={{ marginTop: 20 }}>
 -   Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-+   <Alert message="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
++   <Alert title="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
   </div>
 ```
 

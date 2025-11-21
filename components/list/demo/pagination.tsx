@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Space direction="vertical" style={{ marginBottom: '20px' }} size="middle">
+      <Space vertical style={{ marginBottom: '20px' }} size="middle">
         <Space>
           <span>Pagination Position:</span>
           <Radio.Group

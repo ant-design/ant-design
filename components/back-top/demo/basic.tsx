@@ -1,13 +1,11 @@
 import React from 'react';
 import { BackTop } from 'antd';
 
-const App: React.FC = () => (
+const Demo = () => (
   <>
-    <BackTop />
-    Scroll down to see the bottom-right
-    <strong className="site-back-top-basic"> gray </strong>
-    button.
+    <BackTop visibilityHeight={0} />
+    Scroll down to see the bottom-right.
   </>
 );
 
-export default App;
+export default Demo;

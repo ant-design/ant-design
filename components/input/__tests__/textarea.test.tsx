@@ -1,6 +1,6 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -12,7 +12,7 @@ import {
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
-import type { TextAreaRef } from '../TextArea';
+import type { TextAreaProps, TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
 
@@ -23,10 +23,17 @@ describe('TextArea', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'getComputedStyle', {
       value: (node: Element) => ({
-        getPropertyValue: (prop: PropertyKey) =>
-          prop === 'box-sizing'
-            ? originalGetComputedStyle(node)[prop as unknown as number] || 'border-box'
-            : originalGetComputedStyle(node)[prop as unknown as number],
+        getPropertyValue: (prop: PropertyKey) => {
+          if (prop === 'box-sizing') {
+            return originalGetComputedStyle(node)[prop as unknown as number] || 'border-box';
+          }
+
+          const oriValue = originalGetComputedStyle(node)[prop as unknown as number];
+          if (['padding', 'width', 'height'].some((p) => prop.toString().includes(p))) {
+            return '1px';
+          }
+          return oriValue;
+        },
       }),
     });
   });
@@ -195,18 +202,16 @@ describe('TextArea', () => {
 
     it('className & style patch to outer', () => {
       const { container } = render(
-        <TextArea className="bamboo" style={{ padding: 20 }} showCount />,
+        <TextArea className="bamboo" style={{ textAlign: 'center' }} showCount />,
       );
 
       // Outer
-      const outerEle = container.querySelector('span');
-      expect(outerEle).toHaveClass('bamboo');
-      expect(outerEle).toHaveStyle({ padding: '20px' });
+      expect(container.querySelector('span')).toHaveClass('bamboo');
+      expect(container.querySelector('span')).toHaveStyle({ textAlign: 'center' });
 
       // Inner
-      const innerEle = container.querySelector('.ant-input');
-      expect(innerEle).not.toHaveClass('bamboo');
-      expect(innerEle).not.toHaveStyle({ padding: '20px' });
+      expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
+      expect(container.querySelector('.ant-input')).not.toHaveStyle({ textAlign: 'center' });
     });
 
     it('count formatter', () => {
@@ -240,6 +245,72 @@ describe('TextArea', () => {
     ref.current?.resizableTextArea?.textArea.setSelectionRange(valLength, valLength);
     expect(ref.current?.resizableTextArea?.textArea.selectionStart).toEqual(5);
     expect(ref.current?.resizableTextArea?.textArea.selectionEnd).toEqual(5);
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames: TextAreaProps['classNames'] = (info) => {
+      const { props } = info;
+      return {
+        root: 'dynamic-root',
+        textarea: props.disabled ? 'disabled-item' : 'enabled-item',
+        count: `dynamic-count-${props.count?.max}`,
+      };
+    };
+
+    const functionStyles: TextAreaProps['styles'] = (info) => {
+      const { props } = info;
+      return {
+        root: {
+          backgroundColor: props.size === 'small' ? '#e6f7ff' : '#f6ffed',
+        },
+        textarea: {
+          color: props.disabled ? '#d9d9d9' : '#52c41a',
+        },
+        count: {
+          color: props.count?.max === 1024 ? '#e6f7ff' : '#f6ffed',
+        },
+      };
+    };
+
+    const { container, rerender } = render(
+      <TextArea
+        classNames={functionClassNames}
+        styles={functionStyles}
+        count={{ max: 1024 }}
+        showCount
+        size="small"
+      />,
+    );
+
+    const wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
+    const textarea = container.querySelector('textarea');
+    const count = container.querySelector('.ant-input-data-count');
+
+    expect(wrapper).toHaveClass('dynamic-root');
+    expect(textarea).toHaveClass('enabled-item');
+    expect(count).toHaveClass('dynamic-count-1024');
+    expect(wrapper).toHaveStyle('background-color: #e6f7ff');
+    expect(textarea).toHaveStyle('color: #52c41a');
+    expect(count).toHaveStyle('color: #e6f7ff');
+
+    const objectClassNames: TextAreaProps['classNames'] = {
+      root: 'dynamic-root-default',
+      textarea: 'disabled-item',
+      count: 'dynamic-count-default',
+    };
+    const objectStyles: TextAreaProps['styles'] = {
+      root: { backgroundColor: '#f6ffed' },
+      textarea: { color: '#d9d9d9' },
+      count: { color: '#e6f7ff' },
+    };
+    rerender(<TextArea classNames={objectClassNames} styles={objectStyles} disabled showCount />);
+
+    expect(wrapper).toHaveClass('dynamic-root-default');
+    expect(textarea).toHaveClass('disabled-item');
+    expect(count).toHaveClass('dynamic-count-default');
+    expect(wrapper).toHaveStyle('background-color: #f6ffed');
+    expect(textarea).toHaveStyle('color: #d9d9d9');
+    expect(count).toHaveStyle('color: #e6f7ff');
   });
 });
 
@@ -468,10 +539,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
@@ -485,10 +560,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },

@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/th_TH';
+import Pagination from '@rc-component/pagination/lib/locale/th_TH';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/th_TH';
@@ -132,9 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label} ไม่ตรงกับรูปแบบ ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'ดูตัวอย่าง',
   },
   QRCode: {
     expired: 'คิวอาร์โค้ดหมดอายุ',

@@ -80,9 +80,7 @@ describe('Badge', () => {
 
   it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
-    expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
-      'Custom title',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-scroll-number')?.title).toBe('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626
@@ -241,27 +239,5 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(0);
     rerender(<Badge count={0} showZero color="#ff0" />);
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(1);
-  });
-
-  it('should support classNames and styles', () => {
-    const { container } = render(
-      <Badge
-        count={10}
-        classNames={{ root: 'test-root', indicator: 'test-indicator' }}
-        styles={{ root: { padding: 10 }, indicator: { padding: 20 } }}
-      >
-        test
-      </Badge>,
-    );
-
-    const element = container.querySelector<HTMLSpanElement>('.ant-badge');
-
-    // classNames
-    expect(element).toHaveClass('test-root');
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
-
-    // styles
-    expect(element).toHaveStyle({ padding: '10px' });
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ padding: '20px' });
   });
 });

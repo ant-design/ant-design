@@ -130,6 +130,36 @@ antd styles will be encapsulated in `@layer` to lower the priority:
 ++  }
 ```
 
+## autoPrefixer
+
+- antd version: `>=6.0.0`
+- Browser Compatibility: Automatically adds browser prefixes for wider browser support
+- Default Enabled: No
+
+Some styles rely on browser prefixes for compatibility. The `autoPrefixer` transformer can automatically add browser prefixes to styles, ensuring they work properly across different browsers.
+
+```tsx | pure
+import { autoPrefixTransformer, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider transformers={[autoPrefixTransformer]}>
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+The final transformed styles:
+
+```diff
+  .sample-box {
+--  user-select: none;
+++  -webkit-user-select: none;
+++  -moz-user-select: none;
+++  -ms-user-select: none;
+++  user-select: none;
+  }
+```
+
 ## Rem Adaptation
 
 In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.

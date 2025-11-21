@@ -125,7 +125,7 @@ const Page: React.FC = () => {
 
   return (
     <Space
-      direction="vertical"
+      vertical
       size={[0, 16]}
       style={{ width: '100%', paddingTop: 16, borderTop: `1px solid ${token.colorBorder}` }}
     >
@@ -191,7 +191,7 @@ const Page: React.FC = () => {
         />
       </Space>
       <Upload listType="picture-card" fileList={fileList} />
-      <Divider orientation="left">Tour</Divider>
+      <Divider titlePlacement="start">Tour</Divider>
       <Button type="primary" onClick={() => setTourOpen(true)}>
         Begin Tour
       </Button>
