@@ -77,7 +77,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | rootClassName | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 | string | - |  |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
 | src | 自定义预览 src | string | - |  |
-| styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | ~~toolbarRender~~ | 自定义工具栏，请使用 `actionsRender` 替换 | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
 | ~~visible~~ | 是否显示，请使用 `open` 替换 | boolean | - |  |
 | onOpenChange | 预览打开状态变化的回调 | (visible: boolean) => void | - |  |
@@ -111,7 +111,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | movable | 是否可移动 | boolean | true |  |
 | open | 是否显示预览 | boolean | - |  |
 | ~~rootClassName~~ | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧，请使用 `classNames.root` 替换 | string | - |  |
-| styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
 | ~~toolbarRender~~ | 自定义工具栏，请使用 `actionsRender` 替换 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | ~~visible~~ | 是否显示，请使用 `open` 替换 | boolean | - |  |
