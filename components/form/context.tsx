@@ -101,3 +101,13 @@ export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, over
 };
 
 export const VariantContext = React.createContext<Variant | undefined>(undefined);
+
+interface FormItemPopupContextProps {
+  popupOpen?: boolean;
+  setPopupOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const FormItemPopupContext = React.createContext<FormItemPopupContextProps>({
+  popupOpen: false,
+  setPopupOpen: () => {},
+});

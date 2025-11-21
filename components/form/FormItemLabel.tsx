@@ -10,7 +10,7 @@ import defaultLocale from '../locale/en_US';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { FormContextProps } from './context';
-import { FormContext } from './context';
+import { FormContext, FormItemPopupContext } from './context';
 import type { RequiredMark } from './Form';
 import type { FormLabelAlign } from './interface';
 
@@ -47,6 +47,12 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   vertical,
 }) => {
   const [formLocale] = useLocale('Form');
+
+  const { setPopupOpen } = React.useContext(FormItemPopupContext);
+
+  const onClick = () => {
+    setPopupOpen(true);
+  };
 
   const {
     labelAlign: contextLabelAlign,
@@ -150,6 +156,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         htmlFor={htmlFor}
         className={labelClassName}
         title={typeof label === 'string' ? label : ''}
+        onClick={onClick}
       >
         {labelChildren}
       </label>
