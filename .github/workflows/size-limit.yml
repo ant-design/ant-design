@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@v1
       - name: size-limit
         uses: ant-design/size-limit-action@master
