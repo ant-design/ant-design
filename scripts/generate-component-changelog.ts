@@ -120,8 +120,8 @@ const miscKeys = [
     for (let i = 0; i < lines.length; i += 1) {
       const line = lines[i];
 
-      // Skip for v5 release
-      if (line === '## 5.0.0') {
+      // Skip for v6 release
+      if (line === '## 6.0.0') {
         break;
       }
 
