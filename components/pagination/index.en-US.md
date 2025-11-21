@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Align | start \| center \| end | - | 5.19.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | current | Current page number | number | - |  |
 | defaultCurrent | Default initial page number | number | 1 |  |
 | defaultPageSize | Default number of data items per page | number | 10 |  |
@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showTotal | To display the total number and range | function(total, range) | - |  |
 | simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |
