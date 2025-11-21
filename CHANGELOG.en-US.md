@@ -42,7 +42,7 @@ tag: vVERSION
 - Input
   - 🔥 InputNumber support `mode="spinner"`. [#55592](https://github.com/ant-design/ant-design/pull/55592) [@guoyunhe](https://github.com/guoyunhe)
   - 🗑 Input.Search refactor to remove `addon*` code and use Space.Compact instead. [#55705](https://github.com/ant-design/ant-design/pull/55705) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-  - 🐞 Fix Input.TextArea `styles.input` unable to override built-in styles. [#55579](https://github.com/ant-design/ant-design/pull/55579) [@meet-student](https://github.com/meet-student)
+  - 🐞 Fix Input.TextArea `styles.textarea` unable to override built-in styles. [#55579](https://github.com/ant-design/ant-design/pull/55579) [@meet-student](https://github.com/meet-student)
 - 🆕 Pagination quick jumper now accept numberic value only. [#55700](https://github.com/ant-design/ant-design/pull/55700) [@afc163](https://github.com/afc163)
 - Mentions
   - 🛠 Refactor Mentions DOM structure to support `suffix` semantic and `size` props. [#55638](https://github.com/ant-design/ant-design/pull/55638) [@zombieJ](https://github.com/zombieJ)

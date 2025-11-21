@@ -42,7 +42,7 @@ tag: vVERSION
 - Input
   - 🔥 InputNumber 增加 `mode="spinner"` 拨轮模式。[#55592](https://github.com/ant-design/ant-design/pull/55592) [@guoyunhe](https://github.com/guoyunhe)
   - 🗑 Input.Search 重构废弃内部 `addon*` 的使用，用 Space.Compact 替换。[#55705](https://github.com/ant-design/ant-design/pull/55705) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-  - 🐞 修复 Input.TextArea 的 `styles.input` 无法覆盖内置样式的问题。[#55579](https://github.com/ant-design/ant-design/pull/55579) [@meet-student](https://github.com/meet-student)
+  - 🐞 修复 Input.TextArea 的 `styles.textarea` 无法覆盖内置样式的问题。[#55579](https://github.com/ant-design/ant-design/pull/55579) [@meet-student](https://github.com/meet-student)
 - 🆕 Pagination 快速跳转输入框现在限制只能输入数字。[#55700](https://github.com/ant-design/ant-design/pull/55700) [@afc163](https://github.com/afc163)
 - Mentions
   - 🛠 重构 Mentions DOM 结构并支持 `suffix` 语义化结构以及 `size` 属性。[#55638](https://github.com/ant-design/ant-design/pull/55638) [@zombieJ](https://github.com/zombieJ)
