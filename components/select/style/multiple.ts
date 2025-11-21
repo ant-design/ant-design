@@ -281,16 +281,6 @@ const genSelectionStyle = (
         maxWidth: '100%',
         marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
-        [`
-          &-input,
-          &-mirror
-        `]: {
-          height: selectItemHeight,
-          fontFamily: token.fontFamily,
-          lineHeight: unit(selectItemHeight),
-          transition: `all ${token.motionDurationSlow}`,
-        },
-
         '&-input': {
           width: '100%',
           minWidth: 4.1, // fix search cursor missing
@@ -304,6 +294,22 @@ const genSelectionStyle = (
           zIndex: 999,
           whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
           visibility: 'hidden',
+        },
+      },
+
+      // fix: https://github.com/ant-design/ant-design/issues/54971
+      // Selector priority is low and CSS is overridden.
+      [`${selectOverflowPrefixCls} 
+        ${selectOverflowPrefixCls}-item 
+        ${componentCls}-selection-search`]: {
+        [`
+          &-input,
+          &-mirror
+        `]: {
+          height: selectItemHeight,
+          fontFamily: token.fontFamily,
+          lineHeight: unit(selectItemHeight),
+          transition: `all ${token.motionDurationSlow}`,
         },
       },
 
