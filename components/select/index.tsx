@@ -203,8 +203,24 @@ const InternalSelect = <
 
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
-  const mergedPopupMatchSelectWidth =
-    popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
+  const selectRef = React.useRef<HTMLDivElement>(null);
+  const [selectWidthNum, setSelectWidthNum] = React.useState<number>();
+  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+
+  const handleInternalOpenChange = React.useCallback((visible: boolean) => {
+    if (visible && selectRef.current) {
+      const width = selectRef.current.getBoundingClientRect().width;
+      setSelectWidthNum(width);
+    }
+    mergedOnOpenChange?.(visible);
+  }, [mergedOnOpenChange]);
+
+  const mergedPopupMatchSelectWidth = React.useMemo(() => {
+    if (typeof popupMatchSelectWidth === 'number' && selectWidthNum && popupMatchSelectWidth < selectWidthNum) {
+      return selectWidthNum;
+    }
+    return popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
+  }, [popupMatchSelectWidth, selectWidthNum, dropdownMatchSelectWidth, contextPopupMatchSelectWidth]);
 
   const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
 
@@ -332,37 +348,39 @@ const InternalSelect = <
 
   // ====================== Render =======================
   return wrapCSSVar(
-    <RcSelect<ValueType, OptionType>
-      ref={ref}
-      virtual={virtual}
-      showSearch={showSearch}
-      {...selectProps}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
-      listHeight={listHeight}
-      listItemHeight={listItemHeight}
-      mode={mode}
-      prefixCls={prefixCls}
-      placement={memoPlacement}
-      direction={direction}
-      prefix={prefix}
-      suffixIcon={suffixIcon}
-      menuItemSelectedIcon={itemIcon}
-      removeIcon={removeIcon}
-      allowClear={mergedAllowClear}
-      notFoundContent={mergedNotFound}
-      className={mergedClassName}
-      getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={mergedPopupClassName}
-      disabled={mergedDisabled}
-      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
-      maxCount={isMultiple ? maxCount : undefined}
-      tagRender={isMultiple ? tagRender : undefined}
-      dropdownRender={mergedPopupRender}
-      onDropdownVisibleChange={mergedOnOpenChange}
-    />,
+    <div ref={selectRef}>
+      <RcSelect<ValueType, OptionType>
+        ref={ref}
+        virtual={virtual}
+        showSearch={showSearch}
+        {...selectProps}
+        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+        onDropdownVisibleChange={handleInternalOpenChange}
+        dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+        transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+        builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+        listHeight={listHeight}
+        listItemHeight={listItemHeight}
+        mode={mode}
+        prefixCls={prefixCls}
+        placement={memoPlacement}
+        direction={direction}
+        prefix={prefix}
+        suffixIcon={suffixIcon}
+        menuItemSelectedIcon={itemIcon}
+        removeIcon={removeIcon}
+        allowClear={mergedAllowClear}
+        notFoundContent={mergedNotFound}
+        className={mergedClassName}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
+        dropdownClassName={mergedPopupClassName}
+        disabled={mergedDisabled}
+        dropdownStyle={{ ...mergedPopupStyle, zIndex }}
+        maxCount={isMultiple ? maxCount : undefined}
+        tagRender={isMultiple ? tagRender : undefined}
+        dropdownRender={mergedPopupRender}
+      />
+    </div>,
   );
 };
 
