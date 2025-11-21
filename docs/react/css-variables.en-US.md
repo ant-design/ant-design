@@ -6,9 +6,7 @@ title: CSS Variables
 tag: New
 ---
 
-Since `5.12.0`, Ant Design 5.x enabled CSS variables again. Unlike 4.x, this time we have integrated the capabilities of CSS-in-JS, and all Design Tokens have been included in the management scope of CSS variables.
-
-Since `6.0.0`, CSS variable mode has become the default mode.
+Since `5.12.0`, Ant Design 5.x enabled CSS variables again. Unlike 4.x, this time we have integrated the capabilities of CSS-in-JS, and all Design Tokens have been included in the management scope of CSS variables. And since `6.0.0`, CSS variable mode has become the default mode.
 
 ## Features
 

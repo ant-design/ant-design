@@ -6,9 +6,7 @@ title: 使用 CSS 变量
 tag: Updated
 ---
 
-自 `5.12.0` 起，Ant Design 5.x 重新支持了 CSS 变量。与 4.x 版本不同的是，这次我们融合了 CSS-in-JS 的能力，并且将所有 Design Token 纳入了 CSS 变量的管理范畴。
-
-自 `6.0.0` 起，CSS 变量模式已经成为默认模式。
+自 `5.12.0` 起，Ant Design 5.x 重新支持了 CSS 变量。与 4.x 版本不同的是，这次我们融合了 CSS-in-JS 的能力，并且将所有 Design Token 纳入了 CSS 变量的管理范畴。而从 `6.0.0` 起，CSS 变量模式已经成为默认模式。
 
 ## 特性
 
