@@ -76,7 +76,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | src | Custom preview src | string | - |  |
-| styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
 | ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
 | onOpenChange | Callback when preview open state changes | (visible: boolean) => void | - |  |
@@ -110,7 +110,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | movable | Whether movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
-| styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
