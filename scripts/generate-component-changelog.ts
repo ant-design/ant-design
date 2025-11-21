@@ -121,7 +121,7 @@ const miscKeys = [
       const line = lines[i];
 
       // Skip for v5 release
-      if (line === '## 5.0.0') {
+      if (line === '## 6.0.0') {
         break;
       }
 
