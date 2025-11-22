@@ -18,7 +18,8 @@ export type SemanticName =
   | 'body'
   | 'footer'
   | 'wrapper'
-  | 'dragger';
+  | 'dragger'
+  | 'close';
 
 export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
 
@@ -105,14 +106,19 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <button
         type="button"
         onClick={onClose}
-        className={clsx(`${prefixCls}-close`, {
-          [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
-        })}
+        className={clsx(
+          `${prefixCls}-close`,
+          {
+            [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
+          },
+          mergedClassNames.close,
+        )}
+        style={mergedStyles.close}
       >
         {icon}
       </button>
     ),
-    [onClose, prefixCls, closablePlacement],
+    [onClose, prefixCls, closablePlacement, mergedClassNames.close, mergedStyles.close],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
