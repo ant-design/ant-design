@@ -128,6 +128,26 @@ antd styles will be encapsulated in `@layer` to lower the priority:
 ++  }
 ```
 
+⚠️ zeroRuntime Scenario Notes (Added in 6.0.0)
+
+When `zeroRuntime` is enabled, Ant Design’s styles are precompiled into a standalone `antd.css` file. If you also enable the `@layer` specificity–lowering mechanism, you must ensure that `antd.css` is placed inside the same layer (e.g., `layer(antd)`). Otherwise, its specificity will be higher than the styles injected by StyleProvider, causing the lowering mechanism to fail or resulting in unexpected override behavior.
+
+```css
+/* global.css / app.css */
+@layer theme, base, antd, components, utilities;
+
+/* The precompiled antd.css output by zeroRuntime must explicitly specify a layer */
+@import url(antd.css) layer(antd);
+```
+
+If you cannot use the `@import ... layer()` syntax, you may wrap the content during your build process instead:
+
+```css
+@layer antd {
+  /* contents of antd.css */
+}
+```
+
 ## autoPrefixer
 
 - antd version: `>=6.0.0`
@@ -278,13 +298,24 @@ In global.css, adjust `@layer` to control the order of style override. Place `an
 
 ### reset.css
 
-If you use antd's `reset.css` style, you need to specify `@layer` for it to prevent the style from overriding antd:
+If you are using Ant Design’s `reset.css`, you need to assign it to a specific `@layer` to prevent it from overriding the lowered-specificity antd styles. Likewise, in the `zeroRuntime` scenario, if you import `antd.css` separately, you must also place it inside `layer(antd)` to keep the layer hierarchy consistent:
 
-```less
+```css
+/* Both reset.css and antd.css must specify a layer */
 @layer reset, antd;
 
+/* reset styles */
 @import url(reset.css) layer(reset);
+
+/* antd styles */
+@import url(antd.css) layer(antd);
 ```
+
+This ensures that:
+
+- reset.css will not override Ant Design styles that have been lowered via @layer
+- antd.css (in zeroRuntime mode) stays aligned with the layer injected by StyleProvider
+- Layer order still works correctly with third-party styling systems such as Tailwind, Emotion, or other CSS-in-JS libraries
 
 ### With other CSS-in-JS libraries
 
