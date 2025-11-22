@@ -79,7 +79,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const { theme } = React.use(SiteContext);
+  const { isDark } = React.use(SiteContext);
 
   const { hash, pathname, search } = location;
   const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
@@ -104,7 +104,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   }, [expand]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
-  const demoUrlWithTheme = `${demoUrl}${theme.includes('dark') ? '?theme=dark' : ''}`;
+  const demoUrlWithTheme = `${demoUrl}${isDark ? '?theme=dark' : ''}`;
 
   if (!previewDemo.current) {
     previewDemo.current = iframe ? (
@@ -131,7 +131,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     'highlight-wrapper-expand': codeExpand,
   });
 
-  const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
+  const backgroundGrey = isDark ? '#303030' : '#f0f2f5';
 
   const codeBoxDemoStyle: React.CSSProperties = {
     padding: iframe || compact ? 0 : undefined,
