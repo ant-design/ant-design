@@ -4,7 +4,7 @@ import { Button, version as currentVersion, Flex, Modal, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import { useLocation, useNavigate } from 'dumi';
 import debounce from 'lodash/debounce';
-import { useEvent } from 'rc-util';
+import { useEvent } from '@rc-component/util';
 
 import useLocale from '../../hooks/useLocale';
 import EN from '../../preset/latest-changelog.en-US.md';
