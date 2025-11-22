@@ -296,9 +296,9 @@ In global.css, adjust `@layer` to control the order of style override. Place `an
 @import 'tailwindcss';
 ```
 
-### reset.css
+### reset.css and antd.css
 
-If you are using Ant Design’s `reset.css`, you need to assign it to a specific `@layer` to prevent it from overriding the lowered-specificity antd styles. Likewise, in the `zeroRuntime` scenario, if you import `antd.css` separately, you must also place it inside `layer(antd)` to keep the layer hierarchy consistent:
+If you are using Ant Design’s `reset.css`, you need to assign it to a specific `@layer` to prevent it from overriding the lowered-specificity antd styles. Similarly, in the `zeroRuntime` scenario, if you import `antd.css` separately, you must also place it inside `layer(antd)` to keep the layer hierarchy consistent:
 
 ```css
 /* Both reset.css and antd.css must specify a layer */

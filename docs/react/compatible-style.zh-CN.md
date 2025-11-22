@@ -296,9 +296,9 @@ export default () => (
 @import 'tailwindcss';
 ```
 
-### reset.css
+### reset.css 和 antd.css
 
-如果你使用了 antd 的 `reset.css` 样式，你需要为其指定 `@layer` 以防止将 antd 降权的样式覆盖；同理，在 `zeroRuntime` 场景下如果你单独引入 `antd.css`，也必须为其添加 `layer(antd)` 以保持层级一致：
+如果你使用了 antd 的 `reset.css` 样式，你需要为其指定 `@layer` 以防止将 antd 降权的样式覆盖。同理，在 `zeroRuntime` 场景下如果你单独引入 `antd.css`，也必须为其添加 `layer(antd)` 以保持层级一致：
 
 ```css
 /* reset.css 和 antd.css 都需要指定 layer */
