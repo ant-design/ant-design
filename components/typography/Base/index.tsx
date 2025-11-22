@@ -50,6 +50,8 @@ interface EditConfig {
   triggerType?: ('icon' | 'text')[];
   enterIcon?: React.ReactNode;
   tabIndex?: number;
+  editAreaClassName?: string;
+  editAreaStyle?: React.CSSProperties;
 }
 
 export interface EllipsisConfig {
@@ -339,6 +341,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         maxLength={editConfig.maxLength}
         autoSize={editConfig.autoSize}
         enterIcon={editConfig.enterIcon}
+        textAreaClassName={editConfig.editAreaClassName}
+        textAreaStyle={editConfig.editAreaStyle}
       />
     );
   }

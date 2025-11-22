@@ -121,6 +121,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
       tabIndex: number,
+      editAreaClassName: string,
+      editAreaStyle: React.CSSProperties,
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -138,6 +140,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 | tabIndex | 自定义编辑按钮的 tabIndex | number | 0 | 5.17.0 |
+| editAreaClassName | 编辑文本域的自定义类名 | string | - | 5.29.0 |
+| editAreaStyle | 编辑文本域的自定义样式 | React.CSSProperties | - | 5.29.0 |
 
 ### ellipsis
 
