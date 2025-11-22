@@ -1,6 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -12,6 +13,20 @@ describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
   mountTest(Search);
   rtlTest(Search);
+
+  beforeEach(() => {
+    resetWarned();
+  });
+
+  // V5 Only
+  it('no warning of addon', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(<Search />);
+    expect(errSpy).not.toHaveBeenCalled();
+
+    errSpy.mockRestore();
+  });
 
   it('should support custom button', () => {
     const { asFragment } = render(<Search enterButton={<button type="button">ok</button>} />);

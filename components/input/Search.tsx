@@ -185,6 +185,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     suffix,
     onChange,
     disabled,
+    _skipAddonWarning: true,
   };
 
   return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
