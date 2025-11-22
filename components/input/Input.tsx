@@ -77,6 +77,9 @@ export interface InputProps
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   [key: `data-${string}`]: string | undefined;
+
+  /** @private Skip warning of addon. Only work in dev mode */
+  _skipAddonWarning?: boolean;
 }
 
 const Input = forwardRef<InputRef, InputProps>((props, ref) => {
@@ -99,18 +102,22 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange,
     classNames,
     variant: customVariant,
+    _skipAddonWarning,
     ...rest
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
     const { deprecated } = devUseWarning('Input');
-    [
-      ['bordered', 'variant'],
-      ['addonAfter', 'Space.Compact'],
-      ['addonBefore', 'Space.Compact'],
-    ].forEach(([prop, newProp]) => {
-      deprecated(!(prop in props), prop, newProp);
-    });
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+
+    if (!_skipAddonWarning) {
+      [
+        ['addonAfter', 'Space.Compact'],
+        ['addonBefore', 'Space.Compact'],
+      ].forEach(([prop, newProp]) => {
+        deprecated(!(prop in props), prop, newProp);
+      });
+    }
   }
 
   const {

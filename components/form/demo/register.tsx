@@ -80,6 +80,10 @@ const tailFormItemLayout: FormItemProps = {
   },
 };
 
+function Injector({ children, ...rest }: { children: (props: any) => React.ReactElement }) {
+  return children(rest);
+}
+
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
@@ -214,11 +218,14 @@ const App: React.FC = () => {
         label="Phone Number"
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
-        {/* Demo only, real usage should wrap as custom component */}
-        <Space.Compact block>
-          {prefixSelector}
-          <Input style={{ width: '100%' }} />
-        </Space.Compact>
+        <Injector>
+          {(props) => (
+            <Space.Compact block>
+              {prefixSelector}
+              <Input style={{ width: '100%' }} {...props} />
+            </Space.Compact>
+          )}
+        </Injector>
       </Form.Item>
 
       <Form.Item
@@ -226,11 +233,14 @@ const App: React.FC = () => {
         label="Donation"
         rules={[{ required: true, message: 'Please input donation amount!' }]}
       >
-        {/* Demo only, real usage should wrap as custom component */}
-        <Space.Compact block>
-          <InputNumber style={{ width: '100%' }} />
-          {suffixSelector}
-        </Space.Compact>
+        <Injector>
+          {(props) => (
+            <Space.Compact block>
+              <InputNumber style={{ width: '100%' }} {...props} />
+              {suffixSelector}
+            </Space.Compact>
+          )}
+        </Injector>
       </Form.Item>
 
       <Form.Item
