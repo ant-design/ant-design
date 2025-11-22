@@ -161,7 +161,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
   const animating = React.useRef<boolean>(false);
-  const scrollRequestId = React.useRef<() => void>(null);
+  const scrollRequestId = React.useRef<(() => void) | null>(null);
 
   const {
     direction,
@@ -269,13 +269,6 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
     (link) => {
-      if (animating.current) {
-        if (activeLinkRef.current === link) {
-          return;
-        }
-        scrollRequestId.current?.();
-      }
-
       setCurrentActiveLink(link);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
@@ -284,6 +277,13 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       const targetElement = document.getElementById(sharpLinkMatch[1]);
       if (!targetElement) {
         return;
+      }
+
+      if (animating.current) {
+        if (activeLinkRef.current === link) {
+          return;
+        }
+        scrollRequestId.current?.();
       }
 
       const container = getCurrentContainer();
