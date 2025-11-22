@@ -19,6 +19,7 @@ import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBannerData } from '../../pages/index/components/util';
+import ChangeModal from '../common/ChangeModal';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
@@ -308,7 +309,10 @@ const GlobalLayout: React.FC = () => {
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
               <ConfigProvider {...componentsClassNames}>
-                <App>{outlet}</App>
+                <App>
+                  {outlet}
+                  <ChangeModal />
+                </App>
               </ConfigProvider>
             </HappyProvider>
           </SiteThemeProvider>
