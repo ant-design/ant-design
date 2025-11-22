@@ -79,7 +79,7 @@ const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const { styles } = useStyle();
-  const { theme } = React.use(SiteContext);
+  const { isDark } = React.use(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -225,9 +225,7 @@ const Overview: React.FC = () => {
                           <img
                             draggable={false}
                             src={
-                              theme.includes('dark') && component.coverDark
-                                ? component.coverDark
-                                : component.cover
+                              isDark && component.coverDark ? component.coverDark : component.cover
                             }
                             alt={component.title}
                           />

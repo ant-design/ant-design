@@ -65,17 +65,24 @@ const getSystemTheme = (): 'light' | 'dark' => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
+const isThemeDark = (theme: ThemeName[], systemTheme: 'dark' | 'light') => {
+  return theme.includes('dark') || (theme.includes('auto') && systemTheme === 'dark');
+};
+
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme = [], direction, isMobile, bannerVisible = false, dynamicTheme }, setSiteState] =
-    useLayoutState<SiteState>({
-      isMobile: false,
-      direction: 'ltr',
-      theme: [],
-      bannerVisible: false,
-      dynamicTheme: undefined,
-    });
+  const [
+    { theme = [], direction, isMobile, bannerVisible = false, dynamicTheme, isDark = false },
+    setSiteState,
+  ] = useLayoutState<SiteState>({
+    isMobile: false,
+    direction: 'ltr',
+    theme: [],
+    isDark: false,
+    bannerVisible: false,
+    dynamicTheme: undefined,
+  });
 
   const [storedTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
     defaultValue: undefined,
@@ -144,7 +151,7 @@ const GlobalLayout: React.FC = () => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
   }, [updateSiteConfig]);
 
-  // 设置 data-prefers-color 属性
+  // 设置 data-prefers-color 属性和 isDark 状态
   useEffect(() => {
     const color = theme.find((t) => t === 'light' || t === 'dark');
     const html = document.querySelector<HTMLHtmlElement>('html');
@@ -153,6 +160,8 @@ const GlobalLayout: React.FC = () => {
     } else if (color) {
       html?.setAttribute('data-prefers-color', color);
     }
+
+    setSiteState((prev) => ({ ...prev, isDark: isThemeDark(theme, systemTheme) }));
   }, [systemTheme, theme]);
 
   // 监听系统主题变化
@@ -180,6 +189,7 @@ const GlobalLayout: React.FC = () => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
+    const _isDark = isThemeDark(finalTheme, systemTheme);
 
     const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
 
@@ -189,6 +199,7 @@ const GlobalLayout: React.FC = () => {
 
     setSiteState({
       theme: finalTheme,
+      isDark: _isDark,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
     });
@@ -213,11 +224,12 @@ const GlobalLayout: React.FC = () => {
       direction,
       updateSiteConfig,
       theme: theme!,
+      isDark: isDark!,
       isMobile: isMobile!,
       bannerVisible,
       dynamicTheme,
     }),
-    [isMobile, direction, updateSiteConfig, theme, bannerVisible, dynamicTheme],
+    [isMobile, direction, updateSiteConfig, theme, isDark, bannerVisible, dynamicTheme],
   );
 
   const [themeConfig, componentsClassNames] = React.useMemo<
@@ -296,9 +308,7 @@ const GlobalLayout: React.FC = () => {
   ));
 
   return (
-    <DarkContext
-      value={theme.includes('dark') || (theme.includes('auto') && systemTheme === 'dark')}
-    >
+    <DarkContext value={isDark}>
       <StyleProvider
         cache={styleCache}
         layer
