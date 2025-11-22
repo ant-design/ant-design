@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import raf from 'rc-util/lib/raf';
+import raf from '@rc-component/util/lib/raf';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../../config-provider';
 import Input from '../Input';
@@ -78,9 +78,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         onKeyDown={onInternalKeyDown}
         onMouseDown={syncSelection}
         onMouseUp={syncSelection}
-        className={classNames(className, {
-          [`${prefixCls}-mask-input`]: mask,
-        })}
+        className={clsx(className, { [`${prefixCls}-mask-input`]: mask })}
       />
     </span>
   );

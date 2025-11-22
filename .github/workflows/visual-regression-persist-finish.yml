@@ -60,7 +60,7 @@ jobs:
     needs: [upstream-workflow-summary]
     steps:
       - name: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # checkout the head sha/branch that triggered this workflow
           ref: ${{ github.event.workflow_run.head_sha || github.event.workflow_run.head_branch}}

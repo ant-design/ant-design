@@ -2,12 +2,14 @@ import React from 'react';
 import Icon from '@ant-design/icons';
 import type { DirectionType } from 'antd/es/config-provider';
 
-interface DirectionIconProps {
+interface SvgIconProps {
   className?: string;
+  style?: React.CSSProperties;
+  ref?: React.Ref<HTMLSpanElement>;
   direction?: DirectionType;
 }
 
-const DirectionSvg: React.FC<DirectionIconProps> = ({ direction }) => (
+const DirectionSvg: React.FC<SvgIconProps> = ({ direction }) => (
   <svg
     viewBox="0 0 20 20"
     width="20"
@@ -20,8 +22,9 @@ const DirectionSvg: React.FC<DirectionIconProps> = ({ direction }) => (
   </svg>
 );
 
-const DirectionIcon = React.forwardRef<HTMLSpanElement, DirectionIconProps>((props, ref) => (
-  <Icon ref={ref} component={() => <DirectionSvg direction={props.direction} />} {...props} />
-));
+const DirectionIcon: React.FC<SvgIconProps> = (props) => {
+  const { ref, direction, ...rest } = props;
+  return <Icon component={() => <DirectionSvg direction={direction} />} ref={ref} {...rest} />;
+};
 
 export default DirectionIcon;

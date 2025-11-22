@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 
 import Sider from '../Sider';
 

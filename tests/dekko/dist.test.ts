@@ -11,6 +11,7 @@ $('dist')
   .hasFile('antd.js.map')
   .hasFile('antd.min.js')
   .hasFile('antd.min.js.map')
+  .hasFile('antd.css')
   .hasFile('reset.css');
 
 console.log(chalk.green('✨ `dist` directory is valid.'));

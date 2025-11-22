@@ -50,7 +50,7 @@ describe('notification.config', () => {
 
     for (let i = 0; i < 10; i += 1) {
       notification.open({
-        message: 'Notification message',
+        title: 'Notification message',
         key: i,
         duration: 999,
       });
@@ -70,7 +70,7 @@ describe('notification.config', () => {
 
     act(() => {
       notification.open({
-        message: 'Notification last',
+        title: 'Notification last',
         key: '11',
         duration: 999,
       });
@@ -109,7 +109,7 @@ describe('notification.config', () => {
       ),
     });
 
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
     expect(document.querySelectorAll('.anticon-close')).toHaveLength(0);
@@ -123,21 +123,21 @@ describe('notification.config', () => {
     ConfigProvider.config({
       holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
     });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelector('.ant-notification-rtl')).toBeTruthy();
 
     document.body.innerHTML = '';
     actDestroy();
     notification.config({ rtl: true });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelector('.ant-notification-rtl')).toBeTruthy();
 
     document.body.innerHTML = '';
     actDestroy();
     notification.config({ rtl: false });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelector('.ant-notification-rtl')).toBeFalsy();
 
@@ -149,7 +149,7 @@ describe('notification.config', () => {
     document.body.innerHTML = '';
     actDestroy();
     ConfigProvider.config({ prefixCls: 'prefix-1' });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelectorAll('.prefix-1-notification')).toHaveLength(1);
 
@@ -160,7 +160,7 @@ describe('notification.config', () => {
       prefixCls: 'prefix-1',
       holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
     });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelectorAll('.prefix-2-notification')).toHaveLength(1);
 
@@ -168,7 +168,7 @@ describe('notification.config', () => {
     document.body.innerHTML = '';
     actDestroy();
     notification.config({ prefixCls: 'prefix-3-notification' });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
     await awaitPromise();
     expect(document.querySelectorAll('.prefix-3-notification')).toHaveLength(1);
 
@@ -184,8 +184,8 @@ describe('notification.config', () => {
       holderRender: (children) => <App notification={{ maxCount: 1 }}>{children}</App>,
     });
 
-    notification.open({ message: 'Notification message' });
-    notification.open({ message: 'Notification message' });
+    notification.open({ title: 'Notification message' });
+    notification.open({ title: 'Notification message' });
 
     await awaitPromise();
 

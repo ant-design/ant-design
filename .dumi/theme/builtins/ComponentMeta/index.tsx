@@ -11,8 +11,8 @@ import {
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
+import copy from 'antd/es/_util/copy';
 import kebabCase from 'lodash/kebabCase';
-import CopyToClipboard from 'react-copy-to-clipboard';
 
 import useIssueCount from '../../../hooks/useIssueCount';
 import useLocale from '../../../hooks/useLocale';
@@ -61,20 +61,20 @@ const transformComponentName = (componentName: string) => {
   return componentName;
 };
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   code: css`
     cursor: pointer;
     position: relative;
     display: inline-flex;
     align-items: center;
-    column-gap: ${token.paddingXXS}px;
-    border-radius: ${token.borderRadiusSM}px;
-    padding-inline: ${token.paddingXXS}px !important;
-    transition: all ${token.motionDurationSlow} !important;
-    font-family: ${token.codeFamily};
-    color: ${token.colorTextSecondary} !important;
+    column-gap: ${cssVar.paddingXXS};
+    border-radius: ${cssVar.borderRadiusSM};
+    padding-inline: ${cssVar.paddingXXS} !important;
+    transition: all ${cssVar.motionDurationSlow} !important;
+    font-family: ${cssVar.codeFamily};
+    color: ${cssVar.colorTextSecondary} !important;
     &:hover {
-      background: ${token.controlItemBgHover};
+      background: ${cssVar.controlItemBgHover};
     }
     a&:hover {
       text-decoration: underline !important;
@@ -111,7 +111,13 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   // ========================= Copy =========================
   const [copied, setCopied] = React.useState(false);
 
-  const onCopy = () => {
+  const importCode =
+    component === 'Icon'
+      ? `import { AntDesignOutlined } from '@ant-design/icons';`
+      : `import { ${transformComponentName(component)} } from 'antd';`;
+
+  const onCopy = async () => {
+    await copy(importCode);
     setCopied(true);
   };
 
@@ -138,12 +144,6 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     return [source, source];
   }, [component, repo, source]);
 
-  // ======================== Render ========================
-  const importCode =
-    component === 'Icon'
-      ? `import { AntDesignOutlined } from '@ant-design/icons';`
-      : `import { ${transformComponentName(component)} } from 'antd';`;
-
   return (
     <Descriptions
       size="small"
@@ -156,17 +156,19 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           {
             label: locale.import,
             children: (
-              <CopyToClipboard text={importCode} onCopy={onCopy}>
-                <Tooltip
-                  placement="right"
-                  title={copied ? locale.copied : locale.copy}
-                  onOpenChange={onOpenChange}
+              <Tooltip
+                placement="right"
+                title={copied ? locale.copied : locale.copy}
+                onOpenChange={onOpenChange}
+              >
+                <Typography.Text
+                  className={styles.code}
+                  style={{ cursor: 'pointer' }}
+                  onClick={onCopy}
                 >
-                  <Typography.Text className={styles.code} onClick={onCopy}>
-                    {importCode}
-                  </Typography.Text>
-                </Tooltip>
-              </CopyToClipboard>
+                  {importCode}
+                </Typography.Text>
+              </Tooltip>
             ),
           },
           filledSource && {

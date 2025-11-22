@@ -46,6 +46,7 @@ export default {
     'Template Document': 3,
   },
   docVersions: {
+    '5.x': chineseMirror ? 'https://5x-ant-design.antgroup.com' : 'https://5x.ant.design',
     '4.x': chineseMirror ? 'https://4x-ant-design.antgroup.com' : 'https://4x.ant.design',
     '3.x': 'https://3x.ant.design',
     '2.x': 'https://2x.ant.design',

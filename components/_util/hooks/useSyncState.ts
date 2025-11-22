@@ -11,7 +11,6 @@ export const useSyncState = <T>(initialValue: T): UseSyncStateProps<T> => {
     () => ref.current,
     (newValue: T) => {
       ref.current = newValue;
-      // re-render
       forceUpdate();
     },
   ] as const;

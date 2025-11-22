@@ -1,4 +1,4 @@
-<Antd component="Alert" message="The following FAQ applies to Tooltip, Popconfirm, Popover components." type="warning" banner="true"></Antd>
+<Antd component="Alert" title="The following FAQ applies to Tooltip, Popconfirm, Popover components." type="warning" banner="true"></Antd>
 
 ### Why does the warning `findDOMNode is deprecated` sometimes appear in strict mode?
 

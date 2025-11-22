@@ -521,7 +521,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       verticalAlign: 'middle',
 
       '&-size-changer': {
-        display: 'inline-block',
         width: 'auto',
       },
 
@@ -626,8 +625,6 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
     [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
-      flexWrap: 'wrap',
-      rowGap: token.paddingXS,
 
       '&-start': {
         justifyContent: 'start',

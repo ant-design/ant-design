@@ -26,7 +26,7 @@ const App: React.FC = () => {
       options={options}
       style={{ width: 200 }}
       onSelect={onSelect}
-      onSearch={handleSearch}
+      showSearch={{ onSearch: handleSearch }}
     >
       <TextArea
         placeholder="input here"

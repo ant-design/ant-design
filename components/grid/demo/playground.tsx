@@ -8,9 +8,11 @@ const colCounts: Record<PropertyKey, number> = {};
 [8, 16, 24, 32, 40, 48].forEach((value, i) => {
   gutters[i] = value;
 });
+
 [8, 16, 24, 32, 40, 48].forEach((value, i) => {
   vgutters[i] = value;
 });
+
 [2, 3, 4, 6, 8, 12].forEach((value, i) => {
   colCounts[i] = value;
 });

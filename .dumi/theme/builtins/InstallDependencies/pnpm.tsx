@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 interface IconProps {
   className?: string;
@@ -21,7 +21,7 @@ const PnpmIcon: React.FC<IconProps> = (props) => {
   const { className, style } = props;
   const { styles } = useStyle();
   return (
-    <span className={classNames(styles.iconWrap, className)} style={style}>
+    <span className={clsx(styles.iconWrap, className)} style={style}>
       <svg
         aria-hidden="true"
         fill="#F69220"

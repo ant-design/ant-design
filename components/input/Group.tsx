@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
+import Space from '../space';
 import useStyle from './style';
 
 export interface GroupProps {
@@ -27,8 +28,8 @@ const Group: React.FC<GroupProps> = (props) => {
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(inputPrefixCls);
-  const cls = classNames(
+  const [hashId, cssVarCls] = useStyle(inputPrefixCls);
+  const cls = clsx(
     prefixCls,
     cssVarCls,
     {
@@ -57,19 +58,19 @@ const Group: React.FC<GroupProps> = (props) => {
     warning.deprecated(false, 'Input.Group', 'Space.Compact');
   }
 
-  return wrapCSSVar(
-    <span
-      className={cls}
-      style={props.style}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-    >
-      <FormItemInputContext.Provider value={groupFormItemContext}>
+  return (
+    <FormItemInputContext.Provider value={groupFormItemContext}>
+      <Space.Compact
+        className={cls}
+        style={props.style}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
+      >
         {props.children}
-      </FormItemInputContext.Provider>
-    </span>,
+      </Space.Compact>
+    </FormItemInputContext.Provider>
   );
 };
 

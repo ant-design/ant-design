@@ -1,48 +1,46 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+const genRTLStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+  const { componentCls, lineWidthBold } = token;
+
+  const itemCls = `${componentCls}-item`;
 
   return {
-    [`&${componentCls}-rtl`]: {
+    [`${componentCls}${componentCls}-rtl`]: {
       direction: 'rtl',
 
-      [`${componentCls}-item`]: {
-        '&-subtitle': {
-          float: 'left',
-        },
-      },
-
       // nav
-      [`&${componentCls}-navigation`]: {
-        [`${componentCls}-item::after`]: {
-          transform: 'rotate(-45deg)',
+      [`&${componentCls}-navigation${componentCls}-horizontal`]: {
+        [`${itemCls}:after`]: {
+          transform: 'translateY(-50%) rotate(-45deg)',
         },
       },
 
-      // vertical
-      [`&${componentCls}-vertical`]: {
-        [`> ${componentCls}-item`]: {
-          '&::after': {
-            transform: 'rotate(225deg)',
-          },
-          [`${componentCls}-item-icon`]: {
-            float: 'right',
+      // panel
+      [`&${componentCls}-panel`]: {
+        [`${componentCls}-panel-arrow`]: {
+          transform: `scaleX(-1)`,
+        },
+
+        [`&${componentCls}-filled`]: {
+          [itemCls]: {
+            '&:not(:first-child)': {
+              clipPath: `polygon(${[
+                `calc(0px - var(--steps-item-base-width)) 0px`,
+                `calc(100% - ${unit(lineWidthBold)}) 0px`,
+                `calc(100% - var(--steps-item-base-width) - ${unit(lineWidthBold)}) 50%`,
+                `calc(100% - ${unit(lineWidthBold)}) 100%`,
+                `calc(0px - var(--steps-item-base-width)) 100%`,
+              ].join(',')})`,
+            },
           },
         },
-      },
-
-      // progress-dot
-      [`&${componentCls}-dot`]: {
-        [`${componentCls}-item-icon ${componentCls}-icon-dot, &${componentCls}-small ${componentCls}-item-icon ${componentCls}-icon-dot`]:
-          {
-            float: 'right',
-          },
       },
     },
   };
 };
-export default genStepsRTLStyle;
+export default genRTLStyle;

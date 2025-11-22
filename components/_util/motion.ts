@@ -1,5 +1,9 @@
-import type { CSSMotionProps, MotionEndEventHandler, MotionEventHandler } from 'rc-motion';
-import type { MotionEvent } from 'rc-motion/lib/interface';
+import type {
+  CSSMotionProps,
+  MotionEndEventHandler,
+  MotionEventHandler,
+} from '@rc-component/motion';
+import type { MotionEvent } from '@rc-component/motion/lib/interface';
 
 import { defaultPrefixCls } from '../config-provider';
 

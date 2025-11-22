@@ -1,0 +1,37 @@
+import React from 'react';
+
+import Radio from '..';
+import { render } from '../../../tests/utils';
+
+describe('Radio.Semantic', () => {
+  it('should merge semantic styles with context styles', () => {
+    const customStyles = {
+      root: { padding: '10px' },
+    };
+    const { container } = render(
+      <Radio styles={customStyles} style={{ margin: '5px' }}>
+        Test
+      </Radio>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    expect(rootElement).toHaveStyle({ padding: '10px', margin: '5px' });
+  });
+
+  it('should apply semantic styles to radio without label', () => {
+    const customStyles = {
+      root: { backgroundColor: 'rgb(0, 0, 255)' },
+      icon: { backgroundColor: 'rgb(0, 128, 0)' },
+    };
+
+    const { container } = render(<Radio styles={customStyles} />);
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-radio-wrapper');
+    const iconElement = container.querySelector<HTMLElement>('.ant-radio');
+    const labelElement = container.querySelector<HTMLElement>('.ant-radio-label');
+
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toBeNull(); // No label element should exist
+  });
+});

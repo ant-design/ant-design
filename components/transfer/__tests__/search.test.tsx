@@ -89,7 +89,7 @@ describe('Transfer.Search', () => {
 
     fireEvent.change(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('input[type="text"]')!,
       { target: { value: 'a' } },
@@ -108,7 +108,7 @@ describe('Transfer.Search', () => {
     filterOption.mockReset();
     fireEvent.change(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(1)
         ?.querySelector('input[type="text"]')!,
       { target: { value: 'b' } },

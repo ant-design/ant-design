@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/fa_IR';
+import Pagination from '@rc-component/pagination/lib/locale/fa_IR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/fa_IR';
@@ -132,9 +132,6 @@ const localeValues: Locale = {
         mismatch: 'الگوی ${label} با ${pattern} برابری نمی‌کند',
       },
     },
-  },
-  Image: {
-    preview: 'پیش‌نمایش',
   },
   QRCode: {
     expired: 'کد QR منقضی شد',

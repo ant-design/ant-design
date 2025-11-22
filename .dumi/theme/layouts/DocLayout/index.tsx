@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
@@ -82,7 +82,7 @@ const DocLayout: React.FC = () => {
     if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
     }
-    if (pathname.startsWith('/theme-editor')) {
+    if (pathname.startsWith('/theme-editor') || pathname.startsWith('/theme-market')) {
       return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
@@ -94,7 +94,7 @@ const DocLayout: React.FC = () => {
         <html
           lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
-          className={classNames({ rtl: direction === 'rtl' })}
+          className={clsx({ rtl: direction === 'rtl' })}
         />
         <link
           sizes="144x144"

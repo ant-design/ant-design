@@ -2,7 +2,7 @@
 
 exports[`react router react router legacy 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
     <li>

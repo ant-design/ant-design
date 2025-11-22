@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { render } from '@testing-library/react';
+import { render, renderHook } from '@testing-library/react';
 
-import { useClosable } from '../hooks';
-import type { UseClosableParams } from '../hooks/useClosable';
-
-type ParamsOfUseClosable = [
-  closable: UseClosableParams['closable'],
-  closeIcon: UseClosableParams['closeIcon'],
-  defaultClosable: UseClosableParams['defaultClosable'],
-];
+import { computeClosable, useClosable, useOrientation } from '../hooks';
+import type { ClosableType, Orientation } from '../hooks';
 
 describe('hooks test', () => {
-  const useClosableParams: { params: ParamsOfUseClosable; res: [boolean, string] }[] = [
+  const useClosableParams: {
+    params: [closable?: ClosableType, closable?: React.ReactNode, defaultClosable?: boolean];
+    res: [boolean, string];
+  }[] = [
     // test case like: <Component />
     {
       params: [undefined, undefined, undefined],
@@ -185,6 +182,7 @@ describe('hooks test', () => {
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-icon')).toBeTruthy();
   });
+
   it('useClosable without defaultCloseIcon', () => {
     const App = () => {
       const [closable, closeIcon] = useClosable(
@@ -223,5 +221,112 @@ describe('hooks test', () => {
     };
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
+  });
+
+  const computeClosableParams: { params: any[]; res: [boolean, string] }[] = [
+    {
+      params: [
+        undefined,
+        {
+          closable: true,
+        },
+        undefined,
+      ],
+      res: [true, '.anticon-close'],
+    },
+    {
+      params: [
+        undefined,
+        {
+          closable: false,
+        },
+        undefined,
+      ],
+      res: [false, ''],
+    },
+    {
+      params: [
+        {
+          closable: false,
+        },
+        undefined,
+        undefined,
+      ],
+      res: [false, ''],
+    },
+  ];
+  computeClosableParams.forEach((item) => {
+    const params = item.params;
+    const res = item.res;
+    it(`useClosable with propCloseCollection=${JSON.stringify(params[0])} contextCloseCollection=${JSON.stringify(params[1])} fallbackCloseCollection=${params[2]} closeLabel=${params[3]} . the result should be ${JSON.stringify(res)}`, () => {
+      const App = () => {
+        const [closable, closeIcon] = computeClosable(params[0], params[1]);
+        useEffect(() => {
+          expect(closable).toBe(res[0]);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      if (res[1] === '') {
+        expect(container.querySelector('.anticon-close')).toBeFalsy();
+      } else {
+        expect(container.querySelector(res[1])).toBeTruthy();
+      }
+    });
+  });
+
+  describe('useOrientation', () => {
+    const testCases: Array<
+      [
+        params: [orientation?: Orientation, defaultVertical?: boolean, type?: Orientation],
+        expected: [Orientation, boolean],
+      ]
+    > = [
+      [['horizontal'], ['horizontal', false]],
+      [['vertical'], ['vertical', true]],
+
+      [
+        [undefined, true],
+        ['vertical', true],
+      ],
+      [
+        [undefined, true, 'horizontal'],
+        ['vertical', true],
+      ],
+
+      [
+        [undefined, undefined, 'horizontal'],
+        ['horizontal', false],
+      ],
+      [
+        [undefined, undefined, 'vertical'],
+        ['vertical', true],
+      ],
+
+      [
+        [undefined, false, 'vertical'],
+        ['horizontal', false],
+      ],
+      [
+        [undefined, false],
+        ['horizontal', false],
+      ],
+
+      [
+        ['horizontal', true],
+        ['horizontal', false],
+      ],
+      [
+        ['vertical', false],
+        ['vertical', true],
+      ],
+      [[], ['horizontal', false]],
+      [['invalid'] as any, ['horizontal', false]],
+    ];
+
+    it.each(testCases)('with args %j should return %s', (params, expected) => {
+      const { result } = renderHook(() => useOrientation(...params));
+      expect(result.current).toEqual(expected);
+    });
   });
 });

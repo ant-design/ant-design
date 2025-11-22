@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import SiteContext from '../../../theme/slots/SiteContext';
 import GroupMaskLayer from './GroupMaskLayer';
 
-const useStyle = createStyles(({ css, token }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   box: css`
     position: relative;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
   `,
   container: css`
     position: absolute;
@@ -23,11 +23,11 @@ const useStyle = createStyles(({ css, token }) => ({
     max-width: 1208px;
     margin-inline: auto;
     box-sizing: border-box;
-    padding-inline: ${token.marginXXL}px;
+    padding-inline: ${cssVar.marginXXL};
   `,
   withoutChildren: css`
     min-height: 300px;
-    border-radius: ${token.borderRadiusLG}px;
+    border-radius: ${cssVar.borderRadiusLG};
     background-color: '#e9e9e9';
   `,
 }));
@@ -74,7 +74,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
             {description}
           </Typography.Paragraph>
         </div>
-        <div className={classNames({ [styles.marginStyle]: !collapse })}>
+        <div className={clsx({ [styles.marginStyle]: !collapse })}>
           {children ? <div>{children}</div> : <div className={styles.withoutChildren} />}
         </div>
       </GroupMaskLayer>

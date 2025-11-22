@@ -41,13 +41,13 @@ const dataTransform = (rootData: BehaviorMapItem) => {
   return changeData(rootData);
 };
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   container: css`
     width: 100%;
     height: 600px;
     background-color: #f5f5f5;
     border: 1px solid #e8e8e8;
-    border-radius: ${token.borderRadiusLG}px;
+    border-radius: ${cssVar.borderRadiusLG};
     overflow: hidden;
     position: relative;
   `,
@@ -55,7 +55,7 @@ const useStyle = createStyles(({ token }) => ({
     position: absolute;
     top: 20px;
     inset-inline-start: 20px;
-    font-size: ${token.fontSizeLG}px;
+    font-size: ${cssVar.fontSizeLG};
   `,
   tips: css`
     display: flex;
@@ -64,14 +64,14 @@ const useStyle = createStyles(({ token }) => ({
     inset-inline-end: 20px;
   `,
   mvp: css`
-    margin-inline-end: ${token.marginMD}px;
+    margin-inline-end: ${cssVar.marginMD};
     display: flex;
     align-items: center;
     &::before {
       display: block;
       width: 8px;
       height: 8px;
-      margin-inline-end: ${token.marginXS}px;
+      margin-inline-end: ${cssVar.marginXS};
       background-color: #1677ff;
       border-radius: 50%;
       content: '';
@@ -84,7 +84,7 @@ const useStyle = createStyles(({ token }) => ({
       display: block;
       width: 8px;
       height: 8px;
-      margin-inline-end: ${token.marginXS}px;
+      margin-inline-end: ${cssVar.marginXS};
       background-color: #a0a0a0;
       border-radius: 50%;
       content: '';

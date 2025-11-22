@@ -2,10 +2,10 @@
 
 exports[`renders components/skeleton/demo/active.tsx extend context correctly 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-active"
+  class="ant-skeleton ant-skeleton-active css-var-test-id"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -28,10 +28,10 @@ exports[`renders components/skeleton/demo/active.tsx extend context correctly 2`
 
 exports[`renders components/skeleton/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-test-id"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -54,7 +54,7 @@ exports[`renders components/skeleton/demo/basic.tsx extend context correctly 2`]
 
 exports[`renders components/skeleton/demo/children.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap: 16px; row-gap: 16px; width: 100%;"
 >
   <div
@@ -73,7 +73,7 @@ exports[`renders components/skeleton/demo/children.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -88,7 +88,7 @@ exports[`renders components/skeleton/demo/children.tsx extend context correctly 
 
 exports[`renders components/skeleton/demo/complex.tsx extend context correctly 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-test-id"
 >
   <div
     class="ant-skeleton-header"
@@ -98,7 +98,7 @@ exports[`renders components/skeleton/demo/complex.tsx extend context correctly 1
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -120,10 +120,10 @@ exports[`renders components/skeleton/demo/complex.tsx extend context correctly 2
 
 exports[`renders components/skeleton/demo/componentToken.tsx extend context correctly 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-active"
+  class="ant-skeleton ant-skeleton-active css-var-test-id"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -146,16 +146,16 @@ exports[`renders components/skeleton/demo/componentToken.tsx extend context corr
 
 exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-element"
+        class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <span
           class="ant-skeleton-button"
@@ -166,7 +166,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-element"
+        class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <span
           class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -177,7 +177,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-element"
+        class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <span
           class="ant-skeleton-input"
@@ -186,27 +186,27 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-skeleton ant-skeleton-element"
+    class="ant-skeleton ant-skeleton-element css-var-test-id"
   >
     <span
       class="ant-skeleton-button"
     />
   </div>
   <div
-    class="ant-skeleton ant-skeleton-element"
+    class="ant-skeleton ant-skeleton-element css-var-test-id"
   >
     <span
       class="ant-skeleton-input"
     />
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-element"
+        class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <div
           class="ant-skeleton-image"
@@ -231,10 +231,10 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-element"
+        class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <div
-          class="ant-skeleton-image"
+          class="ant-skeleton-node"
           style="width: 160px;"
         />
       </div>
@@ -243,10 +243,10 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-element"
+        class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <div
-          class="ant-skeleton-image"
+          class="ant-skeleton-node"
         >
           <span
             aria-label="dot-chart"
@@ -273,28 +273,28 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />
   <form
-    class="ant-form ant-form-inline"
+    class="ant-form ant-form-inline css-var-test-id ant-form-css-var"
     style="margin: 16px 0px;"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
       style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
     >
       <div
         class="ant-space-item"
       >
         <div
-          class="ant-form-item ant-form-item-inline"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
         >
           <div
-            class="ant-row ant-form-item-row"
+            class="ant-row ant-form-item-row css-var-test-id"
           >
             <div
-              class="ant-col ant-form-item-label"
+              class="ant-col ant-form-item-label css-var-test-id"
             >
               <label
                 class=""
@@ -304,7 +304,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
               </label>
             </div>
             <div
-              class="ant-col ant-form-item-control"
+              class="ant-col ant-form-item-control css-var-test-id"
             >
               <div
                 class="ant-form-item-control-input"
@@ -314,7 +314,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                 >
                   <button
                     aria-checked="false"
-                    class="ant-switch"
+                    class="ant-switch css-var-test-id"
                     role="switch"
                     type="button"
                   >
@@ -342,13 +342,13 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item ant-form-item-inline"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
         >
           <div
-            class="ant-row ant-form-item-row"
+            class="ant-row ant-form-item-row css-var-test-id"
           >
             <div
-              class="ant-col ant-form-item-label"
+              class="ant-col ant-form-item-label css-var-test-id"
             >
               <label
                 class=""
@@ -358,7 +358,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
               </label>
             </div>
             <div
-              class="ant-col ant-form-item-control"
+              class="ant-col ant-form-item-control css-var-test-id"
             >
               <div
                 class="ant-form-item-control-input"
@@ -368,7 +368,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                 >
                   <button
                     aria-checked="false"
-                    class="ant-switch"
+                    class="ant-switch css-var-test-id"
                     role="switch"
                     type="button"
                   >
@@ -396,13 +396,13 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item ant-form-item-inline"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
         >
           <div
-            class="ant-row ant-form-item-row"
+            class="ant-row ant-form-item-row css-var-test-id"
           >
             <div
-              class="ant-col ant-form-item-label"
+              class="ant-col ant-form-item-label css-var-test-id"
             >
               <label
                 class=""
@@ -412,7 +412,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
               </label>
             </div>
             <div
-              class="ant-col ant-form-item-control"
+              class="ant-col ant-form-item-control css-var-test-id"
             >
               <div
                 class="ant-form-item-control-input"
@@ -421,10 +421,10 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline"
+                    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
                   >
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button ant-radio-button-checked"
@@ -447,7 +447,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button"
@@ -469,7 +469,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button"
@@ -501,13 +501,13 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item ant-form-item-inline"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
         >
           <div
-            class="ant-row ant-form-item-row"
+            class="ant-row ant-form-item-row css-var-test-id"
           >
             <div
-              class="ant-col ant-form-item-label"
+              class="ant-col ant-form-item-label css-var-test-id"
             >
               <label
                 class=""
@@ -517,7 +517,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
               </label>
             </div>
             <div
-              class="ant-col ant-form-item-control"
+              class="ant-col ant-form-item-control css-var-test-id"
             >
               <div
                 class="ant-form-item-control-input"
@@ -526,10 +526,10 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline"
+                    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
                   >
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button ant-radio-button-checked"
@@ -552,7 +552,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button"
@@ -574,7 +574,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button"
@@ -596,7 +596,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button"
@@ -628,13 +628,13 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item ant-form-item-inline"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
         >
           <div
-            class="ant-row ant-form-item-row"
+            class="ant-row ant-form-item-row css-var-test-id"
           >
             <div
-              class="ant-col ant-form-item-label"
+              class="ant-col ant-form-item-label css-var-test-id"
             >
               <label
                 class=""
@@ -644,7 +644,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
               </label>
             </div>
             <div
-              class="ant-col ant-form-item-control"
+              class="ant-col ant-form-item-control css-var-test-id"
             >
               <div
                 class="ant-form-item-control-input"
@@ -653,10 +653,10 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline"
+                    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
                   >
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button"
@@ -678,7 +678,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
                         class="ant-radio-button ant-radio-button-checked"
@@ -718,7 +718,7 @@ exports[`renders components/skeleton/demo/list.tsx extend context correctly 1`] 
 Array [
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     style="margin-bottom: 16px;"
     type="button"
@@ -738,10 +738,10 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-list ant-list-vertical ant-list-lg ant-list-split"
+    class="ant-list ant-list-vertical ant-list-lg ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -753,7 +753,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <div
-              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
             >
               <div
                 class="ant-skeleton-header"
@@ -763,7 +763,7 @@ Array [
                 />
               </div>
               <div
-                class="ant-skeleton-content"
+                class="ant-skeleton-section"
               >
                 <h3
                   class="ant-skeleton-title"
@@ -782,7 +782,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <div
-              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
             >
               <div
                 class="ant-skeleton-header"
@@ -792,7 +792,7 @@ Array [
                 />
               </div>
               <div
-                class="ant-skeleton-content"
+                class="ant-skeleton-section"
               >
                 <h3
                   class="ant-skeleton-title"
@@ -811,7 +811,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <div
-              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
             >
               <div
                 class="ant-skeleton-header"
@@ -821,7 +821,7 @@ Array [
                 />
               </div>
               <div
-                class="ant-skeleton-content"
+                class="ant-skeleton-section"
               >
                 <h3
                   class="ant-skeleton-title"
@@ -843,4 +843,59 @@ Array [
 ]
 `;
 
-exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <div
+    class="ant-skeleton ant-skeleton-with-avatar acss-1080ep8 css-var-test-id"
+  >
+    <div
+      class="acss-1upilqn ant-skeleton-header"
+    >
+      <span
+        class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
+        style="border: 1px solid rgb(170, 170, 170);"
+      />
+    </div>
+    <div
+      class="ant-skeleton-section"
+    >
+      <h3
+        class="ant-skeleton-title"
+        style="border: 1px solid rgb(170, 170, 170);"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-skeleton ant-skeleton-active acss-1080ep8 css-var-test-id"
+    style="border: 1px solid rgba(229, 243, 254, 0.3);"
+  >
+    <div
+      class="ant-skeleton-section"
+    >
+      <h3
+        class="ant-skeleton-title"
+        style="width: 38%; background-color: rgba(229, 243, 254, 0.5); height: 20px; border-radius: 20px;"
+      />
+      <ul
+        class="ant-skeleton-paragraph acss-7yt14g"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 2`] = `[]`;

@@ -181,3 +181,8 @@ export const operationUnit = (token: AliasToken): CSSObject => ({
     textDecoration: token.linkHoverDecoration,
   },
 });
+
+export const blurMaskStyle = {
+  backdropFilter: 'blur(4px)',
+  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+};

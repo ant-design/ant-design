@@ -93,7 +93,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
       textAlign: 'center',
     },
 
-    [`${componentCls} ${componentCls}-content`]: {
+    [`${componentCls} ${componentCls}-body`]: {
       marginTop: paddingLG,
       padding: `${unit(paddingLG)} ${unit(token.calc(padding).mul(2.5).equal())}`,
       backgroundColor: token.colorFillAlter,

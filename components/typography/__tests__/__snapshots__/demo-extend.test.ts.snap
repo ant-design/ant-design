@@ -2,24 +2,24 @@
 
 exports[`renders components/typography/demo/basic.tsx extend context correctly 1`] = `
 <article
-  class="ant-typography"
+  class="ant-typography css-var-test-id"
 >
   <h1
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Introduction
   </h1>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <strong>
         uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
@@ -28,16 +28,16 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     .
   </div>
   <h2
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Guidelines and Resources
   </h2>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     We supply a series of design principles, practical patterns and high quality design resources (
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Sketch
@@ -45,7 +45,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </span>
      and 
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Axure
@@ -54,12 +54,12 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     ), to help people create their product prototypes beautifully and efficiently.
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <ul>
       <li>
         <a
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
           href="/docs/spec/proximity"
         >
           Principles
@@ -67,7 +67,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
           href="/docs/spec/overview"
         >
           Patterns
@@ -75,7 +75,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
           href="/docs/resources"
         >
           Resource Download
@@ -84,11 +84,11 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </ul>
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Press 
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <kbd>
         Esc
@@ -97,25 +97,25 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
      to exit...
   </div>
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />
   <h1
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     介绍
   </h1>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <mark>
         『确定』和『自然』
@@ -123,7 +123,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </span>
     的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <strong>
         更好的用户体验
@@ -132,16 +132,16 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     。
   </div>
   <h2
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     设计资源
   </h2>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     我们提供完善的设计原则、最佳实践和设计资源文件（
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Sketch
@@ -149,7 +149,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </span>
      和
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Axure
@@ -158,12 +158,12 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     ），来帮助业务快速设计出高质量的产品原型。
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <ul>
       <li>
         <a
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
           href="/docs/spec/proximity-cn"
         >
           设计原则
@@ -171,7 +171,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
           href="/docs/spec/overview-cn"
         >
           设计模式
@@ -179,7 +179,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
           href="/docs/resources-cn"
         >
           设计资源
@@ -188,7 +188,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </ul>
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <blockquote>
       AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
@@ -200,11 +200,11 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </pre>
   </div>
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     按
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <kbd>
         Esc
@@ -220,19 +220,19 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 2
 exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 1`] = `
 Array [
   <article
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <h1
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Introduction
     </h1>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <strong>
           uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
@@ -241,16 +241,16 @@ Array [
       .
     </div>
     <h2
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Guidelines and Resources
     </h2>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       We supply a series of design principles, practical patterns and high quality design resources (
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <code>
           Sketch
@@ -258,7 +258,7 @@ Array [
       </span>
        and 
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <code>
           Axure
@@ -267,12 +267,12 @@ Array [
       ), to help people create their product prototypes beautifully and efficiently.
     </div>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <ul>
         <li>
           <a
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
             href="/docs/spec/proximity"
           >
             Principles
@@ -280,7 +280,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
             href="/docs/spec/overview"
           >
             Patterns
@@ -288,7 +288,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
             href="/docs/resources"
           >
             Resource Download
@@ -297,11 +297,11 @@ Array [
       </ul>
     </div>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Press 
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <kbd>
           Esc
@@ -310,20 +310,20 @@ Array [
        to exit...
     </div>
     <div
-      class="ant-divider ant-divider-horizontal"
+      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
       role="separator"
     />
     <h1
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       介绍
     </h1>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <mark>
           『确定』和『自然』
@@ -331,7 +331,7 @@ Array [
       </span>
       的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <strong>
           更好的用户体验
@@ -340,16 +340,16 @@ Array [
       。
     </div>
     <h2
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       设计资源
     </h2>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       我们提供完善的设计原则、最佳实践和设计资源文件（
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <code>
           Sketch
@@ -357,7 +357,7 @@ Array [
       </span>
        和
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <code>
           Axure
@@ -366,12 +366,12 @@ Array [
       ），来帮助业务快速设计出高质量的产品原型。
     </div>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <ul>
         <li>
           <a
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
             href="/docs/spec/proximity-cn"
           >
             设计原则
@@ -379,7 +379,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
             href="/docs/spec/overview-cn"
           >
             设计模式
@@ -387,7 +387,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
             href="/docs/resources-cn"
           >
             设计资源
@@ -396,7 +396,7 @@ Array [
       </ul>
     </div>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <blockquote>
         AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
@@ -408,11 +408,11 @@ Array [
       </pre>
     </div>
     <div
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       按
       <span
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         <kbd>
           Esc
@@ -422,17 +422,17 @@ Array [
     </div>
   </article>,
   <span
-    class="ant-typography ant-typography-success"
+    class="ant-typography ant-typography-success css-var-test-id"
   >
     Success but red
   </span>,
   <span
-    class="ant-typography ant-typography-warning"
+    class="ant-typography ant-typography-warning css-var-test-id"
   >
     Warning but green
   </span>,
   <span
-    class="ant-typography ant-typography-danger"
+    class="ant-typography ant-typography-danger css-var-test-id"
   >
     Danger but blue
   </span>,
@@ -444,7 +444,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
 exports[`renders components/typography/demo/copyable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     This is a copyable text.
     <button
@@ -474,28 +474,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Replace copy text.
     <button
@@ -525,28 +525,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Custom Copy icon and replace tooltips text.
     <button
@@ -576,28 +576,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          click here
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        click here
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Hide Copy tooltips.
     <button
@@ -627,26 +627,26 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
+        <span
+          class="ant-tooltip-arrow-content"
         />
       </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      />
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Request copy text.
     <button
@@ -676,28 +676,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </div>,
   <span
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <button
       aria-describedby="test-id"
@@ -726,23 +726,23 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </span>,
@@ -754,7 +754,7 @@ exports[`renders components/typography/demo/copyable.tsx extend context correctl
 exports[`renders components/typography/demo/editable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     This is an editable text.
     <button
@@ -784,29 +784,29 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </div>,
   <div
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
   >
     This is a loooooooooooooooooooooooooooooooong editable text with suffix.
     <button
@@ -836,28 +836,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Custom Edit icon and replace tooltip text.
     <button
@@ -887,32 +887,32 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          click to edit text
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        click to edit text
       </div>
     </div>
   </div>,
   Trigger edit with: ,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -935,7 +935,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -957,7 +957,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -980,7 +980,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Text or icon as trigger - click to start editing.
     <button
@@ -1010,28 +1010,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          click to edit text
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        click to edit text
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Editable text with a custom enter icon in edit field.
     <button
@@ -1061,28 +1061,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          click to edit text
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        click to edit text
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Editable text with no enter icon in edit field.
     <button
@@ -1112,28 +1112,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          click to edit text
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        click to edit text
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Hide Edit tooltip.
     <button
@@ -1163,26 +1163,26 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
+        <span
+          class="ant-tooltip-arrow-content"
         />
       </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      />
     </div>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     This is an editable text with limited length.
     <button
@@ -1212,28 +1212,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </div>,
   <h1
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h1. Ant Design
@@ -1264,28 +1264,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </h1>,
   <h2
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h2. Ant Design
@@ -1316,28 +1316,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </h2>,
   <h3
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h3. Ant Design
@@ -1368,28 +1368,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </h3>,
   <h4
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h4. Ant Design
@@ -1420,28 +1420,28 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </h4>,
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h5. Ant Design
@@ -1472,23 +1472,23 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Edit
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Edit
       </div>
     </div>
   </h5>,
@@ -1501,7 +1501,7 @@ exports[`renders components/typography/demo/ellipsis.tsx extend context correctl
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -1520,47 +1520,47 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style=""
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
     aria-describedby="test-id"
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
     style="width: 200px;"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
   </span>,
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        I am ellipsis now!
-      </div>
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      I am ellipsis now!
     </div>
   </div>,
   <span
     aria-describedby="test-id"
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
     style="width: 200px;"
   >
     <code>
@@ -1568,23 +1568,23 @@ Array [
     </code>
   </span>,
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-inner"
-        id="test-id"
-        role="tooltip"
-      >
-        I am ellipsis now!
-      </div>
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      I am ellipsis now!
     </div>
   </div>,
 ]
@@ -1594,16 +1594,16 @@ exports[`renders components/typography/demo/ellipsis.tsx extend context correctl
 
 exports[`renders components/typography/demo/ellipsis-controlled.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 16px;"
 >
   <div
-    class="ant-flex ant-flex-align-center"
+    class="ant-flex css-var-test-id ant-flex-align-center"
     style="gap: 16px;"
   >
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       style="flex: 0 0 auto;"
       type="button"
@@ -1623,7 +1623,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
       </span>
     </button>
     <div
-      class="ant-slider ant-slider-horizontal"
+      class="ant-slider css-var-test-id ant-slider-horizontal"
       style="flex: 1 1 auto;"
     >
       <div
@@ -1649,30 +1649,30 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-inner"
-            id="test-id"
-            role="tooltip"
-          >
-            2
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          2
         </div>
       </div>
     </div>
   </div>
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style=""
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
@@ -1703,23 +1703,23 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </div>
@@ -1732,7 +1732,7 @@ exports[`renders components/typography/demo/ellipsis-debug.tsx extend context co
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -1754,7 +1754,7 @@ Array [
   </button>,
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -1774,7 +1774,7 @@ Array [
   </button>,
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -1794,7 +1794,7 @@ Array [
   </button>,
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -1813,7 +1813,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1838,32 +1838,32 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          1
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        1
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         <del>
@@ -1877,7 +1877,7 @@ Array [
   </div>,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style="max-width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -1908,30 +1908,30 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </span>,
   <br />,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style="max-width: 400px; font-size: 12px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -1962,30 +1962,30 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </span>,
   <br />,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style="width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -2016,30 +2016,30 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </span>,
   <br />,
   <span
     aria-label="Ant Design is a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style="width: 100px;"
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
@@ -2070,30 +2070,30 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </span>,
   <p>
     [Before]
     <span
-      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
     >
       not ellipsis
     </span>
@@ -2104,34 +2104,34 @@ Array [
   >
     <span
       aria-describedby="test-id"
-      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
       style="width: 100px;"
     >
       默认 display none 样式的超长文字， 悬停 tooltip 失效了
     </span>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          I am ellipsis now!
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        I am ellipsis now!
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style="width: 300px;"
   >
     In the process of internal desktop applications development,
@@ -2150,7 +2150,7 @@ Array [
     - render like this
     - and this
   and that"
-      class="ant-typography ant-typography-ellipsis"
+      class="ant-typography ant-typography-ellipsis css-var-test-id"
       style=""
     >
       this is a multiline
@@ -2164,7 +2164,7 @@ Array [
   <br />,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     style="width: 100px; white-space: nowrap;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -2195,23 +2195,23 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          Copy
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        Copy
       </div>
     </div>
   </span>,
@@ -2223,7 +2223,7 @@ exports[`renders components/typography/demo/ellipsis-debug.tsx extend context co
 exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 1`] = `
 <span
   aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of "
-  class="ant-typography ant-typography-ellipsis"
+  class="ant-typography ant-typography-ellipsis css-var-test-id"
   style="max-width: 100%;"
 >
   In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -2235,21 +2235,21 @@ exports[`renders components/typography/demo/ellipsis-middle.tsx extend context c
 exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 1`] = `
 Array [
   <h1
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Introduction
   </h1>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <strong>
         uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
@@ -2258,16 +2258,16 @@ Array [
     .
   </div>,
   <h2
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Guidelines and Resources
   </h2>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     We supply a series of design principles, practical patterns and high quality design resources (
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Sketch
@@ -2275,7 +2275,7 @@ Array [
     </span>
      and 
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Axure
@@ -2284,7 +2284,7 @@ Array [
     ), to help people create their product prototypes beautifully and efficiently.
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <ul>
       <li>
@@ -2311,22 +2311,22 @@ Array [
     </ul>
   </div>,
   <h1
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
     id="intro"
   >
     介绍
   </h1>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <mark>
         『确定』和『自然』
@@ -2334,7 +2334,7 @@ Array [
     </span>
     的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <strong>
         更好的用户体验
@@ -2343,16 +2343,16 @@ Array [
     。
   </div>,
   <h2
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     设计资源
   </h2>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     我们提供完善的设计原则、最佳实践和设计资源文件（
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Sketch
@@ -2360,7 +2360,7 @@ Array [
     </span>
      和
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Axure
@@ -2369,7 +2369,7 @@ Array [
     ），来帮助业务快速设计出高质量的产品原型。
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <ul>
       <li>
@@ -2396,7 +2396,7 @@ Array [
     </ul>
   </div>,
   <div
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     <ul>
       <li>
@@ -2438,7 +2438,7 @@ exports[`renders components/typography/demo/paragraph-debug.tsx extend context c
 exports[`renders components/typography/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -2463,29 +2463,29 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
       >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        >
-          1
-        </div>
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-container"
+        id="test-id"
+        role="tooltip"
+      >
+        1
       </div>
     </div>
   </div>,
   <div
     aria-label="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life"
-    class="ant-typography ant-typography-ellipsis"
+    class="ant-typography ant-typography-ellipsis css-var-test-id"
     title="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
     To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
@@ -2497,13 +2497,13 @@ exports[`renders components/typography/demo/suffix.tsx extend context correctly 
 
 exports[`renders components/typography/demo/text.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Ant Design (default)
     </span>
@@ -2512,7 +2512,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography ant-typography-secondary"
+      class="ant-typography ant-typography-secondary css-var-test-id"
     >
       Ant Design (secondary)
     </span>
@@ -2521,7 +2521,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography ant-typography-success"
+      class="ant-typography ant-typography-success css-var-test-id"
     >
       Ant Design (success)
     </span>
@@ -2530,7 +2530,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography ant-typography-warning"
+      class="ant-typography ant-typography-warning css-var-test-id"
     >
       Ant Design (warning)
     </span>
@@ -2539,7 +2539,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography ant-typography-danger"
+      class="ant-typography ant-typography-danger css-var-test-id"
     >
       Ant Design (danger)
     </span>
@@ -2548,7 +2548,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography ant-typography-disabled"
+      class="ant-typography ant-typography-disabled css-var-test-id"
     >
       Ant Design (disabled)
     </span>
@@ -2557,7 +2557,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <mark>
         Ant Design (mark)
@@ -2568,7 +2568,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <code>
         Ant Design (code)
@@ -2579,7 +2579,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <kbd>
         Ant Design (keyboard)
@@ -2590,7 +2590,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <u>
         Ant Design (underline)
@@ -2601,7 +2601,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <del>
         Ant Design (delete)
@@ -2612,7 +2612,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <strong>
         Ant Design (strong)
@@ -2623,7 +2623,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <i>
         Ant Design (italic)
@@ -2634,7 +2634,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
       href="https://ant.design"
       rel="noopener noreferrer"
       target="_blank"
@@ -2650,27 +2650,27 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 2`
 exports[`renders components/typography/demo/title.tsx extend context correctly 1`] = `
 Array [
   <h1
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     h1. Ant Design
   </h1>,
   <h2
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     h2. Ant Design
   </h2>,
   <h3
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     h3. Ant Design
   </h3>,
   <h4
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     h4. Ant Design
   </h4>,
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     h5. Ant Design
   </h5>,

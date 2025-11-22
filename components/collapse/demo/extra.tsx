@@ -9,13 +9,12 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-type ExpandIconPosition = 'start' | 'end';
-
 const App: React.FC = () => {
-  const [expandIconPosition, setExpandIconPosition] = useState<ExpandIconPosition>('start');
+  const [expandIconPlacement, setExpandIconPlacement] =
+    useState<CollapseProps['expandIconPlacement']>('start');
 
-  const onPositionChange = (newExpandIconPosition: ExpandIconPosition) => {
-    setExpandIconPosition(newExpandIconPosition);
+  const onPlacementChange = (newExpandIconPlacement: CollapseProps['expandIconPlacement']) => {
+    setExpandIconPlacement(newExpandIconPlacement);
   };
 
   const onChange = (key: string | string[]) => {
@@ -57,15 +56,15 @@ const App: React.FC = () => {
       <Collapse
         defaultActiveKey={['1']}
         onChange={onChange}
-        expandIconPosition={expandIconPosition}
+        expandIconPlacement={expandIconPlacement}
         items={items}
       />
       <br />
-      <span>Expand Icon Position: </span>
+      <span>Expand Icon Placement: </span>
       <Select
-        value={expandIconPosition}
+        value={expandIconPlacement}
         style={{ margin: '0 8px' }}
-        onChange={onPositionChange}
+        onChange={onPlacementChange}
         options={[
           { label: 'start', value: 'start' },
           { label: 'end', value: 'end' },

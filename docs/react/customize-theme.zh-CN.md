@@ -8,7 +8,7 @@ title: 定制主题
 
 Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制。
 
-在 5.0 版本的 Ant Design 中，我们提供了一套全新的定制主题方案。不同于 4.x 版本的 less 和 CSS 变量，有了 CSS-in-JS 的加持后，动态主题的能力也得到了加强，包括但不限于：
+自从 5.0 版本以来，我们提供了一套全新的定制主题方案。不同于 4.x 版本的 less 和 CSS 变量，有了 CSS-in-JS 的加持后，动态主题的能力也得到了加强，包括但不限于：
 
 1. 支持动态切换主题；
 2. 支持同时存在多个主题；
@@ -17,7 +17,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ## 配置主题
 
-在 5.0 版本中我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。在升级 v5 后，将默认使用 v5 的主题。
+我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。
 
 <!-- prettier-ignore -->
 :::warning
@@ -64,7 +64,7 @@ export default App;
 
 ### 使用预设算法
 
-通过修改算法可以快速生成风格迥异的主题，5.0 版本中默认提供三套预设算法，分别是:
+通过修改算法可以快速生成风格迥异的主题，我们默认提供三套预设算法，分别是:
 
 - 默认算法 `theme.defaultAlgorithm`
 - 暗色算法 `theme.darkAlgorithm`
@@ -434,14 +434,15 @@ const theme = {
 
 ### Theme
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| token | 用于修改 Design Token | `AliasToken` | - |
-| inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |
-| algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
-| components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |
-| cssVar | 开启 CSS 变量，参考[使用 CSS 变量](/docs/react/css-variables-cn#api) | `boolean \| { prefix?: string; key?: string }` | false |
-| hashed | 组件 class Hash 值，参考[使用 CSS 变量](/docs/react/css-variables-cn#关闭-hash) | boolean | true |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| token | 用于修改 Design Token | `AliasToken` | - |  |
+| inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |  |
+| algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
+| components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |  |
+| cssVar | CSS 变量配置，参考[使用 CSS 变量](/docs/react/css-variables-cn#api) | `{ prefix?: string; key?: string }` | false |  |
+| hashed | 组件 class Hash 值，参考[使用 CSS 变量](/docs/react/css-variables-cn#关闭-hash) | boolean | true |  |
+| zeroRuntime | 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件 | boolean | true | 6.0.0 |
 
 ### ComponentsConfig
 
