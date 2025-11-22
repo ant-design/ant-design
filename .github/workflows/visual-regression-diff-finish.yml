@@ -112,7 +112,7 @@ jobs:
           echo "✅ Uncompress Finished"
 
           rm package.json
-          ut i ali-oss -g
+          npm i ali-oss --no-save
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
