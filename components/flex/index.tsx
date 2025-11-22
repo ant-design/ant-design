@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import { isPresetSize } from '../_util/gapSize';
 import { useOrientation } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
@@ -58,7 +59,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
     mergedStyle.flex = flex;
   }
 
-  if (gap && !isPresetSize(gap)) {
+  if (isNonNullable(gap) && !isPresetSize(gap)) {
     mergedStyle.gap = gap;
   }
 
