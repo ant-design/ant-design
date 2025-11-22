@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
@@ -67,7 +67,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
 
-  const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
   const {
     node: liveDemoNode,
@@ -104,10 +103,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   }, [expand]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
-  const demoUrlWithTheme = `${demoUrl}${isDark ? '?theme=dark' : ''}`;
+  const demoUrlWithTheme = useMemo(() => {
+    return `${demoUrl}${isDark ? '?theme=dark' : ''}`;
+  }, [demoUrl, isDark]);
 
-  if (!previewDemo.current) {
-    previewDemo.current = iframe ? (
+  const iframePreview = useMemo(() => {
+    if (!iframe) return null;
+    return (
       <BrowserFrame>
         <iframe
           src={demoUrlWithTheme}
@@ -116,10 +118,9 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           className="iframe-demo"
         />
       </BrowserFrame>
-    ) : (
-      mergedChildren
     );
-  }
+  }, [demoUrlWithTheme, iframe]);
+  const previewContent = iframePreview ?? mergedChildren;
 
   const codeBoxClass = clsx('code-box', {
     expand: codeExpand,
@@ -147,7 +148,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         style={codeBoxDemoStyle}
         ref={demoContainer}
       >
-        {liveDemoNode || <React.StrictMode>{previewDemo.current}</React.StrictMode>}
+        {liveDemoNode || <React.StrictMode>{previewContent}</React.StrictMode>}
       </section>
       {!simplify && (
         <section className="code-box-meta markdown">
