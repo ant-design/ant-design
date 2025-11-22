@@ -268,7 +268,7 @@ describe('Alert', () => {
     const titleElement = document.querySelector<HTMLElement>('.ant-alert-title');
     const descriptionElement = document.querySelector<HTMLElement>('.ant-alert-description');
     const actionElement = document.querySelector<HTMLElement>('.ant-alert-actions');
-    const closeElement = document.querySelector('.ant-alert-close-icon') as HTMLElement;
+    const closeElement = document.querySelector<HTMLElement>('.ant-alert-close-icon');
 
     // check classNames
     expect(rootElement).toHaveClass(customClassNames.root!);
