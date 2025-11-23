@@ -164,7 +164,8 @@ tag: vVERSION
 - 🛠 杂项：移除 React 19 兼容代码，现在 antd 默认支持 React 19。[#55274](https://github.com/ant-design/ant-design/pull/55274) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 杂项：移除 `copy-to-clipboard` 依赖。[#54448](https://github.com/ant-design/ant-design/pull/54448) [@765477020](https://github.com/765477020)
 - 🔥 杂项：提升构建目标版本，不再支持 IE。[#53390](https://github.com/ant-design/ant-design/pull/53390) [@zombieJ](https://github.com/zombieJ)
-- 🆕 杂项：颜色相关组件现在支持预设颜色名（如 `red`, `blue`, `green` 等等）。[#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
+- 🔥 杂项：在打包产物 `antd.js` 以及 `antd.min.js` 中启用了 `React Compiler` 以优化性能，对使用 CJS/ESM 场景的用户可自行选择开启，参考[React 官方文档](https://zh-hans.react.dev/learn/react-compiler)。 [#55781](https://github.com/ant-design/ant-design/pull/55781) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🔥 杂项：颜色相关组件现在支持预设颜色名（如 `red`, `blue`, `green` 等等）。[#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
 - 🌐 添加马拉地语国际化翻译。[#55179](https://github.com/ant-design/ant-design/pull/55179) [@divyeshagrawal](https://github.com/divyeshagrawal)
 - TypeScript
   - 🤖 优化 Notification `duration` 定义，现在禁止关闭为 `false`。[#55580](https://github.com/ant-design/ant-design/pull/55580) [@wanpan11](https://github.com/wanpan11)
