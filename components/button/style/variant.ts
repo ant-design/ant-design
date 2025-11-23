@@ -209,6 +209,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
           [`&${componentCls}-variant-solid`]: {
             [getCssVar('text-color')]: token.solidTextColor,
+            [getCssVar('text-color-hover')]: token.solidTextColor,
+            [getCssVar('text-color-active')]: token.solidTextColor,
           },
 
           [`&${componentCls}-variant-filled, &${componentCls}-variant-text`]: {
