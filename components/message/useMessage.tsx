@@ -16,6 +16,7 @@ import {
   useMergeSemantic,
 } from '../_util/hooks';
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -206,7 +207,7 @@ export function useInternalMessage(
       } = config;
 
       let mergedKey: React.Key = key!;
-      if (mergedKey === undefined || mergedKey === null) {
+      if (!isNonNullable(mergedKey)) {
         keyIndex += 1;
         mergedKey = `antd-message-${keyIndex}`;
       }

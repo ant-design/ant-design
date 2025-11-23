@@ -15,10 +15,9 @@ export interface SiteContextProps {
   direction: DirectionType;
   theme: ThemeName[];
   // 主题存在跟随系统模式，解耦实际生效主题
-  // 应使用isDark而非theme.includes('dark')等来判断当前主题
-  isDark: boolean;
+  // 应使用 isDark 而非 theme.includes('dark') 等来判断当前主题
+  isDark?: boolean;
   updateSiteConfig: (props: Partial<SiteContextProps>) => void;
-
   dynamicTheme?: {
     algorithm?: 'light' | 'dark';
     token: Record<string, string | number>;

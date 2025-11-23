@@ -108,7 +108,9 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   }, [demoUrl, isDark]);
 
   const iframePreview = useMemo(() => {
-    if (!iframe) return null;
+    if (!iframe) {
+      return null;
+    }
     return (
       <BrowserFrame>
         <iframe
@@ -120,6 +122,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       </BrowserFrame>
     );
   }, [demoUrlWithTheme, iframe]);
+
   const previewContent = iframePreview ?? mergedChildren;
 
   const codeBoxClass = clsx('code-box', {
