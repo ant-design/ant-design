@@ -108,11 +108,10 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile, theme } = React.use(SiteContext);
+  const { isMobile, isDark } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
-  const isDark = theme.includes('dark');
   const { colorBgContainer } = useTheme();
 
   const menuChild = (
