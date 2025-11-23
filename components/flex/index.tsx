@@ -55,7 +55,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
 
   const mergedStyle: React.CSSProperties = { ...ctxFlex?.style, ...style };
 
-  if (flex) {
+  if (isNonNullable(flex)) {
     mergedStyle.flex = flex;
   }
 
