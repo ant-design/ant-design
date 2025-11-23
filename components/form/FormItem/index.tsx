@@ -7,6 +7,7 @@ import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { clsx } from 'clsx';
 
+import isNonNullable from '../../_util/isNonNullable';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -143,10 +144,11 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
+
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  const hasName = !(name === undefined || name === null);
+  const hasName = isNonNullable(name);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
