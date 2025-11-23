@@ -248,7 +248,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         borderEndEndRadius: 0,
       },
 
-      [`&:not(:first-child)`]: {
+      '&:not(:first-child)': {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
       },
