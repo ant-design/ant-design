@@ -292,7 +292,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
   const { previewCls, motionDurationSlow } = token;
 
   return {
-    [`${previewCls}`]: {
+    [previewCls]: {
       '&-fade': {
         transition: `opacity ${motionDurationSlow}`,
 
