@@ -91,12 +91,12 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
         background: 'var(--space-addon-background)',
 
         // ======================= Outlined =======================
-        [`&-variant-outlined`]: {
+        '&-variant-outlined': {
           '--space-addon-border-color': 'var(--space-addon-border-color-outlined)',
         },
 
         // ======================== Filled ========================
-        [`&-variant-filled`]: {
+        '&-variant-filled': {
           '--space-addon-border-color': 'transparent',
           '--space-addon-background': 'var(--space-addon-background-filled)',
 
@@ -108,13 +108,13 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
         },
 
         // ====================== Borderless ======================
-        [`&-variant-borderless`]: {
+        '&-variant-borderless': {
           border: 'none',
           background: 'transparent',
         },
 
         // ====================== Underlined ======================
-        [`&-variant-underlined`]: {
+        '&-variant-underlined': {
           border: 'none',
           background: 'transparent',
         },
