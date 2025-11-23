@@ -145,8 +145,9 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
 
-  const mergedValidateTrigger =
-    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
+  const mergedValidateTrigger = isNonNullable(validateTrigger)
+    ? validateTrigger
+    : contextValidateTrigger;
 
   const hasName = isNonNullable(name);
 
