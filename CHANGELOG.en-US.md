@@ -164,7 +164,8 @@ tag: vVERSION
 - 🛠 MISC: Remove React 19 compatibility code, antd now supports React 19 by default. [#55274](https://github.com/ant-design/ant-design/pull/55274) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 MISC: Remove `copy-to-clipboard` deps. [#54448](https://github.com/ant-design/ant-design/pull/54448) [@765477020](https://github.com/765477020)
 - 🔥 MISC: Raise build target which will not support IE anymore. [#53390](https://github.com/ant-design/ant-design/pull/53390) [@zombieJ](https://github.com/zombieJ)
-- 🆕 MISC: Color-related components now support preset color names (e.g., `red`, `blue`, `green`, etc.). [#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
+- 🔥 MISC: Enabled `React Compiler` in the bundled outputs `antd.js` and `antd.min.js` to improve performance. Users in CJS/ESM environments can choose to enable it as needed. For more details, refer to the [React documentation](https://react.dev/learn/react-compiler). [#55781](https://github.com/ant-design/ant-design/pull/55781) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🔥 MISC: Color-related components now support preset color names (e.g., `red`, `blue`, `green`, etc.). [#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
 - 🌐 Add Marathi locale translation. [#55179](https://github.com/ant-design/ant-design/pull/55179) [@divyeshagrawal](https://github.com/divyeshagrawal)
 - TypeScript
   - 🤖 Optimize Notification `duration` definition, now disable close is `false`. [#55580](https://github.com/ant-design/ant-design/pull/55580) [@wanpan11](https://github.com/wanpan11)
