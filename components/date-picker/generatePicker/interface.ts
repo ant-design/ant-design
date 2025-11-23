@@ -163,8 +163,8 @@ export type PickerPropsWithMultiple<
     defaultValue?: MultiValueType<ValueType, IsMultiple> | null;
     value?: MultiValueType<ValueType, IsMultiple> | null;
     onChange?: (
-      date: MultiValueType<ValueType, IsMultiple>,
-      dateString: MultiValueType<string, IsMultiple>,
+      date: MultiValueType<ValueType, IsMultiple> | null,
+      dateString: MultiValueType<string, IsMultiple> | null,
     ) => void;
     onOk?: (date: MultiValueType<ValueType, IsMultiple>) => void;
   };

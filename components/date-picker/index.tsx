@@ -10,7 +10,7 @@ import type {
 } from './generatePicker/interface';
 
 export type DatePickerProps<
-  ValueType = Dayjs | Dayjs,
+  ValueType = Dayjs,
   IsMultiple extends boolean = boolean,
 > = PickerPropsWithMultiple<Dayjs, PickerProps<Dayjs>, ValueType, IsMultiple>;
 export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
