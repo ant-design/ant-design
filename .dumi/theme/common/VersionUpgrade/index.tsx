@@ -1,29 +1,29 @@
 import React from 'react';
-import { Button, Flex, Modal } from 'antd';
+import { Button, Flex, Modal, version } from 'antd';
 import { useLocation, useNavigate } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import * as utils from '../../utils';
 import ChangeLog from './ChangeLog';
 
-const STORAGE_KEY = 'antd-version-upgrade-notify-timestamp';
-// 弹窗提醒间隔（建议以天为单位）
-const NOTIFICATION_DIFF = 3 * 24 * 60 * 60 * 1000;
+const [major] = version.split('.');
+const STORAGE_KEY = `antd${major}-version-upgrade-notify`;
+
 // 弹窗截止日期
-const NOTIFICATION_DEADLINE = new Date('2025/12/01').getTime();
+const NOTIFICATION_DEADLINE = new Date('2026/02/01').getTime();
 
 const locales = {
   cn: {
     title: 'Ant Design 6.0 现已发布  🎉',
     gettingStarted: '开始使用',
     fullChangeLog: '完整发布日志',
-    v5: '查看 v5 文档',
+    previousVersion: '查看 v5 文档',
   },
   en: {
     title: 'Ant Design 6.0 has been released  🎉',
     gettingStarted: 'Get Started',
     fullChangeLog: 'Full Changelog',
-    v5: 'View v5 Docs',
+    previousVersion: 'View v5 Docs',
   },
 };
 
@@ -70,9 +70,7 @@ const VersionUpgradeModal = () => {
         return;
       }
 
-      // If you want to disable this notification, you can set the storage key to a large number.
-      // localStorage.setItem('antd-version-upgrade-notify-timestamp', Number.MAX_SAFE_INTEGER.toString());
-      if (!lastTime || now - Number(lastTime) > NOTIFICATION_DIFF) {
+      if (!lastTime) {
         timer = setTimeout(() => {
           updateOpen(true);
         }, 1000);
@@ -113,7 +111,7 @@ const VersionUpgradeModal = () => {
       footer={(_, { OkBtn }) => (
         <Flex align="center" gap="middle" justify="space-between">
           <Button variant="filled" color="default" onClick={onV5}>
-            {locale.v5}
+            {locale.previousVersion}
           </Button>
           <Flex gap="middle">
             <Button variant="filled" color="default" onClick={onFullChangeLog}>
