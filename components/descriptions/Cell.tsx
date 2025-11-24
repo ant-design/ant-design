@@ -63,18 +63,24 @@ const Cell: React.FC<CellProps> = (props) => {
   const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };
 
   if (bordered) {
+    const typeStyle = type === 'label' ? mergedLabelStyle : mergedContentStyle;
+    const mergedStyle = {
+      ...style,
+      ...typeStyle,
+    };
+
     return (
       <Component
         colSpan={span}
-        style={style}
+        style={mergedStyle}
         className={clsx(className, {
           [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
           [mergedClassNames.label!]: mergedClassNames.label && type === 'label',
           [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
         })}
       >
-        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
-        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
+        {isNonNullable(label) && <span>{label}</span>}
+        {isNonNullable(content) && <span>{content}</span>}
       </Component>
     );
   }
