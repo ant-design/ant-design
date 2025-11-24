@@ -60,35 +60,22 @@ const VersionUpgradeModal = () => {
   };
 
   React.useEffect(() => {
-    let timer: NodeJS.Timeout | null = null;
-    let isLoadListenerAttached = false;
-    function showModal() {
-      const lastTime = localStorage.getItem(STORAGE_KEY);
-      const now = Date.now();
+    const lastTime = localStorage.getItem(STORAGE_KEY);
+    const now = Date.now();
 
-      if (now > NOTIFICATION_DEADLINE) {
-        return;
-      }
-
-      if (!lastTime) {
-        timer = setTimeout(() => {
-          updateOpen(true);
-        }, 1000);
-      }
+    if (now > NOTIFICATION_DEADLINE) {
+      return;
     }
 
-    if (typeof window !== 'undefined') {
-      if (document.readyState === 'complete') {
-        showModal();
-      } else {
-        isLoadListenerAttached = true;
-        window.addEventListener('load', showModal);
-      }
+    if (!lastTime) {
+      const timer = setTimeout(() => {
+        updateOpen(true);
+      }, 1000);
+
+      return () => {
+        clearTimeout(timer);
+      };
     }
-    return function cleanup() {
-      isLoadListenerAttached && window.removeEventListener('load', showModal);
-      timer && clearTimeout(timer);
-    };
   }, []);
 
   return (
