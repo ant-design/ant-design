@@ -4,7 +4,7 @@ import { DatePicker, Flex } from 'antd';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
-const onChange: DatePickerProps<Dayjs[]>['onChange'] = (date, dateString) => {
+const onChange: DatePickerProps<Dayjs, true>['onChange'] = (date, dateString) => {
   console.log(date, dateString);
 };
 

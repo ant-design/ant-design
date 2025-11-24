@@ -6,7 +6,7 @@ import type { Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
-const onChange = (date: Dayjs) => {
+const onChange = (date: Dayjs | null) => {
   if (date) {
     console.log('Date: ', date);
   } else {
