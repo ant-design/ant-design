@@ -1,8 +1,8 @@
 import React from 'react';
 import { Alert, Button, Space } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -12,6 +12,7 @@ const locales = {
     title: '标题元素，包含标题文字的颜色、字体等样式',
     description: '描述元素，包含描述文字的字体大小、行高等排版样式',
     actions: '操作组元素，包含操作按钮的布局和间距样式',
+    close: '关闭按钮元素，包含按钮的基础样式',
   },
   en: {
     root: 'Root element with border, background, padding, border-radius, and positioning styles for the alert container',
@@ -21,6 +22,7 @@ const locales = {
     title: 'Title element with text color and font styling for the alert title',
     description: 'Description element with font-size and line-height styles for additional content',
     actions: 'Actions element with layout and spacing styles for action buttons',
+    close: 'Close button element with basic button styling',
   },
 };
 
@@ -36,9 +38,11 @@ const App: React.FC = () => {
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.0.0' },
         { name: 'actions', desc: locale.actions, version: '6.0.0' },
+        { name: 'close', desc: locale.close, version: '6.0.0' },
       ]}
     >
       <Alert
+        closable
         title="Info Text"
         showIcon
         description="Info Description Info Description Info Description Info Description"
