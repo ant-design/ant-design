@@ -140,7 +140,7 @@
     "@rc-component/segmented": "~1.2.2",
     "@rc-component/select": "~1.2.1",
     "@rc-component/slider": "~1.0.0",
-    "@rc-component/steps": "~1.2.1",
+    "@rc-component/steps": "~1.2.2",
     "@rc-component/switch": "~1.0.2",
     "@rc-component/table": "~1.8.2",
     "@rc-component/tabs": "~1.6.0",
