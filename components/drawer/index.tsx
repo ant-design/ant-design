@@ -42,7 +42,7 @@ export interface DrawerProps
     >,
     Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
   size?: sizeType | number;
-  resizable?: DrawerResizableConfig;
+  resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
   /** @deprecated Please use `destroyOnHidden` instead */
