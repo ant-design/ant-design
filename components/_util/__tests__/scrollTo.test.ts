@@ -69,4 +69,53 @@ describe('Test ScrollTo function', () => {
     await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(1000);
   });
+
+  it('test cancel scroll animation', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+      window.scrollY = y;
+      window.pageYOffset = y;
+    });
+
+    const cancel = scrollTo(1000);
+    jest.advanceTimersByTime(50);
+    cancel();
+    await waitFakeTimer();
+    expect(scrollToSpy).toHaveBeenCalled();
+    scrollToSpy.mockRestore();
+  });
+
+  it('test cancel scroll animation with callback', async () => {
+    const cbMock = jest.fn();
+
+    const cancel = scrollTo(1000, {
+      callback: cbMock,
+    });
+    jest.advanceTimersByTime(100);
+    cancel();
+    await waitFakeTimer();
+    expect(cbMock).not.toHaveBeenCalled();
+  });
+
+  it('test multiple scrollTo calls with cancellation', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+      window.scrollY = y;
+      window.pageYOffset = y;
+    });
+
+    const cancel1 = scrollTo(1000);
+    jest.advanceTimersByTime(50);
+    cancel1();
+    const cancel2 = scrollTo(2000);
+    await waitFakeTimer();
+    expect(window.pageYOffset).toBe(2000);
+    cancel2();
+    scrollToSpy.mockRestore();
+  });
+
+  it('test cancel function returns undefined', () => {
+    const cancel = scrollTo(1000);
+
+    expect(() => cancel()).not.toThrow();
+    expect(cancel()).toBeUndefined();
+  });
 });

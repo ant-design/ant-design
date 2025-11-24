@@ -143,6 +143,10 @@ export type GenericTimePickerProps<DateType extends AnyObject = any> = Omit<
   onSelect?: (value: DateType) => void;
 };
 
+type MultiValueType<ValueType, IsMultiple extends boolean = false> = IsMultiple extends true
+  ? ValueType[]
+  : ValueType;
+
 /**
  * Single Picker has the `multiple` prop,
  * which will make the `value` be `DateType[]` type.
@@ -152,10 +156,15 @@ export type PickerPropsWithMultiple<
   DateType extends AnyObject = any,
   InnerPickerProps extends PickerProps<DateType> = PickerProps<DateType>,
   ValueType = DateType,
+  IsMultiple extends boolean = false,
 > = Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange' | 'onOk'> &
   React.RefAttributes<PickerRef> & {
-    defaultValue?: ValueType | null;
-    value?: ValueType | null;
-    onChange?: (date: ValueType, dateString: string | string[]) => void;
-    onOk?: (date: ValueType) => void;
+    multiple?: IsMultiple;
+    defaultValue?: MultiValueType<ValueType, IsMultiple> | null;
+    value?: MultiValueType<ValueType, IsMultiple> | null;
+    onChange?: (
+      date: MultiValueType<ValueType, IsMultiple> | null,
+      dateString: MultiValueType<string, IsMultiple> | null,
+    ) => void;
+    onOk?: (date: MultiValueType<ValueType, IsMultiple>) => void;
   };

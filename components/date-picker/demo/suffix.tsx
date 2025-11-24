@@ -6,7 +6,7 @@ import type { Dayjs } from 'dayjs';
 const smileIcon = <SmileOutlined />;
 const { RangePicker } = DatePicker;
 
-const onChange = (date: Dayjs | (Dayjs | null)[] | null, dateString: string | string[]) => {
+const onChange = (date: Dayjs | (Dayjs | null)[] | null, dateString: string | string[] | null) => {
   console.log(date, dateString);
 };
 

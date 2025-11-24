@@ -8,6 +8,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import isNonNullable from '../../_util/isNonNullable';
 import { isStyleSupport } from '../../_util/styleChecker';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -402,7 +403,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         locale={textLocale}
         onCopy={onCopyClick}
         loading={copyLoading}
-        iconOnly={children === null || children === undefined}
+        iconOnly={!isNonNullable(children)}
       />
     );
   };

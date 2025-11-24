@@ -72,7 +72,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
-| resizable | 是否启用拖拽改变尺寸 | [ResizableConfig](#resizable-config) | - | 6.0.0 |
+| resizable | 是否启用拖拽改变尺寸 | [ResizableConfig](#resizableconfig) | - | 6.0.0 |
 | rootStyle | 可用于设置 Drawer 最外层容器的样式，和 `style` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px`，或自定义数字 | 'default' \| 'large' \| number | 'default' | 4.17.0 |
 | styles | 用于自定义 Drawer 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
@@ -84,17 +84,17 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
 | drawerRender | 自定义渲染抽屉 | (node: ReactNode) => ReactNode | - | 5.18.0 |
 
-## Semantic DOM
-
-<code src="./demo/_semantic.tsx" simplify="true"></code>
-
-## ResizableConfig
+### ResizableConfig
 
 | 参数          | 说明                     | 类型                   | 默认值 | 版本  |
 | ------------- | ------------------------ | ---------------------- | ------ | ----- |
 | onResizeStart | 开始拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
 | onResize      | 拖拽调整大小时的回调     | (size: number) => void | -      | 6.0.0 |
 | onResizeEnd   | 结束拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
