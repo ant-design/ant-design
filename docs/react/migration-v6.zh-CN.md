@@ -33,6 +33,22 @@ pnpm add antd@6
 - import '@ant-design/v5-patch-for-react-19';
 ```
 
+### @ant-design/icons 版本升级
+
+- `antd@6` 要求 `@ant-design/icons` 版本 >= 6.0.0。
+- ⚠️ **重要**：`@ant-design/icons@6` 与 `antd@5` 不兼容，请确保同时升级两个包。
+- 如果你的项目显式依赖 `@ant-design/icons`，需要同步升级到 v6 版本。
+
+```bash
+npm install --save @ant-design/icons@6
+# 或
+yarn add @ant-design/icons@6
+# 或
+pnpm add @ant-design/icons@6
+```
+
+如果你在升级过程中遇到构建错误，请检查 `@ant-design/icons` 版本是否与 `antd` 版本匹配。
+
 ### DOM 调整
 
 - v6 对大量组件的 DOM 结构进行了升级和优化，以提升可维护性和一致性。
@@ -115,6 +131,7 @@ v5 版本中，Form.List 会被认为是一个 Field，以至于提交时会包�
 为了确保升级到 v6 后项目正常运行，请参考以下检查清单逐项确认：
 
 - **React 版本**：确认项目使用的 React 版本 >= 18，并且不再引入 `@ant-design/v5-patch-for-react-19`。
+- **@ant-design/icons 版本**：确认 `@ant-design/icons` 版本已升级到 >= 6.0.0，与 `antd@6` 匹配。
 - **浏览器兼容性**：确认目标用户浏览器均为现代浏览器，且支持 CSS variables。
 - **自定义样式检查**：如果有针对组件内部 DOM 节点的 CSS 定制，验证在 v6 下是否依然生效。
 - **弹层蒙层配置**：Modal、Drawer 等弹层是否需要关闭 `mask` 的模糊效果，如不需要可保持默认。
