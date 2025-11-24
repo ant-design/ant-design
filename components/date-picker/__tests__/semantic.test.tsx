@@ -1,6 +1,5 @@
 import React from 'react';
 
-import type { DatePickerProps } from '..';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
 
@@ -8,27 +7,39 @@ describe('DatePicker.Semantic', () => {
   describe('inline', () => {
     function test(name: string, renderFn: (props: any) => React.ReactElement) {
       it(name, () => {
-        const classNames: Required<NonNullable<DatePickerProps['classNames']>> = {
+        const classNames = {
           root: 'my-root',
-          popup: { root: 'my-popup' },
+          prefix: 'my-prefix',
+          input: 'my-input',
+          suffix: 'my-suffix',
+          popup: 'my-popup',
         };
 
         const styles = {
-          root: { backgroundColor: 'rgba(255, 0, 0, 1)' },
-          popup: { root: { backgroundColor: 'rgba(128, 0, 128, 1)' } },
+          root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+          prefix: { backgroundColor: 'rgba(40, 167, 69, 0.9)' },
+          input: { backgroundColor: 'rgba(255, 193, 7, 0.7)' },
+          suffix: { backgroundColor: 'rgba(220, 53, 69, 0.6)' },
+          popup: { root: { backgroundColor: 'rgba(108, 117, 125, 0.85)' } },
         };
 
-        render(renderFn({ classNames, styles, open: true }));
+        render(renderFn({ classNames, styles, prefix: 'bamboo', open: true }));
 
         expect(document.body.querySelector(`.ant-picker`)).toHaveClass(classNames.root);
+        expect(document.body.querySelector(`.ant-picker-prefix`)).toHaveClass(classNames.prefix);
+        expect(document.body.querySelector(`.ant-picker-input input`)).toHaveClass(
+          classNames.input,
+        );
+        expect(document.body.querySelector(`.ant-picker-suffix`)).toHaveClass(classNames.suffix);
         expect(document.body.querySelector(`.ant-picker-dropdown`)).toHaveClass(
-          classNames.popup?.root!,
+          classNames.popup as string,
         );
 
         expect(document.body.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
-        expect(document.body.querySelector(`.${classNames.popup?.root!}`)).toHaveStyle(
-          styles.popup.root,
-        );
+        expect(document.body.querySelector(`.${classNames.prefix}`)).toHaveStyle(styles.prefix);
+        expect(document.body.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
+        expect(document.body.querySelector(`.${classNames.suffix}`)).toHaveStyle(styles.suffix);
+        expect(document.body.querySelector(`.${classNames.popup}`)).toHaveStyle(styles.popup.root);
       });
     }
 
@@ -36,49 +47,131 @@ describe('DatePicker.Semantic', () => {
     test('DatePicker - Multiple', (props) => <DatePicker.RangePicker {...props} />);
     test('TimePicker - Single', (props) => <DatePicker {...props} picker="time" />);
     test('TimePicker - Multiple', (props) => <DatePicker.RangePicker {...props} picker="time" />);
+  });
 
-    it('DatePicker - Single - with popup className as string', () => {
-      const classNamesConfig = {
-        root: 'my-custom-root-str-popup',
-        popup: 'my-custom-popup-flat-string',
-      } as any;
-      const stylesConfig = {
-        root: { color: 'rgb(255, 0, 0)' },
-        popup: { root: { color: 'rgb(0, 0, 255)' } },
-      };
+  describe('popup', () => {
+    function test(
+      name: string,
+      renderFn: (props: any) => React.ReactElement,
+      ignoreTimePickerMissing = false,
+    ) {
+      it(name, () => {
+        const classNames = {
+          popup: {
+            header: 'my-header',
+            body: 'my-body',
+            content: 'my-content',
+            item: 'my-item',
+            footer: 'my-footer',
+          },
+        } as const;
 
-      render(<DatePicker classNames={classNamesConfig} styles={stylesConfig} open />);
+        const styles = {
+          popup: {
+            header: { backgroundColor: 'rgb(255, 0, 0)' },
+            body: { backgroundColor: 'rgb(0, 0, 255)' },
+            content: { backgroundColor: 'rgb(0, 255, 0)' },
+            item: { backgroundColor: 'rgb(255, 255, 0)' },
+            footer: { backgroundColor: 'rgb(128, 0, 128)' },
+          },
+        };
 
-      const pickerElement = document.body.querySelector('.ant-picker');
-      const dropdownElement = document.body.querySelector('.ant-picker-dropdown');
+        render(renderFn({ classNames, styles, prefix: 'bamboo', open: true, needConfirm: true }));
 
-      expect(pickerElement).toHaveClass(classNamesConfig.root);
-      expect(dropdownElement).toHaveClass(classNamesConfig.popup);
+        if (!ignoreTimePickerMissing) {
+          expect(document.body.querySelector(`.ant-picker-header`)).toHaveClass(
+            classNames.popup.header,
+          );
+          expect(document.body.querySelector(`.ant-picker-body`)).toHaveClass(
+            classNames.popup.body,
+          );
+        }
+        expect(document.body.querySelector(`.ant-picker-content`)).toHaveClass(
+          classNames.popup.content,
+        );
+        expect(
+          document.body.querySelector(`.ant-picker-cell, .ant-picker-time-panel-cell`),
+        ).toHaveClass(classNames.popup.item);
+        expect(document.body.querySelector(`.ant-picker-footer`)).toHaveClass(
+          classNames.popup.footer,
+        );
 
-      expect(pickerElement).toHaveStyle(stylesConfig.root);
-      expect(dropdownElement).toHaveStyle(stylesConfig.popup.root);
-    });
+        if (!ignoreTimePickerMissing) {
+          expect(document.body.querySelector(`.${classNames.popup.header}`)).toHaveStyle(
+            styles.popup.header,
+          );
+          expect(document.body.querySelector(`.${classNames.popup.body}`)).toHaveStyle(
+            styles.popup.body,
+          );
+        }
 
-    it('DatePicker.RangePicker - with popup className as string', () => {
-      const classNamesConfig = {
-        root: 'my-custom-range-root-str-popup',
-        popup: 'my-custom-range-popup-flat-string',
-      } as any;
-      const stylesConfig = {
-        root: { borderColor: 'rgb(0, 255, 0)' }, // green
-        popup: { root: { borderColor: 'rgb(255, 255, 0)' } }, // yellow
-      };
+        expect(document.body.querySelector(`.${classNames.popup.content}`)).toHaveStyle(
+          styles.popup.content,
+        );
+        expect(document.body.querySelector(`.${classNames.popup.item}`)).toHaveStyle(
+          styles.popup.item,
+        );
+        expect(document.body.querySelector(`.${classNames.popup.footer}`)).toHaveStyle(
+          styles.popup.footer,
+        );
+      });
+    }
 
-      render(<DatePicker.RangePicker classNames={classNamesConfig} styles={stylesConfig} open />);
+    test('DatePicker - Single', (props) => <DatePicker {...props} />);
+    test('DatePicker - Multiple', (props) => <DatePicker.RangePicker {...props} />);
+    test('TimePicker - Single', (props) => <DatePicker {...props} picker="time" />, true);
+    test(
+      'TimePicker - Multiple',
+      (props) => <DatePicker.RangePicker {...props} picker="time" />,
+      true,
+    );
+  });
 
-      const pickerElement = document.body.querySelector('.ant-picker');
-      const dropdownElement = document.body.querySelector('.ant-picker-dropdown');
+  it('should support semantic styles', () => {
+    const styles = {
+      root: { backgroundColor: 'red' },
+      input: { color: 'blue' },
+      suffix: { fontSize: '20px' },
+    };
+    const { container } = render(<DatePicker styles={styles} />);
+    const rootElement = container.querySelector('.ant-picker');
+    const inputElement = container.querySelector('.ant-picker-input input');
+    const suffixElement = container.querySelector('.ant-picker-suffix');
 
-      expect(pickerElement).toHaveClass(classNamesConfig.root);
-      expect(dropdownElement).toHaveClass(classNamesConfig.popup);
+    expect(rootElement).toHaveStyle('background-color: rgb(255, 0, 0)');
+    expect(inputElement).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffixElement).toHaveStyle('font-size: 20px');
+  });
 
-      expect(pickerElement).toHaveStyle(stylesConfig.root);
-      expect(dropdownElement).toHaveStyle(stylesConfig.popup.root);
-    });
+  it('should support semantic classNames as function', () => {
+    const classNamesFn = (info: { props: Record<string, unknown> }) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-root' };
+      }
+      return { root: 'enabled-root' };
+    };
+
+    const { container, rerender } = render(<DatePicker classNames={classNamesFn} />);
+    expect(container.querySelector('.enabled-root')).toBeTruthy();
+
+    rerender(<DatePicker disabled classNames={classNamesFn} />);
+    expect(container.querySelector('.disabled-root')).toBeTruthy();
+  });
+
+  it('should support semantic styles as function', () => {
+    const stylesFn = (info: { props: Record<string, unknown> }) => {
+      if (info.props.size === 'large') {
+        return { root: { fontSize: '18px' } };
+      }
+      return { root: { fontSize: '14px' } };
+    };
+
+    const { container, rerender } = render(<DatePicker styles={stylesFn} />);
+    const rootElement = container.querySelector('.ant-picker');
+    expect(rootElement).toHaveStyle('font-size: 14px');
+
+    rerender(<DatePicker size="large" styles={stylesFn} />);
+    const largeRootElement = container.querySelector('.ant-picker');
+    expect(largeRootElement).toHaveStyle('font-size: 18px');
   });
 });

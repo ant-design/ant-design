@@ -54,14 +54,12 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
 
   return (
     <Select
-      showSearch
+      showSearch={{ filterOption: false, onSearch: handleSearch }}
       value={value}
       placeholder={props.placeholder}
       style={props.style}
       defaultActiveFirstOption={false}
       suffixIcon={null}
-      filterOption={false}
-      onSearch={handleSearch}
       onChange={handleChange}
       notFoundContent={null}
       options={(data || []).map((d) => ({

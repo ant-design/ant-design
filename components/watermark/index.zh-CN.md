@@ -45,6 +45,7 @@ tag: 5.1.0
 | font | 文字样式 | [Font](#font) | [Font](#font) |  |
 | gap | 水印之间的间距 | \[number, number\] | \[100, 100\] |  |
 | offset | 水印距离容器左上角的偏移量，默认为 `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
+| onRemove | 水印因 DOM 变更被移除时触发的回调 | `() => void` | - | 6.0.0 |
 
 ### Font
 

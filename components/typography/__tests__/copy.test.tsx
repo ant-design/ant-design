@@ -1,8 +1,8 @@
 import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import * as copyObj from 'copy-to-clipboard';
 
-import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
+import * as copyObj from '../../_util/copy';
+import { fireEvent, render, renderHook, sleep, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import useCopyClick from '../hooks/useCopyClick';
 
@@ -54,7 +54,7 @@ describe('Typography copy', () => {
 
           if (tooltipTexts[0] !== undefined) {
             await waitFor(() => {
-              expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+              expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
                 tooltipTexts[0],
               );
             });
@@ -62,11 +62,15 @@ describe('Typography copy', () => {
 
           if (tooltipLength !== undefined) {
             await waitFor(() => {
-              expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(tooltipLength);
+              expect(container.querySelectorAll('.ant-tooltip-container').length).toBe(
+                tooltipLength,
+              );
             });
           }
 
           fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
+          await sleep(0);
+
           jest.useRealTimers();
           if (iconClassNames[1] !== undefined) {
             expect(container.querySelector(iconClassNames[1])).not.toBeNull();
@@ -78,7 +82,7 @@ describe('Typography copy', () => {
           if (tooltipTexts[1] !== undefined) {
             const expectedInner = tooltipTexts[1] === '' ? tooltipTexts[0] : tooltipTexts[1];
             await waitFor(() => {
-              expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+              expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
                 expectedInner,
               );
             });
@@ -349,11 +353,12 @@ describe('Typography copy', () => {
       </Base>,
     );
     fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
-    await waitFakeTimer(1000, 100);
-    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+    await waitFakeTimer(1000, 1000);
+    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
 
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
-    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
+    await sleep(0);
+    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
   });
 
   it('copy array children', () => {

@@ -2,7 +2,7 @@
 
 exports[`Upload rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-upload-wrapper ant-upload-rtl"
+  class="ant-upload-wrapper css-var-root ant-upload-rtl"
 >
   <div
     class="ant-upload ant-upload-select ant-upload-hidden"

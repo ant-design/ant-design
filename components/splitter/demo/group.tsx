@@ -15,7 +15,7 @@ const App: React.FC = () => (
       <Desc text="Left" />
     </Splitter.Panel>
     <Splitter.Panel>
-      <Splitter layout="vertical">
+      <Splitter orientation="vertical">
         <Splitter.Panel>
           <Desc text="Top" />
         </Splitter.Panel>

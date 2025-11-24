@@ -2,7 +2,7 @@
 
 exports[`Empty rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-empty ant-empty-rtl"
+  class="css-var-root ant-empty ant-empty-rtl"
 >
   <div
     class="ant-empty-image"
@@ -80,7 +80,7 @@ exports[`Empty rtl render component should be rendered correctly in RTL directio
 
 exports[`Empty should render in RTL direction 1`] = `
 <div
-  class="ant-empty ant-empty-rtl"
+  class="css-var-root ant-empty ant-empty-rtl"
 >
   <div
     class="ant-empty-image"

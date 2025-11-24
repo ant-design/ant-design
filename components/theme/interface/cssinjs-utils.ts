@@ -1,9 +1,9 @@
 import type {
+  FullToken as FullTokenTypeUtil,
+  GenStyleFn as GenStyleFnTypeUtil,
+  GetDefaultToken as GetDefaultTokenTypeUtil,
   GlobalToken as GlobalTokenTypeUtil,
   OverrideTokenMap as OverrideTokenTypeUtil,
-  FullToken as FullTokenTypeUtil,
-  GetDefaultToken as GetDefaultTokenTypeUtil,
-  GenStyleFn as GenStyleFnTypeUtil,
   TokenMapKey,
 } from '@ant-design/cssinjs-utils';
 

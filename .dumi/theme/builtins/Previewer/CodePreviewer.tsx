@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo } from 'dumi';
 
 import type { AntdPreviewerProps } from '.';
@@ -14,8 +14,7 @@ import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
 import Actions from './Actions';
 
-const useStyle = createStyles(({ token }) => {
-  const { borderRadius } = token;
+const useStyle = createStyles(({ cssVar }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -26,17 +25,17 @@ const useStyle = createStyles(({ token }) => {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
-      border-top: 1px solid ${token.colorSplit};
-      color: ${token.colorTextSecondary};
-      transition: all ${token.motionDurationMid} ease-in-out;
-      background-color: ${token.colorBgElevated};
+      border-radius: 0 0 ${cssVar.borderRadius} ${cssVar.borderRadius};
+      border-top: 1px solid ${cssVar.colorSplit};
+      color: ${cssVar.colorTextSecondary};
+      transition: all ${cssVar.motionDurationMid} ease-in-out;
+      background-color: ${cssVar.colorBgElevated};
       cursor: pointer;
       &:hover {
-        color: ${token.colorPrimary};
+        color: ${cssVar.colorPrimary};
       }
       span {
-        margin-inline-end: ${token.marginXXS}px;
+        margin-inline-end: ${cssVar.marginXXS};
       }
     `,
   };
@@ -68,7 +67,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
 
-  const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
   const {
     node: liveDemoNode,
@@ -80,7 +78,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const { theme } = React.use(SiteContext);
+  const { isDark } = React.use(SiteContext);
 
   const { hash, pathname, search } = location;
   const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
@@ -105,10 +103,15 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   }, [expand]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
-  const demoUrlWithTheme = `${demoUrl}${theme.includes('dark') ? '?theme=dark' : ''}`;
+  const demoUrlWithTheme = useMemo(() => {
+    return `${demoUrl}${isDark ? '?theme=dark' : ''}`;
+  }, [demoUrl, isDark]);
 
-  if (!previewDemo.current) {
-    previewDemo.current = iframe ? (
+  const iframePreview = useMemo(() => {
+    if (!iframe) {
+      return null;
+    }
+    return (
       <BrowserFrame>
         <iframe
           src={demoUrlWithTheme}
@@ -117,22 +120,22 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           className="iframe-demo"
         />
       </BrowserFrame>
-    ) : (
-      mergedChildren
     );
-  }
+  }, [demoUrlWithTheme, iframe]);
 
-  const codeBoxClass = classNames('code-box', {
+  const previewContent = iframePreview ?? mergedChildren;
+
+  const codeBoxClass = clsx('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
     'code-box-simplify': simplify,
   });
 
-  const highlightClass = classNames('highlight-wrapper', {
+  const highlightClass = clsx('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
 
-  const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
+  const backgroundGrey = isDark ? '#303030' : '#f0f2f5';
 
   const codeBoxDemoStyle: React.CSSProperties = {
     padding: iframe || compact ? 0 : undefined,
@@ -148,7 +151,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         style={codeBoxDemoStyle}
         ref={demoContainer}
       >
-        {liveDemoNode || <React.StrictMode>{previewDemo.current}</React.StrictMode>}
+        {liveDemoNode || <React.StrictMode>{previewContent}</React.StrictMode>}
       </section>
       {!simplify && (
         <section className="code-box-meta markdown">

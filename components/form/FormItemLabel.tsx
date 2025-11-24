@@ -1,6 +1,6 @@
 import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
 import type { ColProps } from '../grid/col';
@@ -53,6 +53,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelCol: contextLabelCol,
     labelWrap,
     colon: contextColon,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = React.useContext<FormContextProps>(FormContext);
 
   if (!label) {
@@ -64,7 +66,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const mergedLabelAlign: FormLabelAlign | undefined = labelAlign || contextLabelAlign;
 
   const labelClsBasic = `${prefixCls}-item-label`;
-  const labelColClassName = classNames(
+  const labelColClassName = clsx(
     labelClsBasic,
     mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
     mergedLabelCol.className,
@@ -138,7 +140,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     markType = 'optional';
   }
 
-  const labelClassName = classNames({
+  const labelClassName = clsx(contextClassNames?.label, {
     [`${prefixCls}-item-required`]: required,
     [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,
@@ -149,6 +151,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
       <label
         htmlFor={htmlFor}
         className={labelClassName}
+        style={contextStyles?.label}
         title={typeof label === 'string' ? label : ''}
       >
         {labelChildren}

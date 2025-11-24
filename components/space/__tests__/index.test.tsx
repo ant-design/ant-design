@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Space from '..';
+import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -86,13 +87,17 @@ describe('Space', () => {
   });
 
   it('should render vertical space width customize size', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space size={10} direction="vertical">
         <span>1</span>
         <span>2</span>
       </Space>,
     );
-
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead.',
+    );
+    warnSpy.mockRestore();
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
     expect(items[0]).toHaveStyle({ marginBottom: '' });
     expect(items[1]).toHaveStyle({ marginBottom: '' });
@@ -161,15 +166,31 @@ describe('Space', () => {
     expect(container.querySelector('#demo')).toHaveTextContent('2');
   });
 
-  it('split', () => {
+  it('separator', () => {
     const { container } = render(
-      <Space split="-">
+      <Space separator="-">
         text1<span>text1</span>
         <>text3</>
       </Space>,
     );
 
     expect(container.children[0]).toMatchSnapshot();
+  });
+
+  it('legacy split', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Space split="-">
+        text1<span>text1</span>
+        <>text3</>
+      </Space>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/35305
@@ -200,7 +221,7 @@ describe('Space', () => {
     );
     const element = container.querySelector<HTMLDivElement>('div.ant-space-item')!;
     expect(element).toBeEmptyDOMElement();
-    expect(getComputedStyle(element).display).toBe('none');
+    expect(element).toHaveStyle({ display: 'none' });
   });
 
   it('should ref work', () => {
@@ -215,26 +236,77 @@ describe('Space', () => {
     expect(ref.current).toBe(container.firstChild);
   });
 
-  it('should classNames work', () => {
+  it('should apply classNames and styles correctly', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      separator: 'custom-separator',
+    };
+
+    const customStyles = {
+      root: { color: 'rgb(0, 128, 0)' },
+      item: { color: 'rgb(255, 0, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
+    };
+
     const { container } = render(
-      <Space classNames={{ item: 'test-classNames' }}>
+      <Space classNames={customClassNames} styles={customStyles} separator="-">
         <span>Text1</span>
         <span>Text2</span>
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('.ant-space-item.test-classNames')).toBeTruthy();
+    const rootElement = container.querySelector<HTMLElement>('.ant-space');
+    const itemElement = container.querySelector<HTMLElement>('.ant-space-item');
+    const separatorElement = container.querySelector<HTMLElement>('.ant-space-item-separator');
+
+    // Check classNames
+    expect(rootElement).toHaveClass('custom-root');
+    expect(itemElement).toHaveClass('custom-item');
+    expect(separatorElement).toHaveClass('custom-separator');
+
+    // Check styles
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(itemElement).toHaveStyle({ color: customStyles.item.color });
+    expect(separatorElement).toHaveStyle({ color: customStyles.separator.color });
   });
 
-  it('should styles work', () => {
-    const { container } = render(
-      <Space styles={{ item: { color: 'red' } }}>
-        <span>Text1</span>
-        <span>Text2</span>
-      </Space>,
-    );
-    expect(
-      container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
-    ).toEqual('color: red;');
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    const testCases: Array<[params: [undefined | Orientation, undefined | Orientation], string]> = [
+      [[undefined, undefined], 'horizontal'],
+      [[undefined, 'vertical'], 'vertical'],
+      [['vertical', 'horizontal'], 'vertical'],
+      [['vertical', undefined], 'vertical'],
+      [['horizontal', 'vertical'], 'horizontal'],
+    ];
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Space orientation={params[0]} direction={params[1]}>
+          <button type="button">1</button>
+          <button type="button">2</button>
+        </Space>,
+      );
+
+      expect(container.querySelector<HTMLDivElement>(`.ant-space-${expected}`)).toBeTruthy();
+    });
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Space.Compact orientation={params[0]} direction={params[1]}>
+          <button type="button">1</button>
+          <button type="button">2</button>
+        </Space.Compact>,
+      );
+      if (expected === 'vertical') {
+        expect(
+          container.querySelector<HTMLDivElement>(`.ant-space-compact-${expected}`),
+        ).toBeTruthy();
+      } else {
+        expect(container.querySelector<HTMLDivElement>(`.ant-space-compact-vertical`)).toBeFalsy();
+        expect(
+          container.querySelector<HTMLDivElement>(`.ant-space-compact-horizontal`),
+        ).toBeFalsy();
+      }
+    });
   });
 });

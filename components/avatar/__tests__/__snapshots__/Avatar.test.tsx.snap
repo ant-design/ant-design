@@ -3,7 +3,7 @@
 exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] = `
 <div>
   <span
-    class="ant-avatar ant-avatar-circle"
+    class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
     style="width: 24px; height: 24px; font-size: 18px;"
   >
     <span
@@ -17,7 +17,7 @@ exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] =
 exports[`Avatar Render adjusts component size to 32 when window size is sm 1`] = `
 <div>
   <span
-    class="ant-avatar ant-avatar-circle"
+    class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
     style="width: 32px; height: 32px; font-size: 18px;"
   >
     <span
@@ -31,7 +31,7 @@ exports[`Avatar Render adjusts component size to 32 when window size is sm 1`] =
 exports[`Avatar Render adjusts component size to 40 when window size is md 1`] = `
 <div>
   <span
-    class="ant-avatar ant-avatar-circle"
+    class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
     style="width: 40px; height: 40px; font-size: 18px;"
   >
     <span
@@ -45,7 +45,7 @@ exports[`Avatar Render adjusts component size to 40 when window size is md 1`] =
 exports[`Avatar Render adjusts component size to 64 when window size is lg 1`] = `
 <div>
   <span
-    class="ant-avatar ant-avatar-circle"
+    class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
     style="width: 64px; height: 64px; font-size: 18px;"
   >
     <span
@@ -59,7 +59,7 @@ exports[`Avatar Render adjusts component size to 64 when window size is lg 1`] =
 exports[`Avatar Render adjusts component size to 80 when window size is xl 1`] = `
 <div>
   <span
-    class="ant-avatar ant-avatar-circle"
+    class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
     style="width: 80px; height: 80px; font-size: 18px;"
   >
     <span
@@ -73,7 +73,7 @@ exports[`Avatar Render adjusts component size to 80 when window size is xl 1`] =
 exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`] = `
 <div>
   <span
-    class="ant-avatar ant-avatar-circle"
+    class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
     style="width: 100px; height: 100px; font-size: 18px;"
   >
     <span
@@ -86,7 +86,7 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
 
 exports[`Avatar Render fallback 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle"
+  class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
 >
   <span
     class="ant-avatar-string"
@@ -99,7 +99,7 @@ exports[`Avatar Render fallback 1`] = `
 
 exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle"
+  class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
 >
   <span
     class="ant-avatar-string"
@@ -137,7 +137,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly with 
 
 exports[`Avatar Render should handle onError correctly 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle ant-avatar-image"
+  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
 >
   <img
     src="https://api.dicebear.com/7.x/pixel-art/svg"
@@ -147,7 +147,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
 
 exports[`Avatar Render should show image on success after a failure state 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle"
+  class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
 >
   <span
     class="ant-avatar-string"
@@ -160,7 +160,7 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
 
 exports[`Avatar Render should show image on success after a failure state 2`] = `
 <span
-  class="ant-avatar ant-avatar-circle ant-avatar-image"
+  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
 >
   <img
     src="https://api.dicebear.com/7.x/pixel-art/svg"
@@ -170,7 +170,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
 
 exports[`Avatar Render support size is number 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle"
+  class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
   style="width: 100px; height: 100px; font-size: 18px;"
 >
   <span

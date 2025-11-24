@@ -1,3 +1,5 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('back-top');
+describe('back-top demo a11y', () => {
+  accessibilityDemoTest('back-top');
+});

@@ -26,8 +26,7 @@ describe('Grid.Gap', () => {
       </Row>,
     );
     expect(container.querySelector<HTMLElement>('.ant-row')).toHaveStyle({
-      marginLeft: '-8px',
-      marginRight: '-8px',
+      marginInline: '-8px',
       rowGap: '8px',
     });
   });
@@ -35,7 +34,7 @@ describe('Grid.Gap', () => {
   it('not break ssr', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const Demo = () => (
+    const Demo: React.FC = () => (
       <Row gutter={[16, 8]}>
         <Col />
       </Row>

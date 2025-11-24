@@ -31,13 +31,13 @@ const downloadSvgQRCode = () => {
 const App: React.FC = () => {
   const [renderType, setRenderType] = React.useState<QRCodeProps['type']>('canvas');
   return (
-    <Space id="myqrcode" direction="vertical">
+    <Space id="myqrcode" vertical>
       <Segmented options={['canvas', 'svg']} value={renderType} onChange={setRenderType} />
       <div>
         <QRCode
           type={renderType}
           value="https://ant.design/"
-          bgColor="#fff"
+          bgColor="rgba(255,255,255,0.5)"
           style={{ marginBottom: 16 }}
           icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
         />

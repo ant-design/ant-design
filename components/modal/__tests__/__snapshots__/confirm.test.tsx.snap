@@ -2,7 +2,7 @@
 
 exports[`Modal.confirm triggers callbacks correctly footer confirm should render the footer when footer is set 1`] = `
 <div
-  class="ant-modal-content"
+  class="ant-modal-container"
 >
   <div
     class="ant-modal-body"

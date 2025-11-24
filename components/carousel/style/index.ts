@@ -391,12 +391,12 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
         margin: 0,
         transform: 'translateY(-50%)',
 
-        '&-left': {
+        '&-start': {
           insetInlineEnd: 'auto',
           insetInlineStart: dotOffset,
         },
 
-        '&-right': {
+        '&-end': {
           insetInlineEnd: dotOffset,
           insetInlineStart: 'auto',
         },

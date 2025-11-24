@@ -18,7 +18,7 @@ import {
 const { TreeNode } = TreeSelect;
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space orientation="vertical">
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
@@ -201,7 +201,9 @@ const App: React.FC = () => (
         style={{ width: '60%' }}
         value="leaf1"
         styles={{
-          popup: { root: { maxHeight: 400, overflow: 'auto' } },
+          popup: {
+            root: { maxHeight: 400, overflow: 'auto' },
+          },
         }}
         placeholder="Please select"
         allowClear

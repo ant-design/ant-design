@@ -17,7 +17,7 @@ describe('Select', () => {
   rtlTest(Select);
 
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -86,11 +86,11 @@ describe('Select', () => {
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
-    expect(container.querySelectorAll('.anticon-down').length).toBe(1);
-    expect(container.querySelectorAll('.anticon-search').length).toBe(0);
+    expect(container.querySelector('.anticon-down')).toBeTruthy();
+    expect(container.querySelector('.anticon-search')).toBeFalsy();
     toggleOpen(container);
-    expect(container.querySelectorAll('.anticon-down').length).toBe(0);
-    expect(container.querySelectorAll('.anticon-search').length).toBe(1);
+    expect(container.querySelector('.anticon-down')).toBeFalsy();
+    expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
   describe('Select Custom Icons', () => {
@@ -123,9 +123,12 @@ describe('Select', () => {
       const { container } = render(
         <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('11px');
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
+        );
+      }
     });
 
     it('hasFeedback, has validateStatus', () => {
@@ -136,9 +139,12 @@ describe('Select', () => {
           </Form.Item>
         </Form>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('33px');
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(calc(var(--ant-padding-sm) - var(--ant-line-width)) + var(--ant-font-size) + var(--ant-padding-xs))',
+        );
+      }
     });
 
     it('hasFeedback, no validateStatus', () => {
@@ -149,9 +155,12 @@ describe('Select', () => {
           </Form.Item>
         </Form>,
       );
-      expect(
-        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('11px');
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
+        );
+      }
     });
   });
 

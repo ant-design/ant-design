@@ -18,7 +18,7 @@ jest.mock('react-dom', () => {
 describe('Notification.placement', () => {
   function open(args?: Partial<ArgsProps>) {
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       description: 'This is the content of the notification.',
       ...args,
     });

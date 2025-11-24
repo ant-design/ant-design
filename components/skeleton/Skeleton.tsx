@@ -1,6 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -18,6 +20,12 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
+export type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';
+
+export type SkeletonClassNamesType = SemanticClassNamesType<SkeletonProps, SemanticName>;
+
+export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SemanticName>;
+
 export interface SkeletonProps {
   active?: boolean;
   loading?: boolean;
@@ -25,11 +33,12 @@ export interface SkeletonProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
   round?: boolean;
+  classNames?: SkeletonClassNamesType;
+  styles?: SkeletonStylesType;
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
@@ -86,13 +95,19 @@ type CompoundedComponent = {
   Node: typeof SkeletonNode;
 };
 
-const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
+// Tips: ctx.classNames.root < ctx.className < cpns.classNames.root < cpns.className < rootClassName
+
+const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedComponent = (
+  props,
+) => {
   const {
     prefixCls: customizePrefixCls,
     loading,
     className,
     rootClassName,
+    classNames,
     style,
+    styles,
     children,
     avatar = false,
     title = true,
@@ -106,9 +121,28 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     direction,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('skeleton');
+
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const mergedProps: SkeletonProps = {
+    ...props,
+    avatar,
+    title,
+    paragraph,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SkeletonClassNamesType,
+    SkeletonStylesType,
+    SkeletonProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -119,13 +153,18 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     let avatarNode: React.ReactNode;
     if (hasAvatar) {
       const avatarProps: SkeletonAvatarProps = {
+        className: mergedClassNames.avatar,
         prefixCls: `${prefixCls}-avatar`,
         ...getAvatarBasicProps(hasTitle, hasParagraph),
         ...getComponentProps(avatar),
+        style: mergedStyles.avatar,
       };
       // We direct use SkeletonElement as avatar in skeleton internal.
       avatarNode = (
-        <div className={`${prefixCls}-header`}>
+        <div
+          className={clsx(mergedClassNames.header, `${prefixCls}-header`)}
+          style={mergedStyles.header}
+        >
           <Element {...avatarProps} />
         </div>
       );
@@ -137,9 +176,11 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       let $title: React.ReactNode;
       if (hasTitle) {
         const titleProps: SkeletonTitleProps = {
+          className: mergedClassNames.title,
           prefixCls: `${prefixCls}-title`,
           ...getTitleBasicProps(hasAvatar, hasParagraph),
           ...getComponentProps(title),
+          style: mergedStyles.title,
         };
 
         $title = <Title {...titleProps} />;
@@ -149,23 +190,28 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       let paragraphNode: React.ReactNode;
       if (hasParagraph) {
         const paragraphProps: SkeletonParagraphProps = {
+          className: mergedClassNames.paragraph,
           prefixCls: `${prefixCls}-paragraph`,
           ...getParagraphBasicProps(hasAvatar, hasTitle),
           ...getComponentProps(paragraph),
+          style: mergedStyles.paragraph,
         };
 
         paragraphNode = <Paragraph {...paragraphProps} />;
       }
 
       contentNode = (
-        <div className={`${prefixCls}-content`}>
+        <div
+          className={clsx(mergedClassNames.section, `${prefixCls}-section`)}
+          style={mergedStyles.section}
+        >
           {$title}
           {paragraphNode}
         </div>
       );
     }
 
-    const cls = classNames(
+    const cls = clsx(
       prefixCls,
       {
         [`${prefixCls}-with-avatar`]: hasAvatar,
@@ -173,6 +219,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-round`]: round,
       },
+      mergedClassNames.root,
       contextClassName,
       className,
       rootClassName,
@@ -180,11 +227,11 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       cssVarCls,
     );
 
-    return wrapCSSVar(
-      <div className={cls} style={{ ...contextStyle, ...style }}>
+    return (
+      <div className={cls} style={{ ...mergedStyles.root, ...contextStyle, ...style }}>
         {avatarNode}
         {contentNode}
-      </div>,
+      </div>
     );
   }
   return children ?? null;

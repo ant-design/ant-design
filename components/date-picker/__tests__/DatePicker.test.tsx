@@ -5,16 +5,18 @@ import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test ca
 
 import React from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
+import dayJsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import { warning } from '@rc-component/util';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
-import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 
 import DatePicker from '..';
-import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
+
+const { resetWarned } = warning;
 
 dayjs.extend(customParseFormat);
 

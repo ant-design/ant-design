@@ -12,7 +12,7 @@ title: 服务端渲染
 
 ## 内联样式
 
-使用 `@ant-design/cssinjs` 将所需样式抽离：
+使用 `@ant-design/cssinjs@1.x` 将所需样式抽离：
 
 ```tsx
 import React from 'react';

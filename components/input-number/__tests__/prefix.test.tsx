@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import type { GetRef } from 'antd';
 
 import type { InputNumberProps } from '..';
@@ -10,7 +10,7 @@ type InputNumberRef = GetRef<typeof InputNumber>;
 
 describe('prefix', () => {
   focusTest(
-    forwardRef<InputNumberRef, InputNumberProps>((props, ref) => (
+    React.forwardRef<InputNumberRef, InputNumberProps>((props, ref) => (
       <InputNumber {...props} prefix="A" ref={ref} />
     )),
     { refFocus: true },
@@ -25,7 +25,7 @@ describe('prefix', () => {
     const { container } = render(<InputNumber prefix={<i>123</i>} />);
 
     const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-    fireEvent.click(container.querySelector('i')!);
+    fireEvent.mouseDown(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });
 });
