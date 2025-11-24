@@ -41,19 +41,6 @@ const VersionUpgradeModal = () => {
     updateOpen(false);
   }
 
-  const onFullChangeLog = () => {
-    window.open(
-      isCN
-        ? 'https://github.com/ant-design/ant-design/issues/55805'
-        : 'https://github.com/ant-design/ant-design/issues/55804',
-      '_blank',
-    );
-  };
-
-  const onV5 = () => {
-    window.open('https://5x.ant.design', '_blank');
-  };
-
   const gettingStarted = () => {
     handleClose();
     navigate(utils.getLocalizedPathname('components/overview', isCN));
@@ -97,11 +84,22 @@ const VersionUpgradeModal = () => {
       okText={locale.gettingStarted}
       footer={(_, { OkBtn }) => (
         <Flex align="center" gap="middle" justify="space-between">
-          <Button variant="filled" color="default" onClick={onV5}>
+          <Button
+            variant="filled"
+            color="default"
+            type="link"
+            href="https://5x.ant.design"
+            target="_blank"
+          >
             {locale.previousVersion}
           </Button>
           <Flex gap="middle">
-            <Button variant="filled" color="default" onClick={onFullChangeLog}>
+            <Button
+              variant="filled"
+              color="default"
+              href={`https://github.com/ant-design/ant-design/issues/${isCN ? '55805' : '55804'}`}
+              target="_blank"
+            >
               {locale.fullChangeLog}
             </Button>
             <OkBtn />
