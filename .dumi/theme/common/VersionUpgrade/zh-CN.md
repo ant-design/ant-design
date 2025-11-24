@@ -9,4 +9,4 @@
 - **新特性**：新增 Masonry 瀑布流组件；Tooltip 支持平移；InputNumber 新增按钮模式；Drawer 支持拖拽；弹层默认开启模糊背景。
 - **平滑迁移**：v5 项目可直接升级，无需 codemod 工具。
 
-同时，面向 AI 场景的 **Ant Design X 2.0** 也同步发布，欢迎探索！
+同时，面向 AI 场景的 **[Ant Design X 2.0](https://github.com/ant-design/x/issues/1358)** 也同步发布，欢迎探索！

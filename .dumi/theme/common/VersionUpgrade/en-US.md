@@ -9,4 +9,4 @@ After extensive refinement, v6 is officially released! This upgrade focuses on d
 - **New Features**: Added Masonry component; Tooltip panning; InputNumber spinner mode; Resizable Drawer; default blur mask for overlays.
 - **Smooth Migration**: Direct upgrade from v5 without codemod tools.
 
-**Ant Design X 2.0** for AI scenarios is also released simultaneously. Explore now!
+**[Ant Design X 2.0](https://github.com/ant-design/x/issues/1357)** for AI scenarios is also released simultaneously. Explore now!
