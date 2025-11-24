@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Modal, version } from 'antd';
-import { useLocation, useNavigate } from 'dumi';
+import { useLocation } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import * as utils from '../../utils';
@@ -15,14 +15,12 @@ const NOTIFICATION_DEADLINE = new Date('2026/02/01').getTime();
 const locales = {
   cn: {
     title: 'Ant Design 6.0 现已发布  🎉',
-    gettingStarted: '开始使用',
-    fullChangeLog: '完整发布日志',
+    fullChangeLog: '🔥 完整更新日志',
     previousVersion: '查看 v5 文档',
   },
   en: {
     title: 'Ant Design 6.0 has been released  🎉',
-    gettingStarted: 'Get Started',
-    fullChangeLog: 'Full Changelog',
+    fullChangeLog: '🔥 Full Changelog',
     previousVersion: 'View v5 Docs',
   },
 };
@@ -30,7 +28,6 @@ const locales = {
 const VersionUpgradeModal = () => {
   const [locale, lang] = useLocale(locales);
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   const [open, updateOpen] = React.useState(false);
 
@@ -40,11 +37,6 @@ const VersionUpgradeModal = () => {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
     updateOpen(false);
   }
-
-  const gettingStarted = () => {
-    handleClose();
-    navigate(utils.getLocalizedPathname('components/overview', isCN));
-  };
 
   React.useEffect(() => {
     const lastTime = localStorage.getItem(STORAGE_KEY);
@@ -72,18 +64,13 @@ const VersionUpgradeModal = () => {
       width={`min(90vw, 800px)`}
       centered
       onCancel={handleClose}
-      onOk={gettingStarted}
       styles={{
-        mask: {
-          backdropFilter: 'blur(2px)',
-        },
         body: {
           padding: 0,
         },
       }}
-      okText={locale.gettingStarted}
-      footer={(_, { OkBtn }) => (
-        <Flex align="center" gap="middle" justify="space-between">
+      footer={() => (
+        <Flex align="center" gap="middle" justify="flex-end">
           <Button
             variant="filled"
             color="default"
@@ -95,14 +82,13 @@ const VersionUpgradeModal = () => {
           </Button>
           <Flex gap="middle">
             <Button
-              variant="filled"
-              color="default"
+              color="primary"
+              variant="solid"
               href={`https://github.com/ant-design/ant-design/issues/${isCN ? '55805' : '55804'}`}
               target="_blank"
             >
               {locale.fullChangeLog}
             </Button>
-            <OkBtn />
           </Flex>
         </Flex>
       )}
