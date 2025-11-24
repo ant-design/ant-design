@@ -1,11 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { App, Button, ConfigProvider, Skeleton } from 'antd';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 
 import useLocale from '../../hooks/useLocale';
-import useLocalStorage from '../../hooks/useLocalStorage';
 
 const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEditor'));
 
@@ -34,18 +33,24 @@ const locales = {
   },
 };
 
-const ANT_THEME_EDITOR_THEME = 'ant-theme-editor-theme';
+const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
 const CustomTheme: React.FC = () => {
   const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
 
-  const [themeConfig, setThemeConfig] = useLocalStorage<ThemeConfig>(ANT_THEME_EDITOR_THEME, {
-    defaultValue: {},
-  });
+  const [theme, setTheme] = React.useState<ThemeConfig>({});
+
+  useEffect(() => {
+    const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
+    if (storedConfig) {
+      const themeConfig = JSON.parse(storedConfig);
+      setTheme(themeConfig);
+    }
+  }, []);
 
   const handleSave = () => {
-    setThemeConfig(themeConfig);
+    localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
     message.success(locale.saveSuccessfully);
   };
 
@@ -60,9 +65,11 @@ const CustomTheme: React.FC = () => {
           <ThemeEditor
             advanced
             hideAdvancedSwitcher
-            theme={{ name: 'Custom Theme', key: 'test', config: themeConfig }}
+            theme={{ name: 'Custom Theme', key: 'test', config: theme }}
             style={{ height: 'calc(100vh - 64px)' }}
-            onThemeChange={(newTheme) => setThemeConfig(newTheme.config)}
+            onThemeChange={(newTheme) => {
+              setTheme(newTheme.config);
+            }}
             locale={lang === 'cn' ? zhCN : enUS}
             actions={
               <Button type="primary" onClick={handleSave}>
