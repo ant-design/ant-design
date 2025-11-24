@@ -896,6 +896,72 @@ describe('Anchor Render', () => {
     });
   });
 
+  it('should cancel previous scroll animation when clicking different links rapidly', async () => {
+    const hash1 = getHashUrl();
+    const hash2 = getHashUrl();
+    const hash3 = getHashUrl();
+    const root = createDiv();
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    render(
+      <div>
+        <div id={hash1}>Section 1</div>
+        <div id={hash2}>Section 2</div>
+        <div id={hash3}>Section 3</div>
+      </div>,
+      { container: root },
+    );
+
+    const { container } = render(
+      <Anchor
+        items={[
+          { key: hash1, href: `#${hash1}`, title: hash1 },
+          { key: hash2, href: `#${hash2}`, title: hash2 },
+          { key: hash3, href: `#${hash3}`, title: hash3 },
+        ]}
+      />,
+    );
+
+    fireEvent.click(container.querySelector(`a[href="#${hash1}"]`)!);
+    fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
+    fireEvent.click(container.querySelector(`a[href="#${hash3}"]`)!);
+    await waitFakeTimer();
+
+    expect(scrollToSpy).toHaveBeenCalled();
+  });
+
+  it('should not scroll when clicking the same active link during animation', async () => {
+    const hash = getHashUrl();
+    const root = createDiv();
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    render(<div id={hash}>Section</div>, { container: root });
+
+    const { container } = render(<Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />);
+
+    const link = container.querySelector(`a[href="#${hash}"]`)!;
+
+    fireEvent.click(link);
+    const firstCallCount = scrollToSpy.mock.calls.length;
+    fireEvent.click(link);
+    expect(scrollToSpy).toHaveBeenCalledTimes(firstCallCount);
+
+    await waitFakeTimer();
+  });
+
+  it('should properly cleanup scroll animation on unmount', async () => {
+    const hash = getHashUrl();
+    const root = createDiv();
+
+    render(<div id={hash}>Section</div>, { container: root });
+
+    const { container, unmount } = render(
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
+    );
+
+    fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
+    unmount();
+    await waitFakeTimer();
+  });
+
   describe('warning', () => {
     let errSpy: jest.SpyInstance;
     beforeEach(() => {
