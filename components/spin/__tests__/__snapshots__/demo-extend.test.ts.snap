@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning"
+  class="ant-spin ant-spin-spinning css-var-test-id"
 >
   <span
     class="ant-spin-dot-holder"
@@ -33,12 +33,12 @@ exports[`renders components/spin/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
 >
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning"
+    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -63,7 +63,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning"
+    class="ant-spin ant-spin-spinning css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -88,7 +88,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-lg ant-spin-spinning"
+    class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -113,7 +113,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning"
+    class="ant-spin ant-spin-spinning css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -143,24 +143,24 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
 
 exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
         data-show="true"
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="ant-alert-section"
         >
           <div
-            class="ant-alert-message"
+            class="ant-alert-title"
           >
             Alert message title
           </div>
@@ -177,7 +177,7 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
     Loading state：
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -204,7 +204,7 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
 exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -212,12 +212,12 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-spin-fullscreen"
+    class="ant-spin-fullscreen css-var-test-id"
   >
     <div
       aria-busy="false"
       aria-live="polite"
-      class="ant-spin"
+      class="ant-spin css-var-test-id"
     >
       <span
         class="ant-spin-dot-holder"
@@ -248,24 +248,24 @@ exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`
 
 exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
         data-show="true"
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="ant-alert-section"
         >
           <div
-            class="ant-alert-message"
+            class="ant-alert-title"
           >
             Alert message title
           </div>
@@ -282,7 +282,7 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = 
     Loading state：
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -308,11 +308,11 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 2`] = 
 
 exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
 >
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -337,7 +337,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning"
+    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -390,7 +390,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning"
+    class="ant-spin ant-spin-spinning css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -443,7 +443,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-lg ant-spin-spinning"
+    class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -500,12 +500,12 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 2`] =
 
 exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
 >
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning"
+    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -531,7 +531,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning"
+    class="ant-spin ant-spin-spinning css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -557,7 +557,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-lg ant-spin-spinning"
+    class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -585,21 +585,84 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 
 exports[`renders components/spin/demo/size.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
 >
   <div
-    class="ant-flex ant-flex-gap-middle"
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning acss-11z55jn css-var-test-id"
+  >
+    <span
+      class="ant-spin-dot-holder"
+      style="color: rgb(0, 212, 255);"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </span>
+  </div>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-sm ant-spin-spinning acss-11z55jn css-var-test-id"
+  >
+    <span
+      class="ant-spin-dot-holder"
+      style="color: rgb(114, 46, 209);"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/spin/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div>
         <div
           aria-busy="true"
           aria-live="polite"
-          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text css-var-test-id"
         >
           <span
             class="ant-spin-dot-holder"
@@ -637,13 +700,13 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div>
         <div
           aria-busy="true"
           aria-live="polite"
-          class="ant-spin ant-spin-spinning ant-spin-show-text"
+          class="ant-spin ant-spin-spinning ant-spin-show-text css-var-test-id"
         >
           <span
             class="ant-spin-dot-holder"
@@ -681,13 +744,13 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div>
         <div
           aria-busy="true"
           aria-live="polite"
-          class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
+          class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text css-var-test-id"
         >
           <span
             class="ant-spin-dot-holder"
@@ -726,13 +789,13 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div>
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning ant-spin-show-text"
+        class="ant-spin ant-spin-spinning ant-spin-show-text css-var-test-id"
       >
         <span
           class="ant-spin-dot-holder"
@@ -765,15 +828,15 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
         data-show="true"
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="ant-alert-section"
         >
           <div
-            class="ant-alert-message"
+            class="ant-alert-title"
           >
             Alert message title
           </div>

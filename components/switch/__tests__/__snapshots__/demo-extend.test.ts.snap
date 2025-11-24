@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/switch/demo/basic.tsx extend context correctly 1`] = `
 <button
   aria-checked="true"
-  class="ant-switch ant-switch-checked"
+  class="ant-switch css-var-test-id ant-switch-checked"
   role="switch"
   type="button"
 >
@@ -27,14 +27,14 @@ exports[`renders components/switch/demo/basic.tsx extend context correctly 2`] =
 
 exports[`renders components/switch/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked ant-switch-disabled"
+      class="ant-switch css-var-test-id ant-switch-checked ant-switch-disabled"
       disabled=""
       role="switch"
       type="button"
@@ -58,7 +58,7 @@ exports[`renders components/switch/demo/disabled.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -75,7 +75,7 @@ exports[`renders components/switch/demo/loading.tsx extend context correctly 1`]
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-loading ant-switch-checked ant-switch-disabled"
+    class="ant-switch ant-switch-loading css-var-test-id ant-switch-checked ant-switch-disabled"
     disabled=""
     role="switch"
     type="button"
@@ -117,7 +117,7 @@ Array [
   <br />,
   <button
     aria-checked="false"
-    class="ant-switch ant-switch-small ant-switch-loading ant-switch-disabled"
+    class="ant-switch ant-switch-small ant-switch-loading css-var-test-id ant-switch-disabled"
     disabled=""
     role="switch"
     type="button"
@@ -165,7 +165,7 @@ exports[`renders components/switch/demo/size.tsx extend context correctly 1`] = 
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -186,7 +186,7 @@ Array [
   <br />,
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-small ant-switch-checked"
+    class="ant-switch ant-switch-small css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -209,16 +209,71 @@ Array [
 
 exports[`renders components/switch/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/switch/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <button
+    aria-checked="false"
+    class="ant-switch ant-switch-small acss-354296 css-var-test-id"
+    role="switch"
+    style="background-color: rgb(245, 210, 210);"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        on
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        off
+      </span>
+    </span>
+  </button>
+  <button
+    aria-checked="false"
+    class="ant-switch acss-354296 css-var-test-id"
+    role="switch"
+    style="background-color: rgb(189, 227, 195);"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/switch/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -246,7 +301,7 @@ exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = 
   >
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -274,7 +329,7 @@ exports[`renders components/switch/demo/text.tsx extend context correctly 1`] = 
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >

@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-picker/lib/locale/vi_VN';
+import CalendarLocale from '@rc-component/picker/lib/locale/vi_VN';
 
 import TimePickerLocale from '../../time-picker/locale/vi_VN';
 import type { PickerLocale } from '../generatePicker';
@@ -16,6 +16,21 @@ const locale: PickerLocale = {
     rangeQuarterPlaceholder: ['Quý bắt đầu', 'Quý kết thúc'],
     rangeMonthPlaceholder: ['Tháng bắt đầu', 'Tháng kết thúc'],
     rangeWeekPlaceholder: ['Tuần bắt đầu', 'Tuần kết thúc'],
+    shortMonths: [
+      'Th 01',
+      'Th 02',
+      'Th 03',
+      'Th 04',
+      'Th 05',
+      'Th 06',
+      'Th 07',
+      'Th 08',
+      'Th 09',
+      'Th 10',
+      'Th 11',
+      'Th 12',
+    ],
+    shortWeekDays: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
     ...CalendarLocale,
   },
   timePickerLocale: {

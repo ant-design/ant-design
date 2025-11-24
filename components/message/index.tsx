@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { render } from '@rc-component/util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -120,7 +120,7 @@ const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) 
   );
 });
 
-function flushNotice() {
+const flushMessageQueue = () => {
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
@@ -132,19 +132,16 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      const reactRender = unstableSetRender();
-
-      reactRender(
+      render(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
-
             // React 18 test env will throw if call immediately in ref
             Promise.resolve().then(() => {
               if (!newMessage.instance && instance) {
                 newMessage.instance = instance;
                 newMessage.sync = sync;
-                flushNotice();
+                flushMessageQueue();
               }
             });
           }}
@@ -203,7 +200,7 @@ function flushNotice() {
 
   // Clean up
   taskQueue = [];
-}
+};
 
 // ==============================================================================
 // ==                                  Export                                  ==
@@ -246,7 +243,7 @@ function open(config: ArgsProps): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
@@ -283,17 +280,14 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
 
 const destroy: BaseMethods['destroy'] = (key) => {
-  taskQueue.push({
-    type: 'destroy',
-    key,
-  });
-  flushNotice();
+  taskQueue.push({ type: 'destroy', key });
+  flushMessageQueue();
 };
 
 interface BaseMethods {

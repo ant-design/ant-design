@@ -1,25 +1,33 @@
 import * as React from 'react';
 import { Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import SiteContext from '../../../theme/slots/SiteContext';
 import GroupMaskLayer from './GroupMaskLayer';
 
-const useStyle = createStyles(({ css, token }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   box: css`
     position: relative;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
+  `,
+  container: css`
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  `,
+  typographyWrapper: css`
+    text-align: center;
   `,
   marginStyle: css`
     max-width: 1208px;
     margin-inline: auto;
     box-sizing: border-box;
-    padding-inline: ${token.marginXXL}px;
+    padding-inline: ${cssVar.marginXXL};
   `,
   withoutChildren: css`
     min-height: 300px;
-    border-radius: ${token.borderRadiusLG}px;
+    border-radius: ${cssVar.borderRadiusLG};
     background-color: '#e9e9e9';
   `,
 }));
@@ -40,40 +48,36 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   const token = useTheme();
   const { styles } = useStyle();
   const { isMobile } = React.use(SiteContext);
-  const childNode = (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <Typography.Title
-          id={id}
-          level={1}
-          style={{
-            fontWeight: 900,
-            color: titleColor,
-            // Special for the title
-            fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
-          }}
-        >
-          {title}
-        </Typography.Title>
-        <Typography.Paragraph
-          style={{
-            color: titleColor,
-            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
-          }}
-        >
-          {description}
-        </Typography.Paragraph>
-      </div>
-      <div className={classNames({ [styles.marginStyle]: !collapse })}>
-        {children ? <div>{children}</div> : <div className={styles.withoutChildren} />}
-      </div>
-    </>
-  );
-
   return (
     <div style={{ backgroundColor: background }} className={styles.box}>
-      <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
-      <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>{childNode}</GroupMaskLayer>
+      <div className={styles.container}>{decoration}</div>
+      <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>
+        <div className={styles.typographyWrapper}>
+          <Typography.Title
+            id={id}
+            level={1}
+            style={{
+              fontWeight: 900,
+              color: titleColor,
+              // Special for the title
+              fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
+            }}
+          >
+            {title}
+          </Typography.Title>
+          <Typography.Paragraph
+            style={{
+              color: titleColor,
+              marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
+            }}
+          >
+            {description}
+          </Typography.Paragraph>
+        </div>
+        <div className={clsx({ [styles.marginStyle]: !collapse })}>
+          {children ? <div>{children}</div> : <div className={styles.withoutChildren} />}
+        </div>
+      </GroupMaskLayer>
     </div>
   );
 };

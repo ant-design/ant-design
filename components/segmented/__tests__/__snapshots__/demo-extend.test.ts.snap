@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -20,8 +20,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
         title="Daily"
       >
         Daily
@@ -36,8 +37,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Weekly"
       >
         Weekly
@@ -52,8 +54,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Monthly"
       >
         Monthly
@@ -68,8 +71,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Quarterly"
       >
         Quarterly
@@ -84,8 +88,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Yearly"
       >
         Yearly
@@ -100,7 +105,7 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 2`
 exports[`renders components/segmented/demo/block.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented ant-segmented-block"
+  class="ant-segmented ant-segmented-block css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -117,8 +122,9 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
         title="123"
       >
         123
@@ -133,8 +139,9 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="456"
       >
         456
@@ -149,8 +156,9 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="longtext-longtext-longtext-longtext"
       >
         longtext-longtext-longtext-longtext
@@ -163,98 +171,203 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
 exports[`renders components/segmented/demo/block.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 1`] = `
-<div
-  aria-label="segmented control"
-  class="ant-segmented"
-  role="radiogroup"
-  tabindex="0"
->
+Array [
   <div
-    class="ant-segmented-group"
+    aria-label="segmented control"
+    class="ant-segmented css-var-test-id"
+    role="radiogroup"
+    tabindex="0"
   >
-    <label
-      class="ant-segmented-item ant-segmented-item-selected"
+    <div
+      class="ant-segmented-group"
     >
-      <input
-        checked=""
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-selected="true"
-        class="ant-segmented-item-label"
-        title="Daily"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
-        Daily
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Daily"
+        >
+          Daily
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Weekly"
+        >
+          Weekly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Monthly"
+        >
+          Monthly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Quarterly"
+        >
+          Quarterly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Yearly"
+        >
+          Yearly
+        </div>
+      </label>
+    </div>
+  </div>,
+    ,
+  <div
+    aria-label="segmented control"
+    class="ant-segmented css-var-test-id"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
     >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-selected="false"
-        class="ant-segmented-item-label"
-        title="Weekly"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
-        Weekly
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-selected="false"
-        class="ant-segmented-item-label"
-        title="Monthly"
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Daily"
+        >
+          Daily
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        Monthly
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-selected="false"
-        class="ant-segmented-item-label"
-        title="Quarterly"
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Weekly"
+        >
+          Weekly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        Quarterly
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-selected="false"
-        class="ant-segmented-item-label"
-        title="Yearly"
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Monthly"
+        >
+          Monthly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        Yearly
-      </div>
-    </label>
-  </div>
-</div>
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Quarterly"
+        >
+          Quarterly
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Yearly"
+        >
+          Yearly
+        </div>
+      </label>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 2`] = `[]`;
@@ -262,7 +375,7 @@ exports[`renders components/segmented/demo/componentToken.tsx extend context cor
 exports[`renders components/segmented/demo/controlled.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -279,8 +392,9 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
         title="Map"
       >
         Map
@@ -295,8 +409,9 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Transit"
       >
         Transit
@@ -311,8 +426,9 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Satellite"
       >
         Satellite
@@ -328,7 +444,7 @@ exports[`renders components/segmented/demo/controlled-two.tsx extend context cor
 Array [
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -345,8 +461,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="AND"
         >
           AND
@@ -361,8 +478,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="OR"
         >
           OR
@@ -377,8 +495,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="NOT"
         >
           NOT
@@ -389,7 +508,7 @@ Array [
     ,
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -406,8 +525,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="AND"
         >
           AND
@@ -422,8 +542,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="OR"
         >
           OR
@@ -438,8 +559,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="NOT"
         >
           NOT
@@ -454,11 +576,11 @@ exports[`renders components/segmented/demo/controlled-two.tsx extend context cor
 
 exports[`renders components/segmented/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -466,6 +588,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
       class="ant-segmented-group"
     >
       <label
+        aria-describedby="test-id"
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
@@ -475,14 +598,15 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
+              class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
             >
               <img
                 src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
@@ -494,7 +618,28 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           </div>
         </div>
       </label>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-gold ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          hello user1
+        </div>
+      </div>
       <label
+        aria-describedby="test-id"
         class="ant-segmented-item"
       >
         <input
@@ -503,19 +648,20 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
           >
             <span
-              class="ant-avatar ant-avatar-circle"
+              class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(245, 106, 0);"
             >
               <span
                 class="ant-avatar-string"
-                style="transform: scale(1);"
+                style="-webkit-transform: scale(1); transform: scale(1);"
               >
                 K
               </span>
@@ -526,7 +672,28 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           </div>
         </div>
       </label>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-pink ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          hello user2
+        </div>
+      </div>
       <label
+        aria-describedby="test-id"
         class="ant-segmented-item"
       >
         <input
@@ -535,14 +702,15 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(135, 208, 104);"
             >
               <span
@@ -571,11 +739,31 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           </div>
         </div>
       </label>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-geekblue ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          hello user3
+        </div>
+      </div>
     </div>
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -592,8 +780,9 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
@@ -616,8 +805,9 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
@@ -640,8 +830,9 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
@@ -664,8 +855,9 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <div
             style="padding: 4px;"
@@ -688,11 +880,11 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 2
 
 exports[`renders components/segmented/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-disabled"
+    class="ant-segmented ant-segmented-disabled css-var-test-id"
     role="radiogroup"
   >
     <div
@@ -709,8 +901,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Map"
         >
           Map
@@ -726,8 +919,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Transit"
         >
           Transit
@@ -743,8 +937,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Satellite"
         >
           Satellite
@@ -754,7 +949,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -771,8 +966,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Daily"
         >
           Daily
@@ -788,8 +984,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Weekly"
         >
           Weekly
@@ -804,8 +1001,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Monthly"
         >
           Monthly
@@ -821,8 +1019,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Quarterly"
         >
           Quarterly
@@ -837,8 +1036,9 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Yearly"
         >
           Yearly
@@ -853,11 +1053,11 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 
 exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -874,8 +1074,9 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Daily"
         >
           Daily
@@ -890,8 +1091,9 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Weekly"
         >
           Weekly
@@ -906,8 +1108,9 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Monthly"
         >
           Monthly
@@ -916,7 +1119,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -931,7 +1134,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 exports[`renders components/segmented/demo/icon-only.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -948,8 +1151,9 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -985,8 +1189,9 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -1021,11 +1226,11 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
 
 exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1041,8 +1246,9 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="small"
         >
           small
@@ -1058,8 +1264,9 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="middle"
         >
           middle
@@ -1074,8 +1281,9 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="large"
         >
           large
@@ -1085,7 +1293,7 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-shape-round"
+    class="ant-segmented ant-segmented-shape-round css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1102,8 +1310,9 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <span
             class="ant-segmented-item-icon"
@@ -1140,8 +1349,9 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <span
             class="ant-segmented-item-icon"
@@ -1178,11 +1388,11 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 2`
 
 exports[`renders components/segmented/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-lg"
+    class="ant-segmented ant-segmented-lg css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1199,8 +1409,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Daily"
         >
           Daily
@@ -1215,8 +1426,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Weekly"
         >
           Weekly
@@ -1231,8 +1443,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Monthly"
         >
           Monthly
@@ -1247,8 +1460,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Quarterly"
         >
           Quarterly
@@ -1263,8 +1477,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Yearly"
         >
           Yearly
@@ -1274,7 +1489,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1291,8 +1506,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Daily"
         >
           Daily
@@ -1307,8 +1523,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Weekly"
         >
           Weekly
@@ -1323,8 +1540,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Monthly"
         >
           Monthly
@@ -1339,8 +1557,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Quarterly"
         >
           Quarterly
@@ -1355,8 +1574,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Yearly"
         >
           Yearly
@@ -1366,7 +1586,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-sm"
+    class="ant-segmented ant-segmented-sm css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1383,8 +1603,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Daily"
         >
           Daily
@@ -1399,8 +1620,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Weekly"
         >
           Weekly
@@ -1415,8 +1637,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Monthly"
         >
           Monthly
@@ -1431,8 +1654,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Quarterly"
         >
           Quarterly
@@ -1447,8 +1671,9 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Yearly"
         >
           Yearly
@@ -1463,12 +1688,12 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 2`]
 
 exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div>
     <div
       aria-label="segmented control"
-      class="ant-segmented ant-segmented-lg"
+      class="ant-segmented ant-segmented-lg css-var-test-id"
       role="radiogroup"
       style="margin-inline-end: 6px;"
       tabindex="0"
@@ -1486,8 +1711,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="true"
+            aria-checked="true"
             class="ant-segmented-item-label"
+            role="radio"
             title="Daily"
           >
             Daily
@@ -1502,8 +1728,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="Weekly"
           >
             Weekly
@@ -1518,8 +1745,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="Monthly"
           >
             Monthly
@@ -1528,7 +1756,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
       type="button"
     >
       <span>
@@ -1539,7 +1767,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
-      class="ant-segmented"
+      class="ant-segmented css-var-test-id"
       role="radiogroup"
       style="margin-inline-end: 6px;"
       tabindex="0"
@@ -1557,8 +1785,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="true"
+            aria-checked="true"
             class="ant-segmented-item-label"
+            role="radio"
             title="Daily"
           >
             Daily
@@ -1573,8 +1802,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="Weekly"
           >
             Weekly
@@ -1589,8 +1819,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="Monthly"
           >
             Monthly
@@ -1599,7 +1830,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       placeholder="default size"
       style="width: 150px;"
       type="text"
@@ -1609,7 +1840,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
-      class="ant-segmented ant-segmented-sm"
+      class="ant-segmented ant-segmented-sm css-var-test-id"
       role="radiogroup"
       style="margin-inline-end: 6px;"
       tabindex="0"
@@ -1627,8 +1858,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="true"
+            aria-checked="true"
             class="ant-segmented-item-label"
+            role="radio"
             title="Daily"
           >
             Daily
@@ -1643,8 +1875,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="Weekly"
           >
             Weekly
@@ -1659,8 +1892,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="Monthly"
           >
             Monthly
@@ -1669,107 +1903,40 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 150px;"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
+        <div
+          class="ant-select-content-value"
+          style="visibility: visible;"
+          title="Lucy"
         >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Lucy"
-          >
-            Lucy
-          </span>
-        </span>
+          Lucy
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div>
-          <div
-            id="rc_select_TEST_OR_SSR_list"
-            role="listbox"
-            style="height: 0px; width: 0px; overflow: hidden;"
-          >
-            <div
-              aria-label="Lucy"
-              aria-selected="true"
-              id="rc_select_TEST_OR_SSR_list_0"
-              role="option"
-            >
-              lucy
-            </div>
-          </div>
-          <div
-            class="rc-virtual-list"
-            style="position: relative;"
-          >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
-            >
-              <div>
-                <div
-                  class="rc-virtual-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
-                  <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    title="Lucy"
-                  >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      Lucy
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select: none;"
-        unselectable="on"
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -1786,7 +1953,61 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             />
           </svg>
         </span>
-      </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
+          <div
+            aria-label="Lucy"
+            aria-selected="true"
+            id="test-id_list_0"
+            role="option"
+          >
+            lucy
+          </div>
+        </div>
+        <div
+          class="rc-virtual-list"
+          style="position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                  title="Lucy"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Lucy
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1794,10 +2015,297 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 
 exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/segmented/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented acss-1o3848f css-var-test-id"
+    role="radiogroup"
+    style="padding: 4px; width: 260px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <span
+              aria-label="rocket"
+              class="anticon anticon-rocket"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="rocket"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M864 736c0-111.6-65.4-208-160-252.9V317.3c0-15.1-5.3-29.7-15.1-41.2L536.5 95.4C530.1 87.8 521 84 512 84s-18.1 3.8-24.5 11.4L335.1 276.1a63.97 63.97 0 00-15.1 41.2v165.8C225.4 528 160 624.4 160 736h156.5c-2.3 7.2-3.5 15-3.5 23.8 0 22.1 7.6 43.7 21.4 60.8a97.2 97.2 0 0043.1 30.6c23.1 54 75.6 88.8 134.5 88.8 29.1 0 57.3-8.6 81.4-24.8 23.6-15.8 41.9-37.9 53-64a97 97 0 0043.1-30.5 97.52 97.52 0 0021.4-60.8c0-8.4-1.1-16.4-3.1-23.8H864zM762.3 621.4c9.4 14.6 17 30.3 22.5 46.6H700V558.7a211.6 211.6 0 0162.3 62.7zM388 483.1V318.8l124-147 124 147V668H388V483.1zM239.2 668c5.5-16.3 13.1-32 22.5-46.6 16.3-25.2 37.5-46.5 62.3-62.7V668h-84.8zm388.9 116.2c-5.2 3-11.2 4.2-17.1 3.4l-19.5-2.4-2.8 19.4c-5.4 37.9-38.4 66.5-76.7 66.5-38.3 0-71.3-28.6-76.7-66.5l-2.8-19.5-19.5 2.5a27.7 27.7 0 01-17.1-3.5c-8.7-5-14.1-14.3-14.1-24.4 0-10.6 5.9-19.4 14.6-23.8h231.3c8.8 4.5 14.6 13.3 14.6 23.8-.1 10.2-5.5 19.6-14.2 24.5zM464 400a48 48 0 1096 0 48 48 0 10-96 0z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Boost
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <span
+              aria-label="thunderbolt"
+              class="anticon anticon-thunderbolt"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="thunderbolt"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7zM378.2 732.5l60.3-241H281.1l189.6-327.4h224.6L487 427.4h211L378.2 732.5z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Stream
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <span
+              aria-label="cloud"
+              class="anticon anticon-cloud"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="cloud"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3zm36.3 281a123.07 123.07 0 01-87.6 36.3H263.9c-33.1 0-64.2-12.9-87.6-36.3A123.3 123.3 0 01140 612c0-28 9.1-54.3 26.2-76.3a125.7 125.7 0 0166.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4a245.6 245.6 0 0152.4-49.9c41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10c54.3 14.5 92.1 63.8 92.1 120 0 33.1-12.9 64.3-36.3 87.7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Cloud
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented ant-segmented-vertical acss-1o3848f ant-segmented-vertical css-var-test-id"
+    role="radiogroup"
+    style="border: 1px solid rgb(119, 190, 240); padding: 4px; width: 100px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+        style="text-align: start;"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+        >
+          <span
+            class="ant-segmented-item-icon"
+            style="color: rgb(119, 190, 240);"
+          >
+            <span
+              aria-label="rocket"
+              class="anticon anticon-rocket"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="rocket"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M864 736c0-111.6-65.4-208-160-252.9V317.3c0-15.1-5.3-29.7-15.1-41.2L536.5 95.4C530.1 87.8 521 84 512 84s-18.1 3.8-24.5 11.4L335.1 276.1a63.97 63.97 0 00-15.1 41.2v165.8C225.4 528 160 624.4 160 736h156.5c-2.3 7.2-3.5 15-3.5 23.8 0 22.1 7.6 43.7 21.4 60.8a97.2 97.2 0 0043.1 30.6c23.1 54 75.6 88.8 134.5 88.8 29.1 0 57.3-8.6 81.4-24.8 23.6-15.8 41.9-37.9 53-64a97 97 0 0043.1-30.5 97.52 97.52 0 0021.4-60.8c0-8.4-1.1-16.4-3.1-23.8H864zM762.3 621.4c9.4 14.6 17 30.3 22.5 46.6H700V558.7a211.6 211.6 0 0162.3 62.7zM388 483.1V318.8l124-147 124 147V668H388V483.1zM239.2 668c5.5-16.3 13.1-32 22.5-46.6 16.3-25.2 37.5-46.5 62.3-62.7V668h-84.8zm388.9 116.2c-5.2 3-11.2 4.2-17.1 3.4l-19.5-2.4-2.8 19.4c-5.4 37.9-38.4 66.5-76.7 66.5-38.3 0-71.3-28.6-76.7-66.5l-2.8-19.5-19.5 2.5a27.7 27.7 0 01-17.1-3.5c-8.7-5-14.1-14.3-14.1-24.4 0-10.6 5.9-19.4 14.6-23.8h231.3c8.8 4.5 14.6 13.3 14.6 23.8-.1 10.2-5.5 19.6-14.2 24.5zM464 400a48 48 0 1096 0 48 48 0 10-96 0z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Boost
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+        style="text-align: start;"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+        >
+          <span
+            class="ant-segmented-item-icon"
+            style="color: rgb(119, 190, 240);"
+          >
+            <span
+              aria-label="thunderbolt"
+              class="anticon anticon-thunderbolt"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="thunderbolt"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7zM378.2 732.5l60.3-241H281.1l189.6-327.4h224.6L487 427.4h211L378.2 732.5z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Stream
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+        style="text-align: start;"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+        >
+          <span
+            class="ant-segmented-item-icon"
+            style="color: rgb(119, 190, 240);"
+          >
+            <span
+              aria-label="cloud"
+              class="anticon anticon-cloud"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="cloud"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3zm36.3 281a123.07 123.07 0 01-87.6 36.3H263.9c-33.1 0-64.2-12.9-87.6-36.3A123.3 123.3 0 01140 612c0-28 9.1-54.3 26.2-76.3a125.7 125.7 0 0166.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4a245.6 245.6 0 0152.4-49.9c41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10c54.3 14.5 92.1 63.8 92.1 120 0 33.1-12.9 64.3-36.3 87.7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Cloud
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/segmented/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/vertical.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented ant-segmented-vertical ant-segmented-vertical"
+  class="ant-segmented ant-segmented-vertical ant-segmented-vertical css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -1814,8 +2322,9 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -1851,8 +2360,9 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -1888,7 +2398,7 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
 exports[`renders components/segmented/demo/with-icon.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -1905,8 +2415,9 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -1945,8 +2456,9 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -1985,7 +2497,7 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
 exports[`renders components/segmented/demo/with-name.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -2002,8 +2514,9 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
         title="Daily"
       >
         Daily
@@ -2018,8 +2531,9 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Weekly"
       >
         Weekly
@@ -2034,8 +2548,9 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Monthly"
       >
         Monthly
@@ -2050,8 +2565,9 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Quarterly"
       >
         Quarterly
@@ -2066,8 +2582,9 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
         title="Yearly"
       >
         Yearly

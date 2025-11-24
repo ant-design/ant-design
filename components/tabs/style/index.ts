@@ -143,7 +143,6 @@ export interface TabsToken extends FullToken<'Tabs'> {
   tabsCardPadding: string;
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
-  tabsActiveTextShadow: string;
   tabsDropdownHeight: number | string;
   tabsDropdownWidth: number | string;
   tabsHorizontalItemMargin: string;
@@ -734,6 +733,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
       '&-remove': {
         flex: 'none',
+        lineHeight: 1,
         marginRight: {
           _skip_check_: true,
           value: token.calc(token.marginXXS).mul(-1).equal(),
@@ -761,7 +761,6 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
       [`&${tabCls}-active ${tabCls}-btn`]: {
         color: itemSelectedColor,
-        textShadow: token.tabsActiveTextShadow,
       },
 
       [`&${tabCls}-focus ${tabCls}-btn:focus-visible`]: genFocusOutline(token),
@@ -779,6 +778,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
       [`& ${tabCls}-remove ${iconCls}`]: {
         margin: 0,
+        verticalAlign: 'middle',
       },
 
       [`${iconCls}:not(:last-child)`]: {
@@ -1110,7 +1110,6 @@ export default genStyleHooks(
       // `cardPadding` is empty by default, so we could calculate with dynamic `cardHeight`
       tabsCardPadding: token.cardPadding,
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
-      tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,
       tabsDropdownWidth: 120,
       tabsHorizontalItemMargin: `0 0 0 ${unit(token.horizontalItemGutter)}`,

@@ -8,17 +8,17 @@ import type { BehaviorMapProps } from './BehaviorMap';
 
 const InternalBehaviorMap = React.lazy(() => import('./BehaviorMap'));
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   fallback: css`
     width: 100%;
     > * {
       width: 100% !important;
-      border-radius: ${token.borderRadiusLG}px;
+      border-radius: ${cssVar.borderRadiusLG};
     }
   `,
   placeholder: css`
-    color: ${token.colorTextDescription};
-    font-size: ${token.fontSizeLG}px;
+    color: ${cssVar.colorTextDescription};
+    font-size: ${cssVar.fontSizeLG};
   `,
 }));
 

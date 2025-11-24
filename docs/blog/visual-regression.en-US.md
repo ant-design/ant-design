@@ -28,7 +28,7 @@ We built our own visual regression testing solution using jest-puppeteer mention
 
 Using GitHub Actions for continuous integration, we automatically capture and upload screenshots to OSS whenever the base branch code changes, ensuring the baseline screenshots stay up-to-date.
 
-For branches requiring visual regression testing, we use [pixelmatch](https://github.com/mapbox/pixelmatch) to compare current screenshots with baseline screenshots. If differences are found, difference screenshots are generated, and the difference report is uploaded to OSS.
+For branches requiring visual regression testing, we use [blazediff](https://github.com/teimurjan/blazediff) to compare current screenshots with baseline screenshots. If differences are found, difference screenshots are generated, and the difference report is uploaded to OSS.
 
 Further leveraging GitHub Actions, we implement baseline screenshot comparison in PRs. If visual differences are detected, the CI uploads the difference screenshots and report to OSS, displays the visual differences in the PR, and marks it as failed, requiring developers to fix the issues.
 

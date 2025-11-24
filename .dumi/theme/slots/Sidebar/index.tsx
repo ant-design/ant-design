@@ -1,35 +1,34 @@
 import React from 'react';
+import MobileMenu from '@rc-component/drawer';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
-import MobileMenu from 'rc-drawer';
 
 import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { antCls, fontFamily, colorSplit, marginXXL, paddingXXS } = token;
-
+const useStyle = createStyles(({ cssVar, token, css }) => {
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-bottom: ${marginXXL}px !important;
-      font-family: Avenir, ${fontFamily}, sans-serif;
-      padding: 0 ${paddingXXS}px;
+      padding-top: ${cssVar.marginXL};
+      padding-bottom: ${cssVar.marginXXL} !important;
+      font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
+      padding-inline: ${cssVar.paddingXXS};
 
-      &${antCls}-menu-inline {
-        ${antCls}-menu-submenu-title h4,
-        > ${antCls}-menu-item,
-        ${antCls}-menu-item a {
+      &${token.antCls}-menu-inline {
+        ${token.antCls}-menu-submenu-title h4,
+        > ${token.antCls}-menu-item,
+        ${token.antCls}-menu-item a {
           overflow: hidden;
-          font-size: ${token.fontSize}px;
+          font-size: ${cssVar.fontSize};
           text-overflow: ellipsis;
         }
 
-        > ${antCls}-menu-item-group > ${antCls}-menu-item-group-title {
-          margin-top: ${token.margin}px;
-          margin-bottom: ${token.margin}px;
-          font-size: ${token.fontSize}px;
+        > ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-title {
+          margin-top: ${cssVar.margin};
+          margin-bottom: ${cssVar.margin};
+          font-size: ${cssVar.fontSize};
 
           &::after {
             position: relative;
@@ -37,50 +36,50 @@ const useStyle = createStyles(({ token, css }) => {
             display: block;
             width: calc(100% - 20px);
             height: 1px;
-            background: ${colorSplit};
+            background: ${cssVar.colorSplit};
             content: '';
           }
         }
 
-        > ${antCls}-menu-item,
-          > ${antCls}-menu-submenu
-          > ${antCls}-menu-submenu-title,
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-title,
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-list
-          > ${antCls}-menu-item,
-          &${antCls}-menu-inline
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-list
-          > ${antCls}-menu-item {
+        > ${token.antCls}-menu-item,
+          > ${token.antCls}-menu-submenu
+          > ${token.antCls}-menu-submenu-title,
+          > ${token.antCls}-menu-item-group
+          > ${token.antCls}-menu-item-group-title,
+          > ${token.antCls}-menu-item-group
+          > ${token.antCls}-menu-item-group-list
+          > ${token.antCls}-menu-item,
+          &${token.antCls}-menu-inline
+          > ${token.antCls}-menu-item-group
+          > ${token.antCls}-menu-item-group-list
+          > ${token.antCls}-menu-item {
           padding-inline: 36px 12px !important;
         }
 
         // Nest Category > Type > Article
-        &${antCls}-menu-inline {
-          ${antCls}-menu-item-group-title {
-            margin-inline-start: ${token.marginXXS}px;
+        &${token.antCls}-menu-inline {
+          ${token.antCls}-menu-item-group-title {
+            margin-inline-start: ${cssVar.marginXXS};
             padding-inline-start: 60px;
 
-            ${antCls}-row-rtl & {
+            ${token.antCls}-row-rtl & {
               padding-inline-end: 60px;
-              padding-inline-start: ${token.padding}px;
+              padding-inline-start: ${cssVar.padding};
             }
           }
 
-          ${antCls}-menu-item-group-list > ${antCls}-menu-item {
+          ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item {
             padding-inline-start: 80px !important;
 
-            ${antCls}-row-rtl & {
+            ${token.antCls}-row-rtl & {
               padding-inline-end: 80px !important;
-              padding-inline-start: ${token.padding}px !important;
+              padding-inline-start: ${cssVar.padding} !important;
             }
           }
         }
 
-        ${antCls}-menu-item-group:first-child {
-          ${antCls}-menu-item-group-title {
+        ${token.antCls}-menu-item-group:first-child {
+          ${token.antCls}-menu-item-group-title {
             margin-top: 0;
           }
         }
@@ -93,9 +92,9 @@ const useStyle = createStyles(({ token, css }) => {
     mainMenu: css`
       z-index: 1;
       position: sticky;
-      top: ${token.headerHeight + token.contentMarginTop}px;
+      top: ${token.headerHeight}px;
       width: 100%;
-      max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      max-height: calc(100vh - ${token.headerHeight}px);
       overflow: hidden;
       scrollbar-width: thin;
       scrollbar-gutter: stable;
@@ -109,11 +108,10 @@ const useStyle = createStyles(({ token, css }) => {
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile, theme } = React.use(SiteContext);
+  const { isMobile, isDark } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
-  const isDark = theme.includes('dark');
   const { colorBgContainer } = useTheme();
 
   const menuChild = (

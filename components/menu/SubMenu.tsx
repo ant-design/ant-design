@@ -1,9 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
-import omit from 'rc-util/lib/omit';
+import { SubMenu as RcSubMenu, useFullPath } from '@rc-component/menu';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useZIndex } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import type { SubMenuType } from './interface';
 import type { MenuContextProps } from './MenuContext';
@@ -12,17 +12,12 @@ import MenuContext from './MenuContext';
 export interface SubMenuProps extends Omit<SubMenuType, 'ref' | 'key' | 'children' | 'label'> {
   title?: React.ReactNode;
   children?: React.ReactNode;
-  /**
-   * @deprecated No longer needed, it can now be safely deleted.
-   * @see: https://github.com/ant-design/ant-design/pull/30638
-   */
-  level?: number;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
-  const { prefixCls, inlineCollapsed, theme: contextTheme } = context;
+  const { prefixCls, inlineCollapsed, theme: contextTheme, classNames, styles } = context;
 
   const parentPath = useFullPath();
 
@@ -41,12 +36,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     const titleIsSpan = React.isValidElement(title) && title.type === 'span';
     titleNode = (
       <>
-        {cloneElement(icon, {
-          className: classNames(
-            React.isValidElement<{ className?: string }>(icon) ? icon.props?.className : undefined,
-            `${prefixCls}-item-icon`,
-          ),
-        })}
+        {cloneElement(icon, (oriProps) => ({
+          className: clsx(oriProps.className, `${prefixCls}-item-icon`, classNames.itemIcon),
+          style: { ...oriProps.style, ...styles.itemIcon },
+        }))}
         {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
       </>
     );
@@ -65,15 +58,25 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
-        popupClassName={classNames(
+        classNames={{
+          list: classNames.subMenu.list,
+          listTitle: classNames.subMenu.itemTitle,
+        }}
+        styles={{
+          list: styles.subMenu.list,
+          listTitle: styles.subMenu.itemTitle,
+        }}
+        popupClassName={clsx(
           prefixCls,
           popupClassName,
+          classNames.popup.root,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
         popupStyle={{
           zIndex,
           // fix: https://github.com/ant-design/ant-design/issues/47826#issuecomment-2360737237
           ...props.popupStyle,
+          ...styles.popup.root,
         }}
       />
     </MenuContext.Provider>

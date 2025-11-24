@@ -9,12 +9,12 @@ describe('Test utils function', () => {
       jest.useFakeTimers();
     });
 
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
     afterEach(() => {
       jest.clearAllTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
     });
 
     it('throttle function should work', async () => {
@@ -39,6 +39,20 @@ describe('Test utils function', () => {
       await waitFakeTimer();
 
       expect(callback).not.toHaveBeenCalled();
+    });
+    it('should work with different argument types', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
+
+      const obj = { key: 'value' };
+      const arr = [1, 2, 3];
+      const fn = () => {};
+
+      throttled(obj, arr, fn, null, undefined, 0, false, '');
+
+      await waitFakeTimer();
+
+      expect(callback).toHaveBeenCalledWith(obj, arr, fn, null, undefined, 0, false, '');
     });
   });
 

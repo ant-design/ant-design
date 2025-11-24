@@ -3,8 +3,8 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
-import type { Meta, NamePath } from 'rc-field-form/lib/interface';
+import type { Meta, NamePath } from '@rc-component/form/lib/interface';
+import { clsx } from 'clsx';
 
 import type { FeedbackIcons, ValidateStatus } from '.';
 import { FormContext, FormItemInputContext } from '../context';
@@ -30,7 +30,7 @@ export interface StatusProviderProps {
   name?: NamePath;
 }
 
-export default function StatusProvider({
+function StatusProvider({
   children,
   errors,
   warnings,
@@ -69,11 +69,11 @@ export default function StatusProvider({
       const customIconNode =
         mergedValidateStatus &&
         customIcons?.({ status: mergedValidateStatus, errors, warnings })?.[mergedValidateStatus];
-      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
+      const IconNode = mergedValidateStatus ? iconMap[mergedValidateStatus] : null;
       feedbackIcon =
         customIconNode !== false && IconNode ? (
           <span
-            className={classNames(
+            className={clsx(
               `${itemPrefixCls}-feedback-icon`,
               `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
             )}
@@ -112,3 +112,5 @@ export default function StatusProvider({
     </FormItemInputContext.Provider>
   );
 }
+
+export default StatusProvider;

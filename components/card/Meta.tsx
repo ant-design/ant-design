@@ -1,8 +1,13 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useComponentConfig } from '../config-provider/context';
+
+export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
+export type CardMetaClassNamesType = SemanticClassNamesType<CardMetaProps, SemanticName>;
+export type CardMetaStylesType = SemanticStylesType<CardMetaProps, SemanticName>;
 
 export interface CardMetaProps {
   prefixCls?: string;
@@ -11,39 +16,86 @@ export interface CardMetaProps {
   avatar?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
+  classNames?: CardMetaClassNamesType;
+  styles?: CardMetaStylesType;
 }
 
 const Meta: React.FC<CardMetaProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, avatar, title, description, ...others } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    avatar,
+    title,
+    description,
+    style,
+    classNames: cardMetaClassNames,
+    styles,
+    ...restProps
+  } = props;
 
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('cardMeta');
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const metaPrefixCls = `${prefixCls}-meta`;
 
-  const classString = classNames(`${prefixCls}-meta`, className);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CardMetaClassNamesType,
+    CardMetaStylesType,
+    CardMetaProps
+  >([contextClassNames, cardMetaClassNames], [contextStyles, styles], {
+    props,
+  });
+
+  const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
+
+  const rootStyles: React.CSSProperties = {
+    ...contextStyle,
+    ...mergedStyles.root,
+    ...style,
+  };
+
+  const avatarClassNames = clsx(`${metaPrefixCls}-avatar`, mergedClassNames.avatar);
+
+  const titleClassNames = clsx(`${metaPrefixCls}-title`, mergedClassNames.title);
+
+  const descriptionClassNames = clsx(`${metaPrefixCls}-description`, mergedClassNames.description);
+
+  const sectionClassNames = clsx(`${metaPrefixCls}-section`, mergedClassNames.section);
 
   const avatarDom: React.ReactNode = avatar ? (
-    <div className={`${prefixCls}-meta-avatar`}>{avatar}</div>
+    <div className={avatarClassNames} style={mergedStyles.avatar}>
+      {avatar}
+    </div>
   ) : null;
 
   const titleDom: React.ReactNode = title ? (
-    <div className={`${prefixCls}-meta-title`}>{title}</div>
+    <div className={titleClassNames} style={mergedStyles.title}>
+      {title}
+    </div>
   ) : null;
 
   const descriptionDom: React.ReactNode = description ? (
-    <div className={`${prefixCls}-meta-description`}>{description}</div>
+    <div className={descriptionClassNames} style={mergedStyles.description}>
+      {description}
+    </div>
   ) : null;
 
   const MetaDetail: React.ReactNode =
     titleDom || descriptionDom ? (
-      <div className={`${prefixCls}-meta-detail`}>
+      <div className={sectionClassNames} style={mergedStyles.section}>
         {titleDom}
         {descriptionDom}
       </div>
     ) : null;
 
   return (
-    <div {...others} className={classString}>
+    <div {...restProps} className={rootClassNames} style={rootStyles}>
       {avatarDom}
       {MetaDetail}
     </div>

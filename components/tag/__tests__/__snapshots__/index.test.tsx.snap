@@ -1,13 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Tag rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-tag ant-tag-rtl"
+  class="ant-tag ant-tag-filled ant-tag-rtl css-var-root"
 />
 `;
 
 exports[`Tag rtl render component should be rendered correctly in RTL direction 2`] = `
 <span
-  class="ant-tag ant-tag-checkable"
-/>
+  class="ant-tag ant-tag-checkable css-var-root"
+>
+  <span />
+</span>
 `;

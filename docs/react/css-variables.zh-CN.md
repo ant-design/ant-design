@@ -3,25 +3,19 @@ group:
   title: 进阶使用
 order: 3
 title: 使用 CSS 变量
-tag: New
+tag: Updated
 ---
 
-从 `5.12.0` 起，Ant Design 5.x 重新支持了 CSS 变量。与 4.x 版本不同的是，这次我们融合了 CSS-in-JS 的能力，并且将所有 Design Token 纳入了 CSS 变量的管理范畴。
+自 `5.12.0` 起，Ant Design 5.x 重新支持了 CSS 变量。与 4.x 版本不同的是，这次我们融合了 CSS-in-JS 的能力，并且将所有 Design Token 纳入了 CSS 变量的管理范畴。而从 `6.0.0` 起，CSS 变量模式已经成为默认模式。
 
-> 目前 CSS 变量模式已在 Ant Design 官网上全局开启。
-
-## 何时使用
+## 特性
 
 CSS 变量模式为 Ant Design 的样式能力带来了两个重要的提升：
 
 1. 同一组件在不同主题下的样式可以共享，减少了样式体积
 2. 切换主题时不再需要重新序列化样式，提升了主题切换的性能
 
-因此如果你的应用依赖了 Ant Design 的主题能力，那么我们强烈建议你开启 CSS 变量模式。
-
-## 快速上手
-
-在 ConfigProvider 的 `theme` 属性中，通过 `cssVar` 配置来开启 CSS 变量模式。这个配置会被继承，所以希望全局开启 CSS 变量模式的话，只需要在根节点的 ConfigProvider 中配置即可。
+## 注意
 
 <!-- prettier-ignore -->
 :::warning
@@ -29,18 +23,13 @@ CSS 变量模式需要为每一个主题设置独特的 key 来保证样式隔�
 :::
 
 ```tsx
-// React 18
-<ConfigProvider theme={{ cssVar: true }}>
-  <App />
-</ConfigProvider>
-
 // React 17 or 16
 <ConfigProvider theme={{ cssVar: { key: 'app' } }}>
   <App />
 </ConfigProvider>
 ```
 
-开启后审查元素，就可以看到 antd 组件样式中一些原本具体的数值被替换为了 CSS 变量：
+审查元素，就可以看到 antd 组件样式中一些原本具体的数值被替换为了 CSS 变量：
 
 ![image](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*p5NrRJmUNHgAAAAAAAAAAAAADrJ8AQ/original)
 
@@ -53,12 +42,37 @@ hash 是 Ant Design 5.0 以来的特性之一，其功能是为每一份主题�
 但是启用了 CSS 变量之后，相同 antd 版本下的组件样式将不会随着 token 变化而改变 —— 因为我们用 CSS 变量填充了样式中的动态部分。所以如果你的应用中只存在一个版本的 antd，你可以选择关闭 hash 来进一步减小样式体积：
 
 ```tsx
-<ConfigProvider theme={{ cssVar: true, hashed: false }}>
+<ConfigProvider theme={{ hashed: false }}>
   <App />
 </ConfigProvider>
 ```
 
-同时我们非常推荐使用 [extractStyle](/docs/react/server-side-rendering-cn) 来抽取静态样式，这样会为应用性能带来一定量的提升。
+### 开启 zeroRuntime 模式
+
+自 6.0.0 起，我们提供了 `zeroRuntime` 模式来进一步提升应用性能。开启后，Ant Design 将不再在运行时生成组件样式，所以需要自行引入样式文件。
+
+```tsx
+import 'antd/dist/antd.css';
+
+export default () => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>
+    <App />
+  </ConfigProvider>
+);
+```
+
+`antd/dist/antd.css` 包含了所有 antd 组件的样式。如果你希望引入更少的样式，或者因为修改了 `prefix` 等配置无法使用默认的样式，推荐使用 [@ant-design/static-style-extract](https://github.com/ant-design/static-style-extract) 来生成静态样式。
+
+```tsx
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const cssText = extractStyle({
+  includes: ['Button'], // 只包含 Button 组件的样式
+});
+
+fs.writeFileSync('/path/to/somewhere', cssText);
+```
 
 ### 修改主题
 

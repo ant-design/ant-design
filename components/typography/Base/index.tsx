@@ -1,15 +1,14 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
-import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import type { AutoSizeType } from 'rc-textarea';
-import toArray from 'rc-util/lib/Children/toArray';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
+import ResizeObserver from '@rc-component/resize-observer';
+import type { AutoSizeType } from '@rc-component/textarea';
+import { omit, toArray, useControlledState } from '@rc-component/util';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
+import isNonNullable from '../../_util/isNonNullable';
 import { isStyleSupport } from '../../_util/styleChecker';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -112,13 +111,13 @@ function wrapperDecorations(
 const ELLIPSIS_STR = '...';
 
 const DECORATION_PROPS = [
-  'delete', 
-  'mark', 
-  'code', 
-  'underline', 
-  'strong', 
-  'keyboard', 
-  'italic'
+  'delete',
+  'mark',
+  'code',
+  'underline',
+  'strong',
+  'keyboard',
+  'italic',
 ] as const;
 
 const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
@@ -149,9 +148,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
-  const [editing, setEditing] = useMergedState(false, {
-    value: editConfig.editing,
-  });
+  const [editing, setEditing] = useControlledState(false, editConfig.editing);
   const { triggerType = ['icon'] } = editConfig;
 
   const triggerEdit = (edit: boolean) => {
@@ -201,9 +198,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     expandable: false,
     symbol: (isExpanded) => (isExpanded ? textLocale?.collapse : textLocale?.expand),
   });
-  const [expanded, setExpanded] = useMergedState(ellipsisConfig.defaultExpanded || false, {
-    value: ellipsisConfig.expanded,
-  });
+  const [expanded, setExpanded] = useControlledState(
+    ellipsisConfig.defaultExpanded || false,
+    ellipsisConfig.expanded,
+  );
 
   const mergedEnableEllipsis =
     enableEllipsis && (!expanded || ellipsisConfig.expandable === 'collapsible');
@@ -405,7 +403,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         locale={textLocale}
         onCopy={onCopyClick}
         loading={copyLoading}
-        iconOnly={children === null || children === undefined}
+        iconOnly={!isNonNullable(children)}
       />
     );
   };
@@ -435,7 +433,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           isEllipsis={isMergedEllipsis}
         >
           <Typography
-            className={classNames(
+            className={clsx(
               {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
@@ -466,13 +464,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               onEllipsis={onJsEllipsis}
               expanded={expanded}
               miscDeps={[
-                copied, 
-                expanded, 
-                copyLoading, 
-                enableEdit, 
-                enableCopy, 
-                textLocale, 
-                ...DECORATION_PROPS.map(key => props[key as keyof BlockProps])
+                copied,
+                expanded,
+                copyLoading,
+                enableEdit,
+                enableCopy,
+                textLocale,
+                ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
             >
               {(node, canEllipsis) =>

@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react';
 import { isValidElement } from 'react';
-import type { TooltipProps } from '../tooltip';
 
-function convertToTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | null {
-  // isNil
-  if (tooltip === undefined || tooltip === null) {
+import type { TooltipProps } from '../tooltip';
+import isNonNullable from './isNonNullable';
+
+const convertToTooltipProps = <P extends TooltipProps>(tooltip: P | ReactNode) => {
+  if (!isNonNullable(tooltip)) {
     return null;
   }
 
@@ -12,9 +13,7 @@ function convertToTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): 
     return tooltip as P;
   }
 
-  return {
-    title: tooltip,
-  } as P;
-}
+  return { title: tooltip } as P;
+};
 
 export default convertToTooltipProps;

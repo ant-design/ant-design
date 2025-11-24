@@ -34,6 +34,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
 <code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
@@ -43,14 +44,17 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - |
 | percent | To set the completion percentage | number | 0 | - |
+| railColor | The color of unfilled part | string | - | - |
 | showInfo | Whether to display the progress value and the status icon | boolean | true |
 | status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
 | strokeColor | The color of progress bar | string | - | - |
 | strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
-| trailColor | The color of unfilled part | string | - | - |
+| ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
 | size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
 
@@ -77,8 +81,13 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count.When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them.When passing number, the default value for `gap` is 2. | number \| { count: number, gap: number } | - | 5.16.0 |
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
-| gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
+| gapPlacement | The gap placement, options: `top` `bottom` `start` `end` | string | `bottom` |
+| ~~gapPosition~~ | The gap position, options: `top` `bottom` `left` `right`, please use `gapPlacement` instead | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

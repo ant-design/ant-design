@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`List renders empty list 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -14,7 +14,7 @@ exports[`List renders empty list 1`] = `
         class="ant-list-empty-text"
       >
         <div
-          class="ant-empty ant-empty-normal"
+          class="css-var-root ant-empty ant-empty-normal"
         >
           <div
             class="ant-empty-image"

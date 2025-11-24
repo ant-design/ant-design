@@ -23,8 +23,8 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
     };
   },
   useToken: () => {
-    const [theme, realToken, hashId, token, cssVar] = useLocalToken();
-    return { theme, realToken, hashId, token, cssVar };
+    const [theme, realToken, hashId, token, cssVar, zeroRuntime] = useLocalToken();
+    return { theme, realToken, hashId, token, cssVar, zeroRuntime };
   },
   useCSP: () => {
     const { csp } = useContext(ConfigContext);
@@ -41,3 +41,12 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
   getCommonStyle: genCommonStyle,
   getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });
+
+export const genCssVar = (antCls: string, componentAbbr: string) => {
+  const cssPrefix = `--${antCls.replace('.', '')}-${componentAbbr}-`;
+
+  return (name: string, withVar = false) => {
+    const raw = `${cssPrefix}${name}`;
+    return withVar ? `var(${raw})` : raw;
+  };
+};

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import { removeCSS, updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 import theme from '../../components/theme';
 
@@ -85,10 +85,6 @@ const useThemeAnimation = () => {
     );
     document
       .startViewTransition(async () => {
-        // wait for theme change end
-        while (colorBgElevated === animateRef.current.colorBgElevated) {
-          await new Promise<void>((resolve) => setTimeout(resolve, 1000 / 60));
-        }
         const root = document.documentElement;
         root.classList.remove(isDark ? 'dark' : 'light');
         root.classList.add(isDark ? 'light' : 'dark');

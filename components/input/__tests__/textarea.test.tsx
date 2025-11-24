@@ -1,10 +1,9 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import type { RenderOptions } from '../../../tests/utils';
 import {
   fireEvent,
   pureRender,
@@ -13,7 +12,7 @@ import {
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
-import type { TextAreaRef } from '../TextArea';
+import type { TextAreaProps, TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
 
@@ -24,10 +23,17 @@ describe('TextArea', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'getComputedStyle', {
       value: (node: Element) => ({
-        getPropertyValue: (prop: PropertyKey) =>
-          prop === 'box-sizing'
-            ? originalGetComputedStyle(node)[prop as unknown as number] || 'border-box'
-            : originalGetComputedStyle(node)[prop as unknown as number],
+        getPropertyValue: (prop: PropertyKey) => {
+          if (prop === 'box-sizing') {
+            return originalGetComputedStyle(node)[prop as unknown as number] || 'border-box';
+          }
+
+          const oriValue = originalGetComputedStyle(node)[prop as unknown as number];
+          if (['padding', 'width', 'height'].some((p) => prop.toString().includes(p))) {
+            return '1px';
+          }
+          return oriValue;
+        },
       }),
     });
   });
@@ -44,6 +50,7 @@ describe('TextArea', () => {
     const ref = React.createRef<TextAreaRef>();
 
     const onInternalAutoSize = jest.fn();
+
     const genTextArea = (props = {}) => (
       <TextArea
         value=""
@@ -68,7 +75,7 @@ describe('TextArea', () => {
     await waitFakeTimer19();
     expect(onInternalAutoSize).toHaveBeenCalledTimes(3);
 
-    expect(container.querySelector('textarea')?.style.overflow).toBeFalsy();
+    expect(container.querySelector('textarea')).toHaveStyle({ overflow: '' });
 
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
@@ -195,16 +202,16 @@ describe('TextArea', () => {
 
     it('className & style patch to outer', () => {
       const { container } = render(
-        <TextArea className="bamboo" style={{ background: 'red' }} showCount />,
+        <TextArea className="bamboo" style={{ textAlign: 'center' }} showCount />,
       );
 
       // Outer
-      expect(container.querySelector('span')?.classList.contains('bamboo')).toBeTruthy();
-      expect(container.querySelector('span')?.style.background).toEqual('red');
+      expect(container.querySelector('span')).toHaveClass('bamboo');
+      expect(container.querySelector('span')).toHaveStyle({ textAlign: 'center' });
 
       // Inner
-      expect(container.querySelector('.ant-input')?.classList.contains('bamboo')).toBeFalsy();
-      expect(container.querySelector<HTMLDivElement>('.ant-input')?.style.background).toBeFalsy();
+      expect(container.querySelector('.ant-input')).not.toHaveClass('bamboo');
+      expect(container.querySelector('.ant-input')).not.toHaveStyle({ textAlign: 'center' });
     });
 
     it('count formatter', () => {
@@ -226,7 +233,7 @@ describe('TextArea', () => {
 
   it('should support size', async () => {
     const { asFragment, container } = render(<TextArea size="large" />);
-    expect(container.querySelector('textarea')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('textarea')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -238,6 +245,72 @@ describe('TextArea', () => {
     ref.current?.resizableTextArea?.textArea.setSelectionRange(valLength, valLength);
     expect(ref.current?.resizableTextArea?.textArea.selectionStart).toEqual(5);
     expect(ref.current?.resizableTextArea?.textArea.selectionEnd).toEqual(5);
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames: TextAreaProps['classNames'] = (info) => {
+      const { props } = info;
+      return {
+        root: 'dynamic-root',
+        textarea: props.disabled ? 'disabled-item' : 'enabled-item',
+        count: `dynamic-count-${props.count?.max}`,
+      };
+    };
+
+    const functionStyles: TextAreaProps['styles'] = (info) => {
+      const { props } = info;
+      return {
+        root: {
+          backgroundColor: props.size === 'small' ? '#e6f7ff' : '#f6ffed',
+        },
+        textarea: {
+          color: props.disabled ? '#d9d9d9' : '#52c41a',
+        },
+        count: {
+          color: props.count?.max === 1024 ? '#e6f7ff' : '#f6ffed',
+        },
+      };
+    };
+
+    const { container, rerender } = render(
+      <TextArea
+        classNames={functionClassNames}
+        styles={functionStyles}
+        count={{ max: 1024 }}
+        showCount
+        size="small"
+      />,
+    );
+
+    const wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
+    const textarea = container.querySelector('textarea');
+    const count = container.querySelector('.ant-input-data-count');
+
+    expect(wrapper).toHaveClass('dynamic-root');
+    expect(textarea).toHaveClass('enabled-item');
+    expect(count).toHaveClass('dynamic-count-1024');
+    expect(wrapper).toHaveStyle('background-color: #e6f7ff');
+    expect(textarea).toHaveStyle('color: #52c41a');
+    expect(count).toHaveStyle('color: #e6f7ff');
+
+    const objectClassNames: TextAreaProps['classNames'] = {
+      root: 'dynamic-root-default',
+      textarea: 'disabled-item',
+      count: 'dynamic-count-default',
+    };
+    const objectStyles: TextAreaProps['styles'] = {
+      root: { backgroundColor: '#f6ffed' },
+      textarea: { color: '#d9d9d9' },
+      count: { color: '#e6f7ff' },
+    };
+    rerender(<TextArea classNames={objectClassNames} styles={objectStyles} disabled showCount />);
+
+    expect(wrapper).toHaveClass('dynamic-root-default');
+    expect(textarea).toHaveClass('disabled-item');
+    expect(count).toHaveClass('dynamic-count-default');
+    expect(wrapper).toHaveStyle('background-color: #f6ffed');
+    expect(textarea).toHaveStyle('color: #d9d9d9');
+    expect(count).toHaveStyle('color: #e6f7ff');
   });
 });
 
@@ -332,29 +405,6 @@ describe('TextArea allowClear', () => {
     rerender(<Input value="Light" />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Bamboo' } });
     expect(container.querySelector('input')?.value).toEqual('Light');
-  });
-
-  it('scroll to bottom when autoSize', async () => {
-    jest.useFakeTimers();
-    const ref = React.createRef<TextAreaRef>();
-    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
-      container: document.body,
-    } as RenderOptions);
-    fireEvent.focus(container.querySelector('textarea')!);
-    container.querySelector('textarea')?.focus();
-
-    const setSelectionRangeFn = jest.spyOn(
-      container.querySelector('textarea')!,
-      'setSelectionRange',
-    );
-    fireEvent.input(container.querySelector('textarea')!, { target: { value: '\n1' } });
-    const target = ref.current?.resizableTextArea?.textArea!;
-    triggerResize(target);
-    await waitFakeTimer();
-    expect(setSelectionRangeFn).toHaveBeenCalled();
-    unmount();
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/26308
@@ -468,7 +518,7 @@ describe('TextArea allowClear', () => {
 
     const { container } = render(<Demo />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: 'test' } });
-    expect(container.querySelector('.ant-input-clear-icon')?.className).not.toContain(
+    expect(container.querySelector('.ant-input-clear-icon')).not.toHaveClass(
       'ant-input-clear-icon-hidden',
     );
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
@@ -489,10 +539,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
@@ -506,10 +560,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },

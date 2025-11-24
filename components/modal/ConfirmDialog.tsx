@@ -3,13 +3,14 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-import { CONTAINER_MAX_OFFSET } from '../_util/hooks/useZIndex';
+import { CONTAINER_MAX_OFFSET } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import useToken from '../theme/useToken';
 import CancelBtn from './components/ConfirmCancelBtn';
@@ -48,11 +49,9 @@ export interface ConfirmDialogProps extends ModalFuncProps {
   isSilent?: () => boolean;
 }
 
-export function ConfirmContent(
-  props: ConfirmDialogProps & {
-    confirmPrefixCls: string;
-  },
-) {
+export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: string }> = (
+  props,
+) => {
   const {
     prefixCls,
     icon,
@@ -64,7 +63,7 @@ export function ConfirmContent(
     footer,
     // Legacy for static function usage
     locale: staticLocale,
-    ...resetProps
+    ...restProps
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -114,14 +113,19 @@ export function ConfirmContent(
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
   // ================= Context Value =================
-  const btnCtxValue: ModalContextProps = {
-    autoFocusButton,
-    cancelTextLocale,
-    okTextLocale,
-    mergedOkCancel,
-    ...resetProps,
-  };
-  const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
+  const { closable } = restProps;
+  const { onClose } = closable && typeof closable === 'object' ? closable : {};
+
+  const memoizedValue = React.useMemo<ModalContextProps>(() => {
+    return {
+      autoFocusButton,
+      cancelTextLocale,
+      okTextLocale,
+      mergedOkCancel,
+      onClose,
+      ...restProps,
+    };
+  }, [autoFocusButton, cancelTextLocale, okTextLocale, mergedOkCancel, onClose, restProps]);
 
   // ====================== Footer Origin Node ======================
   const footerOriginNode = (
@@ -137,37 +141,28 @@ export function ConfirmContent(
 
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div
-        className={classNames(bodyCls, {
-          [`${bodyCls}-has-title`]: hasTitle,
-        })}
-      >
+      <div className={clsx(bodyCls, { [`${bodyCls}-has-title`]: hasTitle })}>
         {mergedIcon}
         <div className={`${confirmPrefixCls}-paragraph`}>
           {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}
           <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
         </div>
       </div>
-
       {footer === undefined || typeof footer === 'function' ? (
-        <ModalContextProvider value={btnCtxValueMemo}>
+        <ModalContextProvider value={memoizedValue}>
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
-              ? footer(footerOriginNode, {
-                  OkBtn,
-                  CancelBtn,
-                })
+              ? footer(footerOriginNode, { OkBtn, CancelBtn })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
       ) : (
         footer
       )}
-
       <Confirm prefixCls={prefixCls} />
     </div>
   );
-}
+};
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   const {
@@ -182,13 +177,18 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closable = false,
     onConfirm,
     styles,
+    title,
+    okButtonProps,
+    cancelButtonProps,
   } = props;
+
+  const { cancelButtonProps: contextCancelButtonProps, okButtonProps: contextOkButtonProps } =
+    useComponentConfig('modal');
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
     [
-      ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
     ].forEach(([deprecatedName, newName]) => {
@@ -200,11 +200,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   const width = props.width || 416;
   const style = props.style || {};
-  const mask = props.mask === undefined ? true : props.mask;
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
-  const classString = classNames(
+  const classString = clsx(
     confirmPrefixCls,
     `${confirmPrefixCls}-${props.type}`,
     { [`${confirmPrefixCls}-rtl`]: direction === 'rtl' },
@@ -228,19 +227,15 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     <Modal
       {...props}
       className={classString}
-      wrapClassName={classNames(
-        { [`${confirmPrefixCls}-centered`]: !!props.centered },
-        wrapClassName,
-      )}
+      wrapClassName={clsx({ [`${confirmPrefixCls}-centered`]: !!props.centered }, wrapClassName)}
       onCancel={() => {
         close?.({ triggerCancel: true });
         onConfirm?.(false);
       }}
-      title=""
+      title={title}
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
-      mask={mask}
       maskClosable={maskClosable}
       style={style}
       styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
@@ -248,7 +243,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       zIndex={mergedZIndex}
       closable={closable}
     >
-      <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
+      <ConfirmContent
+        {...props}
+        confirmPrefixCls={confirmPrefixCls}
+        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+      />
     </Modal>
   );
 };

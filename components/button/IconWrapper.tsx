@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 export type IconWrapperProps = {
   prefixCls: string;
@@ -11,7 +11,7 @@ export type IconWrapperProps = {
 const IconWrapper = forwardRef<HTMLSpanElement, IconWrapperProps>((props, ref) => {
   const { className, style, children, prefixCls } = props;
 
-  const iconWrapperCls = classNames(`${prefixCls}-icon`, className);
+  const iconWrapperCls = clsx(`${prefixCls}-icon`, className);
 
   return (
     <span ref={ref} className={iconWrapperCls} style={style}>

@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Modal Both ways should be rendered normally on the page 1`] = `
 <div
   class="first-origin"
 >
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -13,7 +13,7 @@ exports[`Modal Both ways should be rendered normally on the page 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -28,7 +28,7 @@ exports[`Modal Both ways should be rendered normally on the page 2`] = `
   class="second-props-origin"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -36,7 +36,7 @@ exports[`Modal Both ways should be rendered normally on the page 2`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -50,10 +50,10 @@ exports[`Modal render correctly 1`] = `
 <div>
   <div>
     <div
-      class="ant-modal-root"
+      class="ant-modal-root css-var-root ant-modal-css-var"
     >
       <div
-        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
       />
       <div
         class="ant-modal-wrap"
@@ -70,7 +70,7 @@ exports[`Modal render correctly 1`] = `
             tabindex="0"
           >
             <div
-              class="ant-modal-content"
+              class="ant-modal-container"
             >
               <button
                 aria-label="Close"
@@ -112,7 +112,7 @@ exports[`Modal render correctly 1`] = `
                 class="ant-modal-footer"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -120,7 +120,7 @@ exports[`Modal render correctly 1`] = `
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -145,10 +145,10 @@ exports[`Modal render without footer 1`] = `
 <div>
   <div>
     <div
-      class="ant-modal-root"
+      class="ant-modal-root css-var-root ant-modal-css-var"
     >
       <div
-        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
       />
       <div
         class="ant-modal-wrap"
@@ -165,7 +165,7 @@ exports[`Modal render without footer 1`] = `
             tabindex="0"
           >
             <div
-              class="ant-modal-content"
+              class="ant-modal-container"
             >
               <button
                 aria-label="Close"
@@ -220,10 +220,10 @@ exports[`Modal rtl render component should be rendered correctly in RTL directio
 
 exports[`Modal support closeIcon 1`] = `
 <div
-  class="ant-modal-root"
+  class="ant-modal-root css-var-root ant-modal-css-var"
 >
   <div
-    class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+    class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
   />
   <div
     class="ant-modal-wrap"
@@ -240,7 +240,7 @@ exports[`Modal support closeIcon 1`] = `
         tabindex="0"
       >
         <div
-          class="ant-modal-content"
+          class="ant-modal-container"
         >
           <button
             aria-label="Close"
@@ -263,7 +263,7 @@ exports[`Modal support closeIcon 1`] = `
             class="ant-modal-footer"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               type="button"
             >
               <span>
@@ -271,7 +271,7 @@ exports[`Modal support closeIcon 1`] = `
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="button"
             >
               <span>

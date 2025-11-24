@@ -1,4 +1,5 @@
 import React from 'react';
+import { SaveOutlined } from '@ant-design/icons';
 import type { TriggerProps } from '@rc-component/trigger';
 
 import type { DropDownProps } from '..';
@@ -45,18 +46,9 @@ describe('Dropdown', () => {
     </Dropdown>
   ));
 
-  it('overlay is function and has custom transitionName', () => {
+  it('support custom transitionName', () => {
     const { asFragment } = render(
-      <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" open>
-        <button type="button">button</button>
-      </Dropdown>,
-    );
-    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
-  });
-
-  it('overlay is string', () => {
-    const { asFragment } = render(
-      <Dropdown overlay={'string' as any} open>
+      <Dropdown menu={{ items }} transitionName="move-up" open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -208,55 +200,6 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
-  });
-
-  it('legacy visible', () => {
-    resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
-
-    const { container, rerender } = render(
-      <Dropdown
-        visible
-        onOpenChange={onOpenChange}
-        onVisibleChange={onVisibleChange}
-        trigger={['click']}
-        menu={{
-          items: [
-            {
-              label: <div className="bamboo" />,
-              key: 'bamboo',
-            },
-          ],
-        }}
-      >
-        <a className="little" />
-      </Dropdown>,
-    );
-
-    expect(document.querySelector('.bamboo')).toBeTruthy();
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated. Please use `open` instead.',
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
-    );
-
-    fireEvent.click(container.querySelector('.little')!);
-    expect(onOpenChange).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenCalled();
-
-    rerender(
-      <Dropdown overlay={<div>menu</div>}>
-        <a className="little" />
-      </Dropdown>,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
-    );
-
-    errorSpy.mockRestore();
   });
 
   it('legacy dropdownRender & legacy destroyPopupOnHide', () => {
@@ -456,5 +399,157 @@ describe('Dropdown', () => {
         '.ant-dropdown-menu-submenu-arrow .ant-dropdown-menu-submenu-arrow-icon',
       ),
     ).toHaveClass('anticon-left');
+  });
+
+  it('closure item click', () => {
+    let latestCnt = -1;
+
+    const Demo = () => {
+      const [cnt, setCnt] = React.useState(0);
+
+      const onOpenChange = () => {
+        latestCnt = cnt;
+      };
+
+      return (
+        <Dropdown
+          onOpenChange={onOpenChange}
+          menu={{
+            items: [
+              {
+                label: (
+                  <span
+                    className="bamboo"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCnt((v) => v + 1);
+                    }}
+                  />
+                ),
+                key: '1',
+              },
+              {
+                label: <span className="little" />,
+                key: '2',
+              },
+            ],
+          }}
+          open
+        >
+          <span />
+        </Dropdown>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    // Change
+    fireEvent.click(container.querySelector('.bamboo')!);
+
+    // Close
+    fireEvent.click(container.querySelector('.little')!);
+    expect(latestCnt).toBe(1);
+  });
+  it('support function classNames and styles', () => {
+    const fnClassNames = (info: { props: DropDownProps }) => {
+      const { props } = info;
+      const { placement } = props;
+      return {
+        root: `test-root-${placement}`,
+        item: 'test-item',
+        itemTitle: 'test-item-title',
+        itemContent: 'test-item-content',
+        itemIcon: 'test-item-icon',
+      };
+    };
+    const fnStyles = (info: { props: DropDownProps }) => {
+      const { props } = info;
+      const { placement } = props;
+      return {
+        root: { color: 'rgb(255, 0, 0)' },
+        item: { color: 'rgb(0, 255, 0)' },
+        itemTitle: { color: placement === 'topCenter' ? 'rgb(255, 0, 0)' : 'rgb(0, 255, 0)' },
+        itemContent: { color: 'rgb(0, 255, 0)' },
+        itemIcon: { color: 'rgb(255, 0, 0)' },
+      };
+    };
+
+    const baseProps: DropDownProps = {
+      menu: {
+        items: [
+          {
+            key: '1',
+            type: 'group',
+            label: 'Group title',
+            children: [
+              {
+                key: '1-1',
+                label: '1st menu item',
+                icon: <SaveOutlined />,
+              },
+              {
+                key: '1-2',
+                label: '2nd menu item',
+              },
+            ],
+          },
+        ],
+      },
+      open: true,
+      placement: 'topCenter',
+    };
+    const { container, rerender } = render(
+      <Dropdown {...baseProps} classNames={fnClassNames} styles={fnStyles}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const root = container.querySelector('.ant-dropdown');
+    const item = container.querySelector('.ant-dropdown-menu-item');
+    const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
+    const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
+    const itemTitle = container.querySelector('.ant-dropdown-menu-item-group-title');
+
+    expect(root).toHaveClass('test-root-topCenter');
+    expect(item).toHaveClass('test-item');
+    expect(itemIcon).toHaveClass('test-item-icon');
+    expect(itemContent).toHaveClass('test-item-content');
+    expect(itemTitle).toHaveClass('test-item-title');
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(item).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(itemIcon).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(itemContent).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(itemTitle).toHaveStyle('color: rgb(255, 0, 0)');
+
+    const objectClassNames = {
+      root: 'test-root-object',
+      item: 'test-item-object',
+      itemTitle: 'test-item-title-object',
+      itemContent: 'test-item-content-object',
+      itemIcon: 'test-item-icon-object',
+    };
+    const objectStyles = {
+      root: { color: 'rgb(255, 0, 255)' },
+      item: { color: 'rgb(255, 255, 0)' },
+      itemTitle: { color: 'rgb(255, 255, 0)' },
+      itemContent: { color: 'rgb(0, 255, 0)' },
+      itemIcon: { color: 'rgb(255, 0, 255)' },
+    };
+
+    rerender(
+      <Dropdown {...baseProps} classNames={objectClassNames} styles={objectStyles}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    expect(root).toHaveClass(objectClassNames.root);
+    expect(item).toHaveClass(objectClassNames.item);
+    expect(itemIcon).toHaveClass(objectClassNames.itemIcon);
+    expect(itemContent).toHaveClass(objectClassNames.itemContent);
+    expect(itemTitle).toHaveClass(objectClassNames.itemTitle);
+    expect(root).toHaveStyle(objectStyles.root);
+    expect(item).toHaveStyle(objectStyles.item);
+    expect(itemIcon).toHaveStyle(objectStyles.itemIcon);
+    expect(itemContent).toHaveStyle(objectStyles.itemContent);
+    expect(itemTitle).toHaveStyle(objectStyles.itemTitle);
   });
 });

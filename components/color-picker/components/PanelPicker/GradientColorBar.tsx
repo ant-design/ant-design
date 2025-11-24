@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type { UnstableContext } from 'rc-slider';
+import type { UnstableContext } from '@rc-component/slider';
 
-import type { GetContextProp } from '../../../_util/type';
+import type { GetProp } from '../../../_util/type';
 import { AggregationColor } from '../../color';
 import type { GradientColor } from '../../color';
 import type { PanelPickerContextProps } from '../../context';
@@ -49,7 +49,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
   const colorsRef = React.useRef(colorList);
 
   // Record current colors
-  const onDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = ({
+  const onDragStart: GetProp<typeof UnstableContext, 'onDragStart'> = ({
     rawValues,
     draggingIndex,
     draggingValue,
@@ -73,7 +73,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
   };
 
   // Adjust color when dragging
-  const onDragChange: GetContextProp<typeof UnstableContext, 'onDragChange'> = ({
+  const onDragChange: GetProp<typeof UnstableContext, 'onDragChange'> = ({
     deleteIndex,
     draggingIndex,
     draggingValue,

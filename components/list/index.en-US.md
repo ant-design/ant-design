@@ -5,11 +5,17 @@ title: List
 description: Basic list display, which can carry text, lists, pictures, paragraphs.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: DEPRECATED
 ---
 
 ## When To Use
 
 A list can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
+
+<!-- prettier-ignore -->
+:::warning{title=Deprecated Notice}
+List component has been deprecated. Will be removed in the next major version.
+:::
 
 ## Examples
 
@@ -23,6 +29,10 @@ A list can be used to display content related to a single subject. The content c
 <code src="./demo/grid-test.tsx" debug>Test Grid</code>
 <code src="./demo/responsive.tsx">Responsive grid list</code>
 <code src="./demo/infinite-load.tsx">Scrolling loaded</code>
+<code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
+<code src="./demo/grid-drag-sorting.tsx">Grid Drag sorting</code>
+<code src="./demo/grid-drag-sorting-handler.tsx">Grid Drag sorting with handler</code>
 <code src="./demo/virtual-list.tsx">virtual list</code>
 <code src="./demo/component-token.tsx" debug>custom component token</code>
 

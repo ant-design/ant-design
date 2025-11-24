@@ -182,7 +182,7 @@ describe('Avatar Render', () => {
     const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/7.x/pixel-art/svg';
     const { container } = render(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
     expect(container.querySelector('img')?.crossOrigin).toBeFalsy();
-    expect(container.querySelector('img')?.crossOrigin).toEqual('');
+    expect(container.querySelector('img')?.crossOrigin).toBeFalsy();
   });
 
   it('clickable', () => {
@@ -241,7 +241,7 @@ describe('Avatar Render', () => {
 
     /* check style */
     expect(container.querySelector('.ant-popover-open')).toBeTruthy();
-    expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: blue');
+    expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');
 
     /* check count */
     expect(avatars.length).toBe(3);
@@ -289,16 +289,16 @@ describe('Avatar Render', () => {
     );
 
     /* check count */
-    expect(container.querySelectorAll('.ant-avatar-group .ant-avatar').length).toBe(3);
+    expect(container.querySelectorAll('.ant-avatar-group .ant-avatar')).toHaveLength(3);
 
     /* check popover */
     const popover = container.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
     expect(popover).toHaveStyle('background: red');
     expect(popover).toHaveClass('wanpan-111 ant-popover-placement-bottomRight');
-    expect(container.querySelector('.ant-popover-inner-content')).toHaveTextContent('Avatar.Group');
+    expect(container.querySelector('.ant-popover-container')).toHaveTextContent('Avatar.Group');
 
     /* check style */
-    expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: blue');
+    expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });

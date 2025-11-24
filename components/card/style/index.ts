@@ -251,7 +251,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
     paddingInlineEnd: token.padding,
   },
 
-  '&-detail': {
+  '&-section': {
     overflow: 'hidden',
     flex: 1,
 
@@ -342,7 +342,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-body`]: {
         padding: bodyPadding,
         borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
-        ...clearFix(),
       },
 
       [`${componentCls}-grid`]: genCardGridStyle(token),

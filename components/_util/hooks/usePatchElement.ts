@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export default function usePatchElement(): [
+export const usePatchElement = (): [
   React.ReactElement[],
   (element: React.ReactElement) => () => void,
-] {
+] => {
   const [elements, setElements] = React.useState<React.ReactElement[]>([]);
 
   const patchElement = React.useCallback((element: React.ReactElement) => {
@@ -18,4 +18,4 @@ export default function usePatchElement(): [
   }, []);
 
   return [elements, patchElement];
-}
+};

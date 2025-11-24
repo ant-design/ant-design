@@ -47,7 +47,7 @@ const App: React.FC = () => {
   const [showIcon, setShowIcon] = useState<boolean>(false);
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Switch
         checkedChildren="showIcon"
         unCheckedChildren="showIcon"

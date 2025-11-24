@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send reminders for inactive issues
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const daysBeforeReminder = 14;
@@ -39,7 +39,9 @@ jobs:
                 const now = new Date();
 
                 for (const issue of issues) {
-                  if (issue.pull_request) continue;
+                  if (issue.pull_request) {
+                    continue;
+                  }
 
                   const updatedAt = new Date(issue.updated_at);
                   const daysInactive = (now - updatedAt) / (1000 * 60 * 60 * 24);

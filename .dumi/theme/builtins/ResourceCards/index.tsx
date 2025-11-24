@@ -7,7 +7,7 @@ import useLocale from '../../../hooks/useLocale';
 
 const { Paragraph } = Typography;
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, token, css }) => ({
   card: css`
     position: relative;
     overflow: hidden;
@@ -16,7 +16,7 @@ const useStyle = createStyles(({ token, css }) => ({
     }
     img {
       display: block;
-      transition: all ${token.motionDurationSlow} ease-out;
+      transition: all ${cssVar.motionDurationSlow} ease-out;
     }
     &:hover img {
       transform: scale(1.3);
@@ -26,15 +26,15 @@ const useStyle = createStyles(({ token, css }) => ({
     position: absolute;
     top: 8px;
     inset-inline-end: 8px;
-    padding: ${token.paddingXXS}px ${token.paddingXS}px;
+    padding: ${cssVar.paddingXXS} ${cssVar.paddingXS};
     color: #fff;
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     line-height: 1;
     background: rgba(0, 0, 0, 0.65);
-    border-radius: ${token.borderRadiusLG}px;
+    border-radius: ${cssVar.borderRadiusLG};
     box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
     display: inline-flex;
-    column-gap: ${token.paddingXXS}px;
+    column-gap: ${cssVar.paddingXXS};
   `,
 }));
 
@@ -83,7 +83,11 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
   return (
     <Col xs={24} sm={12} md={8} lg={6}>
       <a className={styles.card} target="_blank" href={src} rel="noreferrer">
-        <Card hoverable className={styles.card} cover={<img src={cover} alt={title} />}>
+        <Card
+          hoverable
+          className={styles.card}
+          cover={<img draggable={false} src={cover} alt={title} />}
+        >
           <Card.Meta
             title={title}
             description={

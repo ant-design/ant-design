@@ -3,10 +3,10 @@ import type {
   MenuItemGroupType as RcMenuItemGroupType,
   MenuItemType as RcMenuItemType,
   SubMenuType as RcSubMenuType,
-} from 'rc-menu/lib/interface';
+} from '@rc-component/menu/lib/interface';
 
 export type DataAttributes = {
-  [Key in `data-${string}`]: string | number;
+  [Key in `data-${string}`]: unknown;
 };
 
 export interface MenuItemType extends RcMenuItemType, DataAttributes {

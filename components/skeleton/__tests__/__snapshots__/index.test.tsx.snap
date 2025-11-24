@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Skeleton avatar element active 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -12,7 +12,7 @@ exports[`Skeleton avatar element active 1`] = `
 
 exports[`Skeleton avatar element shape 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -22,7 +22,7 @@ exports[`Skeleton avatar element shape 1`] = `
 
 exports[`Skeleton avatar element shape 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-square"
@@ -32,7 +32,7 @@ exports[`Skeleton avatar element shape 2`] = `
 
 exports[`Skeleton avatar element size 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-sm ant-skeleton-avatar-circle"
@@ -42,7 +42,7 @@ exports[`Skeleton avatar element size 1`] = `
 
 exports[`Skeleton avatar element size 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -52,7 +52,7 @@ exports[`Skeleton avatar element size 2`] = `
 
 exports[`Skeleton avatar element size 3`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
@@ -62,7 +62,7 @@ exports[`Skeleton avatar element size 3`] = `
 
 exports[`Skeleton avatar element size 4`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -73,7 +73,7 @@ exports[`Skeleton avatar element size 4`] = `
 
 exports[`Skeleton avatar shape 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -83,7 +83,7 @@ exports[`Skeleton avatar shape 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -101,7 +101,7 @@ exports[`Skeleton avatar shape 1`] = `
 
 exports[`Skeleton avatar shape 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -111,7 +111,7 @@ exports[`Skeleton avatar shape 2`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -129,7 +129,7 @@ exports[`Skeleton avatar shape 2`] = `
 
 exports[`Skeleton avatar size 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -139,7 +139,7 @@ exports[`Skeleton avatar size 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -157,7 +157,7 @@ exports[`Skeleton avatar size 1`] = `
 
 exports[`Skeleton avatar size 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -167,7 +167,7 @@ exports[`Skeleton avatar size 2`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -185,7 +185,7 @@ exports[`Skeleton avatar size 2`] = `
 
 exports[`Skeleton avatar size 3`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -195,7 +195,7 @@ exports[`Skeleton avatar size 3`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -213,7 +213,7 @@ exports[`Skeleton avatar size 3`] = `
 
 exports[`Skeleton avatar size 4`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -224,7 +224,7 @@ exports[`Skeleton avatar size 4`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -242,7 +242,7 @@ exports[`Skeleton avatar size 4`] = `
 
 exports[`Skeleton button element active 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-var-root"
 >
   <span
     class="ant-skeleton-button"
@@ -252,7 +252,7 @@ exports[`Skeleton button element active 1`] = `
 
 exports[`Skeleton button element block 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element ant-skeleton-block"
+  class="ant-skeleton ant-skeleton-element ant-skeleton-block css-var-root"
 >
   <span
     class="ant-skeleton-button"
@@ -262,7 +262,7 @@ exports[`Skeleton button element block 1`] = `
 
 exports[`Skeleton button element shape 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-button"
@@ -272,7 +272,7 @@ exports[`Skeleton button element shape 1`] = `
 
 exports[`Skeleton button element shape 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-round"
@@ -282,7 +282,7 @@ exports[`Skeleton button element shape 2`] = `
 
 exports[`Skeleton button element shape 3`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-circle"
@@ -292,7 +292,7 @@ exports[`Skeleton button element shape 3`] = `
 
 exports[`Skeleton button element size 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-button"
@@ -302,7 +302,7 @@ exports[`Skeleton button element size 1`] = `
 
 exports[`Skeleton button element size 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-lg"
@@ -312,7 +312,7 @@ exports[`Skeleton button element size 2`] = `
 
 exports[`Skeleton button element size 3`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -322,20 +322,20 @@ exports[`Skeleton button element size 3`] = `
 
 exports[`Skeleton custom node element should render normal 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <div
-    class="ant-skeleton-image"
+    class="ant-skeleton-node"
   />
 </div>
 `;
 
 exports[`Skeleton custom node element should render normal 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <div
-    class="ant-skeleton-image"
+    class="ant-skeleton-node"
   >
     <span>
       Custom Content Node
@@ -346,7 +346,7 @@ exports[`Skeleton custom node element should render normal 2`] = `
 
 exports[`Skeleton image element should render normal 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <div
     class="ant-skeleton-image"
@@ -370,7 +370,7 @@ exports[`Skeleton image element should render normal 1`] = `
 
 exports[`Skeleton input element active 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-var-root"
 >
   <span
     class="ant-skeleton-input"
@@ -380,7 +380,7 @@ exports[`Skeleton input element active 1`] = `
 
 exports[`Skeleton input element size 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-input ant-skeleton-input-sm"
@@ -390,7 +390,7 @@ exports[`Skeleton input element size 1`] = `
 
 exports[`Skeleton input element size 2`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-input"
@@ -400,7 +400,7 @@ exports[`Skeleton input element size 2`] = `
 
 exports[`Skeleton input element size 3`] = `
 <div
-  class="ant-skeleton ant-skeleton-element"
+  class="ant-skeleton ant-skeleton-element css-var-root"
 >
   <span
     class="ant-skeleton-input ant-skeleton-input-lg"
@@ -410,10 +410,10 @@ exports[`Skeleton input element size 3`] = `
 
 exports[`Skeleton paragraph rows 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -436,10 +436,10 @@ exports[`Skeleton paragraph rows 1`] = `
 
 exports[`Skeleton paragraph width 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -460,10 +460,10 @@ exports[`Skeleton paragraph width 1`] = `
 
 exports[`Skeleton paragraph width 2`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -486,10 +486,10 @@ exports[`Skeleton paragraph width 2`] = `
 
 exports[`Skeleton rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-rtl"
+  class="ant-skeleton ant-skeleton-rtl css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -512,10 +512,10 @@ exports[`Skeleton should display without children and falsy loading props 1`] = 
 
 exports[`Skeleton should round title and paragraph 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-round"
+  class="ant-skeleton ant-skeleton-round css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -536,7 +536,7 @@ exports[`Skeleton should round title and paragraph 1`] = `
 
 exports[`Skeleton should square avatar 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-with-avatar"
+  class="ant-skeleton ant-skeleton-with-avatar css-var-root"
 >
   <div
     class="ant-skeleton-header"
@@ -546,7 +546,7 @@ exports[`Skeleton should square avatar 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -557,11 +557,11 @@ exports[`Skeleton should square avatar 1`] = `
 
 exports[`Skeleton should support style 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-root"
   style="background: blue;"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -582,10 +582,10 @@ exports[`Skeleton should support style 1`] = `
 
 exports[`Skeleton should without avatar and paragraph 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -596,10 +596,10 @@ exports[`Skeleton should without avatar and paragraph 1`] = `
 
 exports[`Skeleton title width 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton css-var-root"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"

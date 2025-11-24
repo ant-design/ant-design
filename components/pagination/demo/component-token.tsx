@@ -19,6 +19,8 @@ const App: React.FC = () => (
           itemSize: 20,
           itemSizeSM: 12,
           itemActiveBg: '#e7cc87',
+          itemActiveColor: '#eee',
+          itemActiveColorHover: '#fff',
           itemLinkBg: '#344324',
           itemActiveBgDisabled: '#9c1515',
           itemInputBg: '#9c1515',

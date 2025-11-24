@@ -335,7 +335,7 @@ export default genStyleHooks(
     const spinToken = mergeToken<SpinToken>(token, {
       spinDotDefault: token.colorTextDescription,
     });
-    return [genSpinStyle(spinToken)];
+    return genSpinStyle(spinToken);
   },
   prepareComponentToken,
 );

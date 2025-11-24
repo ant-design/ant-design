@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
 Array [
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom:24px"
     tabindex="0"
@@ -22,8 +22,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Show"
         >
           Show
@@ -38,8 +39,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Hide"
         >
           Hide
@@ -54,8 +56,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Center"
         >
           Center
@@ -64,15 +67,15 @@ Array [
     </div>
   </div>,
   <div
-    class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+    class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="white-space:nowrap"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -82,7 +85,7 @@ Array [
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -92,7 +95,7 @@ Array [
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -102,15 +105,15 @@ Array [
       </button>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
       style="width:432px"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
       >
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -120,7 +123,7 @@ Array [
         </button>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -130,7 +133,7 @@ Array [
         </button>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -140,11 +143,11 @@ Array [
         </button>
       </div>
       <div
-        class="ant-flex ant-flex-align-center ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
       >
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -154,7 +157,7 @@ Array [
         </button>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -164,7 +167,7 @@ Array [
         </button>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -175,12 +178,12 @@ Array [
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="white-space:nowrap"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -190,7 +193,7 @@ Array [
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -200,7 +203,7 @@ Array [
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -215,14 +218,14 @@ Array [
 
 exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -235,7 +238,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`]
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -251,7 +254,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
   style="display:flex;flex-direction:column;row-gap:16px"
 >
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With \`getPopupContainer\`
   </h5>
@@ -263,7 +266,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -272,7 +275,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -282,7 +285,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
     </div>
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Without \`getPopupContainer\`
   </h5>
@@ -294,7 +297,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -303,7 +306,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -326,17 +329,23 @@ exports[`renders components/tooltip/demo/basic.tsx correctly 1`] = `
 exports[`renders components/tooltip/demo/colorful.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Presets
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="flex-wrap:wrap"
   >
     <div
@@ -344,7 +353,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -357,7 +366,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -370,7 +379,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -383,7 +392,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -396,7 +405,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -409,7 +418,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -422,7 +431,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -435,7 +444,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -448,7 +457,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -461,7 +470,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -474,7 +483,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -487,7 +496,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -500,7 +509,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -510,17 +519,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Custom
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="flex-wrap:wrap"
   >
     <div
@@ -528,7 +543,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -541,7 +556,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -554,7 +569,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -567,7 +582,7 @@ Array [
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -590,7 +605,7 @@ exports[`renders components/tooltip/demo/destroy-on-close.tsx correctly 1`] = `
 exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -601,14 +616,14 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
 
 exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
     >
@@ -622,7 +637,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
   >
     <input
       aria-describedby="test-id"
-      class="ant-input ant-input-disabled ant-input-outlined"
+      class="ant-input ant-input-disabled ant-input-outlined css-var-test-id ant-input-css-var"
       disabled=""
       placeholder="disabled"
       type="text"
@@ -633,86 +648,24 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-without-controls ant-input-number-disabled"
     >
-      <div
-        class="ant-input-number-handler-wrap"
-      >
-        <span
-          aria-disabled="false"
-          aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up"
-          role="button"
-          unselectable="on"
-        >
-          <span
-            aria-label="up"
-            class="anticon anticon-up ant-input-number-handler-up-inner"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="up"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-              />
-            </svg>
-          </span>
-        </span>
-        <span
-          aria-disabled="false"
-          aria-label="Decrease Value"
-          class="ant-input-number-handler ant-input-number-handler-down"
-          role="button"
-          unselectable="on"
-        >
-          <span
-            aria-label="down"
-            class="anticon anticon-down ant-input-number-handler-down-inner"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-input-number-input-wrap"
-      >
-        <input
-          aria-describedby="test-id"
-          autocomplete="off"
-          class="ant-input-number-input"
-          disabled=""
-          role="spinbutton"
-          step="1"
-          value=""
-        />
-      </div>
+      <input
+        aria-describedby="test-id"
+        autocomplete="off"
+        class="ant-input-number-input"
+        disabled=""
+        role="spinbutton"
+        step="1"
+        value=""
+      />
     </div>
   </div>
   <div
     class="ant-space-item"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -734,49 +687,38 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
   >
     <div
       aria-describedby="test-id"
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
-        class="ant-select-selector"
+        class="ant-select-content"
       >
-        <span
-          class="ant-select-selection-wrap"
-        >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-describedby="test-id"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              readonly=""
-              role="combobox"
-              style="opacity:0"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          />
-        </span>
+        <div
+          class="ant-select-placeholder"
+          style="visibility:visible"
+        />
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id_list"
+          aria-describedby="test-id"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="test-id_list"
+          autocomplete="off"
+          class="ant-select-input"
+          disabled=""
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
       </div>
-      <span
-        aria-hidden="true"
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
+      <div
+        class="ant-select-suffix"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-select-suffix"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -793,7 +735,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </div>
     </div>
   </div>
 </div>
@@ -801,15 +743,15 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
 
 exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 <div
-  class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+  class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space:nowrap"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -819,7 +761,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -829,7 +771,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -839,15 +781,15 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
     style="width:432px"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -857,7 +799,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -867,7 +809,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -877,11 +819,11 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -891,7 +833,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -901,7 +843,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -912,12 +854,12 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space:nowrap"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -927,7 +869,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -937,7 +879,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -952,60 +894,124 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 exports[`renders components/tooltip/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
+    class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
       class="ant-tooltip-arrow"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-tooltip-container"
+      role="tooltip"
     >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        Hello, Pink Pure Panel!
-      </div>
+      Hello, Pink Pure Panel!
     </div>
   </div>,
   <div
-    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
+    class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
     style="--antd-arrow-background-color:#f50"
   >
     <div
       class="ant-tooltip-arrow"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-tooltip-container"
+      role="tooltip"
+      style="background:#f50;--ant-tooltip-color:#FFF"
     >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-        style="background:#f50"
-      >
-        Hello, Customize Color Pure Panel!
-      </div>
+      Hello, Customize Color Pure Panel!
     </div>
   </div>,
   <div
-    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
+    class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
     <div
       class="ant-tooltip-arrow"
     />
     <div
-      class="ant-tooltip-content"
+      class="ant-tooltip-container"
+      role="tooltip"
       style="width:200px"
     >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        Hello, Pure Panel!
-      </div>
+      Hello, Pure Panel!
     </div>
   </div>,
 ]
+`;
+
+exports[`renders components/tooltip/demo/smooth-transition.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-justify-center ant-flex-gap-small"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-justify-center ant-flex-gap-small"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/tooltip/demo/wrap-custom-component.tsx correctly 1`] = `

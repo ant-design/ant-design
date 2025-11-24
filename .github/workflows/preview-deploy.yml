@@ -22,7 +22,7 @@ jobs:
       build-failure: ${{ steps.prep-summary.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: prep-summary
         with:
           script: |
@@ -41,7 +41,9 @@ jobs:
             }, {});
 
             const total = Object.keys(jobs).length;
-            if(total === 0) core.setFailed('no jobs found');
+            if (total === 0) {
+              core.setFailed('no jobs found');
+            }
 
             // the name here must be the same as `jobs.xxx.{name}` in preview-build.yml
             // set output

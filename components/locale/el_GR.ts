@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/el_GR';
+import Pagination from '@rc-component/pagination/lib/locale/el_GR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/el_GR';
@@ -131,9 +131,6 @@ const localeValues: Locale = {
         mismatch: 'Το ${label} δεν ταιριάζει με το μοτίβο ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Προεπισκόπηση',
   },
   QRCode: {
     expired: 'Ο κωδικός QR έληξε',

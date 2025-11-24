@@ -5,16 +5,18 @@ import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test ca
 
 import React from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
+import dayJsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import { warning } from '@rc-component/util';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
-import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 
 import DatePicker from '..';
-import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
+
+const { resetWarned } = warning;
 
 dayjs.extend(customParseFormat);
 
@@ -427,7 +429,9 @@ describe('DatePicker', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+      'background-color: rgb(255, 0, 0)',
+    );
 
     errSpy.mockRestore();
   });
@@ -477,5 +481,23 @@ describe('DatePicker', () => {
 
     rerender(<DatePicker value={somePoint} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
+  });
+
+  it('suffixIcon', () => {
+    const { rerender, container } = render(<DatePicker />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
+
+    rerender(<DatePicker suffixIcon />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
+
+    rerender(<DatePicker suffixIcon={false} />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+
+    rerender(<DatePicker suffixIcon={null} />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+
+    rerender(<DatePicker suffixIcon={'123'} />);
+    expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
+    expect(container.children).toMatchSnapshot();
   });
 });

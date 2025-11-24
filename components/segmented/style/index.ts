@@ -65,7 +65,7 @@ function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
 
 function getItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
-    backgroundColor: token.itemSelectedBg,
+    background: token.itemSelectedBg,
     boxShadow: token.boxShadowTertiary,
   };
 }
@@ -102,7 +102,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       color: token.itemColor,
       background: token.trackBg,
       borderRadius: token.borderRadius,
-      transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      transition: `all ${token.motionDurationMid}`,
       ...genFocusStyle(token),
 
       [`${componentCls}-group`]: {
@@ -146,7 +146,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+        transition: `color ${token.motionDurationMid}`,
         borderRadius: token.borderRadiusSM,
         // Fix Safari render bug
         // https://github.com/ant-design/ant-design/issues/45250
@@ -157,9 +157,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.itemSelectedColor,
         },
 
-        '&-focused': {
-          ...genFocusOutline(token),
-        },
+        '&-focused': genFocusOutline(token),
 
         '&::after': {
           content: '""',
@@ -171,22 +169,21 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           insetInlineStart: 0,
           borderRadius: 'inherit',
           opacity: 0,
-          transition: `opacity ${token.motionDurationMid}`,
+          transition: `opacity ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
           // This is mandatory to make it not clickable or hoverable
           // Ref: https://github.com/ant-design/ant-design/issues/40888
           pointerEvents: 'none',
         },
 
-        [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.itemHoverColor,
-          '&::after': {
+        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
+          '&:hover, &:active': {
+            color: token.itemHoverColor,
+          },
+          '&:hover::after': {
             opacity: 1,
             backgroundColor: token.itemHoverBg,
           },
-        },
-        [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          color: token.itemHoverColor,
-          '&::after': {
+          '&:active::after': {
             opacity: 1,
             backgroundColor: token.itemActiveBg,
           },
@@ -226,7 +223,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         height: '100%',
         padding: `${unit(token.paddingXXS)} 0`,
         borderRadius: token.borderRadiusSM,
-        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, height ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
           {
@@ -311,7 +307,7 @@ export default genStyleHooks(
       segmentedPaddingHorizontal: calc(token.controlPaddingHorizontal).sub(lineWidth).equal(),
       segmentedPaddingHorizontalSM: calc(token.controlPaddingHorizontalSM).sub(lineWidth).equal(),
     });
-    return [genSegmentedStyle(segmentedToken)];
+    return genSegmentedStyle(segmentedToken);
   },
   prepareComponentToken,
 );

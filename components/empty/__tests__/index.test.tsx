@@ -13,7 +13,9 @@ describe('Empty', () => {
 
   it('image size should change', () => {
     const { container } = render(<Empty styles={{ image: { height: 20 } }} />);
-    expect(container.querySelector<HTMLDivElement>('.ant-empty-image')?.style.height).toBe('20px');
+    expect(container.querySelector<HTMLDivElement>('.ant-empty-image')).toHaveStyle({
+      height: '20px',
+    });
   });
 
   it('description can be false', () => {
@@ -55,10 +57,10 @@ describe('Empty', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
-      description: { color: 'green' },
-      footer: { color: 'yellow' },
-      image: { backgroundColor: 'black' },
+      root: { padding: 10 },
+      description: { padding: 20 },
+      footer: { padding: 30 },
+      image: { padding: 40 },
     };
 
     const { container } = render(
@@ -72,23 +74,33 @@ describe('Empty', () => {
       </Empty>,
     );
 
-    const emptyElement = container.querySelector('.ant-empty') as HTMLElement;
-    const emptyFooterElement = container.querySelector('.ant-empty-footer') as HTMLElement;
-    const emptyDescriptionElement = container.querySelector(
-      '.ant-empty-description',
-    ) as HTMLElement;
-    const emptyImageElement = container.querySelector('.ant-empty-image') as HTMLElement;
+    const emptyElement = container.querySelector<HTMLElement>('.ant-empty');
+    const emptyFooterElement = container.querySelector<HTMLElement>('.ant-empty-footer');
+    const emptyDescriptionElement = container.querySelector<HTMLElement>('.ant-empty-description');
+    const emptyImageElement = container.querySelector<HTMLElement>('.ant-empty-image');
 
     // check classNames
-    expect(emptyElement.classList).toContain('custom-root');
-    expect(emptyFooterElement.classList).toContain('custom-footer');
-    expect(emptyDescriptionElement.classList).toContain('custom-description');
-    expect(emptyImageElement.classList).toContain('custom-image');
+    expect(emptyElement).toHaveClass('custom-root');
+    expect(emptyFooterElement).toHaveClass('custom-footer');
+    expect(emptyDescriptionElement).toHaveClass('custom-description');
+    expect(emptyImageElement).toHaveClass('custom-image');
 
     // check styles
-    expect(emptyElement.style.color).toBe('red');
-    expect(emptyDescriptionElement.style.color).toBe('green');
-    expect(emptyFooterElement.style.color).toBe('yellow');
-    expect(emptyImageElement.style.backgroundColor).toBe('black');
+    expect(emptyElement).toHaveStyle({ padding: '10px' });
+    expect(emptyDescriptionElement).toHaveStyle({ padding: '20px' });
+    expect(emptyFooterElement).toHaveStyle({ padding: '30px' });
+    expect(emptyImageElement).toHaveStyle({ padding: '40px' });
+  });
+
+  it('support ConfigProvider image', () => {
+    const { container } = render(
+      <ConfigProvider empty={{ image: 'https://example.com/foobar.jpg' }}>
+        <Empty />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLImageElement>('img')).toHaveAttribute(
+      'src',
+      'https://example.com/foobar.jpg',
+    );
   });
 });

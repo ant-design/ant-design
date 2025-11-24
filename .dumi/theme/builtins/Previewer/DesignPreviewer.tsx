@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStyles } from 'antd-style';
-import copy from 'copy-to-clipboard';
+import copy from '../../../../components/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
 import type { AntdPreviewerProps } from '.';
@@ -22,39 +22,39 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   wrapper: css`
     position: relative;
-    border: 1px solid ${token.colorBorderSecondary};
-    border-radius: ${token.borderRadius}px;
-    padding: ${token.paddingMD}px ${token.paddingLG}px ${token.paddingMD * 2}px;
-    margin-bottom: ${token.marginLG}px;
+    border: 1px solid ${cssVar.colorBorderSecondary};
+    border-radius: ${cssVar.borderRadius};
+    padding: ${cssVar.paddingMD} ${cssVar.paddingLG} ${cssVar.paddingMD * 2};
+    margin-bottom: ${cssVar.marginLG};
   `,
   title: css`
-    font-size: ${token.fontSizeLG}px;
-    font-weight: ${token.fontWeightStrong};
-    color: ${token.colorTextHeading};
+    font-size: ${cssVar.fontSizeLG};
+    font-weight: ${cssVar.fontWeightStrong};
+    color: ${cssVar.colorTextHeading};
 
     &:hover {
-      color: ${token.colorTextHeading};
+      color: ${cssVar.colorTextHeading};
     }
   `,
   description: css`
-    margin-top: ${token.margin}px;
+    margin-top: ${cssVar.margin};
   `,
   demo: css`
-    margin-top: ${token.marginLG}px;
+    margin-top: ${cssVar.marginLG};
     display: flex;
     justify-content: center;
   `,
   copy: css`
     position: absolute;
-    inset-inline-end: ${token.paddingMD}px;
-    inset-block-start: ${token.paddingMD}px;
+    inset-inline-end: ${cssVar.paddingMD};
+    inset-block-start: ${cssVar.paddingMD};
     cursor: pointer;
   `,
   copyTip: css`
-    color: ${token.colorTextTertiary};
+    color: ${cssVar.colorTextTertiary};
     border: none;
     background: transparent;
     padding: 0;
@@ -62,12 +62,12 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   copiedTip: css`
     .anticon {
-      color: ${token.colorSuccess};
+      color: ${cssVar.colorSuccess};
     }
   `,
   tip: css`
-    color: ${token.colorTextTertiary};
-    margin-top: ${token.marginMD * 2}px;
+    color: ${cssVar.colorTextTertiary};
+    margin-top: ${cssVar.marginMD * 2};
   `,
 }));
 
@@ -83,7 +83,7 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
     try {
       if (demoRef.current) {
         const group = await nodeToGroup(demoRef.current);
-        copy(JSON.stringify(group.toSketchJSON()));
+        await copy(JSON.stringify(group.toSketchJSON()));
         setCopied(true);
         timerRef.current = setTimeout(() => {
           setCopied(false);

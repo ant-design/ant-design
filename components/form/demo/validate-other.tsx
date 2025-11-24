@@ -17,8 +17,6 @@ import {
   Upload,
 } from 'antd';
 
-const { Option } = Select;
-
 const formItemLayout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 14 },
@@ -58,10 +56,13 @@ const App: React.FC = () => (
       hasFeedback
       rules={[{ required: true, message: 'Please select your country!' }]}
     >
-      <Select placeholder="Please select a country">
-        <Option value="china">China</Option>
-        <Option value="usa">U.S.A</Option>
-      </Select>
+      <Select
+        placeholder="Please select a country"
+        options={[
+          { label: 'China', value: 'china' },
+          { label: 'U.S.A', value: 'usa' },
+        ]}
+      />
     </Form.Item>
 
     <Form.Item
@@ -69,11 +70,15 @@ const App: React.FC = () => (
       label="Select[multiple]"
       rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
     >
-      <Select mode="multiple" placeholder="Please select favourite colors">
-        <Option value="red">Red</Option>
-        <Option value="green">Green</Option>
-        <Option value="blue">Blue</Option>
-      </Select>
+      <Select
+        mode="multiple"
+        placeholder="Please select favourite colors"
+        options={[
+          { label: 'Red', value: 'red' },
+          { label: 'Green', value: 'green' },
+          { label: 'Blue', value: 'blue' },
+        ]}
+      />
     </Form.Item>
 
     <Form.Item label="InputNumber">
@@ -193,7 +198,7 @@ const App: React.FC = () => (
       <ColorPicker />
     </Form.Item>
 
-    <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+    <Form.Item label={null}>
       <Space>
         <Button type="primary" htmlType="submit">
           Submit

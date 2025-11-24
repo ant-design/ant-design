@@ -57,9 +57,11 @@ const App: React.FC = () => {
   return (
     <Transfer
       dataSource={mockData}
-      listStyle={{
-        width: 300,
-        height: 300,
+      styles={{
+        section: {
+          width: 300,
+          height: 300,
+        },
       }}
       targetKeys={targetKeys}
       onChange={handleChange}

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
+import { warning } from '@rc-component/util';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import DatePicker from '..';
-import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
+
+const { resetWarned } = warning;
 
 dayjs.extend(customParseFormat);
 
@@ -179,7 +181,9 @@ describe('RangePicker', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+      'background-color: rgb(255, 0, 0)',
+    );
 
     errSpy.mockRestore();
   });

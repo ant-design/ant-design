@@ -1,9 +1,29 @@
 import type React from 'react';
-import type { DialogProps } from 'rc-dialog';
+import type { DialogProps } from '@rc-component/dialog';
 
-import { Breakpoint } from '../_util/responsiveObserver';
+import type {
+  ClosableType,
+  MaskType,
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../_util/hooks';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
+
+export type SemanticName =
+  | 'root'
+  | 'header'
+  | 'body'
+  | 'footer'
+  | 'container'
+  | 'title'
+  | 'wrapper'
+  | 'mask';
+
+export type ModalClassNamesType = SemanticClassNamesType<ModalProps, SemanticName>;
+
+export type ModalStylesType = SemanticStylesType<ModalProps, SemanticName>;
 
 interface ModalCommonProps
   extends Omit<
@@ -15,6 +35,9 @@ interface ModalCommonProps
     | 'maskAnimation'
     | 'transitionName'
     | 'maskTransitionName'
+    | 'mask'
+    | 'classNames'
+    | 'styles'
   > {
   footer?:
     | React.ReactNode
@@ -22,6 +45,11 @@ interface ModalCommonProps
         originNode: React.ReactNode,
         extra: { OkBtn: React.FC; CancelBtn: React.FC },
       ) => React.ReactNode);
+  closable?:
+    | boolean
+    | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
+  classNames?: ModalClassNamesType;
+  styles?: ModalStylesType;
 }
 
 export interface ModalProps extends ModalCommonProps {
@@ -66,14 +94,14 @@ export interface ModalProps extends ModalCommonProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: NonNullable<DialogProps['classNames']>;
+  rootStyle?: React.CSSProperties;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
-  mask?: boolean;
+  mask?: MaskType;
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
@@ -82,10 +110,6 @@ export interface ModalProps extends ModalCommonProps {
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
   mousePosition?: MousePosition;
-
-  // Legacy
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
   /**
    * @since 5.18.0
    */
@@ -99,8 +123,6 @@ export interface ModalFuncProps extends ModalCommonProps {
   className?: string;
   rootClassName?: string;
   open?: boolean;
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
   title?: React.ReactNode;
   content?: React.ReactNode;
   // TODO: find out exact types
@@ -115,7 +137,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: boolean;
+  mask?: MaskType;
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;

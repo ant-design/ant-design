@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-solid"
+  class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
 >
   <span
-    class="ant-badge"
+    class="ant-badge css-var-test-id"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -49,10 +49,10 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
     </sup>
   </span>
   <span
-    class="ant-badge"
+    class="ant-badge css-var-test-id"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -99,7 +99,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 2`] = 
 
 exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = `
 <label
-  class="ant-radio-wrapper"
+  class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
 >
   <span
     class="ant-radio ant-wave-target"
@@ -124,13 +124,13 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 2`] = 
 
 exports[`renders components/radio/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -155,7 +155,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
@@ -181,10 +181,10 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-radio-group ant-radio-group-outline"
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -207,7 +207,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -229,7 +229,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -251,7 +251,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -278,10 +278,10 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-radio-group ant-radio-group-outline"
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
@@ -305,7 +305,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -328,7 +328,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -351,7 +351,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -379,10 +379,10 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-radio-group ant-radio-group-solid"
+      class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -405,7 +405,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -427,7 +427,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -449,7 +449,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -479,13 +479,13 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
 
 exports[`renders components/radio/demo/debug-upload.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper"
+      class="ant-upload-wrapper css-var-test-id"
     >
       <div
         class="ant-upload ant-upload-select"
@@ -500,7 +500,7 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
             type="file"
           />
           <label
-            class="ant-radio-wrapper"
+            class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
           >
             <span
               class="ant-radio ant-wave-target"
@@ -530,7 +530,7 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper"
+      class="ant-upload-wrapper css-var-test-id"
     >
       <div
         class="ant-upload ant-upload-select"
@@ -545,7 +545,7 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
             type="file"
           />
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -579,7 +579,7 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
 exports[`renders components/radio/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-disabled"
@@ -600,7 +600,7 @@ Array [
     </span>
   </label>,
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
@@ -623,7 +623,7 @@ Array [
   </label>,
   <br />,
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top: 16px;"
     type="button"
   >
@@ -638,13 +638,13 @@ exports[`renders components/radio/demo/disabled.tsx extend context correctly 2`]
 
 exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -667,7 +667,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -689,7 +689,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -711,7 +711,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -734,10 +734,10 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -760,7 +760,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
@@ -783,7 +783,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -805,7 +805,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -828,10 +828,10 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
@@ -855,7 +855,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
@@ -878,7 +878,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
@@ -901,7 +901,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
@@ -931,13 +931,13 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
 
 exports[`renders components/radio/demo/radiobutton-solid.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-radio-group ant-radio-group-solid"
+    class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -960,7 +960,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -982,7 +982,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1004,7 +1004,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1027,10 +1027,10 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-solid"
+    class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1052,7 +1052,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
@@ -1075,7 +1075,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1098,7 +1098,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1127,10 +1127,10 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
 
 exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline"
+  class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
 >
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked option-1"
+    class="ant-radio-wrapper ant-radio-wrapper-checked option-1 css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked"
@@ -1150,7 +1150,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       class="ant-radio-label"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
         <span
           aria-label="line-chart"
@@ -1177,7 +1177,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     </span>
   </label>
   <label
-    class="ant-radio-wrapper option-2"
+    class="ant-radio-wrapper option-2 css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1196,7 +1196,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       class="ant-radio-label"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
         <span
           aria-label="dot-chart"
@@ -1223,7 +1223,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     </span>
   </label>
   <label
-    class="ant-radio-wrapper option-3"
+    class="ant-radio-wrapper option-3 css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1242,7 +1242,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       class="ant-radio-label"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
         <span
           aria-label="bar-chart"
@@ -1269,7 +1269,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     </span>
   </label>
   <label
-    class="ant-radio-wrapper option-4"
+    class="ant-radio-wrapper option-4 css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1288,7 +1288,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       class="ant-radio-label"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
         <span
           aria-label="pie-chart"
@@ -1321,13 +1321,13 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 2
 
 exports[`renders components/radio/demo/radiogroup-block.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-block"
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-block"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1350,7 +1350,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-block"
+      class="ant-radio-wrapper ant-radio-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1372,7 +1372,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-block"
+      class="ant-radio-wrapper ant-radio-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1395,10 +1395,10 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-solid ant-radio-group-block"
+    class="ant-radio-group ant-radio-group-solid ant-radio-group-block css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1421,7 +1421,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1443,7 +1443,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1466,10 +1466,10 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-block"
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1491,7 +1491,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1514,7 +1514,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1543,11 +1543,10 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
 
 exports[`renders components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline"
-  style="display: flex; flex-direction: column; gap: 8px;"
+  class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
 >
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
+    class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked"
@@ -1570,7 +1569,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1592,7 +1591,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1614,7 +1613,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1643,10 +1642,10 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
 exports[`renders components/radio/demo/radiogroup-options.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1669,7 +1668,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1691,7 +1690,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1715,10 +1714,10 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked label-1"
+      class="ant-radio-wrapper ant-radio-wrapper-checked label-1 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1741,7 +1740,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper label-2"
+      class="ant-radio-wrapper label-2 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1763,7 +1762,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled label-3"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled label-3 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-disabled"
@@ -1789,10 +1788,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1815,7 +1814,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper label-2"
+      class="ant-radio-button-wrapper label-2 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1837,7 +1836,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper label-3"
+      class="ant-radio-button-wrapper label-3 css-var-test-id ant-radio-css-var"
       title="Orange"
     >
       <span
@@ -1863,10 +1862,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-radio-group ant-radio-group-solid"
+    class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1889,7 +1888,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper label-2"
+      class="ant-radio-button-wrapper label-2 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1911,7 +1910,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled label-3"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled label-3 css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
@@ -1941,10 +1940,10 @@ exports[`renders components/radio/demo/radiogroup-options.tsx extend context cor
 
 exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline"
+  class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
 >
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
+    class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked"
@@ -1967,7 +1966,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1989,7 +1988,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -2011,7 +2010,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -2039,13 +2038,13 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
 
 exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-large css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -2068,7 +2067,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2090,7 +2089,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2112,7 +2111,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2135,10 +2134,10 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -2161,7 +2160,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2183,7 +2182,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2205,7 +2204,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2228,10 +2227,10 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -2254,7 +2253,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2276,7 +2275,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2298,7 +2297,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -2325,13 +2324,66 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
 
 exports[`renders components/radio/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/radio/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <label
+    class="ant-radio-wrapper acss-1308e5j css-var-test-id ant-radio-css-var"
+    style="padding: 8px; border-radius: 4px; border-color: rgb(204, 204, 204);"
+  >
+    <span
+      class="ant-radio ant-wave-target"
+    >
+      <input
+        class="ant-radio-input"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span
+      class="ant-radio-label"
+    >
+      Object
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper ant-radio-wrapper-checked acss-1308e5j css-var-test-id ant-radio-css-var"
+    style="padding: 8px; border-radius: 4px; border-color: rgb(24, 144, 255);"
+  >
+    <span
+      class="ant-radio ant-wave-target ant-radio-checked"
+    >
+      <input
+        checked=""
+        class="ant-radio-input"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span
+      class="ant-radio-label"
+      style="font-weight: bold; color: rgb(51, 51, 51);"
+    >
+      Function
+    </span>
+  </label>
+</div>
+`;
+
+exports[`renders components/radio/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/radio/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -2354,7 +2406,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -2376,7 +2428,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -2398,7 +2450,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -2422,10 +2474,10 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
@@ -2449,7 +2501,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-disabled"
@@ -2472,7 +2524,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-disabled"
@@ -2495,7 +2547,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-disabled"

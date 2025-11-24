@@ -773,7 +773,7 @@ describe('Table.rowSelection', () => {
     ).toBe(true);
   });
 
-  it('fix selection column on the left', () => {
+  it('fix selection column on the start', () => {
     const { container } = render(
       createTable({
         rowSelection: { fixed: true },
@@ -782,11 +782,11 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
-      'ant-table-cell-fix-left',
+      'ant-table-cell-fix-start',
     );
   });
 
-  it('fix expand on th left when selection column fixed on the left', () => {
+  it('fix expand on th start when selection column fixed on the start', () => {
     const { container } = render(
       createTable({
         expandable: {
@@ -800,11 +800,11 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
-      'ant-table-cell-fix-left',
+      'ant-table-cell-fix-start',
     );
   });
 
-  it('fix selection column on the left when any other column is fixed', () => {
+  it('fix selection column on the start when any other column is fixed', () => {
     const { container } = render(
       createTable({
         rowSelection: {},
@@ -812,7 +812,11 @@ describe('Table.rowSelection', () => {
           {
             title: 'Name',
             dataIndex: 'name',
-            fixed: 'left',
+            fixed: 'start',
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
           },
         ],
         scroll: { x: 903 },
@@ -820,7 +824,7 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
-      'ant-table-cell-fix-left',
+      'ant-table-cell-fix-start',
     );
   });
 
@@ -1247,9 +1251,7 @@ describe('Table.rowSelection', () => {
     };
     const { container } = render(
       <ConfigProvider getPopupContainer={(node) => node?.parentNode as HTMLElement}>
-        {createTable({
-          rowSelection,
-        })}
+        {createTable({ rowSelection })}
       </ConfigProvider>,
     );
     jest.useFakeTimers();
@@ -1271,7 +1273,7 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    const checkboxes = container.querySelectorAll('input');
+    const checkboxes = container.querySelectorAll<HTMLElement>('input');
     fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
@@ -2092,5 +2094,23 @@ describe('Table.rowSelection', () => {
 
     expect(checkboxOfRowWithKey12).toBeTruthy();
     expect(checkboxOfRowWithKey12!.checked).toBeFalsy();
+  });
+
+  it('Table Header Checkbox', () => {
+    const { container } = render(
+      <Table
+        dataSource={[
+          { key: '1', name: 'Item 1' },
+          { key: '2', name: 'Item 2' },
+        ]}
+        columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
+        rowSelection={{
+          getTitleCheckboxProps: () => ({ disabled: true, 'aria-label': 'Custom label' }),
+        }}
+      />,
+    );
+    const checkbox = container.querySelector('.ant-checkbox-input');
+    expect(checkbox).toBeDisabled();
+    expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
   });
 });

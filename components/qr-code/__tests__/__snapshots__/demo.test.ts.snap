@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -14,13 +14,13 @@ exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
 
 exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-qrcode"
+      class="ant-qrcode css-var-test-id"
       style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
@@ -34,7 +34,7 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       maxlength="60"
       placeholder="-"
       type="text"
@@ -46,13 +46,13 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
 
 exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-qrcode"
+      class="ant-qrcode css-var-test-id"
       style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
@@ -66,7 +66,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-qrcode"
+      class="ant-qrcode css-var-test-id"
       style="background-color:#f5f5f5;width:160px;height:160px"
     >
       <canvas
@@ -86,7 +86,7 @@ Array [
     style="margin-bottom:16px"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span
@@ -117,7 +117,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
@@ -152,7 +152,7 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <canvas
@@ -161,6 +161,7 @@ Array [
       width="160"
     />
     <img
+      alt="QR-Code"
       crossorigin="anonymous"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       style="display:none"
@@ -171,17 +172,17 @@ Array [
 
 exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
 >
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
-        class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
       >
         <div
           class="ant-space-item"
@@ -189,7 +190,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-spinning"
+            class="ant-spin ant-spin-spinning css-var-test-id"
           >
             <span
               class="ant-spin-dot-holder"
@@ -229,11 +230,11 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
     />
   </div>
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div>
         <span
@@ -261,7 +262,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
         QR code expired
         <p>
           <button
-            class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
+            class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
             type="button"
           >
             <span
@@ -297,11 +298,11 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
     />
   </div>
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div>
         <span
@@ -339,7 +340,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
 
 exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   id="myqrcode"
 >
   <div
@@ -347,7 +348,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
   >
     <div
       aria-label="segmented control"
-      class="ant-segmented"
+      class="ant-segmented css-var-test-id"
       role="radiogroup"
       tabindex="0"
     >
@@ -364,8 +365,9 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-selected="true"
+            aria-checked="true"
             class="ant-segmented-item-label"
+            role="radio"
             title="canvas"
           >
             canvas
@@ -380,8 +382,9 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-selected="false"
+            aria-checked="false"
             class="ant-segmented-item-label"
+            role="radio"
             title="svg"
           >
             svg
@@ -395,8 +398,8 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
   >
     <div>
       <div
-        class="ant-qrcode"
-        style="background-color:#fff;margin-bottom:16px;width:160px;height:160px"
+        class="ant-qrcode css-var-test-id"
+        style="background-color:rgba(255,255,255,0.5);margin-bottom:16px;width:160px;height:160px"
       >
         <canvas
           height="160"
@@ -404,13 +407,14 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
           width="160"
         />
         <img
+          alt="QR-Code"
           crossorigin="anonymous"
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           style="display:none"
         />
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -425,7 +429,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
 exports[`renders components/qr-code/demo/errorlevel.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;margin-bottom:16px;width:160px;height:160px"
   >
     <canvas
@@ -436,7 +440,7 @@ Array [
   </div>,
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -453,8 +457,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="L"
         >
           L
@@ -469,8 +474,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="M"
         >
           M
@@ -485,8 +491,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Q"
         >
           Q
@@ -501,8 +508,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="H"
         >
           H
@@ -515,7 +523,7 @@ Array [
 
 exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
 <div
-  class="ant-qrcode"
+  class="ant-qrcode css-var-test-id"
   style="background-color:transparent;width:160px;height:160px"
 >
   <canvas
@@ -524,6 +532,7 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
     width="160"
   />
   <img
+    alt="QR-Code"
     crossorigin="anonymous"
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     style="display:none"
@@ -533,19 +542,19 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
 
 exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
 >
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning css-var-test-id"
       >
         <span
           class="ant-spin-dot-holder"
@@ -576,11 +585,11 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <p
         class="ant-qrcode-expired"
@@ -588,7 +597,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
         QR code expired
       </p>
       <button
-        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
+        class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span
@@ -626,11 +635,11 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-test-id"
     style="background-color:transparent;width:160px;height:160px"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <p
         class="ant-qrcode-scanned"
@@ -647,15 +656,48 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/qr-code/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <div
+    class="ant-qrcode css-var-test-id acss-1x2gi4q"
+    style="background-color:rgb(24, 144, 255, 0.1);border:2px solid #1890ff;border-radius:8px;padding:16px;width:160px;height:160px"
+  >
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+  </div>
+  <div
+    class="ant-qrcode css-var-test-id acss-1x2gi4q"
+    style="background-color:rgba(255, 77, 79, 0.1);border:2px solid #ff4d4f;border-radius:8px;padding:16px;width:160px;height:160px"
+  >
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+    <img
+      alt="QR-Code"
+      crossorigin="anonymous"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      style="display:none"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-qrcode"
+      class="ant-qrcode css-var-test-id"
       style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
@@ -669,7 +711,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-qrcode"
+      class="ant-qrcode css-var-test-id"
       style="background-color:transparent;width:160px;height:160px"
     >
       <svg

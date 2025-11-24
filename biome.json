@@ -13,7 +13,10 @@
       "!node_modules",
       "!server",
       "!scripts/previewEditor/**/*",
-      "!package.json"
+      "!**/*.tmp",
+      "!package.json",
+      "!components/style/antd.css",
+      "!scripts/visual-regression/report-template.html"
     ]
   },
   "formatter": {
@@ -38,39 +41,33 @@
   "linter": {
     "rules": {
       "style": {
-        "useImportType": "off",
-        "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
-        "noNonNullAssertion": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noNonNullAssertion": "off"
       },
       "complexity": {
-        "noUselessTypeConstraint": "off",
-        "noForEach": "off",
-        "useDateNow": "off"
+        "useDateNow": "off",
+        "noImportantStyles": "off",
+        "useOptionalChain": "off"
       },
       "correctness": {
-        "useExhaustiveDependencies": "off",
-        "useHookAtTopLevel": "off",
-        "noUnusedFunctionParameters": "off",
-        "noUnusedVariables": "off"
+        "useUniqueElementIds": "off",
+        "useExhaustiveDependencies": "off"
       },
       "suspicious": {
-        "noGlobalIsNan": "off",
-        "noGlobalIsFinite": "off",
+        "noTsIgnore": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
+        "noNonNullAssertedOptionalChain": "off",
         "noThenProperty": "off",
-        "noTemplateCurlyInString": "off"
+        "noTemplateCurlyInString": "off",
+        "useIterableCallbackReturn": "off"
       },
       "performance": {
-        "noDelete": "off",
         "noAccumulatingSpread": "off",
         "noDynamicNamespaceImportAccess": "off"
       },
       "a11y": {
-        "noAriaHiddenOnFocusable": "off",
         "noLabelWithoutControl": "off",
         "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
@@ -78,9 +75,6 @@
         "noStaticElementInteractions": "off",
         "useAriaPropsSupportedByRole": "off",
         "useAriaPropsForRole": "off"
-      },
-      "nursery": {
-        "useUniqueElementIds": "off"
       }
     }
   },
@@ -94,11 +88,7 @@
       "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
-          "style": {
-            "noParameterAssign": "off"
-          },
           "suspicious": {
-            "noThenProperty": "off",
             "noImplicitAnyLet": "off"
           },
           "complexity": {
@@ -106,8 +96,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
@@ -121,8 +110,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }

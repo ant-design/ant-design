@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Select, Tabs } from 'antd';
 
-const { Option } = Select;
-
-const positionList = ['left', 'right', 'top', 'bottom'];
+const placementList = ['start', 'end', 'top', 'bottom'];
 
 const App: React.FC = () => {
   const [parentPos, setParentPos] = useState(undefined);
@@ -15,54 +13,45 @@ const App: React.FC = () => {
     <div>
       <Select
         style={{ width: 200 }}
-        onChange={(val) => {
-          setParentPos(val);
-        }}
-      >
-        {positionList.map((pos) => (
-          <Option key={pos} value={pos}>
-            Parent - {pos}
-          </Option>
-        ))}
-      </Select>
-
+        onChange={(val) => setParentPos(val)}
+        options={placementList.map((pos) => {
+          return {
+            value: pos,
+            label: `Parent - ${pos}`,
+          };
+        })}
+      />
       <Select
         style={{ width: 200 }}
-        onChange={(val) => {
-          setChildPos(val);
-        }}
-      >
-        {positionList.map((pos) => (
-          <Option key={pos} value={pos}>
-            Child - {pos}
-          </Option>
-        ))}
-      </Select>
-
+        onChange={(val) => setChildPos(val)}
+        options={placementList.map((pos) => {
+          return {
+            value: pos,
+            label: `Child - ${pos}`,
+          };
+        })}
+      />
       <Select
         style={{ width: 200 }}
-        onChange={(val) => {
-          setParentType(val);
-        }}
-      >
-        <Option value="line">Parent - line</Option>
-        <Option value="card">Parent - card</Option>
-        <Option value="editable-card">Parent - card edit</Option>
-      </Select>
-
+        onChange={(val) => setParentType(val)}
+        options={[
+          { value: 'line', label: 'Parent - line' },
+          { value: 'card', label: 'Parent - card' },
+          { value: 'editable-card', label: 'Parent - card edit' },
+        ]}
+      />
       <Select
         style={{ width: 200 }}
-        onChange={(val) => {
-          setChildType(val);
-        }}
-      >
-        <Option value="line">Child - line</Option>
-        <Option value="card">Child - card</Option>
-        <Option value="editable-card">Parent - card edit</Option>
-      </Select>
+        onChange={(val) => setChildType(val)}
+        options={[
+          { value: 'line', label: 'Child - line' },
+          { value: 'card', label: 'Child - card' },
+          { value: 'editable-card', label: 'Child - card edit' },
+        ]}
+      />
       <Tabs
         defaultActiveKey="1"
-        tabPosition={parentPos}
+        tabPlacement={parentPos}
         type={parentType}
         items={[
           {
@@ -71,7 +60,7 @@ const App: React.FC = () => {
             children: (
               <Tabs
                 defaultActiveKey="1"
-                tabPosition={childPos}
+                tabPlacement={childPos}
                 type={childType}
                 style={{ height: 300 }}
                 items={Array.from({ length: 20 }).map((_, index) => {

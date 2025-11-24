@@ -230,7 +230,6 @@ export interface TableToken extends FullToken<'Table'> {
 
   // Z-Index
   zIndexTableFixed: number;
-  zIndexTableSticky: number | string;
 
   // Virtual Scroll Bar
   tableScrollThumbSize: number;
@@ -378,6 +377,18 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             background: tableHeaderBg,
             borderBottom: tableBorder,
             transition: `background ${motionDurationMid} ease`,
+          },
+
+          // measure cell styles
+          [`& > ${componentCls}-measure-cell`]: {
+            paddingBlock: `0 !important`,
+            borderBlock: `0 !important`,
+
+            [`${componentCls}-measure-cell-content`]: {
+              height: 0,
+              overflow: 'hidden',
+              pointerEvents: 'none',
+            },
           },
         },
       },
@@ -553,7 +564,6 @@ export default genStyleHooks(
       tableSelectedRowBg: rowSelectedBg,
       tableSelectedRowHoverBg: rowSelectedHoverBg,
       zIndexTableFixed,
-      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal({ unit: false }),
       tableFontSizeMiddle: cellFontSizeMD,
       tableFontSizeSmall: cellFontSizeSM,
       tableSelectionColumnWidth: selectionColumnWidth,

@@ -3,10 +3,9 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
@@ -20,7 +19,8 @@ const dimensionMaxMap = {
   xxl: '1599.98px',
 };
 
-const isNumeric = (value: any) => !Number.isNaN(Number.parseFloat(value)) && isFinite(value);
+const isNumeric = (val: any) =>
+  !Number.isNaN(Number.parseFloat(val)) && Number.isFinite(Number(val));
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
@@ -104,7 +104,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Responsive =========================
   const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>(null);
@@ -124,11 +124,15 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     let mql: MediaQueryList;
     if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
       mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
-      addMediaQueryListener(mql, responsiveHandler);
+      if (typeof mql?.addEventListener === 'function') {
+        mql.addEventListener('change', responsiveHandler);
+      }
       responsiveHandler(mql);
     }
     return () => {
-      removeMediaQueryListener(mql, responsiveHandler);
+      if (typeof mql?.removeEventListener === 'function') {
+        mql.removeEventListener('change', responsiveHandler);
+      }
     };
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
@@ -148,10 +152,10 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
   // special trigger when collapsedWidth == 0
   const zeroWidthTrigger =
-    parseFloat(String(collapsedWidth || 0)) === 0 ? (
+    Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span
         onClick={toggle}
-        className={classNames(
+        className={clsx(
           `${prefixCls}-zero-width-trigger`,
           `${prefixCls}-zero-width-trigger-${reverseArrow ? 'right' : 'left'}`,
         )}
@@ -187,14 +191,14 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     width: siderWidth,
   };
 
-  const siderCls = classNames(
+  const siderCls = clsx(
     prefixCls,
     `${prefixCls}-${theme}`,
     {
       [`${prefixCls}-collapsed`]: !!collapsed,
       [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!below,
-      [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
+      [`${prefixCls}-zero-width`]: Number.parseFloat(siderWidth) === 0,
     },
     className,
     hashId,
@@ -206,13 +210,13 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     [collapsed],
   );
 
-  return wrapCSSVar(
+  return (
     <SiderContext.Provider value={contextValue}>
       <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
         <div className={`${prefixCls}-children`}>{children}</div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
-    </SiderContext.Provider>,
+    </SiderContext.Provider>
   );
 });
 

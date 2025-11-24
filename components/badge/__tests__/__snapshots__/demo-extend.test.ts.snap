@@ -2,20 +2,20 @@
 
 exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -42,14 +42,14 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -65,14 +65,14 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <span
@@ -107,26 +107,26 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 2`] = 
 
 exports[`renders components/badge/demo/change.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -156,7 +156,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           class="ant-space-compact"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
             type="button"
           >
             <span
@@ -184,7 +184,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
             type="button"
           >
             <span
@@ -215,7 +215,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
             type="button"
           >
             <span
@@ -250,20 +250,20 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -277,7 +277,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
       >
         <button
           aria-checked="true"
-          class="ant-switch ant-switch-checked"
+          class="ant-switch css-var-test-id ant-switch-checked"
           role="switch"
           type="button"
         >
@@ -306,23 +306,29 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 2`] =
 exports[`renders components/badge/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Presets
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-pink"
@@ -338,7 +344,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-red"
@@ -354,7 +360,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-yellow"
@@ -370,7 +376,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-orange"
@@ -386,7 +392,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-cyan"
@@ -402,7 +408,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-green"
@@ -418,7 +424,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-blue"
@@ -434,7 +440,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-purple"
@@ -450,7 +456,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-geekblue"
@@ -466,7 +472,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-magenta"
@@ -482,7 +488,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-volcano"
@@ -498,7 +504,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-gold"
@@ -514,7 +520,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-color-lime"
@@ -528,23 +534,29 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Custom
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
@@ -561,7 +573,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
@@ -578,11 +590,11 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
-          style="color: rgb(103, 103, 103); background: rgb(103, 103, 103);"
+          style="color: rgb(135, 208, 103); background: rgb(135, 208, 103);"
         />
         <span
           class="ant-badge-status-text"
@@ -595,10 +607,11 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
+          style="color: rgb(15, 142, 232); background: rgb(15, 142, 232);"
         />
         <span
           class="ant-badge-status-text"
@@ -616,14 +629,14 @@ exports[`renders components/badge/demo/colorful.tsx extend context correctly 2`]
 exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-large"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-large css-var-test-id"
     style="flex-wrap: wrap;"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -664,7 +677,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -705,7 +718,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -746,7 +759,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -787,7 +800,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -828,7 +841,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -869,7 +882,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -910,7 +923,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -951,7 +964,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -992,7 +1005,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -1033,7 +1046,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -1074,7 +1087,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -1115,7 +1128,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
@@ -1154,14 +1167,14 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-large"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-large css-var-test-id"
     style="flex-wrap: wrap;"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-pink"
@@ -1177,7 +1190,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-red"
@@ -1193,7 +1206,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
@@ -1209,7 +1222,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-orange"
@@ -1225,7 +1238,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-cyan"
@@ -1241,7 +1254,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-green"
@@ -1257,7 +1270,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-blue"
@@ -1273,7 +1286,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-purple"
@@ -1289,7 +1302,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-geekblue"
@@ -1305,7 +1318,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-magenta"
@@ -1321,7 +1334,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-volcano"
@@ -1337,7 +1350,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-gold"
@@ -1353,7 +1366,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-lime"
@@ -1373,20 +1386,20 @@ exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend cont
 
 exports[`renders components/badge/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -1413,7 +1426,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -1449,7 +1462,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
         aria-label="notification"
@@ -1480,7 +1493,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
     >
       <span
         class="ant-badge-status-dot ant-badge-status-success"
@@ -1496,7 +1509,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-count-sm"
@@ -1514,13 +1527,13 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
 
 exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
         aria-label="notification"
@@ -1552,7 +1565,7 @@ exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <a
         href="#"
@@ -1575,14 +1588,14 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
   href="#"
 >
   <span
-    class="ant-badge"
+    class="ant-badge css-var-test-id"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       />
     </span>
     <sup
@@ -1611,28 +1624,28 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 2`] = `
 
 exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
   style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
       style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1659,14 +1672,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1693,14 +1706,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1727,14 +1740,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1762,14 +1775,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1782,14 +1795,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1802,14 +1815,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1822,14 +1835,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1842,14 +1855,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1865,14 +1878,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
       style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
         >
           <sup
             class="ant-scroll-number ant-badge-count"
@@ -1887,7 +1900,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
         >
           <sup
             class="ant-scroll-number ant-badge-count ant-badge-color-blue"
@@ -1902,7 +1915,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
         >
           <sup
             class="ant-scroll-number ant-badge-count"
@@ -1918,14 +1931,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1941,14 +1954,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1);"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1964,8 +1977,35 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
         />
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+        >
+          <span
+            class="ant-badge-status-dot ant-badge-status-success"
+          />
+          <span
+            class="ant-badge-status-text"
+          >
+            0
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+        >
+          <span
+            class="ant-badge-status-dot ant-badge-status-warning"
+          />
+        </span>
       </div>
     </div>
   </div>
@@ -1976,14 +2016,14 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 2`] = `[
 
 exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -2006,7 +2046,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -2043,7 +2083,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -2079,7 +2119,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <span
         aria-label="clock-circle"
@@ -2110,7 +2150,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper site-badge-count-109"
+      class="ant-badge ant-badge-not-a-wrapper site-badge-count-109 css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -2129,20 +2169,20 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 2
 
 exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] = `
 <span
-  class="ant-badge"
+  class="ant-badge css-var-test-id"
 >
   <span
-    class="ant-avatar ant-avatar-lg ant-avatar-square"
+    class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1);"
+      style="-webkit-transform: scale(1); transform: scale(1);"
     />
   </span>
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="margin-top: 10px; right: -10px;"
+    style="margin-top: 10px; inset-inline-end: -10px;"
     title="5"
   >
     <bdi>
@@ -2165,20 +2205,20 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 2`] =
 
 exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2215,14 +2255,14 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2238,14 +2278,14 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2261,14 +2301,14 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2287,17 +2327,17 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 2`]
 
 exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2322,7 +2362,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2336,10 +2376,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2364,7 +2404,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2378,10 +2418,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2406,7 +2446,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-red"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2420,10 +2460,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2448,7 +2488,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-cyan"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2462,10 +2502,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2490,7 +2530,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-green"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2504,10 +2544,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2532,7 +2572,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2546,10 +2586,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2574,7 +2614,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-volcano"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2588,10 +2628,10 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2616,7 +2656,7 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-magenta"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2633,17 +2673,17 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 2`] =
 
 exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2655,7 +2695,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
         class="ant-ribbon ant-ribbon-placement-end"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2669,10 +2709,10 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2684,7 +2724,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2698,10 +2738,10 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2714,7 +2754,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
         style="background: rgb(45, 183, 245);"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2729,10 +2769,10 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2745,7 +2785,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
         style="background: rgb(45, 183, 245);"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2760,10 +2800,10 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2776,7 +2816,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
         style="background: rgb(45, 183, 245);"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2794,20 +2834,20 @@ exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly
 
 exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2834,14 +2874,14 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2872,13 +2912,13 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 2`] = `
 exports[`renders components/badge/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-success"
@@ -2889,7 +2929,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-error"
@@ -2900,7 +2940,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-default"
@@ -2911,7 +2951,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing"
@@ -2922,7 +2962,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-warning"
@@ -2932,13 +2972,13 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-success"
@@ -2954,7 +2994,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-error"
@@ -2970,7 +3010,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-default"
@@ -2986,7 +3026,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing"
@@ -3002,7 +3042,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-warning"
@@ -3020,22 +3060,189 @@ Array [
 
 exports[`renders components/badge/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/badge/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-middle"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+        style="border-radius: 8px;"
+      >
+        <span
+          class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          />
+        </span>
+        <sup
+          class="ant-scroll-number acss-9c7r58 ant-badge-count ant-badge-count-sm"
+          data-show="true"
+          title="5"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <span
+          class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          />
+        </span>
+        <sup
+          class="ant-scroll-number acss-9c7r58 ant-badge-count"
+          data-show="true"
+          style="font-size: 14px; background-color: rgb(105, 111, 199);"
+          title="5"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+    >
+      <div
+        class="ant-ribbon-wrapper css-var-test-id acss-19a7de9"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-test-id"
+        >
+          <div
+            class="ant-card-head"
+          >
+            <div
+              class="ant-card-head-wrapper"
+            >
+              <div
+                class="ant-card-head-title"
+              >
+                Card with custom ribbon
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            This card has a customized ribbon with semantic classNames and styles.
+          </div>
+        </div>
+        <div
+          class="ant-ribbon ant-ribbon-placement-end"
+          style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+        >
+          <span
+            class="ant-ribbon-content"
+          >
+            Custom Ribbon
+          </span>
+          <div
+            class="ant-ribbon-corner"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-ribbon-wrapper css-var-test-id acss-19a7de9"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-test-id"
+        >
+          <div
+            class="ant-card-head"
+          >
+            <div
+              class="ant-card-head-wrapper"
+            >
+              <div
+                class="ant-card-head-title"
+              >
+                Card with custom ribbon
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            This card has a customized ribbon with semantic classNames and styles.
+          </div>
+        </div>
+        <div
+          class="ant-ribbon ant-ribbon-placement-end"
+          style="background: rgb(105, 111, 199); box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+        >
+          <span
+            class="ant-ribbon-content"
+            style="font-weight: bold;"
+          >
+            Custom Ribbon
+          </span>
+          <div
+            class="ant-ribbon-corner"
+            style="color: rgb(105, 111, 199);"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/badge/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -3062,14 +3269,14 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup

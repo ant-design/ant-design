@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import type { ColumnsType } from '..';
 import Table from '..';
@@ -22,14 +22,14 @@ const columnsFixed: ColumnsType<any> = [
     width: 100,
     dataIndex: 'name',
     key: 'name',
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Age',
     width: 100,
     dataIndex: 'age',
     key: 'age',
-    fixed: 'left',
+    fixed: 'start',
   },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
@@ -42,7 +42,7 @@ const columnsFixed: ColumnsType<any> = [
   {
     title: 'Action',
     key: 'address',
-    fixed: 'right',
+    fixed: 'end',
     width: 100,
   },
 ];
@@ -63,9 +63,6 @@ describe('Table', () => {
         },
       });
     });
-    afterAll(() => {
-      domSpy.mockRestore();
-    });
 
     beforeEach(() => {
       jest.useFakeTimers();
@@ -73,6 +70,10 @@ describe('Table', () => {
 
     afterEach(() => {
       jest.useRealTimers();
+    });
+
+    afterAll(() => {
+      domSpy.mockRestore();
     });
 
     it('should work', async () => {
@@ -115,6 +116,14 @@ describe('Table', () => {
 
   it('renders empty table without emptyText when loading', () => {
     const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/54601#issuecomment-3158091383
+  it('should not render empty when loading', () => {
+    const { asFragment } = render(<Table columns={columns} loading />);
+    expect(asFragment().querySelector('.ant-spin-spinning')).toBeTruthy();
+    expect(asFragment().querySelectorAll('*[class^="ant-empty"]').length).toBeFalsy();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

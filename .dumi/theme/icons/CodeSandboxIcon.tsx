@@ -8,8 +8,15 @@ const SVGIcon: React.FC = () => (
   </svg>
 );
 
-const CodeSandboxIcon = React.forwardRef<HTMLSpanElement, { className?: string }>((props, ref) => (
-  <Icon component={SVGIcon} ref={ref} {...props} />
-));
+interface SvgIconProps {
+  className?: string;
+  style?: React.CSSProperties;
+  ref?: React.Ref<HTMLSpanElement>;
+}
+
+const CodeSandboxIcon: React.FC<SvgIconProps> = (props) => {
+  const { ref, ...rest } = props;
+  return <Icon component={SVGIcon} ref={ref} {...rest} />;
+};
 
 export default CodeSandboxIcon;

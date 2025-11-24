@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { InternalPanelProps, PanelProps } from './interface';
 
@@ -8,11 +8,10 @@ export const InternalPanel = forwardRef<
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
   const { prefixCls, className, children, size, style = {} } = props;
-  const panelClassName = classNames(
+
+  const panelClassName = clsx(
     `${prefixCls}-panel`,
-    {
-      [`${prefixCls}-panel-hidden`]: size === 0,
-    },
+    { [`${prefixCls}-panel-hidden`]: size === 0 },
     className,
   );
 

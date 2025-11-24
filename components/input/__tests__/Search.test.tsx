@@ -1,4 +1,5 @@
 import React from 'react';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { fireEvent, render } from '@testing-library/react';
 
 import focusTest from '../../../tests/shared/focusTest';
@@ -7,6 +8,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 import type { InputRef } from '../Input';
 import Search from '../Search';
+import type { SearchProps } from '../Search';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
@@ -211,13 +213,10 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/27258
   it('Search with allowClear should have one className only', () => {
-    const { container } = render(<Search allowClear className="className" />);
-    expect(
-      container.querySelector('.ant-input-group-wrapper')?.classList.contains('className'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-input-affix-wrapper')?.classList.contains('className'),
-    ).toBe(false);
+    const { container } = render(<Search allowClear className="bamboo" />);
+    expect(container.querySelectorAll('.bamboo')).toHaveLength(1);
+    expect(container.querySelector('.ant-input-search')).toHaveClass('bamboo');
+    expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('bamboo');
   });
 
   // https://github.com/ant-design/ant-design/issues/53897
@@ -226,5 +225,137 @@ describe('Input.Search', () => {
     const { container } = render(<Search onPressEnter={onPressEnter} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onPressEnter).toHaveBeenCalledTimes(1);
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames = (info: { props: SearchProps }) => {
+      const { props } = info;
+      const { enterButton, disabled } = props;
+      return {
+        root: 'dynamic-root',
+        input: enterButton ? 'dynamic-input-with-button' : 'dynamic-input-without-button',
+        prefix: 'dynamic-prefix',
+        suffix: 'dynamic-suffix',
+        count: 'dynamic-count',
+        button: {
+          root: 'dynamic-button-root',
+          icon: disabled ? 'dynamic-button-icon-disabled' : 'dynamic-button-icon',
+        },
+      };
+    };
+    const functionStyles = (info: { props: SearchProps }) => {
+      const { props } = info;
+      const { enterButton, disabled } = props;
+      return {
+        root: { color: 'rgb(255, 0, 0)' },
+        input: { color: enterButton ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)' },
+        prefix: { color: 'rgb(0, 0, 255)' },
+        suffix: { color: 'rgb(255, 0, 0)' },
+        count: { color: 'rgb(255, 0, 0)' },
+        button: {
+          root: { color: 'rgb(0, 255, 0)' },
+          icon: { color: disabled ? 'rgb(0, 0, 255)' : 'rgb(255, 0, 0)' },
+        },
+      };
+    };
+    const { container, rerender } = render(
+      <Search
+        showCount
+        prefix={<UserOutlined />}
+        suffix={<EditOutlined />}
+        defaultValue="Hello, Ant Design"
+        classNames={functionClassNames}
+        styles={functionStyles}
+        disabled
+      />,
+    );
+    const root = container.querySelector('.ant-input-search');
+    const input = container.querySelector('.ant-input');
+    const prefix = container.querySelector('.ant-input-prefix');
+    const suffix = container.querySelector('.ant-input-suffix');
+    const count = container.querySelector('.ant-input-show-count-suffix');
+    const button = container.querySelector('.ant-btn');
+    const buttonIcon = container.querySelector('.ant-btn-icon');
+
+    expect(root).toHaveClass('dynamic-root');
+    expect(input).toHaveClass('dynamic-input-without-button');
+    expect(prefix).toHaveClass('dynamic-prefix');
+    expect(suffix).toHaveClass('dynamic-suffix');
+    expect(count).toHaveClass('dynamic-count');
+    expect(button).toHaveClass('dynamic-button-root');
+    expect(buttonIcon).toHaveClass('dynamic-button-icon-disabled');
+
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(input).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(prefix).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffix).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(count).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(button).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(buttonIcon).toHaveStyle('color: rgb(0, 0, 255)');
+
+    const objectClassNames = {
+      root: 'dynamic-root-default',
+      input: 'dynamic-input-default',
+      prefix: 'dynamic-prefix-default',
+      suffix: 'dynamic-suffix-default',
+      count: 'dynamic-count-default',
+    };
+    const objectStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      input: { color: 'rgb(0, 255, 0)' },
+      prefix: { color: 'rgb(0, 0, 255)' },
+      suffix: { color: 'rgb(0, 255, 0)' },
+      count: { color: 'rgb(0, 255, 0)' },
+    };
+    const objectButtonClassNames = {
+      root: 'dynamic-custom-button-root',
+      icon: 'dynamic-custom-button-icon',
+      content: 'dynamic-custom-button-content',
+    };
+    const objectButtonStyles = {
+      root: { color: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(255, 0, 0)' },
+      content: { color: 'rgb(0, 255, 0)' },
+    };
+    rerender(
+      <Search
+        showCount
+        prefix={<UserOutlined />}
+        suffix={<EditOutlined />}
+        defaultValue="Hello, Ant Design"
+        classNames={objectClassNames}
+        styles={objectStyles}
+        disabled
+        enterButton={
+          <Button
+            classNames={objectButtonClassNames}
+            styles={objectButtonStyles}
+            icon={<UserOutlined />}
+          >
+            button text
+          </Button>
+        }
+      />,
+    );
+
+    const buttonContent = container.querySelector('.ant-btn > .ant-btn-icon + span');
+
+    expect(root).toHaveClass('dynamic-root-default');
+    expect(input).toHaveClass('dynamic-input-default');
+    expect(prefix).toHaveClass('dynamic-prefix-default');
+    expect(suffix).toHaveClass('dynamic-suffix-default');
+    expect(count).toHaveClass('dynamic-count-default');
+    expect(button).toHaveClass('dynamic-custom-button-root');
+    expect(buttonIcon).toHaveClass('dynamic-custom-button-icon');
+    expect(buttonContent).toHaveClass('dynamic-custom-button-content');
+
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(input).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(prefix).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffix).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(count).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(button).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(buttonIcon).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(buttonContent).toHaveStyle('color: rgb(0, 255, 0)');
   });
 });

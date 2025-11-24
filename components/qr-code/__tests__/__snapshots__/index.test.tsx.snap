@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`QRCode test custom status render 1`] = `
 <div>
   <div
-    class="ant-qrcode qrcode-expired"
+    class="ant-qrcode qrcode-expired css-var-root"
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="custom-expired"
@@ -30,11 +30,11 @@ exports[`QRCode test custom status render 1`] = `
     />
   </div>
   <div
-    class="ant-qrcode qrcode-loading"
+    class="ant-qrcode qrcode-loading css-var-root"
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="custom-loading"
@@ -49,11 +49,11 @@ exports[`QRCode test custom status render 1`] = `
     />
   </div>
   <div
-    class="ant-qrcode qrcode-scanned"
+    class="ant-qrcode qrcode-scanned css-var-root"
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="custom-scanned"
@@ -75,7 +75,7 @@ exports[`QRCode test rtl render component should be rendered correctly in RTL di
 exports[`QRCode test should correct render 1`] = `
 <div>
   <div
-    class="ant-qrcode"
+    class="ant-qrcode css-var-root"
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <canvas

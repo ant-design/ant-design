@@ -45,7 +45,7 @@ const ColorPaletteTool: React.FC = () => {
       }
     }
     return <span className="color-palette-picker-validation">{text.trim()}</span>;
-  }, [primaryColorInstance, primaryMinSaturation, primaryMinBrightness]);
+  }, [primaryColorInstance, locale]);
   return (
     <div className="color-palette-horizontal">
       <div className="color-palette-pick">

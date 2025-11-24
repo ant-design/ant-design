@@ -138,9 +138,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transform: 'rotate(90deg)',
       },
 
-      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: {
-        ...genFocusOutline(token),
-      },
+      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: genFocusOutline(token),
 
       // =================== Virtual List ===================
       [`${treeCls}-list-holder-inner`]: {

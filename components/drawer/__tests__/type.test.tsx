@@ -51,7 +51,7 @@ describe('Drawer.typescript', () => {
           header: style,
           body: style,
           footer: style,
-          content: style,
+          section: style,
           wrapper: style,
           mask: style,
         }}

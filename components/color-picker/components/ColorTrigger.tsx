@@ -2,8 +2,8 @@
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
-import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { clsx } from 'clsx';
 
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
@@ -57,7 +57,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         return (
           <span
             key={index}
-            className={classNames(
+            className={clsx(
               colorTextCellPrefixCls,
               inactive && `${colorTextCellPrefixCls}-inactive`,
             )}
@@ -79,7 +79,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       default:
         return alpha < 100 ? `${hexString.slice(0, 7)},${alpha}%` : hexString;
     }
-  }, [color, format, showText, activeIndex]);
+  }, [color, format, showText, activeIndex, locale.transparent, colorTextCellPrefixCls]);
 
   // ============================= Render =============================
   const containerNode = useMemo<React.ReactNode>(
@@ -95,7 +95,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   return (
     <div
       ref={ref}
-      className={classNames(colorTriggerPrefixCls, className, {
+      className={clsx(colorTriggerPrefixCls, className, {
         [`${colorTriggerPrefixCls}-active`]: open,
         [`${colorTriggerPrefixCls}-disabled`]: disabled,
       })}

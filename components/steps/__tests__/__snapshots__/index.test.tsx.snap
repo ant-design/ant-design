@@ -1,43 +1,49 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Steps rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-rtl"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-rtl css-var-root"
+  style="--steps-items-offset: 0;"
 />
 `;
 
 exports[`Steps should render correct 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
   >
     <div
-      class="ant-steps-item-container"
+      class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
-          class="ant-steps-icon"
+          class="ant-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="ant-steps-item-content"
+        class="ant-steps-item-section"
       >
         <div
-          class="ant-steps-item-title"
+          class="ant-steps-item-header"
         >
-          Finished
+          <div
+            class="ant-steps-item-title"
+          >
+            Finished
+          </div>
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-wait"
+          />
         </div>
         <div
-          class="ant-steps-item-description"
+          class="ant-steps-item-content"
         >
           This is a description.
         </div>
@@ -48,36 +54,40 @@ exports[`Steps should render correct 1`] = `
     class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-item-container"
+      class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
-          class="ant-steps-icon"
+          class="ant-steps-item-icon-number"
         >
           2
         </span>
       </div>
       <div
-        class="ant-steps-item-content"
+        class="ant-steps-item-section"
       >
         <div
-          class="ant-steps-item-title"
+          class="ant-steps-item-header"
         >
-          In Progress
+          <div
+            class="ant-steps-item-title"
+          >
+            In Progress
+          </div>
           <div
             class="ant-steps-item-subtitle"
             title="Left 00:00:08"
           >
             Left 00:00:08
           </div>
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-wait"
+          />
         </div>
         <div
-          class="ant-steps-item-description"
+          class="ant-steps-item-content"
         >
           This is a description.
         </div>
@@ -88,30 +98,31 @@ exports[`Steps should render correct 1`] = `
     class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-item-container"
+      class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
-          class="ant-steps-icon"
+          class="ant-steps-item-icon-number"
         >
           3
         </span>
       </div>
       <div
-        class="ant-steps-item-content"
+        class="ant-steps-item-section"
       >
         <div
-          class="ant-steps-item-title"
+          class="ant-steps-item-header"
         >
-          Waiting
+          <div
+            class="ant-steps-item-title"
+          >
+            Waiting
+          </div>
         </div>
         <div
-          class="ant-steps-item-description"
+          class="ant-steps-item-content"
         >
           This is a description.
         </div>
@@ -119,125 +130,4 @@ exports[`Steps should render correct 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`Steps should render correct when use Step 1`] = `
-<div
-  class="ant-steps ant-steps-vertical"
->
-  <div
-    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-  >
-    <div
-      class="ant-steps-item-container"
-    >
-      <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
-      >
-        <span
-          class="ant-steps-icon"
-        >
-          1
-        </span>
-      </div>
-      <div
-        class="ant-steps-item-content"
-      >
-        <div
-          class="ant-steps-item-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-item-description"
-        >
-          This is a description.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-steps-item ant-steps-item-wait"
-  >
-    <div
-      class="ant-steps-item-container"
-    >
-      <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
-      >
-        <span
-          class="ant-steps-icon"
-        >
-          2
-        </span>
-      </div>
-      <div
-        class="ant-steps-item-content"
-      >
-        <div
-          class="ant-steps-item-title"
-        >
-          In Progress
-          <div
-            class="ant-steps-item-subtitle"
-            title="Left 00:00:08"
-          >
-            Left 00:00:08
-          </div>
-        </div>
-        <div
-          class="ant-steps-item-description"
-        >
-          This is a description.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-steps-item ant-steps-item-wait"
-  >
-    <div
-      class="ant-steps-item-container"
-    >
-      <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
-      >
-        <span
-          class="ant-steps-icon"
-        >
-          3
-        </span>
-      </div>
-      <div
-        class="ant-steps-item-content"
-      >
-        <div
-          class="ant-steps-item-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-item-description"
-        >
-          This is a description.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Steps should render correct when use null 1`] = `
-<div
-  class="ant-steps ant-steps-vertical"
-/>
 `;
