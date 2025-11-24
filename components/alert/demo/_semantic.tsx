@@ -38,7 +38,7 @@ const App: React.FC = () => {
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.0.0' },
         { name: 'actions', desc: locale.actions, version: '6.0.0' },
-        { name: 'close', desc: locale.close, version: '6.0.0' },
+        { name: 'close', desc: locale.close, version: '6.1.0' },
       ]}
     >
       <Alert

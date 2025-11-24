@@ -53,7 +53,7 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
         { name: 'dragger', desc: locale.dragger, version: '6.0.0' },
-        { name: 'close', desc: locale.close, version: '6.0.0' },
+        { name: 'close', desc: locale.close, version: '6.1.0' },
       ]}
     >
       <Drawer
