@@ -84,17 +84,17 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
 | drawerRender | 自定义渲染抽屉 | (node: ReactNode) => ReactNode | - | 5.18.0 |
 
-## Semantic DOM
-
-<code src="./demo/_semantic.tsx" simplify="true"></code>
-
-## ResizableConfig
+### ResizableConfig
 
 | 参数          | 说明                     | 类型                   | 默认值 | 版本  |
 | ------------- | ------------------------ | ---------------------- | ------ | ----- |
 | onResizeStart | 开始拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
 | onResize      | 拖拽调整大小时的回调     | (size: number) => void | -      | 6.0.0 |
 | onResizeEnd   | 结束拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
