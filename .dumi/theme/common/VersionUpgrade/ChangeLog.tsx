@@ -10,7 +10,8 @@ const changeLog = { cn: CN, en: EN };
 const useStyle = createStyles(({ css }) => ({
   container: css`
     max-height: max(62vh, 500px);
-    overflow: scroll;
+    overflow-y: scroll;
+    scrollbar-width: thin;
 
     /* 图片铺满 */
     && img {
