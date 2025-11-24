@@ -14,16 +14,16 @@ const NOTIFICATION_DEADLINE = new Date('2025/12/01').getTime();
 
 const locales = {
   cn: {
-    title: 'Ant Design v6 现已发布',
+    title: 'Ant Design 6.0 现已发布  🎉',
     gettingStarted: '开始使用',
     fullChangeLog: '完整发布日志',
-    v5: 'v5 文档',
+    v5: '查看 v5 文档',
   },
   en: {
-    title: 'Ant Design v6 has been released',
+    title: 'Ant Design 6.0 has been released  🎉',
     gettingStarted: 'Get Started',
     fullChangeLog: 'Full Changelog',
-    v5: 'v5 Documentation',
+    v5: 'View v5 Docs',
   },
 };
 
@@ -95,7 +95,7 @@ const VersionUpgradeModal = () => {
 
   return (
     <Modal
-      title={[locale.title, ' 🎉']}
+      title={locale.title}
       open={open}
       width={`min(90vw, 800px)`}
       centered
