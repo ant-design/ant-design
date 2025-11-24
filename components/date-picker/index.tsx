@@ -9,11 +9,10 @@ import type {
   PickerPropsWithMultiple,
 } from './generatePicker/interface';
 
-export type DatePickerProps<ValueType = Dayjs | Dayjs> = PickerPropsWithMultiple<
-  Dayjs,
-  PickerProps<Dayjs>,
-  ValueType
->;
+export type DatePickerProps<
+  ValueType = Dayjs,
+  IsMultiple extends boolean = boolean,
+> = PickerPropsWithMultiple<Dayjs, PickerProps<Dayjs>, ValueType, IsMultiple>;
 export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
   DatePickerProps<ValueType>,
   'picker'
