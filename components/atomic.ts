@@ -12,3 +12,5 @@ export { default as AnchorLink, AnchorLinkProps } from './anchor/AnchorLink';
 export { default as App, AppProps } from './app/App';
 export { default as useApp } from './app/useApp';
 export { default as AutoComplete, AutoCompleteProps } from './auto-complete/AutoComplete';
+export { default as Avatar, AvatarProps } from './avatar/Avatar';
+export { default as AvatarGroup, AvatarGroupProps } from './avatar/AvatarGroup';
