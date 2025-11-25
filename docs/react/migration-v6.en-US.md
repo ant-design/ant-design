@@ -130,6 +130,40 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 - CSS variables are enabled by default and only modern browsers are supported.
 - IE is no longer supported. Some older domestic browsers may have compatibility issues — please verify target browsers before shipping your app.
 
+## Atomic Migration: Install v6 via Package Alias
+
+We strongly recommend using the one-time migration approach. Although it requires some upfront adjustments, it significantly reduces the overall migration cost and makes subsequent upgrades smoother and easier.
+
+However, if your project has strict stability requirements and you prefer a migration strategy with minimal impact, we also provide an alternative solution.
+
+You can install antd v6 using a package alias while keeping antd v5 in your project:
+
+```bash
+$ npm install --save antd-v6@npm:antd@6
+# or
+$ yarn add antd-v6@npm:antd@6
+# or
+$ pnpm add antd-v6@npm:antd@6
+```
+
+Your package.json will look like this:
+
+```json
+{
+  "antd": "^5",
+  "antd-v6": "npm:antd@6"
+}
+```
+
+Now, antd in your project remains at v5, and antd-v6 refers to v6.
+
+```tsx
+import { Button } from 'antd'; // v5
+import { Button } from 'antd-v6'; // v6
+```
+
+Note that npm package aliases are not well supported by all package managers.
+
 ## Upgrade checklist
 
 To ensure your app works correctly after upgrading to v6, please go through the following checklist:

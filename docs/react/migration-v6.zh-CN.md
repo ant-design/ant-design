@@ -126,6 +126,40 @@ v5 版本中，Form.List 会被认为是一个 Field，以至于提交时会包�
 - 默认开启 **CSS variables**，仅支持现代浏览器。
 - IE 浏览器不再支持，部分旧版国产浏览器可能存在兼容性问题，请在应用发布前确认目标浏览器的支持情况。
 
+## 原子级通过别名安装 v6
+
+我们更推荐你使用一次性迁移，它虽然需要一点点前期一次性的改造，但是却可以让整体的迁移成本更低，同时让后续的迁移更加平滑简单。
+
+当然，如果你的项目稳定性要求较高，期望小影响面的迁移方式，我们也为你提供了备选方案。
+
+你可以通过别名的方式来安装 antd v6，同时保留 v5 版本：
+
+```bash
+$ npm install --save antd-v6@npm:antd@6
+# or
+$ yarn add antd-v6@npm:antd@6
+# or
+$ pnpm add antd-v6@npm:antd@6
+```
+
+对应的 package.json 为：
+
+```json
+{
+  "antd": "^5",
+  "antd-v6": "npm:antd@6"
+}
+```
+
+现在，你项目中的 `antd` 还是 v5 版本，`antd-v6` 是 v6 版本。
+
+```js
+import { Button } from 'antd'; // v5
+import { Button } from 'antd-v6'; // v6
+```
+
+需要注意的是，npm 别名并不是所有的包管理器都有很好的支持。
+
 ## 升级影响排查 Checklist
 
 为了确保升级到 v6 后项目正常运行，请参考以下检查清单逐项确认：
