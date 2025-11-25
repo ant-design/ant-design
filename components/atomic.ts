@@ -9,3 +9,5 @@ export { default as Alert, AlertProps } from './alert/Alert';
 export { default as ErrorBoundary, ErrorBoundaryProps } from './alert/ErrorBoundary';
 export { default as Anchor, AnchorProps } from './anchor/Anchor';
 export { default as AnchorLink, AnchorLinkProps } from './anchor/AnchorLink';
+export { default as App, AppProps } from './app/App';
+export { default as useApp } from './app/useApp';
