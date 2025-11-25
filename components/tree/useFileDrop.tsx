@@ -1,13 +1,11 @@
 import { useRef, useState } from 'react';
 
 export interface UseFileDropProps {
-  /** Whether to allow dropping files from the file system */
-  allowFileDrop?: boolean;
   /** Callback function for when files are dropped from the file system */
   onFileDrop?: (info: { event: React.DragEvent; nodeKey: string; files: FileList }) => void;
 }
 
-export function useFileDrop({ allowFileDrop, onFileDrop }: UseFileDropProps) {
+export function useFileDrop({ onFileDrop }: UseFileDropProps) {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [hoverNodeKey, setHoverNodeKey] = useState<string | null>(null);
 
@@ -28,18 +26,18 @@ export function useFileDrop({ allowFileDrop, onFileDrop }: UseFileDropProps) {
   };
 
   const onDragEnter = (e: React.DragEvent) => {
-    allowFileDrop && prevent(e);
+    prevent(e);
   };
 
   const onDragOver = (e: React.DragEvent) => {
     prevent(e);
     e.dataTransfer.dropEffect = 'copy';
     const key = getNodeKey(e);
-    if (key) setHoverNodeKey(key);
+    if (hoverNodeKey !== key) setHoverNodeKey(key);
   };
 
   const onDrop = (e: React.DragEvent) => {
-    if (!allowFileDrop || !onFileDrop) {
+    if (!onFileDrop) {
       return;
     }
     prevent(e);

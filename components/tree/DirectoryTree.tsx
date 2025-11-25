@@ -15,6 +15,7 @@ import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 import { useFileDrop } from './useFileDrop';
 import type { UseFileDropProps } from './useFileDrop';
+import { useToken } from '../theme/internal';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
@@ -22,6 +23,8 @@ export interface DirectoryTreeProps<T extends BasicDataNode = DataNode>
   extends TreeProps<T>,
     UseFileDropProps {
   expandAction?: ExpandAction;
+  /** Whether to allow dropping files from the file system */
+  allowFileDrop?: boolean;
 }
 
 type DirectoryTreeCompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
@@ -62,6 +65,8 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
 
   const cachedSelectedKeys = React.useRef<Key[]>(null);
 
+  const [, token] = useToken();
+
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props), {
       fieldNames: props.fieldNames,
@@ -87,7 +92,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     props.selectedKeys || props.defaultSelectedKeys || [],
   );
   const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
-  const { rootRef, hoverNodeKey, dropEvents } = useFileDrop({ allowFileDrop, onFileDrop });
+  const { rootRef, hoverNodeKey, dropEvents } = useFileDrop({ onFileDrop });
 
   React.useEffect(() => {
     if ('selectedKeys' in props) {
@@ -208,10 +213,10 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
         <span
           data-key={node.key}
           style={{
-            padding: '4px 8px',
-            borderRadius: 4,
-            background: isHover ? 'rgba(24,144,255,0.25)' : undefined,
-            transition: 'background 0.15s',
+            borderRadius: token.borderRadius,
+            padding: `${token.paddingXXS}px ${token.paddingXS}px`,
+            background: isHover ? token.controlItemBgActive : undefined,
+            transition: `background ${token.motionDurationSlow}`,
           }}
         >
           {props.titleRender ? props.titleRender(node) : node.title}
@@ -220,12 +225,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     };
 
     return (
-      <div
-        ref={rootRef}
-        className={`${prefixCls}-directory-file-drop`}
-        {...dropEvents}
-        style={{ height: '100%', userSelect: 'none' }}
-      >
+      <div ref={rootRef} className={`${prefixCls}-directory-file-drop`} {...dropEvents}>
         <Tree
           icon={getIcon}
           ref={ref}

@@ -409,7 +409,7 @@ describe('Directory Tree', () => {
     const file = new File(['content'], 'test.txt', { type: 'text/plain' });
     const files = [file] as unknown as FileList;
 
-    const targetElementNotExist = container.querySelector('span[data-key="0-0"]')!;
+    const targetElementNotExist = container.querySelector('span[data-key="0-0"]');
     const targetElement = container.querySelector('.ant-tree-node-content-wrapper')!;
 
     // Simulate drag over on the span with data-key attribute
