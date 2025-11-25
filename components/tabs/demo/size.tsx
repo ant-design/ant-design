@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import type { RadioChangeEvent, TabsProps } from 'antd';
 import { Radio, Tabs } from 'antd';
 
@@ -24,18 +24,19 @@ const App: React.FC = () => {
       children: 'Content of editable tab 3',
     },
   ]);
+  const newTabIndex = useRef(0);
 
   const add = () => {
-    const newKey = crypto.randomUUID();
+    const newActiveKey = `newTab${newTabIndex.current++}`;
     setItems([
       ...(items || []),
       {
-        label: `New Tab`,
-        key: newKey,
-        children: `Content of new Tab`,
+        label: 'New Tab',
+        key: newActiveKey,
+        children: 'Content of new Tab',
       },
     ]);
-    setActiveKey(newKey);
+    setActiveKey(newActiveKey);
   };
 
   const remove = (targetKey: TargetKey) => {
