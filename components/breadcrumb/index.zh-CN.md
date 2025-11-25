@@ -90,7 +90,7 @@ const item = {
 | type      | 标记为分隔符   | `separator` |        | 5.3.0 |
 | separator | 要显示的分隔符 | ReactNode   | `/`    | 5.3.0 |
 
-### 和 browserHistory 配合
+### 和 browserHistory 配合 {#use-with-browserhistory}
 
 和 react-router 一起使用时，默认生成的 url 路径是带有 `#` 的，如果和 browserHistory 一起使用的话，你可以使用 `itemRender` 属性定义面包屑链接。
 

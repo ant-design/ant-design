@@ -305,7 +305,7 @@ Properties for row selection.
 | text | Display text of this selection | ReactNode | - |
 | onSelect | Callback executed when this selection is clicked | function(changeableRowKeys) | - |
 
-## Using in TypeScript
+## Using in TypeScript {#using-in-typescript}
 
 ```tsx
 import React from 'react';

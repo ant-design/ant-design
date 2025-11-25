@@ -53,7 +53,7 @@ export default MyApp;
 
 注意：App.useApp 必须在 App 之下方可使用。
 
-### 与 ConfigProvider 先后顺序
+### 与 ConfigProvider 先后顺序 {#sequence-with-configprovider}
 
 App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果需要使用其样式重置能力，则 ConfigProvider 与 App 组件必须成对出现。
 
