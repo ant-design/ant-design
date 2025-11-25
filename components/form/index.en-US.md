@@ -578,7 +578,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ## FAQ
 
-### Why can't Switch, Checkbox bind data?
+### Why can't Switch, Checkbox bind data? {#faq-switch-checkbox-binding}
 
 Form.Item default bind value to `value` prop, but Switch or Checkbox value prop is `checked`. You can use `valuePropName` to change bind value prop.
 
@@ -588,40 +588,40 @@ Form.Item default bind value to `value` prop, but Switch or Checkbox value prop 
 </Form.Item>
 ```
 
-### How does `name` fill value when it's an array?
+### How does `name` fill value when it's an array? {#faq-name-array-rule}
 
 `name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.
 
-### Why is there a form warning when used in Modal?
+### Why is there a form warning when used in Modal? {#faq-form-modal-error}
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
 
 Before Modal opens, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
 
-### Why is component `defaultValue` not working when inside Form.Item?
+### Why is component `defaultValue` not working when inside Form.Item? {#faq-item-default-value}
 
 Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
 
-### Why can not call `ref` of Form at first time?
+### Why can not call `ref` of Form at first time? {#faq-ref-first-call}
 
 `ref` only receives the mounted instance. please ref React official doc: <https://react.dev/learn/manipulating-the-dom-with-refs#when-react-attaches-the-refs>
 
-### Why will `resetFields` re-mount component?
+### Why will `resetFields` re-mount component? {#faq-reset-fields-mount}
 
 `resetFields` will re-mount component under Field to clean up customize component side effects (like async data, cached state, etc.). It's by design.
 
-### Difference between Form initialValues and Item initialValue?
+### Difference between Form initialValues and Item initialValue? {#faq-initial-values-diff}
 
 In most case, we always recommend to use Form `initialValues`. Use Item `initialValue` only with dynamic field usage. Priority follows the rules:
 
 1. Form `initialValues` is the first priority
 2. Field `initialValue` is secondary \*. Does not work when multiple Item with same `name` setting the `initialValue`
 
-### Why can't `getFieldsValue` get value at first render?
+### Why can't `getFieldsValue` get value at first render? {#faq-get-fields-value}
 
 `getFieldsValue` returns collected field data by default, but the Form.Item node is not ready at the first render. You can get all field data by `getFieldsValue(true)`.
 
-### Why some component not response with `setFieldsValue` to `undefined`?
+### Why some component not response with `setFieldsValue` to `undefined`? {#faq-set-fields-undefined}
 
 `value` change from certain one to `undefined` in React means from controlled mode to uncontrolled mode. Thus it will not change display value but modified FormStore in fact. You can HOC to handle this:
 
@@ -637,7 +637,7 @@ const MyInput = ({
 </Form.Item>;
 ```
 
-### Why does `onFieldsChange` trigger three times on change when field sets `rules`?
+### Why does `onFieldsChange` trigger three times on change when field sets `rules`? {#faq-rules-trigger-three-times}
 
 Validating is also part of the value updating. It pass follow steps:
 
@@ -647,11 +647,11 @@ Validating is also part of the value updating. It pass follow steps:
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
-### Why doesn't Form.List support `label` and need ErrorList to show errors?
+### Why doesn't Form.List support `label` and need ErrorList to show errors? {#faq-form-list-no-label}
 
 Form.List use renderProps which mean internal structure is flexible. Thus `label` and `error` can not have best place. If you want to use antd `label`, you can wrap with Form.Item instead.
 
-### Why can't Form.Item `dependencies` work on Form.List field?
+### Why can't Form.Item `dependencies` work on Form.List field? {#faq-dependencies-form-list}
 
 Your name path should also contain Form.List `name`:
 
@@ -670,11 +670,11 @@ Your name path should also contain Form.List `name`:
 
 dependencies should be `['users', 0, 'name']`
 
-### Why doesn't `normalize` support async?
+### Why doesn't `normalize` support async? {#faq-normalize-async}
 
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
-### `scrollToFirstError` and `scrollToField` not working?
+### `scrollToFirstError` and `scrollToField` not working? {#faq-scroll-not-working}
 
 1. use custom form control
 
@@ -688,15 +688,15 @@ Starting from version `5.17.0`, the sliding operation will prioritize using the 
 
 If there are multiple forms on the page, and there are duplicate same `name` form item, the form scroll probably may find the form item with the same name in another form. You need to set a different `name` for the `Form` component to distinguish it.
 
-### Continue, why not use `ref` to bind element?
+### Continue, why not use `ref` to bind element? {#faq-ref-binding}
 
 Form can not get real DOM node when customize component not support `ref`. It will get warning in React Strict Mode if wrap with Class Component and call `findDOMNode`. So we use `id` to locate element.
 
-### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
+### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`? {#faq-set-fields-no-trigger}
 
 It's by design. Only user interactive can trigger the change event. This design is aim to avoid call `setFieldsValue` in change event which may makes loop calling.
 
-### Why Form.Item not update value when children is nest?
+### Why Form.Item not update value when children is nest? {#faq-item-nested-update}
 
 Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. Follow code will not work as expect:
 
@@ -724,7 +724,7 @@ const MyInput = (props) => (
 </Form.Item>;
 ```
 
-### Why does clicking the label in the form change the component state?
+### Why does clicking the label in the form change the component state? {#faq-label-click-change}
 
 > Related issue: [#47031](https://github.com/ant-design/ant-design/issues/47031), [#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
 

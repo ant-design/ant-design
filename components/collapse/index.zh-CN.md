@@ -56,7 +56,7 @@ const items: CollapseProps['items'] = [
 </Collapse>;
 ```
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">折叠面板</code>
@@ -131,6 +131,6 @@ const items: CollapseProps['items'] = [
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Collapse"></ComponentTokenTable>

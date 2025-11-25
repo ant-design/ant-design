@@ -15,7 +15,7 @@ demo:
 - 需要表示开关状态/两种状态之间的切换时；
 - 和 `checkbox` 的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -59,13 +59,13 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Switch"></ComponentTokenTable>
 
 ## FAQ
 
-### 为什么在 Form.Item 下不能绑定数据？
+### 为什么在 Form.Item 下不能绑定数据？ {#faq-binding-data}
 
 Form.Item 默认绑定值属性到 `value` 上，而 Switch 的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
 

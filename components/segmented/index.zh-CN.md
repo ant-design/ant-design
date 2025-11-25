@@ -17,7 +17,7 @@ demo:
 - 用于展示多个选项并允许用户选择其中单个选项；
 - 当切换选中选项时，关联区域的内容会发生变化。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -76,6 +76,6 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Segmented"></ComponentTokenTable>

@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why not work in Form.Item?
+### Why not work in Form.Item? {#faq-binding-data}
 
 Form.Item default bind value to `value` property, but Switch value property is `checked`. You can use `valuePropName` to change bind property.
 
