@@ -114,6 +114,6 @@ type PresetColorType = {
 
 ## FAQ
 
-### Questions about color assignment
+### Questions about color assignment {#faq-color-assignment}
 
 The value of the color selector supports both string color values and selector-generated `Color` objects. However, since there is a precision error when converting color strings of different formats to each other, it is recommended to use selector-generated `Color` objects for assignment operations in controlled scenarios, so that the precision problem can be avoided and the values are guaranteed to be accurate and the selector can work as expected.

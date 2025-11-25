@@ -12,7 +12,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 当数据是日期或按照日期划分时，例如日程、课表、价格日历等，农历等。目前支持年/月切换。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx" clientOnly>基本</code>
@@ -64,25 +64,25 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Calendar"></ComponentTokenTable>
 
 ## FAQ
 
-### 如何在 Calendar 中使用自定义日期库
+### 如何在 Calendar 中使用自定义日期库 {#faq-customize-date-library}
 
 参考 [使用自定义日期库](/docs/react/use-custom-date-library#calendar)。
 
-### 如何给日期类组件配置国际化？
+### 如何给日期类组件配置国际化？ {#faq-set-locale-date-components}
 
 参考 [如何给日期类组件配置国际化](/components/date-picker-cn#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
 
-### 为什么时间类组件的国际化 locale 设置不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-working}
 
 参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
 
-### 如何仅获取来自面板点击的日期？
+### 如何仅获取来自面板点击的日期？ {#faq-get-date-panel-click}
 
 `onSelect` 事件提供额外的来源信息，你可以通过 `info.source` 来判断来源：
 

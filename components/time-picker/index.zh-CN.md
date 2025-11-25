@@ -14,7 +14,7 @@ demo:
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -138,7 +138,7 @@ type RangeDisabledTime = (
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 

@@ -16,7 +16,7 @@ tag: 5.0.0
 - 用于网站上的全局功能；
 - 无论浏览到何处都可以看见的按钮。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx" iframe="360">基本</code>
@@ -89,6 +89,6 @@ tag: 5.0.0
 
 <code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="FloatButton"></ComponentTokenTable>

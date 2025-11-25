@@ -15,7 +15,7 @@ demo:
 - 对评价进行展示。
 - 对事物进行快速的评级操作。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -60,6 +60,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Rate"></ComponentTokenTable>

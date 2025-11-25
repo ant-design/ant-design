@@ -177,7 +177,7 @@ interface EllipsisConfig {
 
 ## FAQ
 
-### How to use Typography.Link in react-router?
+### How to use Typography.Link in react-router? {#faq-link-react-router}
 
 `react-router` support [customize](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md#component-reactcomponent) render component:
 

@@ -17,7 +17,7 @@ group:
 - 当某个页面需要向用户显示警告的信息时。
 - 非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>

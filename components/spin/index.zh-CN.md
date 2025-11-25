@@ -14,7 +14,7 @@ demo:
 
 页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
@@ -60,6 +60,6 @@ demo:
 
 <code src="./demo/_semantic_fullscreen.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Spin"></ComponentTokenTable>

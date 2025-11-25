@@ -76,7 +76,7 @@ type StatusRenderInfo = {
 
 ## FAQ
 
-### About QRCode ErrorLevel
+### About QRCode ErrorLevel {#faq-error-correction-level}
 
 The ErrorLevel means that the QR code can be scanned normally after being blocked, and the maximum area that can be blocked is the error correction rate.
 
@@ -84,7 +84,7 @@ Generally, the QR code is divided into 4 error correction levels: Level `L` can 
 
 > For more information, see the: [https://www.qrcode.com/en/about/error_correction](https://www.qrcode.com/en/about/error_correction.html)
 
-### ⚠️⚠️⚠️ Cannot scan the QR code?
+### ⚠️⚠️⚠️ Cannot scan the QR code? {#faq-cannot-scan}
 
 If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels.
 
