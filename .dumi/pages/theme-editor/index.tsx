@@ -3,10 +3,19 @@ import { App, Button, ConfigProvider, Skeleton, version } from 'antd';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
+import { createStyles } from 'antd-style';
 
 import useLocale from '../../hooks/useLocale';
 
 const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEditor'));
+
+const useStyle = createStyles(({ css }) => ({
+  editor: css`
+    svg {
+      display: unset;
+    }
+  `,
+}));
 
 const locales = {
   cn: {
@@ -39,6 +48,7 @@ const ANT_DESIGN_V5_THEME_EDITOR_THEME = `ant-design-v${antdMajor}-theme-editor-
 const CustomTheme: React.FC = () => {
   const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
+  const { styles } = useStyle();
 
   const [theme, setTheme] = React.useState<ThemeConfig>(() => {
     try {
@@ -67,6 +77,7 @@ const CustomTheme: React.FC = () => {
             hideAdvancedSwitcher
             theme={{ name: 'Custom Theme', key: 'test', config: theme }}
             style={{ height: 'calc(100vh - 64px)' }}
+            className={styles.editor}
             onThemeChange={(newTheme) => {
               setTheme(newTheme.config);
             }}
