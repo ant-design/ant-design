@@ -15,13 +15,13 @@ const NOTIFICATION_DEADLINE = new Date('2026/02/01').getTime();
 const locales = {
   cn: {
     title: 'Ant Design 6.0 现已发布  🎉',
-    fullChangeLog: '🔥 完整更新日志',
-    previousVersion: '查看 v5 文档',
+    releasePost: '发布公告 🚀',
+    fullChangelog: '完整更新日志 📝',
   },
   en: {
     title: 'Ant Design 6.0 has been released  🎉',
-    fullChangeLog: '🔥 Full Changelog',
-    previousVersion: 'View v5 Docs',
+    releasePost: 'Release Post 🚀',
+    fullChangelog: 'Full Changelog 📝',
   },
 };
 
@@ -57,6 +57,10 @@ const VersionUpgradeModal = () => {
     }
   }, []);
 
+  const fullChangelogUrl = utils.getLocalizedPathname('/changelog', isCN).pathname;
+
+  const releasePostUrl = `https://github.com/ant-design/ant-design/issues/${isCN ? '55805' : '55804'}`;
+
   return (
     <Modal
       title={locale.title}
@@ -71,25 +75,18 @@ const VersionUpgradeModal = () => {
       }}
       footer={() => (
         <Flex align="center" gap="middle" justify="flex-end">
-          <Button
-            variant="filled"
-            color="default"
-            type="link"
-            href="https://5x.ant.design"
-            target="_blank"
-          >
-            {locale.previousVersion}
+          <Button href={fullChangelogUrl} onClick={handleClose}>
+            {locale.fullChangelog}
           </Button>
-          <Flex gap="middle">
-            <Button
-              color="primary"
-              variant="solid"
-              href={`https://github.com/ant-design/ant-design/issues/${isCN ? '55805' : '55804'}`}
-              target="_blank"
-            >
-              {locale.fullChangeLog}
-            </Button>
-          </Flex>
+          <Button
+            color="primary"
+            variant="solid"
+            href={releasePostUrl}
+            target="_blank"
+            onClick={handleClose}
+          >
+            {locale.releasePost}
+          </Button>
         </Flex>
       )}
     >
