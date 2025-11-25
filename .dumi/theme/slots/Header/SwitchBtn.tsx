@@ -25,7 +25,6 @@ const useStyle = createStyles(({ cssVar, css }) => {
       .btn-inner {
         transition: all ${cssVar.motionDurationMid};
         display: flex;
-        align-items: center;
       }
       img {
         width: ${BASE_SIZE};
