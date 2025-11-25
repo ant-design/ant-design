@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { ButtonProps, LegacyButtonType } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/Button-';
 import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps, PopoverSemanticName } from '../popover';
 import Popover from '../popover';
