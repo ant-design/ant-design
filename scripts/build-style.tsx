@@ -118,9 +118,11 @@ const defaultNode = () => (
 function extractStyle(customTheme?: any): string {
   const cache = createCache();
   renderToString(
-    <StyleProvider cache={cache}>
-      {customTheme ? customTheme(defaultNode()) : defaultNode()}
-    </StyleProvider>,
+    <antd.ConfigProvider theme={{ hashed: false }}>
+      <StyleProvider cache={cache}>
+        {customTheme ? customTheme(defaultNode()) : defaultNode()}
+      </StyleProvider>
+    </antd.ConfigProvider>,
   );
 
   // Grab style from cache
