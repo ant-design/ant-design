@@ -12,11 +12,12 @@ const useStyle = createStyles(({ css }) => ({
     max-height: max(62vh, 500px);
     overflow-y: scroll;
     scrollbar-width: thin;
-
+    scrollbar-color: #eaeaea transparent;
     /* 图片铺满 */
     && img {
-      max-width: 100%;
+      display: block;
       width: 100%;
+      max-width: 100%;
     }
   `,
 }));
