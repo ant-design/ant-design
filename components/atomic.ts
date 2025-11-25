@@ -7,3 +7,5 @@
 export { default as Affix, AffixProps } from './affix';
 export { default as Alert, AlertProps } from './alert/Alert';
 export { default as ErrorBoundary, ErrorBoundaryProps } from './alert/ErrorBoundary';
+export { default as Anchor, AnchorProps } from './anchor/Anchor';
+export { default as AnchorLink, AnchorLinkProps } from './anchor/AnchorLink';
