@@ -26,13 +26,13 @@ const App: React.FC = () => {
   ]);
 
   const add = () => {
-    const newKey = String((items || []).length + 1);
+    const newKey = crypto.randomUUID();
     setItems([
       ...(items || []),
       {
-        label: `Tab ${newKey}`,
+        label: `New Tab`,
         key: newKey,
-        children: `Content of editable tab ${newKey}`,
+        children: `Content of new Tab`,
       },
     ]);
     setActiveKey(newKey);
