@@ -1,8 +1,8 @@
-import InternalButton from './Button-';
+import InternalButton from './Button';
 import ButtonGroup from './ButtonGroup';
 
 export type { SizeType as ButtonSize } from '../config-provider/SizeContext';
-export type { ButtonProps } from './Button-';
+export type { ButtonProps } from './Button';
 export type { ButtonGroupProps } from './ButtonGroup';
 
 export * from './buttonHelpers';

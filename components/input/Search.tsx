@@ -14,7 +14,7 @@ import type {
 } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
-import type { ButtonSemanticName } from '../button/Button-';
+import type { ButtonSemanticName } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
