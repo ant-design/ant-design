@@ -3488,7 +3488,6 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 2`] =
 exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`] = `
 <div
   class="ant-tree-directory-file-drop"
-  style="height: 100%; user-select: none;"
 >
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory css-var-test-id"
@@ -3592,7 +3591,7 @@ exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`]
                 >
                   <span
                     data-key="0-0"
-                    style="padding: 4px 8px; border-radius: 4px; transition: background 0.15s;"
+                    style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                   >
                     parent 0
                   </span>
@@ -3647,7 +3646,7 @@ exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`]
                 >
                   <span
                     data-key="0-0-0"
-                    style="padding: 4px 8px; border-radius: 4px; transition: background 0.15s;"
+                    style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                   >
                     leaf 0-0
                   </span>
@@ -3702,7 +3701,7 @@ exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`]
                 >
                   <span
                     data-key="0-0-1"
-                    style="padding: 4px 8px; border-radius: 4px; transition: background 0.15s;"
+                    style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                   >
                     leaf 0-1
                   </span>
@@ -3774,7 +3773,7 @@ exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`]
                 >
                   <span
                     data-key="0-1"
-                    style="padding: 4px 8px; border-radius: 4px; transition: background 0.15s;"
+                    style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                   >
                     parent 1
                   </span>
@@ -3829,7 +3828,7 @@ exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`]
                 >
                   <span
                     data-key="0-1-0"
-                    style="padding: 4px 8px; border-radius: 4px; transition: background 0.15s;"
+                    style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                   >
                     leaf 1-0
                   </span>
@@ -3884,7 +3883,7 @@ exports[`renders components/tree/demo/file-drop.tsx extend context correctly 1`]
                 >
                   <span
                     data-key="0-1-1"
-                    style="padding: 4px 8px; border-radius: 4px; transition: background 0.15s;"
+                    style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                   >
                     leaf 1-1
                   </span>
