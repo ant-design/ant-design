@@ -279,7 +279,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
         return;
       }
 
-      if (animating.current && activeLinkRef.current !== link) {
+      if (animating.current) {
+        if (activeLinkRef.current === link) {
+          return;
+        }
         scrollRequestId.current?.();
       }
 
