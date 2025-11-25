@@ -264,7 +264,6 @@ const GlobalLayout: React.FC = () => {
           ...dynamicToken,
           // colorBgContainer: 'rgba(255,0,0,0.1)',
         },
-        hashed: false,
         zeroRuntime: process.env.NODE_ENV === 'production',
       },
       nextComponentsClassNames,

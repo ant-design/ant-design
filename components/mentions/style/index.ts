@@ -240,7 +240,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         },
 
         // ========================== Suffix ==========================
-        '&-suffix': {
+        [`${componentCls}-suffix`]: {
           display: 'inline-flex',
           alignItems: 'center',
           flex: 'none',
