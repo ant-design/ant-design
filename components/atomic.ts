@@ -11,3 +11,4 @@ export { default as Anchor, AnchorProps } from './anchor/Anchor';
 export { default as AnchorLink, AnchorLinkProps } from './anchor/AnchorLink';
 export { default as App, AppProps } from './app/App';
 export { default as useApp } from './app/useApp';
+export { default as AutoComplete, AutoCompleteProps } from './auto-complete/AutoComplete';
