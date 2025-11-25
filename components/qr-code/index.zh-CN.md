@@ -17,7 +17,7 @@ tag: 5.1.0
 
 当需要将文本转换成为二维码时使用。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
@@ -71,13 +71,13 @@ type StatusRenderInfo = {
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="QRCode"></ComponentTokenTable>
 
 ## FAQ
 
-### 关于二维码纠错等级
+### 关于二维码纠错等级 {#faq-error-correction-level}
 
 纠错等级也叫纠错率，就是指二维码可以被遮挡后还能正常扫描，而这个能被遮挡的最大面积就是纠错率。
 
@@ -85,6 +85,6 @@ type StatusRenderInfo = {
 
 > 有关更多信息，可参阅相关资料：[https://www.qrcode.com/zh/about/error_correction](https://www.qrcode.com/zh/about/error_correction.html)
 
-### ⚠️⚠️⚠️ 二维码无法扫描？
+### ⚠️⚠️⚠️ 二维码无法扫描？ {#faq-cannot-scan}
 
 若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 size 配置二维码更大，或者通过短链接服务等方式将链接变短。

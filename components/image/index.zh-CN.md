@@ -14,7 +14,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 - 需要展示图片时使用。
 - 加载显示大图或加载失败时容错处理。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
@@ -209,6 +209,6 @@ type CoverConfig = {
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Image"></ComponentTokenTable>

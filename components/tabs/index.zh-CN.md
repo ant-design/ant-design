@@ -18,7 +18,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 - 既可用于容器顶部，也可用于容器内部，是最通用的 Tabs。
 - [Radio.Button](/components/radio-cn/#radio-demo-radiobutton) 可作为更次级的页签来使用。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -105,6 +105,6 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Tabs"></ComponentTokenTable>

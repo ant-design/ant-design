@@ -15,7 +15,7 @@ demo:
 - 当需要突出某个或某组数字时。
 - 当需要展示带描述的统计类数据时使用。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -81,6 +81,6 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Statistic"></ComponentTokenTable>

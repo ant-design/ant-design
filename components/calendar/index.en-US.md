@@ -69,19 +69,19 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### How to use Calendar with customize date library?
+### How to use Calendar with customize date library? {#faq-customize-date-library}
 
 See [Use custom date library](/docs/react/use-custom-date-library#calendar)
 
-### How to set locale for date-related components?
+### How to set locale for date-related components? {#faq-set-locale-date-components}
 
 See [How to set locale for date-related components](/components/date-picker/#localization)
 
-### Date-related components locale is not working?
+### Date-related components locale is not working? {#faq-locale-not-working}
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-### How to get date from panel click?
+### How to get date from panel click? {#faq-get-date-panel-click}
 
 `onSelect` provide `info.source` to help on this:
 
