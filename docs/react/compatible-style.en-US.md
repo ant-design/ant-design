@@ -5,7 +5,7 @@ order: 1
 title: CSS Compatible
 ---
 
-### Default Style Compatibility
+## Default Style Compatibility
 
 Ant Design supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=defaults). If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
 
@@ -247,6 +247,27 @@ root.render(
   </StyleProvider>,
 );
 ```
+
+## Pure Application Disable hashed {#hashed}
+
+By default, Ant Design adds a hash className to components to prevent style conflicts when multiple versions are mixed. If your application only uses a single version of antd, you can disable hash to reduce style size:
+
+```tsx
+<ConfigProvider theme={{ hashed: false }}>
+  <App />
+</ConfigProvider>
+```
+
+This will change the generated styles accordingly:
+
+```diff
+--  :where(.css-bAMboO).ant-btn {
+++  .ant-btn {
+      font-family: var(--ant-font-family);
+    }
+```
+
+Note: If you're not sure whether to disable this feature, then don't.
 
 ## Compatible with Third-party Style Libraries
 
