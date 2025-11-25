@@ -44,7 +44,7 @@ describe('Radio', () => {
     expect(getByRole('radio')).not.toBeDisabled();
   });
 
-  it('should obtained correctly disabled status', () => {
+  it('should correctly disabled status', () => {
     const { getByRole } = render(
       <Form disabled>
         <Radio.Group disabled={false}>
@@ -52,6 +52,6 @@ describe('Radio', () => {
         </Radio.Group>
       </Form>,
     );
-    expect(getByRole('radio')).not.toBeDisabled();
+    expect(getByRole('radio')).toBeDisabled();
   });
 });

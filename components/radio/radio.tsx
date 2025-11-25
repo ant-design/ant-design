@@ -42,7 +42,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
     radioProps.checked = props.value === groupContext.value;
-    radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
+    radioProps.disabled = groupContext.disabled ? groupContext.disabled : radioProps.disabled;
   }
 
   radioProps.disabled = radioProps.disabled ?? disabled;
