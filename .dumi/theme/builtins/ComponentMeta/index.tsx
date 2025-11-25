@@ -71,7 +71,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     border-radius: ${cssVar.borderRadiusSM};
     padding-inline: ${cssVar.paddingXXS} !important;
     transition: all ${cssVar.motionDurationSlow} !important;
-    font-family: ${cssVar.codeFamily};
+    font-family: ${cssVar.fontFamilyCode};
     color: ${cssVar.colorTextSecondary} !important;
     &:hover {
       background: ${cssVar.controlItemBgHover};
@@ -161,11 +161,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 title={copied ? locale.copied : locale.copy}
                 onOpenChange={onOpenChange}
               >
-                <Typography.Text
-                  className={styles.code}
-                  style={{ cursor: 'pointer' }}
-                  onClick={onCopy}
-                >
+                <Typography.Text className={styles.code} onClick={onCopy}>
                   {importCode}
                 </Typography.Text>
               </Tooltip>
