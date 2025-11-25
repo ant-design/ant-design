@@ -26,6 +26,7 @@ demo:
 <code src="./demo/customized-icon.tsx">自定义图标</code>
 <code src="./demo/directory.tsx">目录</code>
 <code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
+<code src="./demo/file-drop.tsx">文件拖拽</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
@@ -107,6 +108,8 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
+| allowFileDrop | 是否允许从文件系统拖拽文件。注意：启用此功能时会禁用 draggable 属性，因为文件拖拽和节点拖拽使用不同的事件处理机制 | boolean | false |
+| onFileDrop | 从文件系统拖拽文件时的回调函数 | function({event, files}) | - |
 
 ## 注意
 

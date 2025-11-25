@@ -327,4 +327,175 @@ describe('Directory Tree', () => {
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
     expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
   });
+
+  it('should handle file drop with node key when allowFileDrop is enabled', async () => {
+    const onFileDrop = jest.fn();
+    const treeData = [
+      {
+        key: '0-0',
+        title: 'parent',
+        children: [
+          {
+            key: '0-0-0',
+            title: 'leaf',
+            isLeaf: true,
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <DirectoryTree defaultExpandAll allowFileDrop onFileDrop={onFileDrop} treeData={treeData} />,
+    );
+
+    // Create a mock file
+    const file = new File(['content'], 'test.txt', { type: 'text/plain' });
+    const files = [file] as unknown as FileList;
+
+    // Find the span element with data-key attribute (this is what gets the drag events)
+    const targetElement = container.querySelector('span[data-key="0-0"]')!;
+
+    // Simulate drag over on the span with data-key attribute
+    fireEvent.dragOver(targetElement, {
+      dataTransfer: {
+        files,
+        dropEffect: 'copy',
+      },
+    });
+
+    // Simulate drop on the span with data-key attribute
+    fireEvent.drop(targetElement, {
+      dataTransfer: {
+        files,
+        dropEffect: 'copy',
+      },
+    });
+
+    // Wait for the event to be processed
+    await Promise.resolve();
+
+    expect(onFileDrop).toHaveBeenCalled();
+    // Check that the callback was called with the correct node key and files
+    expect(onFileDrop.mock.calls[0][0]).toHaveProperty('nodeKey', '0-0');
+    expect(onFileDrop.mock.calls[0][0]).toHaveProperty('files', files);
+  });
+
+  it('should not handle file drop when allowFileDrop is disabled', async () => {
+    const onFileDrop = jest.fn();
+    const treeData = [
+      {
+        key: '0-0',
+        title: 'parent',
+        children: [
+          {
+            key: '0-0-0',
+            title: 'leaf',
+            isLeaf: true,
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <DirectoryTree
+        defaultExpandAll
+        allowFileDrop={false}
+        onFileDrop={onFileDrop}
+        treeData={treeData}
+      />,
+    );
+
+    // Create a mock file
+    const file = new File(['content'], 'test.txt', { type: 'text/plain' });
+    const files = [file] as unknown as FileList;
+
+    const targetElementNotExist = container.querySelector('span[data-key="0-0"]')!;
+    const targetElement = container.querySelector('.ant-tree-node-content-wrapper')!;
+
+    // Simulate drag over on the span with data-key attribute
+    fireEvent.dragOver(targetElement, {
+      dataTransfer: {
+        files,
+        dropEffect: 'copy',
+      },
+    });
+
+    // Simulate drag over on the span with data-key attribute
+    fireEvent.drop(targetElement, {
+      dataTransfer: {
+        files,
+        dropEffect: 'copy',
+      },
+    });
+
+    // Wait for the event to be processed
+    await Promise.resolve();
+
+    expect(targetElementNotExist).toBeNull();
+    expect(onFileDrop).not.toHaveBeenCalled();
+  });
+
+  it('should prevent default behavior for drag events when allowFileDrop is enabled', () => {
+    const treeData = [
+      {
+        key: '0-0',
+        title: 'parent',
+        children: [
+          {
+            key: '0-0-0',
+            title: 'leaf',
+            isLeaf: true,
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <DirectoryTree defaultExpandAll allowFileDrop treeData={treeData} />,
+    );
+
+    // Find the span element with data-key attribute (this is what gets the drag events)
+    const targetElement = container.querySelector('span[data-key="0-0"]')!;
+
+    // Create mock events
+    const dragEnterEvent = Object.assign(
+      new Event('dragenter', { bubbles: true, cancelable: true }),
+      {
+        dataTransfer: {
+          files: [],
+          dropEffect: 'none',
+        },
+      },
+    );
+
+    const dragOverEvent = Object.assign(
+      new Event('dragover', { bubbles: true, cancelable: true }),
+      {
+        dataTransfer: {
+          files: [],
+          dropEffect: 'copy',
+        },
+      },
+    );
+
+    const dropEvent = Object.assign(new Event('drop', { bubbles: true, cancelable: true }), {
+      dataTransfer: {
+        files: [],
+        dropEffect: 'copy',
+      },
+    });
+
+    // Spy on preventDefault
+    const preventDefaultSpy = jest.spyOn(dragEnterEvent, 'preventDefault');
+    const stopPropagationSpy = jest.spyOn(dragEnterEvent, 'stopPropagation');
+
+    // Dispatch events
+    targetElement.dispatchEvent(dragEnterEvent);
+    targetElement.dispatchEvent(dragOverEvent);
+    targetElement.dispatchEvent(dropEvent);
+
+    // Check that preventDefault and stopPropagation were called
+    expect(preventDefaultSpy).toHaveBeenCalled();
+    expect(stopPropagationSpy).toHaveBeenCalled();
+  });
 });

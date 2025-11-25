@@ -13,10 +13,14 @@ import { ConfigContext } from '../config-provider';
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
 import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
+import { useFileDrop } from './useFileDrop';
+import type { UseFileDropProps } from './useFileDrop';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
-export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends TreeProps<T> {
+export interface DirectoryTreeProps<T extends BasicDataNode = DataNode>
+  extends TreeProps<T>,
+    UseFileDropProps {
   expandAction?: ExpandAction;
 }
 
@@ -43,7 +47,14 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
 }
 
 const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> = (
-  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
+  {
+    defaultExpandAll,
+    defaultExpandParent,
+    defaultExpandedKeys,
+    onFileDrop,
+    allowFileDrop,
+    ...props
+  },
   ref,
 ) => {
   // Shift click usage
@@ -76,6 +87,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     props.selectedKeys || props.defaultSelectedKeys || [],
   );
   const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
+  const { rootRef, hoverNodeKey, dropEvents } = useFileDrop({ allowFileDrop, onFileDrop });
 
   React.useEffect(() => {
     if ('selectedKeys' in props) {
@@ -187,6 +199,54 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     className,
   );
 
+  // Wrap the Tree component with a div that handles file drop events if allowed
+  if (allowFileDrop) {
+    const renderTitle = (node: any) => {
+      const isHover = node.key === hoverNodeKey;
+
+      return (
+        <span
+          data-key={node.key}
+          style={{
+            padding: '4px 8px',
+            borderRadius: 4,
+            background: isHover ? 'rgba(24,144,255,0.25)' : undefined,
+            transition: 'background 0.15s',
+          }}
+        >
+          {props.titleRender ? props.titleRender(node) : node.title}
+        </span>
+      );
+    };
+
+    return (
+      <div
+        ref={rootRef}
+        className={`${prefixCls}-directory-file-drop`}
+        {...dropEvents}
+        style={{ height: '100%', userSelect: 'none' }}
+      >
+        <Tree
+          icon={getIcon}
+          ref={ref}
+          blockNode
+          {...otherProps}
+          draggable={false}
+          showIcon={showIcon}
+          expandAction={expandAction}
+          prefixCls={prefixCls}
+          className={connectClassName}
+          expandedKeys={expandedKeys}
+          selectedKeys={selectedKeys}
+          onSelect={onSelect}
+          onExpand={onExpand}
+          titleRender={renderTitle}
+        />
+      </div>
+    );
+  }
+
+  // Default rendering without file drop support
   return (
     <Tree
       icon={getIcon}
