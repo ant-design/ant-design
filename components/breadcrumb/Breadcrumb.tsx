@@ -13,7 +13,7 @@ import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbContextProps } from './BreadcrumbContext';
 import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
-import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
+import { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
 import useItemRender from './useItemRender';
@@ -282,9 +282,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     </BreadcrumbContext.Provider>
   );
 };
-
-Breadcrumb.Item = BreadcrumbItem;
-Breadcrumb.Separator = BreadcrumbSeparator;
 
 if (process.env.NODE_ENV !== 'production') {
   Breadcrumb.displayName = 'Breadcrumb';
