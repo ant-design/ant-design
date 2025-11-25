@@ -89,7 +89,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
     <Link to={`${link}${search}`} className={className}>
       {before}
       {title}
-      {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
+      {subtitle && <span className={styles.subtitle}>&nbsp;{subtitle}</span>}
       {after}
     </Link>
   );
