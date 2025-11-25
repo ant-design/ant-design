@@ -243,8 +243,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       Picker.displayName = displayName;
     }
 
-    return Picker as unknown as (<ValueType = DateType>(
-      props: PickerPropsWithMultiple<DateType, P, ValueType>,
+    return Picker as unknown as (<ValueType = DateType, IsMultiple extends boolean = false>(
+      props: PickerPropsWithMultiple<DateType, P, ValueType, IsMultiple>,
     ) => React.ReactElement) & { displayName?: string };
   };
 

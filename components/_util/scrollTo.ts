@@ -18,6 +18,8 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
   const scrollTop = getScroll(container);
   const startTime = Date.now();
 
+  let rafId: number;
+
   const frameFunc = () => {
     const timestamp = Date.now();
     const time = timestamp - startTime;
@@ -30,10 +32,14 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
       (container as HTMLElement).scrollTop = nextScrollTop;
     }
     if (time < duration) {
-      raf(frameFunc);
+      rafId = raf(frameFunc);
     } else if (typeof callback === 'function') {
       callback();
     }
   };
-  raf(frameFunc);
+  rafId = raf(frameFunc);
+
+  return () => {
+    raf.cancel(rafId);
+  };
 }

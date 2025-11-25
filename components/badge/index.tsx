@@ -118,8 +118,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
 
   const isHidden = useMemo(() => {
     const isEmpty =
-      (mergedCount === null || mergedCount === undefined || mergedCount === '') &&
-      (text === undefined || text === null || text === '');
+      (!isNonNullable(mergedCount) || mergedCount === '') && (!isNonNullable(text) || text === '');
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
   }, [mergedCount, isZero, showZero, showAsDot, text]);
 
