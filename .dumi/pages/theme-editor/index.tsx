@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { App, Button, ConfigProvider, Skeleton, version } from 'antd';
+import { createStyles } from 'antd-style';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
-import { createStyles } from 'antd-style';
 
 import useLocale from '../../hooks/useLocale';
 
@@ -11,8 +11,9 @@ const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEdito
 
 const useStyle = createStyles(({ css }) => ({
   editor: css`
-    svg {
-      display: unset;
+    svg,
+    img {
+      display: inline;
     }
   `,
 }));
