@@ -15,3 +15,4 @@ export { default as AutoComplete, AutoCompleteProps } from './auto-complete/Auto
 export { default as Avatar, AvatarProps } from './avatar/Avatar';
 export { default as AvatarGroup, AvatarGroupProps } from './avatar/AvatarGroup';
 // TODO: https://github.com/ant-design/ant-design/pull/55883
+// TODO: https://github.com/ant-design/ant-design/pull/55892
