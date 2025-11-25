@@ -91,7 +91,7 @@ interface Option {
 
 ## FAQ
 
-### Why not work in Form.Item?
+### Why not work in Form.Item? {#faq-form-item-limitations}
 
 Form.Item default bind value to `value` property, but Checkbox value property is `checked`. You can use `valuePropName` to change bind property.
 

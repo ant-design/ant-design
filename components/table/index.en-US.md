@@ -372,11 +372,11 @@ return <Table rowKey={(record) => record.uid} />;
 
 ## FAQ
 
-### How to hide pagination when single page or no data?
+### How to hide pagination when single page or no data? {#faq-hide-pagination}
 
 You can set `hideOnSinglePage` with `pagination` prop.
 
-### Table will return to first page when filter data.
+### Table will return to first page when filter data. {#faq-filter-to-first-page}
 
 Table total page count usually reduce after filter data, we by default return to first page in case of current page is out of filtered results.
 
@@ -384,22 +384,22 @@ You may need to keep current page after filtering when fetch data from remote se
 
 Also you can use the action from extra param to determine when return to first page.
 
-### Why Table pagination show size changer?
+### Why Table pagination show size changer? {#faq-size-changer}
 
 In order to improve user experience, Pagination show size changer by default when `total > 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
 
-### Why Table fully render when state change?
+### Why Table fully render when state change? {#faq-state-update-rerender}
 
 Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. You can use `column.shouldCellUpdate` to control render.
 
-### How to handle fixed column display over the mask layout?
+### How to handle fixed column display over the mask layout? {#faq-fixed-column-zindex}
 
 Fixed column use `z-index` to make it over other columns. You will find sometime fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
 
-### How to custom render Table Checkbox（For example, adding Tooltip）?
+### How to custom render Table Checkbox（For example, adding Tooltip）? {#faq-custom-checkbox-render}
 
 Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
 
-### Why does components.body.wrapper or components.body.row report an error when virtual is enabled?
+### Why does components.body.wrapper or components.body.row report an error when virtual is enabled? {#faq-virtual-wrapper-ref}
 
 Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom

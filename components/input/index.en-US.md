@@ -194,7 +194,7 @@ Added in `5.16.0`.
 
 ## FAQ
 
-### Why Input lose focus when change `prefix/suffix/showCount`
+### Why Input lose focus when change `prefix/suffix/showCount` {#faq-lose-focus}
 
 When Input dynamic add or remove `prefix/suffix/showCount` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
 
@@ -204,6 +204,6 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 <Input suffix={suffix} />;
 ```
 
-### Why TextArea in control can make `value` exceed `maxLength`?
+### Why TextArea in control can make `value` exceed `maxLength`? {#faq-textarea-exceed-max}
 
 When in control, component should show as what it set to avoid submit value not align with store value in Form.

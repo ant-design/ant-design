@@ -16,7 +16,7 @@ demo:
 - 从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。
 - 比起 Select 组件，可以在同一个浮层中完成选择，有较好的体验。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -129,7 +129,7 @@ interface Option {
 }
 ```
 
-## 方法
+## 方法 {#methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |
@@ -142,6 +142,6 @@ interface Option {
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Cascader"></ComponentTokenTable>

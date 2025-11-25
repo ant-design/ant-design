@@ -12,7 +12,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/simple.tsx">基本用法</code>
@@ -88,6 +88,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 <code src="./demo/_semantic_items.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Steps"></ComponentTokenTable>
