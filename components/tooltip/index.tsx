@@ -151,6 +151,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     destroyOnHidden,
     title,
     overlay,
+    trigger,
     builtinPlacements,
     autoAdjustOverflow = true,
     motion,
@@ -184,9 +185,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
+    trigger: contextTrigger,
   } = useComponentConfig('tooltip');
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
+  const mergedTrigger = trigger || contextTrigger;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -263,6 +266,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   // =========== Merged Props for Semantic ===========
   const mergedProps: TooltipProps = {
     ...props,
+    trigger: mergedTrigger,
     color,
     placement,
     builtinPlacements,
@@ -337,6 +341,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     <RcTooltip
       unique
       {...restProps}
+      trigger={mergedTrigger}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
