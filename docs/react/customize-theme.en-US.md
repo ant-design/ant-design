@@ -467,8 +467,8 @@ const theme = {
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |  |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |  |
-| cssVar | CSS Variables Configuration, refer [cssVar](#css-var) | `{ prefix?: string; key?: string }` | false |  |
-| hashed | Component class Hash value, refer [CSS Compatible](/docs/react/compatible-style#hashed) | boolean | true |  |
+| cssVar | CSS Variables Configuration, refer [cssVar](#css-var) | `boolean \| { prefix?: string; key?: string }` | false |  |
+| hashed | Style patch on the hash className | boolean | true |  |
 | zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file | boolean | true | 6.0.0 |
 
 ### ComponentsConfig

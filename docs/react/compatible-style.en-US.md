@@ -248,27 +248,6 @@ root.render(
 );
 ```
 
-## Pure Application Disable hashed {#hashed}
-
-By default, Ant Design adds a hash className to components to prevent style conflicts when multiple versions are mixed. If your application only uses a single version of antd, you can disable hash to reduce style size:
-
-```tsx
-<ConfigProvider theme={{ hashed: false }}>
-  <App />
-</ConfigProvider>
-```
-
-This will change the generated styles accordingly:
-
-```diff
---  :where(.css-bAMboO).ant-btn {
-++  .ant-btn {
-      font-family: var(--ant-font-family);
-    }
-```
-
-Note: If you're not sure whether to disable this feature, then don't.
-
 ## Compatible with Third-party Style Libraries
 
 In some cases, you may need antd to coexist with other style libraries, such as `Tailwind CSS`, `Emotion`, `styled-components`, etc. Unlike traditional CSS solutions, these third-party libraries are often not easy to override antd styles by increasing CSS selector priority. You can configure `@layer` for antd to lower its CSS selector weight, and arrange `@layer` order to solve style override problems:

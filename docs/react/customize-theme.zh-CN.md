@@ -224,7 +224,7 @@ export default () => (
 
 `antd/dist/antd.css` 包含了所有 antd 组件的样式，但是不会包含 hashed className。如果你希望引入更少的样式，或者因为修改了 `prefix` 等配置无法使用默认的样式，推荐使用 [@ant-design/static-style-extract](https://github.com/ant-design/static-style-extract) 来生成静态样式。
 
-````tsx
+```tsx
 import fs from 'fs';
 import { extractStyle } from '@ant-design/static-style-extract';
 
@@ -267,7 +267,7 @@ const App: React.FC = () => {
 }
 
 export default App;
-````
+```
 
 ### 局部主题（嵌套主题）
 
@@ -467,8 +467,8 @@ const theme = {
 | inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |  |
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |  |
-| cssVar | CSS 变量配置，参考[cssVar](#css-var) | `{ prefix?: string; key?: string }` | false |  |
-| hashed | 组件 class Hash 值，参考[样式兼容](/docs/react/compatible-style#hashed) | boolean | true |  |
+| cssVar | CSS 变量配置，参考[cssVar](#css-var) | `boolean \| { prefix?: string; key?: string }` | false |  |
+| hashed | 将样式添加至 hash className 上 | boolean | true |  |
 | zeroRuntime | 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件 | boolean | true | 6.0.0 |
 
 ### ComponentsConfig
