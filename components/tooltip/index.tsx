@@ -130,10 +130,10 @@ export interface TooltipProps extends AbstractTooltipProps {
 }
 
 /**
- * @internal
  * Internal props type with hidden properties
  */
 interface InternalTooltipProps extends TooltipProps {
+  /** @internal */
   'data-popover-inject'?: boolean;
 }
 
