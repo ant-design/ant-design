@@ -54,7 +54,7 @@ tag: 5.1.0
 | --- | --- | --- | --- | --- |
 | color | 字体颜色 | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) |  |
 | fontSize | 字体大小 | number | 16 |  |
-| fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number | normal |  |
+| fontWeight | 字体粗细 | `normal` \| `lighter` \| `bold` \| `bolder` \| number | normal |  |
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 | textAlign | 指定文本对齐方向  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | 5.10.0 |
