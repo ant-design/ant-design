@@ -118,7 +118,36 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
+  const getInputElement = customizeInput
+    ? (): React.ReactElement => {
+        // Clone element to preserve event handlers and allow text selection
+        const originalProps = customizeInput!.props as Record<string, unknown>;
+        const originalOnMouseDown = originalProps.onMouseDown as
+          | React.MouseEventHandler<HTMLElement>
+          | undefined;
+
+        return React.cloneElement(customizeInput!, {
+          ...originalProps,
+          onMouseDown: (e: React.MouseEvent<HTMLElement>) => {
+            // Check if the event target is the input/textarea element itself
+            const target = e.target as HTMLElement;
+            const isInputElement = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA';
+
+            // Call original handler if exists
+            if (originalOnMouseDown) {
+              originalOnMouseDown(e);
+            }
+
+            // If clicking on input/textarea element, stop propagation to prevent
+            // rc-select wrapper handlers from interfering with text selection
+            if (isInputElement) {
+              e.stopPropagation();
+            }
+            // Don't prevent default to allow text selection to work
+          },
+        } as Partial<typeof originalProps>);
+      }
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
