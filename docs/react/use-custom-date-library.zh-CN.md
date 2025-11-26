@@ -20,7 +20,7 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 编写如下代码:
 
 ```tsx
-import momentGenerateConfig from '@rc-component/picker/lib/generate/moment';
+import momentGenerateConfig from '@rc-component/picker/generate/moment';
 import { DatePicker } from 'antd';
 import type { Moment } from 'moment';
 
@@ -60,7 +60,7 @@ export default TimePicker;
 编写如下代码:
 
 ```tsx
-import momentGenerateConfig from '@rc-component/picker/es/generate/moment';
+import momentGenerateConfig from '@rc-component/picker/generate/moment';
 import { Calendar } from 'antd';
 import type { Moment } from 'moment';
 
@@ -120,7 +120,7 @@ module.exports = {
 编写如下代码:
 
 ```tsx
-import dateFnsGenerateConfig from '@rc-component/picker/es/generate/dateFns';
+import dateFnsGenerateConfig from '@rc-component/picker/generate/dateFns';
 import { DatePicker } from 'antd';
 
 const MyDatePicker = DatePicker.generatePicker<Date>(dateFnsGenerateConfig);
@@ -137,7 +137,7 @@ export default MyDatePicker;
 创建一个 `DatePicker.tsx` 文件，并定义一个基于 luxon 的 DatePicker 组件：
 
 ```tsx
-import luxonGenerateConfig from '@rc-component/picker/lib/generate/luxon';
+import luxonGenerateConfig from '@rc-component/picker/generate/luxon';
 import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 
@@ -160,7 +160,7 @@ luxon 用户应该悉知，它本身没有 local 的实现。相反，它依赖�
 可以通过调整 luxon 配置来自定义这些默认的 luxon 行为：
 
 ```tsx
-import luxonGenerateConfig from '@rc-component/picker/lib/generate/luxon';
+import luxonGenerateConfig from '@rc-component/picker/generate/luxon';
 import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 
