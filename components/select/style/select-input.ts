@@ -224,7 +224,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // ==========================================================
         '&-sm': {
           '--select-height': token.controlHeightSM,
-          '--select-padding-horizontal': calc(token.paddingXS).sub(token.lineWidth).equal(),
+          '--select-padding-horizontal': `${calc(token.paddingXS).sub(token.lineWidth).equal()} ${calc(token.paddingSM).sub(token.lineWidth).sub(token.lineWidth).equal()}`,
           '--select-border-radius': token.borderRadiusSM,
         },
 
