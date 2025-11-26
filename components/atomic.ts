@@ -41,3 +41,5 @@ export {
   default as ColorPickerPanel,
   ColorPickerPanelProps,
 } from './color-picker/ColorPickerPanel';
+export { default as ConfigProvider, ConfigProviderProps } from './config-provider';
+export { default as useConfig } from './config-provider/hooks/useConfig';
