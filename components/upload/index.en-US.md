@@ -180,28 +180,28 @@ Configuration object for file type acceptance rules.
 
 ## FAQ
 
-### How do I implement upload server side?
+### How do I implement upload server side? {#faq-server-implement}
 
 - You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side) about how to implement server side upload interface.
 - There is a mock example of [express](https://github.com/react-component/upload/blob/211979fdaa2c7896b6496df7061a0cfc0fc5434e/server.js) in rc-upload.
 
-### I want to display download links.
+### I want to display download links. {#faq-show-download-link}
 
 Please set property `url` of each item in `fileList` to control the content of the link.
 
-### How to use `customRequest`?
+### How to use `customRequest`? {#faq-custom-request}
 
 See <https://github.com/react-component/upload#customrequest>.
 
-### Why will the `fileList` that's in control not trigger `onChange` `status` update when the file is not in the list?
+### Why will the `fileList` that's in control not trigger `onChange` `status` update when the file is not in the list? {#faq-filelist-controlled-status}
 
 `onChange` will only trigger when the file is in the list, it will ignore any events removed from the list. Please note that there does exist a bug which makes an event still trigger even when the file is not in the list before `4.13.0`.
 
-### Why does `onChange` sometimes return File object and other times return { originFileObj: File }?
+### Why does `onChange` sometimes return File object and other times return { originFileObj: File }? {#faq-on-change-return-type}
 
 For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in the next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before a major release.
 
-### Why sometimes Chrome can not upload?
+### Why sometimes Chrome can not upload? {#faq-chrome-file-picker}
 
 Chrome update will also break native upload. Please restart Chrome to finish the upload job.
 
@@ -214,7 +214,7 @@ Ref:
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)
 
-### Can still select files when uploading a folder in Safari?
+### Can still select files when uploading a folder in Safari? {#faq-safari-folder-upload}
 
 Inside the upload component, we use the `directory` and `webkitdirectory` properties to control the input to implement folder selection, but it seems that in Safari's implementation, [it doesn't prevent users from selecting files](https://stackoverflow.com/q/55649945/3040605). You can solve this issue through `accept` configuration, for example:
 

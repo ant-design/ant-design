@@ -15,7 +15,7 @@ demo:
 - 需要用户输入表单域内容时。
 - 提供组合型输入框，带搜索的输入框，还可以进行大小选择。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
@@ -189,13 +189,13 @@ interface CountConfig {
 
 <code src="./demo/_semantic_otp.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Input"></ComponentTokenTable>
 
 ## FAQ
 
-### 为什么我动态改变 `prefix/suffix/showCount` 时，Input 会失去焦点？
+### 为什么我动态改变 `prefix/suffix/showCount` 时，Input 会失去焦点？ {#faq-lose-focus}
 
 当 Input 动态添加或者删除 `prefix/suffix/showCount` 时，React 会重新创建 DOM 结构而新的 input 是没有焦点的。你可以预设一个空的 `<span />` 来保持 DOM 结构不变：
 
@@ -205,6 +205,6 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 <Input suffix={suffix} />;
 ```
 
-### 为何 TextArea 受控时，`value` 可以超过 `maxLength`？
+### 为何 TextArea 受控时，`value` 可以超过 `maxLength`？ {#faq-textarea-exceed-max}
 
 受控时，组件应该按照受控内容展示。以防止在表单组件内使用时显示值和提交值不同的问题。

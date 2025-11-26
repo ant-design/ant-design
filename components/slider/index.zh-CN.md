@@ -14,7 +14,7 @@ demo:
 
 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -89,6 +89,6 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Slider"></ComponentTokenTable>

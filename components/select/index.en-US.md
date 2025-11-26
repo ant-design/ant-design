@@ -198,15 +198,15 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tags` mode?
+### Why sometime search will show 2 same option when in `tags` mode? {#faq-tags-mode-duplicate}
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
-### When I click elements in dropdownRender, the select dropdown will not be closed?
+### When I click elements in dropdownRender, the select dropdown will not be closed? {#faq-dropdown-not-close}
 
 You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
-### I don't want dropdown close when click inside `dropdownRender`?
+### I don't want dropdown close when click inside `dropdownRender`? {#faq-dropdown-keep-open}
 
 Select will close when it lose focus. You can prevent event to handle this:
 
@@ -225,7 +225,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 />
 ```
 
-### Why sometime customize Option cause scroll break?
+### Why sometime customize Option cause scroll break? {#faq-custom-option-scroll}
 
 Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
@@ -235,13 +235,13 @@ Virtual scroll internal set item height as `24px`. You need to adjust `listItemH
 
 Note: `listItemHeight` and `listHeight` are internal props. Please only modify when necessary.
 
-### Why a11y test report missing `aria-` props?
+### Why a11y test report missing `aria-` props? {#faq-aria-attribute}
 
 Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
 
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
 
-### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close
+### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close {#faq-tagrender-dropdown}
 
 If you don't want a drop-down menu to appear automatically after clicking on an element (such as a close icon), you can prevent the `MouseDown` event from propagating on it.
 

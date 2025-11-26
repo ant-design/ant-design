@@ -38,7 +38,7 @@ return (
 );
 ```
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore-start -->
 <code src="./demo/basic.tsx">基本</code>
@@ -124,6 +124,6 @@ return (
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Radio"></ComponentTokenTable>
