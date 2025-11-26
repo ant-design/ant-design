@@ -63,10 +63,11 @@ const Cell: React.FC<CellProps> = (props) => {
   const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };
 
   if (bordered) {
-    const typeStyle = type === 'label' ? mergedLabelStyle : mergedContentStyle;
+    const typeStyle =
+      type === 'label' ? mergedLabelStyle : type === 'content' ? mergedContentStyle : undefined;
     const mergedStyle = {
-      ...style,
-      ...typeStyle,
+      ...(style || {}),
+      ...(typeStyle || {}),
     };
 
     return (
