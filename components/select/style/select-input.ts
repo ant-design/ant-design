@@ -88,7 +88,7 @@ const genSelectInputVariantStyle = (
 
 const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
   const { componentCls, calc, fontHeight, controlHeight, iconCls } = token;
-
+  const paddingInlineEnd = calc(token.paddingSM).sub(token.lineWidth).sub(token.lineWidth).equal();
   return {
     [componentCls]: [
       {
@@ -106,7 +106,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // Size
         '--select-height': controlHeight,
 
-        '--select-padding-horizontal': `${calc(token.paddingSM).sub(token.lineWidth).equal()} ${calc(token.paddingSM).sub(token.lineWidth).sub(token.lineWidth).equal()}`,
+        '--select-padding-horizontal': `${calc(token.paddingSM).sub(token.lineWidth).equal()} ${paddingInlineEnd}`,
         '--select-padding-vertical':
           'calc((var(--select-height) - var(--select-font-height)) / 2 - var(--select-border-size))',
 
@@ -224,7 +224,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // ==========================================================
         '&-sm': {
           '--select-height': token.controlHeightSM,
-          '--select-padding-horizontal': `${calc(token.paddingXS).sub(token.lineWidth).equal()} ${calc(token.paddingSM).sub(token.lineWidth).sub(token.lineWidth).equal()}`,
+          '--select-padding-horizontal': `${calc(token.paddingXS).sub(token.lineWidth).equal()} ${paddingInlineEnd}`,
           '--select-border-radius': token.borderRadiusSM,
         },
 
