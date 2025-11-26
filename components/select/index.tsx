@@ -244,12 +244,18 @@ const InternalSelect = <
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
+  const defaultNotFound: React.ReactNode = renderEmpty?.('Select') || (
+    <DefaultRenderEmpty componentName="Select" />
+  );
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = defaultNotFound;
+  }
+  if (props?.showSearch && !mergedNotFound && (!mode || mode === 'multiple')) {
+    mergedNotFound = defaultNotFound;
   }
 
   // ===================== Icons =====================
@@ -381,6 +387,12 @@ const InternalSelect = <
     (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
   );
 
+  // ====================== mousedown =========================
+  const mergedOnMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    props.onMouseDown?.(event);
+  };
+
   // ====================== Render =======================
   return (
     <RcSelect<ValueType, OptionType>
@@ -415,6 +427,7 @@ const InternalSelect = <
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
+      onMouseDown={mergedOnMouseDown}
     />
   );
 };
