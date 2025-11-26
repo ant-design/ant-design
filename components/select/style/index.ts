@@ -152,7 +152,6 @@ export default genStyleHooks(
       inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(token.lineWidth).equal(),
       multipleSelectItemHeight: token.multipleItemHeight,
       selectHeight: token.controlHeight,
-      colorTextPlaceholder: `rgba(${token.colorTextPlaceholder}, 0.5)`,
     });
 
     return [genSelectStyle(selectToken), genSelectInputStyle(selectToken)];
