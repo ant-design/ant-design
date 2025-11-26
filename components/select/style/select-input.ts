@@ -106,7 +106,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // Size
         '--select-height': controlHeight,
 
-        '--select-padding-horizontal': `${calc(token.paddingSM).sub(token.lineWidth).equal()} ${calc(token.paddingSM).sub(token.lineWidth).equal()}`,
+        '--select-padding-horizontal': `${calc(token.paddingSM).sub(token.lineWidth).equal()} ${calc(token.paddingSM).sub(token.lineWidth).sub(token.lineWidth).equal()}`,
         '--select-padding-vertical':
           'calc((var(--select-height) - var(--select-font-height)) / 2 - var(--select-border-size))',
 
