@@ -129,7 +129,6 @@ export interface TooltipProps extends AbstractTooltipProps {
   styles?: TooltipStylesType;
 }
 
-
 interface InternalTooltipProps extends TooltipProps {
   /**
    * @internal
