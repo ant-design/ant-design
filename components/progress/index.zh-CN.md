@@ -17,7 +17,7 @@ demo:
 - 当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过 2 秒时；
 - 当需要显示一个操作完成的百分比时。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/line.tsx">进度条</code>
@@ -90,6 +90,6 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Progress"></ComponentTokenTable>

@@ -35,6 +35,22 @@ pnpm add antd@6
 - import '@ant-design/v5-patch-for-react-19';
 ```
 
+### @ant-design/icons version upgrade
+
+- `antd@6` requires `@ant-design/icons` version >= 6.0.0.
+- ⚠️ **Important**: `@ant-design/icons@6` is not compatible with `antd@5`. Make sure to upgrade both packages together.
+- If your project explicitly depends on `@ant-design/icons`, you need to upgrade it to v6 as well.
+
+```bash
+npm install --save @ant-design/icons@6
+# or
+yarn add @ant-design/icons@6
+# or
+pnpm add @ant-design/icons@6
+```
+
+If you encounter build errors during the upgrade, please verify that your `@ant-design/icons` version matches your `antd` version.
+
 ### DOM adjustments
 
 - v6 upgrades and optimizes the DOM structure of many components to improve maintainability and consistency.
@@ -119,6 +135,7 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 To ensure your app works correctly after upgrading to v6, please go through the following checklist:
 
 - React version: confirm your app uses React >= 18 and has removed `@ant-design/v5-patch-for-react-19`.
+- @ant-design/icons version: confirm `@ant-design/icons` has been upgraded to >= 6.0.0 to match `antd@6`.
 - Browser compatibility: confirm your target user browsers are modern and support CSS variables.
 - Custom styles: if you have CSS that targets component internal DOM nodes, verify they still work under v6 and adjust if necessary.
 - Overlay mask configuration: decide whether Modal, Drawer, etc. need the mask blur disabled; leave defaults if not needed.

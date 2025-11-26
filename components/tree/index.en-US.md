@@ -146,15 +146,15 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ## FAQ
 
-### Why defaultExpandAll not working on ajax data?
+### Why defaultExpandAll not working on ajax data? {#faq-default-expand-all}
 
 `default` prefix props only work when initializing. So `defaultExpandAll` has already been executed when ajax loads data. You can control `expandedKeys` or render the Tree when data is loaded to realize expanding all nodes.
 
-### Virtual scroll limitation
+### Virtual scroll limitation {#faq-virtual-scroll-limitation}
 
 Virtual scroll only render items in visible region. Thus not support auto width (like long `title` with horizontal scroll).
 
-### What does `disabled` node work logic in the tree?
+### What does `disabled` node work logic in the tree? {#faq-disabled-node}
 
 Tree change its data by conduction. Includes checked or auto expanded, it will conduction state to parent / children node until current node is `disabled`. So if a controlled node is `disabled`, it will only modify self state and not affect other nodes. For example, a parent node contains 3 child nodes and one of them is `disabled`. When check the parent node, it will only check rest 2 child nodes. As the same, when check these 2 child node, parent will be checked whatever checked state the `disabled` one is.
 

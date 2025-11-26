@@ -21,7 +21,7 @@ demo:
 >
 > 自 `5.17.0` 版本，我们提供了 `loading` 属性，内置 Spin 组件作为加载状态，但是自 `5.18.0` 版本开始，我们修复了设计失误，将内置的 Spin 组件替换成了 Skeleton 组件，同时收窄了 `loading` api 的类型范围，只能接收 boolean 类型。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">基础抽屉</code>
@@ -72,7 +72,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
-| resizable | 是否启用拖拽改变尺寸 | [ResizableConfig](#resizableconfig) | - | 6.0.0 |
+| resizable | 是否启用拖拽改变尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | boolean: 6.1.0|
 | rootStyle | 可用于设置 Drawer 最外层容器的样式，和 `style` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px`，或自定义数字 | 'default' \| 'large' \| number | 'default' | 4.17.0 |
 | styles | 用于自定义 Drawer 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
@@ -92,10 +92,6 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | onResize      | 拖拽调整大小时的回调     | (size: number) => void | -      | 6.0.0 |
 | onResizeEnd   | 结束拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
 
-## Semantic DOM
-
-<code src="./demo/_semantic.tsx" simplify="true"></code>
-
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Drawer"></ComponentTokenTable>
