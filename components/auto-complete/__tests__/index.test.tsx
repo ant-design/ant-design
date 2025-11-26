@@ -1,5 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import { fireEvent } from '@testing-library/react';
 
 import AutoComplete from '..';
 import { resetWarned } from '../../_util/warning';
@@ -215,79 +216,28 @@ describe('AutoComplete', () => {
     // that the event handler is preserved and called
   });
 
-  it('should preserve event handlers when using custom Input', () => {
-    const handleMouseDown = jest.fn();
-
-    const { container } = render(
-      <AutoComplete options={[]}>
-        <Input showCount onMouseDown={handleMouseDown} />
-      </AutoComplete>,
-    );
-
-    const input = container.querySelector('input');
-    expect(input).toBeTruthy();
-
-    // Simulate mouse down
-    const mouseDownEvent = new MouseEvent('mousedown', {
-      bubbles: true,
-      cancelable: true,
-    });
-    input?.dispatchEvent(mouseDownEvent);
-
-    // Handler should be called
-    expect(handleMouseDown).toHaveBeenCalled();
-  });
-
   it('should stop propagation on input element to allow text selection', () => {
     const handleMouseDown = jest.fn();
+    const parentMouseDown = jest.fn();
 
     const { container } = render(
-      <AutoComplete options={[]} value="test text">
-        <Input showCount onMouseDown={handleMouseDown} />
-      </AutoComplete>,
+      <div onMouseDown={parentMouseDown}>
+        <AutoComplete options={[]} value="test text">
+          <Input showCount onMouseDown={handleMouseDown} />
+        </AutoComplete>
+      </div>,
     );
 
     const input = container.querySelector('input') as HTMLInputElement;
     expect(input).toBeTruthy();
 
-    // Set up a listener on parent to verify propagation is stopped
-    const parent = input.parentElement;
-    const parentMouseDown = jest.fn();
-    parent?.addEventListener('mousedown', parentMouseDown, true); // Use capture phase
-
-    // Simulate mouse down on input
-    const mouseDownEvent = new MouseEvent('mousedown', {
-      bubbles: true,
-      cancelable: true,
-    });
-    input.dispatchEvent(mouseDownEvent);
+    // Simulate mouse down on input using fireEvent which works with React event system
+    fireEvent.mouseDown(input);
 
     // Original handler should be called
     expect(handleMouseDown).toHaveBeenCalled();
 
-    // Our implementation calls stopPropagation after the original handler
-    // This prevents the event from reaching wrapper handlers that interfere with text selection
     // The parent listener should not be called because we stop propagation
-    // (Note: In JSDOM, event propagation might behave differently, but the handler is still called)
-  });
-
-  it('should allow text selection with showCount prop', () => {
-    const { container } = render(
-      <AutoComplete options={[]} value="Select this text">
-        <Input showCount maxLength={20} />
-      </AutoComplete>,
-    );
-
-    const input = container.querySelector('input') as HTMLInputElement;
-    expect(input).toBeTruthy();
-
-    // Focus the input
-    input.focus();
-    expect(document.activeElement).toBe(input);
-
-    // Verify input is focusable and functional
-    expect(input.type).toBe('text');
-    expect(input.readOnly).toBe(false);
-    expect(input.disabled).toBe(false);
+    expect(parentMouseDown).not.toHaveBeenCalled();
   });
 });

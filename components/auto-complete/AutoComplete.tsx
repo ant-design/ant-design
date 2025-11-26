@@ -131,12 +131,10 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
           onMouseDown: (e: React.MouseEvent<HTMLElement>) => {
             // Check if the event target is the input/textarea element itself
             const target = e.target as HTMLElement;
-            const isInputElement = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA';
+            const isInputElement = ['INPUT', 'TEXTAREA'].includes(target.tagName);
 
             // Call original handler if exists
-            if (originalOnMouseDown) {
-              originalOnMouseDown(e);
-            }
+            originalOnMouseDown?.(e);
 
             // If clicking on input/textarea element, stop propagation to prevent
             // rc-select wrapper handlers from interfering with text selection
