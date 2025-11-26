@@ -47,6 +47,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     font-weight: normal;
     font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
+    margin-left: 4px;
   `,
 }));
 
@@ -89,7 +90,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
     <Link to={`${link}${search}`} className={className}>
       {before}
       {title}
-      {subtitle && <span className={styles.subtitle}>&nbsp;{subtitle}</span>}
+      {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
       {after}
     </Link>
   );
