@@ -259,6 +259,7 @@ const Header: React.FC = () => {
 
   const { menuVisible, windowWidth, searching } = headerState;
   const docVersions: Record<string, string> = {
+    ...themeConfig?.docNewVersions,
     [pkg.version]: pkg.version,
     ...themeConfig?.docVersions,
   };

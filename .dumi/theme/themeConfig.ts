@@ -55,4 +55,7 @@ export default {
     '0.10.x': 'https://010x.ant.design',
     '0.9.x': 'https://09x.ant.design',
   },
+  docNewVersions: {
+    '6.x': chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design',
+  },
 };
