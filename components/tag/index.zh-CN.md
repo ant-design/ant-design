@@ -15,7 +15,7 @@ demo:
 - 用于标记事物的属性和维度。
 - 进行分类。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -81,6 +81,6 @@ demo:
 
 <code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Tag"></ComponentTokenTable>

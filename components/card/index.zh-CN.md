@@ -12,7 +12,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">典型卡片</code>
@@ -85,6 +85,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 <code src="./demo/_semantic_meta.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Card"></ComponentTokenTable>

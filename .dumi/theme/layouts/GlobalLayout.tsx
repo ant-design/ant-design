@@ -21,6 +21,7 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
+import VersionUpgrade from '../common/VersionUpgrade';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
@@ -264,7 +265,6 @@ const GlobalLayout: React.FC = () => {
           ...dynamicToken,
           // colorBgContainer: 'rgba(255,0,0,0.1)',
         },
-        hashed: false,
         zeroRuntime: process.env.NODE_ENV === 'production',
       },
       nextComponentsClassNames,
@@ -318,7 +318,10 @@ const GlobalLayout: React.FC = () => {
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
               <ConfigProvider {...componentsClassNames}>
-                <App>{outlet}</App>
+                <App>
+                  {outlet}
+                  <VersionUpgrade />
+                </App>
               </ConfigProvider>
             </HappyProvider>
           </SiteThemeProvider>

@@ -19,7 +19,7 @@ demo:
 - 带有交互的通知，给出用户下一步的行动点。
 - 系统主动推送。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
@@ -138,13 +138,13 @@ notification.config({
 <!-- prettier-ignore -->
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Notification"></ComponentTokenTable>
 
 ## FAQ
 
-### 为什么 notification 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？
+### 为什么 notification 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？ {#faq-context-redux}
 
 直接调用 notification 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -168,6 +168,6 @@ return (
 
 > 可通过 [App 包裹组件](/components/app-cn) 简化 `useNotification` 等方法需要手动植入 contextHolder 的问题。
 
-### 静态方法如何设置 prefixCls ？
+### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
 你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。

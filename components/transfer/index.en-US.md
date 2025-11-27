@@ -108,6 +108,6 @@ return <Transfer rowKey={(record) => record.uid} />;
 
 ## FAQ
 
-### How to support fetch and present data from a remote server in Transfer column.
+### How to support fetch and present data from a remote server in Transfer column. {#faq-async-data-loading}
 
 In order to keep the page number synchronized, you can disable columns you checked without removing the option: <https://codesandbox.io/s/objective-wing-6iqbx>
