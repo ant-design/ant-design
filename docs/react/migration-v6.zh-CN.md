@@ -128,7 +128,7 @@ v5 版本中，Form.List 会被认为是一个 Field，以至于提交时会包�
 
 ### 原子级通过别名安装 v6
 
-- 如果你对影响面有要求，你可以尝试[原子级迁移](https://github.com/ant-design/ant-design/discussions/55957)，我们并不推荐你使用该方案。
+- 如果你需要控制升级的影响范围，可以尝试[原子级迁移](https://github.com/ant-design/ant-design/discussions/55957)方案。请注意，这并非我们推荐的升级路径。
 
 ## 升级影响排查 Checklist
 
