@@ -132,7 +132,7 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 
 ### Atomic Migration: Install v6 via Package Alias
 
-- If you have requirements for the impact surface, you can try [atomic level migration](https://github.com/ant-design/ant-design/discussions/55957) We do not recommend you to use this plan.
+- If you need to limit the migration's impact, you can try an [atomic migration](https://github.com/ant-design/ant-design/discussions/55957). Please note that this is not the recommended upgrade path.
 
 ## Upgrade checklist
 
