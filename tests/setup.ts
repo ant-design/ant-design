@@ -106,9 +106,7 @@ if (typeof MessageChannel === 'undefined') {
           onmessage: null,
           postMessage: (message: any) => {
             setTimeout(() => {
-              if (port._target && typeof port._target.onmessage === 'function') {
-                port._target.onmessage({ data: message });
-              }
+              port._target?.onmessage?.({ data: message });
             }, 0);
           },
           _target: null,
