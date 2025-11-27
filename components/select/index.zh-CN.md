@@ -16,35 +16,6 @@ demo:
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
 - 如果你在寻找一个可输可选的输入框，那你可能需要 [AutoComplete](/components/auto-complete-cn/)。
 
-### 用法升级 <Badge>5.11.0+</Badge>
-
-<!-- prettier-ignore -->
-:::warning{title="升级提示"}
-在 5.11.0 版本后，我们提供了 `<Select options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
-同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
-:::
-
-```tsx
-// >=5.11.0 可用，推荐的写法 ✅
-return (
-  <Select
-    onChange={onChange}
-    options={[
-      { value: '1', label: <span>Option 1</span> },
-      { value: '2', label: <span>Option 2</span> },
-    ]}
-  />
-);
-
-// 5.x 可用，但是 >=5.11.0 时不推荐 🙅🏻‍♀️
-return (
-  <Select onChange={onChange}>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-  </Select>
-);
-```
-
 ## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
