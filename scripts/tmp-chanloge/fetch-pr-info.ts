@@ -21,7 +21,7 @@ const OWNER = 'ant-design';
 const REPO = 'ant-design';
 
 const run = async () => {
-  const prIdsPath = path.join(__dirname, 'pr-ids_v1.json');
+  const prIdsPath = path.join(__dirname, 'pr-ids_v2.json');
 
   if (!fs.existsSync(prIdsPath)) {
     console.error(`Error: ${prIdsPath} not found. Please run extract-pr.ts first.`);

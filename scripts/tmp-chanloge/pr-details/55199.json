@@ -1,0 +1,37 @@
+{
+  "id": 2874373692,
+  "number": 55199,
+  "title": "refactor: semantic of message and notification",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "\r\n\r\n### 🤔 This is a ...\r\n\r\n\r\n- [ ] ❓ Other (about what?)\r\n\r\n### 🔗 Related Issues\r\n\r\n> - Describe the source of related requirements, such as links to relevant issue discussions.\r\n> - For example: close #xxxx, fix #xxxx\r\n\r\n### 💡 Background and Solution\r\n\r\n> - The specific problem to be addressed.\r\n> - List the final API implementation and usage if needed.\r\n> - If there are UI/interaction changes, consider providing screenshots or GIFs.\r\n\r\n### 📝 Change Log\r\n\r\n> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)! Track your changes, like a cat tracks a laser pointer.\r\n> - Describe the impact of the changes on developers, not the solution approach.\r\n> - Reference: https://ant.design/changelog\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |    -      |\r\n| 🇨🇳 Chinese |       -    |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-09-30T14:49:14Z",
+  "created_at": "2025-09-30T12:36:48Z",
+  "updated_at": "2025-09-30T14:49:26Z",
+  "closed_at": "2025-09-30T14:49:14Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/55199",
+  "labels": [
+    {
+      "name": "lgtm",
+      "color": "238636",
+      "description": "This PR has been approved by a maintainer"
+    }
+  ],
+  "base": {
+    "ref": "next",
+    "sha": "8d2e5c4532231319f57fda8bac4ea6b02a979a9a"
+  },
+  "head": {
+    "ref": "refactor-semantic-hooks",
+    "sha": "136dd0c96056647e63b9da620d9bd059ba02106a",
+    "label": "ant-design:refactor-semantic-hooks"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}
