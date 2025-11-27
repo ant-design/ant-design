@@ -1,7 +1,7 @@
 import React from 'react';
 import type { PickerPanelProps } from '@rc-component/picker';
-import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
-import type { Locale } from '@rc-component/picker/lib/interface';
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
+import type { Locale } from '@rc-component/picker/interface';
 import { warning } from '@rc-component/util';
 import Dayjs from 'dayjs';
 import MockDate from 'mockdate';

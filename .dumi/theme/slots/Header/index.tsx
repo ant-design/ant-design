@@ -38,7 +38,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       box-shadow: ${cssVar.boxShadowTertiary};
       backdrop-filter: blur(8px);
 
-      @media only screen and (max-width: ${cssVar.mobileMaxWidth}) {
+      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
         border: none;
       }
@@ -127,7 +127,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
     `,
     link: css`
       margin-inline-start: 10px;
-      @media only screen and (max-width: ${cssVar.mobileMaxWidth}) {
+      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         margin-inline-start: 0;
       }
     `,

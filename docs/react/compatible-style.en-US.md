@@ -5,7 +5,7 @@ order: 1
 title: CSS Compatible
 ---
 
-### Default Style Compatibility
+## Default Style Compatibility
 
 Ant Design supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=defaults). If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
 
