@@ -130,6 +130,10 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 - CSS variables are enabled by default and only modern browsers are supported.
 - IE is no longer supported. Some older domestic browsers may have compatibility issues — please verify target browsers before shipping your app.
 
+### Atomic Migration: Install v6 via Package Alias
+
+- If you have requirements for the impact surface, you can try [atomic level migration](https://github.com/ant-design/ant-design/discussions/55957) We do not recommend you to use this plan.
+
 ## Upgrade checklist
 
 To ensure your app works correctly after upgrading to v6, please go through the following checklist:
