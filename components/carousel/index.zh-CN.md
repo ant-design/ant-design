@@ -16,7 +16,7 @@ demo:
 - 当内容空间不足时，可以用走马灯的形式进行收纳，进行轮播展现。
 - 常用于一组图片或卡片轮播。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -52,7 +52,7 @@ demo:
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
 
-## 方法
+## 方法 {#methods}
 
 | 名称                           | 描述                                              |
 | ------------------------------ | ------------------------------------------------- |
@@ -60,12 +60,12 @@ demo:
 | next()                         | 切换到下一面板                                    |
 | prev()                         | 切换到上一面板                                    |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Carousel"></ComponentTokenTable>
 
 ## FAQ
 
-### 如何自定义箭头？
+### 如何自定义箭头？ {#faq-add-custom-arrows}
 
 可参考 [#12479](https://github.com/ant-design/ant-design/issues/12479)。

@@ -18,7 +18,7 @@ tag: DEPRECATED
 List 组件已经进入废弃阶段，将于下个 major 版本移除。
 :::
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/simple.tsx">简单列表</code>
@@ -107,6 +107,6 @@ List 组件已经进入废弃阶段，将于下个 major 版本移除。
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="List"></ComponentTokenTable>

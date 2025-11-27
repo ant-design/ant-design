@@ -48,13 +48,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### When binding container with `target` in Affix, elements sometimes move out of the container.
+### When binding container with `target` in Affix, elements sometimes move out of the container. {#faq-target-container}
 
 We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/stupefied-maxwell-ophqnm?file=/index.js>
 
 Related issues：[#3938](https://github.com/ant-design/ant-design/issues/3938) [#5642](https://github.com/ant-design/ant-design/issues/5642) [#16120](https://github.com/ant-design/ant-design/issues/16120)
 
-### When Affix is ​​used in a horizontal scroll container, the position of the element `left` is incorrect.
+### When Affix is ​​used in a horizontal scroll container, the position of the element `left` is incorrect. {#faq-horizontal-scroll}
 
 Affix is ​​generally only applicable to areas with one-way scrolling, and only supports usage in vertical scrolling containers. If you want to use it in a horizontal container, you can consider implementing with the native `position: sticky` property.
 

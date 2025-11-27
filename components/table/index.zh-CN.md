@@ -13,7 +13,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAA
 - 当有大量结构化的数据需要展现时；
 - 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
 
-## 如何使用
+## 如何使用 {#how-to-use}
 
 指定表格的数据源 `dataSource` 为一个数组。
 
@@ -54,13 +54,13 @@ const columns = [
 <Table dataSource={dataSource} columns={columns} />;
 ```
 
-## 相关推荐
+## 相关推荐 {#promotion}
 
 - [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)：设计师神器，两步自动生成 Ant Design 表格组件。
 - [ProTable](https://procomponents.ant.design/components/table) 高级表格：在 `antd` Table 之上扩展了更多便捷易用的功能，内置搜索、筛选、刷新等常用表格行为，并为多种类型数据展示提供了内置格式化。
 - [S2](https://s2.antv.vision/zh) 多维交叉分析表格：[AntV S2 和 Antd Table 有什么区别？](https://zhuanlan.zhihu.com/p/494995642)
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
@@ -308,7 +308,7 @@ const columns = [
 | text     | 选择项显示的文字           | ReactNode                   | -      |
 | onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
 
-## 在 TypeScript 中使用
+## 在 TypeScript 中使用 {#using-in-typescript}
 
 ```tsx
 import React from 'react';
@@ -354,11 +354,11 @@ TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/ser
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Table"></ComponentTokenTable>
 
-## 注意
+## 注意 {#note}
 
 按照 [React 的规范](https://zh-hans.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)，所有的列表必须绑定 `key`。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
@@ -375,32 +375,32 @@ return <Table rowKey={(record) => record.uid} />;
 
 ## FAQ
 
-### 如何在没有数据或只有一页数据时隐藏分页栏
+### 如何在没有数据或只有一页数据时隐藏分页栏 {#faq-hide-pagination}
 
 你可以设置 `pagination` 的 `hideOnSinglePage` 属性为 `true`。
 
-### 表格过滤时会回到第一页？
+### 表格过滤时会回到第一页？ {#faq-filter-to-first-page}
 
 前端过滤时通常条目总数会减少，从而导致总页数小于筛选前的当前页数，为了防止当前页面没有数据，我们默认会返回第一页。
 
 如果你在使用远程分页，很可能需要保持当前页面，你可以参照这个 [受控例子](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) 控制当前页面不变。
 
-### 表格分页为何会出现 size 切换器？
+### 表格分页为何会出现 size 切换器？ {#faq-size-changer}
 
 自 `4.1.0` 起，Pagination 在 `total` 大于 50 条时会默认显示 size 切换器以提升用户交互体验。如果你不需要该功能，可以通过设置 `showSizeChanger` 为 `false` 来关闭。
 
-### 为什么 更新 state 会导致全表渲染？
+### 为什么 更新 state 会导致全表渲染？ {#faq-state-update-rerender}
 
 由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `column.shouldCellUpdate` 来控制单元格的渲染。
 
-### 固定列穿透到最上层该怎么办？
+### 固定列穿透到最上层该怎么办？ {#faq-fixed-column-zindex}
 
 固定列通过 `z-index` 属性将其悬浮于非固定列之上，这使得有时候你会发现在 Table 上放置遮罩层时固定列会被透过的情况。为遮罩层设置更高的 `z-index` 覆盖住固定列即可。
 
-### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
+### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？ {#faq-custom-checkbox-render}
 
 自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
 
-### 为什么 components.body.wrapper 或 components.body.row 在 virtual 开启时会报错？
+### 为什么 components.body.wrapper 或 components.body.row 在 virtual 开启时会报错？ {#faq-virtual-wrapper-ref}
 
 因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。

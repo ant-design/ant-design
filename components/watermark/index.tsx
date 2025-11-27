@@ -24,7 +24,7 @@ export interface WatermarkProps {
   font?: {
     color?: CanvasFillStrokeStyles['fillStyle'];
     fontSize?: number | string;
-    fontWeight?: 'normal' | 'light' | 'weight' | number;
+    fontWeight?: 'normal' | 'lighter' | 'bold' | 'bolder' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
     fontFamily?: string;
     textAlign?: CanvasTextAlign;

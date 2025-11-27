@@ -16,7 +16,7 @@ demo:
 
 可用来代替系统默认的 `title` 提示，提供一个 `按钮/文字/操作` 的文案解释。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -80,19 +80,19 @@ export default () => (
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 
 ## FAQ
 
-### 为何有时候 HOC 组件无法生效？
+### 为何有时候 HOC 组件无法生效？ {#faq-hoc-component}
 
 请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
 
 请查看 https://github.com/ant-design/ant-design/issues/15909
 
-### 为何 Tooltip 的内容在关闭时不会更新？
+### 为何 Tooltip 的内容在关闭时不会更新？ {#faq-content-not-update}
 
 Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁：
 

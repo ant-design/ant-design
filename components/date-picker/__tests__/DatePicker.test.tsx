@@ -5,7 +5,7 @@ import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test ca
 
 import React from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
-import dayJsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import dayJsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import { warning } from '@rc-component/util';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
