@@ -12,11 +12,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAA
 
 使用图标组件，你需要安装 [@ant-design/icons](https://github.com/ant-design/ant-design-icons) 图标组件包：
 
-<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons@6.x --save' yarn='yarn add @ant-design/icons@6.x' pnpm='pnpm install @ant-design/icons@6.x --save' bun='bun add @ant-design/icons@6.x'></InstallDependencies>
 
 <!-- prettier-ignore -->
 :::info{title=温馨提示}
-使用 antd@5.x 版本时, 请确保安装配套的 `@ant-design/icons@5.x` 版本，避免版本不匹配带来的 Context 问题。详见 [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
+使用 antd@6.x 版本时, 请确保安装配套的 `@ant-design/icons@6.x` 版本，避免版本不匹配带来的 Context 问题。详见 [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
 ## 设计师专属 {#designers-exclusive}
@@ -200,7 +200,7 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 
 这个问题可以通过以下两步解决：
 
-1. 使用 `@ant-design/icons@5.x` 配合 `antd@5.x`，而不是最新版本。
+1. 使用 `@ant-design/icons@6.x` 配合 `antd@6.x`。
 2. 停止使用 `message`, `Modal` 和 `notification` 的静态方法，改为使用 hooks 版本或 App 提供的实例。
 
 如果无法避免使用静态方法，可以在 App 组件下立刻使用任一一个 icon 组件，以规避静态方法对样式的影响。

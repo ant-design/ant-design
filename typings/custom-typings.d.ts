@@ -18,6 +18,12 @@ declare module '*.json' {
   export default value;
 }
 
+// https://github.com/umijs/dumi/pull/2281
+declare module '*.md' {
+  const content: React.FC;
+  export default content;
+}
+
 declare module '@npmcli/run-script' {
   export default function runScript(options: {
     [key: string]: string | string[] | boolean | NodeJS.ProcessEnv;

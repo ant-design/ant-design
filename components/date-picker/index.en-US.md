@@ -268,19 +268,19 @@ Note: `type` is added in `5.14.0`.
 
 ## FAQ
 
-### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
+### When set mode to DatePicker/RangePicker, cannot select year or month anymore? {#faq-mode-cannot-select}
 
 Please refer [FAQ](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore)
 
-### Why does the date picker switch to the date panel after selecting the year instead of the month panel?
+### Why does the date picker switch to the date panel after selecting the year instead of the month panel? {#faq-year-to-date-panel}
 
 After selecting the year, the system directly switches to the date panel instead of month panel. This design is intended to reduce the user's operational burden by allowing them to complete the year modification with just one click, without having to enter the month selection interface again. At the same time, it also avoids additional cognitive burden of remembering the month.
 
-### How to use DatePicker with customize date library like dayjs?
+### How to use DatePicker with customize date library like dayjs? {#faq-custom-date-library}
 
 Please refer [Use custom date library](/docs/react/use-custom-date-library#datepicker)
 
-### Why config dayjs.locale globally not work?
+### Why config dayjs.locale globally not work? {#faq-locale-not-work}
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
@@ -288,7 +288,7 @@ DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-### How to modify start day of week?
+### How to modify start day of week? {#faq-week-start-day}
 
 Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update dayjs `locale` config:
 
@@ -307,10 +307,10 @@ dayjs.updateLocale('zh-cn', {
 });
 ```
 
-### Why origin panel don't switch when using `panelRender`?
+### Why origin panel don't switch when using `panelRender`? {#faq-panel-render-switch}
 
 When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
 
-### How to understand disabled time and date?
+### How to understand disabled time and date? {#faq-disabled-date-time}
 
 Please refer to the blog ['Why is it so hard to disable the date?'](/docs/blog/picker), to learn how to use it.

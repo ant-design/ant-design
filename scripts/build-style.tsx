@@ -83,6 +83,14 @@ const ComponentCustomizeRender: Record<
     const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = notification;
     return <PurePanel />;
   },
+  Layout: () => (
+    <antd.Layout>
+      <antd.Layout.Header>Header</antd.Layout.Header>
+      <antd.Layout.Sider>Sider</antd.Layout.Sider>
+      <antd.Layout.Content>Content</antd.Layout.Content>
+      <antd.Layout.Footer>Footer</antd.Layout.Footer>
+    </antd.Layout>
+  ),
 };
 
 const defaultNode = () => (

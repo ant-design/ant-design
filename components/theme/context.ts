@@ -11,7 +11,7 @@ export { default as defaultTheme } from './themes/default/theme';
 export const defaultConfig = {
   token: defaultSeedToken,
   override: { override: defaultSeedToken },
-  hashed: false,
+  hashed: true,
 };
 
 export type ComponentsToken = {

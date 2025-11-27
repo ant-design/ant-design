@@ -84,13 +84,13 @@ export default () => (
 
 ## FAQ
 
-### Why doesn't HOC work sometimes?
+### Why doesn't HOC work sometimes? {#faq-hoc-component}
 
 Please ensure that the child elements of `Tooltip` can accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
 
 Please refer to https://github.com/ant-design/ant-design/issues/15909
 
-### Why Tooltip not update content when close?
+### Why Tooltip not update content when close? {#faq-content-not-update}
 
 Tooltip will cache content when it is closed to avoid flicker when content is updated:
 

@@ -141,15 +141,15 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### How to get parent node in onChange?
+### How to get parent node in onChange? {#faq-parent-node-info}
 
 We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
-### Why sometime customize Option cause scroll break?
+### Why sometime customize Option cause scroll break? {#faq-custom-option-scroll}
 
 You can ref Select [FAQ](/components/select).
 
-### Why `loadData` not trigger when searching?
+### Why `loadData` not trigger when searching? {#faq-load-data-expand}
 
 In earlier version, `loadData` will be triggered when searching. But we got feedback that it will block network when inputting. So we change it to not trigger `loadData` when searching. But you can still handle async logic by `filterTreeNode`:
 
@@ -167,6 +167,6 @@ In earlier version, `loadData` will be triggered when searching. But we got feed
 />
 ```
 
-### Why can't popup scroll horizontally?
+### Why can't popup scroll horizontally? {#faq-popup-not-scroll}
 
 Just turn off virtual scrolling, because the `scrollWidth` of the complete list cannot be accurately measured when virtual scrolling is turned on.
