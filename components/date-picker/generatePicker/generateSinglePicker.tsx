@@ -2,8 +2,8 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import RCPicker from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
-import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
-import type { PickerMode } from '@rc-component/picker/lib/interface';
+import type { GenerateConfig } from '@rc-component/picker/generate/index';
+import type { PickerMode } from '@rc-component/picker/interface';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';

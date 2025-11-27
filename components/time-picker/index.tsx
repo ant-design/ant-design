@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
-import type { SemanticName } from '@rc-component/picker/lib/interface';
+import type { SemanticName } from '@rc-component/picker/interface';
 import type { Dayjs } from 'dayjs';
 
 import type {

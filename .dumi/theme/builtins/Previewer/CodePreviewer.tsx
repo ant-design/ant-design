@@ -128,7 +128,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const codeBoxClass = clsx('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
-    'code-box-simplify': simplify,
+    'code-box-simplify': simplify && !iframe,
   });
 
   const highlightClass = clsx('highlight-wrapper', {
