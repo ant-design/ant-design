@@ -45,9 +45,7 @@ const useWave = (
   // Clean up RAF on unmount to prevent memory leaks and stale callbacks
   React.useEffect(
     () => () => {
-      if (rafId.current !== null) {
-        raf.cancel(rafId.current);
-      }
+      raf.cancel(rafId.current!);
     },
     [],
   );
