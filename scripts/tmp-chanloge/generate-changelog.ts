@@ -85,14 +85,14 @@ ${lines.join('\n')}
 </details>
 `;
 
-  const outputPath = path.join(__dirname, 'generated-changelog_v1.md');
+  const outputPath = path.join(__dirname, 'generated-changelog_v2.md');
   await fs.writeFile(outputPath, content, 'utf8');
   console.log(`Generated changelog at ${outputPath}`);
 };
 
 const run = async () => {
     await loadPrDetails();
-    await generateMarkdown('pr-ids_v1.json');
+    await generateMarkdown('pr-ids_v2.json');
 };
 
 run();
