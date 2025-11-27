@@ -27,9 +27,9 @@ tag: vVERSION
 
 #### Major Changes
 
-- 🔥 Semantic structure. Thanks [@thinkasany](https://github.com/thinkasany) & [@meet-student](https://github.com/meet-student) for spearheading the semantic structure implementation.
+- 🔥 Semantic structure.
     <details>
-    <summary>🔥 Antd components support semantic structure and ConfigProvider config.</summary>
+    <summary>🔥 antd components support semantic structure and ConfigProvider config, spearheaded by <a href="https://github.com/thinkasany" target="_blank">@thinkasany</a>.</summary>
 
     - feat: ConfigProvider support classNames and styles for Result [#52171](https://github.com/ant-design/ant-design/pull/52171)
     - feat: ConfigProvider support `classNames` and `styles` for Statistic [#52141](https://github.com/ant-design/ant-design/pull/52141)
@@ -84,7 +84,7 @@ tag: vVERSION
   </details>
 
   <details>
-    <summary>🔥 Antd components Dynamic generation via function based on props.</summary>
+    <summary>🔥 antd components support dynamic semantic structure generation via function, spearheaded by <a href="https://github.com/meet-student" target="_blank">@meet-student</a>.</summary>
 
     - feat(button): Support better customization with semantic classNames/styles as  function [#54813](https://github.com/ant-design/ant-design/pull/54813)
     - feat(input): Support better customization with semantic classNames/styles as function [#54919](https://github.com/ant-design/ant-design/pull/54919)

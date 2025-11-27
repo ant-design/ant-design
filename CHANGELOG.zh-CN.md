@@ -27,9 +27,9 @@ tag: vVERSION
 
 #### 主要变化
 
-- 🔥 组件语义化结构。感谢 [@thinkasany](https://github.com/thinkasany) 与 [@meet-student](https://github.com/meet-student) 主导整个语义化结构的开发工作。
+- 🔥 组件语义化结构。
   <details>
-    <summary>🔥 antd 组件支持语义化结构以及 ConfigProvider 配置。</summary>
+    <summary>🔥 antd 组件支持语义化结构以及 ConfigProvider 配置，由 <a href="https://github.com/thinkasany" target="_blank">@thinkasany</a> 主导。</summary>
 
     - feat: ConfigProvider support classNames and styles for Result [#52171](https://github.com/ant-design/ant-design/pull/52171)
     - feat: ConfigProvider support `classNames` and `styles` for Statistic [#52141](https://github.com/ant-design/ant-design/pull/52141)
@@ -84,7 +84,7 @@ tag: vVERSION
   </details>
 
   <details>
-    <summary>🔥 antd 组件语义化支持函数根据 props 动态生成。</summary>
+    <summary>🔥 antd 组件支持通过函数动态生成语义化结构，由 <a href="https://github.com/meet-student" target="_blank">@meet-student</a> 主导。</summary>
 
     - feat(button): Support better customization with semantic classNames/styles as  function [#54813](https://github.com/ant-design/ant-design/pull/54813)
     - feat(input): Support better customization with semantic classNames/styles as function [#54919](https://github.com/ant-design/ant-design/pull/54919)
