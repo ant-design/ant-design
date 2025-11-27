@@ -11,7 +11,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-top: ${cssVar.marginXL};
+      padding-top: 0;
       padding-bottom: ${cssVar.marginXXL} !important;
       font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
       padding-inline: ${cssVar.paddingXXS};
