@@ -92,6 +92,10 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | onResize      | 拖拽调整大小时的回调     | (size: number) => void | -      | 6.0.0 |
 | onResizeEnd   | 结束拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
 
+## Semantic DOM {#semantic-dom}
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Drawer"></ComponentTokenTable>

@@ -24,6 +24,7 @@ const useStyle = createStyles(({ cssVar, css }) => {
       width: ${cssVar.controlHeight};
       .btn-inner {
         transition: all ${cssVar.motionDurationMid};
+        display: flex;
       }
       img {
         width: ${BASE_SIZE};

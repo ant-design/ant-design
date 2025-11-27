@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
-import type { GenerateConfig } from '@rc-component/picker/lib/generate';
-import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
+import type { GenerateConfig } from '@rc-component/picker/generate';
+import type { CellRenderInfo } from '@rc-component/picker/interface';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 

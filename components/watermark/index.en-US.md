@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | color | font color | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) |  |
 | fontSize | font size | number | 16 |  |
-| fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
+| fontWeight | font weight | `normal` \| `lighter` \| `bold` \| `bolder` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 | textAlign | specify the text alignment direction  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | 5.10.0 |
