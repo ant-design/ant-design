@@ -3,7 +3,7 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
-import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
+import type { GenerateConfig } from '@rc-component/picker/generate/index';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';

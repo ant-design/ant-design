@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: send to dingtalk
-        uses: visiky/dingtalk-release-notify@main
+        uses: visiky/dingtalk-release-notify@c996ccb05a9b21755a87bf3bd5615a5e250ed3f1
         with:
           DING_TALK_TOKEN: |
             ${{ secrets.DINGDING_BOT_TOKEN }}

@@ -9,7 +9,7 @@ import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
@@ -136,7 +136,7 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
-  it('backspace should work with `Cascader[showSearch]`', () => {
+  it('backspace should work with `Cascader[showSearch]`', async () => {
     const { container } = render(<Cascader options={options} showSearch />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '123' } });
     expect(isOpen(container)).toBeTruthy();
@@ -148,6 +148,7 @@ describe('Cascader', () => {
     expect(isOpen(container)).toBeTruthy();
 
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Backspace', keyCode: 8 });
+    await waitFakeTimer();
     expect(isOpen(container)).toBeFalsy();
   });
 
@@ -500,11 +501,12 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
-  it('options should open after press esc and then search', () => {
+  it('options should open after press esc and then search', async () => {
     const { container } = render(<Cascader options={options} showSearch />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'jin' } });
     expect(isOpen(container)).toBeTruthy();
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Esc', keyCode: 27 });
+    await waitFakeTimer();
     expect(isOpen(container)).toBeFalsy();
     fireEvent.change(container.querySelector('input')!, { target: { value: 'jin' } });
     expect(isOpen(container)).toBeTruthy();
