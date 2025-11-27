@@ -1,0 +1,37 @@
+{
+  "id": 2482966140,
+  "number": 53659,
+  "title": "feat: ConfigProvider support classNames and styles for table",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n### 💡 Background and Solution\r\nwait for https://github.com/react-component/table/pull/1261\r\n\r\n\r\n\r\n\r\n\r\n### 📝 Change Log\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |     feat: ConfigProvider support classNames and styles for table      |\r\n| 🇨🇳 Chinese |     feat: ConfigProvider support classNames and styles for table      |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-05-21T07:42:19Z",
+  "created_at": "2025-04-26T08:12:10Z",
+  "updated_at": "2025-07-29T15:04:14Z",
+  "closed_at": "2025-05-21T07:42:19Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/53659",
+  "labels": [
+    {
+      "name": "lgtm",
+      "color": "238636",
+      "description": "This PR has been approved by a maintainer"
+    }
+  ],
+  "base": {
+    "ref": "next",
+    "sha": "ff614114c0faa47c260c253d490054b5d5d28307"
+  },
+  "head": {
+    "ref": "cp-table",
+    "sha": "6ec7a2d5ca8f450d132f058c5853a510053ae061",
+    "label": "ant-design:cp-table"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

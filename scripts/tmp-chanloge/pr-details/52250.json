@@ -1,0 +1,33 @@
+{
+  "id": 2261065753,
+  "number": 52250,
+  "title": "feat: ConfigProvider support Tour",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "<!--\r\nFirst of all, thank you for your contribution! 😄\r\nFor requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.\r\nBefore submitting your pull request, please make sure the checklist below is confirmed.\r\nYour pull requests will be merged after one of the collaborators approve.\r\nThank you!\r\n-->\r\n\r\n[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE_CN.md?plain=1)\r\n\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n\r\n### 🔗 Related Issues\r\nwait for https://github.com/react-component/tour/pull/70\r\n\r\n### 📝 Change Log\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |        feat: ConfigProvider support Tour   |\r\n| 🇨🇳 Chinese |    feat: ConfigProvider 支持 Tour 组件的配置       |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-03-03T03:18:16Z",
+  "created_at": "2025-01-06T02:22:20Z",
+  "updated_at": "2025-03-03T03:18:23Z",
+  "closed_at": "2025-03-03T03:18:16Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52250",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "2055bcf60db0464fab9cf4de171466f5f9ae5b1f"
+  },
+  "head": {
+    "ref": "cp-tour",
+    "sha": "8fec1bfd0c6733ebb4e8df4935f402d946b3b9ab",
+    "label": "thinkasany-forks:cp-tour"
+  },
+  "requested_reviewers": [],
+  "assignees": [
+    "zombieJ"
+  ]
+}

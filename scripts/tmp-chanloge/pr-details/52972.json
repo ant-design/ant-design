@@ -1,0 +1,31 @@
+{
+  "id": 2358514124,
+  "number": 52972,
+  "title": "feat: ConfigProvider support classnames and styles for upload",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n### 📝 Change Log\r\n\r\n> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.\r\n> - Describe the impact of the changes on developers, not the solution approach.\r\n> - Reference: https://ant.design/changelog\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |       feat: ConfigProvider support classnames and styles for upload    |\r\n| 🇨🇳 Chinese |       feat: ConfigProvider support classnames and styles for upload    |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-03-02T09:59:16Z",
+  "created_at": "2025-02-26T06:41:22Z",
+  "updated_at": "2025-03-02T09:59:23Z",
+  "closed_at": "2025-03-02T09:59:16Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52972",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "05468b791eb027775d48f4e5f62d5a82a8b04ec0"
+  },
+  "head": {
+    "ref": "cp-upload",
+    "sha": "dfbbd3ed8c132409878defcd8e448c6a504421ea",
+    "label": "ant-design:cp-upload"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

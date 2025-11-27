@@ -1,0 +1,31 @@
+{
+  "id": 2269559061,
+  "number": 52340,
+  "title": "feat: ConfigProvider support `classNames` and `styles` for Modal",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "<!--\r\nFirst of all, thank you for your contribution! 😄\r\nFor requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.\r\nBefore submitting your pull request, please make sure the checklist below is confirmed.\r\nYour pull requests will be merged after one of the collaborators approve.\r\nThank you!\r\n-->\r\n\r\n[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE_CN.md?plain=1)\r\n\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n\r\n\r\n### 📝 Change Log\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |      🆕 ConfigProvider support Modal semantic props `classNames` and `styles`.     |\r\n| 🇨🇳 Chinese |     🆕 ConfigProvider 支持 Modal 组件语义化 `classNames` 和 `styles`。      |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-01-23T10:06:17Z",
+  "created_at": "2025-01-10T02:15:09Z",
+  "updated_at": "2025-01-23T10:06:27Z",
+  "closed_at": "2025-01-23T10:06:17Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52340",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "96bf79f31105bf85a30c9c73401272ca45b8576e"
+  },
+  "head": {
+    "ref": "cp-modal",
+    "sha": "578c92ac0dbe293d5f9fec0db079b8d449b953e9",
+    "label": "thinkasany-forks:cp-modal"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

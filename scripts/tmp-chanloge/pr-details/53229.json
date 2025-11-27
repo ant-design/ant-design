@@ -1,0 +1,31 @@
+{
+  "id": 2406338917,
+  "number": 53229,
+  "title": "feat: ConfigProvider support classNames and styles for treeSelect",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\nwait for https://github.com/react-component/tree-select/pull/638/files\r\n\r\n### 📝 Change Log\r\n\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |   feat: ConfigProvider support classNames and styles for treeSelect        |\r\n| 🇨🇳 Chinese |     feat: ConfigProvider support classNames and styles for treeSelect      |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-03-25T11:14:35Z",
+  "created_at": "2025-03-20T09:45:17Z",
+  "updated_at": "2025-03-25T11:30:07Z",
+  "closed_at": "2025-03-25T11:14:35Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/53229",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "5c3fd39c6a72ba0dc585c1d5860af77caf325f8b"
+  },
+  "head": {
+    "ref": "cp-treeSelect",
+    "sha": "944f70f8d5765062407a560fa97fabd34a29f272",
+    "label": "ant-design:cp-treeSelect"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

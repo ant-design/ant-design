@@ -1,0 +1,31 @@
+{
+  "id": 2358858537,
+  "number": 52976,
+  "title": "feat: ConfigProvider support classnames and styles for timeline",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n\r\n### 📝 Change Log\r\n\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |        feat: ConfigProvider support classnames and styles for timeline   |\r\n| 🇨🇳 Chinese |       feat: ConfigProvider support classnames and styles for timeline    |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-02-28T08:06:58Z",
+  "created_at": "2025-02-26T08:59:04Z",
+  "updated_at": "2025-02-28T08:07:05Z",
+  "closed_at": "2025-02-28T08:06:58Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52976",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "4c769f1302453d2cdbb5d5e68eceb3bf6e71a302"
+  },
+  "head": {
+    "ref": "cp-timeline",
+    "sha": "e881ec252ee55ace148597415bb1c1c20039c305",
+    "label": "ant-design:cp-timeline"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

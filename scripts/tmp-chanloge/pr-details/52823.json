@@ -1,0 +1,31 @@
+{
+  "id": 2337357398,
+  "number": 52823,
+  "title": "feat: ConfigProvider support classNames and styles for Spin",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "<!--\r\nFirst of all, thank you for your contribution! 😄\r\nFor requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.\r\nBefore submitting your pull request, please make sure the checklist below is confirmed.\r\nYour pull requests will be merged after one of the collaborators approve.\r\nThank you!\r\n-->\r\n\r\n[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE_CN.md?plain=1)\r\n\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n\r\n\r\n### 📝 Change Log\r\n\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |     feat: ConfigProvider support classNames and styles for Spin      |\r\n| 🇨🇳 Chinese |      feat: ConfigProvider support classNames and styles for Spin     |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-02-17T11:33:15Z",
+  "created_at": "2025-02-15T02:30:13Z",
+  "updated_at": "2025-02-17T11:33:29Z",
+  "closed_at": "2025-02-17T11:33:15Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52823",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "5f09c72afd9bba095f6133133ddb09c1620f8772"
+  },
+  "head": {
+    "ref": "cp-spin",
+    "sha": "64f31cd380238c14f3201c08c8d0704c83d3655e",
+    "label": "ant-design:cp-spin"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

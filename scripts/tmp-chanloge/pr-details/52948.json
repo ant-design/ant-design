@@ -1,0 +1,31 @@
+{
+  "id": 2355882295,
+  "number": 52948,
+  "title": "feat: ConfigProvider support classnames and styles for select",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n\r\n### 🔗 Related Issues\r\nwait for https://github.com/react-component/select/pull/1128\r\n\r\n### 📝 Change Log\r\n\r\n> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.\r\n> - Describe the impact of the changes on developers, not the solution approach.\r\n> - Reference: https://ant.design/changelog\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |      feat: ConfigProvider support classnames and styles for select     |\r\n| 🇨🇳 Chinese |       feat: ConfigProvider support classnames and styles for select    |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-03-13T08:50:52Z",
+  "created_at": "2025-02-25T08:01:35Z",
+  "updated_at": "2025-03-13T08:51:04Z",
+  "closed_at": "2025-03-13T08:50:52Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52948",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "ec3b4790762deaa776879b7fbff64ab11931b692"
+  },
+  "head": {
+    "ref": "cp-select",
+    "sha": "26164a97aecc2deaa851a501b69b3495ef59ae9b",
+    "label": "ant-design:cp-select"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}
