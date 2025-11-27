@@ -84,7 +84,7 @@ pnpm add @ant-design/icons@6
 
 - `Breadcrumb`
   - `routes` 弃用，变为 `items`
-  - `Breadcrumb.Item` and `Breadcrumb.Separator` 弃用，变为 `items`
+  - `Breadcrumb.Item` 和 `Breadcrumb.Separator` 弃用，变为 `items`
 
 - `Button.Group`
   - `Button.Group` 弃用，变为 `Space.Compact`
