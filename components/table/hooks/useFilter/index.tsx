@@ -51,7 +51,7 @@ const collectFilterStates = <RecordType extends AnyObject = AnyObject>(
       } else {
         // Uncontrolled
         // default filterDropdown render trans filters value type to string,
-        // so need to trans defaultFilteredValue to string too, same as filteredValue does
+        // so need to transform defaultFilteredValue to string too, same as filteredValue does
         let filteredValues =
           init && column.defaultFilteredValue ? column.defaultFilteredValue! : undefined;
         if (!filterDropdownIsDefined) {

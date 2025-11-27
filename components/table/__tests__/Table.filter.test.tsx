@@ -3169,9 +3169,7 @@ describe('Table.filter', () => {
       title: 'Name',
       dataIndex: 'text',
       filters,
-      onFilter: (value, record) => {
-        return record.name === value;
-      },
+      onFilter: (value, record) => record.name === value,
     };
     const testCase = filters.flatMap((filter) =>
       ['filteredValue', 'defaultFilteredValue'].map((propName) => ({
