@@ -86,7 +86,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 
 - `Breadcrumb`
   - `routes` is deprecated and replaced by `items`
-  - `Breadcrumb.Item` and `Breadcrumb.Separator` is deprecated and replaced by `items`
+  - `Breadcrumb.Item` and `Breadcrumb.Separator` are deprecated and replaced by `items`
 
 - `Button.Group`
   - `Button.Group` is deprecated and replaced by `Space.Compact`
