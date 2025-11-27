@@ -166,7 +166,7 @@ pnpm add @ant-design/icons@6
   - `destroyPopupOnHide` 弃用，变为 `destroyOnHidden`
   - `overlayClassName` 弃用，变为 `classNames.root`
   - `overlayStyle` 弃用，变为 `styles.root`
-  - `placement: *xxx*Center` 弃用，变为 `placement: _xxx_`
+  - `placement: \`xxxCenter\`` 弃用，变为 `placement: \`xxx\``
 
 - `Empty`
   - `imageStyle` 弃用，变为 `styles.image`
