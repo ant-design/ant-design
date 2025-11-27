@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
-import type { GenerateConfig } from '@rc-component/picker/lib/generate';
-import type { Locale } from '@rc-component/picker/lib/interface';
+import type { GenerateConfig } from '@rc-component/picker/generate';
+import type { Locale } from '@rc-component/picker/interface';
 import { clsx } from 'clsx';
 
 import { FormItemInputContext } from '../form/context';
