@@ -55,6 +55,248 @@ pnpm add @ant-design/icons@6
 - 对于大多数正常使用 antd 样式的项目，这不会产生影响。
 - ⚠️ 如果你的项目中存在针对组件内部 DOM 节点的自定义样式（例如依赖特定选择器或层级结构），升级后可能需要手动检查并调整样式。
 
+### API 调整
+
+⚠️ 下列 API 已被标记为**废弃（Deprecated）**。尽管这些属性当前仍可使用，但控制台会提示弃用警告，并将在 7.0 中被移除。为保持代码的可维护性和兼容性，**建议尽快迁移到对应的替代属性**。
+
+- `Alert`
+  - `closeText` 弃用，变为 `closable.closeIcon`。
+  - `message` 弃用，变为 `title`。
+
+- `Anchor`
+  - `Anchor children` 弃用，变为 `items`。
+
+- `AutoComplete`
+  - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
+  - `dropdownStyle` 弃用，变为 `styles.popup.root`。
+  - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupClassName` 弃用，变为 `classNames.popup.root`。
+  - `dropdownRender` 弃用，变为 `popupRender`。
+  - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
+  - `dataSource` 弃用，变为 `options`。
+
+- `Avatar.Group`
+  - `maxCount` 弃用，变为 `max={{ count: number }}`。
+  - `maxStyle` 弃用，变为 `max={{ style: CSSProperties }}`。
+  - `maxPopoverPlacement` 弃用，变为 `max={{ popover: PopoverProps }}`。
+  - `maxPopoverTrigger` 弃用，变为 `max={{ popover: PopoverProps }}`。
+
+- `BackTop`
+  - `BackTop` 弃用，变为 `FloatButton.BackTop`。
+
+- `Breadcrumb`
+  - `routes` 弃用，变为 `items`。
+  - `Breadcrumb.Item` 和 `Breadcrumb.Separator` 弃用，变为 `items`。
+
+- `Button.Group`
+  - `Button.Group` 弃用，变为 `Space.Compact`。
+
+- `Button`
+  - `iconPosition` 弃用，变为 `iconPlacement`。
+
+- `Calendar`
+  - `dateFullCellRender` 弃用，变为 `fullCellRender`。
+  - `dateCellRender` 弃用，变为 `cellRender`。
+  - `monthFullCellRender` 弃用，变为 `fullCellRender`。
+  - `monthCellRender` 弃用，变为 `cellRender`。
+
+- `Card`
+  - `headStyle` 弃用，变为 `styles.header`。
+  - `bodyStyle` 弃用，变为 `styles.body`。
+  - `bordered` 弃用，变为 `variant`。
+
+- `Carousel`
+  - `dotPosition` 弃用，变为 `dotPlacement`。
+
+- `Cascader`
+  - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+  - `dropdownStyle` 弃用，变为 `styles.popup.root`。
+  - `dropdownRender` 弃用，变为 `popupRender`。
+  - `dropdownMenuColumnStyle` 弃用，变为 `popupMenuColumnStyle`。
+  - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
+  - `onPopupVisibleChange` 弃用，变为 `onOpenChange`。
+  - `bordered` 弃用，变为 `variant`。
+
+- `Collapse`
+  - `destroyInactivePanel` 弃用，变为 `destroyOnHidden`。
+  - `expandIconPosition` 弃用，变为 `expandIconPlacement`。
+
+- `Collapse.Panel`
+  - `disabled` 弃用，变为 `collapsible="disabled"`。
+
+- `ConfigProvider`
+  - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
+
+- `DatePicker.RangePicker`
+  - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupStyle` 弃用，变为 `styles.popup.root`。
+  - `bordered` 弃用，变为 `variant`。
+  - `onSelect` 弃用，变为 `onCalendarChange`。
+
+- `DatePicker`
+  - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupStyle` 弃用，变为 `styles.popup.root`。
+  - `bordered` 弃用，变为 `variant`。
+  - `onSelect` 弃用，变为 `onCalendarChange`。
+
+- `Descriptions`
+  - `labelStyle` 弃用，变为 `styles.label`。
+  - `contentStyle` 弃用，变为 `styles.content`。
+
+- `Divider`
+  - `type` 弃用，变为 `orientation`。
+  - `orientationMargin` 弃用，变为 `styles.content.margin`。
+
+- `Drawer`
+  - `headerStyle` 弃用，变为 `styles.header`。
+  - `bodyStyle` 弃用，变为 `styles.body`。
+  - `footerStyle` 弃用，变为 `styles.footer`。
+  - `contentWrapperStyle` 弃用，变为 `styles.wrapper`。
+  - `maskStyle` 弃用，变为 `styles.mask`。
+  - `drawerStyle` 弃用，变为 `styles.section`。
+  - `destroyInactivePanel` 弃用，变为 `destroyOnHidden`。
+  - `width` 弃用，变为 `size`。
+  - `height` 弃用，变为 `size`。
+
+- `Dropdown.Button`
+  - `Dropdown.Button` 弃用，变为 `Space.Compact + Dropdown + Button`。
+
+- `Dropdown`
+  - `dropdownRender` 弃用，变为 `popupRender`。
+  - `destroyPopupOnHide` 弃用，变为 `destroyOnHidden`。
+  - `overlayClassName` 弃用，变为 `classNames.root`。
+  - `overlayStyle` 弃用，变为 `styles.root`。
+  - `placement: xxxCenter` 弃用，变为 `placement: xxx`。
+
+- `Empty`
+  - `imageStyle` 弃用，变为 `styles.image`。
+
+- `FloatButton`
+  - `description` 弃用，变为 `content`。
+
+- `Image`
+  - `wrapperStyle` 弃用，变为 `styles.root`。
+  - `visible` 弃用，变为 `open`。
+  - `onVisibleChange` 弃用，变为 `onOpenChange`。
+  - `maskClassName` 弃用，变为 `classNames.cover`。
+  - `rootClassName` 弃用，变为 `classNames.root`。
+  - `toolbarRender` 弃用，变为 `actionsRender`。
+
+- `Input.Group`
+  - `Input.Group` 弃用，变为 `Space.Compact`。
+
+- `InputNumber`
+  - `bordered` 弃用，变为 `variant`。
+  - `addonAfter` 弃用，变为 `Space.Compact`。
+  - `addonBefore` 弃用，变为 `Space.Compact`。
+
+- `Mentions`
+  - `Mentions.Option` 弃用，变为 `options`。
+
+- `Menu`
+  - `children` 弃用，变为 `items`。
+
+- `Modal`
+  - `bodyStyle` 弃用，变为 `styles.body`。
+  - `maskStyle` 弃用，变为 `styles.mask`。
+  - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
+
+- `Notification`
+  - `btn` 弃用，变为 `actions`。
+  - `message` 弃用，变为 `title`。
+
+- `Progress`
+  - `strokeWidth` 弃用，变为 `size`。
+  - `width` 弃用，变为 `size`。
+  - `trailColor` 弃用，变为 `railColor`。
+  - `gapPosition` 弃用，变为 `gapPlacement`。
+
+- `Select`
+  - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
+  - `dropdownStyle` 弃用，变为 `styles.popup.root`。
+  - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupClassName` 弃用，变为 `classNames.popup.root`。
+  - `dropdownRender` 弃用，变为 `popupRender`。
+  - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
+  - `bordered` 弃用，变为 `variant`。
+
+- `Slider`
+  - `tooltipPrefixCls` 弃用，变为 `tooltip.prefixCls`。
+  - `getTooltipPopupContainer` 弃用，变为 `tooltip.getPopupContainer`。
+  - `tipFormatter` 弃用，变为 `tooltip.formatter`。
+  - `tooltipPlacement` 弃用，变为 `tooltip.placement`。
+  - `tooltipVisible` 弃用，变为 `tooltip.open`。
+
+- `Space.Compact`
+  - `direction` 弃用，变为 `orientation`。
+
+- `Space`
+  - `direction` 弃用，变为 `orientation`。
+  - `split` 弃用，变为 `separator`。
+
+- `Splitter`
+  - `layout` 弃用，变为 `orientation`。
+
+- `Countdown`
+  - `<Statistic.Countdown />` 弃用，变为 `<Statistic.Timer type="countdown" />`。
+
+- `Statistic`
+  - `valueStyle` 弃用，变为 `styles.content`。
+
+- `Steps`
+  - `labelPlacement` 弃用，变为 `titlePlacement`。
+  - `progressDot` 弃用，变为 `type="dot"`。
+  - `direction` 弃用，变为 `orientation`。
+  - `items.description` 弃用，变为 `items.content`。
+
+- `Table`
+  - `pagination.position` 弃用，变为 `pagination.placement`。
+  - `onSelectInvert` 弃用，变为 `onChange`。
+  - `filterDropdownOpen` 弃用，变为 `filterDropdownProps.open`。
+  - `onFilterDropdownOpenChange` 弃用，变为 `filterDropdownProps.onOpenChange`。
+  - `filterCheckall` 弃用，变为 `locale.filterCheckAll`。
+
+- `Tabs`
+  - `popupClassName` 弃用，变为 `classNames.popup`。
+  - `tabPosition` 弃用，变为 `tabPlacement`。
+  - `destroyInactiveTabPane` 弃用，变为 `destroyOnHidden`。
+  - `Tabs.TabPane` 弃用，变为 `items`。
+
+- `Tag`
+  - `bordered={false}` 弃用，变为 `variant="filled"`。
+  - `color="xxx-inverse"` 弃用，变为 `variant="solid"`。
+
+- `TimePicker`
+  - `addon` 弃用，变为 `renderExtraFooter`。
+
+- `Timeline`
+  - `Timeline.Item` 弃用，变为 `items`。
+  - `pending` 弃用，变为 `items`。
+  - `pendingDot` 弃用，变为 `items`。
+  - `mode=left|right` 弃用，变为 `mode=start|end`。
+
+- `Tooltip`
+  - `overlayStyle` 弃用，变为 `styles.root`。
+  - `overlayInnerStyle` 弃用，变为 `styles.container`。
+  - `overlayClassName` 弃用，变为 `classNames.root`。
+  - `destroyTooltipOnHide` 弃用，变为 `destroyOnHidden`。
+
+- `Transfer`
+  - `listStyle` 弃用，变为 `styles.section`。
+  - `operationStyle` 弃用，变为 `styles.actions`。
+  - `operations` 弃用，变为 `actions`。
+
+- `TreeSelect`
+  - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
+  - `dropdownStyle` 弃用，变为 `styles.popup.root`。
+  - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+  - `popupClassName` 弃用，变为 `classNames.popup.root`。
+  - `dropdownRender` 弃用，变为 `popupRender`。
+  - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
+  - `bordered` 弃用，变为 `variant`。
+
 ### 弹层类组件（Modal、Drawer 等）
 
 - 新增 `mask` 蒙层功能，并支持模糊效果。
@@ -125,6 +367,10 @@ v5 版本中，Form.List 会被认为是一个 Field，以至于提交时会包�
 
 - 默认开启 **CSS variables**，仅支持现代浏览器。
 - IE 浏览器不再支持，部分旧版国产浏览器可能存在兼容性问题，请在应用发布前确认目标浏览器的支持情况。
+
+### 原子级通过别名安装 v6
+
+- 如果你需要控制升级的影响范围，可以尝试[原子级迁移](https://github.com/ant-design/ant-design/discussions/55957)方案。请注意，这并非我们推荐的升级路径。
 
 ## 升级影响排查 Checklist
 
