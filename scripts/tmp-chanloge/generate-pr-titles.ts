@@ -55,7 +55,7 @@ const generateTitleMap = async (inputFiles: string[]) => {
   }
 
   // 3. Write to file
-  const outputPath = path.join(__dirname, 'pr-titles_v1.json');
+  const outputPath = path.join(__dirname, 'pr-titles_v2.json');
   await fs.writeJSON(outputPath, result, { spaces: 2 });
   console.log(
     `Generated PR titles map at ${outputPath} with ${Object.keys(result).length} entries.`,
@@ -64,7 +64,7 @@ const generateTitleMap = async (inputFiles: string[]) => {
 
 const run = async () => {
   await loadPrDetails();
-  await generateTitleMap(['pr-ids_v1.json']);
+  await generateTitleMap(['pr-ids_v2.json']);
 };
 
 run();
