@@ -23,6 +23,8 @@ export { default as Avatar } from './avatar/Avatar';
 export type { AvatarProps } from './avatar/Avatar';
 export { default as AvatarGroup } from './avatar/AvatarGroup';
 export type { AvatarGroupProps } from './avatar/AvatarGroup';
+export { default as BackTop } from './back-top';
+export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge/Badge';
 export type { BadgeProps } from './badge/Badge';
 export { default as Ribbon } from './badge/Ribbon';
