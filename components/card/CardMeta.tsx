@@ -20,7 +20,7 @@ export interface CardMetaProps {
   styles?: CardMetaStylesType;
 }
 
-const Meta: React.FC<CardMetaProps> = (props) => {
+const CardMeta: React.FC<CardMetaProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -102,4 +102,4 @@ const Meta: React.FC<CardMetaProps> = (props) => {
   );
 };
 
-export default Meta;
+export default CardMeta;
