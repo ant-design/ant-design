@@ -28,6 +28,7 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       [`${componentCls}-steppers${antCls}-input-number`]: {
         fontSize: fontSizeSM,
         lineHeight: lineHeightSM,
+        padding: 0,
         [`${antCls}-input-number-input`]: {
           paddingInlineStart: paddingXXS,
           paddingInlineEnd: 0,
