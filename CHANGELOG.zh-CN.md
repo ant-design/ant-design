@@ -27,7 +27,7 @@ tag: vVERSION
 
 #### 主要变化
 
-- 🔥 组件语义化结构。
+- 🔥 组件语义化结构，阅读[《语义化发现组件精致的美》](/docs/blog/semantic-beauty-cn)了解更多。
   <details>
     <summary>🔥 antd 组件支持语义化结构以及 ConfigProvider 配置，由 <a href="https://github.com/thinkasany" target="_blank">@thinkasany</a> 主导。</summary>
 

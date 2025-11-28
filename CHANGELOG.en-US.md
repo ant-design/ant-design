@@ -27,7 +27,7 @@ tag: vVERSION
 
 #### Major Changes
 
-- 🔥 Semantic structure.
+- 🔥 Semantic structure, Refer to [Discover the Delicate Beauty of Components with Semantic Design](/docs/blog/semantic-beauty) for details.
     <details>
     <summary>🔥 antd components support semantic structure and ConfigProvider config, spearheaded by <a href="https://github.com/thinkasany" target="_blank">@thinkasany</a>.</summary>
 
