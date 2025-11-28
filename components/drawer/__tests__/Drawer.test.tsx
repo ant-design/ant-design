@@ -617,7 +617,7 @@ describe('Drawer', () => {
     unmount2();
 
     // Test props override ConfigProvider
-    const { container: container3 } = render(
+    const { container: container3, unmount: unmount3 } = render(
       <ConfigProvider
         drawer={{
           closable: { placement: 'end' },
@@ -628,10 +628,10 @@ describe('Drawer', () => {
         </Drawer>
       </ConfigProvider>,
     );
-
     triggerMotion();
     const closeButton3 = container3.querySelector('.ant-drawer-close');
     expect(closeButton3).toBeTruthy();
     expect(container3.querySelector('.ant-drawer-close-end')).toBeFalsy();
+    unmount3();
   });
 });
