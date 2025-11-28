@@ -8,11 +8,13 @@ const App: React.FC = () => {
     <SelectSemanticTemplate
       component={Select}
       componentName="Select"
-      style={{ width: 200 }}
-      defaultValue="aojunhao123"
+      prefix="prefix"
+      style={{ width: 300 }}
+      multipleProps={{ mode: 'multiple' }}
       options={[
         { value: 'aojunhao123', label: 'aojunhao123' },
         { value: 'thinkasany', label: 'thinkasany' },
+        { value: 'meet-student', label: 'meet-student' },
       ]}
     />
   );

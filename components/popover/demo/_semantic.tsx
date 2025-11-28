@@ -2,17 +2,24 @@ import React from 'react';
 import { Popover } from 'antd';
 import type { PopoverProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
-    root: '根元素 (包含箭头、内容元素)',
-    body: '内容元素',
+    root: '根元素，设置绝对定位、层级、变换原点、箭头指向和弹层容器样式',
+    container: '容器元素，设置背景色、内边距、圆角、阴影、边框和内容展示样式',
+    arrow: '箭头元素，设置宽高、位置、颜色和边框样式',
+    title: '标题元素，设置标题文本样式和间距',
+    content: '内容元素，设置内容文本样式和布局',
   },
   en: {
-    root: 'Root element (including arrows, content elements)',
-    body: 'Body element',
+    root: 'Root element, set absolute positioning, z-index, transform origin, arrow direction and popover container styles',
+    container:
+      'Container element, set background color, padding, border radius, shadow, border and content display styles',
+    arrow: 'Arrow element with width, height, position, color and border styles',
+    title: 'Title element, set title text styles and spacing',
+    content: 'Content element, set content text styles and layout',
   },
 };
 
@@ -22,9 +29,10 @@ const BlockList: React.FC<React.PropsWithChildren<PopoverProps>> = (props) => {
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Popover
-        title="prompt text"
         open
         placement="top"
+        title="Hello"
+        content="Ant Design love you!"
         autoAdjustOverflow={false}
         getPopupContainer={() => divRef.current!}
         {...rest}
@@ -41,8 +49,11 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Popover"
       semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
-        { name: 'body', desc: locale.body, version: '5.23.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'container', desc: locale.container },
+        { name: 'title', desc: locale.title },
+        { name: 'content', desc: locale.content },
+        { name: 'arrow', desc: locale.arrow },
       ]}
     >
       <BlockList />

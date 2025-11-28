@@ -233,10 +233,10 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
 
   const animation = new Keyframes(`${token.prefixCls}-dot-animation`, {
     from: {
-      transform: `translate3d(-100%, 0, 0)`,
+      width: 0,
     },
     to: {
-      transform: `translate3d(0%, 0, 0)`,
+      width: token.dotActiveWidth,
     },
   });
 
@@ -284,7 +284,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             position: 'absolute',
             top: 0,
             insetInlineStart: 0,
-            width: '100%',
+            width: 0,
             height: dotHeight,
             content: '""',
             background: 'transparent',
@@ -391,12 +391,12 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
         margin: 0,
         transform: 'translateY(-50%)',
 
-        '&-left': {
+        '&-start': {
           insetInlineEnd: 'auto',
           insetInlineStart: dotOffset,
         },
 
-        '&-right': {
+        '&-end': {
           insetInlineEnd: dotOffset,
           insetInlineStart: 'auto',
         },

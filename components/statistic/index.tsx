@@ -5,7 +5,7 @@ import Statistic from './Statistic';
 import type { StatisticTimerProps } from './Timer';
 import Timer from './Timer';
 
-export type { CountdownProps, StatisticTimerProps, StatisticProps };
+export type { CountdownProps, StatisticProps, StatisticTimerProps };
 
 type CompoundedComponent = {
   /**

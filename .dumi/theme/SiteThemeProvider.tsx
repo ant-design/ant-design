@@ -3,7 +3,7 @@ import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
-import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 import SiteContext from './slots/SiteContext';
 
@@ -20,7 +20,6 @@ interface NewToken {
   marginFarSM: number;
   marginFar: number;
   codeFamily: string;
-  contentMarginTop: number;
   anchorTop: number;
 }
 
@@ -80,7 +79,6 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
         /** 96 */
         marginFar: token.marginXXL * 2,
         codeFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
-        contentMarginTop: 40,
         anchorTop: headerHeight + token.margin + (bannerVisible ? bannerHeight : 0),
       }}
     >

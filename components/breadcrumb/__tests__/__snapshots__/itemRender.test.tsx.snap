@@ -3,7 +3,7 @@
 exports[`Breadcrumb.ItemRender render as expect 1`] = `
 <div>
   <nav
-    class="ant-breadcrumb"
+    class="ant-breadcrumb css-var-root"
   >
     <ol>
       <li>

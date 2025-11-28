@@ -14,15 +14,15 @@ jobs:
       contents: write # for git push
     steps:
       - name: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           sparse-checkout: |
             .github
             .ncurc.js
             package.json
 
-      - name: setup bun
-        uses: oven-sh/setup-bun@v2
+      - name: setup utoo
+        uses: utooland/setup-utoo@v1
 
       - name: upgrade deps
         id: upgrade
@@ -30,7 +30,7 @@ jobs:
           if [ ! -d .tmp ] ; then
             mkdir .tmp
           fi
-          $(bunx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
+          $(utx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
           if [ -s .tmp/upgrade-deps-logs.txt ]; then
             cat .tmp/upgrade-deps-logs.txt
             echo "logs<<EOF" >> $GITHUB_OUTPUT

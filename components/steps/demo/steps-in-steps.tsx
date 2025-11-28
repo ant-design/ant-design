@@ -4,7 +4,7 @@ import { Card, Radio, Steps } from 'antd';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<StepsProps['size']>('default');
-  const description = 'This is a description.';
+  const content = 'This is a content.';
   const horizontalSteps = (
     <Card>
       <Steps
@@ -12,15 +12,15 @@ const App: React.FC = () => {
         items={[
           {
             title: 'Finished',
-            description,
+            content,
           },
           {
             title: 'In Progress',
-            description,
+            content,
           },
           {
             title: 'Waiting',
-            description,
+            content,
           },
         ]}
       />
@@ -39,19 +39,19 @@ const App: React.FC = () => {
       </Radio.Group>
       <Steps
         size={size}
-        direction="vertical"
+        orientation="vertical"
         items={[
           {
             title: 'Finished',
-            description: horizontalSteps,
+            content: horizontalSteps,
           },
           {
             title: 'In Progress',
-            description,
+            content,
           },
           {
             title: 'Waiting',
-            description,
+            content,
           },
         ]}
       />

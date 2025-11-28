@@ -1,24 +1,32 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-import type { ProgressProps } from './progress';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import type { ProgressProps, SemanticName } from './progress';
 import { getSize } from './utils';
 
-interface ProgressStepsProps extends ProgressProps {
+interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   steps: number;
   strokeColor?: string | string[];
+  railColor?: string;
+  /** @deprecated Please use `railColor` instead */
   trailColor?: string;
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
 }
 
 const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
+    classNames,
+    styles,
     size,
     steps,
     rounding: customRounding = Math.round,
     percent = 0,
     strokeWidth = 8,
     strokeColor,
-    trailColor = null as any,
+    railColor,
+    trailColor,
     prefixCls,
     children,
   } = props;
@@ -28,24 +36,32 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
   const [width, height] = getSize(mergedSize, 'step', { steps, strokeWidth });
   const unitWidth = width / steps;
   const styledSteps = Array.from<React.ReactNode>({ length: steps });
+
+  const mergedRailColor = railColor ?? trailColor;
+
   for (let i = 0; i < steps; i++) {
     const color = Array.isArray(strokeColor) ? strokeColor[i] : strokeColor;
     styledSteps[i] = (
       <div
         key={i}
-        className={classNames(`${prefixCls}-steps-item`, {
-          [`${prefixCls}-steps-item-active`]: i <= current - 1,
-        })}
+        className={clsx(
+          `${prefixCls}-steps-item`,
+          {
+            [`${prefixCls}-steps-item-active`]: i <= current - 1,
+          },
+          classNames.track,
+        )}
         style={{
-          backgroundColor: i <= current - 1 ? color : trailColor,
+          backgroundColor: i <= current - 1 ? color : mergedRailColor,
           width: unitWidth,
           height,
+          ...styles.track,
         }}
       />
     );
   }
   return (
-    <div className={`${prefixCls}-steps-outer`}>
+    <div className={clsx(`${prefixCls}-steps-body`, classNames.body)} style={styles.body}>
       {styledSteps}
       {children}
     </div>

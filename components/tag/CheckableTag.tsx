@@ -1,9 +1,10 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
 
 export interface CheckableTagProps {
@@ -13,7 +14,7 @@ export interface CheckableTagProps {
   /**
    * It is an absolute controlled component and has no uncontrolled mode.
    *
-   * .zh-cn 该组件为完全受控组件，不支持非受控用法。
+   * zh-cn 该组件为完全受控组件，不支持非受控用法。
    */
   checked: boolean;
   children?: React.ReactNode;
@@ -27,6 +28,7 @@ export interface CheckableTagProps {
   size?: SizeType;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  disabled?: boolean;
 }
 
 const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props, ref) => {
@@ -40,18 +42,24 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     size: customizeSize,
     onChange,
     onClick,
+    disabled: customDisabled,
     ...restProps
   } = props;
   const { getPrefixCls, tag } = React.useContext(ConfigContext);
 
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    if (mergedDisabled) {
+      return;
+    }
     onChange?.(!checked);
     onClick?.(e);
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
-  // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
   // Size
   const sizeClassNameMap: Record<NonNullable<SizeType>, string | undefined> = {
     large: 'lg',
@@ -63,12 +71,16 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
 
   const sizeCls = sizeClassNameMap[sizeFullName];
 
-  const cls = classNames(
+  // Style
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-checkable`,
     {
       [`${prefixCls}-checkable-checked`]: checked,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-checkable-disabled`]: mergedDisabled,
     },
     tag?.className,
     className,
@@ -76,7 +88,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <span
       {...restProps}
       ref={ref}
@@ -86,7 +98,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     >
       {icon}
       <span>{children}</span>
-    </span>,
+    </span>
   );
 });
 

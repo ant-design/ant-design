@@ -4,7 +4,7 @@ name: Deploy website
 on:
   push:
     tags:
-      - '5.*'
+      - '6.*'
   workflow_dispatch:
 
 permissions:
@@ -21,19 +21,19 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
-      - run: bun install
+      - run: ut
 
       - name: build site
-        run: bun run predeploy
+        run: ut predeploy
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
       - name: build dist and bundle analyzer report
-        run: bun run dist
+        run: ut dist
         env:
           ANALYZER: 1
           NODE_OPTIONS: --max_old_space_size=4096
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-site
     steps:
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
       - name: download site artifact
         uses: actions/download-artifact@v6
@@ -73,7 +73,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          exclude_files: ./_site/report.html # 👈 这个功能是 beta, 但即便不排除，也不 care
+          exclude_assets: ./_site/report.html
           force_orphan: true
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
@@ -88,7 +88,7 @@ jobs:
       - name: Deploy to Surge (with TAG)
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
-          bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v4

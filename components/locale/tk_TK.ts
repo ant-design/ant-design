@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/tk_TK';
+import Pagination from '@rc-component/pagination/lib/locale/tk_TK';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/tk_TK';
@@ -126,9 +126,6 @@ const localeValues: Locale = {
         mismatch: '${label} meýdany ${pattern} şablony bilen gabat gelmeýär',
       },
     },
-  },
-  Image: {
-    preview: 'Öňünden görmek',
   },
 };
 

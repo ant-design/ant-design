@@ -233,7 +233,7 @@ describe('Layout', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
     rerender(
       <Sider collapsible collapsed>
         <Menu mode="inline">
@@ -248,7 +248,7 @@ describe('Layout', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeTruthy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
 
     jest.useRealTimers();
   });

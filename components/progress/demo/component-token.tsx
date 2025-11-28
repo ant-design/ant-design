@@ -16,7 +16,7 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Space direction="vertical">
+    <Space vertical>
       <Progress percent={50} />
       <Progress percent={50} size="small" />
       <Progress percent={50} size={[300, 20]} />

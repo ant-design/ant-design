@@ -39,6 +39,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/buddhist-era.tsx" version="5.14.0">Buddhist Era</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
@@ -96,13 +97,14 @@ The following APIs are shared by DatePicker, RangePicker.
 | allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | className | The picker className | string | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
 | defaultOpen | Initial open state of picker | boolean | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
-| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
+| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | Auto order date when multiple or range selection | boolean | true | 5.14.0 |
 | ~~popupClassName~~ | To customize the className of the popup calendar, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | 5.14.0 |
@@ -123,9 +125,11 @@ The following APIs are shared by DatePicker, RangePicker.
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | prevIcon | The custom prev icon | ReactNode | - | 4.17.0 |
+| previewValue | When the user selects the date hover option, the value of the input field undergoes a temporary change | false \| hover | hover | 6.0.0 |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | To customize the style of the input box | CSSProperties | {} |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
@@ -157,7 +161,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | Show week info when in DatePicker | boolean | false | 5.14.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | onOk | Callback when click ok button | function() | - |  |
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 
@@ -170,7 +174,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
 ### DatePicker\[picker=quarter]
 
@@ -183,7 +187,7 @@ Added in `4.1.0`.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
 ### DatePicker\[picker=month]
 
@@ -194,7 +198,7 @@ Added in `4.1.0`.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
 ### DatePicker\[picker=week]
 
@@ -205,7 +209,7 @@ Added in `4.1.0`.
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | showWeek | Show week info when in DatePicker | boolean | true | 5.14.0 |
 
 ### RangePicker
@@ -230,7 +234,7 @@ Added in `4.1.0`.
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs] \| null, dateStrings: \[string, string] \| null) | - |  |
 | onFocus | Trigger when get focus | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.14.0 |
 | onBlur | Trigger when lose focus | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.14.0 |
 
@@ -264,19 +268,19 @@ Note: `type` is added in `5.14.0`.
 
 ## FAQ
 
-### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
+### When set mode to DatePicker/RangePicker, cannot select year or month anymore? {#faq-mode-cannot-select}
 
 Please refer [FAQ](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore)
 
-### Why does the date picker switch to the date panel after selecting the year instead of the month panel?
+### Why does the date picker switch to the date panel after selecting the year instead of the month panel? {#faq-year-to-date-panel}
 
 After selecting the year, the system directly switches to the date panel instead of month panel. This design is intended to reduce the user's operational burden by allowing them to complete the year modification with just one click, without having to enter the month selection interface again. At the same time, it also avoids additional cognitive burden of remembering the month.
 
-### How to use DatePicker with customize date library like dayjs?
+### How to use DatePicker with customize date library like dayjs? {#faq-custom-date-library}
 
 Please refer [Use custom date library](/docs/react/use-custom-date-library#datepicker)
 
-### Why config dayjs.locale globally not work?
+### Why config dayjs.locale globally not work? {#faq-locale-not-work}
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
@@ -284,7 +288,7 @@ DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-### How to modify start day of week?
+### How to modify start day of week? {#faq-week-start-day}
 
 Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update dayjs `locale` config:
 
@@ -303,10 +307,10 @@ dayjs.updateLocale('zh-cn', {
 });
 ```
 
-### Why origin panel don't switch when using `panelRender`?
+### Why origin panel don't switch when using `panelRender`? {#faq-panel-render-switch}
 
 When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
 
-### How to understand disabled time and date?
+### How to understand disabled time and date? {#faq-disabled-date-time}
 
 Please refer to the blog ['Why is it so hard to disable the date?'](/docs/blog/picker), to learn how to use it.

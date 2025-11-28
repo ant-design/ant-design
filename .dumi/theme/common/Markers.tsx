@@ -1,5 +1,5 @@
 import * as React from 'react';
-import isVisible from 'rc-util/lib/Dom/isVisible';
+import isVisible from '@rc-component/util/lib/Dom/isVisible';
 
 import Marker from './Marker';
 
@@ -23,14 +23,34 @@ const Markers: React.FC<MarkersProps> = (props) => {
 
   // ======================== Effect =========================
   React.useEffect(() => {
-    const targetElements = targetClassName
+    const allElements = targetClassName
       ? Array.from(containerRef.current?.querySelectorAll<HTMLElement>(`.${targetClassName}`) || [])
       : [];
+
+    const targetElements = allElements.filter((element) => {
+      let currentElement: HTMLElement | null = element;
+      let count = 0;
+
+      while (currentElement && count <= 5) {
+        const computedStyle = window.getComputedStyle(currentElement);
+        const opacity = Number.parseFloat(computedStyle.opacity);
+
+        if (opacity === 0) {
+          return false;
+        }
+
+        currentElement = currentElement.parentElement;
+        count++;
+      }
+
+      return true;
+    });
 
     const containerRect = containerRef.current?.getBoundingClientRect() || ({} as DOMRect);
 
     const targetRectList = targetElements.map<RectType>((targetElement) => {
       const rect = targetElement.getBoundingClientRect();
+
       return {
         left: rect.left - (containerRect.left || 0),
         top: rect.top - (containerRect.top || 0),

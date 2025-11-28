@@ -1,13 +1,7 @@
 ## zh-CN
 
-最简单的用法。
+最简单的用法。（已废弃）
 
 ## en-US
 
-The most basic usage.
-
-```css
-.site-back-top-basic {
-  color: rgba(64, 64, 64, 0.6);
-}
-```
+The most basic usage. (Deprecated)

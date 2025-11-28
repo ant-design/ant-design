@@ -52,7 +52,7 @@ const App: React.FC = () => {
       style={{ width: 300 }}
       options={options}
       onSelect={onSelect}
-      onSearch={handleSearch}
+      showSearch={{ onSearch: handleSearch }}
     >
       <Input.Search size="large" placeholder="input here" enterButton />
     </AutoComplete>

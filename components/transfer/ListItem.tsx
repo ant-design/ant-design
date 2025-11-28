@@ -1,18 +1,21 @@
 import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-import type { KeyWiseTransferItem } from '.';
+import type { KeyWiseTransferItem, SemanticName } from '.';
+import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
+  prefixCls: string;
+  classNames: SemanticClassNames<SemanticName>;
+  styles: SemanticStyles<SemanticName>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
   checked?: boolean;
-  prefixCls: string;
   onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
@@ -21,18 +24,20 @@ type ListItemProps<RecordType> = {
 
 const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
   const {
+    prefixCls,
+    classNames,
+    styles,
     renderedText,
     renderedEl,
     item,
     checked,
     disabled,
-    prefixCls,
     onClick,
     onRemove,
     showRemove,
   } = props;
 
-  const className = classNames(`${prefixCls}-content-item`, {
+  const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
   });
@@ -44,9 +49,20 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
 
-  const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
+  const liProps: React.HTMLAttributes<HTMLLIElement> = {
+    className: classes,
+    style: styles.item,
+    title,
+  };
 
-  const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
+  const labelNode = (
+    <span
+      className={clsx(`${prefixCls}-content-item-text`, classNames.itemContent)}
+      style={styles.itemContent}
+    >
+      {renderedEl}
+    </span>
+  );
 
   if (showRemove) {
     return (
@@ -71,7 +87,8 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   return (
     <li {...liProps}>
       <Checkbox
-        className={`${prefixCls}-checkbox`}
+        className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
+        style={styles.itemIcon}
         checked={checked}
         disabled={disabled || item.disabled}
       />

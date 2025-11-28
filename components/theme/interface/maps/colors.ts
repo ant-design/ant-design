@@ -59,6 +59,14 @@ export interface ColorNeutralMapToken {
    */
   colorBorderSecondary: string;
 
+  /**
+   * @nameZH 禁用态边框颜色
+   * @nameEN Disabled state border color
+   * @desc 控制元素在禁用状态下的边框颜色。
+   * @descEN Control the border color of the element in the disabled state.
+   */
+  colorBorderDisabled: string;
+
   // ----------   Fill   ---------- //
 
   /**
@@ -628,5 +636,4 @@ export interface ColorMapToken
    * @desc 不随主题变化的纯黑色
    * @default #0000
    */
-  // colorBlack: string;
 }

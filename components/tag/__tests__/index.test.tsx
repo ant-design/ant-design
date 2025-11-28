@@ -1,15 +1,17 @@
 import React from 'react';
-import { CheckCircleOutlined, LinkedinOutlined } from '@ant-design/icons';
+import { darkAlgorithm } from '@ant-design/compatible';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { CheckCircleOutlined, CloseCircleOutlined, LinkedinOutlined } from '@ant-design/icons';
 
 import Tag from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
 });
@@ -119,52 +121,55 @@ describe('Tag', () => {
     expect(container.querySelector('.ant-tag ')?.childElementCount).toBe(1);
   });
 
-  it('deprecated warning', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(<Tag visible={false} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` is deprecated. Please use `visible && <Tag />` instead.',
-    );
-    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
-  describe('visibility', () => {
-    it('can be controlled by visible with visible as initial value', () => {
-      const { container, rerender } = render(<Tag visible />);
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
-
-      rerender(<Tag visible={false} />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-      rerender(<Tag visible />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+  describe('disabled', () => {
+    it('should not trigger onClick when disabled', () => {
+      const onClick = jest.fn();
+      const { container } = render(<Tag disabled onClick={onClick} />);
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onClick).not.toHaveBeenCalled();
     });
 
-    it('can be controlled by visible with hidden as initial value', () => {
-      const { container, rerender } = render(<Tag visible={false} />);
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+    it('should not trigger onClose when disabled', () => {
+      const onClose = jest.fn();
+      const { container } = render(<Tag disabled closable onClose={onClose} />);
+      fireEvent.click(container.querySelector('.ant-tag-close-icon')!);
+      expect(onClose).not.toHaveBeenCalled();
+    });
 
-      rerender(<Tag visible />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+    it("should prevent children's event when disabled", () => {
+      const onClick = jest.fn();
+      const { container } = render(
+        <Tag disabled>
+          <a href="https://ant.design" onClick={onClick}>
+            Link
+          </a>
+        </Tag>,
+      );
+      const link = container.querySelector('a')!;
+      expect(link).toHaveStyle({ pointerEvents: 'none' });
+    });
 
-      rerender(<Tag visible={false} />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+    it('should render correctly when disabled', () => {
+      const { container } = render(<Tag disabled>Disabled Tag</Tag>);
+      expect(container.querySelector('.ant-tag-disabled')).toBeTruthy();
+    });
+
+    it('should not trigger onClose and onClick when click closeIcon and disabled', () => {
+      const onClose = jest.fn();
+      const onClick = jest.fn();
+      const { container } = render(
+        <Tag
+          disabled
+          closable
+          closeIcon={<CloseCircleOutlined />}
+          onClose={onClose}
+          onClick={onClick}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('.ant-tag-close-icon')!);
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 
@@ -195,15 +200,61 @@ describe('Tag', () => {
       const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked />);
       expect(container.querySelector('.anticon')).toBeInTheDocument();
     });
+
     it('should render custom icon', () => {
       const { container } = render(
         <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked />,
       );
       expect(container.querySelector('.custom-icon')).toBeInTheDocument();
     });
+
     it('not render icon', () => {
       const { container } = render(<Tag.CheckableTag checked />);
       expect(container.querySelector('.anticon')).not.toBeInTheDocument();
+    });
+
+    it('should not trigger onChange when disabled', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Tag.CheckableTag disabled checked={false} onChange={onChange}>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('should render correctly for disabled CheckableTag', () => {
+      const { container, rerender } = render(
+        <Tag.CheckableTag disabled checked={false}>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+
+      // Test checked state
+      rerender(
+        <Tag.CheckableTag disabled checked>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable-checked')).toBeTruthy();
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+    });
+
+    it('should handle context disabled state', () => {
+      const onChange = jest.fn();
+      const Demo = () => (
+        <ConfigProvider componentDisabled>
+          <Tag.CheckableTag checked={false} onChange={onChange}>
+            Checkable
+          </Tag.CheckableTag>
+        </ConfigProvider>
+      );
+      const { container } = render(<Demo />);
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onChange).not.toHaveBeenCalled();
     });
   });
   it('should onClick is undefined', async () => {
@@ -218,6 +269,134 @@ describe('Tag', () => {
       'CloseBtn',
     );
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+  });
+  it('should apply classNames and styles correctly', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(255, 0, 0)' },
+      content: { backgroundColor: 'rgb(0, 0, 255)' },
+    };
+    const { container } = render(
+      <Tag icon={<CheckCircleOutlined />} classNames={customClassNames} styles={customStyles}>
+        ant
+      </Tag>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-tag');
+
+    expect(rootElement).toHaveClass('custom-root');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+    expect(container.querySelector<HTMLElement>('.custom-icon')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
+    expect(container.querySelector<HTMLElement>('.custom-content')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
+  });
+  it('should handle invalid icon gracefully', () => {
+    const { container } = render(<Tag icon="">tag</Tag>);
+    const iconElement = container.querySelector('svg');
+    expect(container).not.toBeNull();
+    expect(iconElement).toBeNull();
+  });
+
+  it('should have variant className', () => {
+    const { container } = render(
+      <Tag color="#66ccff" variant="solid">
+        tag
+      </Tag>,
+    );
+    const tagElement = container.querySelector('.ant-tag-solid');
+    expect(tagElement).not.toBeNull();
+  });
+
+  it('legacy color inverse', () => {
+    const { container } = render(<Tag color="green-inverse">tag</Tag>);
+
+    expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-solid');
+  });
+
+  describe('CheckableTagGroup', () => {
+    it('should check single tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup defaultValue="foo" options={['foo', 'bar']} onChange={onChange} />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith('bar');
+
+      // Click again
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(null);
+    });
+
+    it('should check multiple tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={['foo', 'bar']}
+          options={[
+            { value: 'foo', label: 'Foo' },
+            { value: 'bar', label: 'Bar' },
+          ]}
+          onChange={onChange}
+        />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo']);
+
+      // Click again
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+    });
+
+    it('id', () => {
+      const { container } = render(<Tag.CheckableTagGroup id="test-id" />);
+
+      expect(container.querySelector('.ant-tag-checkable-group')?.id).toBe('test-id');
+    });
+  });
+
+  it('dark theme default', () => {
+    document.head.innerHTML = '';
+
+    render(
+      <StyleProvider cache={createCache()}>
+        <ConfigProvider
+          theme={{
+            algorithm: darkAlgorithm,
+          }}
+        >
+          <Tag variant="solid" color="default">
+            Tag
+          </Tag>
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
+  });
+
+  it('legacy bordered={false}', () => {
+    const { container } = render(<Tag bordered={false}>Tag</Tag>);
+    expect(container.querySelector('.ant-tag-filled')).toBeTruthy();
   });
 
   it('should not override aria-label in custom closeIcon', () => {
@@ -234,5 +413,55 @@ describe('Tag', () => {
       </Tag>,
     );
     expect(getByRole('button')).toHaveAttribute('aria-label', 'Remove This Filter');
+  });
+
+  it('support classNames and styles as objects', () => {
+    const { container } = render(
+      <Tag
+        icon={<CheckCircleOutlined />}
+        classNames={{
+          root: 'custom-tag-root',
+          icon: 'custom-tag-icon',
+          content: 'custom-tag-content',
+        }}
+        styles={{
+          root: {
+            backgroundColor: 'lightblue',
+            border: '2px solid blue',
+          },
+          icon: {
+            color: 'red',
+            fontSize: '16px',
+          },
+          content: {
+            backgroundColor: 'yellow',
+            color: 'green',
+          },
+        }}
+      >
+        Test Tag
+      </Tag>,
+    );
+
+    const tagElement = container.querySelector('.ant-tag');
+    const iconElement = container.querySelector('.custom-tag-icon');
+    const contentElement = container.querySelector('.custom-tag-content');
+
+    expect(tagElement).toHaveClass('custom-tag-root');
+    expect(tagElement).toHaveAttribute('style');
+    const rootStyle = tagElement?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('border: 2px solid blue');
+
+    expect(iconElement).toHaveAttribute('style');
+    const iconStyle = iconElement?.getAttribute('style');
+    expect(iconStyle).toContain('color: red');
+    expect(iconStyle).toContain('font-size: 16px');
+
+    expect(contentElement).toHaveClass('custom-tag-content');
+    expect(contentElement).toHaveAttribute('style');
+    const contentStyle = contentElement?.getAttribute('style');
+    expect(contentStyle).toContain('background-color: yellow');
+    expect(contentStyle).toContain('color: green');
   });
 });

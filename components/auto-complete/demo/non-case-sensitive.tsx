@@ -12,9 +12,10 @@ const App: React.FC = () => (
     style={{ width: 200 }}
     options={options}
     placeholder="try to type `b`"
-    filterOption={(inputValue, option) =>
-      option!.value.toUpperCase().includes(inputValue.toUpperCase())
-    }
+    showSearch={{
+      filterOption: (inputValue, option) =>
+        option!.value.toUpperCase().includes(inputValue.toUpperCase()),
+    }}
   />
 );
 

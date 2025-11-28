@@ -9,7 +9,7 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
 import dayjs from 'dayjs';
@@ -21,13 +21,11 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
+import VersionUpgrade from '../common/VersionUpgrade';
 import SiteThemeProvider from '../SiteThemeProvider';
-import type { SiteContextProps } from '../slots/SiteContext';
+import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
-import '@ant-design/v5-patch-for-react-19';
-
-type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 
 const RESPONSIVE_MOBILE = 768;
@@ -68,16 +66,24 @@ const getSystemTheme = (): 'light' | 'dark' => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
+const isThemeDark = (theme: ThemeName[], systemTheme: 'dark' | 'light') => {
+  return theme.includes('dark') || (theme.includes('auto') && systemTheme === 'dark');
+};
+
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
-    useLayoutState<SiteState>({
-      isMobile: false,
-      direction: 'ltr',
-      theme: [],
-      bannerVisible: false,
-    });
+  const [
+    { theme = [], direction, isMobile, bannerVisible = false, dynamicTheme, isDark = false },
+    setSiteState,
+  ] = useLayoutState<SiteState>({
+    isMobile: false,
+    direction: 'ltr',
+    theme: [],
+    isDark: false,
+    bannerVisible: false,
+    dynamicTheme: undefined,
+  });
 
   const [storedTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
     defaultValue: undefined,
@@ -105,17 +111,16 @@ const GlobalLayout: React.FC = () => {
 
   const bannerData = getBannerData();
 
-  // TODO: This can be remove in v6
-  const useCssVar = searchParams.get('cssVar') !== 'false';
-
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
       setSiteState((prev) => ({ ...prev, ...props }));
 
       const oldSearchStr = searchParams.toString();
-      let nextSearchParams: URLSearchParams = searchParams;
 
-      (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
+      let nextSearchParams: URLSearchParams = searchParams;
+      Object.entries(props).forEach((kv) => {
+        const [key, value] = kv as [string, string];
+
         if (key === 'direction') {
           if (value === 'rtl') {
             nextSearchParams.set('direction', 'rtl');
@@ -139,6 +144,7 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
+
     [searchParams, setSearchParams],
   );
 
@@ -146,7 +152,7 @@ const GlobalLayout: React.FC = () => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
   }, [updateSiteConfig]);
 
-  // 设置 data-prefers-color 属性
+  // 设置 data-prefers-color 属性和 isDark 状态
   useEffect(() => {
     const color = theme.find((t) => t === 'light' || t === 'dark');
     const html = document.querySelector<HTMLHtmlElement>('html');
@@ -155,6 +161,8 @@ const GlobalLayout: React.FC = () => {
     } else if (color) {
       html?.setAttribute('data-prefers-color', color);
     }
+
+    setSiteState((prev) => ({ ...prev, isDark: isThemeDark(theme, systemTheme) }));
   }, [systemTheme, theme]);
 
   // 监听系统主题变化
@@ -182,6 +190,7 @@ const GlobalLayout: React.FC = () => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
     const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
+    const _isDark = isThemeDark(finalTheme, systemTheme);
 
     const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
 
@@ -191,6 +200,7 @@ const GlobalLayout: React.FC = () => {
 
     setSiteState({
       theme: finalTheme,
+      isDark: _isDark,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
     });
@@ -215,22 +225,51 @@ const GlobalLayout: React.FC = () => {
       direction,
       updateSiteConfig,
       theme: theme!,
+      isDark: isDark!,
       isMobile: isMobile!,
       bannerVisible,
+      dynamicTheme,
     }),
-    [isMobile, direction, updateSiteConfig, theme, bannerVisible],
+    [isMobile, direction, updateSiteConfig, theme, isDark, bannerVisible, dynamicTheme],
   );
 
-  const themeConfig = React.useMemo<ThemeConfig>(() => {
-    // 算法优先级：auto 时用系统主题算法
-    const themeForAlgorithm = theme;
-    return {
-      algorithm: getAlgorithm(themeForAlgorithm, systemTheme),
-      token: { motion: !theme.includes('motion-off') },
-      cssVar: useCssVar,
-      hashed: !useCssVar,
-    };
-  }, [theme, useCssVar, systemTheme]);
+  const [themeConfig, componentsClassNames] = React.useMemo<
+    [ThemeConfig, SimpleComponentClassNames]
+  >(() => {
+    let mergedTheme = theme;
+
+    const {
+      algorithm: dynamicAlgorithm,
+      token: dynamicToken,
+      ...rawComponentsClassNames
+    } = dynamicTheme || {};
+
+    if (dynamicAlgorithm) {
+      mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
+      mergedTheme.push(dynamicAlgorithm);
+    }
+
+    // Convert rawComponentsClassNames to nextComponentsClassNames
+    const nextComponentsClassNames: any = {};
+    Object.keys(rawComponentsClassNames).forEach((key) => {
+      nextComponentsClassNames[key] = {
+        classNames: (rawComponentsClassNames as any)[key],
+      };
+    });
+
+    return [
+      {
+        algorithm: getAlgorithm(mergedTheme, systemTheme),
+        token: {
+          motion: !theme.includes('motion-off'),
+          ...dynamicToken,
+          // colorBgContainer: 'rgba(255,0,0,0.1)',
+        },
+        zeroRuntime: process.env.NODE_ENV === 'production',
+      },
+      nextComponentsClassNames,
+    ];
+  }, [theme, dynamicTheme, systemTheme]);
 
   const styleCache = React.useMemo(() => createCache(), []);
 
@@ -269,17 +308,21 @@ const GlobalLayout: React.FC = () => {
   ));
 
   return (
-    <DarkContext
-      value={theme.includes('dark') || (theme.includes('auto') && systemTheme === 'dark')}
-    >
+    <DarkContext value={isDark}>
       <StyleProvider
         cache={styleCache}
+        layer
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
         <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
-              <App>{outlet}</App>
+              <ConfigProvider {...componentsClassNames}>
+                <App>
+                  {outlet}
+                  <VersionUpgrade />
+                </App>
+              </ConfigProvider>
             </HappyProvider>
           </SiteThemeProvider>
         </SiteContext>

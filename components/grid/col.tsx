@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
@@ -69,7 +69,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useColStyle(prefixCls);
+  const [hashId, cssVarCls] = useColStyle(prefixCls);
 
   // ===================== Size ======================
   const sizeStyle: Record<string, string> = {};
@@ -105,7 +105,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   });
 
   // ==================== Normal =====================
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-${span}`]: span !== undefined,
@@ -125,8 +125,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   if (gutter?.[0]) {
     const horizontalGutter =
       typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
-    mergedStyle.paddingLeft = horizontalGutter;
-    mergedStyle.paddingRight = horizontalGutter;
+    mergedStyle.paddingInline = horizontalGutter;
   }
 
   if (flex) {
@@ -140,7 +139,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   // ==================== Render =====================
-  return wrapCSSVar(
+  return (
     <div
       {...others}
       style={{ ...mergedStyle, ...style, ...sizeStyle }}
@@ -148,7 +147,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       ref={ref}
     >
       {children}
-    </div>,
+    </div>
   );
 });
 

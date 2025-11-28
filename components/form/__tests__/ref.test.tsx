@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormRef } from 'rc-field-form/lib/interface';
+import type { FormRef } from '@rc-component/form/lib/interface';
 
 import Form from '..';
 import type { FormInstance } from '..';

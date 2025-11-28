@@ -11,7 +11,7 @@ const App: React.FC = () => (
     <InternalFloatButton icon={<CustomerServiceOutlined />} />
     <InternalFloatButton
       icon={<QuestionCircleOutlined />}
-      description="HELP"
+      content="HELP"
       shape="square"
       type="primary"
     />

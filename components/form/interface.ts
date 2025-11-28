@@ -1,6 +1,11 @@
 import type { Options } from 'scroll-into-view-if-needed';
+export type {
+  InternalNamePath,
+  NamePath,
+  Store,
+  StoreValue,
+} from '@rc-component/form/lib/interface';
 
-export type { InternalNamePath, NamePath, Store, StoreValue } from 'rc-field-form/lib/interface';
 export type ScrollFocusOptions = Options & {
   focus?: boolean;
 };

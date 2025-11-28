@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
-import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { Locale } from 'rc-picker/lib/interface';
+import type { GenerateConfig } from '@rc-component/picker/generate';
+import type { Locale } from '@rc-component/picker/interface';
+import { clsx } from 'clsx';
 
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
@@ -141,6 +142,8 @@ function ModeSwitch<DateType>(props: ModeSwitchProps<DateType>) {
 }
 
 export interface CalendarHeaderProps<DateType> {
+  className?: string;
+  style?: React.CSSProperties;
   prefixCls: string;
   value: DateType;
   validRange?: [DateType, DateType];
@@ -151,11 +154,13 @@ export interface CalendarHeaderProps<DateType> {
   onChange: (date: DateType, source: SelectInfo['source']) => void;
   onModeChange: (mode: CalendarMode) => void;
 }
+
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
-  const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
+  const { prefixCls, fullscreen, mode, onChange, onModeChange, className, style } = props;
   const divRef = React.useRef<HTMLDivElement>(null!);
 
   const formItemInputContext = useContext(FormItemInputContext);
+
   const mergedFormItemInputContext = useMemo(
     () => ({
       ...formItemInputContext,
@@ -171,7 +176,7 @@ function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   };
 
   return (
-    <div className={`${prefixCls}-header`} ref={divRef}>
+    <div className={clsx(`${prefixCls}-header`, className)} style={style} ref={divRef}>
       <FormItemInputContext.Provider value={mergedFormItemInputContext}>
         <YearSelect
           {...sharedProps}
