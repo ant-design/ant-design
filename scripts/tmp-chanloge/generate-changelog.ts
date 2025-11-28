@@ -21,7 +21,7 @@ const loadPrDetails = async () => {
   for (const file of files) {
     const data = await fs.readJSON(file);
     if (data && data.number) {
-        prDetailsMap.set(data.number, data);
+      prDetailsMap.set(data.number, data);
     }
   }
 };
@@ -30,46 +30,46 @@ const loadPrDetails = async () => {
 const generateMarkdown = async (prIdsFilename: string) => {
   const prIdsPath = path.join(__dirname, prIdsFilename);
   if (!fs.existsSync(prIdsPath)) {
-      console.error(`Error: ${prIdsPath} not found.`);
-      return;
+    console.error(`Error: ${prIdsPath} not found.`);
+    return;
   }
 
   const prIds: string[] = await fs.readJSON(prIdsPath);
   const prs = [];
 
   for (const idStr of prIds) {
-      const id = Number.parseInt(idStr, 10);
-      const pr = prDetailsMap.get(id);
-      if (pr) {
-          prs.push(pr);
-      } else {
-          console.warn(`Warning: Details for PR #${id} not found.`);
-      }
+    const id = Number.parseInt(idStr, 10);
+    const pr = prDetailsMap.get(id);
+    if (pr) {
+      prs.push(pr);
+    } else {
+      console.warn(`Warning: Details for PR #${id} not found.`);
+    }
   }
 
   // Sort by merged_at (earliest to latest)
   prs.sort((a, b) => {
-      const dateA = new Date(a.merged_at).getTime();
-      const dateB = new Date(b.merged_at).getTime();
-      return dateA - dateB;
+    const dateA = new Date(a.merged_at).getTime();
+    const dateB = new Date(b.merged_at).getTime();
+    return dateA - dateB;
   });
 
   const MAX_TITLE_LENGTH = 800;
 
   // 作者白名单，如果作者在此列表中，生成的日志中将不会包含 @作者 信息
-  const authorWhitelist: string[] = [
-    'meet-student',
-    'thinkasany',
-  ];
+  const authorWhitelist: string[] = ['meet-student', 'thinkasany'];
 
   const formatLine = (pr: any) => {
     let title = pr.title.trim();
     if (title.length > MAX_TITLE_LENGTH) {
-      title = `${title.substring(0, MAX_TITLE_LENGTH)  }...`;
+      title = `${title.substring(0, MAX_TITLE_LENGTH)}...`;
     }
 
     const prLink = `[#${pr.number}](${pr.html_url})`;
-    const userLink = pr.user && !authorWhitelist.includes(pr.user.login) ? `[@${pr.user.login}](${pr.user.html_url})` : '';
+    const userLink =
+      pr.user && !authorWhitelist.includes(pr.user.login)
+        ? `[@${pr.user.login}](${pr.user.html_url})`
+        : '';
 
     return `- ${title} ${prLink} ${userLink}`;
   };
@@ -85,14 +85,14 @@ ${lines.join('\n')}
 </details>
 `;
 
-  const outputPath = path.join(__dirname, 'generated-changelog_v2.md');
+  const outputPath = path.join(__dirname, 'generated-changelog_v1.md');
   await fs.writeFile(outputPath, content, 'utf8');
   console.log(`Generated changelog at ${outputPath}`);
 };
 
 const run = async () => {
-    await loadPrDetails();
-    await generateMarkdown('pr-ids_v2.json');
+  await loadPrDetails();
+  await generateMarkdown('pr-ids_v1.json');
 };
 
 run();
