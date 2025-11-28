@@ -14,7 +14,7 @@ jobs:
       pull-requests: write  # for actions-cool/pr-welcome to request reviewer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-welcome@v1
+      - uses: actions-cool/pr-welcome@1c2b1c3e3ab926424a4464fbf7b6321efb67c871
         with:
           refuse-issue-label: 🎱 Collaborate PR only
           need-creator-authority: write
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check fill
-        uses: actions-cool/pr-check-fill@v1
+        uses: actions-cool/pr-check-fill@f19d0f252c9071fca7f97ccfe69541b7cdf9ccda
         with:
           filter-start: '|'
           require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
