@@ -81,7 +81,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const drawerContext = useComponentConfig('drawer');
 
-  const { classNames: contextClassNames, styles: contextStyles } = drawerContext;
+  const {
+    classNames: contextClassNames,
+    styles: contextStyles,
+    closable: contextClosable,
+  } = drawerContext;
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     DrawerClassNamesType,
@@ -91,14 +95,16 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     props,
   });
 
-  let closablePlacement: string | undefined;
-  if (closable === false) {
-    closablePlacement = undefined;
-  } else if (closable === undefined || closable === true) {
-    closablePlacement = 'start';
-  } else {
-    closablePlacement = closable?.placement === 'end' ? 'end' : 'start';
-  }
+  const closablePlacement = React.useMemo<'start' | 'end' | undefined>(() => {
+    const mergedClosableVal = closable ?? contextClosable;
+    if (mergedClosableVal === false) {
+      return undefined;
+    }
+    if (typeof mergedClosableVal === 'object' && mergedClosableVal.placement === 'end') {
+      return 'end';
+    }
+    return 'start';
+  }, [closable, contextClosable]);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (

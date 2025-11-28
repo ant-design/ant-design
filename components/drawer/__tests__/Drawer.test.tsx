@@ -503,30 +503,29 @@ describe('Drawer', () => {
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
     ];
 
-    it.each(testCases)(
-      'drawerMask = %s configMask = %s ,mask blur = %s',
-      (modalMask, configMask, expectedBlurClass, openMask) => {
-        render(
-          <ConfigProvider drawer={{ mask: configMask }}>
-            <Drawer open mask={modalMask} />
-          </ConfigProvider>,
-        );
+    it.each(
+      testCases,
+    )('drawerMask = %s configMask = %s ,mask blur = %s', (modalMask, configMask, expectedBlurClass, openMask) => {
+      render(
+        <ConfigProvider drawer={{ mask: configMask }}>
+          <Drawer open mask={modalMask} />
+        </ConfigProvider>,
+      );
 
-        const maskElement = document.querySelector('.ant-drawer-mask');
+      const maskElement = document.querySelector('.ant-drawer-mask');
 
-        if (!openMask) {
-          expect(maskElement).toBeNull();
-          return;
-        }
+      if (!openMask) {
+        expect(maskElement).toBeNull();
+        return;
+      }
 
-        expect(maskElement).toBeInTheDocument();
-        if (expectedBlurClass) {
-          expect(maskElement!.className).toContain('ant-drawer-mask-blur');
-        } else {
-          expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
-        }
-      },
-    );
+      expect(maskElement).toBeInTheDocument();
+      if (expectedBlurClass) {
+        expect(maskElement!.className).toContain('ant-drawer-mask-blur');
+      } else {
+        expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
+      }
+    });
     it('should support closable placement with start', () => {
       const { container } = render(
         <Drawer open closable={{ placement: 'start' }} getContainer={false}>
@@ -576,5 +575,63 @@ describe('Drawer', () => {
       </Drawer>,
     );
     expect(content).toHaveAttribute('aria-labelledby', 'custom-id');
+  });
+
+  it('should support closable placement config from ConfigProvider', () => {
+    // Test default closable placement from ConfigProvider
+    const { container: container1, unmount: unmount1 } = render(
+      <ConfigProvider
+        drawer={{
+          closable: { placement: 'end' },
+        }}
+      >
+        <Drawer open title="Test Drawer" getContainer={false}>
+          Content
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    triggerMotion();
+    const closeButton1 = container1.querySelector('.ant-drawer-close-end');
+    expect(closeButton1).toBeTruthy();
+    expect(container1.querySelector('.ant-drawer-close')).toBe(closeButton1);
+    unmount1();
+
+    // Test start placement from ConfigProvider
+    const { container: container2, unmount: unmount2 } = render(
+      <ConfigProvider
+        drawer={{
+          closable: { placement: 'start' },
+        }}
+      >
+        <Drawer open title="Test Drawer" getContainer={false}>
+          Content
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    triggerMotion();
+    const closeButton2 = container2.querySelector('.ant-drawer-close');
+    expect(closeButton2).toBeTruthy();
+    expect(container2.querySelector('.ant-drawer-close-end')).toBeFalsy();
+    unmount2();
+
+    // Test props override ConfigProvider
+    const { container: container3 } = render(
+      <ConfigProvider
+        drawer={{
+          closable: { placement: 'end' },
+        }}
+      >
+        <Drawer open title="Test Drawer" closable={{ placement: 'start' }} getContainer={false}>
+          Content
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    triggerMotion();
+    const closeButton3 = container3.querySelector('.ant-drawer-close');
+    expect(closeButton3).toBeTruthy();
+    expect(container3.querySelector('.ant-drawer-close-end')).toBeFalsy();
   });
 });
