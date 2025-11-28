@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useEvent } from 'rc-util';
-import raf from 'rc-util/lib/raf';
+import { useEvent } from '@rc-component/util';
 
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';
@@ -9,6 +8,8 @@ import type { FormatConfig, valueType } from './utils';
 import { formatCounter } from './utils';
 
 export type TimerType = 'countdown' | 'countup';
+
+const UPDATE_INTERVAL = 1000 / 60;
 
 export interface StatisticTimerProps extends FormatConfig, StatisticProps {
   type: TimerType;
@@ -51,21 +52,27 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
 
   // Effect trigger
   React.useEffect(() => {
-    let rafId: number;
+    let intervalId: number;
 
-    const clear = () => raf.cancel(rafId!);
-
-    const rafUpdate = () => {
-      rafId = raf(() => {
-        if (update()) {
-          rafUpdate();
-        }
-      });
+    const tick = () => {
+      if (!update()) {
+        window.clearInterval(intervalId);
+      }
     };
 
-    rafUpdate();
+    const startTimer = () => {
+      intervalId = window.setInterval(tick, UPDATE_INTERVAL);
+    };
 
-    return clear;
+    const stopTimer = () => {
+      window.clearInterval(intervalId);
+    };
+
+    startTimer();
+
+    return () => {
+      stopTimer();
+    };
   }, [value, down]);
 
   React.useEffect(() => {

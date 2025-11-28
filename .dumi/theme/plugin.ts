@@ -227,6 +227,12 @@ const RoutesPlugin = async (api: IApi) => {
 
     return memo;
   });
+
+  if (process.env.NODE_ENV === 'production') {
+    api.addEntryImportsAhead(() => ({
+      source: path.join(api.paths.cwd, 'components', 'style', 'antd.css'),
+    }));
+  }
 };
 
 export default RoutesPlugin;

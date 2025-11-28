@@ -2,21 +2,40 @@ import type {
   PickerRef,
   PickerProps as RcPickerProps,
   RangePickerProps as RcRangePickerProps,
-} from 'rc-picker';
-import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+} from '@rc-component/picker';
+import type {
+  PanelSemanticName as PopupSemantic,
+  Locale as RcPickerLocale,
+  SemanticName,
+} from '@rc-component/picker/interface';
 
+import type {
+  SemanticClassNames,
+  SemanticClassNamesType,
+  SemanticStyles,
+  SemanticStylesType,
+} from '../../_util/hooks';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
-import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../config-provider';
+import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
 
 const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
-type SemanticName = 'root';
-type PopupSemantic = 'root';
+export type DatePickerClassNamesType<P> = SemanticClassNamesType<
+  InjectDefaultProps<P>,
+  SemanticName,
+  { popup?: string | SemanticClassNames<PopupSemantic> }
+>;
+
+export type DatePickerStylesType<P> = SemanticStylesType<
+  InjectDefaultProps<P>,
+  SemanticName,
+  { popup?: SemanticStyles<PopupSemantic> }
+>;
 
 export type PickerLocale = {
   lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
@@ -60,24 +79,20 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-export type PickerClassNames = Partial<Record<SemanticName, string>> & {
-  popup?: Partial<Record<PopupSemantic, string>>;
+export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'popup'> & {
+  popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
 };
 
-export type PickerStyles = Partial<Record<SemanticName, React.CSSProperties>> & {
-  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-};
+export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
 
-export type RequiredSemanticPicker = readonly [
-  classNames: Required<Record<SemanticName, string>> & {
-    popup: Required<Record<PopupSemantic, string>>;
-  },
-  styles: Required<Record<SemanticName, React.CSSProperties>> & {
-    popup: Required<Record<PopupSemantic, React.CSSProperties>>;
-  },
-];
+export type RequiredSemanticPicker = Readonly<
+  [
+    classNames: SemanticClassNames<SemanticName> & { popup: SemanticClassNames<PopupSemantic> },
+    styles: SemanticStyles<SemanticName> & { popup: SemanticStyles<PopupSemantic> },
+  ]
+>;
 
-type InjectDefaultProps<Props> = Omit<
+export type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
 > & {
@@ -92,7 +107,6 @@ type InjectDefaultProps<Props> = Omit<
    * @default "outlined"
    */
   variant?: Variant;
-
   /**
    * @deprecated `dropdownClassName` is deprecated which will be removed in next major
    *   version.Please use `classNames.popup.root` instead.
@@ -107,8 +121,8 @@ type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  styles?: PickerStyles;
-  classNames?: PickerClassNames;
+  classNames?: DatePickerPickerClassNames<Props>;
+  styles?: DatePickerStylesType<Props>;
 };
 
 /** Base Single Picker props */
@@ -129,6 +143,10 @@ export type GenericTimePickerProps<DateType extends AnyObject = any> = Omit<
   onSelect?: (value: DateType) => void;
 };
 
+type MultiValueType<ValueType, IsMultiple extends boolean = false> = IsMultiple extends true
+  ? ValueType[]
+  : ValueType;
+
 /**
  * Single Picker has the `multiple` prop,
  * which will make the `value` be `DateType[]` type.
@@ -138,10 +156,15 @@ export type PickerPropsWithMultiple<
   DateType extends AnyObject = any,
   InnerPickerProps extends PickerProps<DateType> = PickerProps<DateType>,
   ValueType = DateType,
+  IsMultiple extends boolean = false,
 > = Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange' | 'onOk'> &
   React.RefAttributes<PickerRef> & {
-    defaultValue?: ValueType | null;
-    value?: ValueType | null;
-    onChange?: (date: ValueType, dateString: string | string[]) => void;
-    onOk?: (date: ValueType) => void;
+    multiple?: IsMultiple;
+    defaultValue?: MultiValueType<ValueType, IsMultiple> | null;
+    value?: MultiValueType<ValueType, IsMultiple> | null;
+    onChange?: (
+      date: MultiValueType<ValueType, IsMultiple> | null,
+      dateString: MultiValueType<string, IsMultiple> | null,
+    ) => void;
+    onOk?: (date: MultiValueType<ValueType, IsMultiple>) => void;
   };

@@ -11,7 +11,7 @@ dayjs.extend(customParseFormat);
 const { RangePicker } = DatePicker;
 
 const range = (start: number, end: number) => {
-  const result = [];
+  const result: number[] = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
@@ -50,7 +50,7 @@ const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
       disabledDate={disabledDate}

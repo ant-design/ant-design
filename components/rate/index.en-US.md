@@ -18,6 +18,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/size.tsx" version="6.0.0">Sizes</code>
 <code src="./demo/half.tsx">Half star</code>
 <code src="./demo/text.tsx">Show copywriting</code>
 <code src="./demo/disabled.tsx">Read only</code>
@@ -41,8 +42,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | The default value | number | 0 |  |
 | disabled | If read only, unable to interact | boolean | false |  |
 | keyboard | Support keyboard operation | boolean | true | 5.18.0 |
+| size | Star size | 'small' \| 'middle' \| 'large' | 'middle' |  |
 | style | The custom style object of rate | CSSProperties | - |  |
-| tooltips | Customize tooltip by each character | string\[] | - |  |
+| tooltips | Customize tooltip by each character | [TooltipProps](/components/tooltip#api)[] \| string\[] | - |  |
 | value | The current value | number | - |  |
 | onBlur | Callback when component lose focus | function() | - |  |
 | onChange | Callback when select value | function(value: number) | - |  |

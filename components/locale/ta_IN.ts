@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ta_IN';
+import Pagination from '@rc-component/pagination/lib/locale/ta_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ta_IN';
@@ -124,9 +124,6 @@ const localeValues: Locale = {
         mismatch: '${label} ஆனது ${pattern} வடிவத்துடன் பொருந்தவில்லை',
       },
     },
-  },
-  Image: {
-    preview: 'முன்னோட்ட',
   },
   QRCode: {
     expired: 'QR குறியீடு காலாவதியானது',

@@ -3,56 +3,41 @@
 exports[`renders components/back-top/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-back-top"
-  />,
-  Scroll down to see the bottom-right,
-  <strong
-    class="site-back-top-basic"
+    class="css-var-test-id ant-back-top"
   >
-     gray 
-  </strong>,
-  button.,
+    <div
+      class="ant-fade-appear ant-fade-appear-start ant-fade ant-back-top-content"
+    >
+      <div
+        class="ant-back-top-icon"
+      >
+        <span
+          aria-label="vertical-align-top"
+          class="anticon anticon-vertical-align-top"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="vertical-align-top"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>,
+  Scroll down to see the bottom-right.,
 ]
 `;
 
 exports[`renders components/back-top/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: BackTop] \`BackTop\` is deprecated. Please use \`FloatButton.BackTop\` instead.",
-]
-`;
-
-exports[`renders components/back-top/demo/custom.tsx extend context correctly 1`] = `
-<div
-  style="height: 600vh; padding: 8px;"
->
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div
-    class="ant-back-top"
-  />
-</div>
-`;
-
-exports[`renders components/back-top/demo/custom.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: BackTop] \`BackTop\` is deprecated. Please use \`FloatButton.BackTop\` instead.",
 ]

@@ -1,11 +1,14 @@
 import React from 'react';
 import Icon from '@ant-design/icons';
 
-interface SVGIconProps {
+interface SvgIconProps {
+  className?: string;
+  style?: React.CSSProperties;
+  ref?: React.Ref<HTMLSpanElement>;
   expanded?: boolean;
 }
 
-const SVGIcon: React.FC<SVGIconProps> = ({ expanded }) => (
+const SVGIcon: React.FC<SvgIconProps> = ({ expanded }) => (
   <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor">
     <title>Expand Icon</title>
     {expanded ? (
@@ -24,8 +27,9 @@ const SVGIcon: React.FC<SVGIconProps> = ({ expanded }) => (
   </svg>
 );
 
-const ExpandIcon = React.forwardRef<HTMLSpanElement, { className?: string; expanded?: boolean }>(
-  ({ expanded }, ref) => <Icon component={() => SVGIcon({ expanded })} ref={ref} />,
-);
+const ExpandIcon: React.FC<SvgIconProps> = (props) => {
+  const { ref, expanded, ...rest } = props;
+  return <Icon component={() => <SVGIcon expanded={expanded} />} ref={ref} {...rest} />;
+};
 
 export default ExpandIcon;

@@ -6,7 +6,7 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = notification;
 
 export default () => (
   <InternalPanel
-    message="Hello World!"
+    title="Hello World!"
     description="Hello World?"
     type="success"
     actions={

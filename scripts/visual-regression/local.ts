@@ -14,7 +14,7 @@ import { Octokit } from '@octokit/rest';
 import { spawnSync } from 'child_process';
 import difference from 'lodash/difference';
 import open from 'open';
-import { select, input, checkbox, confirm } from '@inquirer/prompts';
+import { checkbox, confirm, input, select } from '@inquirer/prompts';
 import { getUserAgent, resolveCommand } from 'package-manager-detector';
 
 const ROOT = path.resolve(__dirname, '../../');
@@ -182,7 +182,6 @@ async function run() {
     message: '📚 请选择需要测试的组件，不建议选择全部【全量快照生成需要耗费很长时间】\n',
     pageSize: Math.floor(components.length / 4),
     loop: false,
-    theme: { helpMode: 'always' },
     choices: components.map((component) => ({
       value: component,
       checked: component.endsWith('components/button'), // 默认选中 button

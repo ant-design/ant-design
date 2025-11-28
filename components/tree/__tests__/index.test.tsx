@@ -1,4 +1,5 @@
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -240,7 +241,60 @@ describe('Tree', () => {
       });
     });
   });
+  it('customize classNames and styles', () => {
+    const data = [
+      {
+        title: 'parent 1',
+        key: '0-0',
+        icon: <SmileOutlined />,
+        children: [
+          {
+            title: 'leaf',
+            key: '0-0-0',
+            icon: <SmileOutlined />,
+          },
+          {
+            title: 'leaf',
+            key: '0-0-1',
+            icon: <SmileOutlined />,
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      item: 'test-item',
+      itemIcon: 'test-icon',
+      itemTitle: 'test-title',
+      root: 'test-root',
+    };
+    const testStyles = {
+      item: { background: 'rgb(255, 0, 0)' },
+      itemIcon: { color: 'rgb(0, 0, 255)' },
+      itemTitle: { color: 'rgb(255, 255, 0)' },
+      root: { color: 'rgb(0, 255, 0)' },
+    };
+    const { container } = render(
+      <Tree
+        treeData={data}
+        showIcon
+        defaultExpandAll
+        styles={testStyles}
+        classNames={testClassNames}
+      />,
+    );
+    const root = container.querySelector('.ant-tree');
+    const title = container.querySelector('.ant-tree-title');
+    const item = container.querySelector(`.${testClassNames.item}`);
+    const icon = container.querySelector('.ant-tree-iconEle');
 
+    expect(root).toHaveStyle(testStyles.root);
+    expect(root).toHaveClass(testClassNames.root);
+    expect(icon).toHaveStyle(testStyles.itemIcon);
+    expect(icon).toHaveClass(testClassNames.itemIcon);
+    expect(title).toHaveStyle(testStyles.itemTitle);
+    expect(title).toHaveClass(testClassNames.itemTitle);
+    expect(item).toHaveStyle(testStyles.item);
+  });
   describe('form disabled', () => {
     it('should support Form disabled', () => {
       const { container } = render(

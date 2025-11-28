@@ -17,8 +17,8 @@ export interface ComponentToken {
    */
   splitBarDraggableSize: number;
   /**
-   * @desc 拖拽元素大小
-   * @descEN Drag the element size
+   * @desc 拖拽元素显示大小
+   * @descEN Drag the element display size
    */
   splitBarSize: number;
   /**
@@ -84,6 +84,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     controlItemBgActive,
     controlItemBgActiveHover,
     prefixCls,
+    colorPrimary,
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
@@ -153,6 +154,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               background: controlItemBgActiveHover,
             },
           },
+          [`&-active${splitBarCls}-dragger-customize`]: {
+            [`${splitBarCls}-dragger-icon`]: {
+              color: colorPrimary,
+            },
+          },
 
           // Disabled, not use `pointer-events: none` since still need trigger collapse
           [`&-disabled${splitBarCls}-dragger`]: {
@@ -163,6 +169,24 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               '&::before': {
                 background: controlItemBgHover,
               },
+            },
+
+            '&::after': {
+              display: 'none',
+            },
+
+            [`${splitBarCls}-dragger-icon`]: {
+              display: 'none',
+            },
+          },
+
+          // customize dragger icon
+          '&-customize': {
+            [`${splitBarCls}-dragger-icon`]: {
+              ...centerStyle,
+              display: 'flex',
+              alignItems: 'center',
+              color: colorFill,
             },
 
             '&::after': {
@@ -186,14 +210,22 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           justifyContent: 'center',
 
           // Hover
-          '&:hover': {
+          [`&:hover:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActive,
           },
 
           // Active
-          '&:active': {
+          [`&:active:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActiveHover,
           },
+
+          [`${splitBarCls}-collapse-icon`]: {
+            display: 'flex',
+            alignItems: 'center',
+          },
+        },
+        [`${splitBarCls}-collapse-bar-customize`]: {
+          background: 'transparent',
         },
 
         '&:hover, &:active': {

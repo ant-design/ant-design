@@ -4,6 +4,14 @@ import type { InputRef } from 'antd';
 import { Input, Tag, theme } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 
+const tagGroupStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: 8,
+  marginBottom: 8,
+};
+
 const App: React.FC = () => {
   const { token } = theme.useToken();
   const [tags, setTags] = useState(['Tag 1', 'Tag 2', 'Tag 3']);
@@ -39,22 +47,6 @@ const App: React.FC = () => {
     setInputValue('');
   };
 
-  const forMap = (tag: string) => (
-    <span key={tag} style={{ display: 'inline-block' }}>
-      <Tag
-        closable
-        onClose={(e) => {
-          e.preventDefault();
-          handleClose(tag);
-        }}
-      >
-        {tag}
-      </Tag>
-    </span>
-  );
-
-  const tagChild = tags.map(forMap);
-
   const tagPlusStyle: React.CSSProperties = {
     background: token.colorBgContainer,
     borderStyle: 'dashed',
@@ -62,20 +54,30 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div style={{ marginBottom: 16 }}>
-        <TweenOneGroup
-          appear={false}
-          enter={{ scale: 0.8, opacity: 0, type: 'from', duration: 100 }}
-          leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
-          onEnd={(e) => {
-            if (e.type === 'appear' || e.type === 'enter') {
-              (e.target as any).style = 'display: inline-block';
-            }
-          }}
-        >
-          {tagChild}
-        </TweenOneGroup>
-      </div>
+      <TweenOneGroup
+        appear={false}
+        style={tagGroupStyle}
+        enter={{ scale: 0.8, opacity: 0, type: 'from', duration: 100 }}
+        leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
+        onEnd={(e) => {
+          if (e.type === 'appear' || e.type === 'enter') {
+            (e.target as any).style = 'display: inline-block';
+          }
+        }}
+      >
+        {tags.map((tag) => (
+          <Tag
+            key={tag}
+            closable
+            onClose={(e) => {
+              e.preventDefault();
+              handleClose(tag);
+            }}
+          >
+            {tag}
+          </Tag>
+        ))}
+      </TweenOneGroup>
       {inputVisible ? (
         <Input
           ref={inputRef}

@@ -46,7 +46,7 @@ export function fillWindowEnv(window: Window | DOMWindow) {
     });
   }
 
-  // Fix css-animation or rc-motion deps on these
+  // Fix css-animation or @rc-component/motion deps on these
   // https://github.com/react-component/motion/blob/9c04ef1a210a4f3246c9becba6e33ea945e00669/src/util/motion.ts#L27-L35
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
   win.AnimationEvent = win.AnimationEvent || win.Event;
@@ -96,19 +96,37 @@ global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
 
 if (typeof MessageChannel === 'undefined') {
-  (global as any).MessageChannel = function MessageChannel() {
-    const port1: any = {};
-    const port2: any = {};
-    port1.postMessage = port2.onmessage = () => {};
-    port2.postMessage = port1.onmessage = () => {};
-    return { port1, port2 };
-  };
+  (global as any).MessageChannel = class {
+    port1: any;
+    port2: any;
+
+    constructor() {
+      const createPort = (): any => {
+        const port: any = {
+          onmessage: null,
+          postMessage: (message: any) => {
+            setTimeout(() => {
+              port._target?.onmessage?.({ data: message });
+            }, 0);
+          },
+          _target: null,
+        };
+        return port;
+      };
+
+      const port1 = createPort();
+      const port2 = createPort();
+      port1._target = port2;
+      port2._target = port1;
+      this.port1 = port1;
+      this.port2 = port2;
+    }
+  } as any;
 }
 
 // Mock useId to return a stable id for snapshot testing
 jest.mock('react', () => {
   const originReact = jest.requireActual('react');
-
   let cloneReact = {
     ...originReact,
   };
@@ -122,3 +140,14 @@ jest.mock('react', () => {
 
   return cloneReact;
 });
+
+// Mock ResizeObserver
+global.ResizeObserver = class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
+if (global.HTMLElement) {
+  global.HTMLElement.prototype.scrollIntoView = () => {};
+}

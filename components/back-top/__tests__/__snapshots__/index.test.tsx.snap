@@ -2,6 +2,6 @@
 
 exports[`BackTop rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-back-top ant-back-top-rtl"
+  class="css-var-root ant-back-top ant-back-top-rtl"
 />
 `;

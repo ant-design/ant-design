@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -87,9 +87,9 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const cls = classNames(
+  const cls = clsx(
     groupPrefixCls,
     {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
@@ -118,35 +118,35 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
     const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
 
-    const mergeProps = {
+    const popoverProps: PopoverProps = {
       content: childrenHidden,
       ...max?.popover,
-      classNames: { root: classNames(`${groupPrefixCls}-popover`, max?.popover?.classNames?.root) },
       placement: mergePopoverPlacement,
       trigger: mergePopoverTrigger,
+      rootClassName: clsx(`${groupPrefixCls}-popover`, max?.popover?.rootClassName),
     };
 
     childrenShow.push(
-      <Popover key="avatar-popover-key" destroyOnHidden {...mergeProps}>
+      <Popover key="avatar-popover-key" destroyOnHidden {...popoverProps}>
         <Avatar style={mergeStyle}>{`+${numOfChildren - mergeCount}`}</Avatar>
       </Popover>,
     );
 
-    return wrapCSSVar(
+    return (
       <AvatarContextProvider shape={shape} size={size}>
         <div className={cls} style={style}>
           {childrenShow}
         </div>
-      </AvatarContextProvider>,
+      </AvatarContextProvider>
     );
   }
 
-  return wrapCSSVar(
+  return (
     <AvatarContextProvider shape={shape} size={size}>
       <div className={cls} style={style}>
         {childrenWithProps}
       </div>
-    </AvatarContextProvider>,
+    </AvatarContextProvider>
   );
 };
 

@@ -1,27 +1,26 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { clsx } from 'clsx';
 
+import isNonNullable from '../_util/isNonNullable';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourStepProps } from './interface';
-
-const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
-  return val !== undefined && val !== null;
-};
+import type { TourProps, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
     closable?: Exclude<TourStepProps['closable'], boolean>;
   };
   current: number;
-  type: TourStepProps['type'];
-  indicatorsRender?: TourStepProps['indicatorsRender'];
-  actionsRender?: TourStepProps['actionsRender'];
+  type: TourProps['type'];
+  indicatorsRender?: TourProps['indicatorsRender'];
+  classNames?: TourProps['classNames'];
+  styles?: TourProps['styles'];
+  actionsRender?: TourProps['actionsRender'];
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
@@ -42,6 +41,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     prevButtonProps,
     type: stepType,
     closable,
+    classNames = {},
+    styles = {},
   } = stepProps;
 
   const mergedType = stepType ?? type;
@@ -80,17 +81,26 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   };
 
   const headerNode = isNonNullable(title) ? (
-    <div className={`${prefixCls}-header`}>
-      <div className={`${prefixCls}-title`}>{title}</div>
+    <div className={clsx(`${prefixCls}-header`, classNames.header)} style={styles.header}>
+      <div className={clsx(`${prefixCls}-title`, classNames.title)} style={styles.title}>
+        {title}
+      </div>
     </div>
   ) : null;
 
   const descriptionNode = isNonNullable(description) ? (
-    <div className={`${prefixCls}-description`}>{description}</div>
+    <div
+      className={clsx(`${prefixCls}-description`, classNames.description)}
+      style={styles.description}
+    >
+      {description}
+    </div>
   ) : null;
 
   const coverNode = isNonNullable(cover) ? (
-    <div className={`${prefixCls}-cover`}>{cover}</div>
+    <div className={clsx(`${prefixCls}-cover`, classNames.cover)} style={styles.cover}>
+      {cover}
+    </div>
   ) : null;
 
   let mergedIndicatorNode: ReactNode;
@@ -102,10 +112,12 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
       (stepItem, index) => (
         <span
           key={stepItem}
-          className={classNames(
+          className={clsx(
             index === current && `${prefixCls}-indicator-active`,
             `${prefixCls}-indicator`,
+            classNames.indicator,
           )}
+          style={styles.indicator}
         />
       ),
     );
@@ -126,7 +138,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
           {...secondaryBtnProps}
           {...prevButtonProps}
           onClick={prevBtnClick}
-          className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
+          className={clsx(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
         >
           {prevButtonProps?.children ?? contextLocaleTour?.Previous}
         </Button>
@@ -136,7 +148,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
         type={mainBtnType}
         {...nextButtonProps}
         onClick={nextBtnClick}
-        className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
+        className={clsx(`${prefixCls}-next-btn`, nextButtonProps?.className)}
       >
         {nextButtonProps?.children ??
           (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
@@ -145,15 +157,22 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   );
 
   return (
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-inner`}>
+    <div className={`${prefixCls}-panel`}>
+      <div className={clsx(`${prefixCls}-section`, classNames.section)} style={styles.section}>
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
-        <div className={`${prefixCls}-footer`}>
-          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
-          <div className={`${prefixCls}-buttons`}>
+        <div className={clsx(`${prefixCls}-footer`, classNames.footer)} style={styles.footer}>
+          {total > 1 && (
+            <div
+              className={clsx(`${prefixCls}-indicators`, classNames.indicators)}
+              style={styles.indicators}
+            >
+              {mergedIndicatorNode}
+            </div>
+          )}
+          <div className={clsx(`${prefixCls}-actions`, classNames.actions)} style={styles.actions}>
             {actionsRender
               ? actionsRender(defaultActionsNode, { current, total })
               : defaultActionsNode}

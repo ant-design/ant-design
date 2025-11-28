@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <AutoComplete
         options={options}
         style={{ width: 200 }}
-        onSearch={(text) => setOptions(getPanelValue(text))}
+        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
         placeholder="UnClearable"
         allowClear={false}
       />
@@ -27,7 +27,7 @@ const App: React.FC = () => {
       <AutoComplete
         options={options}
         style={{ width: 200 }}
-        onSearch={(text) => setOptions(getPanelValue(text))}
+        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
         placeholder="Customized clear icon"
         allowClear={{ clearIcon: <CloseSquareFilled /> }}
       />

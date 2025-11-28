@@ -13,13 +13,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 - 当目前没有数据时，用于显式的用户提示。
 - 初始化场景时的引导创建流程。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/simple.tsx">选择图片</code>
 <code src="./demo/customize.tsx">自定义</code>
 <code src="./demo/config-provider.tsx">全局化配置</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/description.tsx">无描述</code>
 
 ## API
@@ -34,9 +35,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | description | 自定义描述内容 | ReactNode | - |  |
 | image | 设置显示图片，为 string 时表示自定义图片地址。 | ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
 | imageStyle | 图片样式 | CSSProperties | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 ## 内置图片
 
@@ -69,6 +72,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Empty"></ComponentTokenTable>

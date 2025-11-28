@@ -7,7 +7,7 @@
     "strategy": "auto"
   },
   "watch": {
-    "_nodeModulesRegexes": ["rc-.*"]
+    "_nodeModulesRegexes": ["rc-.*", ".*cssinjs.*", "@rc-component/.*"]
   },
   "devtool": false,
   "experimental": {

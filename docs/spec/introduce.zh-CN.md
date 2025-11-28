@@ -39,7 +39,7 @@ title: 介绍
 - [Ant Design Blazor](https://antblazor.com/)（社区实现）
 - [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)（社区实现）
 - [antizer (ClojureScript)](https://github.com/priornix/antizer)（社区实现）
-- [AtomUI (.NET/C#)](https://github.com/chinware/atomui)（社区实现）
+- [AtomUI - Ant Design of Avalonia/.NET](https://github.com/chinware/atomui)（社区实现）
 
 ## 谁在使用
 

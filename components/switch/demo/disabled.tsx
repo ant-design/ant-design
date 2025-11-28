@@ -9,7 +9,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Switch disabled={disabled} defaultChecked />
       <Button type="primary" onClick={toggle}>
         Toggle disabled

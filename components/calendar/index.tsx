@@ -1,5 +1,5 @@
 import type { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 
 import type { CalendarMode, CalendarProps } from './generateCalendar';
 import generateCalendar from './generateCalendar';

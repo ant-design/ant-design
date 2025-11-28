@@ -1,4 +1,4 @@
-import type { CheckboxRef } from 'rc-checkbox';
+import type { CheckboxRef } from '@rc-component/checkbox';
 
 import InternalCheckbox from './Checkbox';
 import Group from './Group';

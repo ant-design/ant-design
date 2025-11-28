@@ -25,7 +25,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/controlled-preview.tsx">Controlled Preview</code>
 <code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
 <code src="./demo/imageRender.tsx">Custom preview render</code>
+<code src="./demo/mask.tsx">preview mask</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
+<code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
 <code src="./demo/nested.tsx">nested</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
@@ -39,70 +42,82 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| alt | Image description | string | - | 4.6.0 |
-| fallback | Load failure fault-tolerant src | string | - | 4.6.0 |
-| height | Image height | string \| number | - | 4.6.0 |
-| placeholder | Load placeholder, use default placeholder when set `true` | ReactNode | - | 4.6.0 |
-| preview | preview config, disabled when `false` | boolean \| [PreviewType](#previewtype) | true | 4.6.0 [PreviewType](#previewtype):4.7.0 |
-| src | Image path | string | - | 4.6.0 |
-| width | Image width | string \| number | - | 4.6.0 |
-| onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
+| alt | Image description | string | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| fallback | Fallback URL when load fails | string | - |  |
+| height | Image height | string \| number | - |  |
+| placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
+| preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
+| src | Image URL | string | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| width | Image width | string \| number | - |  |
+| onError | Callback when loading error occurs | (event: Event) => void | - |  |
 
-Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
 ### PreviewType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| visible | Whether the preview dialog is visible or not | boolean | - | - |
-| src | Custom preview src | string | - | 4.10.0 |
-| getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
-| movable | whether can be moved | boolean | true | 5.8.0 |
-| mask | Thumbnail mask | ReactNode | - | 4.9.0 |
-| maskClassName | The className of the mask | string | - | 4.11.0 |
-| ~~rootClassName~~ | The classname of the preview root DOM，The v6 will be moved to the root component. | string | - | 5.4.0 |
-| scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
-| minScale | Min scale | number | 1 | 5.7.0 |
-| maxScale | Max scale | number | 50 | 5.7.0 |
-| closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
-| forceRender | Force render preview dialog | boolean | - | - |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
-| ~~destroyOnClose~~ | Destroy child elements when closing preview | boolean | false |  |
-| destroyOnHidden | Destroy child elements when closing preview | boolean | false | 5.25.0 |
-| onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
-| onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
+| actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| classNames | Custom semantic structure class names | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| closeIcon | Custom close icon | React.ReactNode | - |  |
+| cover | Custom preview mask | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
+| ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
+| ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
+| getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
+| ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
+| maxScale | Maximum zoom scale | number | 50 |  |
+| minScale | Minimum zoom scale | number | 1 |  |
+| movable | Whether it is movable | boolean | true |  |
+| open | Whether to display preview | boolean | - |  |
+| rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
+| scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
+| src | Custom preview src | string | - |  |
+| styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
+| ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
+| onOpenChange | Callback when preview open state changes | (visible: boolean) => void | - |  |
+| onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
+| ~~onVisibleChange~~ | Callback when 'visible' changes; please use 'onOpenChange' instead | (visible: boolean, prevVisible: boolean) => void | - |  |
 
-## PreviewGroup
+### PreviewGroup
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| preview | Preview config, `disabled` when false | boolean \| [PreviewGroupType](#previewgrouptype) | true | 4.6.0 [PreviewGroupType](#previewgrouptype):4.7.0 |
-| items | Preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - | 5.7.0 |
-| fallback | Load failure fault-tolerant src | string | - | 5.7.0 |
+| fallback | Fallback URL for load error | string | - |  |
+| items | Array of preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
+| preview | Preview configuration; disable by setting to false | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
 
 ### PreviewGroupType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| visible | Whether the preview dialog is visible or not | boolean | - | - |
-| getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
-| movable | whether can be moved | boolean | true | 5.8.0 |
-| current | The index of the current preview | number | - | 4.12.0 |
-| mask | Thumbnail mask | ReactNode | - | 4.9.0 |
-| maskClassName | The className of the mask | string | - | 4.11.0 |
-| rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
-| scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
-| minScale | Min scale | number | 1 | 5.7.0 |
-| maxScale | Max scale | number | 50 | 5.7.0 |
-| closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
-| forceRender | Force render preview dialog | boolean | - | - |
-| countRender | Custom preview count content | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
-| onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
-| onChange | Callback when switch preview image | (current: number, prevCurrent: number) => void | - | 5.3.0 |
-| onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean, current: number) => void | - | current Property 5.3.0 |
+| actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| classNames | Custom preview class names object | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| closeIcon | Custom close icon | React.ReactNode | - |  |
+| countRender | Custom preview count render | (current: number, total: number) => React.ReactNode | - |  |
+| current | Index of the current preview image | number | - |  |
+| ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
+| getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
+| ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
+| minScale | Minimum zoom scale | number | 1 |  |
+| maxScale | Maximum zoom scale | number | 50 |  |
+| movable | Whether movable | boolean | true |  |
+| open | Whether to display preview | boolean | - |  |
+| ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
+| styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
+| ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
+| onOpenChange | Callback when preview open state changes, includes current preview index | (visible: boolean, info: { current: number }) => void | - |  |
+| onChange | Callback when changing preview image | (current: number, prevCurrent: number) => void | - |  |
+| onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
+| ~~onVisibleChange~~ | Callback when 'visible' changes; please use 'onOpenChange' instead | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
 
 ## Interface
 
@@ -177,6 +192,19 @@ type TransformAction =
   height: string | number;
 }
 ```
+
+### CoverConfig
+
+```typescript
+type CoverConfig = {
+  coverNode?: React.ReactNode; // The custom node of preview mask
+  placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
+};
+```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

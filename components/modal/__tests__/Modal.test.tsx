@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
-import { resetWarned } from '../../_util/warning';
+import type { MaskType } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-jest.mock('rc-util/lib/Portal');
+jest.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -124,20 +124,6 @@ describe('Modal', () => {
     });
   });
 
-  it('deprecated warning', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    render(<Modal visible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated. Please use `open` instead.',
-    );
-
-    expect(document.querySelector('.ant-modal')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
   it('should not render footer if null', () => {
     render(<Modal open footer={null} />);
     expect(document.querySelector('.ant-modal-footer')).toBeFalsy();
@@ -148,7 +134,7 @@ describe('Modal', () => {
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 
-  it('Should custom footer function second param work', () => {
+  it('should custom footer function second param work', () => {
     const footerFn = jest.fn();
     render(<Modal open footer={footerFn} />);
 
@@ -160,7 +146,7 @@ describe('Modal', () => {
     });
   });
 
-  it('Should custom footer function work', () => {
+  it('should custom footer function work', () => {
     render(
       <Modal
         open
@@ -212,12 +198,12 @@ describe('Modal', () => {
     });
   });
 
-  it('Should support centered prop', () => {
+  it('should support centered prop', () => {
     render(<Modal open centered />);
     expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
   });
 
-  it('Should support centered global config', () => {
+  it('should support centered global config', () => {
     render(
       <ConfigProvider modal={{ centered: true }}>
         <Modal open />
@@ -226,7 +212,7 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
   });
 
-  it('Should prefer centered prop over centered global config', () => {
+  it('should prefer centered prop over centered global config', () => {
     render(
       <ConfigProvider modal={{ centered: true }}>
         <Modal open centered={false} />
@@ -235,7 +221,43 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
 
-  it('Should not close modal when confirmLoading is loading', async () => {
+  it('should support cancelButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ cancelButtonProps: { size: 'small' } }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-default.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should prefer cancelButtonProps prop over cancelButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ cancelButtonProps: { size: 'large' } }}>
+        <Modal open cancelButtonProps={{ size: 'small' }} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-default.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should support okButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ okButtonProps: { size: 'small' } }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should prefer okButtonProps prop over okButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ okButtonProps: { size: 'large' } }}>
+        <Modal open okButtonProps={{ size: 'small' }} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should not close modal when confirmLoading is loading', async () => {
     jest.useFakeTimers();
 
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
@@ -286,5 +308,98 @@ describe('Modal', () => {
     expect(onOk).toHaveBeenCalled();
 
     jest.useRealTimers();
+  });
+
+  it('closable have aria', () => {
+    render(<Modal open closable={{ 'aria-label': 'xxx' }} />);
+    const element = document.body.querySelector('.ant-modal-close');
+    expect(element).toHaveAttribute('aria-label', 'xxx');
+  });
+
+  describe('closable onClose and afterClose ', () => {
+    const mockFn = {
+      afterClose: jest.fn(),
+      closableAfterClose: jest.fn(),
+      onClose: jest.fn(),
+    };
+
+    beforeEach(() => jest.clearAllMocks());
+
+    const ModalTester: React.FC<ModalProps> = (props) => {
+      const [open, setOpen] = React.useState(true);
+      const close = () => {
+        setOpen(false);
+      };
+      return (
+        <div>
+          <Modal
+            {...props}
+            open={open}
+            onCancel={close}
+            onOk={close}
+            visible={open}
+            afterClose={mockFn.afterClose}
+            transitionName=""
+            maskTransitionName=""
+            closable={{ onClose: mockFn.onClose, afterClose: mockFn.closableAfterClose }}
+          >
+            Here is content of Modal
+          </Modal>
+        </div>
+      );
+    };
+    it('closable.onClose and afterClose', async () => {
+      render(<ModalTester />);
+      const button = document.body.querySelector('.ant-btn');
+      fireEvent.click(button!);
+      expect(mockFn.onClose).toHaveBeenCalled();
+      expect(mockFn.afterClose).toHaveBeenCalledTimes(1);
+      expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Modal mask blur className', () => {
+    const testCases: [
+      mask?: MaskType,
+      contextMask?: MaskType,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(testCases)(
+      'modalMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+            <Modal open mask={modalMask} />
+          </ConfigProvider>,
+        );
+
+        const maskElement = document.querySelector('.ant-modal-mask');
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-modal-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+        }
+      },
+    );
   });
 });

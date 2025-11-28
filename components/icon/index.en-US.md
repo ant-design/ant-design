@@ -11,10 +11,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAA
 
 Before using icons, you need to install the [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons@6.x --save' yarn='yarn add @ant-design/icons@6.x' pnpm='pnpm install @ant-design/icons@6.x --save' bun='bun add @ant-design/icons@6.x'></InstallDependencies>
+
 <!-- prettier-ignore -->
 :::info{title=Tips}
-Remember to use `@ant-design/icons@5.x` with `antd@5.x`, see: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
+Remember to use `@ant-design/icons@6.x` with `antd@6.x`, see: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
 ## List of icons
@@ -204,7 +205,7 @@ When enable `layer`, icon style may deprioritize `@layer antd` and cause all com
 
 This problem can be resolved by two steps below:
 
-1. use `@ant-design/icons^5` instead of the latest version.
+1. use `@ant-design/icons@6.x` with `antd@6.x`.
 2. stop to use static methods of `message`, `Modal` and `notification`. use hooks version or `App` provided instance.
 
 If you must use static methods, you can put any of icon components just under `App`, what helps to avoid style impact caused by static methods.

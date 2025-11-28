@@ -1,26 +1,32 @@
 import React from 'react';
-import { Steps } from 'antd';
+import { Flex, Steps } from 'antd';
 
-const description = 'This is a description.';
+const content = 'This is a content.';
+
+const items = [
+  {
+    title: 'Finished',
+    content,
+  },
+  {
+    title: 'In Progress',
+    content,
+  },
+  {
+    title: 'Waiting',
+    content,
+  },
+];
+
 const App: React.FC = () => (
-  <Steps
-    direction="vertical"
-    current={1}
-    items={[
-      {
-        title: 'Finished',
-        description,
-      },
-      {
-        title: 'In Progress',
-        description,
-      },
-      {
-        title: 'Waiting',
-        description,
-      },
-    ]}
-  />
+  <Flex>
+    <div style={{ flex: 1 }}>
+      <Steps orientation="vertical" current={1} items={items} />
+    </div>
+    <div style={{ flex: 1 }}>
+      <Steps orientation="vertical" current={1} items={items} size="small" />
+    </div>
+  </Flex>
 );
 
 export default App;

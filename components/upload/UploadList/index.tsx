@@ -3,10 +3,10 @@ import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
-import classNames from 'classnames';
-import type { CSSMotionListProps } from 'rc-motion';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
-import omit from 'rc-util/lib/omit';
+import type { CSSMotionListProps } from '@rc-component/motion';
+import CSSMotion, { CSSMotionList } from '@rc-component/motion';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { useForceUpdate } from '../../_util/hooks';
 import initCollapseMotion from '../../_util/motion';
@@ -50,6 +50,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     appendActionVisible = true,
     itemRender,
     disabled,
+    classNames: uploadListClassNames,
+    styles,
   } = props;
 
   const [, forceUpdate] = useForceUpdate();
@@ -161,7 +163,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const listClassNames = classNames(`${prefixCls}-list`, `${prefixCls}-list-${listType}`);
+  const listClassNames = clsx(
+    `${prefixCls}-list`,
+    `${prefixCls}-list-${listType}`,
+    uploadListClassNames?.list,
+  );
 
   const listItemMotion = React.useMemo(
     () => omit(initCollapseMotion(rootPrefixCls), ['onAppearEnd', 'onEnterEnd', 'onLeaveEnd']),
@@ -176,7 +182,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   };
 
   return (
-    <div className={listClassNames}>
+    <div className={listClassNames} style={styles?.list}>
       <CSSMotionList {...motionConfig} component={false}>
         {({ key, file, className: motionClassName, style: motionStyle }) => (
           <ListItem
@@ -185,6 +191,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             prefixCls={prefixCls}
             className={motionClassName}
             style={motionStyle}
+            classNames={uploadListClassNames}
+            styles={styles}
             file={file}
             items={items}
             progress={progress}
@@ -212,7 +220,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         <CSSMotion {...motionConfig} visible={appendActionVisible} forceRender>
           {({ className: motionClassName, style: motionStyle }) =>
             cloneElement(appendAction, (oriProps) => ({
-              className: classNames(oriProps.className, motionClassName),
+              className: clsx(oriProps.className, motionClassName),
               style: {
                 ...motionStyle,
                 // prevent the element has hover css pseudo-class that may cause animation to end prematurely.

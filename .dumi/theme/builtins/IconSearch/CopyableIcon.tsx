@@ -2,15 +2,15 @@ import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
 import { App, Badge } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import copy from 'antd/es/_util/copy';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 import type { ThemeType } from './IconSearch';
 
 const allIcons: { [key: PropertyKey]: any } = AntdIcons;
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const { antCls, iconCls } = token;
   return {
     iconItem: css`
@@ -30,23 +30,23 @@ const useStyle = createStyles(({ token, css }) => {
       text-align: center;
       list-style: none;
       background-color: inherit;
-      border-radius: ${token.borderRadiusSM}px;
+      border-radius: ${cssVar.borderRadiusSM};
       cursor: pointer;
-      transition: all ${token.motionDurationSlow} ease-in-out;
+      transition: all ${cssVar.motionDurationSlow} ease-in-out;
       ${token.iconCls} {
-        margin: ${token.marginXS}px 0;
+        margin: ${cssVar.marginXS} 0;
         font-size: 36px;
-        transition: transform ${token.motionDurationSlow} ease-in-out;
+        transition: transform ${cssVar.motionDurationSlow} ease-in-out;
         will-change: transform;
       }
       &:hover {
-        color: ${token.colorWhite};
-        background-color: ${token.colorPrimary};
+        color: ${cssVar.colorWhite};
+        background-color: ${cssVar.colorPrimary};
         ${iconCls} {
           transform: scale(1.3);
         }
         ${antCls}-badge {
-          color: ${token.colorWhite};
+          color: ${cssVar.colorWhite};
         }
       }
       &.TwoTone:hover {
@@ -63,11 +63,11 @@ const useStyle = createStyles(({ token, css }) => {
         width: 100%;
         height: 100%;
         line-height: 100px;
-        color: ${token.colorTextLightSolid};
+        color: ${cssVar.colorTextLightSolid};
         text-align: center;
-        background-color: ${token.colorPrimary};
+        background-color: ${cssVar.colorPrimary};
         opacity: 0;
-        transition: all ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        transition: all ${cssVar.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
       }
       &.copied::after {
         opacity: 1;
@@ -80,7 +80,7 @@ const useStyle = createStyles(({ token, css }) => {
       text-align: center;
       transform: scale(0.8);
       ${antCls}-badge {
-        transition: color ${token.motionDurationSlow} ease-in-out;
+        transition: color ${cssVar.motionDurationSlow} ease-in-out;
       }
     `,
   };
@@ -108,7 +108,9 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const { name, isNew, justCopied, theme, onCopied } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const onCopy = (text: string, result: boolean) => {
+
+  const onCopy = async (text: string) => {
+    const result = await copy(text);
     if (result) {
       onCopied(name, text);
     } else {
@@ -116,14 +118,16 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
     }
   };
   return (
-    <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
-      <li className={classNames(theme, styles.iconItem, { copied: justCopied === name })}>
-        {React.createElement(allIcons[name])}
-        <span className={styles.anticonCls}>
-          <Badge dot={isNew}>{name}</Badge>
-        </span>
-      </li>
-    </CopyToClipboard>
+    <li
+      className={clsx(theme, styles.iconItem, { copied: justCopied === name })}
+      onClick={() => onCopy(`<${name} />`)}
+      style={{ cursor: 'pointer' }}
+    >
+      {React.createElement(allIcons[name])}
+      <span className={styles.anticonCls}>
+        <Badge dot={isNew}>{name}</Badge>
+      </span>
+    </li>
   );
 };
 

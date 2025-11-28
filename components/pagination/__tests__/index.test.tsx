@@ -1,5 +1,5 @@
 import React from 'react';
-import type { OptionFC } from 'rc-select/lib/Option';
+import type { OptionFC } from '@rc-component/select/lib/Option';
 
 import type { PaginationProps } from '..';
 import Pagination from '..';
@@ -48,7 +48,7 @@ describe('Pagination', () => {
       />,
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
 
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);

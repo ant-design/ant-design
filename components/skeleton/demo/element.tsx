@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DotChartOutlined } from '@ant-design/icons';
 import type { RadioChangeEvent } from 'antd';
-import { Flex, Divider, Form, Radio, Skeleton, Space, Switch } from 'antd';
+import { Divider, Flex, Form, Radio, Skeleton, Space, Switch } from 'antd';
 
 type SizeType = 'default' | 'small' | 'large';
 type ButtonShapeType = 'circle' | 'square' | 'round' | 'default';
