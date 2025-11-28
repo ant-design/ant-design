@@ -4,11 +4,11 @@ import type { ColorInput } from '@ant-design/fast-color';
 import { Popover } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar, token }) => ({
   codeSpan: css`
     padding: 0.2em 0.4em;
     font-size: 0.9em;
-    background: ${cssVar.siteMarkdownCodeBg};
+    background: ${token.siteMarkdownCodeBg};
     border-radius: ${cssVar.borderRadius};
     font-family: monospace;
   `,
@@ -46,7 +46,7 @@ const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) =
         placement="left"
         content={<div hidden />}
         styles={{
-          body: {
+          container: {
             backgroundColor: dotColor,
             width: 120,
             height: 120,

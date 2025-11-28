@@ -1316,6 +1316,70 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector<HTMLSpanElement>('.ant-table-tbody .cp-test-icon')).toBeTruthy();
   });
 
+  it('Should Table classNames & styles works', () => {
+    const { container } = render(
+      <ConfigProvider
+        table={{
+          classNames: {
+            header: {
+              wrapper: 'cp-header-wrapper',
+              row: 'cp-header-row',
+              cell: 'cp-header-cell',
+            },
+            body: {
+              wrapper: 'cp-body-wrapper',
+              row: 'cp-body-row',
+              cell: 'cp-body-cell',
+            },
+          },
+          styles: {
+            header: {
+              wrapper: { backgroundColor: 'rgb(255, 0, 0)' },
+              row: { backgroundColor: 'rgb(0, 255, 0)' },
+              cell: { color: 'rgb(0, 0, 255)' },
+            },
+            body: {
+              wrapper: { backgroundColor: 'rgb(255, 255, 0)' },
+              row: { backgroundColor: 'rgb(255, 0, 255)' },
+              cell: { color: 'rgb(0, 255, 255)' },
+            },
+          },
+        }}
+      >
+        <Table
+          columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
+          dataSource={[{ key: '1', name: 'Jim Green' }]}
+        />
+      </ConfigProvider>,
+    );
+
+    // Check header classNames & styles
+    const headerWrapper = container.querySelector<HTMLElement>('.ant-table-thead');
+    expect(headerWrapper).toHaveClass('cp-header-wrapper');
+    expect(headerWrapper).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+
+    const headerRow = container.querySelector<HTMLElement>('.ant-table-thead tr');
+    expect(headerRow).toHaveClass('cp-header-row');
+    expect(headerRow).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+
+    const headerCell = container.querySelector<HTMLElement>('.ant-table-thead th');
+    expect(headerCell).toHaveClass('cp-header-cell');
+    expect(headerCell).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+
+    // Check body classNames & styles
+    const bodyWrapper = container.querySelector<HTMLElement>('.ant-table-tbody');
+    expect(bodyWrapper).toHaveClass('cp-body-wrapper');
+    expect(bodyWrapper).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+
+    const bodyRow = container.querySelector<HTMLElement>('.ant-table-tbody tr');
+    expect(bodyRow).toHaveClass('cp-body-row');
+    expect(bodyRow).toHaveStyle({ backgroundColor: 'rgb(255, 0, 255)' });
+
+    const bodyCell = container.querySelector<HTMLElement>('.ant-table-tbody td');
+    expect(bodyCell).toHaveClass('cp-body-cell');
+    expect(bodyCell).toHaveStyle({ color: 'rgb(0, 255, 255)' });
+  });
+
   it('Should Calendar className works', () => {
     const { container } = render(
       <ConfigProvider
