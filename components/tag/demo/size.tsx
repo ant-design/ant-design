@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap={8}>
-      <Flex>
+      <Flex align="center">
         <Tag size="small">Small</Tag>
         <Tag size="middle">Middle</Tag>
         <Tag size="large">Large</Tag>
