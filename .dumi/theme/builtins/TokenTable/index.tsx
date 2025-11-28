@@ -39,12 +39,12 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar, token }) => ({
   codeSpan: css`
     margin: 0 1px;
     padding: 0.2em 0.4em;
     font-size: 0.9em;
-    background: ${cssVar.siteMarkdownCodeBg};
+    background: ${token.siteMarkdownCodeBg};
     border: 1px solid ${cssVar.colorSplit};
     border-radius: ${cssVar.borderRadiusSM};
     font-family: monospace;

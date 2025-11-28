@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { PickerMode } from '@rc-component/picker/lib/interface';
+import type { PickerMode } from '@rc-component/picker/interface';
 
 import useSelectIcons from '../select/useIcons';
 import type { PickerLocale, PickerProps } from './generatePicker';
