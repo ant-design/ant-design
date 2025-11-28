@@ -168,7 +168,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `destroyPopupOnHide` is deprecated and replaced by `destroyOnHidden`
   - `overlayClassName` is deprecated and replaced by `classNames.root`
   - `overlayStyle` is deprecated and replaced by `styles.root`
-  - `placement: `xxxCenter`` is deprecated and replaced by `placement: `xxx``
+  - `placement: \`xxxCenter\`` is deprecated and replaced by `placement: \`xxx\``
 
 - `Empty`
   - `imageStyle` is deprecated and replaced by `styles.image`
