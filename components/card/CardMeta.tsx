@@ -102,4 +102,8 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  CardMeta.displayName = 'CardMeta';
+}
+
 export default CardMeta;

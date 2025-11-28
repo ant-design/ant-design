@@ -25,4 +25,8 @@ const CardGrid: React.FC<CardGridProps> = ({
   return <div {...props} className={classString} />;
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  CardGrid.displayName = 'CardGrid';
+}
+
 export default CardGrid;
