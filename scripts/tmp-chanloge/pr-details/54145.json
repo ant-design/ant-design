@@ -1,0 +1,37 @@
+{
+  "id": 2604237007,
+  "number": 54145,
+  "title": "feat: FloatButton support semantic structure & ConfigProvider support passing related props",
+  "user": {
+    "login": "zombieJ",
+    "id": 5378891,
+    "avatar_url": "https://avatars.githubusercontent.com/u/5378891?v=4",
+    "html_url": "https://github.com/zombieJ"
+  },
+  "body": "<!--\r\nFirst of all, thank you for your contribution! 😄\r\nFor requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.\r\nBefore submitting your pull request, please make sure the checklist below is filled out.\r\nYour pull requests will be merged after one of the collaborators approves.\r\nThank you!\r\n-->\r\n\r\n[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE_CN.md?plain=1)\r\n\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n- [ ] 🐞 Bug fix\r\n- [ ] 📝 Site / documentation improvement\r\n- [ ] 📽️ Demo improvement\r\n- [ ] 💄 Component style improvement\r\n- [ ] 🤖 TypeScript definition improvement\r\n- [ ] 📦 Bundle size optimization\r\n- [ ] ⚡️ Performance optimization\r\n- [ ] ⭐️ Feature enhancement\r\n- [ ] 🌐 Internationalization\r\n- [ ] 🛠 Refactoring\r\n- [ ] 🎨 Code style optimization\r\n- [ ] ✅ Test Case\r\n- [ ] 🔀 Branch merge\r\n- [ ] ⏩ Workflow\r\n- [ ] ⌨️ Accessibility improvement\r\n- [ ] ❓ Other (about what?)\r\n\r\n### 🔗 Related Issues\r\n\r\n> - Describe the source of related requirements, such as links to relevant issue discussions.\r\n> - For example: close #xxxx, fix #xxxx\r\n\r\n### 💡 Background and Solution\r\n\r\n* 统一使用 Button 来替换 FloatButton 做的 button\r\n* 看起来 Button 本身少一个 borderless 变体， @arvinxx 不知道要不要加一个？\r\n\r\n### 📝 Change Log\r\n\r\n> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)! Track your changes, like a cat tracks a laser pointer.\r\n> - Describe the impact of the changes on developers, not the solution approach.\r\n> - Reference: https://ant.design/changelog\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |     FloatButton support semantic structure and support ConfigProvider config.      |\r\n| 🇨🇳 Chinese |       FloatButton 支持语义化结构并且支持通过 ConfigProvider 进行配置。    |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-06-20T08:18:46Z",
+  "created_at": "2025-06-19T09:41:55Z",
+  "updated_at": "2025-06-20T08:18:53Z",
+  "closed_at": "2025-06-20T08:18:47Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/54145",
+  "labels": [
+    {
+      "name": "lgtm",
+      "color": "238636",
+      "description": "This PR has been approved by a maintainer"
+    }
+  ],
+  "base": {
+    "ref": "next",
+    "sha": "d671e38f2e1670b1926cccd5cd1f6b77ec635ece"
+  },
+  "head": {
+    "ref": "float-btn",
+    "sha": "245649a4fc96a85be6a395b969cb3b9fd8f83b4e",
+    "label": "ant-design:float-btn"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

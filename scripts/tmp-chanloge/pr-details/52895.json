@@ -1,0 +1,31 @@
+{
+  "id": 2344855679,
+  "number": 52895,
+  "title": "feat: ConfigProvider support classnames and styles for tabs",
+  "user": {
+    "login": "thinkasany",
+    "id": 117748716,
+    "avatar_url": "https://avatars.githubusercontent.com/u/117748716?v=4",
+    "html_url": "https://github.com/thinkasany"
+  },
+  "body": "\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n\r\n\r\n### 🔗 Related Issues\r\nwait for https://github.com/react-component/tabs/pull/784\r\n\r\n### 📝 Change Log\r\n\r\n\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |       feat: ConfigProvider support classnames and styles for tabs    |\r\n| 🇨🇳 Chinese |      feat: ConfigProvider support classnames and styles for tabs     |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-02-20T13:06:47Z",
+  "created_at": "2025-02-19T14:58:01Z",
+  "updated_at": "2025-02-20T13:07:26Z",
+  "closed_at": "2025-02-20T13:06:47Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/52895",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "efe6c51eb69b76beed46390c9d20ffa123419f86"
+  },
+  "head": {
+    "ref": "cp-tabs",
+    "sha": "1beb0af5afdca2813efe9b2759d69e89d8a404d8",
+    "label": "ant-design:cp-tabs"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": 2443487309,
+  "number": 53429,
+  "title": "feat: ConfigProvider support classNames and styles for Transfer ",
+  "user": {
+    "login": "zombieJ",
+    "id": 5378891,
+    "avatar_url": "https://avatars.githubusercontent.com/u/5378891?v=4",
+    "html_url": "https://github.com/zombieJ"
+  },
+  "body": "<!--\r\nFirst of all, thank you for your contribution! 😄\r\nFor requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.\r\nBefore submitting your pull request, please make sure the checklist below is confirmed.\r\nYour pull requests will be merged after one of the collaborators approve.\r\nThank you!\r\n-->\r\n\r\n[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE_CN.md?plain=1)\r\n\r\n### 🤔 This is a ...\r\n\r\n- [x] 🆕 New feature\r\n- [ ] 🐞 Bug fix\r\n- [ ] 📝 Site / documentation improvement\r\n- [ ] 📽️ Demo improvement\r\n- [ ] 💄 Component style improvement\r\n- [ ] 🤖 TypeScript definition improvement\r\n- [ ] 📦 Bundle size optimization\r\n- [ ] ⚡️ Performance optimization\r\n- [ ] ⭐️ Feature enhancement\r\n- [ ] 🌐 Internationalization\r\n- [ ] 🛠 Refactoring\r\n- [ ] 🎨 Code style optimization\r\n- [ ] ✅ Test Case\r\n- [ ] 🔀 Branch merge\r\n- [ ] ⏩ Workflow\r\n- [ ] ⌨️ Accessibility improvement\r\n- [ ] ❓ Other (about what?)\r\n\r\n### 🔗 Related Issues\r\n\r\n> - Describe the source of related requirements, such as links to relevant issue discussions.\r\n> - For example: close #xxxx, fix #xxxx\r\n\r\n### 💡 Background and Solution\r\n\r\n标准 Semantic Structure，还有一些嵌套的之后再加：\r\n\r\n* classNames.selection: Dropdown\r\n  * classNames.selection.title: Selection 本身的标题\r\n* classNames.search: Input.Search\r\n* classNames.pagination: Pagination\r\n\r\n### 📝 Change Log\r\n\r\n> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.\r\n> - Describe the impact of the changes on developers, not the solution approach.\r\n> - Reference: https://ant.design/changelog\r\n\r\n| Language   | Changelog |\r\n| ---------- | --------- |\r\n| 🇺🇸 English |    Transfer support `classNames` and `styles` for semantic structure.       |\r\n| 🇨🇳 Chinese |     Transfer 支持 `classNames` 与 `styles` 以定义语义化结构。    |\r\n",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2025-04-08T07:37:30Z",
+  "created_at": "2025-04-07T14:24:19Z",
+  "updated_at": "2025-04-08T07:37:42Z",
+  "closed_at": "2025-04-08T07:37:30Z",
+  "html_url": "https://github.com/ant-design/ant-design/pull/53429",
+  "labels": [],
+  "base": {
+    "ref": "next",
+    "sha": "3102b8d3d6b6dae7eecb24c43f5af6bdc13d4d4c"
+  },
+  "head": {
+    "ref": "transfer-sem",
+    "sha": "ec3429e5adc024e60750a95106e287d2e66aabc1",
+    "label": "ant-design:transfer-sem"
+  },
+  "requested_reviewers": [],
+  "assignees": []
+}
