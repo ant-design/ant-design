@@ -125,7 +125,6 @@ const Sidebar: React.FC = () => {
   }, [defaultOpenKeys.join(',')]);
 
   const onOpenChange = (openKeys: string[]) => {
-    // keep only the latest opened key to make sure only one submenu is open at a time
     setOpenKeys(openKeys);
   };
 
