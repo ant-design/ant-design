@@ -1,7 +1,7 @@
 {
   "id": 2942958499,
   "number": 55430,
-  "title": "refactor: Select like component support semantic structure",
+  "title": "refactor(Select): support semantic structure",
   "user": {
     "login": "zombieJ",
     "id": 5378891,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-10-27T06:02:27Z",
   "created_at": "2025-10-24T03:40:17Z",
-  "updated_at": "2025-10-27T06:04:41Z",
+  "updated_at": "2025-11-28T11:05:29Z",
   "closed_at": "2025-10-27T06:02:27Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/55430",
   "labels": [

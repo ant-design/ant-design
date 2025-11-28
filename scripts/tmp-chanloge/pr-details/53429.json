@@ -1,7 +1,7 @@
 {
   "id": 2443487309,
   "number": 53429,
-  "title": "feat: ConfigProvider support classNames and styles for Transfer ",
+  "title": "feat(Transfer): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "zombieJ",
     "id": 5378891,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-04-08T07:37:30Z",
   "created_at": "2025-04-07T14:24:19Z",
-  "updated_at": "2025-04-08T07:37:42Z",
+  "updated_at": "2025-11-28T11:04:56Z",
   "closed_at": "2025-04-08T07:37:30Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/53429",
   "labels": [],

@@ -1,7 +1,7 @@
 {
   "id": 2604237007,
   "number": 54145,
-  "title": "feat: FloatButton support semantic structure & ConfigProvider support passing related props",
+  "title": "feat(FloatButton): support semantic structure and support ConfigProvider to pass related props",
   "user": {
     "login": "zombieJ",
     "id": 5378891,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-06-20T08:18:46Z",
   "created_at": "2025-06-19T09:41:55Z",
-  "updated_at": "2025-06-20T08:18:53Z",
+  "updated_at": "2025-11-28T11:05:24Z",
   "closed_at": "2025-06-20T08:18:47Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/54145",
   "labels": [

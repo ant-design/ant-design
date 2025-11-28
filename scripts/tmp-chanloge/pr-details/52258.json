@@ -1,7 +1,7 @@
 {
   "id": 2261387207,
   "number": 52258,
-  "title": "feat: ConfigProvider support Collapse semantic props `classNames` and `styles`",
+  "title": "feat(Collapse): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-01-15T02:09:02Z",
   "created_at": "2025-01-06T07:22:32Z",
-  "updated_at": "2025-01-15T02:09:43Z",
+  "updated_at": "2025-11-28T11:01:39Z",
   "closed_at": "2025-01-15T02:09:02Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52258",
   "labels": [],
@@ -27,7 +27,5 @@
     "label": "thinkasany-forks:cp-collapse"
   },
   "requested_reviewers": [],
-  "assignees": [
-    "zombieJ"
-  ]
+  "assignees": ["zombieJ"]
 }

@@ -1,7 +1,7 @@
 {
   "id": 2418520395,
   "number": 53303,
-  "title": "feat: ConfigProvider support classNames and styles for colorPicker",
+  "title": "feat(ColorPicker): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-03-26T07:49:29Z",
   "created_at": "2025-03-26T07:10:58Z",
-  "updated_at": "2025-03-26T07:50:07Z",
+  "updated_at": "2025-11-28T11:04:51Z",
   "closed_at": "2025-03-26T07:49:29Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/53303",
   "labels": [],

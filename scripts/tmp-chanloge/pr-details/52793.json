@@ -1,7 +1,7 @@
 {
   "id": 2334105505,
   "number": 52793,
-  "title": "feat: ConfigProvider support classnames and styles for message",
+  "title": "feat(Message): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-14T07:14:32Z",
   "created_at": "2025-02-13T15:27:56Z",
-  "updated_at": "2025-02-14T07:14:57Z",
+  "updated_at": "2025-11-28T11:03:35Z",
   "closed_at": "2025-02-14T07:14:32Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52793",
   "labels": [],

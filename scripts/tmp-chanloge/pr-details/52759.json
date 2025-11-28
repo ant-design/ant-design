@@ -1,7 +1,7 @@
 {
   "id": 2330278148,
   "number": 52759,
-  "title": "feat: ConfigProvider support classnames and styles for notification",
+  "title": "feat(Notification): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-13T03:08:37Z",
   "created_at": "2025-02-12T03:45:46Z",
-  "updated_at": "2025-02-13T03:08:48Z",
+  "updated_at": "2025-11-28T11:03:25Z",
   "closed_at": "2025-02-13T03:08:37Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52759",
   "labels": [],

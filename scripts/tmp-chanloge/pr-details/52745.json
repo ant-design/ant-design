@@ -1,7 +1,7 @@
 {
   "id": 2327921760,
   "number": 52745,
-  "title": "feat: ConfigProvider support classname and style for affix",
+  "title": "feat(Affix): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-13T09:59:53Z",
   "created_at": "2025-02-11T07:25:47Z",
-  "updated_at": "2025-02-13T10:00:22Z",
+  "updated_at": "2025-11-28T11:03:23Z",
   "closed_at": "2025-02-13T09:59:53Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52745",
   "labels": [],

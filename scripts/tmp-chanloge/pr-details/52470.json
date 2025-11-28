@@ -1,7 +1,7 @@
 {
   "id": 2285539092,
   "number": 52470,
-  "title": "feat: Enhance Skeleton components with classNames and styles support",
+  "title": "feat(Skeleton): support `classNames` and `styles`",
   "user": {
     "login": "coding-ice",
     "id": 49827327,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-12T02:41:54Z",
   "created_at": "2025-01-18T07:36:28Z",
-  "updated_at": "2025-02-12T02:42:14Z",
+  "updated_at": "2025-11-28T11:03:14Z",
   "closed_at": "2025-02-12T02:41:54Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52470",
   "labels": [],

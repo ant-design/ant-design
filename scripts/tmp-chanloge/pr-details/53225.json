@@ -1,7 +1,7 @@
 {
   "id": 2405759595,
   "number": 53225,
-  "title": "feat: Splitter support classNames and styles",
+  "title": "feat(Splitter): support `classNames` and `styles`",
   "user": {
     "login": "wanpan11",
     "id": 38714194,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-03-20T13:46:08Z",
   "created_at": "2025-03-20T05:04:23Z",
-  "updated_at": "2025-04-08T08:15:48Z",
+  "updated_at": "2025-11-28T11:04:39Z",
   "closed_at": "2025-03-20T13:46:08Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/53225",
   "labels": [],
@@ -27,7 +27,5 @@
     "label": "wanpan11:feat-spliter"
   },
   "requested_reviewers": [],
-  "assignees": [
-    "zombieJ"
-  ]
+  "assignees": ["zombieJ"]
 }

@@ -1,7 +1,7 @@
 {
   "id": 2395881217,
   "number": 53174,
-  "title": "feat: ConfigProvider support classNames and styles for tree",
+  "title": "feat(Tree): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-03-19T07:18:03Z",
   "created_at": "2025-03-16T03:57:52Z",
-  "updated_at": "2025-03-19T07:18:13Z",
+  "updated_at": "2025-11-28T11:04:36Z",
   "closed_at": "2025-03-19T07:18:03Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/53174",
   "labels": [],

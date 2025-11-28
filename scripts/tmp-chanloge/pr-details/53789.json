@@ -1,7 +1,7 @@
 {
   "id": 2509187757,
   "number": 53789,
-  "title": "feat: ConfigProvider support classNames and styles for Steps",
+  "title": "feat(Steps): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "zombieJ",
     "id": 5378891,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-05-13T12:36:54Z",
   "created_at": "2025-05-09T09:51:55Z",
-  "updated_at": "2025-05-13T12:36:55Z",
+  "updated_at": "2025-11-28T11:05:14Z",
   "closed_at": "2025-05-13T12:36:54Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/53789",
   "labels": [

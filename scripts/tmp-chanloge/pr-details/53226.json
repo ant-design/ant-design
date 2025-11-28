@@ -1,7 +1,7 @@
 {
   "id": 2405959240,
   "number": 53226,
-  "title": "feat: ConfigProvider support classNames and styles for form",
+  "title": "feat(Form): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-03-21T03:06:29Z",
   "created_at": "2025-03-20T06:49:42Z",
-  "updated_at": "2025-03-21T03:06:40Z",
+  "updated_at": "2025-11-28T11:04:41Z",
   "closed_at": "2025-03-21T03:06:29Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/53226",
   "labels": [],

@@ -1,7 +1,7 @@
 {
   "id": 2269559061,
   "number": 52340,
-  "title": "feat: ConfigProvider support `classNames` and `styles` for Modal",
+  "title": "feat(Modal): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-01-23T10:06:17Z",
   "created_at": "2025-01-10T02:15:09Z",
-  "updated_at": "2025-01-23T10:06:27Z",
+  "updated_at": "2025-11-28T11:03:08Z",
   "closed_at": "2025-01-23T10:06:17Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52340",
   "labels": [],

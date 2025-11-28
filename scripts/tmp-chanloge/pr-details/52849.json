@@ -1,7 +1,7 @@
 {
   "id": 2339111665,
   "number": 52849,
-  "title": "feat: ConfigProvider support classnames and styles for switch",
+  "title": "feat(Switch): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-17T11:54:54Z",
   "created_at": "2025-02-17T08:30:45Z",
-  "updated_at": "2025-02-17T11:55:17Z",
+  "updated_at": "2025-11-28T11:03:44Z",
   "closed_at": "2025-02-17T11:54:54Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52849",
   "labels": [],

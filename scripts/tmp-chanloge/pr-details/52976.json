@@ -1,7 +1,7 @@
 {
   "id": 2358858537,
   "number": 52976,
-  "title": "feat: ConfigProvider support classnames and styles for timeline",
+  "title": "feat(Timeline): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-28T08:06:58Z",
   "created_at": "2025-02-26T08:59:04Z",
-  "updated_at": "2025-02-28T08:07:05Z",
+  "updated_at": "2025-11-28T11:04:12Z",
   "closed_at": "2025-02-28T08:06:58Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52976",
   "labels": [],

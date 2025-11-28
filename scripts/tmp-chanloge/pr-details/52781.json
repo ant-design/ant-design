@@ -1,7 +1,7 @@
 {
   "id": 2332992536,
   "number": 52781,
-  "title": "feat: ConfigProvider support classnames and styles for checkbox",
+  "title": "feat(Checkbox): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-14T03:08:38Z",
   "created_at": "2025-02-13T06:54:20Z",
-  "updated_at": "2025-02-14T03:08:45Z",
+  "updated_at": "2025-11-28T11:03:33Z",
   "closed_at": "2025-02-14T03:08:38Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52781",
   "labels": [],

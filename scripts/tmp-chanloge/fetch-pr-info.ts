@@ -21,7 +21,7 @@ const OWNER = 'ant-design';
 const REPO = 'ant-design';
 
 const run = async () => {
-  const prIdsPath = path.join(__dirname, 'pr-ids_v2.json');
+  const prIdsPath = path.join(__dirname, 'pr-ids_v1.json');
 
   if (!fs.existsSync(prIdsPath)) {
     console.error(`Error: ${prIdsPath} not found. Please run extract-pr.ts first.`);
@@ -39,6 +39,7 @@ const run = async () => {
     const outputPath = path.join(outputDir, `${prId}.json`);
 
     if (fs.existsSync(outputPath)) {
+      // fs.unlinkSync(outputPath);
       console.log(`Skipping #${prId} (already exists)`);
       continue;
     }
@@ -69,7 +70,7 @@ const run = async () => {
         updated_at: data.updated_at,
         closed_at: data.closed_at,
         html_url: data.html_url,
-        labels: data.labels.map(label => ({
+        labels: data.labels.map((label) => ({
           name: label.name,
           color: label.color,
           description: label.description,
@@ -83,16 +84,15 @@ const run = async () => {
           sha: data.head.sha,
           label: data.head.label,
         },
-        requested_reviewers: data.requested_reviewers?.map(reviewer => reviewer.login),
-        assignees: data.assignees?.map(assignee => assignee.login),
+        requested_reviewers: data.requested_reviewers?.map((reviewer) => reviewer.login),
+        assignees: data.assignees?.map((assignee) => assignee.login),
       };
 
       await fs.writeJSON(outputPath, importantInfo, { spaces: 2 });
       console.log(`Saved details for #${prId}`);
 
       // Avoid hitting rate limits
-      await new Promise(resolve => setTimeout(resolve, 500));
-
+      await new Promise((resolve) => setTimeout(resolve, 500));
     } catch (error: any) {
       console.error(`Error fetching PR #${prId}:`, error.message);
     }

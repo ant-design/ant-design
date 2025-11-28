@@ -1,7 +1,7 @@
 {
   "id": 2337357398,
   "number": 52823,
-  "title": "feat: ConfigProvider support classNames and styles for Spin",
+  "title": "feat(Spin): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-17T11:33:15Z",
   "created_at": "2025-02-15T02:30:13Z",
-  "updated_at": "2025-02-17T11:33:29Z",
+  "updated_at": "2025-11-28T11:03:41Z",
   "closed_at": "2025-02-17T11:33:15Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52823",
   "labels": [],

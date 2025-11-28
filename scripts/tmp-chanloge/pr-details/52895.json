@@ -1,7 +1,7 @@
 {
   "id": 2344855679,
   "number": 52895,
-  "title": "feat: ConfigProvider support classnames and styles for tabs",
+  "title": "feat(Tabs): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-20T13:06:47Z",
   "created_at": "2025-02-19T14:58:01Z",
-  "updated_at": "2025-02-20T13:07:26Z",
+  "updated_at": "2025-11-28T11:03:56Z",
   "closed_at": "2025-02-20T13:06:47Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52895",
   "labels": [],

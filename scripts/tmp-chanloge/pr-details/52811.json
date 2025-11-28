@@ -1,7 +1,7 @@
 {
   "id": 2335678700,
   "number": 52811,
-  "title": "feat: ConfigProvider support classname and style for watermark",
+  "title": "feat(Watermark): support `classNames` and `styles` for component and ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-02-14T10:12:32Z",
   "created_at": "2025-02-14T09:45:18Z",
-  "updated_at": "2025-02-14T10:12:43Z",
+  "updated_at": "2025-11-28T11:03:38Z",
   "closed_at": "2025-02-14T10:12:32Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52811",
   "labels": [],

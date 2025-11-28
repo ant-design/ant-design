@@ -1,7 +1,7 @@
 {
   "id": 2265662176,
   "number": 52303,
-  "title": "feat: ConfigProvider support Badge.Ribbon",
+  "title": "feat(Badge.Ribbon): support ConfigProvider",
   "user": {
     "login": "thinkasany",
     "id": 117748716,
@@ -13,7 +13,7 @@
   "merged": true,
   "merged_at": "2025-01-15T02:29:09Z",
   "created_at": "2025-01-08T09:25:24Z",
-  "updated_at": "2025-01-21T06:31:00Z",
+  "updated_at": "2025-11-28T11:03:05Z",
   "closed_at": "2025-01-15T02:29:09Z",
   "html_url": "https://github.com/ant-design/ant-design/pull/52303",
   "labels": [],
