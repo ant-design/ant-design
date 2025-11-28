@@ -1510,33 +1510,33 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 2`] = `[]
 
 exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 8px;"
 >
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <span
-      class="ant-tag ant-tag-sm"
+      class="ant-tag ant-tag-filled ant-tag-sm css-var-test-id"
     >
       Small
     </span>
     <span
-      class="ant-tag"
+      class="ant-tag ant-tag-filled css-var-test-id"
     >
       Middle
     </span>
     <span
-      class="ant-tag ant-tag-lg"
+      class="ant-tag ant-tag-filled ant-tag-lg css-var-test-id"
     >
       Large
     </span>
   </div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1558,7 +1558,7 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1580,7 +1580,7 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1604,32 +1604,32 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap"
     style="gap: 12px normal;"
   >
     <span
-      class="ant-tag ant-tag-processing ant-tag-lg ant-tag-borderless"
+      class="ant-tag ant-tag-filled ant-tag-processing ant-tag-lg css-var-test-id"
     >
       processing
     </span>
     <span
-      class="ant-tag ant-tag-success ant-tag-lg"
+      class="ant-tag ant-tag-filled ant-tag-success ant-tag-lg css-var-test-id"
     >
       success
     </span>
     <span
-      class="ant-tag ant-tag-error ant-tag-lg"
+      class="ant-tag ant-tag-filled ant-tag-error ant-tag-lg css-var-test-id"
     >
       error
     </span>
     <span
-      class="ant-tag ant-tag-warning ant-tag-lg ant-tag-borderless"
+      class="ant-tag ant-tag-filled ant-tag-warning ant-tag-lg css-var-test-id"
     >
       warning
     </span>
     <span
-      class="ant-tag ant-tag-has-color ant-tag-lg"
-      style="background-color: rgb(205, 32, 31);"
+      class="ant-tag ant-tag-filled ant-tag-lg css-var-test-id"
+      style="background-color: rgb(253, 231, 231); color: rgb(205, 32, 31);"
     >
       <span
         aria-label="youtube"
@@ -1655,8 +1655,8 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-has-color ant-tag-lg"
-      style="background-color: rgb(59, 89, 153);"
+      class="ant-tag ant-tag-filled ant-tag-lg css-var-test-id"
+      style="background-color: rgb(234, 239, 250); color: rgb(59, 89, 153);"
     >
       <span
         aria-label="facebook"
@@ -1682,7 +1682,7 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-checkable ant-tag-lg"
+      class="ant-tag ant-tag-checkable ant-tag-lg css-var-test-id"
     >
       <span>
         Checkable Tag
@@ -1692,7 +1692,11 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tag/demo/size.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tag/demo/size.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Tag] \`bordered={false}\` is deprecated. Please use \`variant="filled"\` instead.",
+]
+`;
 
 exports[`renders components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [

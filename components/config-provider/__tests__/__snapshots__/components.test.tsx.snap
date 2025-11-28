@@ -28739,12 +28739,12 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Tags configProvider componentSize large 1`] = `
 <div>
   <span
-    class="config-tag config-tag-lg"
+    class="config-tag config-tag-filled config-tag-lg css-var-root"
   >
     Bamboo
   </span>
   <span
-    class="config-tag config-tag-checkable config-tag-lg"
+    class="config-tag config-tag-checkable config-tag-lg css-var-root"
   >
     <span>
       Light
@@ -28773,12 +28773,12 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Tags configProvider componentSize small 1`] = `
 <div>
   <span
-    class="config-tag config-tag-sm"
+    class="config-tag config-tag-filled config-tag-sm css-var-root"
   >
     Bamboo
   </span>
   <span
-    class="config-tag config-tag-checkable config-tag-sm"
+    class="config-tag config-tag-checkable config-tag-sm css-var-root"
   >
     <span>
       Light

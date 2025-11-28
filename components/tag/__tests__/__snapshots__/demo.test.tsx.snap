@@ -1496,6 +1496,190 @@ Array [
 ]
 `;
 
+exports[`renders components/tag/demo/size.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:8px"
+>
+  <div
+    class="ant-flex css-var-test-id"
+  >
+    <span
+      class="ant-tag ant-tag-filled ant-tag-sm css-var-test-id"
+    >
+      Small
+    </span>
+    <span
+      class="ant-tag ant-tag-filled css-var-test-id"
+    >
+      Middle
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-lg css-var-test-id"
+    >
+      Large
+    </span>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+  >
+    <label
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          name="test-id"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+        Small
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          name="test-id"
+          type="radio"
+          value="middle"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+        Middle (default)
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          name="test-id"
+          type="radio"
+          value="large"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+        Large
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+    style="gap:12px normal"
+  >
+    <span
+      class="ant-tag ant-tag-filled ant-tag-processing ant-tag-lg css-var-test-id"
+    >
+      processing
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-success ant-tag-lg css-var-test-id"
+    >
+      success
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-error ant-tag-lg css-var-test-id"
+    >
+      error
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-warning ant-tag-lg css-var-test-id"
+    >
+      warning
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-lg css-var-test-id"
+      style="background-color:#fde7e7;color:#cd201f"
+    >
+      <span
+        aria-label="youtube"
+        class="anticon anticon-youtube"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="youtube"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M960 509.2c0-2.2 0-4.7-.1-7.6-.1-8.1-.3-17.2-.5-26.9-.8-27.9-2.2-55.7-4.4-81.9-3-36.1-7.4-66.2-13.4-88.8a139.52 139.52 0 00-98.3-98.5c-28.3-7.6-83.7-12.3-161.7-15.2-37.1-1.4-76.8-2.3-116.5-2.8-13.9-.2-26.8-.3-38.4-.4h-29.4c-11.6.1-24.5.2-38.4.4-39.7.5-79.4 1.4-116.5 2.8-78 3-133.5 7.7-161.7 15.2A139.35 139.35 0 0082.4 304C76.3 326.6 72 356.7 69 392.8c-2.2 26.2-3.6 54-4.4 81.9-.3 9.7-.4 18.8-.5 26.9 0 2.9-.1 5.4-.1 7.6v5.6c0 2.2 0 4.7.1 7.6.1 8.1.3 17.2.5 26.9.8 27.9 2.2 55.7 4.4 81.9 3 36.1 7.4 66.2 13.4 88.8 12.8 47.9 50.4 85.7 98.3 98.5 28.2 7.6 83.7 12.3 161.7 15.2 37.1 1.4 76.8 2.3 116.5 2.8 13.9.2 26.8.3 38.4.4h29.4c11.6-.1 24.5-.2 38.4-.4 39.7-.5 79.4-1.4 116.5-2.8 78-3 133.5-7.7 161.7-15.2 47.9-12.8 85.5-50.5 98.3-98.5 6.1-22.6 10.4-52.7 13.4-88.8 2.2-26.2 3.6-54 4.4-81.9.3-9.7.4-18.8.5-26.9 0-2.9.1-5.4.1-7.6v-5.6zm-72 5.2c0 2.1 0 4.4-.1 7.1-.1 7.8-.3 16.4-.5 25.7-.7 26.6-2.1 53.2-4.2 77.9-2.7 32.2-6.5 58.6-11.2 76.3-6.2 23.1-24.4 41.4-47.4 47.5-21 5.6-73.9 10.1-145.8 12.8-36.4 1.4-75.6 2.3-114.7 2.8-13.7.2-26.4.3-37.8.3h-28.6l-37.8-.3c-39.1-.5-78.2-1.4-114.7-2.8-71.9-2.8-124.9-7.2-145.8-12.8-23-6.2-41.2-24.4-47.4-47.5-4.7-17.7-8.5-44.1-11.2-76.3-2.1-24.7-3.4-51.3-4.2-77.9-.3-9.3-.4-18-.5-25.7 0-2.7-.1-5.1-.1-7.1v-4.8c0-2.1 0-4.4.1-7.1.1-7.8.3-16.4.5-25.7.7-26.6 2.1-53.2 4.2-77.9 2.7-32.2 6.5-58.6 11.2-76.3 6.2-23.1 24.4-41.4 47.4-47.5 21-5.6 73.9-10.1 145.8-12.8 36.4-1.4 75.6-2.3 114.7-2.8 13.7-.2 26.4-.3 37.8-.3h28.6l37.8.3c39.1.5 78.2 1.4 114.7 2.8 71.9 2.8 124.9 7.2 145.8 12.8 23 6.2 41.2 24.4 47.4 47.5 4.7 17.7 8.5 44.1 11.2 76.3 2.1 24.7 3.4 51.3 4.2 77.9.3 9.3.4 18 .5 25.7 0 2.7.1 5.1.1 7.1v4.8zM423 646l232-135-232-133z"
+          />
+        </svg>
+      </span>
+      <span>
+        Youtube
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-lg css-var-test-id"
+      style="background-color:#eaeffa;color:#3b5999"
+    >
+      <span
+        aria-label="facebook"
+        class="anticon anticon-facebook"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="facebook"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-32 736H663.9V602.2h104l15.6-120.7H663.9v-77.1c0-35 9.7-58.8 59.8-58.8h63.9v-108c-11.1-1.5-49-4.8-93.2-4.8-92.2 0-155.3 56.3-155.3 159.6v89H434.9v120.7h104.3V848H176V176h672v672z"
+          />
+        </svg>
+      </span>
+      <span>
+        Facebook
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-checkable ant-tag-lg css-var-test-id"
+    >
+      <span>
+        Checkable Tag
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders components/tag/demo/status.tsx correctly 1`] = `
 Array [
   <div>
