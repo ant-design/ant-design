@@ -943,6 +943,30 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
         Solid danger
       </span>
     </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
   </div>
 </div>
 `;

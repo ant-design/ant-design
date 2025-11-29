@@ -50,6 +50,8 @@ const useOriginalClsStyle = createStyles(({ css }) => ({
 const theme: ThemeConfig = {
   components: {
     Button: {
+      defaultHoverBg: 'orange',
+      defaultActiveBg: 'blue',
       primaryColor: 'pink',
       dangerColor: 'green',
     },
@@ -110,6 +112,9 @@ const App: React.FC = () => {
           <Button color="danger" variant="solid">
             Solid danger
           </Button>
+          <Button type="default">Default</Button>
+          <Button variant="outlined">Outlined</Button>
+          <Button type="dashed">Dashed</Button>
         </ConfigProvider>
       </Flex>
     </Flex>
