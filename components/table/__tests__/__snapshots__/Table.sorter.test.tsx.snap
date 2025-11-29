@@ -37,7 +37,6 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
       tabindex="0"
     >
       <div
-        aria-describedby="test-id"
         class="ant-table-column-sorters"
       >
         <span
@@ -133,7 +132,6 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span

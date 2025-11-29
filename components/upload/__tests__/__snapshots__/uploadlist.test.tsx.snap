@@ -31,7 +31,6 @@ exports[`Upload List handle error 1`] = `
       style=""
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div

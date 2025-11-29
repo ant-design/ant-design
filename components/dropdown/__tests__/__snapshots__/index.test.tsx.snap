@@ -26,7 +26,6 @@ Array [
         tabindex="0"
       >
         <li
-          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-1"
           role="menuitem"
@@ -72,7 +71,6 @@ Array [
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
