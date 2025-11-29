@@ -172,6 +172,8 @@ export interface TableConfig extends ComponentStyleConfig {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
   rowKey?: string;
+  classNames?: TableProps['classNames'];
+  styles?: TableProps['styles'];
 }
 
 export type ImageConfig = ComponentStyleConfig &
