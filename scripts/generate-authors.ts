@@ -22,6 +22,7 @@ const excludes = [
   'renovate[bot]',
   'dependabot',
   'dependabot[bot]',
+  'gemini-code-assist[bot]',
 ];
 
 async function execute() {
