@@ -49,18 +49,15 @@ type Rules = {
   };
 };
 
-const convertRulesToAxeFormat = (rules: string[]): Rules => {
-  return rules.reduce(
-    (acc, rule) => ({
-      ...acc,
-      [rule]: { enabled: false },
-    }),
-    {},
-  );
+const convertRulesToAxeFormat = (rules: string[]) => {
+  return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
 // eslint-disable-next-line jest/no-export
-export function accessibilityTest(Component: React.ComponentType, disabledRules?: string[]) {
+export const accessibilityTest = (
+  Component: React.ComponentType<any>,
+  disabledRules?: string[],
+) => {
   beforeAll(() => {
     // Fake ResizeObserver
     global.ResizeObserver = jest.fn(() => {
@@ -109,7 +106,7 @@ export function accessibilityTest(Component: React.ComponentType, disabledRules?
       expect(results).toHaveNoViolations();
     }, 50000);
   });
-}
+};
 
 type Options = {
   /**
@@ -146,7 +143,7 @@ export default function accessibilityDemoTest(component: string, options: Option
       const testMethod = shouldSkip ? describe.skip : describe;
 
       testMethod(`Test ${file} accessibility`, () => {
-        const Demo = require(`../../${file}`).default;
+        const Demo: React.ComponentType<any> = require(`../../${file}`).default;
         accessibilityTest(Demo, options.disabledRules);
       });
     });
