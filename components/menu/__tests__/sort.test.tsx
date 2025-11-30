@@ -136,7 +136,7 @@ describe('Menu.sorted', () => {
       <Menu
         sorted
         items={[
-          { key: '1', label: <span>Custom</span> },
+          { key: '1', label: <span>Zebra</span> },
           { key: '2', label: 'Apple' },
           { key: '3', label: 123 },
         ]}
@@ -145,9 +145,34 @@ describe('Menu.sorted', () => {
 
     const items = container.querySelectorAll('.ant-menu-item');
     expect(items).toHaveLength(3);
-    expect(items[0].textContent).toBe('Custom');
-    expect(items[1].textContent).toBe('123');
-    expect(items[2].textContent).toBe('Apple');
+    expect(items[0].textContent).toBe('123');
+    expect(items[1].textContent).toBe('Apple');
+    expect(items[2].textContent).toBe('Zebra');
+  });
+
+  it('should extract text from React nodes for sorting', () => {
+    const { container } = render(
+      <Menu
+        sorted
+        items={[
+          { key: '1', label: <span>Zebra</span> },
+          {
+            key: '2',
+            label: (
+              <div>
+                <span>Apple</span>
+              </div>
+            ),
+          },
+          { key: '3', label: <span>Mango</span> },
+        ]}
+      />,
+    );
+
+    const items = container.querySelectorAll('.ant-menu-item');
+    expect(items[0].textContent).toBe('Apple');
+    expect(items[1].textContent).toBe('Mango');
+    expect(items[2].textContent).toBe('Zebra');
   });
 
   it('should handle empty and null items', () => {
