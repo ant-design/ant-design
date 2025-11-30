@@ -184,7 +184,7 @@
     "@octokit/rest": "^22.0.0",
     "@prettier/sync": "^0.6.1",
     "@qixian.cs/github-contributors-list": "^2.0.2",
-    "@size-limit/file": "^11.2.0",
+    "@size-limit/file": "^12.0.0",
     "@stackblitz/sdk": "^1.11.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
