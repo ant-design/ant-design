@@ -124,10 +124,6 @@ const Sidebar: React.FC = () => {
     setOpenKeys(defaultOpenKeys);
   }, [defaultOpenKeys.join(',')]);
 
-  const onOpenChange = (openKeys: string[]) => {
-    setOpenKeys(openKeys);
-  };
-
   const menuChild = (
     <ConfigProvider
       theme={{ components: { Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer } } }}
@@ -140,7 +136,7 @@ const Sidebar: React.FC = () => {
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
         openKeys={openKeys}
-        onOpenChange={onOpenChange}
+        onOpenChange={setOpenKeys}
       />
     </ConfigProvider>
   );
