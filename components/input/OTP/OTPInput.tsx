@@ -40,6 +40,11 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     });
   };
 
+  const onInternalFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    restProps.onFocus?.(e);
+    syncSelection();
+  };
+
   // ======================== Keyboard ========================
   const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     const { key, ctrlKey, metaKey } = event;
@@ -74,7 +79,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
-        onFocus={syncSelection}
+        onFocus={onInternalFocus}
         onKeyDown={onInternalKeyDown}
         onMouseDown={syncSelection}
         onMouseUp={syncSelection}

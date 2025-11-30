@@ -109,7 +109,7 @@ describe('Input.OTP', () => {
   });
 
   it('arrow key to switch', () => {
-    const { container } = render(<OTP autoFocus />);
+    const { container } = render(<OTP autoFocus defaultValue="12" />);
 
     const inputList = Array.from(container.querySelectorAll('input'));
     expect(document.activeElement).toEqual(inputList[0]);
@@ -118,6 +118,16 @@ describe('Input.OTP', () => {
     expect(document.activeElement).toEqual(inputList[1]);
 
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' });
+    expect(document.activeElement).toEqual(inputList[0]);
+  });
+
+  it('should not switch to next input when value is empty', () => {
+    const { container } = render(<OTP autoFocus />);
+
+    const inputList = Array.from(container.querySelectorAll('input'));
+    expect(document.activeElement).toEqual(inputList[0]);
+
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowRight' });
     expect(document.activeElement).toEqual(inputList[0]);
   });
 

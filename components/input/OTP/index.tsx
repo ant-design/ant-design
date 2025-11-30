@@ -176,6 +176,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   const refs = React.useRef<Record<number, InputRef | null>>({});
 
+  const internalFocusRef = React.useRef(false);
+
   React.useImperativeHandle(ref, () => ({
     focus: () => {
       refs.current[0]?.focus();
@@ -263,7 +265,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index && nextCells[index] !== undefined) {
+      internalFocusRef.current = true;
       refs.current[nextIndex]?.focus();
+      internalFocusRef.current = false;
     }
 
     triggerValueCellsChange(nextCells);
@@ -271,6 +275,19 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
     refs.current[nextIndex]?.focus();
+  };
+
+  // ======================== Focus ========================
+  const onInputFocus = (index: number) => {
+    if (internalFocusRef.current) {
+      return;
+    }
+
+    const nextActiveIndex = Math.min(valueCells.length, length - 1);
+
+    if (index > nextActiveIndex) {
+      refs.current[nextActiveIndex]?.focus();
+    }
   };
 
   // ======================== Render ========================
@@ -322,6 +339,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 value={singleValue}
                 onActiveChange={onInputActiveChange}
                 autoFocus={index === 0 && autoFocus}
+                onFocus={() => onInputFocus(index)}
                 {...inputSharedProps}
               />
               {index < length - 1 && (
