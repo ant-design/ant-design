@@ -37,6 +37,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 <code src="./demo/custom-popup-render.tsx">自定义弹出框</code>
+<code src="./demo/sorted.tsx">排序菜单</code>
 
 ## API
 
@@ -60,6 +61,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | overflowedIndicator | 用于自定义 Menu 水平空间不足时的省略收缩的图标 | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | 是否允许选中 | boolean | true |  |
 | selectedKeys | 当前选中的菜单项 key 数组 | string\[] | - |  |
+| sorted | 按标签对菜单项进行字母排序（不区分大小写，递归） | boolean | false |  |
 | style | 根节点样式 | CSSProperties | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties> | - |  |
 | subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 |  |
