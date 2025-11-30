@@ -166,8 +166,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       // use flattedData keys
       const keysSet = new Set(flattedData.map((record, index) => getRowKey(record, index)));
       // remove preserveRecords that duplicate data
-      const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
-        (total: RecordType[], [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
+      const preserveRecords = Array.from(preserveRecordsRef.current).reduce<RecordType[]>(
+        (total, [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
         [],
       );
       convertData = [...convertData, ...preserveRecords];
