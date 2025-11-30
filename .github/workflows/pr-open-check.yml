@@ -14,7 +14,7 @@ jobs:
       pull-requests: write  # for actions-cool/pr-welcome to request reviewer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-welcome@1c2b1c3e3ab926424a4464fbf7b6321efb67c871
+      - uses: actions-cool/pr-welcome@4bd317d60ef3b40a3ccda39c22f66c3358010f92
         with:
           refuse-issue-label: 🎱 Collaborate PR only
           need-creator-authority: write
