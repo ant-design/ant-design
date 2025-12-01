@@ -122,13 +122,19 @@ describe('Input.OTP', () => {
   });
 
   it('should not switch to next input when value is empty', () => {
-    const { container } = render(<OTP autoFocus />);
+    const onFocus = jest.fn();
+    const { container } = render(<OTP autoFocus onFocus={onFocus} />);
 
     const inputList = Array.from(container.querySelectorAll('input'));
     expect(document.activeElement).toEqual(inputList[0]);
 
+    // Key operation
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowRight' });
-    expect(document.activeElement).toEqual(inputList[0]);
+    expect(document.activeElement).toBe(inputList[0]);
+
+    // Focus directly
+    fireEvent.focus(inputList[3]);
+    expect(document.activeElement).toBe(inputList[0]);
   });
 
   it('fill last cell', () => {
