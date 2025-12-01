@@ -16,7 +16,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -104,7 +103,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="true"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -168,7 +166,6 @@ Array [
         class="ant-slider-step"
       />
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -405,7 +402,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -493,7 +489,6 @@ exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="20"
@@ -555,7 +550,6 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
             class="ant-slider-step"
           />
           <div
-            aria-describedby="test-id"
             aria-disabled="false"
             aria-orientation="horizontal"
             aria-valuemax="20"
@@ -670,7 +664,6 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
             class="ant-slider-step"
           />
           <div
-            aria-describedby="test-id"
             aria-disabled="false"
             aria-orientation="horizontal"
             aria-valuemax="1"
@@ -801,7 +794,6 @@ Array [
       />
     </div>
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -956,7 +948,6 @@ Array [
       />
     </div>
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1032,7 +1023,6 @@ Array [
       />
     </div>
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1108,7 +1098,6 @@ Array [
       />
     </div>
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1227,7 +1216,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1317,7 +1305,6 @@ exports[`renders components/slider/demo/style-class.tsx correctly 1`] = `
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1344,7 +1331,6 @@ exports[`renders components/slider/demo/style-class.tsx correctly 1`] = `
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="vertical"
       aria-valuemax="100"
@@ -1375,7 +1361,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1401,7 +1386,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1435,7 +1419,6 @@ Array [
         class="ant-slider-step"
       />
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"

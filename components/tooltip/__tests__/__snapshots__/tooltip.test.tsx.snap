@@ -1,14 +1,9 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `
-<span
-  aria-describedby="test-id"
-/>
-`;
+exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
 
 exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <button
-  aria-describedby="test-id"
   class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   disabled=""
   type="button"
@@ -18,7 +13,6 @@ exports[`Tooltip should hide when mouse leave antd disabled component Button 1`]
 exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
 <button
   aria-checked="false"
-  aria-describedby="test-id"
   class="ant-switch css-var-root ant-switch-disabled"
   disabled=""
   role="switch"
