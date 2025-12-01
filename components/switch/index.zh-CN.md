@@ -32,7 +32,6 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 组件自动获取焦点 | boolean | false |  |
 | checked | 指定当前是否选中 | boolean | false |  |
 | checkedChildren | 选中时的内容 | ReactNode | - |  |
 | className | Switch 器类名 | string | - |  |
