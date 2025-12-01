@@ -176,8 +176,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   const refs = React.useRef<Record<number, InputRef | null>>({});
 
-  const internalFocusRef = React.useRef(false);
-
   React.useImperativeHandle(ref, () => ({
     focus: () => {
       refs.current[0]?.focus();
@@ -265,9 +263,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index && nextCells[index] !== undefined) {
-      internalFocusRef.current = true;
       refs.current[nextIndex]?.focus();
-      internalFocusRef.current = false;
     }
 
     triggerValueCellsChange(nextCells);
@@ -279,14 +275,12 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ======================== Focus ========================
   const onInputFocus = (index: number) => {
-    if (internalFocusRef.current) {
-      return;
-    }
-
-    const nextActiveIndex = Math.min(valueCells.length, length - 1);
-
-    if (index > nextActiveIndex) {
-      refs.current[nextActiveIndex]?.focus();
+    // keep focus on the first empty cell
+    for (let i = 0; i < index; i += 1) {
+      if (!refs.current[i]?.input?.value) {
+        refs.current[i]?.focus();
+        return;
+      }
     }
   };
 
