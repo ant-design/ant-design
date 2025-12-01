@@ -49,7 +49,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   const {
     prefixCls: customizePrefixCls,
     placement = 'top',
-    trigger = 'click',
+    trigger,
     okType = 'primary',
     icon = <ExclamationCircleFilled />,
     children,
@@ -72,7 +72,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
   const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
-  const mergedTrigger = trigger || contextTrigger;
+  const mergedTrigger = trigger || contextTrigger || 'click';
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value);
