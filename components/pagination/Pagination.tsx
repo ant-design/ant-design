@@ -39,7 +39,7 @@ export type PaginationStylesType = SemanticStylesType<PaginationProps, Paginatio
 export interface PaginationProps
   extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
-  size?: 'default' | 'small';
+  size?: 'default' | 'small' | 'large';
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
@@ -235,8 +235,10 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
 
   const extendedClassName = clsx(
+    `${prefixCls}-${mergedSize}`,
     {
       [`${prefixCls}-${align}`]: !!align,
+      /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
