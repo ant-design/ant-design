@@ -110,8 +110,8 @@ describe('ConfigProvider.Popup', () => {
       const { container, baseElement } = render(
         <ConfigProvider
           popover={{ trigger: ['contextMenu'] }}
-          popconfirm={{ trigger: ['click'] }}
-          tooltip={{ trigger: ['click'] }}
+          popconfirm={{ trigger: ['contextMenu'] }}
+          tooltip={{ trigger: ['contextMenu'] }}
         >
           <Popover content="content">
             <button type="button">popover</button>
@@ -128,10 +128,10 @@ describe('ConfigProvider.Popup', () => {
       fireEvent.contextMenu(getByRole(container, 'button', { name: 'popover' }));
       expect(baseElement.querySelector('.ant-popover')).toBeTruthy();
 
-      fireEvent.click(getByRole(container, 'button', { name: 'popconfirm' }));
+      fireEvent.contextMenu(getByRole(container, 'button', { name: 'popconfirm' }));
       expect(baseElement.querySelector('.ant-popconfirm')).toBeTruthy();
 
-      fireEvent.click(getByRole(container, 'button', { name: 'tooltip' }));
+      fireEvent.contextMenu(getByRole(container, 'button', { name: 'tooltip' }));
       expect(baseElement.querySelector('.ant-tooltip')).toBeTruthy();
     });
   });

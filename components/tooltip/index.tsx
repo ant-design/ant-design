@@ -189,7 +189,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   } = useComponentConfig('tooltip');
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
-  const mergedTrigger = trigger || contextTrigger;
+  const mergedTrigger = trigger || contextTrigger || 'hover';
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
