@@ -3349,7 +3349,7 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content"
@@ -3673,7 +3673,7 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content"
