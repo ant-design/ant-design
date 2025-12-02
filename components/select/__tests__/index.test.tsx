@@ -63,6 +63,56 @@ describe('Select', () => {
     expect(container.querySelector('.ant-select-item-option')).toBeFalsy();
     expect(container.querySelector('.ant-select-item-empty')).toHaveTextContent('not at all');
   });
+  // 定义要测试的所有mode
+  const modes = ['multiple', 'tags', 'default'] as const;
+  it.each(
+    modes,
+  )('should keep searchValue when options reset and notFoundContent is null for %s mode', (mode) => {
+    const TestComponent: React.FC = () => {
+      const [options, setOptions] = React.useState<{ label: string; value: string }[]>([]);
+      const [isFetching, setIsFetching] = React.useState<boolean>(false);
+      function handleSearch() {
+        setIsFetching(true);
+        setTimeout(() => {
+          setOptions([]);
+          setIsFetching(false);
+        }, 1000);
+      }
+
+      return mode === 'default' ? (
+        <Select
+          style={{ width: 300 }}
+          showSearch={{ filterOption: false, onSearch: handleSearch }}
+          placeholder="Type to search users..."
+          loading={isFetching}
+          options={options}
+          notFoundContent={isFetching ? 'Loading...' : null}
+        />
+      ) : (
+        <Select
+          style={{ width: 300 }}
+          showSearch={{ filterOption: false, onSearch: handleSearch }}
+          placeholder="Type to search users..."
+          loading={isFetching}
+          options={options}
+          mode={mode}
+          notFoundContent={isFetching ? 'Loading...' : null}
+        />
+      );
+    };
+    const { container } = render(<TestComponent />);
+    toggleOpen(container);
+    const searchInput = container.querySelector('input') as HTMLInputElement;
+    expect(searchInput).toBeTruthy();
+
+    expect(searchInput.value).toBe('');
+    fireEvent.change(searchInput, { target: { value: 'user query' } });
+    expect(searchInput.value).toBe('user query');
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(searchInput.value).toBe('user query');
+  });
 
   it('should be controlled by open prop', () => {
     const onOpenChange = jest.fn();

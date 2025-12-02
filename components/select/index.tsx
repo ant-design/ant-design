@@ -254,7 +254,7 @@ const InternalSelect = <
   } else {
     mergedNotFound = defaultNotFound;
   }
-  if (props?.showSearch && !mergedNotFound && (!mode || mode === 'multiple')) {
+  if (props?.showSearch && !mergedNotFound && (!mode || isMultiple)) {
     mergedNotFound = defaultNotFound;
   }
 
@@ -389,8 +389,10 @@ const InternalSelect = <
 
   // ====================== mousedown =========================
   const mergedOnMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-    props.onMouseDown?.(event);
+    props?.onMouseDown?.(event);
+    if (!event.isPropagationStopped()) {
+      event.stopPropagation();
+    }
   };
 
   // ====================== Render =======================
