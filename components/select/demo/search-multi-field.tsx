@@ -3,7 +3,7 @@ import { Select } from 'antd';
 
 const App: React.FC = () => (
   <Select
-    placeholder="Select a option"
+    placeholder="Select an option"
     showSearch={{
       optionFilterProp: ['label', 'otherField'],
     }}
