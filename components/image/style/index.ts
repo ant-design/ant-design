@@ -2,7 +2,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
-import { blurMaskStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -44,11 +43,6 @@ export interface ImageToken extends FullToken<'Image'> {
    * @descEN Preview class name
    */
   previewCls: string;
-  /**
-   * @desc 模态框遮罩背景色
-   * @descEN Background color of modal mask
-   */
-  modalMaskBg: string;
   /**
    * @desc 预览切换按钮尺寸
    * @descEN Size of preview switch button
@@ -102,7 +96,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     previewCls,
     motionDurationSlow,
     componentCls,
-    modalMaskBg,
+    colorBgMask,
     marginXL,
     marginSM,
     margin,
@@ -115,7 +109,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     zIndexPopup,
   } = token;
 
-  const operationBg = new FastColor(modalMaskBg).setA(0.1);
+  const operationBg = new FastColor(colorBgMask).setA(0.1);
   const operationBgHover = operationBg.clone().setA(0.2);
 
   const singleBtn: CSSObject = {
@@ -151,9 +145,9 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
       [`${previewCls}-mask`]: {
         inset: 0,
         position: 'absolute',
-        background: modalMaskBg,
+        background: colorBgMask,
         [`&${componentCls}-preview-mask-blur`]: {
-          ...blurMaskStyle,
+          backdropFilter: 'blur(4px)',
         },
         [`&${componentCls}-preview-mask-hidden`]: {
           display: 'none',
@@ -346,7 +340,6 @@ export default genStyleHooks(
 
     const imageToken = mergeToken<ImageToken>(token, {
       previewCls,
-      modalMaskBg: new FastColor('#000').setA(0.45).toRgbString(), // FIXME: Shared Token
       imagePreviewSwitchSize: token.controlHeightLG,
     });
 
