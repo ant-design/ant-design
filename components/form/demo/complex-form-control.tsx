@@ -42,6 +42,19 @@ const App: React.FC = () => (
             ]}
           />
         </Form.Item>
+                <Form.Item
+          name={['address', 'province']}
+          noStyle
+          rules={[{ required: true, message: 'Province is required' }]}
+        >
+          <Select
+            placeholder="Select province"
+            options={[
+              { label: 'Zhejiang', value: 'Zhejiang' },
+              { label: 'Jiangsu', value: 'Jiangsu' },
+            ]}
+          />
+        </Form.Item>
         <Form.Item
           name={['address', 'street']}
           noStyle
