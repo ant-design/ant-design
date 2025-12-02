@@ -31,7 +31,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoFocus | Whether get focus when component mounted | boolean | false |  |
 | checked | Determine whether the Switch is checked | boolean | false |  |
 | checkedChildren | The content to be shown when the state is checked | ReactNode | - |  |
 | className | The additional class to Switch | string | - |  |
