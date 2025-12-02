@@ -157,6 +157,10 @@ const RoutesPlugin = async (api: IApi) => {
   api.modifyRoutes((routes) => {
     // TODO: append extra routes, such as home, changelog, form-v3
 
+    /**
+     * **important!** Make sure that the `id` and `path` are consistent.
+     * see: https://github.com/ant-design/ant-design/issues/55960
+     */
     const extraRoutesList: IRoute[] = [
       {
         id: 'changelog',
@@ -172,10 +176,6 @@ const RoutesPlugin = async (api: IApi) => {
         parentId: 'DocLayout',
         file: resolve('../../CHANGELOG.zh-CN.md'),
       },
-      /**
-       * **important!** Make sure that the `id` and `path` are consistent.
-       * see: https://github.com/ant-design/ant-design/issues/55960
-       */
       {
         id: 'components/changelog',
         path: 'components/changelog',
