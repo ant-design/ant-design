@@ -15,6 +15,30 @@ tag: vVERSION
 
 ---
 
+## 6.0.1
+
+`2025-12-02`
+
+- Flex
+  - 🐞 修复 Flex 的 `flex` 属性不能设置为 `0` 的问题。[#55829](https://github.com/ant-design/ant-design/pull/55829) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 修复 Flex 的 `gap` 属性不能设置为 `0` 的问题。[#55803](https://github.com/ant-design/ant-design/pull/55803) [@li-jia-nan](https://github.com/li-jia-nan)
+- Input
+  - 🐞 修复 Input `colorText` token 在无前后缀的 `filled` 变体下不工作的问题。[#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 修复 Input.OPT 在输入时可跳过空位的问题。[#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 修复 DatePicker `borderRadiusSM` 和 `borderRadiusLG` token 未生效问题。[#56018](https://github.com/ant-design/ant-design/pull/56018) [@ug-hero](https://github.com/ug-hero)
+- 🐞 修复 Anchor 快速点击同一链接时的滚动问题。[#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@余晖](https://github.com/余晖)
+- 🐞 修复 Button 在 `solid` 变体下悬浮态的文字颜色。[#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
+- 🐞 修复 Cascader 使用 defaultValue 时首次打开会滚动到页面顶部的问题。[8b536eb](https://github.com/ant-design/ant-design/commit/8b536eb) [@余晖](https://github.com/余晖)
+- 🐞 修复 InputNumber 在 ColorPicker 中使用时文字被裁切的问题。[#55966](https://github.com/ant-design/ant-design/pull/55966) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 修复 Select 在深色模式下的搜索框文本颜色。[#55914](https://github.com/ant-design/ant-design/pull/55914) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🐞 修复 Wave 可能由于 RAF 未清理引发内存泄露的风险。[#55962](https://github.com/ant-design/ant-design/pull/55962) [@Copilot](https://github.com/Copilot)
+- 💄 修复 ConfigProvider 默认没有配置 `theme.hashed` 为 `true`，从而会导致多版本混用样式冲突的问题。[#55880](https://github.com/ant-design/ant-design/pull/55880) [@zombieJ](https://github.com/zombieJ)
+- 💄 修复 Layout.Sider 在 zeroRuntime 开启时样式缺失的问题。[#55864](https://github.com/ant-design/ant-design/pull/55864) [@wanpan11](https://github.com/wanpan11)
+- TypeScript
+  - 🤖 修复 ContextProvider 的 Table `classNames` 及 `styles` 配置类型缺失的问题。[#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
+  - 🤖 修复 DatePicker 多个属性的类型定义。[#55826](https://github.com/ant-design/ant-design/pull/55826) [@divyeshagrawal](https://github.com/divyeshagrawal)
+
+
 ## 6.0.0
 
 `2025-11-22`
