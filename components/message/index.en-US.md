@@ -124,7 +124,7 @@ message.config({
 
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in message?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in message? {#faq-context-redux}
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context.
 
@@ -148,6 +148,6 @@ return (
 
 > [App Package Component](/components/app) can be used to simplify the problem of `useMessage` and other methods that need to manually implant contextHolder.
 
-### How to set static methods prefixCls ？
+### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

@@ -14,12 +14,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 
 更多布局和导航的使用可以参考：[通用布局](/components/layout-cn)。
 
-## 开发者注意事项
+## 开发者注意事项 {#notes-for-developers}
 
 - Menu 元素为 `ul`，因而仅支持 [`li` 以及 `script-supporting` 子元素](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)。因而你的子节点元素应该都在 `Menu.Item` 内使用。
 - Menu 需要计算节点结构，因而其子元素仅支持 `Menu.*` 以及对此进行封装的 HOC 组件。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/horizontal.tsx">顶部导航</code>
@@ -138,11 +138,11 @@ const dividerItem = {
 
 ## FAQ
 
-### 为何 Menu 的子元素会渲染两次？
+### 为何 Menu 的子元素会渲染两次？ {#faq-render-twice}
 
 Menu 通过[二次渲染](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543)收集嵌套结构信息以支持 HOC 的结构。合并成一个推导结构会使得逻辑变得十分复杂，欢迎 PR 以协助改进该设计。
 
-### 在 Flex 布局中，Menu 没有按照预期响应式省略菜单？
+### 在 Flex 布局中，Menu 没有按照预期响应式省略菜单？ {#faq-flex-layout}
 
 Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于 Flex 布局中，你需要告知其预期宽度为响应式宽度（[在线 Demo](https://codesandbox.io/s/ding-bu-dao-hang-antd-4-21-7-forked-5e3imy?file=/demo.js)）：
 
@@ -157,6 +157,6 @@ Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Menu"></ComponentTokenTable>

@@ -6,8 +6,8 @@ import Link from '../../common/Link';
 import * as utils from '../../utils';
 
 const useStyle = createStyles(({ cssVar, token, css }) => {
-  const { headerHeight } = token;
-  const { colorTextHeading, mobileMaxWidth } = cssVar;
+  const { headerHeight, mobileMaxWidth } = token;
+  const { colorTextHeading } = cssVar;
 
   return {
     logo: css`
@@ -36,7 +36,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         vertical-align: middle;
       }
 
-      @media only screen and (max-width: ${mobileMaxWidth}) {
+      @media only screen and (max-width: ${mobileMaxWidth}px) {
         padding-inline-start: 0;
         padding-inline-end: 0;
       }

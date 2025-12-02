@@ -21,7 +21,7 @@ demo:
 >
 > 自 `5.17.0` 版本，我们提供了 `loading` 属性，内置 Spin 组件作为加载状态，但是自 `5.18.0` 版本开始，我们修复了设计失误，将内置的 Spin 组件替换成了 Skeleton 组件，同时收窄了 `loading` api 的类型范围，只能接收 boolean 类型。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">基础抽屉</code>
@@ -92,10 +92,10 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | onResize      | 拖拽调整大小时的回调     | (size: number) => void | -      | 6.0.0 |
 | onResizeEnd   | 结束拖拽调整大小时的回调 | () => void             | -      | 6.0.0 |
 
-## Semantic DOM
+## Semantic DOM {#semantic-dom}
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Drawer"></ComponentTokenTable>

@@ -14,7 +14,7 @@ group: 数据展示
 
 一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -76,6 +76,6 @@ group: 数据展示
 
 <code src="./demo/_semantic_ribbon.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Badge"></ComponentTokenTable>

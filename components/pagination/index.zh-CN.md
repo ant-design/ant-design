@@ -13,7 +13,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 - 当加载/渲染所有数据将花费很多时间时；
 - 可切换页码浏览数据。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -68,6 +68,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Pagination"></ComponentTokenTable>
