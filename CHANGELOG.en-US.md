@@ -31,7 +31,9 @@ tag: vVERSION
 - 🐞 Fix DatePicker `borderRadiusSM` and `borderRadiusLG` token not working bug. [#56018](https://github.com/ant-design/ant-design/pull/56018) [@ug-hero](https://github.com/ug-hero)
 - 🐞 Fix InputNumber text clipping bug with ColorPicker. [#55966](https://github.com/ant-design/ant-design/pull/55966) [@DDDDD12138](https://github.com/DDDDD12138)
 - 🐞 Fix Select text color for search input in dark mode. [#55914](https://github.com/ant-design/ant-design/pull/55914) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🐞 Fix Splitter failing to fill its container when the sum of panel proportions is not 1. [#56025](https://github.com/ant-design/ant-design/pull/56025) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Wave memory leak risk since RAF not clean up. [#55962](https://github.com/ant-design/ant-design/pull/55962) [@Copilot](https://github.com/Copilot)
+- 🐞 Fix Modal/Image/Drawer that the `colorBgMask` token does not take effect. [#56031](https://github.com/ant-design/ant-design/pull/56031) [@ug-hero](https://github.com/ug-hero)
 - 💄 Fix ConfigProvider default not config `theme.hashed` is `true` which will cause style conflict with multiple versions. [#55880](https://github.com/ant-design/ant-design/pull/55880) [@zombieJ](https://github.com/zombieJ)
 - 💄 Fix Layout.Sider styles lost when zeroRuntime enabled. [#55864](https://github.com/ant-design/ant-design/pull/55864) [@wanpan11](https://github.com/wanpan11)
 - TypeScript
