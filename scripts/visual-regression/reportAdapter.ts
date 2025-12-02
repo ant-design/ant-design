@@ -15,7 +15,7 @@ const REPORT_DIR = path.join(ROOT, 'visualRegressionReport');
 
 const components = fg
   .sync('components/*/index.ts[x]', { cwd: ROOT })
-  .reduce((acc, file) => {
+  .reduce<string[]>((acc, file) => {
     const basePath = path.dirname(file);
     if (
       [
@@ -26,9 +26,8 @@ const components = fg
     ) {
       acc.push(path.basename(basePath));
     }
-
     return acc;
-  }, [] as string[])
+  }, [])
   .sort((a, b) => b.length - a.length);
 
 const processedComponents = new Set<string>();
