@@ -106,6 +106,16 @@ const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) 
   const rootIconPrefixCls = global.getIconPrefixCls();
   const theme = global.getTheme();
 
+  // https://github.com/ant-design/ant-design/issues/55649
+  // Static Methods do not use ThemeProvider, we need to reset these color variables to avoid
+  theme.token = {
+    ...(theme.token || {}),
+    colorSuccessBg: '',
+    colorErrorBg: '',
+    colorInfoBg: '',
+    colorWarningBg: '',
+  };
+
   const dom = <GlobalHolder ref={ref} sync={sync} notificationConfig={notificationConfig} />;
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
