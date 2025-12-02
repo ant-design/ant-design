@@ -10,10 +10,18 @@ export const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 );
 
 const App: React.FC = () => (
-  <Splitter style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+  <Splitter
+    style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+    styles={{
+      panel: {
+        backgroundColor: '#fafafa',
+      },
+    }}
+  >
     <Splitter.Panel defaultSize="40%" min="20%" max="70%">
       <Desc text="First" />
     </Splitter.Panel>
+    {/* <Splitter.Panel defaultSize="30%"> */}
     <Splitter.Panel>
       <Desc text="Second" />
     </Splitter.Panel>
