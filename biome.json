@@ -5,6 +5,7 @@
     "includes": [
       "**",
       "!.dumi/tmp*",
+      "!report.html",
       "!.dumi/scripts/clarity.js",
       "!dist/*",
       "!es/**/*",
