@@ -235,9 +235,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
 
   const extendedClassName = clsx(
-    `${prefixCls}-${mergedSize}`,
     {
       [`${prefixCls}-${align}`]: !!align,
+      [`${prefixCls}-${mergedSize}`]: mergedSize,
       /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
