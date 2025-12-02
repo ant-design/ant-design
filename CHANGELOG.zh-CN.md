@@ -24,7 +24,7 @@ tag: vVERSION
   - 🐞 修复 Flex 的 `gap` 属性不能设置为 `0` 的问题。[#55803](https://github.com/ant-design/ant-design/pull/55803) [@li-jia-nan](https://github.com/li-jia-nan)
 - Input
   - 🐞 修复 Input `colorText` token 在无前后缀的 `filled` 变体下不工作的问题。[#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
-  - 🐞 修复 Input.OTP 在输入时可跳过空位的问题。[#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123]
+  - 🐞 修复 Input.OTP 在输入时可跳过空位的问题。[#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
 - 🐞 修复 Anchor 快速点击同一链接时的滚动问题。[#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@余晖](https://github.com/余晖)
 - 🐞 修复 Button 在 `solid` 变体下悬浮态的文字颜色。[#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
 - 🐞 修复 Cascader 使用 defaultValue 时首次打开会滚动到页面顶部的问题。[8b536eb](https://github.com/ant-design/ant-design/commit/8b536eb) [@余晖](https://github.com/余晖)
