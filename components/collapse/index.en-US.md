@@ -12,49 +12,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 - Can be used to group or hide complex regions to keep the page clean.
 - `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
 
-```tsx | pure
-// works when >= 5.6.0, recommended ✅
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
-const items: CollapseProps['items'] = [
-  {
-    key: '1',
-    label: 'This is panel header 1',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '2',
-    label: 'This is panel header 2',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '3',
-    label: 'This is panel header 3',
-    children: <p>{text}</p>,
-  },
-];
-
-<Collapse items={items} defaultActiveKey={['1']} />;
-
-// works when <5.6.0 , deprecated when >=5.6.0  🙅🏻‍♀️
-
-<Collapse defaultActiveKey={['1']} onChange={onChange}>
-  <Panel header="This is panel header 1" key="1">
-    <p>{text}</p>
-  </Panel>
-  <Panel header="This is panel header 2" key="2">
-    <p>{text}</p>
-  </Panel>
-  <Panel header="This is panel header 3" key="3">
-    <p>{text}</p>
-  </Panel>
-</Collapse>;
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
@@ -68,6 +25,7 @@ const items: CollapseProps['items'] = [
 <code src="./demo/extra.tsx">Extra node</code>
 <code src="./demo/ghost.tsx">Ghost Collapse</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -81,14 +39,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | accordion | If true, Collapse renders as Accordion | boolean | false |  |
 | activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In [accordion mode](#collapse-demo-accordion), it's the key of the first panel |  |
 | bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
 | ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  |
 | destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
-| expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
+| expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - |
+| ~~expandIconPosition~~ | Set expand icon position, Please use `expandIconPlacement` instead | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | onChange | Callback function executed when active panel is changed | function | - |  |
 | items | collapse items content | [ItemType](#itemtype) | - | 5.6.0 |
 

@@ -3,13 +3,13 @@ import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
 // Make CSSMotion working without transition
-jest.mock('rc-motion/lib/util/motion', () => ({
-  ...jest.requireActual('rc-motion/lib/util/motion'),
+jest.mock('@rc-component/motion/lib/util/motion', () => ({
+  ...jest.requireActual('@rc-component/motion/lib/util/motion'),
   supportTransition: false,
 }));
 
@@ -342,6 +342,50 @@ describe('Segmented', () => {
 
     container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
       expect(el.name).toEqual(GROUP_NAME);
+    });
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Segmented vertical orientation="horizontal" options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(
+        <Segmented orientation="vertical" options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).not.toBeNull();
+    });
+  });
+
+  describe('toolTip for optionItem ', () => {
+    it('Configuring tooltip in the options should display the corresponding information', async () => {
+      const { container } = render(
+        <Segmented
+          orientation="vertical"
+          options={[
+            { label: 'Daily', value: 'Daily', tooltip: 'hello Daily' },
+            'Weekly',
+            { label: 'Monthly', value: 'Monthly', tooltip: 'hello Monthly' },
+          ]}
+        />,
+      );
+      const itemList = container.querySelectorAll('.ant-segmented-item');
+      fireEvent.mouseEnter(itemList[0]);
+      fireEvent.mouseEnter(itemList[1]);
+      fireEvent.mouseEnter(itemList[2]);
+      await waitFor(() => {
+        const tooltipList = document.querySelectorAll('.ant-tooltip');
+        expect(tooltipList).toHaveLength(2);
+        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-container');
+        expect(tooltipInnerList).toHaveLength(2);
+        expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
+        expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
+      });
     });
   });
 });

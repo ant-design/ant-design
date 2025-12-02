@@ -1,5 +1,6 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+
 import Input from '../input/Input';
 
 export interface TransferSearchProps {

@@ -36,9 +36,7 @@ title: Ant Design of React
 | --- | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-对于 IE 系列浏览器，需要提供相应的 Polyfill 支持，建议使用 [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 来解决浏览器兼容问题。如果你在使用 [umi](https://umijs.org/)，可以直接使用 [targets](https://umijs.org/docs/api/config#targets) 配置。
-
-> `antd@2.0` 之后不再支持 IE8。 `antd@4.0` 之后不再支持 React 15 和 IE9/10。 `antd@5.0` 之后不再支持 IE。
+> `antd 2.0` 之后不再支持 IE8。 `antd 4.0` 之后不再支持 React 15 和 IE9/10。 `antd 5.0` 之后不再支持 IE。`antd 6.0` 之后不再支持 React 16/17。
 
 ## 版本
 
@@ -110,7 +108,7 @@ export default App;
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](/docs/react/faq)
-- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
+- [CodeSandbox 模板](https://u.ant.design/reproduce) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](/docs/react/customize-theme)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)

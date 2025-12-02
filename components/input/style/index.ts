@@ -57,7 +57,13 @@ export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadiusSM,
 });
 
-export const genBasicInputStyle = (token: InputToken): CSSObject => ({
+export const genBasicInputStyle = (
+  token: InputToken,
+  option: {
+    largeStyle?: CSSObject;
+    smallStyle?: CSSObject;
+  } = {},
+): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
   width: '100%',
@@ -73,9 +79,11 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   // Size
   '&-lg': {
     ...genInputLargeStyle(token),
+    ...option.largeStyle,
   },
   '&-sm': {
     ...genInputSmallStyle(token),
+    ...option.smallStyle,
   },
 
   // RTL
@@ -113,11 +121,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     // Fix https://github.com/ant-design/ant-design/issues/5754
-    [`&-lg ${antCls}-select-single ${antCls}-select-selector`]: {
+    [`&-lg ${antCls}-select-single`]: {
       height: token.controlHeightLG,
     },
 
-    [`&-sm ${antCls}-select-single ${antCls}-select-selector`]: {
+    [`&-sm ${antCls}-select-single`]: {
       height: token.controlHeightSM,
     },
 
@@ -164,11 +172,9 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
           [`&${antCls}-select-single:not(${antCls}-select-customize-input):not(${antCls}-pagination-size-changer)`]:
             {
-              [`${antCls}-select-selector`]: {
-                backgroundColor: 'inherit',
-                border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
-                boxShadow: 'none',
-              },
+              backgroundColor: 'inherit',
+              border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
+              boxShadow: 'none',
             },
         },
 
@@ -198,10 +204,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       '&:hover': {
         zIndex: 1,
         borderInlineEndWidth: 1,
-
-        [`${componentCls}-search-with-button &`]: {
-          zIndex: 0,
-        },
       },
     },
 
@@ -211,7 +213,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndEndRadius: 0,
 
       // Reset Select's style in addon
-      [`${antCls}-select ${antCls}-select-selector`]: {
+      [`${antCls}-select`]: {
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
       },
@@ -234,7 +236,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndStartRadius: 0,
 
       // Reset Select's style in addon
-      [`${antCls}-select ${antCls}-select-selector`]: {
+      [`${antCls}-select`]: {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
       },
@@ -244,13 +246,9 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       '&:not(:last-child)': {
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
-        [`${componentCls}-search &`]: {
-          borderStartStartRadius: token.borderRadius,
-          borderEndStartRadius: token.borderRadius,
-        },
       },
 
-      [`&:not(:first-child), ${componentCls}-search &:not(:first-child)`]: {
+      '&:not(:first-child)': {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
       },
@@ -296,7 +294,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
-      [`& > ${antCls}-select > ${antCls}-select-selector,
+      [`& > ${antCls}-select,
       & > ${antCls}-select-auto-complete ${componentCls},
       & > ${antCls}-cascader-picker ${componentCls},
       & > ${componentCls}-group-wrapper ${componentCls}`]: {
@@ -318,7 +316,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`& > *:first-child,
-      & > ${antCls}-select:first-child > ${antCls}-select-selector,
+      & > ${antCls}-select:first-child,
       & > ${antCls}-select-auto-complete:first-child ${componentCls},
       & > ${antCls}-cascader-picker:first-child ${componentCls}`]: {
         borderStartStartRadius: token.borderRadius,
@@ -326,7 +324,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`& > *:last-child,
-      & > ${antCls}-select:last-child > ${antCls}-select-selector,
+      & > ${antCls}-select:last-child,
       & > ${antCls}-cascader-picker:last-child ${componentCls},
       & > ${antCls}-cascader-picker-focused:last-child ${componentCls}`]: {
         borderInlineEndWidth: token.lineWidth,
@@ -342,22 +340,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       [`${componentCls}-group-wrapper + ${componentCls}-group-wrapper`]: {
         marginInlineStart: token.calc(token.lineWidth).mul(-1).equal(),
         [`${componentCls}-affix-wrapper`]: {
-          borderRadius: 0,
-        },
-      },
-
-      [`${componentCls}-group-wrapper:not(:last-child)`]: {
-        [`&${componentCls}-search > ${componentCls}-group`]: {
-          [`& > ${componentCls}-group-addon > ${componentCls}-search-button`]: {
-            borderRadius: 0,
-          },
-
-          [`& > ${componentCls}`]: {
-            borderStartStartRadius: token.borderRadius,
-            borderStartEndRadius: 0,
-            borderEndEndRadius: 0,
-            borderEndStartRadius: token.borderRadius,
-          },
+          // borderRadius: 0,
         },
       },
     },
@@ -461,13 +444,6 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [affixCls]: {
       ...genBasicInputStyle(token),
       display: 'inline-flex',
-
-      [`&:not(${componentCls}-disabled):hover`]: {
-        zIndex: 1,
-        [`${componentCls}-search-with-button &`]: {
-          zIndex: 0,
-        },
-      },
 
       '&-focused, &:focus': {
         zIndex: 1,
@@ -653,120 +629,6 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   };
 };
 
-const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, antCls } = token;
-  const searchPrefixCls = `${componentCls}-search`;
-  return {
-    [searchPrefixCls]: {
-      [componentCls]: {
-        '&:not([disabled]):hover, &:not([disabled]):focus': {
-          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-color-primary):not(${antCls}-btn-variant-text)`]:
-            {
-              borderInlineStartColor: token.colorPrimaryHover,
-            },
-        },
-      },
-
-      [`${componentCls}-affix-wrapper`]: {
-        height: token.controlHeight,
-        borderRadius: 0,
-      },
-
-      // fix slight height diff in Firefox:
-      // https://ant.design/components/auto-complete-cn/#auto-complete-demo-certain-category
-      [`${componentCls}-lg`]: {
-        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal(),
-      },
-
-      [`> ${componentCls}-group`]: {
-        [`> ${componentCls}-group-addon:last-child`]: {
-          insetInlineStart: -1,
-          padding: 0,
-          border: 0,
-
-          [`${searchPrefixCls}-button`]: {
-            // Fix https://github.com/ant-design/ant-design/issues/47150
-            marginInlineEnd: -1,
-            borderStartStartRadius: 0,
-            borderEndStartRadius: 0,
-            boxShadow: 'none',
-          },
-
-          [`${searchPrefixCls}-button:not(${antCls}-btn-color-primary)`]: {
-            color: token.colorTextDescription,
-
-            '&:not([disabled]):hover': {
-              color: token.colorPrimaryHover,
-            },
-
-            '&:active': {
-              color: token.colorPrimaryActive,
-            },
-
-            [`&${antCls}-btn-loading::before`]: {
-              inset: 0,
-            },
-          },
-        },
-      },
-
-      [`${searchPrefixCls}-button`]: {
-        height: token.controlHeight,
-
-        '&:hover, &:focus': {
-          zIndex: 1,
-        },
-      },
-
-      '&-large': {
-        [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
-          height: token.controlHeightLG,
-        },
-      },
-
-      '&-small': {
-        [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
-          height: token.controlHeightSM,
-        },
-      },
-
-      '&-rtl': {
-        direction: 'rtl',
-      },
-
-      // ===================== Compact Item Customized Styles =====================
-      [`&${componentCls}-compact-item`]: {
-        [`&:not(${componentCls}-compact-last-item)`]: {
-          [`${componentCls}-group-addon`]: {
-            [`${componentCls}-search-button`]: {
-              marginInlineEnd: token.calc(token.lineWidth).mul(-1).equal(),
-              borderRadius: 0,
-            },
-          },
-        },
-
-        [`&:not(${componentCls}-compact-first-item)`]: {
-          [`${componentCls},${componentCls}-affix-wrapper`]: {
-            borderRadius: 0,
-          },
-        },
-
-        [`> ${componentCls}-group-addon ${componentCls}-search-button,
-        > ${componentCls},
-        ${componentCls}-affix-wrapper`]: {
-          '&:hover, &:focus, &:active': {
-            zIndex: 2,
-          },
-        },
-
-        [`> ${componentCls}-affix-wrapper-focused`]: {
-          zIndex: 2,
-        },
-      },
-    },
-  };
-};
-
 // ============================== Range ===============================
 const genRangeStyle: GenerateStyle<InputToken> = (token) => {
   const { componentCls } = token;
@@ -801,7 +663,6 @@ export default genStyleHooks(
 
     return [
       genGroupStyle(inputToken),
-      genSearchInputStyle(inputToken),
       genRangeStyle(inputToken),
       // =====================================================
       // ==             Space Compact                       ==

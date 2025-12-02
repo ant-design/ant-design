@@ -12,7 +12,7 @@ There are two options for server-side rendering styles, each with advantages and
 
 ## Inline Style
 
-Use `@ant-design/cssinjs` to extract style:
+Use `@ant-design/cssinjs@1.x` to extract style:
 
 ```tsx
 import React from 'react';

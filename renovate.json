@@ -15,6 +15,11 @@
       "groupName": "self-maintained",
       "matchPackageNames": ["@rc-component/*", "rc-*", "@ant-design/*"],
       "enabled": false
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["actions/upload-artifact"],
+      "enabled": false
     }
   ]
 }

@@ -246,6 +246,7 @@ describe('Table', () => {
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
+
   it('not warn about rowKey', () => {
     warnSpy.mockReset();
     const columns: TableProps<any>['columns'] = [
@@ -257,6 +258,45 @@ describe('Table', () => {
     ];
     render(<Table columns={columns} rowKey={(record) => record.key as string} />);
     expect(warnSpy).not.toHaveBeenCalled();
+  });
+
+  it('use global rowKey config', () => {
+    const { container } = render(
+      <ConfigProvider table={{ rowKey: 'id' }}>
+        <Table
+          dataSource={[
+            {
+              id: 666,
+              key: 'foobar',
+              name: 'Foobar',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLTableRowElement>('.ant-table-row')?.dataset.rowKey).toBe(
+      '666',
+    );
+  });
+
+  it('prefer rowKey prop over global rowKey config', () => {
+    const { container } = render(
+      <ConfigProvider table={{ rowKey: 'id' }}>
+        <Table
+          rowKey="name"
+          dataSource={[
+            {
+              id: 666,
+              key: 'foobar',
+              name: 'Foobar',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLTableRowElement>('.ant-table-row')?.dataset.rowKey).toBe(
+      'Foobar',
+    );
   });
 
   it('should support ref', () => {

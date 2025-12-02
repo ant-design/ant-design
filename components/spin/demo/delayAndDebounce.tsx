@@ -8,7 +8,7 @@ const App: React.FC = () => {
       <Spin spinning={loading} delay={500}>
         <Alert
           type="info"
-          message="Alert message title"
+          title="Alert message title"
           description="Further details about the context of this alert."
         />
       </Spin>

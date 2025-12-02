@@ -6,21 +6,21 @@ const compileModules = [
   'countup.js',
   '.pnpm',
   '@asamuzakjp/css-color',
+  '@rc-component',
 ];
 
-const ignoreList = [];
-
 // cnpm use `_` as prefix
-['', '_'].forEach((prefix) => {
-  compileModules.forEach((module) => {
-    ignoreList.push(`${prefix}${module}`);
-  });
-});
+const ignoreList = ['', '_'].reduce(
+  (acc, prefix) => [...acc, ...compileModules.map((module) => `${prefix}${module}`)],
+  [],
+);
 
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
   `[/\\\\]node_modules[/\\\\](?!${ignoreList.join('|')})[^/\\\\]+?[/\\\\](?!(es)[/\\\\])`,
+  // Ignore antd umd js file
+  '[/\\\\]dist[/\\\\]antd.*\\.js$',
 ];
 
 function getTestRegex(libDir) {

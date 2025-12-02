@@ -1,6 +1,5 @@
 import * as React from 'react';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useControlledState, useEvent } from '@rc-component/util';
 
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
@@ -30,7 +29,7 @@ export default function useModeColor(
 
   // ======================== Base ========================
   // Color
-  const [mergedColor, setMergedColor] = useMergedState(defaultValue, { value });
+  const [mergedColor, setMergedColor] = useControlledState(defaultValue, value);
 
   // Mode
   const [modeState, setModeState] = React.useState<ModeType>('single');

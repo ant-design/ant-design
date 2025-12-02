@@ -1,11 +1,12 @@
 import React from 'react';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -131,38 +132,6 @@ describe('Popconfirm', () => {
 
     popconfirm.rerender(
       <Popconfirm title="code" open={false}>
-        <span>show me your code</span>
-      </Popconfirm>,
-    );
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    jest.useRealTimers();
-  });
-
-  it('should be controlled by visible', () => {
-    jest.useFakeTimers();
-    const popconfirm = render(
-      <Popconfirm title="code">
-        <span>show me your code</span>
-      </Popconfirm>,
-    );
-
-    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
-    popconfirm.rerender(
-      <Popconfirm title="code" visible>
-        <span>show me your code</span>
-      </Popconfirm>,
-    );
-
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toHaveClass(
-      'ant-popover-hidden',
-    );
-
-    popconfirm.rerender(
-      <Popconfirm title="code" visible={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -335,37 +304,15 @@ describe('Popconfirm', () => {
     const onPopupClick = jest.fn();
 
     const popconfirm = render(
-      <Popconfirm title="pop test" onPopupClick={onPopupClick}>
+      <Popconfirm title={<div className="bamboo" />} onPopupClick={onPopupClick}>
         <span>show me your code</span>
       </Popconfirm>,
     );
     const triggerNode = popconfirm.container.querySelector('span')!;
     fireEvent.click(triggerNode);
     await waitFakeTimer();
-    fireEvent.click(popconfirm.container.querySelector('.ant-popover-inner-content')!);
+    fireEvent.click(popconfirm.container.querySelector('.bamboo')!);
     expect(onPopupClick).toHaveBeenCalled();
-  });
-
-  // https://github.com/ant-design/ant-design/issues/42314
-  it('legacy onVisibleChange should only trigger once', async () => {
-    const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
-
-    const { container } = render(
-      <Popconfirm
-        title="will unmount"
-        onOpenChange={onOpenChange}
-        onVisibleChange={onVisibleChange}
-      >
-        <span className="target" />
-      </Popconfirm>,
-    );
-
-    fireEvent.click(container.querySelector('.target')!);
-    await waitFakeTimer();
-
-    expect(onOpenChange).toHaveBeenCalledTimes(1);
-    expect(onVisibleChange).toHaveBeenCalledTimes(1);
   });
 
   it('okText & cancelText could be empty', () => {
@@ -381,12 +328,12 @@ describe('Popconfirm', () => {
 
   it('should apply custom styles to Popconfirm', () => {
     const customClassNames = {
-      body: 'custom-body',
+      container: 'custom-container',
       root: 'custom-root',
     };
 
     const customStyles = {
-      body: { padding: 10 },
+      container: { padding: 10 },
       root: { padding: 20 },
     };
 
@@ -396,15 +343,78 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
 
-    const popconfirmElement = container.querySelector<HTMLElement>('.ant-popconfirm');
-    const popconfirmBodyElement = container.querySelector<HTMLElement>('.ant-popover-inner');
+    const popconfirmElement = container.querySelector('.ant-popconfirm');
+    const popconfirmBodyElement = container.querySelector('.ant-popover-container');
 
     // 验证 classNames
     expect(popconfirmElement).toHaveClass('custom-root');
-    expect(popconfirmBodyElement).toHaveClass('custom-body');
+    expect(popconfirmBodyElement).toHaveClass('custom-container');
 
     // 验证 styles
     expect(popconfirmElement).toHaveStyle({ padding: '20px' });
     expect(popconfirmBodyElement).toHaveStyle({ padding: '10px' });
+  });
+  it('ConfigProvider support arrow props', () => {
+    const TooltipTestComponent = () => {
+      const [configArrow, setConfigArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          popconfirm={{
+            arrow: configArrow,
+          }}
+        >
+          <button onClick={() => setConfigArrow(false)} className="configArrow" type="button">
+            showconfigArrow
+          </button>
+          <Popconfirm open title>
+            <div className="target">target</div>
+          </Popconfirm>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<TooltipTestComponent />);
+    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    const configbtn = container.querySelector('.configArrow');
+
+    expect(getTooltipArrow()).not.toBeNull();
+    fireEvent.click(configbtn!);
+    expect(getTooltipArrow()).toBeNull();
+  });
+  it('ConfigProvider with arrow set to false, Tooltip arrow controlled by prop', () => {
+    const TooltipTestComponent = () => {
+      const [arrow, setArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          popover={{
+            arrow: false,
+          }}
+        >
+          <button onClick={() => setArrow(!arrow)} className="toggleArrow" type="button">
+            toggleArrow
+          </button>
+          <Popconfirm open arrow={arrow} title>
+            <div className="target">target</div>
+          </Popconfirm>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<TooltipTestComponent />);
+
+    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    const toggleArrowBtn = container.querySelector('.toggleArrow');
+
+    // Initial render, arrow should be visible because Tooltip's arrow prop is true
+    expect(getTooltipArrow()).not.toBeNull();
+
+    // Click the toggleArrow button to hide the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).toBeNull();
+
+    // Click the toggleArrow button again to show the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).not.toBeNull();
   });
 });

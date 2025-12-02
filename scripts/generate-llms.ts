@@ -65,13 +65,26 @@ async function generateLLms() {
     '',
     '- Ant Design, developed by Ant Group, is a React UI library that aims to provide a high-quality design language and development framework for enterprise-level backend management systems. It offers a rich set of components and design guidelines, helping developers build modern, responsive, and high-performance web applications.',
     '',
+    '## Semantic Descriptions',
+    '',
+    '- [Ant Design Component Semantic Descriptions](https://ant.design/llms-semantic.md)',
+    '',
     '## Docs',
     '',
     ...docsIndex.map(({ title, url }) => `- [${title}](${url})`),
     '',
   ].join('\n');
 
-  const docsBodyContent = docsBody.join('\n');
+  const docsBodyContent = [
+    '---',
+    'Title: Ant Design Component Semantic Descriptions',
+    'URL: https://ant.design/llms-semantic.md',
+    '---',
+    '',
+    (await fs.readFile(path.join(siteDir, 'llms-semantic.md'), 'utf-8')).trim(),
+    '',
+    ...docsBody,
+  ].join('\n');
 
   await fs.writeFile(path.join(siteDir, 'llms.txt'), docsIndexContent);
   await fs.writeFile(path.join(siteDir, 'llms-full.txt'), docsBodyContent);

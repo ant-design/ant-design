@@ -2,18 +2,20 @@ import React from 'react';
 import { Modal } from 'antd';
 
 import Image from '..';
+import type { MaskType } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+const alt = 'test image';
 
 describe('Image', () => {
   mountTest(Image);
   rtlTest(Image);
   it('Image preview props set false', () => {
-    const { container } = render(<Image src={src} preview={false} />);
+    const { container } = render(<Image alt={alt} src={src} preview={false} />);
 
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(container.querySelector('.ant-image-preview-root')).toBe(null);
@@ -21,7 +23,7 @@ describe('Image', () => {
   it('Group preview props set false', () => {
     const { container } = render(
       <Image.PreviewGroup preview={false}>
-        <Image src={src} />
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
 
@@ -31,60 +33,42 @@ describe('Image', () => {
   });
 
   it('Default preview props', () => {
-    const { container, baseElement } = render(<Image src={src} preview={{ visible: true }} />);
-
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    render(<Image alt={alt} src={src} preview={{ open: true }} />);
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
+
   it('Default Group preview props', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup preview={{ visible: true }}>
-        <Image src={src} />
+    const { baseElement } = render(
+      <Image.PreviewGroup preview={{ open: true }}>
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
-
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
     expect(baseElement).toMatchSnapshot();
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
+
   it('Customize preview props', () => {
-    const { container, baseElement } = render(
+    render(
       <Image
         src={src}
-        preview={{
-          visible: true,
-          transitionName: 'abc',
-          maskTransitionName: 'def',
-          getContainer: false,
-        }}
+        alt={alt}
+        preview={{ open: true, motionName: 'abc', getContainer: false }}
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(container.querySelector('.ant-image-preview-root')).not.toBe(null);
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(document.querySelector('.ant-image-preview')).not.toBe(null);
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
+
   it('Customize Group preview props', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup
-        preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
-      >
-        <Image src={src} />
+    render(
+      <Image.PreviewGroup preview={{ open: true, motionName: 'abc' }}>
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
-
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
+
   it('ConfigProvider getPopupContainer', () => {
     const { container, baseElement } = render(
       <>
@@ -92,41 +76,24 @@ describe('Image', () => {
         <ConfigProvider
           getPopupContainer={() => document.querySelector<HTMLDivElement>('.container')!}
         >
-          <Image src={src} />
+          <Image alt={alt} src={src} />
         </ConfigProvider>
       </>,
     );
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
-  it('Preview forceRender props', async () => {
-    const onLoadCb = jest.fn();
-    const PreviewImage: React.FC = () => (
-      <Image
-        preview={{
-          visible: false,
-          src,
-          forceRender: true,
-        }}
-      />
-    );
-    const { baseElement } = render(<PreviewImage />);
-    expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
-    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
-    fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
-    expect(onLoadCb).toHaveBeenCalled();
-  });
+
   it('Preview should support rootClassName', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup preview={{ visible: true, rootClassName: 'test-root-class' }}>
-        <Image src={src} />
+    const { baseElement } = render(
+      <Image.PreviewGroup preview={{ open: true, rootClassName: 'test-root-class' }}>
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
     expect(baseElement.querySelector('.test-root-class')).toBeTruthy();
   });
+
   it('Image.PreviewGroup preview in a nested modal where z-index Settings should be correct', () => {
     const App = () => (
       <Modal open>
@@ -134,22 +101,27 @@ describe('Image', () => {
           <Modal open>
             <Image
               width={200}
+              alt={alt}
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               preview={{
+                open: true,
                 rootClassName: 'test-image-preview-class',
               }}
             />
             <Image.PreviewGroup
               preview={{
+                open: true,
                 rootClassName: 'test-image-preview-group-class',
               }}
             >
               <Image
                 width={200}
+                alt={alt}
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
               <Image
                 width={200}
+                alt={alt}
                 src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
               />
             </Image.PreviewGroup>
@@ -157,32 +129,144 @@ describe('Image', () => {
         </Modal>
       </Modal>
     );
-    const { baseElement } = render(<App />);
+    render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-image')!);
+    expect(document.querySelector<HTMLElement>('.test-image-preview-class')).toHaveStyle({
+      zIndex: '1301',
+    });
 
-    expect(
-      baseElement.querySelector<HTMLElement>('.test-image-preview-class .ant-image-preview-wrap'),
-    ).toHaveStyle({ zIndex: 1301 });
+    expect(document.querySelector<HTMLElement>('.test-image-preview-group-class')).toHaveStyle({
+      zIndex: '1301',
+    });
+  });
 
-    expect(
-      baseElement.querySelector<HTMLElement>(
-        '.test-image-preview-class.ant-image-preview-operations-wrapper',
+  it('should support cover placement', () => {
+    const App = () => {
+      const [placement, setPlacement] = React.useState<'center' | 'top' | 'bottom'>('center');
+      return (
+        <>
+          <button
+            type="button"
+            id="center"
+            onClick={() => {
+              setPlacement('center');
+            }}
+          >
+            Set Center Cover
+          </button>
+          <button
+            type="button"
+            id="top"
+            onClick={() => {
+              setPlacement('top');
+            }}
+          >
+            Set Center top
+          </button>
+          <button
+            type="button"
+            id="bottom"
+            onClick={() => {
+              setPlacement('bottom');
+            }}
+          >
+            Set Center bottom
+          </button>
+          <Image
+            width={96}
+            alt={alt}
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            preview={{
+              cover: {
+                placement,
+                coverNode: (
+                  <span>
+                    <span>Custom Cover</span>
+                  </span>
+                ),
+              },
+            }}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+
+    const cover = container.querySelector('.ant-image-cover');
+    expect(cover).toHaveClass('ant-image-cover-center');
+
+    fireEvent.click(container.querySelector('#top')!);
+    expect(cover).toHaveClass('ant-image-cover-top');
+    fireEvent.click(container.querySelector('#bottom')!);
+    expect(cover).toHaveClass('ant-image-cover-bottom');
+  });
+
+  describe('Image mask blur className', () => {
+    const testCases: [
+      mask?: MaskType | React.ReactNode,
+      contextMask?: MaskType,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [imageMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+      [<div key="1">123</div>, true, true, true],
+      [<div key="2">123</div>, false, true, false],
+      [<div key="3">123</div>, { blur: false }, false, true],
+    ];
+    const demos = [
+      (imageMask?: MaskType | React.ReactNode, configMask?: MaskType) => (
+        <ConfigProvider image={{ preview: { mask: configMask } }}>
+          <Image
+            preview={{ mask: imageMask }}
+            alt="mask"
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            width={20}
+          />
+        </ConfigProvider>
       ),
-    ).toHaveStyle({ zIndex: 1302 });
-
-    fireEvent.click(baseElement.querySelectorAll('.ant-image')[1]!);
-
-    expect(
-      baseElement.querySelector<HTMLElement>(
-        '.test-image-preview-group-class .ant-image-preview-wrap',
+      (imageMask?: MaskType, configMask?: MaskType) => (
+        <ConfigProvider image={{ preview: { mask: configMask } }}>
+          <Image.PreviewGroup preview={{ mask: imageMask }}>
+            <Image
+              alt="mask"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              width={20}
+            />
+          </Image.PreviewGroup>
+        </ConfigProvider>
       ),
-    ).toHaveStyle({ zIndex: 1301 });
+    ];
+    demos.forEach((demo, index) => {
+      it.each(testCases)(
+        `${index === 0 ? 'Image:' : 'Image.PreviewGroup'} imageMask = %s configMask = %s ,mask blur = %s`,
+        (imageMask, configMask, expectedBlurClass, openMask) => {
+          render(demo(imageMask as MaskType, configMask));
+          fireEvent.click(document.querySelector('.ant-image')!);
 
-    expect(
-      baseElement.querySelector<HTMLElement>(
-        '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
-      ),
-    ).toHaveStyle({ zIndex: 1302 });
+          const maskElement = document.querySelector('.ant-image-preview-mask');
+          expect(maskElement).toBeInTheDocument();
+          if (!openMask) {
+            const hiddenMask = document.querySelector('.ant-image-preview-mask-hidden');
+            expect(hiddenMask).toBeTruthy();
+            return;
+          }
+          if (expectedBlurClass) {
+            expect(maskElement).toHaveClass('ant-image-preview-mask-blur');
+          } else {
+            expect(maskElement).not.toHaveClass('ant-image-preview-mask-blur');
+          }
+        },
+      );
+    });
   });
 });

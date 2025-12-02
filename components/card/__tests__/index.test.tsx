@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 
 import React from 'react';
+import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import userEvent from '@testing-library/user-event';
-import type { TabBarExtraContent } from 'rc-tabs/lib/interface';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -179,25 +179,123 @@ describe('Card', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should support custom className', () => {
+  it('should support custom styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      body: 'custom-body',
+      extra: 'custom-extra',
+      title: 'custom-title',
+      actions: 'custom-actions',
+      cover: 'custom-cover',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      header: { backgroundColor: 'rgb(0, 0, 0)' },
+      body: { backgroundColor: 'rgb(128, 128, 128)' },
+      extra: { backgroundColor: 'rgb(128, 0, 128)' },
+      title: { backgroundColor: 'rgb(255, 255, 0)' },
+      actions: { backgroundColor: 'rgb(0, 0, 255)' },
+      cover: { backgroundColor: 'rgb(0, 128, 0)' },
+    };
+
     const { container } = render(
-      <Card title="Card title" classNames={{ header: 'custom-head' }}>
+      <Card
+        title="Card title"
+        cover="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+        extra="More"
+        classNames={customClassNames}
+        styles={customStyles}
+        actions={[<div key="btn"> button</div>]}
+      >
         <p>Card content</p>
       </Card>,
     );
-    expect(container).toMatchSnapshot();
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-card');
+    const headerElement = container.querySelector<HTMLElement>('.ant-card-head');
+    const bodyElement = container.querySelector<HTMLElement>('.ant-card-body');
+    const extraElement = container.querySelector<HTMLElement>('.ant-card-extra');
+    const titleElement = container.querySelector<HTMLElement>('.ant-card-head-title');
+    const actionsElement = container.querySelector<HTMLElement>('.ant-card-actions');
+    const coverElement = container.querySelector<HTMLElement>('.ant-card-cover');
+
+    // check classNames
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(headerElement).toHaveClass(customClassNames.header);
+    expect(bodyElement).toHaveClass(customClassNames.body);
+    expect(extraElement).toHaveClass(customClassNames.extra);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(actionsElement).toHaveClass(customClassNames.actions);
+    expect(coverElement).toHaveClass(customClassNames.cover);
+
+    // check styles
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header.backgroundColor });
+    expect(bodyElement).toHaveStyle({ backgroundColor: customStyles.body.backgroundColor });
+    expect(extraElement).toHaveStyle({ backgroundColor: customStyles.extra.backgroundColor });
+    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title.backgroundColor });
+    expect(actionsElement).toHaveStyle({ backgroundColor: customStyles.actions.backgroundColor });
+    expect(coverElement).toHaveStyle({ backgroundColor: customStyles.cover.backgroundColor });
   });
 
-  it('should support custom styles', () => {
+  it('should support custom styles for Card.Meta', () => {
+    const { Meta } = Card;
+    const customClassNames = {
+      root: 'custom-root',
+      section: 'custom-section',
+      avatar: 'custom-avatar',
+      title: 'custom-title',
+      description: 'custom-description',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      section: { backgroundColor: 'rgb(0, 0, 0)' },
+      avatar: { backgroundColor: 'rgb(128, 128, 128)' },
+      description: { backgroundColor: 'rgb(255, 255, 0)' },
+    };
+
     const { container } = render(
-      <Card title="Card title" styles={{ header: { color: 'red' } }}>
-        <p>Card content</p>
+      <Card
+        title="Card title"
+        cover="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+        extra="More"
+        classNames={customClassNames}
+        styles={customStyles}
+        actions={[<div key="testbtn">button</div>]}
+      >
+        <Meta
+          classNames={customClassNames}
+          styles={customStyles}
+          avatar={<img alt="testimg" src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
+          title="Card Meta title"
+          description="This is the description"
+        />
       </Card>,
     );
-    expect(container).toMatchSnapshot();
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-card-meta');
+    const sectionElement = container.querySelector<HTMLElement>('.ant-card-meta-section');
+    const avatarElement = container.querySelector<HTMLElement>('.ant-card-meta-avatar');
+    const titleElement = container.querySelector<HTMLElement>('.ant-card-meta-title');
+    const descElement = container.querySelector<HTMLElement>('.ant-card-meta-description');
+
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(sectionElement).toHaveClass(customClassNames.section);
+    expect(avatarElement).toHaveClass(customClassNames.avatar);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(descElement).toHaveClass(customClassNames.description);
+
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section.backgroundColor });
+    expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar.backgroundColor });
+    expect(descElement).toHaveStyle({ backgroundColor: customStyles.description.backgroundColor });
   });
+
   it('ConfigProvider support variant for card', () => {
-    const TestComponent = () => {
+    const TestComponent: React.FC = () => {
       const [variant, setVariant] = React.useState<'borderless' | 'outlined'>('outlined');
       const [cardVariant, setCardVariant] = React.useState<'borderless' | 'outlined' | undefined>(
         undefined,

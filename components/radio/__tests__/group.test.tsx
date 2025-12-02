@@ -167,12 +167,8 @@ describe('Radio Group', () => {
     const { container } = render(
       <RadioGroupComponent data-radio-group-id="radio-group-id" aria-label="radio-group" />,
     );
-    expect((container.firstChild as HTMLDivElement)?.getAttribute('data-radio-group-id')).toBe(
-      'radio-group-id',
-    );
-    expect((container.firstChild as HTMLDivElement)?.getAttribute('aria-label')).toBe(
-      'radio-group',
-    );
+    expect(container.firstChild).toHaveAttribute('data-radio-group-id', 'radio-group-id');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'radio-group');
   });
 
   it('Radio type should not be override', () => {
@@ -367,6 +363,29 @@ describe('Radio Group', () => {
       radioInputs.forEach((input) => {
         expect(input).toHaveAttribute('name', '0_preferences');
       });
+    });
+  });
+
+  describe('orientation attribute and vertical', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group')).toBeTruthy();
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeNull();
+    });
+
+    it('vertical=true, result orientation=vertical', () => {
+      const { container } = render(
+        <Radio.Group vertical>
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeTruthy();
     });
   });
 });

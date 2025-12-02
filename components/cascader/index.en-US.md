@@ -36,6 +36,7 @@ demo:
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -51,11 +52,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
-| autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
+| ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultOpen | Initial visible of cascader popup | boolean | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
@@ -82,7 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
@@ -92,8 +93,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | showCheckedStrategy | The way show selected item in box. ** `SHOW_CHILD`: ** just show child treeNode. **`Cascader.SHOW_PARENT`:** just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
-| searchValue | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
-| onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
+| ~~searchValue~~ | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
+| ~~onSearch~~ | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `popupMenuColumnStyle` instead | CSSProperties | - |  |
 | popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
@@ -103,11 +104,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
 | filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | function(inputValue, path): boolean | - |  |
 | limit | Set the count of filtered items | number \| false | 50 |  |
 | matchInputWidth | Whether the width of list matches input, ([how it looks](https://github.com/ant-design/ant-design/issues/25779)) | boolean | true |  |
 | render | Used to render filtered options | function(inputValue, path): ReactNode | - |  |
 | sort | Used to sort filtered options | function(a, b, inputValue) | - |  |
+| searchValue | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
+| onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 
 ### Option
 

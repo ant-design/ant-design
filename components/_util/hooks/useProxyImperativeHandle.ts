@@ -4,10 +4,10 @@
 import { useImperativeHandle } from 'react';
 import type { Ref } from 'react';
 
-function fillProxy(
+const fillProxy = (
   element: HTMLElement & { _antProxy?: Record<string, any> },
   handler: Record<string, any>,
-) {
+) => {
   element._antProxy = element._antProxy || {};
 
   Object.keys(handler).forEach((key) => {
@@ -20,7 +20,7 @@ function fillProxy(
   });
 
   return element;
-}
+};
 
 export const useProxyImperativeHandle = <
   NativeELementType extends HTMLElement,

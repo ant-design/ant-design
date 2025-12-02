@@ -10,7 +10,7 @@ const { RangePicker } = DatePicker;
 const dateFormat = 'YYYY-MM-DD';
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker variant="filled" defaultValue={dayjs('2015-06-06', dateFormat)} disabled />
     <DatePicker
       variant="filled"
@@ -33,6 +33,7 @@ const App: React.FC = () => (
       variant="filled"
       status="error"
       style={{ width: '100%' }}
+      previewValue={false}
     />
     <DatePicker variant="filled" status="warning" style={{ width: '100%' }} />
     <RangePicker variant="filled" status="error" style={{ width: '100%' }} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import type { UploadRequestOption } from '@rc-component/upload/lib/interface';
 import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
-import type { UploadRequestOption } from 'rc-upload/lib/interface';
 
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
@@ -32,7 +32,7 @@ describe('Upload', () => {
     jest.useRealTimers();
   });
 
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
 
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);
@@ -1120,7 +1120,7 @@ describe('Upload', () => {
     );
     const normalEl = normalContainer.querySelector('.ant-upload');
     expect(normalEl).toBeTruthy();
-    expect(getComputedStyle(normalEl!).background).toContain('rgb(255, 0, 0)');
+    expect(normalEl).toHaveStyle({ background: 'rgb(255, 0, 0)' });
 
     // Drag type
     const { container: dragContainer } = render(
@@ -1130,7 +1130,7 @@ describe('Upload', () => {
     );
     const dragEl = dragContainer.querySelector('.ant-upload-drag');
     expect(dragEl).toBeTruthy();
-    expect(getComputedStyle(dragEl!).background).toContain('rgb(0, 128, 0)');
+    expect(dragEl).toHaveStyle({ background: 'rgb(0, 128, 0)' });
 
     // Picture-card type
     const { container: pictureCardContainer } = render(
@@ -1140,7 +1140,7 @@ describe('Upload', () => {
     );
     const pictureCardEl = pictureCardContainer.querySelector('.ant-upload');
     expect(pictureCardEl).toBeTruthy();
-    expect(getComputedStyle(pictureCardEl!).background).toContain('rgb(0, 0, 255)');
+    expect(pictureCardEl).toHaveStyle({ background: 'rgb(0, 0, 255)' });
 
     // Dragger component
     const { container: draggerContainer } = render(
@@ -1150,7 +1150,7 @@ describe('Upload', () => {
     );
     const draggerEl = draggerContainer.querySelector('.ant-upload-drag');
     expect(draggerEl).toBeTruthy();
-    expect(getComputedStyle(draggerEl!).background).toContain('rgb(255, 255, 0)');
+    expect(draggerEl).toHaveStyle({ background: 'rgb(255, 255, 0)' });
   });
 
   it('supports ConfigProvider customRequest', async () => {

@@ -8,7 +8,7 @@ const output = '.dumi/preset';
 // Collect components
 const componentNames = globSync(
   path
-    .join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md')
+    .join(process.cwd(), 'components/!(version|icon|col|row)/index?(.legacy).zh-CN.md')
     .split(path.sep)
     .join('/'),
 )
@@ -50,6 +50,7 @@ const miscKeys = [
   '@ant-design/cssinjs',
   '@ant-design/icons',
   'rc-motion',
+  '@rc-component/motion',
   ' IE ',
   'reset.css',
   '📖',
@@ -60,6 +61,7 @@ const miscKeys = [
   ' locale ',
   ' RTL ',
   '<img',
+  'Icon',
   '🇧🇪',
   '🇨🇦',
   '🇪🇸',
@@ -118,8 +120,8 @@ const miscKeys = [
     for (let i = 0; i < lines.length; i += 1) {
       const line = lines[i];
 
-      // Skip for v5 release
-      if (line === '## 5.0.0') {
+      // Skip for v6 release
+      if (line === '## 6.0.0') {
         break;
       }
 

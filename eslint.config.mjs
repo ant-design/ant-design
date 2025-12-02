@@ -44,14 +44,11 @@ export default antfu(
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
-      'react/no-children-count': 'off',
       'react/no-children-map': 'off',
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
       'perfectionist/sort-imports': 'off',
-      'perfectionist/sort-named-imports': 'off',
-      'perfectionist/sort-named-exports': 'off',
       'regexp/strict': 'off',
       /* turn off React 19 only rules */
       'react/no-forward-ref': 'off',

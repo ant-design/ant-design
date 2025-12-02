@@ -1,33 +1,48 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-import type { PrevSelectedIndex } from '../_util/hooks';
-import { useMultipleSelect } from '../_util/hooks';
+import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
+import type { PrevSelectedIndex, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
+import Actions from './Actions';
 import useData from './hooks/useData';
 import useSelection from './hooks/useSelection';
 import type { PaginationType, TransferKey } from './interface';
-import type { TransferCustomListBodyProps, TransferListProps } from './list';
-import List from './list';
-import Operation from './operation';
 import Search from './search';
+import type { TransferCustomListBodyProps, TransferListProps } from './Section';
+import Section from './Section';
 import useStyle from './style';
 
-export type { TransferListProps } from './list';
-export type { TransferOperationProps } from './operation';
+export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
+export type { TransferListProps } from './Section';
+
+export type SemanticName =
+  | 'root'
+  | 'section'
+  | 'header'
+  | 'title'
+  | 'body'
+  | 'list'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
+  | 'footer'
+  | 'actions';
+
+export type TransferClassNamesType = SemanticClassNamesType<TransferProps, SemanticName>;
+export type TransferStylesType = SemanticStylesType<TransferProps, SemanticName>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -84,6 +99,14 @@ export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
+  style?: React.CSSProperties;
+  /** @deprecated Please use `styles.section` instead. */
+  listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
+  /** @deprecated Please use `styles.actions` instead. */
+  operationStyle?: CSSProperties;
+  classNames?: TransferClassNamesType;
+  styles?: TransferStylesType;
+
   disabled?: boolean;
   dataSource?: RecordType[];
   targetKeys?: TransferKey[];
@@ -95,11 +118,11 @@ export interface TransferProps<RecordType = any> {
     moveKeys: TransferKey[],
   ) => void;
   onSelectChange?: (sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void;
-  style?: React.CSSProperties;
-  listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
-  operationStyle?: CSSProperties;
+
   titles?: React.ReactNode[];
+  /** @deprecated Please use `actions` instead. */
   operations?: string[];
+  actions?: React.ReactNode[];
   showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
@@ -123,25 +146,31 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
 ) => {
   const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    classNames,
+    styles,
+    style,
+    listStyle,
+    operationStyle,
+
+    operations,
+    actions,
+
     dataSource,
     targetKeys = [],
     selectedKeys,
     selectAllLabels = [],
-    operations = [],
-    style = {},
-    listStyle = {},
     locale = {},
     titles,
     disabled,
     showSearch = false,
-    operationStyle,
+
     showSelectAll,
     oneWay,
     pagination,
     status: customStatus,
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
     selectionsIcon,
     filterOption,
     render,
@@ -158,15 +187,27 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     getPrefixCls,
     renderEmpty,
     direction: dir,
-    transfer,
-  } = useContext<ConfigConsumerProps>(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    selectionsIcon: contextSelectionsIcon,
+  } = useComponentConfig('transfer');
 
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: TransferProps<RecordType> = {
+    ...props,
+    disabled: mergedDisabled,
+  };
+
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const mergedActions = actions || operations || [];
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -194,12 +235,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     KeyWise<RecordType>,
     TransferKey
   >((item) => item.key);
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Transfer');
-
-    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
-  }
 
   const setStateKeys = useCallback(
     (
@@ -418,11 +453,21 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const leftActive =
     rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
       .length > 0;
+
   const rightActive =
     leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
       .length > 0;
 
-  const cls = classNames(
+  // ====================== Styles ======================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TransferClassNamesType,
+    TransferStylesType,
+    TransferProps<RecordType>
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const cls = clsx(
     prefixCls,
     {
       [`${prefixCls}-disabled`]: mergedDisabled,
@@ -430,29 +475,49 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       [`${prefixCls}-rtl`]: dir === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-    transfer?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
     cssVarCls,
+    mergedClassNames.root,
   );
 
+  // ====================== Locale ======================
   const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
 
   const listLocale = getLocale(contextLocale!);
 
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
-  const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
+  const mergedSelectionsIcon = selectionsIcon ?? contextSelectionsIcon;
 
-  return wrapCSSVar(
-    <div className={cls} style={{ ...transfer?.style, ...style }}>
-      <List<KeyWise<RecordType>>
-        prefixCls={`${prefixCls}-list`}
+  // ===================== Warning ======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Transfer');
+
+    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
+
+    [
+      ['listStyle', 'styles.section'],
+      ['operationStyle', 'styles.actions'],
+      ['operations', 'actions'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
+
+  // ====================== Render ======================
+  return (
+    <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+      <Section<KeyWise<RecordType>>
+        prefixCls={prefixCls}
+        style={handleListStyle('left')}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
         titleText={leftTitle}
         dataSource={leftDataSource as any}
         filterOption={filterOption}
-        style={handleListStyle('left')}
         checkedKeys={sourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
@@ -471,25 +536,29 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
-      <Operation
-        className={`${prefixCls}-operation`}
+      <Actions
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
-        rightArrowText={operations[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftArrowText={operations[1]}
+        actions={mergedActions}
         moveToLeft={moveToLeft}
-        style={operationStyle}
+        style={{
+          ...operationStyle,
+          ...mergedStyles.actions,
+        }}
         disabled={mergedDisabled}
         direction={dir}
         oneWay={oneWay}
       />
-      <List<KeyWise<RecordType>>
-        prefixCls={`${prefixCls}-list`}
+      <Section<KeyWise<RecordType>>
+        prefixCls={prefixCls}
+        style={handleListStyle('right')}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
         titleText={rightTitle}
         dataSource={rightDataSource as any}
         filterOption={filterOption}
-        style={handleListStyle('right')}
         checkedKeys={targetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
@@ -510,7 +579,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
-    </div>,
+    </div>
   );
 };
 
@@ -518,8 +587,8 @@ if (process.env.NODE_ENV !== 'production') {
   Transfer.displayName = 'Transfer';
 }
 
-Transfer.List = List;
+Transfer.List = Section;
 Transfer.Search = Search;
-Transfer.Operation = Operation;
+Transfer.Operation = Actions;
 
 export default Transfer;

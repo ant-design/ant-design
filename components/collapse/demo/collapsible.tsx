@@ -8,7 +8,7 @@ const text = `
 `;
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <Collapse
       collapsible="header"
       defaultActiveKey={['1']}

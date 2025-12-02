@@ -1,7 +1,8 @@
 import * as React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
+import { devUseWarning } from '../_util/warning';
 import Button from '../button';
 import type { ButtonHTMLType, ButtonProps } from '../button';
 import type { ButtonGroupProps } from '../button/button-group';
@@ -32,6 +33,7 @@ type CompoundedComponent = React.FC<DropdownButtonProps> & {
   __ANT_BUTTON: boolean;
 };
 
+/** @deprecated Please use Space.Compact + Dropdown + Button instead */
 const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
@@ -52,7 +54,6 @@ const DropdownButton: CompoundedComponent = (props) => {
     menu,
     arrow,
     autoFocus,
-    overlay,
     trigger,
     align,
     open,
@@ -90,22 +91,18 @@ const DropdownButton: CompoundedComponent = (props) => {
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     mouseEnterDelay,
     mouseLeaveDelay,
-    overlayClassName,
-    overlayStyle,
+    classNames: { root: overlayClassName },
+    styles: { root: overlayStyle },
     destroyOnHidden,
     popupRender: mergedPopupRender,
   };
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const classes = classNames(buttonPrefixCls, compactItemClassnames, className);
+  const classes = clsx(buttonPrefixCls, compactItemClassnames, className);
 
   if ('destroyPopupOnHide' in props) {
     dropdownProps.destroyPopupOnHide = destroyPopupOnHide;
-  }
-
-  if ('overlay' in props) {
-    dropdownProps.overlay = overlay;
   }
 
   if ('open' in props) {
@@ -116,6 +113,12 @@ const DropdownButton: CompoundedComponent = (props) => {
     dropdownProps.placement = placement;
   } else {
     dropdownProps.placement = direction === 'rtl' ? 'bottomLeft' : 'bottomRight';
+  }
+
+  // ============================== Warn ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Dropdown.Button');
+    warning.deprecated(false, 'Dropdown.Button', 'Space.Compact + Dropdown + Button');
   }
 
   const leftButton = (

@@ -3,17 +3,17 @@ import { Alert } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Alert message="Warning text" banner />
+    <Alert title="Warning text" banner />
     <br />
     <Alert
-      message="Very long warning text warning text text text text text text text"
+      title="Very long warning text warning text text text text text text text"
       banner
       closable
     />
     <br />
-    <Alert showIcon={false} message="Warning text without icon" banner />
+    <Alert showIcon={false} title="Warning text without icon" banner />
     <br />
-    <Alert type="error" message="Error text" banner />
+    <Alert type="error" title="Error text" banner />
   </>
 );
 

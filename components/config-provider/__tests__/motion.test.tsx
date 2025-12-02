@@ -4,8 +4,8 @@ import ConfigProvider from '..';
 import { pureRender } from '../../../tests/utils';
 
 let MotionProviderRun = 0;
-jest.mock('rc-motion', () => {
-  const RcMotion = jest.requireActual('rc-motion');
+jest.mock('@rc-component/motion', () => {
+  const RcMotion = jest.requireActual('@rc-component/motion');
   const MotionProvider = RcMotion.Provider;
   return {
     ...RcMotion,

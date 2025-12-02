@@ -4,7 +4,7 @@ import { Space, Typography } from 'antd';
 const { Text, Link } = Typography;
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <Text>Ant Design (default)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
     <Text type="success">Ant Design (success)</Text>

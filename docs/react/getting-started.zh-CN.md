@@ -39,7 +39,7 @@ export default App;
 
 ### 1. 创建一个 codesandbox
 
-访问 https://u.ant.design/codesandbox-repro 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
+访问 https://u.ant.design/reproduce 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
 
 ### 2. 使用组件
 
@@ -100,7 +100,7 @@ createRoot(document.getElementById('root')).render(<App />);
   <DatePicker onChange={value => this.handleChange(value)} />
   <div style={{ marginTop: 16 }}>
 -   当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
-+   <Alert message="当前日期" description={date ? date.format('YYYY年MM月DD日') : '未选择'} />
++   <Alert title="当前日期" description={date ? date.format('YYYY年MM月DD日') : '未选择'} />
   </div>
 ```
 

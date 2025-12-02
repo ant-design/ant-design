@@ -13,32 +13,12 @@ demo:
 
 When you need to mention someone or something.
 
-### Usage upgrade <Badge>5.1.0+</Badge>
-
-<!-- prettier-ignore -->
-:::warning{title="Upgrade Tip"}
-After version 5.1.0, we provide a simpler usage `<Mentions options={[...]} />` with better performance and potential of writing simpler code style in your applications.
-Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
-:::
-
-```jsx
-// works when >=5.1.0, recommended ✅
-const options = [{ value: 'sample', label: 'sample' }];
-return <Mentions options={options} />;
-
-// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
-return (
-  <Mentions onChange={onChange}>
-    <Mentions.Option value="sample">Sample</Mentions.Option>
-  </Mentions>
-);
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/size.tsx" version="6.0.0">Size</code>
+<code src="./demo/variant.tsx">Variants</code>
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/form.tsx">With Form</code>
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>
@@ -46,7 +26,9 @@ return (
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
+<code src="./demo/autosize-textarea-debug.tsx" debug>debug autoSize</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -61,6 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | If allow to remove mentions content with clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | Auto get focus when component mounted | boolean | false |  |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultValue | Default value | string | - |  |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |  |
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  |
@@ -81,6 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
 | onPopupScroll | Trigger when mentions scroll | (e: Event) => void | - | 5.23.0 |
 | options | Option Configuration | [Options](#option) | \[] | 5.1.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 ### Mention methods
 
@@ -99,6 +83,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Optional | boolean | - |
 | className | className | string | - |
 | style | The style of the option | React.CSSProperties | - |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

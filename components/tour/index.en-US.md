@@ -24,6 +24,7 @@ Use when you want to guide users through a product.
 <code src="./demo/indicator.tsx">Custom indicator</code>
 <code src="./demo/actions-render.tsx" version="5.25.0">Custom action</code>
 <code src="./demo/gap.tsx">Custom highlighted area style</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -35,6 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | Customize close icon | `React.ReactNode` | `true` | 5.9.0 |
 | disabledInteraction | Disable interaction on highlighted area. | `boolean` | `false` | 5.13.0 |
 | gap | Control the radius of the highlighted area and the offset between highlighted area and the element. | `{ offset?: number \| [number, number]; radius?: number }` | `{ offset?: 6 ; radius?: 2 }` | 5.0.0 (array type `offset`: 5.9.0) |
@@ -46,6 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
 | current | What is the current step | `number` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | indicatorsRender | custom indicator | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
 | actionsRender | custom action | `(originNode: ReactNode, info: { current: number, total: number }) => ReactNode` | - | 5.25.0 |
 | zIndex | Tour's zIndex | number | 1001 | 5.3.0 |
@@ -68,6 +71,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
