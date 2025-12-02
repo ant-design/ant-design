@@ -21,6 +21,11 @@ export function autoPtgSizes(
 
   // If all sizes are defined but don't sum to 1, scale them.
   if (ptgSizes.length && !undefinedIndexes.length && currentTotalPtg !== 1) {
+    // Handle the case when all sizes are 0
+    if (currentTotalPtg === 0) {
+      const avg = 1 / ptgSizes.length;
+      return ptgSizes.map(() => avg);
+    }
     const scale = 1 / currentTotalPtg;
     // We know `size` is a number here because undefinedIndexes is empty.
     return ptgSizes.map((size) => (size as number) * scale);

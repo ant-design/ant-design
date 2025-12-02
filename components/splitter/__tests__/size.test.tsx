@@ -91,4 +91,20 @@ describe('useSizes', () => {
     // Check sizes
     expect(sizes).toEqual([400, 600]);
   });
+
+  it('should correct when all size is 0', () => {
+    const items = [
+      {
+        size: 0,
+      },
+      {
+        size: 0,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([500, 500]);
+  });
 });
