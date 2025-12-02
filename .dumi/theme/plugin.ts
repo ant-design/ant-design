@@ -166,7 +166,7 @@ const RoutesPlugin = async (api: IApi) => {
         file: resolve('../../CHANGELOG.zh-CN.md'),
       },
       {
-        id: 'components-changelog-cn',
+        id: 'changelog-cn',
         path: 'components/changelog-cn',
         absPath: '/components/changelog-cn',
         parentId: 'DocLayout',
@@ -180,7 +180,7 @@ const RoutesPlugin = async (api: IApi) => {
         file: resolve('../../CHANGELOG.en-US.md'),
       },
       {
-        id: 'components-changelog',
+        id: 'changelog',
         path: 'components/changelog',
         absPath: '/components/changelog',
         parentId: 'DocLayout',
