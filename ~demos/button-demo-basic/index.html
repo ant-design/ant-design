@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#1677ff">
+<meta name="build-time" content="1764673753728">
+<meta name="build-hash" content="c0a23c150cfee2e49bd9f92484dc6d12fb5b1ad2">
+<link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png">
+<link rel="prefetch" as="font" href="//at.alicdn.com/t/webfont_6e11e43nfj.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="prefetch" as="font" href="//at.alicdn.com/t/webfont_6e11e43nfj.woff" type="font/woff" crossorigin="anonymous">
+<link rel="prefetch" as="font" href="//at.alicdn.com/t/webfont_6e11e43nfj.ttf" type="font/ttf" crossorigin="anonymous">
+<link rel="prefetch" as="font" href="//at.alicdn.com/t/webfont_exesdog9toj.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="prefetch" as="font" href="//at.alicdn.com/t/webfont_exesdog9toj.woff" type="font/woff" crossorigin="anonymous">
+<link rel="prefetch" as="font" href="//at.alicdn.com/t/webfont_exesdog9toj.ttf" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff" type="font/woff2" crossorigin="anonymous">
+<link rel="stylesheet" href="/umi.240f9b2d.css">
+<script>
+    (function () {
+      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+      const pathname = location.pathname;
+
+      function isZhCN(pathname) {
+        return /-cn\/?$/.test(pathname);
+      }
+      function getLocalizedPathname(path, zhCN) {
+        const pathname = path.indexOf('/') === 0 ? path : '/' + path;
+        if (!zhCN) {
+          // to enUS
+          return /\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
+        } else if (pathname === '/') {
+          return '/index-cn';
+        } else if (pathname.indexOf('/') === pathname.length - 1) {
+          return pathname.replace(/\/$/, '-cn/');
+        }
+        return pathname + '-cn';
+      }
+
+      // 兼容旧的 URL， `?locale=...`
+      const queryString = location.search;
+      if (queryString) {
+        const isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+        if (isZhCNConfig && !isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, isZhCNConfig);
+        }
+      }
+
+      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+      if (pathname === '/' || pathname === '/index-cn') {
+        const lang =
+          (window.localStorage && localStorage.getItem('locale')) ||
+          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
+            ? 'zh-CN'
+            : 'en-US');
+        // safari is 'zh-cn', while other browser is 'zh-CN';
+        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        }
+      }
+      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+    })();
+    </script>
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
+<script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-72788897-1');</script>
+<script src="/preload_helper.aaf304b0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script src="/umi.18b38df4.js" crossorigin="anonymous"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script async>(function createMirrorModal() {
+  const SIGN = Symbol.for('antd.mirror-notify');
+  const always = window.localStorage.getItem('DEBUG') === 'antd';
+  const officialChinaMirror = 'https://ant-design.antgroup.com?utm_source=mirror-notify';
+
+  const enabledCondition = [
+    // Check if the browser language is Chinese
+    navigator.languages.includes('zh') || navigator.languages.includes('zh-CN'),
+    // Check if the URL path ends with -cn
+    /-cn\/?$/.test(window.location.pathname),
+    // chinese mirror URL
+    !['ant-design.gitee.io', new URL(officialChinaMirror).hostname].includes(
+      window.location.hostname,
+    ),
+    // PR review URL
+    !window.location.host.includes('surge'),
+    // development mode
+    !['127.0.0.1', 'localhost'].includes(window.location.hostname),
+  ];
+
+  const isEnabled = always || enabledCondition.every(Boolean);
+
+  if (!isEnabled) {
+    return;
+  }
+
+  const prefixCls = 'antd-mirror-notify';
+  const primaryColor = '#1677ff';
+
+  function insertCss() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+    @keyframes slideInRight {
+      from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .${prefixCls} {
+      position: fixed;
+      inset-inline-end: 12px;
+      inset-block-start: 12px;
+      z-index: 9999;
+      width: 360px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      animation: slideInRight 0.3s ease-in-out;
+    }
+    .${prefixCls}-content {
+      padding: 16px;
+    }
+    .${prefixCls}-content a {
+      color: ${primaryColor};
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .${prefixCls}-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-block-end: 8px;
+    }
+    .${prefixCls}-message {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.57;
+    }
+    .${prefixCls}-footer {
+      display: none;
+      margin-block-start: 16px;
+      justify-content: flex-end;
+     }
+
+    .${prefixCls}-progress {
+      position: relative;
+      inset-inline-end: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #f0f0f0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .${prefixCls}-progress::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: var(--progress, 0%);
+      background-color: ${primaryColor};
+      transition: width 0.05s linear; /* Adjusted for smoother animation matching refreshRate */
+    }
+    .${prefixCls}-close {
+      all: unset;
+      position: absolute;
+      inset-inline-end: 2px;
+      inset-block-start: 2px;
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .${prefixCls}-close:hover {
+      color: #333;
+    }
+
+    .${prefixCls}-action {
+      all: unset;
+      display: inline-block;
+      padding: 4px 8px;
+      background-color: ${primaryColor};
+      color: #fff;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  `;
+
+    document.head.append(style);
+  }
+
+  function createNotification() {
+    insertCss();
+
+    const notify = document.createElement('div');
+    notify.className = `${prefixCls} slideInRight`;
+    notify.innerHTML = `
+    <div class="${prefixCls}-content">
+      <div class="${prefixCls}-title">🇨🇳 访问不畅？试试国内镜像</div>
+      <div class="${prefixCls}-message">
+        国内镜像站点可以帮助您更快地访问文档和资源。<br>
+        请尝试访问 <a class="${prefixCls}-link" href="${officialChinaMirror}">国内镜像站点</a>，以获得更好的体验。
+      </div>
+      <div class="${prefixCls}-footer">
+        <button class="${prefixCls}-action ${prefixCls}-link">🚀 立即前往</button>
+      </div>
+    </div>
+    <button class="${prefixCls}-close">X</button>
+    <div class="${prefixCls}-progress" style="--progress: 100%;"></div>
+    `;
+    document.body.appendChild(notify);
+
+    notify.querySelector(`.${prefixCls}-close`).addEventListener('click', () => {
+      removeNotify();
+    });
+
+    const goToChinaMirror = (event) => {
+      event.preventDefault();
+      if (window.gtag) {
+        window.gtag('event', '点击', {
+          event_category: '前往国内镜像',
+          event_label: officialChinaMirror,
+        });
+      }
+      window.location.href = officialChinaMirror;
+      removeNotify();
+    };
+
+    notify.querySelectorAll(`.${prefixCls}-link`).forEach((link) => {
+      link.addEventListener('click', goToChinaMirror);
+    });
+
+    const refreshRate = 50; // ms
+    const duration = 10; // s
+    const step = 100 / ((duration * 1000) / refreshRate);
+    let progressInterval = -1;
+
+    function removeNotify() {
+      clearInterval(progressInterval);
+      notify.remove();
+    }
+
+    const progressEl = notify.querySelector(`.${prefixCls}-progress`);
+    let currentProgressValue = 100;
+
+    const progress = {
+      get value() {
+        return currentProgressValue;
+      },
+      set value(val) {
+        currentProgressValue = Math.max(0, Math.min(100, val));
+        progressEl.style.setProperty('--progress', `${currentProgressValue}%`);
+      },
+    };
+
+    function startProgressTimer() {
+      if (progressInterval !== -1) {
+        clearInterval(progressInterval);
+      }
+      progressInterval = setInterval(() => {
+        if (progress.value <= 0) {
+          removeNotify();
+        } else {
+          progress.value -= step;
+        }
+      }, refreshRate);
+    }
+
+    startProgressTimer();
+
+    notify.addEventListener('mouseenter', () => {
+      clearInterval(progressInterval);
+    });
+
+    notify.addEventListener('mouseleave', () => {
+      startProgressTimer();
+    });
+  }
+
+  function checkMirrorAvailable(timeout = 1500) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      let done = false;
+      img.onload = () => {
+        if (!done) {
+          done = true;
+          resolve(true);
+        }
+      };
+      img.onerror = () => {
+        if (!done) {
+          done = true;
+          resolve(false);
+        }
+      };
+      img.src = new URL('/llms.txt', officialChinaMirror).href;
+      setTimeout(() => {
+        if (!done) {
+          done = true;
+          resolve(false);
+        }
+      }, timeout);
+    });
+  }
+
+  // 断定网络不畅阈值（秒）
+  const delayDuration = 3;
+
+  const reactTimeoutId = setTimeout(() => {
+    if (typeof window[SIGN]?.YES === 'undefined') {
+      console.error(
+        `antd.mirror-notify: 页面加载超过 ${delayDuration} 秒，可能是网络不畅。\n请尝试访问国内镜像站点。%c${officialChinaMirror}`,
+        `color: ${primaryColor}; font-weight: bold;`,
+      );
+      checkMirrorAvailable().then((isFast) => {
+        if (isFast) {
+          createNotification();
+        }
+      });
+    }
+  }, delayDuration * 1000);
+
+  // 交给 React effect 清理
+  window[SIGN] = function stopMirrorNotify() {
+    window[SIGN].YES = Date.now();
+    clearTimeout(reactTimeoutId);
+  };
+})();
+</script>
+<script async>/* eslint-disable */
+// https://clarity.microsoft.com
+(function (c, l, a, r, i, t, y) {
+  c[a] =
+    c[a] ||
+    function () {
+      (c[a].q = c[a].q || []).push(arguments);
+    };
+  t = l.createElement(r);
+  t.async = 1;
+  t.src = 'https://www.clarity.ms/tag/' + i;
+  y = l.getElementsByTagName(r)[0];
+  y.parentNode.insertBefore(t, y);
+})(window, document, 'clarity', 'script', 'lyia7jfwui');
+</script>
+</body>
+</html>
