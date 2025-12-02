@@ -35,7 +35,7 @@ tag: vVERSION
 - 💄 修复 ConfigProvider 默认没有配置 `theme.hashed` 为 `true`，从而会导致多版本混用样式冲突的问题。[#55880](https://github.com/ant-design/ant-design/pull/55880) [@zombieJ](https://github.com/zombieJ)
 - 💄 修复 Layout.Sider 在 zeroRuntime 开启时样式缺失的问题。[#55864](https://github.com/ant-design/ant-design/pull/55864) [@wanpan11](https://github.com/wanpan11)
 - TypeScript
-  - 🤖 修复 ContextProvider 的 Table `classNames` 及 `styles` 配置类型缺失的问题。[#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
+  - 🤖 修复 ConfigProvider 的 Table `classNames` 及 `styles` 配置类型缺失的问题。[#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
   - 🤖 修复 DatePicker 多个属性的类型定义。[#55826](https://github.com/ant-design/ant-design/pull/55826) [@divyeshagrawal](https://github.com/divyeshagrawal)
 
 ## 6.0.0
