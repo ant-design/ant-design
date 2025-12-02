@@ -626,8 +626,8 @@ export interface ColorMapToken
   /**
    * @nameZH 浮层的背景蒙层颜色
    * @nameEN Background color of the mask
-   * @desc 浮层的背景蒙层颜色，用于遮罩浮层下面的内容，Modal、Drawer 等组件的蒙层使用的是该 token
-   * @descEN The background color of the mask, used to cover the content below the mask, Modal, Drawer and other components use this token
+   * @desc 浮层的背景蒙层颜色，用于遮罩浮层下面的内容，Modal、Drawer、Image 等组件的蒙层使用的是该 token
+   * @descEN The background color of the mask, used to cover the content below the mask, Modal, Drawer, Image and other components use this token
    */
   colorBgMask: string;
 
