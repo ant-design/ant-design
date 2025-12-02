@@ -23,7 +23,7 @@ tag: vVERSION
   - 🐞 Fix Flex cannot pass `0` for `flex` property. [#55829](https://github.com/ant-design/ant-design/pull/55829) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🐞 Fix Flex cannot pass `0` for `gap` property. [#55803](https://github.com/ant-design/ant-design/pull/55803) [@li-jia-nan](https://github.com/li-jia-nan)
 - Input
-  - 🐞 Fix Input `colorText` token does not work with filled variant without affix. [#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero]
+  - 🐞 Fix Input `colorText` token does not work with `filled` variant without affix. [#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
   - 🐞 Fix Input.OTP empty slots can be skipped when typing. [#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
 - 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@余晖](https://github.com/余晖)
 - 🐞 Fix Button hover text color in `solid` variant. [#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
