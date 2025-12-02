@@ -16,6 +16,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import type { SelectProps } from '../select';
@@ -39,7 +40,7 @@ export type PaginationStylesType = SemanticStylesType<PaginationProps, Paginatio
 export interface PaginationProps
   extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
-  size?: 'default' | 'small' | 'large';
+  size?: SizeType;
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
@@ -174,7 +175,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           onSizeChange?.(nextSize);
           propSizeChangerOnChange?.(nextSize, option);
         }}
-        size={isSmall ? 'small' : 'middle'}
+        size={mergedSize}
         className={clsx(sizeChangerClassName, propSizeChangerClassName)}
       />
     );
