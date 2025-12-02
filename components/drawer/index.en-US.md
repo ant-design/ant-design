@@ -55,7 +55,6 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 
 | Props | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Customize class for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
