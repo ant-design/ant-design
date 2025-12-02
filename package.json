@@ -115,6 +115,7 @@
     "@ant-design/fast-color": "^3.0.0",
     "@ant-design/icons": "^6.1.0",
     "@ant-design/react-slick": "~1.1.2",
+    "@babel/runtime": "^7.28.4",
     "@rc-component/cascader": "~1.8.0",
     "@rc-component/checkbox": "~1.0.1",
     "@rc-component/collapse": "~1.1.2",
