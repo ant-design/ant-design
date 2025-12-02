@@ -25,9 +25,9 @@ tag: vVERSION
 - Input
   - 🐞 Fix Input `colorText` token does not work with `filled` variant without affix. [#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
   - 🐞 Fix Input.OTP empty slots can be skipped when typing. [#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
-- 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@余晖](https://github.com/tuzixiangs)
+- 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@tuzixiangs](https://github.com/tuzixiangs)
 - 🐞 Fix Button hover text color in `solid` variant. [#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
-- 🐞 Fix Cascader page scroll to top on first open with defaultValue. [8b536eb](https://github.com/ant-design/ant-design/commit/8b536eb) [@余晖](https://github.com/tuzixiangs)
+- 🐞 Fix Cascader page scroll to top on first open with defaultValue. [8b536eb](https://github.com/ant-design/ant-design/commit/8b536eb) [@tuzixiangs](https://github.com/tuzixiangs)
 - 🐞 Fix DatePicker `borderRadiusSM` and `borderRadiusLG` token not working bug. [#56018](https://github.com/ant-design/ant-design/pull/56018) [@ug-hero](https://github.com/ug-hero)
 - 🐞 Fix InputNumber text clipping bug with ColorPicker. [#55966](https://github.com/ant-design/ant-design/pull/55966) [@DDDDD12138](https://github.com/DDDDD12138)
 - 🐞 Fix Select text color for search input in dark mode. [#55914](https://github.com/ant-design/ant-design/pull/55914) [@divyeshagrawal](https://github.com/divyeshagrawal)
