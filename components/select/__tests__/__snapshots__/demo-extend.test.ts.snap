@@ -10758,7 +10758,7 @@ Array [
         class="ant-select-placeholder"
         style="visibility: visible;"
       >
-        Select a option
+        Select an option
       </div>
       <input
         aria-autocomplete="list"
