@@ -38,7 +38,6 @@ tag: vVERSION
   - 🤖 修复 ContextProvider 的 Table `classNames` 及 `styles` 配置类型缺失的问题。[#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
   - 🤖 修复 DatePicker 多个属性的类型定义。[#55826](https://github.com/ant-design/ant-design/pull/55826) [@divyeshagrawal](https://github.com/divyeshagrawal)
 
-
 ## 6.0.0
 
 `2025-11-22`
