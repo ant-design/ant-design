@@ -36,6 +36,7 @@ tag: vVERSION
 - 🐞 Fix Modal/Image/Drawer that the `colorBgMask` token does not take effect. [#56031](https://github.com/ant-design/ant-design/pull/56031) [@ug-hero](https://github.com/ug-hero)
 - 💄 Fix ConfigProvider default not config `theme.hashed` is `true` which will cause style conflict with multiple versions. [#55880](https://github.com/ant-design/ant-design/pull/55880) [@zombieJ](https://github.com/zombieJ)
 - 💄 Fix Layout.Sider styles lost when zeroRuntime enabled. [#55864](https://github.com/ant-design/ant-design/pull/55864) [@wanpan11](https://github.com/wanpan11)
+- 🛠 MISC: Fix that could not build with pnpm `hoist: false`. [#55938](https://github.com/ant-design/ant-design/pull/55938) [@afc163](https://github.com/afc163)
 - TypeScript
   - 🤖 Fix ConfigProvider type missing for Table `className` and `styles` config. [#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
   - 🤖 Fix DatePicker props type definition. [#55826](https://github.com/ant-design/ant-design/pull/55826) [@divyeshagrawal](https://github.com/divyeshagrawal)
