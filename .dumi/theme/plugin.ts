@@ -159,20 +159,6 @@ const RoutesPlugin = async (api: IApi) => {
 
     const extraRoutesList: IRoute[] = [
       {
-        id: 'changelog-cn',
-        path: 'changelog-cn',
-        absPath: '/changelog-cn',
-        parentId: 'DocLayout',
-        file: resolve('../../CHANGELOG.zh-CN.md'),
-      },
-      {
-        id: 'changelog-cn',
-        path: 'components/changelog-cn',
-        absPath: '/components/changelog-cn',
-        parentId: 'DocLayout',
-        file: resolve('../../CHANGELOG.zh-CN.md'),
-      },
-      {
         id: 'changelog',
         path: 'changelog',
         absPath: '/changelog',
@@ -180,11 +166,29 @@ const RoutesPlugin = async (api: IApi) => {
         file: resolve('../../CHANGELOG.en-US.md'),
       },
       {
-        id: 'changelog',
+        id: 'changelog-cn',
+        path: 'changelog-cn',
+        absPath: '/changelog-cn',
+        parentId: 'DocLayout',
+        file: resolve('../../CHANGELOG.zh-CN.md'),
+      },
+      /**
+       * **important!** Make sure that the `id` and `path` are consistent.
+       * see: https://github.com/ant-design/ant-design/issues/55960
+       */
+      {
+        id: 'components/changelog',
         path: 'components/changelog',
         absPath: '/components/changelog',
         parentId: 'DocLayout',
         file: resolve('../../CHANGELOG.en-US.md'),
+      },
+      {
+        id: 'components/changelog-cn',
+        path: 'components/changelog-cn',
+        absPath: '/components/changelog-cn',
+        parentId: 'DocLayout',
+        file: resolve('../../CHANGELOG.zh-CN.md'),
       },
     ];
 
