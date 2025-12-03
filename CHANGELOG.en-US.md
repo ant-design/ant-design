@@ -25,7 +25,7 @@ tag: vVERSION
 - Input
   - 🐞 Fix Input `colorText` token does not work with `filled` variant without affix. [#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
   - 🐞 Fix Input.OTP empty slots can be skipped when typing. [#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
-- 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs)
 - 🐞 Fix Button hover text color in `solid` variant. [#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
 - 🐞 Fix Cascader page scroll to top on first open with defaultValue. [#55890](https://github.com/ant-design/ant-design/pull/55890) [@tuzixiangs](https://github.com/tuzixiangs)
 - 🐞 Fix DatePicker `borderRadiusSM` and `borderRadiusLG` token not working bug. [#56018](https://github.com/ant-design/ant-design/pull/56018) [@ug-hero](https://github.com/ug-hero)
@@ -233,6 +233,7 @@ tag: vVERSION
 - Notification
   - 🛠 Notification support `closable` to take `onClose` & `closeIcon` into it. [#54645](https://github.com/ant-design/ant-design/pull/54645) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 Notification support custom progress bar color. [#52964](https://github.com/ant-design/ant-design/pull/52964) [@yellowryan](https://github.com/yellowryan)
+  - 🆕 Notification adds new `title` property to replace the `message` property, and deprecates `message`. [#52759](https://github.com/ant-design/ant-design/pull/52759) [@thinkasany](https://github.com/thinkasany)
 - Image
   - 🆕 Image `cover` support placement. [#54492](https://github.com/ant-design/ant-design/pull/54492) [@kiner-tang](https://github.com/kiner-tang)
   - 🛠 Image remove default cover icon & text (Still can use `cover` to config). [#54379](https://github.com/ant-design/ant-design/pull/54379) [@765477020](https://github.com/765477020)
