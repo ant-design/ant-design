@@ -1,10 +1,12 @@
 import React from 'react';
 import { EditOutlined, HeartOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Flex } from 'antd';
-import type { CardMetaProps, CardProps } from 'antd';
+import type { CardProps, GetProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const { Meta } = Card;
+
+type CardMetaProps = GetProps<typeof Meta>;
 
 const useStyles = createStyles(({ token }) => ({
   root: {
