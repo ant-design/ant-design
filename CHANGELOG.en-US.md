@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 6.0.1
+
+`2025-12-02`
+
+- Flex
+  - 🐞 Fix Flex cannot pass `0` for `flex` property. [#55829](https://github.com/ant-design/ant-design/pull/55829) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 Fix Flex cannot pass `0` for `gap` property. [#55803](https://github.com/ant-design/ant-design/pull/55803) [@li-jia-nan](https://github.com/li-jia-nan)
+- Input
+  - 🐞 Fix Input `colorText` token does not work with `filled` variant without affix. [#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 Fix Input.OTP empty slots can be skipped when typing. [#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix Button hover text color in `solid` variant. [#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
+- 🐞 Fix Cascader page scroll to top on first open with defaultValue. [#55890](https://github.com/ant-design/ant-design/pull/55890) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix DatePicker `borderRadiusSM` and `borderRadiusLG` token not working bug. [#56018](https://github.com/ant-design/ant-design/pull/56018) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix InputNumber text clipping bug with ColorPicker. [#55966](https://github.com/ant-design/ant-design/pull/55966) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 Fix Select text color for search input in dark mode. [#55914](https://github.com/ant-design/ant-design/pull/55914) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🐞 Fix Splitter failing to fill its container when the sum of panel proportions is not 1. [#56025](https://github.com/ant-design/ant-design/pull/56025) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Wave memory leak risk since RAF not clean up. [#55962](https://github.com/ant-design/ant-design/pull/55962) [@Copilot](https://github.com/Copilot)
+- 🐞 Fix Modal/Image/Drawer that the `colorBgMask` token does not take effect. [#56031](https://github.com/ant-design/ant-design/pull/56031) [@ug-hero](https://github.com/ug-hero)
+- 💄 Fix ConfigProvider default not config `theme.hashed` is `true` which will cause style conflict with multiple versions. [#55880](https://github.com/ant-design/ant-design/pull/55880) [@zombieJ](https://github.com/zombieJ)
+- 💄 Fix Layout.Sider styles lost when zeroRuntime enabled. [#55864](https://github.com/ant-design/ant-design/pull/55864) [@wanpan11](https://github.com/wanpan11)
+- 🛠 MISC: Fix that could not build with pnpm `hoist: false`. [#55938](https://github.com/ant-design/ant-design/pull/55938) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Fix ConfigProvider type missing for Table `className` and `styles` config. [#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
+  - 🤖 Fix DatePicker props type definition. [#55826](https://github.com/ant-design/ant-design/pull/55826) [@divyeshagrawal](https://github.com/divyeshagrawal)
+
 ## 6.0.0
 
 `2025-11-22`

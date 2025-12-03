@@ -51,7 +51,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | arrow | 下拉框箭头是否显示 | boolean \| { pointAtCenter: boolean } | false |  |
 | autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean | true | 5.2.0 |
-| autoFocus | 打开后自动聚焦下拉框 | boolean | false |  |
 | classNames | 用于自定义 Dropdown 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | disabled | 菜单是否禁用 | boolean | - |  |
 | ~~destroyPopupOnHide~~ | 关闭后是否销毁 Dropdown，使用 `destroyOnHidden` 替换 | boolean | false |  |
