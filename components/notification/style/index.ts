@@ -377,10 +377,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
-  colorSuccessBg: token.colorSuccessBg,
-  colorErrorBg: token.colorErrorBg,
-  colorInfoBg: token.colorInfoBg,
-  colorWarningBg: token.colorWarningBg,
+  // test
 });
 
 export const prepareNotificationToken: (
