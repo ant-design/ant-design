@@ -4384,9 +4384,7 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
             <span
               class="ant-select-selection-item-content"
             >
-              <span
-                aria-describedby="test-id"
-              >
+              <span>
                 Hover Me
               </span>
             </span>
