@@ -38,7 +38,13 @@ interface ContributorsProps {
 }
 
 // 这些机器人账号不需要展示
-const blockList = ['github-actions', 'copilot', 'renovate', 'dependabot'];
+const blockList = [
+  'github-actions',
+  'copilot',
+  'renovate',
+  'dependabot',
+  'gemini-code-assist[bot]',
+];
 
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();

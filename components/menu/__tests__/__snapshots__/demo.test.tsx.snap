@@ -14,7 +14,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
         data-menu-id="rc-menu-uuid-mail"
         role="menuitem"
@@ -47,7 +46,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         aria-disabled="true"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
         role="menuitem"
@@ -121,7 +119,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </div>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:3"
@@ -191,7 +188,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-item ant-menu-item-selected"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -223,7 +219,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-item"
         data-menu-id="rc-menu-uuid-2"
         role="menuitem"
@@ -255,7 +250,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-item"
         data-menu-id="rc-menu-uuid-3"
         role="menuitem"
@@ -386,7 +380,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
         data-menu-id="rc-menu-uuid-mail"
         role="menuitem"
@@ -419,7 +412,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         aria-disabled="true"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
         role="menuitem"
@@ -493,7 +485,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </div>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:3"
@@ -567,7 +558,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-item ant-menu-item-selected"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -600,7 +590,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-item"
         data-menu-id="rc-menu-uuid-2"
         role="menuitem"
@@ -633,7 +622,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-item"
         data-menu-id="rc-menu-uuid-3"
         role="menuitem"
@@ -714,7 +702,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
           role="menu"
         >
           <li
-            aria-describedby="test-id"
             class="ant-menu-item ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-5"
             role="menuitem"
@@ -728,7 +715,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
             </span>
           </li>
           <li
-            aria-describedby="test-id"
             class="ant-menu-item ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-6"
             role="menuitem"
@@ -742,7 +728,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
             </span>
           </li>
           <li
-            aria-describedby="test-id"
             class="ant-menu-item ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-7"
             role="menuitem"
@@ -756,7 +741,6 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
             </span>
           </li>
           <li
-            aria-describedby="test-id"
             class="ant-menu-item ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-8"
             role="menuitem"
@@ -832,7 +816,6 @@ Array [
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-home"
       role="menuitem"
@@ -1001,7 +984,6 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
           role="menu"
         >
           <li
-            aria-describedby="test-id"
             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-1"
             role="menuitem"
@@ -1040,7 +1022,6 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
             </span>
           </li>
           <li
-            aria-describedby="test-id"
             class="ant-menu-item"
             data-menu-id="rc-menu-uuid-2"
             role="menuitem"
@@ -1059,7 +1040,6 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
             </span>
           </li>
           <li
-            aria-describedby="test-id"
             aria-disabled="true"
             class="ant-menu-item ant-menu-item-disabled ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-3"
@@ -1095,7 +1075,6 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-item"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -1113,7 +1092,6 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
         </span>
       </li>
       <li
-        aria-describedby="test-id"
         class="ant-menu-item"
         data-menu-id="rc-menu-uuid-2"
         role="menuitem"
@@ -1148,7 +1126,6 @@ Array [
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
@@ -1181,7 +1158,6 @@ Array [
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       aria-disabled="true"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
       role="menuitem"
@@ -1255,7 +1231,6 @@ Array [
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       role="menuitem"
       style="opacity:1;order:3"
@@ -1329,7 +1304,6 @@ Array [
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
@@ -1362,7 +1336,6 @@ Array [
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       aria-disabled="true"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
       role="menuitem"
@@ -1436,7 +1409,6 @@ Array [
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       role="menuitem"
       style="opacity:1;order:3"
@@ -1574,7 +1546,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -1588,7 +1559,6 @@ Array [
               </span>
             </li>
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-2"
               role="menuitem"
@@ -1619,7 +1589,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-3"
               role="menuitem"
@@ -1633,7 +1602,6 @@ Array [
               </span>
             </li>
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-4"
               role="menuitem"
@@ -1756,7 +1724,6 @@ Array [
         role="group"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-13"
           role="menuitem"
@@ -1770,7 +1737,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-14"
           role="menuitem"
@@ -1829,7 +1795,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-menu-item ant-menu-item-selected"
       data-menu-id="rc-menu-uuid-1"
       role="menuitem"
@@ -1862,7 +1827,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-2"
       role="menuitem"
@@ -1895,7 +1859,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-3"
       role="menuitem"
@@ -1976,7 +1939,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
         role="menu"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-5"
           role="menuitem"
@@ -1990,7 +1952,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-6"
           role="menuitem"
@@ -2004,7 +1965,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-7"
           role="menuitem"
@@ -2018,7 +1978,6 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-8"
           role="menuitem"
@@ -2117,7 +2076,6 @@ Array [
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-menu-item ant-menu-item-selected"
       data-menu-id="rc-menu-uuid-1"
       role="menuitem"
@@ -2150,7 +2108,6 @@ Array [
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-2"
       role="menuitem"
@@ -2231,7 +2188,6 @@ Array [
         role="menu"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-3"
           role="menuitem"
@@ -2249,7 +2205,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-4"
           role="menuitem"
@@ -2332,7 +2287,6 @@ Array [
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-link"
       role="menuitem"
@@ -2479,7 +2433,6 @@ Array [
         role="menu"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-21"
           role="menuitem"
@@ -2493,7 +2446,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-22"
           role="menuitem"
@@ -2536,7 +2488,6 @@ Array [
             role="menu"
           >
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-231"
               role="menuitem"
@@ -2550,7 +2501,6 @@ Array [
               </span>
             </li>
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-232"
               role="menuitem"
@@ -2564,7 +2514,6 @@ Array [
               </span>
             </li>
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-233"
               role="menuitem"
@@ -2691,7 +2640,6 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
@@ -2741,7 +2689,6 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
@@ -2995,7 +2942,6 @@ Array [
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-5"
       role="menuitem"
@@ -3008,7 +2954,6 @@ Array [
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-6"
       role="menuitem"
@@ -3086,7 +3031,6 @@ Array [
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-menu-item ant-menu-item-selected"
       data-menu-id="rc-menu-uuid-1"
       role="menuitem"
@@ -3119,7 +3063,6 @@ Array [
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-2"
       role="menuitem"
@@ -3200,7 +3143,6 @@ Array [
         role="menu"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-3"
           role="menuitem"
@@ -3214,7 +3156,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-4"
           role="menuitem"
@@ -3297,7 +3238,6 @@ Array [
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-link"
       role="menuitem"
@@ -3427,7 +3367,6 @@ Array [
         role="menu"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-1"
           role="menuitem"
@@ -3441,7 +3380,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-2"
           role="menuitem"
@@ -3455,7 +3393,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-3"
           role="menuitem"
@@ -3469,7 +3406,6 @@ Array [
           </span>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-4"
           role="menuitem"
