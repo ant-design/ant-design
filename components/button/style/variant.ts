@@ -173,6 +173,12 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [getCssVar('color-light-active')]: token.colorPrimaryBorder,
 
           [getCssVar('shadow')]: token.primaryShadow,
+
+          [`&${componentCls}-variant-solid`]: {
+            [getCssVar('text-color')]: token.primaryColor,
+            [getCssVar('text-color-hover')]: `var(${getCssVar('text-color')})`,
+            [getCssVar('text-color-active')]: `var(${getCssVar('text-color')})`,
+          },
         },
 
         // >>>>> Danger
@@ -185,6 +191,12 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [getCssVar('color-light-active')]: token.colorErrorBgActive,
 
           [getCssVar('shadow')]: token.dangerShadow,
+
+          [`&${componentCls}-variant-solid`]: {
+            [getCssVar('text-color')]: token.dangerColor,
+            [getCssVar('text-color-hover')]: `var(${getCssVar('text-color')})`,
+            [getCssVar('text-color-active')]: `var(${getCssVar('text-color')})`,
+          },
         },
 
         // >>>>> Default
@@ -216,6 +228,11 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [`&${componentCls}-variant-filled, &${componentCls}-variant-text`]: {
             [getCssVar('text-color-hover')]: `var(${getCssVar('text-color')})`,
             [getCssVar('text-color-active')]: `var(${getCssVar('text-color')})`,
+          },
+
+          [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
+            [getCssVar('bg-color-hover')]: token.defaultHoverBg,
+            [getCssVar('bg-color-active')]: token.defaultActiveBg,
           },
 
           [`&${componentCls}-background-ghost`]: {
