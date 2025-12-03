@@ -12,7 +12,7 @@ import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
-import Grid from './Grid';
+import CardGrid from './CardGrid';
 import useStyle from './style';
 
 export type CardType = 'inner';
@@ -160,7 +160,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const isContainGrid = React.useMemo<boolean>(() => {
     const childNodes: React.ReactNode[] = toArray(children);
-    return childNodes.some((child) => React.isValidElement(child) && child.type === Grid);
+    return childNodes.some((child) => React.isValidElement(child) && child.type === CardGrid);
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
@@ -281,5 +281,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     </div>
   );
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  Card.displayName = 'Card';
+}
 
 export default Card;
