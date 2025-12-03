@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
-| disabledFormat | Disable format of color | boolean | - | |
+| disabledFormat | Disable format of color | boolean | - | 5.22.0 |
 | ~~destroyTooltipOnHide~~ | Whether destroy dom when close | `boolean` | false | 5.7.0 |
 | destroyOnHidden | Whether destroy dom when close | `boolean` | false | 5.25.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | - | |
