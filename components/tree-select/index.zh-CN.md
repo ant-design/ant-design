@@ -14,7 +14,7 @@ demo:
 
 类似 Select 的选择控件，可选择的数据结构是一个树形结构时，可以使用 TreeSelect，例如公司层级、学科系统、分类目录等等。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -137,21 +137,21 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
 
 ## FAQ
 
-### onChange 时如何获得父节点信息？
+### onChange 时如何获得父节点信息？ {#faq-parent-node-info}
 
 从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
-### 自定义 Option 样式导致滚动异常怎么办？
+### 自定义 Option 样式导致滿动异常怎么办？ {#faq-custom-option-scroll}
 
 请参考 Select 的 [FAQ](/components/select-cn)。
 
-### 为何在搜索时 `loadData` 不会触发展开？
+### 为何在搜索时 `loadData` 不会触发展开？ {#faq-load-data-expand}
 
 在 v4 alpha 版本中，默认在搜索时亦会进行搜索。但是经反馈，在输入时会快速阻塞网络。因而改为搜索不触发 `loadData`。但是你仍然可以通过 `filterTreeNode` 处理异步加载逻辑：
 
@@ -169,6 +169,6 @@ demo:
 />
 ```
 
-### 为何弹出框不能横向滚动？
+### 为何弹出框不能横向滚动？ {#faq-popup-not-scroll}
 
 关闭虚拟滚动即可，因为开启虚拟滚动时无法准确的测量完整列表的 `scrollWidth`。

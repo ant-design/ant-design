@@ -14,7 +14,7 @@ demo:
 
 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -96,7 +96,6 @@ dayjs.locale('zh-cn');
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | className | 选择器 className | string | - |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
@@ -263,29 +262,29 @@ export type FormatType =
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
 ## FAQ
 
-### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？
+### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？ {#faq-mode-cannot-select}
 
 请参考[常见问答](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)
 
-### 为何日期选择年份后返回的是日期面板而不是月份面板？
+### 为何日期选择年份后返回的是日期面板而不是月份面板？ {#faq-year-to-date-panel}
 
 当用户选择完年份后，系统会直接切换至日期面板，而非显式提供月份选择。这样做的设计在于用户只需进行一次点击即可完成年份修改，无需再次点击进入月份选择界面，从而减少了用户的操作负担，同时也避免需要额外感知月份的记忆负担。
 
-### 如何在 DatePicker 中使用自定义日期库（如 Moment.js ）？
+### 如何在 DatePicker 中使用自定义日期库（如 Moment.js ）？ {#faq-custom-date-library}
 
 请参考[《使用自定义日期库》](/docs/react/use-custom-date-library#datepicker)
 
-### 为什么时间类组件的国际化 locale 设置不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
 参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
 
-### 如何修改周的起始日？
+### 如何修改周的起始日？ {#faq-week-start-day}
 
 请使用正确的[语言包](/docs/react/i18n-cn)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/dayjs-day-of-week-x9tuj2?file=/demo.tsx>
 
@@ -302,10 +301,10 @@ dayjs.updateLocale('zh-cn', {
 });
 ```
 
-### 为何使用 `panelRender` 时，原来面板无法切换？
+### 为何使用 `panelRender` 时，原来面板无法切换？ {#faq-panel-render-switch}
 
 当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
 
-### 如何理解禁用时间日期？
+### 如何理解禁用时间日期？ {#faq-disabled-date-time}
 
 欢迎阅读博客[《为什么禁用日期这么难？》](/docs/blog/picker-cn)了解如何使用。

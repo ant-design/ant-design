@@ -36,7 +36,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoFocus | If get focus when component mounted | boolean | false |  |
 | checked | Specifies whether the checkbox is selected | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
@@ -91,7 +90,7 @@ interface Option {
 
 ## FAQ
 
-### Why not work in Form.Item?
+### Why not work in Form.Item? {#faq-form-item-limitations}
 
 Form.Item default bind value to `value` property, but Checkbox value property is `checked`. You can use `valuePropName` to change bind property.
 

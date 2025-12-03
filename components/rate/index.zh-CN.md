@@ -15,7 +15,7 @@ demo:
 - 对评价进行展示。
 - 对事物进行快速的评级操作。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -36,7 +36,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | allowClear | 是否允许再次点击后清除 | boolean | true |  |
 | allowHalf | 是否允许半选 | boolean | false |  |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | character | 自定义字符 | ReactNode \| (RateProps) => ReactNode | &lt;StarFilled /> | function(): 4.4.0 |
 | className | 自定义样式类名 | string | - |  |
 | count | star 总数 | number | 5 |  |
@@ -60,6 +59,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Rate"></ComponentTokenTable>

@@ -15,7 +15,7 @@ demo:
 - 在一组可选项中进行多项选择时；
 - 单独使用可以表示两种状态之间的切换，和 `switch` 类似。区别在于切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
@@ -37,7 +37,6 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | checked | 指定当前是否选中 | boolean | false |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultChecked | 初始是否选中 | boolean | false |  |
@@ -72,7 +71,7 @@ interface Option {
 }
 ```
 
-### 方法
+### 方法 {#methods}
 
 #### Checkbox
 
@@ -86,13 +85,13 @@ interface Option {
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Checkbox"></ComponentTokenTable>
 
 ## FAQ
 
-### 为什么在 Form.Item 下不能绑定数据？
+### 为什么在 Form.Item 下不能绑定数据？ {#faq-form-item-limitations}
 
 Form.Item 默认绑定值属性到 `value` 上，而 Checkbox 的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
 

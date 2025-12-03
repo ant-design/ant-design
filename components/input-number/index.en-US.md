@@ -44,7 +44,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  |
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  |
-| autoFocus | If the component gets focus when mounted | boolean | false | - |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
@@ -96,19 +95,19 @@ Per issues [#21158](https://github.com/ant-design/ant-design/issues/21158), [#17
 
 ## FAQ
 
-### Why `value` can exceed `min` or `max` in control?
+### Why `value` can exceed `min` or `max` in control? {#faq-controlled-range}
 
 Developer handle data by their own in control. It will make data out of sync if InputNumber changes display value. It also cause potential data issues when use in form.
 
-### Why dynamic change `min` or `max` which makes `value` out of range will not trigger `onChange`?
+### Why dynamic change `min` or `max` which makes `value` out of range will not trigger `onChange`? {#faq-dynamic-range-change}
 
 `onChange` is user trigger event. Auto-triggering would prevent form libraries from detecting the data modification source.
 
-### Why `onBlur` or other event can not get correct value?
+### Why `onBlur` or other event can not get correct value? {#faq-onblur-value}
 
 InputNumber's value is wrapped by internal logic. The `event.target.value` you get from `onBlur` or other event is the DOM element's `value` instead of the actual value of InputNumber. For example, if you change the display format through `formatter` or `decimalSeparator`, you will get the formatted string in the DOM. You should always get the current value through `onChange`.
 
-### Why `changeOnWheel` unable to control whether the mouse scroll wheel changes value?
+### Why `changeOnWheel` unable to control whether the mouse scroll wheel changes value? {#faq-change-on-wheel}
 
 > The use of the `type` attribute is deprecated
 

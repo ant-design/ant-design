@@ -38,7 +38,7 @@ return (
 );
 ```
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore-start -->
 <code src="./demo/basic.tsx">基本</code>
@@ -67,7 +67,6 @@ return (
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | checked | 指定当前是否选中 | boolean | false |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
 | defaultChecked | 初始是否选中 | boolean | false |  |
@@ -124,6 +123,6 @@ return (
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Radio"></ComponentTokenTable>

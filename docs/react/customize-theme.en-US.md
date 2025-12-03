@@ -208,6 +208,33 @@ export default App;
 
 ## Advanced
 
+### Zero Runtime {#zero-runtime}
+
+Starting from 6.0.0, we provide `zeroRuntime` mode to further improve application performance. When enabled, Ant Design will no longer generate component styles at runtime, so you need to manually import the style files.
+
+```tsx
+import 'antd/dist/antd.css';
+
+export default () => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>
+    <App />
+  </ConfigProvider>
+);
+```
+
+`antd/dist/antd.css` contains all antd component styles, but does not include hashed className. If you want to import fewer styles, or cannot use the default styles due to configuration changes like `prefix`, we recommend using [@ant-design/static-style-extract](https://github.com/ant-design/static-style-extract) to generate static styles.
+
+```tsx
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const cssText = extractStyle({
+  includes: ['Button'], // Only include Button component styles
+});
+
+fs.writeFileSync('/path/to/somewhere', cssText);
+```
+
 ### Switch Themes Dynamically
 
 In v5, dynamically switching themes is very simple for users, you can dynamically switch themes at any time through the `theme` property of `ConfigProvider` without any additional configuration.
@@ -440,8 +467,8 @@ const theme = {
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |  |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |  |
-| cssVar | CSS Variables Configuration, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |  |
-| hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |  |
+| cssVar | CSS Variables Configuration, refer [cssVar](#css-var) | `boolean \| { prefix?: string; key?: string }` | false |  |
+| hashed | Style patch on the hash className | boolean | true |  |
 | zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file | boolean | true | 6.0.0 |
 
 ### ComponentsConfig
@@ -451,6 +478,13 @@ const theme = {
 | `Component` (Can be any antd Component name like `Button`) | Modify Component Token or override Component used Alias Token | `ComponentToken & AliasToken & { algorithm: boolean \| (token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]}` | - |
 
 > `algorithm` of component is `false` by default, which means tokens of component will only override global token. When it is set with `true`, the algorithm will be the same as global. You can also pass algorithm or Array of algorithm, and it will override algorithm of global.
+
+### cssVar {#css-var}
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| prefix | Prefix of CSS variables, same as `prefixCls` configured on ConfigProvider by default | string | `ant` |  |
+| key | Unique key for current theme, filled with `useId` by default | string | `useId` in React 18 |  |
 
 ### SeedToken
 
