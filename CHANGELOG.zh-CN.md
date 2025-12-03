@@ -233,6 +233,7 @@ tag: vVERSION
 - Notification
   - 🛠 Notification 提供 `closable` 属性将 `onClose` 与 `closeIcon` 收敛至其中。[#54645](https://github.com/ant-design/ant-design/pull/54645) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 Notification 支持自定义进度条颜色。[#52964](https://github.com/ant-design/ant-design/pull/52964) [@yellowryan](https://github.com/yellowryan)
+  - 🆕 Notification 新增 `title` 属性用以替代 `message` 属性，同时废弃 `message` 属性。[#52759](https://github.com/ant-design/ant-design/pull/52759) [@thinkasany](https://github.com/thinkasany)
 - Image
   - 🆕 Image 的预览遮罩 `cover` 支持设置遮罩位置。[#54492](https://github.com/ant-design/ant-design/pull/54492) [@kiner-tang](https://github.com/kiner-tang)
   - 🛠 Image 移除默认的查看图标和文案（仍然可以通过 `cover` 配置）。[#54379](https://github.com/ant-design/ant-design/pull/54379) [@765477020](https://github.com/765477020)
