@@ -95,14 +95,12 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
-          <div
-            style="height: 832px; position: relative; overflow: hidden;"
-          >
+          <div>
             <div
               class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+              style="display: flex; flex-direction: column;"
             >
               <div
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
@@ -204,17 +202,168 @@ Array [
                   j19
                 </div>
               </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="k20"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  k20
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="l21"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  l21
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="m22"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  m22
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="n23"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  n23
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="o24"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  o24
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="p25"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  p25
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="q26"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  q26
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="r27"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  r27
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="s28"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  s28
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="t29"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  t29
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="u30"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  u30
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="v31"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  v31
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="w32"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  w32
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="x33"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  x33
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="y34"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  y34
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="z35"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  z35
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-          style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-        >
-          <div
-            class="rc-virtual-list-scrollbar-thumb"
-            style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-          />
         </div>
       </div>
     </div>
@@ -318,7 +467,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -478,7 +627,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -589,7 +738,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -724,7 +873,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -853,7 +1002,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -988,7 +1137,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -1142,7 +1291,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1339,7 +1488,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1573,7 +1722,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1786,7 +1935,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2009,7 +2158,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2242,7 +2391,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -2381,14 +2530,12 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
-          <div
-            style="height: 3200px; position: relative; overflow: hidden;"
-          >
+          <div>
             <div
               class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+              style="display: flex; flex-direction: column;"
             >
               <div
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
@@ -2550,17 +2697,1448 @@ Array [
                   unselectable="on"
                 />
               </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="10"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  10
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="11"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  11
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="12"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  12
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="13"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  13
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="14"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  14
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="15"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  15
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="16"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  16
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="17"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  17
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="18"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  18
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="19"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  19
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="20"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  20
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="21"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  21
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="22"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  22
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="23"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  23
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="24"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  24
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="25"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  25
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="26"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  26
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="27"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  27
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="28"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  28
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="29"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  29
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="30"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  30
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="31"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  31
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="32"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  32
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="33"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  33
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="34"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  34
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="35"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  35
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="36"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  36
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="37"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  37
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="38"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  38
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="39"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  39
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="40"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  40
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="41"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  41
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="42"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  42
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="43"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  43
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="44"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  44
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="45"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  45
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="46"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  46
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="47"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  47
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="48"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  48
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="49"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  49
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="50"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  50
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="51"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  51
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="52"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  52
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="53"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  53
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="54"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  54
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="55"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  55
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="56"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  56
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="57"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  57
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="58"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  58
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="59"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  59
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="60"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  60
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="61"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  61
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="62"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  62
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="63"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  63
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="64"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  64
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="65"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  65
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="66"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  66
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="67"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  67
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="68"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  68
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="69"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  69
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="70"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  70
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="71"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  71
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="72"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  72
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="73"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  73
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="74"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  74
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="75"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  75
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="76"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  76
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="77"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  77
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="78"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  78
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="79"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  79
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="80"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  80
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="81"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  81
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="82"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  82
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="83"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  83
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="84"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  84
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="85"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  85
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="86"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  86
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="87"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  87
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="88"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  88
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="89"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  89
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="90"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  90
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="91"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  91
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="92"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  92
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="93"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  93
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="94"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  94
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="95"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  95
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="96"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  96
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="97"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  97
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="98"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  98
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="99"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  99
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-          style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-        >
-          <div
-            class="rc-virtual-list-scrollbar-thumb"
-            style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 20px; top: 0px;"
-          />
         </div>
       </div>
     </div>
@@ -2666,7 +4244,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -2827,7 +4405,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -2987,7 +4565,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -3174,7 +4752,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -3335,7 +4913,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -3496,7 +5074,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -3672,7 +5250,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -3818,7 +5396,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -3999,14 +5577,12 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
-          <div
-            style="height: 288px; position: relative; overflow: hidden;"
-          >
+          <div>
             <div
               class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+              style="display: flex; flex-direction: column;"
             >
               <div
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -4126,15 +5702,6 @@ Array [
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-          style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-        >
-          <div
-            class="rc-virtual-list-scrollbar-thumb"
-            style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 227px; top: 0px;"
-          />
         </div>
       </div>
     </div>
@@ -4344,14 +5911,12 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
-            <div
-              style="height: 832px; position: relative; overflow: hidden;"
-            >
+            <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                style="display: flex; flex-direction: column;"
               >
                 <div
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -4505,17 +6070,168 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                     j19
                   </div>
                 </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="k20"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    k20
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="l21"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    l21
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="m22"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    m22
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="n23"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    n23
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="o24"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    o24
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="p25"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    p25
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="q26"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    q26
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="r27"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    r27
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="s28"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    s28
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="t29"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    t29
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="u30"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    u30
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="v31"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    v31
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="w32"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    w32
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="x33"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    x33
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="y34"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    y34
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="z35"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    z35
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-            style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-          >
-            <div
-              class="rc-virtual-list-scrollbar-thumb"
-              style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-            />
           </div>
         </div>
       </div>
@@ -4639,14 +6355,12 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
-            <div
-              style="height: 832px; position: relative; overflow: hidden;"
-            >
+            <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                style="display: flex; flex-direction: column;"
               >
                 <div
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -4800,17 +6514,168 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                     j19
                   </div>
                 </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="k20"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    k20
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="l21"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    l21
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="m22"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    m22
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="n23"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    n23
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="o24"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    o24
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="p25"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    p25
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="q26"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    q26
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="r27"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    r27
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="s28"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    s28
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="t29"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    t29
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="u30"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    u30
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="v31"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    v31
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="w32"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    w32
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="x33"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    x33
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="y34"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    y34
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="z35"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    z35
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-            style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-          >
-            <div
-              class="rc-virtual-list-scrollbar-thumb"
-              style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-            />
           </div>
         </div>
       </div>
@@ -4912,7 +6777,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -5131,7 +6996,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5286,7 +7151,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5467,7 +7332,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5688,7 +7553,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5861,7 +7726,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6434,7 +8299,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6612,7 +8477,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6753,7 +8618,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6937,7 +8802,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -7121,7 +8986,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -7331,7 +9196,7 @@ Array [
                       >
                         <div
                           class="rc-virtual-list-holder"
-                          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+                          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                         >
                           <div>
                             <div
@@ -7507,7 +9372,7 @@ Array [
                       >
                         <div
                           class="rc-virtual-list-holder"
-                          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+                          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                         >
                           <div>
                             <div
@@ -7718,7 +9583,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -7897,7 +9762,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -8057,7 +9922,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -8204,7 +10069,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -8406,7 +10271,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -8603,7 +10468,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -8791,7 +10656,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -9410,7 +11275,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -9584,14 +11449,12 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
-            <div
-              style="height: 832px; position: relative; overflow: hidden;"
-            >
+            <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                style="display: flex; flex-direction: column;"
               >
                 <div
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -9797,17 +11660,194 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                     </span>
                   </span>
                 </div>
+                <div
+                  class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                  title="Long Label: k20"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: k20
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: l21"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: l21
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: m22"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: m22
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: n23"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: n23
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: o24"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: o24
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: p25"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: p25
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: q26"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: q26
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: r27"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: r27
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: s28"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: s28
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: t29"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: t29
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: u30"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: u30
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: v31"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: v31
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: w32"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: w32
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: x33"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: x33
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: y34"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: y34
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: z35"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: z35
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-            style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-          >
-            <div
-              class="rc-virtual-list-scrollbar-thumb"
-              style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-            />
           </div>
         </div>
       </div>
@@ -9912,14 +11952,12 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
-            <div
-              style="height: 832px; position: relative; overflow: hidden;"
-            >
+            <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                style="display: flex; flex-direction: column;"
               >
                 <div
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
@@ -10021,17 +12059,168 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                     Long Label: j19
                   </div>
                 </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: k20"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: k20
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: l21"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: l21
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: m22"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: m22
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: n23"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: n23
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: o24"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: o24
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: p25"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: p25
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: q26"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: q26
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: r27"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: r27
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: s28"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: s28
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: t29"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: t29
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: u30"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: u30
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: v31"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: v31
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: w32"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: w32
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: x33"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: x33
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: y34"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: y34
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: z35"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: z35
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-            style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-          >
-            <div
-              class="rc-virtual-list-scrollbar-thumb"
-              style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-            />
           </div>
         </div>
       </div>
@@ -10163,14 +12352,12 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
-            <div
-              style="height: 832px; position: relative; overflow: hidden;"
-            >
+            <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                style="display: flex; flex-direction: column;"
               >
                 <div
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -10376,17 +12563,194 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                     </span>
                   </span>
                 </div>
+                <div
+                  class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                  title="Long Label: k20"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: k20
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: l21"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: l21
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: m22"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: m22
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: n23"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: n23
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: o24"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: o24
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: p25"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: p25
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: q26"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: q26
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: r27"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: r27
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: s28"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: s28
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: t29"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: t29
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: u30"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: u30
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: v31"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: v31
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: w32"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: w32
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: x33"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: x33
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: y34"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: y34
+                  </div>
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  title="Long Label: z35"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    Long Label: z35
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-            style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-          >
-            <div
-              class="rc-virtual-list-scrollbar-thumb"
-              style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-            />
           </div>
         </div>
       </div>
@@ -10482,7 +12846,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -10680,7 +13044,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -10831,7 +13195,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -10999,7 +13363,7 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -11364,14 +13728,12 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
-              <div
-                style="height: 832px; position: relative; overflow: hidden;"
-              >
+              <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                  style="display: flex; flex-direction: column;"
                 >
                   <div
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
@@ -11533,17 +13895,264 @@ Array [
                       unselectable="on"
                     />
                   </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="k20"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      k20
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="l21"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      l21
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="m22"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      m22
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="n23"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      n23
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="o24"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      o24
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="p25"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      p25
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="q26"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      q26
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="r27"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      r27
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="s28"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      s28
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="t29"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      t29
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="u30"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      u30
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="v31"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      v31
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="w32"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      w32
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="x33"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      x33
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="y34"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      y34
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="z35"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      z35
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-              style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-            >
-              <div
-                class="rc-virtual-list-scrollbar-thumb"
-                style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-              />
             </div>
           </div>
         </div>
@@ -11720,14 +14329,12 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
-              <div
-                style="height: 832px; position: relative; overflow: hidden;"
-              >
+              <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                  style="display: flex; flex-direction: column;"
                 >
                   <div
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -11881,17 +14488,168 @@ Array [
                       j19
                     </div>
                   </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="k20"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      k20
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="l21"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      l21
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="m22"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      m22
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="n23"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      n23
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="o24"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      o24
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="p25"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      p25
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="q26"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      q26
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="r27"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      r27
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="s28"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      s28
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="t29"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      t29
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="u30"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      u30
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="v31"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      v31
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="w32"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      w32
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="x33"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      x33
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="y34"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      y34
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="z35"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      z35
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-              style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-            >
-              <div
-                class="rc-virtual-list-scrollbar-thumb"
-                style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-              />
             </div>
           </div>
         </div>
@@ -12068,14 +14826,12 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
-              <div
-                style="height: 832px; position: relative; overflow: hidden;"
-              >
+              <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                  style="display: flex; flex-direction: column;"
                 >
                   <div
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
@@ -12229,17 +14985,168 @@ Array [
                       j19
                     </div>
                   </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="k20"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      k20
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="l21"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      l21
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="m22"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      m22
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="n23"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      n23
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="o24"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      o24
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="p25"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      p25
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="q26"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      q26
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="r27"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      r27
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="s28"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      s28
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="t29"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      t29
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="u30"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      u30
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="v31"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      v31
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="w32"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      w32
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="x33"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      x33
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="y34"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      y34
+                    </div>
+                  </div>
+                  <div
+                    class="ant-select-item ant-select-item-option"
+                    title="z35"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      z35
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-              style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-            >
-              <div
-                class="rc-virtual-list-scrollbar-thumb"
-                style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-              />
             </div>
           </div>
         </div>
@@ -12604,7 +15511,7 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -12758,7 +15665,7 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -12930,7 +15837,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -13097,7 +16004,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -13257,7 +16164,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -13426,7 +16333,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -13635,7 +16542,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -13810,7 +16717,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -13962,14 +16869,12 @@ Array [
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
-          <div
-            style="height: 832px; position: relative; overflow: hidden;"
-          >
+          <div>
             <div
               class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+              style="display: flex; flex-direction: column;"
             >
               <div
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
@@ -14071,17 +16976,168 @@ Array [
                   j19
                 </div>
               </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="k20"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  k20
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="l21"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  l21
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="m22"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  m22
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="n23"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  n23
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="o24"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  o24
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="p25"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  p25
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="q26"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  q26
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="r27"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  r27
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="s28"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  s28
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="t29"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  t29
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="u30"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  u30
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="v31"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  v31
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="w32"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  w32
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="x33"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  x33
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="y34"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  y34
+                </div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                title="z35"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  z35
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="rc-virtual-list-scrollbar rc-virtual-list-scrollbar-vertical rc-virtual-list-scrollbar-visible"
-          style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
-        >
-          <div
-            class="rc-virtual-list-scrollbar-thumb"
-            style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 78px; top: 0px;"
-          />
         </div>
       </div>
     </div>
@@ -14185,7 +17241,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -14372,7 +17428,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -14531,7 +17587,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -14718,7 +17774,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -14877,7 +17933,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -15064,7 +18120,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -15223,7 +18279,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -15410,7 +18466,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: hidden; overflow-anchor: none;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
