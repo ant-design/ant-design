@@ -14,27 +14,6 @@ demo:
 
 用于在输入中提及某人或某事，常用于发布、聊天或评论功能。
 
-### 用法升级 <Badge>5.1.0+</Badge>
-
-<!-- prettier-ignore -->
-:::warning{title="升级提示"}
-在 5.1.0 版本后，我们提供了 `<Mentions options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
-同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
-:::
-
-```jsx
-// >=5.1.0 可用，推荐的写法 ✅
-const options = [{ value: 'sample', label: 'sample' }];
-return <Mentions options={options} />;
-
-// <5.1.0 可用，>=5.1.0 时不推荐 🙅🏻‍♀️
-return (
-  <Mentions onChange={onChange}>
-    <Mentions.Option value="sample">Sample</Mentions.Option>
-  </Mentions>
-);
-```
-
 ## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
@@ -63,7 +42,6 @@ return (
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
-| autoFocus | 自动获得焦点 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultValue | 默认值 | string | - |  |

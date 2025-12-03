@@ -103,18 +103,21 @@ const MenuItem: GenericComponent = (props) => {
         },
         className,
       )}
-      style={firstLevel ? styles.item : styles.subMenu.item}
+      style={{
+        ...(firstLevel ? styles.item : styles.subMenu.item),
+        ...props.style,
+      }}
       title={typeof title === 'string' ? title : undefined}
     >
       {cloneElement(icon, (oriProps) => ({
         className: clsx(
-          oriProps.className,
           `${prefixCls}-item-icon`,
           firstLevel ? classNames.itemIcon : classNames.subMenu.itemIcon,
+          oriProps.className,
         ),
         style: {
-          ...oriProps.style,
           ...(firstLevel ? styles.itemIcon : styles.subMenu.itemIcon),
+          ...oriProps.style,
         },
       }))}
       {renderItemChildren(isInlineCollapsed)}

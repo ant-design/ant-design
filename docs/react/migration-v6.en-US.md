@@ -57,6 +57,248 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 - For most projects that rely on standard antd styling this should have no effect.
 - ⚠️ If your project contains custom styles that target internal DOM nodes of components (for example, relying on specific selectors or hierarchy), you may need to inspect and adjust those styles after upgrading.
 
+### API adjustments
+
+⚠️ The APIs listed below have been marked as **deprecated**. Although they are still functional at present, deprecation warnings will appear in the console, and they will be removed in version 7.0. To maintain code sustainability and compatibility, **it is strongly recommended to migrate to the corresponding replacement APIs as soon as possible**.
+
+- `Alert`
+  - `closeText` is deprecated and replaced by `closable.closeIcon`.
+  - `message` is deprecated and replaced by `title`.
+
+- `Anchor`
+  - `Anchor children` is deprecated and replaced by `items`.
+
+- `AutoComplete`
+  - `dropdownMatchSelectWidth` is deprecated and replaced by `popupMatchSelectWidth`.
+  - `dropdownStyle` is deprecated and replaced by `styles.popup.root`.
+  - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `dropdownRender` is deprecated and replaced by `popupRender`.
+  - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
+  - `dataSource` is deprecated and replaced by `options`.
+
+- `Avatar.Group`
+  - `maxCount` is deprecated and replaced by `max={{ count: number }}`.
+  - `maxStyle` is deprecated and replaced by `max={{ style: CSSProperties }}`.
+  - `maxPopoverPlacement` is deprecated and replaced by `max={{ popover: PopoverProps }}`.
+  - `maxPopoverTrigger` is deprecated and replaced by `max={{ popover: PopoverProps }}`.
+
+- `BackTop`
+  - `BackTop` is deprecated and replaced by `FloatButton.BackTop`.
+
+- `Breadcrumb`
+  - `routes` is deprecated and replaced by `items`.
+  - `Breadcrumb.Item` 和 `Breadcrumb.Separator` is deprecated and replaced by `items`.
+
+- `Button.Group`
+  - `Button.Group` is deprecated and replaced by `Space.Compact`.
+
+- `Button`
+  - `iconPosition` is deprecated and replaced by `iconPlacement`.
+
+- `Calendar`
+  - `dateFullCellRender` is deprecated and replaced by `fullCellRender`.
+  - `dateCellRender` is deprecated and replaced by `cellRender`.
+  - `monthFullCellRender` is deprecated and replaced by `fullCellRender`.
+  - `monthCellRender` is deprecated and replaced by `cellRender`.
+
+- `Card`
+  - `headStyle` is deprecated and replaced by `styles.header`.
+  - `bodyStyle` is deprecated and replaced by `styles.body`.
+  - `bordered` is deprecated and replaced by `variant`.
+
+- `Carousel`
+  - `dotPosition` is deprecated and replaced by `dotPlacement`.
+
+- `Cascader`
+  - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `dropdownStyle` is deprecated and replaced by `styles.popup.root`.
+  - `dropdownRender` is deprecated and replaced by `popupRender`.
+  - `dropdownMenuColumnStyle` is deprecated and replaced by `popupMenuColumnStyle`.
+  - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
+  - `onPopupVisibleChange` is deprecated and replaced by `onOpenChange`.
+  - `bordered` is deprecated and replaced by `variant`.
+
+- `Collapse`
+  - `destroyInactivePanel` is deprecated and replaced by `destroyOnHidden`.
+  - `expandIconPosition` is deprecated and replaced by `expandIconPlacement`.
+
+- `Collapse.Panel`
+  - `disabled` is deprecated and replaced by `collapsible="disabled"`.
+
+- `ConfigProvider`
+  - `dropdownMatchSelectWidth` is deprecated and replaced by `popupMatchSelectWidth`.
+
+- `DatePicker.RangePicker`
+  - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupStyle` is deprecated and replaced by `styles.popup.root`.
+  - `bordered` is deprecated and replaced by `variant`.
+  - `onSelect` is deprecated and replaced by `onCalendarChange`.
+
+- `DatePicker`
+  - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupStyle` is deprecated and replaced by `styles.popup.root`.
+  - `bordered` is deprecated and replaced by `variant`.
+  - `onSelect` is deprecated and replaced by `onCalendarChange`.
+
+- `Descriptions`
+  - `labelStyle` is deprecated and replaced by `styles.label`.
+  - `contentStyle` is deprecated and replaced by `styles.content`.
+
+- `Divider`
+  - `type` is deprecated and replaced by `orientation`.
+  - `orientationMargin` is deprecated and replaced by `styles.content.margin`.
+
+- `Drawer`
+  - `headerStyle` is deprecated and replaced by `styles.header`.
+  - `bodyStyle` is deprecated and replaced by `styles.body`.
+  - `footerStyle` is deprecated and replaced by `styles.footer`.
+  - `contentWrapperStyle` is deprecated and replaced by `styles.wrapper`.
+  - `maskStyle` is deprecated and replaced by `styles.mask`.
+  - `drawerStyle` is deprecated and replaced by `styles.section`.
+  - `destroyInactivePanel` is deprecated and replaced by `destroyOnHidden`.
+  - `width` is deprecated and replaced by `size`.
+  - `height` is deprecated and replaced by `size`.
+
+- `Dropdown.Button`
+  - `Dropdown.Button` is deprecated and replaced by `Space.Compact + Dropdown + Button`.
+
+- `Dropdown`
+  - `dropdownRender` is deprecated and replaced by `popupRender`.
+  - `destroyPopupOnHide` is deprecated and replaced by `destroyOnHidden`.
+  - `overlayClassName` is deprecated and replaced by `classNames.root`.
+  - `overlayStyle` is deprecated and replaced by `styles.root`.
+  - `placement: xxxCenter` is deprecated and replaced by `placement: xxx`.
+
+- `Empty`
+  - `imageStyle` is deprecated and replaced by `styles.image`.
+
+- `FloatButton`
+  - `description` is deprecated and replaced by `content`.
+
+- `Image`
+  - `wrapperStyle` is deprecated and replaced by `styles.root`.
+  - `visible` is deprecated and replaced by `open`.
+  - `onVisibleChange` is deprecated and replaced by `onOpenChange`.
+  - `maskClassName` is deprecated and replaced by `classNames.cover`.
+  - `rootClassName` is deprecated and replaced by `classNames.root`.
+  - `toolbarRender` is deprecated and replaced by `actionsRender`.
+
+- `Input.Group`
+  - `Input.Group` is deprecated and replaced by `Space.Compact`.
+
+- `InputNumber`
+  - `bordered` is deprecated and replaced by `variant`.
+  - `addonAfter` is deprecated and replaced by `Space.Compact`.
+  - `addonBefore` is deprecated and replaced by `Space.Compact`.
+
+- `Mentions`
+  - `Mentions.Option` is deprecated and replaced by `options`.
+
+- `Menu`
+  - `children` is deprecated and replaced by `items`.
+
+- `Modal`
+  - `bodyStyle` is deprecated and replaced by `styles.body`.
+  - `maskStyle` is deprecated and replaced by `styles.mask`.
+  - `destroyOnClose` is deprecated and replaced by `destroyOnHidden`.
+
+- `Notification`
+  - `btn` is deprecated and replaced by `actions`.
+  - `message` is deprecated and replaced by `title`.
+
+- `Progress`
+  - `strokeWidth` is deprecated and replaced by `size`.
+  - `width` is deprecated and replaced by `size`.
+  - `trailColor` is deprecated and replaced by `railColor`.
+  - `gapPosition` is deprecated and replaced by `gapPlacement`.
+
+- `Select`
+  - `dropdownMatchSelectWidth` is deprecated and replaced by `popupMatchSelectWidth`.
+  - `dropdownStyle` is deprecated and replaced by `styles.popup.root`.
+  - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `dropdownRender` is deprecated and replaced by `popupRender`.
+  - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
+  - `bordered` is deprecated and replaced by `variant`.
+
+- `Slider`
+  - `tooltipPrefixCls` is deprecated and replaced by `tooltip.prefixCls`.
+  - `getTooltipPopupContainer` is deprecated and replaced by `tooltip.getPopupContainer`.
+  - `tipFormatter` is deprecated and replaced by `tooltip.formatter`.
+  - `tooltipPlacement` is deprecated and replaced by `tooltip.placement`.
+  - `tooltipVisible` is deprecated and replaced by `tooltip.open`.
+
+- `Space.Compact`
+  - `direction` is deprecated and replaced by `orientation`.
+
+- `Space`
+  - `direction` is deprecated and replaced by `orientation`.
+  - `split` is deprecated and replaced by `separator`.
+
+- `Splitter`
+  - `layout` is deprecated and replaced by `orientation`.
+
+- `Countdown`
+  - `<Statistic.Countdown />` is deprecated and replaced by `<Statistic.Timer type="countdown" />`.
+
+- `Statistic`
+  - `valueStyle` is deprecated and replaced by `styles.content`.
+
+- `Steps`
+  - `labelPlacement` is deprecated and replaced by `titlePlacement`.
+  - `progressDot` is deprecated and replaced by `type="dot"`.
+  - `direction` is deprecated and replaced by `orientation`.
+  - `items.description` is deprecated and replaced by `items.content`.
+
+- `Table`
+  - `pagination.position` is deprecated and replaced by `pagination.placement`.
+  - `onSelectInvert` is deprecated and replaced by `onChange`.
+  - `filterDropdownOpen` is deprecated and replaced by `filterDropdownProps.open`.
+  - `onFilterDropdownOpenChange` is deprecated and replaced by `filterDropdownProps.onOpenChange`.
+  - `filterCheckall` is deprecated and replaced by `locale.filterCheckAll`.
+
+- `Tabs`
+  - `popupClassName` is deprecated and replaced by `classNames.popup`.
+  - `tabPosition` is deprecated and replaced by `tabPlacement`.
+  - `destroyInactiveTabPane` is deprecated and replaced by `destroyOnHidden`.
+  - `Tabs.TabPane` is deprecated and replaced by `items`.
+
+- `Tag`
+  - `bordered={false}` is deprecated and replaced by `variant="filled"`.
+  - `color="xxx-inverse"` is deprecated and replaced by `variant="solid"`.
+
+- `TimePicker`
+  - `addon` is deprecated and replaced by `renderExtraFooter`.
+
+- `Timeline`
+  - `Timeline.Item` is deprecated and replaced by `items`.
+  - `pending` is deprecated and replaced by `items`.
+  - `pendingDot` is deprecated and replaced by `items`.
+  - `mode=left|right` is deprecated and replaced by `mode=start|end`.
+
+- `Tooltip`
+  - `overlayStyle` is deprecated and replaced by `styles.root`.
+  - `overlayInnerStyle` is deprecated and replaced by `styles.container`.
+  - `overlayClassName` is deprecated and replaced by `classNames.root`.
+  - `destroyTooltipOnHide` is deprecated and replaced by `destroyOnHidden`.
+
+- `Transfer`
+  - `listStyle` is deprecated and replaced by `styles.section`.
+  - `operationStyle` is deprecated and replaced by `styles.actions`.
+  - `operations` is deprecated and replaced by `actions`.
+
+- `TreeSelect`
+  - `dropdownMatchSelectWidth` is deprecated and replaced by `popupMatchSelectWidth`.
+  - `dropdownStyle` is deprecated and replaced by `styles.popup.root`.
+  - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `popupClassName` is deprecated and replaced by `classNames.popup.root`.
+  - `dropdownRender` is deprecated and replaced by `popupRender`.
+  - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
+  - `bordered` is deprecated and replaced by `variant`.
+
 ### Overlay components (Modal, Drawer, etc.)
 
 - v6 introduces the `mask` overlay option and supports a blur effect.
@@ -129,6 +371,10 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 
 - CSS variables are enabled by default and only modern browsers are supported.
 - IE is no longer supported. Some older domestic browsers may have compatibility issues — please verify target browsers before shipping your app.
+
+### Atomic Migration: Install v6 via Package Alias
+
+- If you need to limit the migration's impact, you can try an [atomic migration](https://github.com/ant-design/ant-design/discussions/55957). Please note that this is not the recommended upgrade path.
 
 ## Upgrade checklist
 
