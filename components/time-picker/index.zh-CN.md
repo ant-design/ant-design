@@ -52,7 +52,6 @@ dayjs.extend(customParseFormat)
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 |
 | className | 选择器类名 | string | - |  |

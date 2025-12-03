@@ -15,35 +15,6 @@ demo:
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 - You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
 
-### Usage upgrade <Badge>5.11.0+</Badge>
-
-<!-- prettier-ignore -->
-:::warning{title="Upgrade Tip"}
-After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` with better performance and potential of writing simpler code style in your applications.
-Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
-:::
-
-```tsx
-// works when >=5.11.0, recommended ✅
-return (
-  <Select
-    onChange={onChange}
-    options={[
-      { value: '1', label: <span>Option 1</span> },
-      { value: '2', label: <span>Option 2</span> },
-    ]}
-  />
-);
-
-// works when <5.11.0, deprecated when >=5.11.0 🙅🏻‍♀️
-return (
-  <Select onChange={onChange}>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-  </Select>
-);
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
@@ -91,7 +62,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | ~autoClearSearchValue~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
-| autoFocus | Get focus by default | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |

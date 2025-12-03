@@ -39,7 +39,7 @@ export default App;
 
 ### 1. 创建一个 codesandbox
 
-访问 https://u.ant.design/codesandbox-repro 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
+访问 https://u.ant.design/reproduce 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
 
 ### 2. 使用组件
 
