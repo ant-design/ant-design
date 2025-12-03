@@ -9,7 +9,7 @@ import type { FilterState } from '.';
 import extendsObject from '../../../_util/extendsObject';
 import { useSyncState } from '../../../_util/hooks';
 import { devUseWarning } from '../../../_util/warning';
-import Button from '../../../button';
+import Button from '../../../button/Button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';

@@ -5,8 +5,8 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import isNonNullable from '../_util/isNonNullable';
-import type { ButtonProps } from '../button';
-import Button from '../button';
+import type { ButtonProps } from '../button/Button';
+import Button from '../button/Button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import type { TourProps, TourStepProps } from './interface';
