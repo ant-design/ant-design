@@ -65,7 +65,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoFocus | Whether get focus when component mounted | boolean | false |  |
 | checked | Specifies whether the radio is selected | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
 | defaultChecked | Specifies the initial state: whether or not the radio is selected | boolean | false |  |

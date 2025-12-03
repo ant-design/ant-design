@@ -74,4 +74,37 @@ describe('useSizes', () => {
     // In impossible case, should average fill (1000 / 3 = 333.33... for each)
     expect(postPxSizes).toEqual([1000 / 3, 1000 / 3, 1000 / 3]);
   });
+
+  it('should average if size total is not 100%', () => {
+    const items = [
+      {
+        size: '20%',
+      },
+      {
+        size: '30%',
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [sizes] = result.current;
+
+    // Check sizes
+    expect(sizes).toEqual([400, 600]);
+  });
+
+  it('should correct when all size is 0', () => {
+    const items = [
+      {
+        size: 0,
+      },
+      {
+        size: 0,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([500, 500]);
+  });
 });

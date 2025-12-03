@@ -47,7 +47,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | arrow | Whether the dropdown arrow should be visible | boolean \| { pointAtCenter: boolean } | false |  |
 | autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean | true | 5.2.0 |
-| autoFocus | Focus element in `overlay` when opened | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the Dropdown component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | ~~destroyPopupOnHide~~ | Whether destroy dropdown when hidden, use `destroyOnHidden` instead | boolean | false |  |
