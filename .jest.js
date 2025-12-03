@@ -9,14 +9,11 @@ const compileModules = [
   '@rc-component',
 ];
 
-const ignoreList = [];
-
 // cnpm use `_` as prefix
-['', '_'].forEach((prefix) => {
-  compileModules.forEach((module) => {
-    ignoreList.push(`${prefix}${module}`);
-  });
-});
+const ignoreList = ['', '_'].reduce(
+  (acc, prefix) => [...acc, ...compileModules.map((module) => `${prefix}${module}`)],
+  [],
+);
 
 const transformIgnorePatterns = [
   // Ignore modules without es dir.

@@ -437,7 +437,6 @@ Array [
           </span>
         </span>
         <span
-          aria-describedby="test-id"
           class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
           style="color:#f56a00;background-color:#fde3cf"
         >
@@ -633,7 +632,6 @@ Array [
       </span>
     </a>
     <span
-      aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
       style="background-color:#87d068"
     >
@@ -708,7 +706,6 @@ Array [
       </span>
     </span>
     <span
-      aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color:#f56a00;background-color:#fde3cf"
     >
@@ -746,7 +743,6 @@ Array [
       </span>
     </span>
     <span
-      aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color:#f56a00;background-color:#fde3cf"
     >
@@ -784,7 +780,6 @@ Array [
       </span>
     </span>
     <span
-      aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
     >
