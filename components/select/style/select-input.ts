@@ -183,6 +183,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           // input element with readOnly use cursor pointer
           'input[readonly]': {
             cursor: 'inherit',
+            caretColor: 'transparent',
           },
         },
 
