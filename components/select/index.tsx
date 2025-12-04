@@ -245,14 +245,28 @@ const InternalSelect = <
 
   // ===================== Empty =====================
   const mergedNotFound = useMemo(() => {
-    if (notFoundContent) {
-      return notFoundContent;
+    if (props.showSearch && !notFoundContent && (!mode || isMultiple)) {
+      return (
+        renderEmpty?.('Select') ||
+        React.createElement(DefaultRenderEmpty, {
+          componentName: 'Select',
+        })
+      );
     }
-    if (mode === 'combobox') {
-      return null;
+    let defaultContent = null;
+    if (notFoundContent !== undefined) {
+      defaultContent = notFoundContent;
+    } else if (mode === 'combobox') {
+      defaultContent = null;
+    } else {
+      defaultContent =
+        renderEmpty?.('Select') ||
+        React.createElement(DefaultRenderEmpty, {
+          componentName: 'Select',
+        });
     }
-    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
-  }, [notFoundContent, mode]);
+    return defaultContent;
+  }, [notFoundContent, mode, props.showSearch, isMultiple]);
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
