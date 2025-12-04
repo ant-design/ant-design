@@ -25,9 +25,9 @@ jobs:
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
-          branch: 'master, 4.x-stable'
-          tag: '5*, 4*'
-          latest: '5*'
+          branch: 'master, 5.x-stable, 4.x-stable'
+          tag: '6*, 5*, 4*'
+          latest: '6*'
           dingding-token: ${{ secrets.DINGDING_BOT_TOKEN }} ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }} ${{ secrets.DINGDING_BOT_MAINTAINER_TOKEN }}
           dingding-msg: CHANGELOG.zh-CN.md
           msg-title: '# Ant Design {{v}} 发布日志'
@@ -41,9 +41,9 @@ jobs:
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
-          branch: 'master, 4.x-stable'
-          tag: '5*, 4*'
-          latest: '5*'
+          branch: 'master, 5.x-stable, 4.x-stable'
+          tag: '6*, 5*, 4*'
+          latest: '6*'
           dingding-token: ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }} ${{ secrets.DINGDING_BOT_BIGFISH_2_TOKEN }} ${{ secrets.DINGDING_BOT_YUNFENGDIE_TOKEN }}
           dingding-msg: CHANGELOG.zh-CN.md
           dingding-delay-minute: 10

@@ -28,7 +28,7 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>
-<code src="./demo/dark.tsx" debug>Dark Bg</code>
+<code src="./demo/dark.tsx" debug>Demo for debugging</code>
 <code src="./demo/button-props.tsx">Customize footer buttons props</code>
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
