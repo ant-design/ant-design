@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { UpOutlined } from '@ant-design/icons';
+import { LinkOutlined, UpOutlined } from '@ant-design/icons';
+import type { SelectProps } from 'antd';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
-import { FormattedMessage, useLiveDemo } from 'dumi';
-
+import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
+import { major } from 'semver';
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -12,6 +13,8 @@ import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
+import DemoContext from '../../slots/DemoContext';
+import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
 
 const useStyle = createStyles(({ cssVar }) => {
@@ -61,6 +64,9 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
+  const { showDebug } = React.use(DemoContext);
+  const { pkg } = useSiteData();
+
   const location = useLocation();
   const { styles } = useStyle();
 
@@ -79,17 +85,15 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
   const { isDark } = React.use(SiteContext);
-
   const { hash, pathname, search } = location;
-  const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
 
-  const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
-
+  /**
+   * Record whether it is deployed on the official domain name.
+   * Note that window.location.hostname is not available on the server side due to hydration issues
+   */
+  const [deployedOnOfficialHost, setDeployedOnOfficialHost] = useState<boolean>(true);
   useEffect(() => {
-    const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
-    setShowOnlineUrl(
-      process.env.NODE_ENV === 'development' || regexp.test(window.location.hostname),
-    );
+    setDeployedOnOfficialHost(isOfficialHost(window.location.hostname));
   }, []);
 
   useEffect(() => {
@@ -101,6 +105,35 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   useEffect(() => {
     setCodeExpand(expand);
   }, [expand]);
+
+  // 部署在非官方域名时，才启用直达线上功能
+  const enableDocsOnlineUrl = process.env.NODE_ENV === 'development' || !deployedOnOfficialHost;
+  const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
+
+  //  上一个版本的 demo，仅维护周期限内有效
+  const [supportsPreviousVersionDemo, previousVersionPreviewUrl, previousVersion] =
+    (function determinePreviousVersionAvailability() {
+      const maintenanceDeadline = new Date('2026/12/31');
+
+      if (new Date() > maintenanceDeadline) {
+        return [false, '', -1];
+      }
+
+      const currentMajor = major(pkg.version);
+      const previousMajor = Math.min(currentMajor - 1, 5);
+
+      let _enabled = true;
+      // 如果 demo 被指定了版本号，可以再进一步判断，否则默认开启
+      if (version) {
+        _enabled = major(version) <= previousMajor;
+      }
+
+      return [
+        _enabled,
+        `https://${previousMajor}x.ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`,
+        previousMajor,
+      ];
+    })();
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
   const demoUrlWithTheme = useMemo(() => {
@@ -143,6 +176,25 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     backgroundColor: background === 'grey' ? backgroundGrey : undefined,
   };
 
+  const debugOptions: SelectProps['options'] = [
+    {
+      label: <FormattedMessage id="app.demo.online" />,
+      value: 'online',
+      icon: <LinkOutlined />,
+      url: docsOnlineUrl,
+      enabled: enableDocsOnlineUrl,
+    },
+    {
+      label: (
+        <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
+      ),
+      value: 'previousVersion',
+      icon: <LinkOutlined />,
+      url: previousVersionPreviewUrl,
+      enabled: supportsPreviousVersionDemo,
+    },
+  ].filter(({ enabled }) => showDebug && enabled);
+
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section
@@ -174,8 +226,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
             />
           )}
           <Actions
-            showOnlineUrl={showOnlineUrl}
-            docsOnlineUrl={docsOnlineUrl}
+            debugOptions={debugOptions}
             entryCode={entryCode}
             styleCode={style}
             pkgDependencyList={pkgDependencyList}
