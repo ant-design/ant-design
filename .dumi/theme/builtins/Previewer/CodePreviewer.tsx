@@ -5,7 +5,7 @@ import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
-import { major } from 'semver';
+import { major, minVersion } from 'semver';
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -125,7 +125,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       let _enabled = true;
       // 如果 demo 被指定了版本号，可以再进一步判断，否则默认开启
       if (version) {
-        _enabled = major(version) <= previousMajor;
+        const minVer = minVersion(version);
+        _enabled = minVer?.major ? minVer.major < currentMajor : true;
       }
 
       return [

@@ -209,11 +209,11 @@ export function matchDeprecated(v: string): MatchDeprecatedResult {
 /**
  * 判断一个 hostname 是否为官方域名
  * antd 会为每一个 PR 创建一个临时预览站点，方便预览和测试。
- * 通常在 surge.sh 或者 cloudflare-workers-and-pages 等平台上。
+ * 通常在 surge.sh 或者 Cloudflare Pages 等平台上。
  */
 export function isOfficialHost(hostname: string) {
   const officialHostnames = ['ant.design', 'antgroup.com'];
-  return officialHostnames.every((official) => !hostname.includes(official));
+  return officialHostnames.some((official) => !hostname.includes(official));
 }
 
 export const getThemeConfig = () => themeConfig;
