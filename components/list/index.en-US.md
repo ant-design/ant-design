@@ -108,8 +108,8 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 <ComponentTokenTable component="List"></ComponentTokenTable>
 
-## FAQ
-Is there a replacement for the deprecated List component?
+## FAQ {#faq}
+### Is there a replacement for the deprecated List component? {#faq-listy-replacement}
 In Ant Design v6, we will introduce a brand-new Listy component as the successor to List.
 
 Listy comes with built-in virtual scrolling and places greater emphasis on flexible layout control, empowering developers to build highly customizable lists tailored to various business scenarios.
@@ -120,6 +120,6 @@ Ant Design v6 will officially provide the Listy component based on rc-listy.
 
 Related links:
 
-Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
+- Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
 
-RFC Discussion: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)
+- RFC Discussion: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)
