@@ -213,7 +213,7 @@ export function matchDeprecated(v: string): MatchDeprecatedResult {
  */
 export function isOfficialHost(hostname: string) {
   const officialHostnames = ['ant.design', 'antgroup.com'];
-  return officialHostnames.some((official) => !hostname.includes(official));
+  return officialHostnames.some((official) => hostname.includes(official));
 }
 
 export const getThemeConfig = () => themeConfig;
