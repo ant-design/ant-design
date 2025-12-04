@@ -467,7 +467,7 @@ const theme = {
 | inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |  |
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |  |
-| cssVar | CSS 变量配置，参考[cssVar](#css-var) | `boolean \| { prefix?: string; key?: string }` | false |  |
+| cssVar | CSS 变量配置，参考[cssVar](#css-var) | `{ prefix?: string; key?: string }` | [cssVar](#css-var) |  |
 | hashed | 将样式添加至 hash className 上 | boolean | true |  |
 | zeroRuntime | 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件 | boolean | true | 6.0.0 |
 
