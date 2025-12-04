@@ -28,7 +28,7 @@ export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationS
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */
   message?: React.ReactNode;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   description?: React.ReactNode;
   /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;

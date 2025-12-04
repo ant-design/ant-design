@@ -100,7 +100,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (mergedClosableVal === false) {
       return undefined;
     }
-    if (typeof mergedClosableVal === 'object' && mergedClosableVal.placement === 'end') {
+    if (typeof mergedClosableVal === 'object' && mergedClosableVal && mergedClosableVal.placement === 'end') {
       return 'end';
     }
     return 'start';
