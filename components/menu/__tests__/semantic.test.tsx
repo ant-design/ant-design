@@ -133,4 +133,40 @@ describe('Menu.Semantic', () => {
       backgroundColor: 'rgb(255, 255, 255)',
     });
   });
+
+  // https://github.com/ant-design/ant-design/issues/56017
+  it('support MenuItem style', () => {
+    const items = [
+      { label: 'One', key: 'one', style: { color: 'red' } },
+      {
+        label: 'Two',
+        key: 'two',
+        children: [
+          { label: 'Two-One', key: 'two-one', style: { color: 'green' } },
+          { label: 'Two-Two', key: 'two-two', style: { color: 'blue' } },
+        ],
+      },
+    ];
+
+    const { getAllByRole } = render(<Menu mode="inline" items={items} openKeys={['two']} />);
+
+    const menuItems = getAllByRole('menuitem');
+    expect(menuItems).toBeTruthy();
+
+    // { [label: color] }
+    const expected: any = {
+      One: 'rgb(255, 0, 0)',
+      'Two-One': 'rgb(0, 128, 0)',
+      'Two-Two': 'rgb(0, 0, 255)',
+    };
+
+    menuItems.forEach((item) => {
+      const labelNode = item.querySelector('.ant-menu-title-content');
+      const label = labelNode?.textContent?.trim();
+
+      if (label && expected[label]) {
+        expect(item).toHaveStyle({ color: expected[label] });
+      }
+    });
+  });
 });
