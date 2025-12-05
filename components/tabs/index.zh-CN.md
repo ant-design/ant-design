@@ -89,9 +89,9 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | disabled | 禁用某一项 | boolean | false |  |
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
 | key | 对应 activeKey | string | - |  |
-| label | 选项卡头显示文字 | ReactNode | - |  |
-| icon | 选项卡头显示图标 | ReactNode | - | 5.12.0 |
-| children | 选项卡头显示内容 | ReactNode | - |  |
+| label | 选项卡头部文字元素 | ReactNode | - |  |
+| icon | 选项卡头部图标元素 | ReactNode | - | 5.12.0 |
+| children | 选项卡内容元素 | ReactNode | - |  |
 | closable | 是否显示选项卡的关闭按钮，在 `type="editable-card"` 时有效 | boolean | true |  |
 
 ### MoreProps
