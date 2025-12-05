@@ -24,6 +24,8 @@ import type { ColorFormatType, ColorPickerProps, ModeType, TriggerPlacement } fr
 import useStyle from './style';
 import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
+export type { ColorPickerProps };
+
 type CompoundedComponent = React.FC<ColorPickerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
