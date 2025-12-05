@@ -27,7 +27,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   const { componentCls } = token;
   const { border, borderHover, borderActive, borderOutline } = colors;
 
-  const baseBG = colors.background || token.colorBgContainer;
+  const baseBG = colors.background || token.selectorBg || token.colorBgContainer;
 
   return {
     '--select-border-color': border,
