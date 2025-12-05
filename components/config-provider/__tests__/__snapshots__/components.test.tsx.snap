@@ -10724,24 +10724,6 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -10850,24 +10832,6 @@ exports[`ConfigProvider components Carousel configProvider componentDisabled 1`]
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -10984,24 +10948,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize large 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11110,24 +11056,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize middle 
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -11244,24 +11172,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize small 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11374,24 +11284,6 @@ exports[`ConfigProvider components Carousel normal 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11500,24 +11392,6 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
