@@ -309,13 +309,13 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
     >
       <div
         class="slick-track"
-        style="width:900%;left:-100%"
+        style="width:600%;left:-100%"
       >
         <div
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -335,7 +335,7 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -355,7 +355,7 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -375,7 +375,7 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -395,7 +395,7 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -415,7 +415,7 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -427,66 +427,6 @@ exports[`renders components/carousel/demo/autoplay.tsx correctly 1`] = `
                 style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 1
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="5"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                2
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="6"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                3
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="7"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                4
               </h3>
             </div>
           </div>
@@ -543,13 +483,13 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
     >
       <div
         class="slick-track"
-        style="width:900%;left:-100%"
+        style="width:600%;left:-100%"
       >
         <div
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -569,7 +509,7 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -589,7 +529,7 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -609,7 +549,7 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -629,7 +569,7 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -649,7 +589,7 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -661,66 +601,6 @@ exports[`renders components/carousel/demo/basic.tsx correctly 1`] = `
                 style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 1
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="5"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                2
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="6"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                3
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="7"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                4
               </h3>
             </div>
           </div>
@@ -777,13 +657,13 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
     >
       <div
         class="slick-track"
-        style="width:900%;left:-100%"
+        style="width:600%;left:-100%"
       >
         <div
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -803,7 +683,7 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -823,7 +703,7 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -843,7 +723,7 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -863,7 +743,7 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -883,7 +763,7 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -895,66 +775,6 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
                 style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 1
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="5"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                2
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="6"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                3
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="7"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                4
               </h3>
             </div>
           </div>
@@ -1012,13 +832,13 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
     >
       <div
         class="slick-track"
-        style="width:900%;left:-100%"
+        style="width:600%;left:-100%"
       >
         <div
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -1038,7 +858,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -1058,7 +878,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -1078,7 +898,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -1098,7 +918,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%"
+          style="outline:none;width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -1118,7 +938,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
-          style="width:11.11111111111111%"
+          style="width:16.666666666666668%"
           tabindex="-1"
         >
           <div>
@@ -1130,66 +950,6 @@ exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
                 style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 1
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="5"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                2
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="6"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                3
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="7"
-          style="width:11.11111111111111%"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width:100%;display:inline-block"
-              tabindex="-1"
-            >
-              <h3
-                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-              >
-                4
               </h3>
             </div>
           </div>
@@ -1246,13 +1006,13 @@ exports[`renders components/carousel/demo/fade.tsx correctly 1`] = `
     >
       <div
         class="slick-track"
-        style="width:900%;left:-100%"
+        style="width:600%;left:-100%"
       >
         <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%;position:relative;left:0;opacity:1;z-index:999;transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:16.666666666666668%;position:relative;left:0;opacity:1;z-index:999;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -1272,7 +1032,7 @@ exports[`renders components/carousel/demo/fade.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-11px;opacity:0;z-index:998;transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:16.666666666666668%;position:relative;left:-16px;opacity:0;z-index:998;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -1292,7 +1052,7 @@ exports[`renders components/carousel/demo/fade.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-22px;opacity:0;z-index:998;transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:16.666666666666668%;position:relative;left:-32px;opacity:0;z-index:998;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -1312,7 +1072,7 @@ exports[`renders components/carousel/demo/fade.tsx correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-33px;opacity:0;z-index:998;transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:16.666666666666668%;position:relative;left:-48px;opacity:0;z-index:998;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -1475,13 +1235,13 @@ Array [
       >
         <div
           class="slick-track"
-          style="width:900%;left:-100%"
+          style="width:600%;left:-100%"
         >
           <div
             aria-hidden="true"
             class="slick-slide slick-cloned"
             data-index="-1"
-            style="width:11.11111111111111%"
+            style="width:16.666666666666668%"
             tabindex="-1"
           >
             <div>
@@ -1501,7 +1261,7 @@ Array [
             aria-hidden="false"
             class="slick-slide slick-active slick-current"
             data-index="0"
-            style="outline:none;width:11.11111111111111%"
+            style="outline:none;width:16.666666666666668%"
             tabindex="-1"
           >
             <div>
@@ -1521,7 +1281,7 @@ Array [
             aria-hidden="true"
             class="slick-slide"
             data-index="1"
-            style="outline:none;width:11.11111111111111%"
+            style="outline:none;width:16.666666666666668%"
             tabindex="-1"
           >
             <div>
@@ -1541,7 +1301,7 @@ Array [
             aria-hidden="true"
             class="slick-slide"
             data-index="2"
-            style="outline:none;width:11.11111111111111%"
+            style="outline:none;width:16.666666666666668%"
             tabindex="-1"
           >
             <div>
@@ -1561,7 +1321,7 @@ Array [
             aria-hidden="true"
             class="slick-slide"
             data-index="3"
-            style="outline:none;width:11.11111111111111%"
+            style="outline:none;width:16.666666666666668%"
             tabindex="-1"
           >
             <div>
@@ -1581,7 +1341,7 @@ Array [
             aria-hidden="true"
             class="slick-slide slick-cloned"
             data-index="4"
-            style="width:11.11111111111111%"
+            style="width:16.666666666666668%"
             tabindex="-1"
           >
             <div>
@@ -1593,66 +1353,6 @@ Array [
                   style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
                 >
                   1
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="5"
-            style="width:11.11111111111111%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3
-                  style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-                >
-                  2
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="6"
-            style="width:11.11111111111111%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3
-                  style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-                >
-                  3
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="7"
-            style="width:11.11111111111111%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3
-                  style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
-                >
-                  4
                 </h3>
               </div>
             </div>

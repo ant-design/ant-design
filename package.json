@@ -114,7 +114,7 @@
     "@ant-design/cssinjs-utils": "^2.0.2",
     "@ant-design/fast-color": "^3.0.0",
     "@ant-design/icons": "^6.1.0",
-    "@ant-design/react-slick": "~1.1.2",
+    "@ant-design/react-slick": "~2.0.0",
     "@babel/runtime": "^7.28.4",
     "@rc-component/cascader": "~1.9.0",
     "@rc-component/checkbox": "~1.0.1",
@@ -336,12 +336,12 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "525 KiB",
+      "limit": "523 KiB",
       "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "618 KiB",
+      "limit": "615 KiB",
       "gzip": true
     }
   ],
