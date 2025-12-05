@@ -127,7 +127,3 @@ Ant Design v6 将基于 rc-listy 正式提供 Listy 组件。
 
 - Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
 - RFC 讨论: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)
-
-<!-- 请确保在 FAQ 最后 -->
-
-<embed src="./shared/sharedFAQ.zh-CN.md"></embed>
