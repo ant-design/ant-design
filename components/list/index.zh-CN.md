@@ -114,6 +114,7 @@ List 组件已经进入废弃阶段，将于下个 major 版本移除。
 ## FAQ {#faq}
 
 ### List 组件废弃后，有替代方案吗？ {#faq-listy-replacement}
+
 在 Ant Design v6 中，我们将推出一个全新的 Listy 组件作为 List 的继任者。
 
 Listy 内置虚拟滚动能力，并更加强调灵活的布局控制，旨在帮助开发者根据不同业务场景更高效地实现自定义列表。
@@ -125,7 +126,6 @@ Ant Design v6 将基于 rc-listy 正式提供 Listy 组件。
 相关链接：
 
 - Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
-
 - RFC 讨论: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)
 
 <!-- 请确保在 FAQ 最后 -->
