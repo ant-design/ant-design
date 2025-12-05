@@ -24,6 +24,7 @@ demo:
 <code src="./demo/checkable.tsx">Checkable</code>
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/size.tsx" version="5.27.0">Size</code>
 <code src="./demo/status.tsx">Status Tag</code>
 <code src="./demo/customize.tsx" debug>Customize close</code>
 <code src="./demo/draggable.tsx">Draggable Tag</code>
@@ -45,6 +46,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Whether the tag is disabled | boolean | false | 6.0.0 |
 | href | The address to jump when clicking, when this property is specified, the `tag` component will be rendered as an `<a>` tag | string | - | 6.0.0 |
 | icon | Set the icon of tag | ReactNode | - |  |
+| size | Size of the tag | 'small' \| 'middle' \| 'large' | 'middle' | 5.29.0 |
+| bordered | Whether has border style | boolean | true | 5.4.0 |
+| onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | onClose | Callback executed when tag is closed (can be prevented by `e.preventDefault()`) | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | target | Same as target attribute of a, works when href is specified | string | - | 6.0.0 |
@@ -56,6 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | checked | Checked status of Tag | boolean | false |  |
 | icon | Set the icon of tag | ReactNode | - | 5.27.0 |
+| size | Size of the tag | 'small' \| 'middle' \| 'large' | 'middle' | 5.27.0 |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |  |
 
 ### Tag.CheckableTagGroup
