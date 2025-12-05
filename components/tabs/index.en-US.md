@@ -87,9 +87,9 @@ More option at [@rc-component/tabs](https://github.com/react-component/tabs#tabs
 | disabled | Set TabPane disabled | boolean | false |  |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |  |
 | key | TabPane's key | string | - |  |
-| label | TabPane's head display text | ReactNode | - |  |
-| icon | TabPane's head display icon | ReactNode | - | 5.12.0 |
-| children | TabPane's head display content | ReactNode | - |  |
+| label | Tab header text element | ReactNode | - |  |
+| icon | Tab header icon element | ReactNode | - | 5.12.0 |
+| children | Tab content element | ReactNode | - |  |
 | closable | Whether a close (x) button is visible, Only works while `type="editable-card"` | boolean | true |  |
 
 ### MoreProps

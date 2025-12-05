@@ -1,7 +1,7 @@
 ## zh-CN
 
-第一个对话框。
+调试使用。
 
 ## en-US
 
-Basic modal.
+Demo for debugging.

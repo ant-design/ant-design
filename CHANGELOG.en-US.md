@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 6.0.1
+
+`2025-12-02`
+
+- Flex
+  - 🐞 Fix Flex cannot pass `0` for `flex` property. [#55829](https://github.com/ant-design/ant-design/pull/55829) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 Fix Flex cannot pass `0` for `gap` property. [#55803](https://github.com/ant-design/ant-design/pull/55803) [@li-jia-nan](https://github.com/li-jia-nan)
+- Input
+  - 🐞 Fix Input `colorText` token does not work with `filled` variant without affix. [#56019](https://github.com/ant-design/ant-design/pull/56019) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 Fix Input.OTP empty slots can be skipped when typing. [#56001](https://github.com/ant-design/ant-design/pull/56001) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Anchor scroll problem when click same link rapidly. [#55814](https://github.com/ant-design/ant-design/pull/55814) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix Button hover text color in `solid` variant. [#55825](https://github.com/ant-design/ant-design/pull/55825) [@andriib-ship-it](https://github.com/andriib-ship-it)
+- 🐞 Fix Cascader page scroll to top on first open with defaultValue. [#55890](https://github.com/ant-design/ant-design/pull/55890) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix DatePicker `borderRadiusSM` and `borderRadiusLG` token not working bug. [#56018](https://github.com/ant-design/ant-design/pull/56018) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix InputNumber text clipping bug with ColorPicker. [#55966](https://github.com/ant-design/ant-design/pull/55966) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 Fix Select text color for search input in dark mode. [#55914](https://github.com/ant-design/ant-design/pull/55914) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🐞 Fix Splitter failing to fill its container when the sum of panel proportions is not 1. [#56025](https://github.com/ant-design/ant-design/pull/56025) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Wave memory leak risk since RAF not clean up. [#55962](https://github.com/ant-design/ant-design/pull/55962) [@Copilot](https://github.com/Copilot)
+- 🐞 Fix Modal/Image/Drawer that the `colorBgMask` token does not take effect. [#56031](https://github.com/ant-design/ant-design/pull/56031) [@ug-hero](https://github.com/ug-hero)
+- 💄 Fix ConfigProvider default not config `theme.hashed` is `true` which will cause style conflict with multiple versions. [#55880](https://github.com/ant-design/ant-design/pull/55880) [@zombieJ](https://github.com/zombieJ)
+- 💄 Fix Layout.Sider styles lost when zeroRuntime enabled. [#55864](https://github.com/ant-design/ant-design/pull/55864) [@wanpan11](https://github.com/wanpan11)
+- 🛠 MISC: Fix that could not build with pnpm `hoist: false`. [#55938](https://github.com/ant-design/ant-design/pull/55938) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Fix ConfigProvider type missing for Table `className` and `styles` config. [#55984](https://github.com/ant-design/ant-design/pull/55984) [@meet-student](https://github.com/meet-student)
+  - 🤖 Fix DatePicker props type definition. [#55826](https://github.com/ant-design/ant-design/pull/55826) [@divyeshagrawal](https://github.com/divyeshagrawal)
+
 ## 6.0.0
 
 `2025-11-22`
@@ -27,9 +53,125 @@ tag: vVERSION
 
 #### Major Changes
 
-- 🔥 Semantic structure. Thanks [@thinkasany](https://github.com/thinkasany) & [@meet-student](https://github.com/meet-student) for spearheading the semantic structure implementation.
-  - 🔥 Antd components support semantic structure and ConfigProvider config. [#53659](https://github.com/ant-design/ant-design/pull/53659) [#53535](https://github.com/ant-design/ant-design/pull/53535) [#52759](https://github.com/ant-design/ant-design/pull/52759) [#53028](https://github.com/ant-design/ant-design/pull/53028) [#52340](https://github.com/ant-design/ant-design/pull/52340) [#52895](https://github.com/ant-design/ant-design/pull/52895) [#52258](https://github.com/ant-design/ant-design/pull/52258) [#52376](https://github.com/ant-design/ant-design/pull/52376) [#53055](https://github.com/ant-design/ant-design/pull/53055) [#53226](https://github.com/ant-design/ant-design/pull/53226) [#53150](https://github.com/ant-design/ant-design/pull/53150) [#53429](https://github.com/ant-design/ant-design/pull/53429) [#52976](https://github.com/ant-design/ant-design/pull/52976) [#52961](https://github.com/ant-design/ant-design/pull/52961) [#52948](https://github.com/ant-design/ant-design/pull/52948) [#53890](https://github.com/ant-design/ant-design/pull/53890) [#53694](https://github.com/ant-design/ant-design/pull/53694) [#53789](https://github.com/ant-design/ant-design/pull/53789) [#53225](https://github.com/ant-design/ant-design/pull/53225) [#53324](https://github.com/ant-design/ant-design/pull/53324) [#52793](https://github.com/ant-design/ant-design/pull/52793) [#53698](https://github.com/ant-design/ant-design/pull/53698) [#53272](https://github.com/ant-design/ant-design/pull/53272) [#53489](https://github.com/ant-design/ant-design/pull/53489) [#52172](https://github.com/ant-design/ant-design/pull/52172) [#52823](https://github.com/ant-design/ant-design/pull/52823) [#53303](https://github.com/ant-design/ant-design/pull/53303) [#52764](https://github.com/ant-design/ant-design/pull/52764) [#53229](https://github.com/ant-design/ant-design/pull/53229) [#53159](https://github.com/ant-design/ant-design/pull/53159) [#53174](https://github.com/ant-design/ant-design/pull/53174) [#52250](https://github.com/ant-design/ant-design/pull/52250) [#52972](https://github.com/ant-design/ant-design/pull/52972) [#52893](https://github.com/ant-design/ant-design/pull/52893) [#52866](https://github.com/ant-design/ant-design/pull/52866) [#52859](https://github.com/ant-design/ant-design/pull/52859) [#52849](https://github.com/ant-design/ant-design/pull/52849) [#52811](https://github.com/ant-design/ant-design/pull/52811) [#52780](https://github.com/ant-design/ant-design/pull/52780) [#52781](https://github.com/ant-design/ant-design/pull/52781) [#52745](https://github.com/ant-design/ant-design/pull/52745) [#52470](https://github.com/ant-design/ant-design/pull/52470) [#52669](https://github.com/ant-design/ant-design/pull/52669) [#52303](https://github.com/ant-design/ant-design/pull/52303) [#52141](https://github.com/ant-design/ant-design/pull/52141) [#52171](https://github.com/ant-design/ant-design/pull/52171) [#54145](https://github.com/ant-design/ant-design/pull/54145) [#53958](https://github.com/ant-design/ant-design/pull/53958) [#55430](https://github.com/ant-design/ant-design/pull/55430)
-  - 🔥 Antd components Dynamic generation via function based on props. [#54967](https://github.com/ant-design/ant-design/pull/54967) [#54977](https://github.com/ant-design/ant-design/pull/54977) [#54962](https://github.com/ant-design/ant-design/pull/54962) [#54960](https://github.com/ant-design/ant-design/pull/54960) [#55099](https://github.com/ant-design/ant-design/pull/55099) [#54986](https://github.com/ant-design/ant-design/pull/54986) [#54988](https://github.com/ant-design/ant-design/pull/54988) [#54987](https://github.com/ant-design/ant-design/pull/54987) [#55199](https://github.com/ant-design/ant-design/pull/55199) [#54985](https://github.com/ant-design/ant-design/pull/54985) [#55119](https://github.com/ant-design/ant-design/pull/55119) [#54980](https://github.com/ant-design/ant-design/pull/54980) [#55054](https://github.com/ant-design/ant-design/pull/55054) [#54979](https://github.com/ant-design/ant-design/pull/54979) [#55161](https://github.com/ant-design/ant-design/pull/55161) [#55157](https://github.com/ant-design/ant-design/pull/55157) [#55021](https://github.com/ant-design/ant-design/pull/55021) [#55081](https://github.com/ant-design/ant-design/pull/55081) [#55096](https://github.com/ant-design/ant-design/pull/55096) [#55044](https://github.com/ant-design/ant-design/pull/55044) [#55060](https://github.com/ant-design/ant-design/pull/55060) [#54984](https://github.com/ant-design/ant-design/pull/54984) [#54983](https://github.com/ant-design/ant-design/pull/54983) [#55117](https://github.com/ant-design/ant-design/pull/55117) [#54982](https://github.com/ant-design/ant-design/pull/54982) [#55190](https://github.com/ant-design/ant-design/pull/55190) [#55007](https://github.com/ant-design/ant-design/pull/55007) [#55118](https://github.com/ant-design/ant-design/pull/55118) [#54978](https://github.com/ant-design/ant-design/pull/54978) [#54968](https://github.com/ant-design/ant-design/pull/54968) [#54966](https://github.com/ant-design/ant-design/pull/54966) [#54994](https://github.com/ant-design/ant-design/pull/54994) [#54965](https://github.com/ant-design/ant-design/pull/54965) [#55101](https://github.com/ant-design/ant-design/pull/55101) [#54963](https://github.com/ant-design/ant-design/pull/54963) [#55109](https://github.com/ant-design/ant-design/pull/55109) [#54996](https://github.com/ant-design/ant-design/pull/54996) [#54969](https://github.com/ant-design/ant-design/pull/54969) [#55126](https://github.com/ant-design/ant-design/pull/55126) [#54959](https://github.com/ant-design/ant-design/pull/54959) [#55056](https://github.com/ant-design/ant-design/pull/55056) [#55114](https://github.com/ant-design/ant-design/pull/55114) [#54956](https://github.com/ant-design/ant-design/pull/54956) [#54957](https://github.com/ant-design/ant-design/pull/54957) [#55013](https://github.com/ant-design/ant-design/pull/55013) [#54958](https://github.com/ant-design/ant-design/pull/54958) [#55031](https://github.com/ant-design/ant-design/pull/55031) [#54955](https://github.com/ant-design/ant-design/pull/54955) [#55058](https://github.com/ant-design/ant-design/pull/55058) [#55032](https://github.com/ant-design/ant-design/pull/55032) [#54948](https://github.com/ant-design/ant-design/pull/54948) [#54950](https://github.com/ant-design/ant-design/pull/54950) [#54949](https://github.com/ant-design/ant-design/pull/54949) [#54917](https://github.com/ant-design/ant-design/pull/54917) [#54919](https://github.com/ant-design/ant-design/pull/54919) [#54813](https://github.com/ant-design/ant-design/pull/54813) [#55796](https://github.com/ant-design/ant-design/pull/55796) [@meet-student](https://github.com/meet-student) [@hcjlxl](https://github.com/hcjlxl) [@Arktomson](https://github.com/Arktomson) [@zjr222](https://github.com/zjr222) [@Linkodt](https://github.com/Linkodt) [@xkhanhan](https://github.com/xkhanhan) [@lovelts](https://github.com/lovelts) [@tanjiahao24](https://github.com/tanjiahao24) [@li-jia-nan](https://github.com/li-jia-nan) [@Susuperli](https://github.com/Susuperli) [@ccc1018](https://github.com/ccc1018) [@nmsn](https://github.com/nmsn) [@GinWU05](https://github.com/GinWU05)
+- 🔥 Semantic structure, Refer to [Discover the Delicate Beauty of Components with Semantic Design](/docs/blog/semantic-beauty) for details.
+    <details>
+    <summary>🔥 antd components support semantic structure and ConfigProvider config, spearheaded by <a href="https://github.com/thinkasany" target="_blank">@thinkasany</a>.</summary>
+
+    - feat(Result): support `classNames` and `styles` for component and ConfigProvider [#52171](https://github.com/ant-design/ant-design/pull/52171)
+    - feat(Statistic): support `classNames` and `styles` for component and ConfigProvider [#52141](https://github.com/ant-design/ant-design/pull/52141)
+    - feat(Collapse): support `classNames` and `styles` for component and ConfigProvider [#52258](https://github.com/ant-design/ant-design/pull/52258)
+    - feat(Badge.Ribbon): support ConfigProvider [#52303](https://github.com/ant-design/ant-design/pull/52303)
+    - feat(Segmented): support `classNames` and `styles` for component and ConfigProvider [#52376](https://github.com/ant-design/ant-design/pull/52376)
+    - feat(Modal): support `classNames` and `styles` for component and ConfigProvider [#52340](https://github.com/ant-design/ant-design/pull/52340)
+    - feat(Alert): support `classNames` and `styles` for component and ConfigProvider [#52669](https://github.com/ant-design/ant-design/pull/52669)
+    - feat(Skeleton): support `classNames` and `styles` [#52470](https://github.com/ant-design/ant-design/pull/52470) [@coding-ice](https://github.com/coding-ice)
+    - feat(Notification): support `classNames` and `styles` for component and ConfigProvider [#52759](https://github.com/ant-design/ant-design/pull/52759)
+    - feat(Tag): support `classNames` and `styles` for component and ConfigProvider [#52764](https://github.com/ant-design/ant-design/pull/52764)
+    - feat(Affix): support `classNames` and `styles` for component and ConfigProvider [#52745](https://github.com/ant-design/ant-design/pull/52745)
+    - feat(Checkbox): support `classNames` and `styles` for component and ConfigProvider [#52781](https://github.com/ant-design/ant-design/pull/52781)
+    - feat(Radio): support `classNames` and `styles` for component and ConfigProvider [#52780](https://github.com/ant-design/ant-design/pull/52780)
+    - feat(Message): support `classNames` and `styles` for component and ConfigProvider [#52793](https://github.com/ant-design/ant-design/pull/52793)
+    - feat(Watermark): support `classNames` and `styles` for component and ConfigProvider [#52811](https://github.com/ant-design/ant-design/pull/52811)
+    - feat(Spin): support `classNames` and `styles` for component and ConfigProvider [#52823](https://github.com/ant-design/ant-design/pull/52823)
+    - feat(Switch): support `classNames` and `styles` for component and ConfigProvider [#52849](https://github.com/ant-design/ant-design/pull/52849)
+    - feat(Breadcrumb): support `classNames` and `styles` for component and ConfigProvider [#52859](https://github.com/ant-design/ant-design/pull/52859)
+    - feat(Anchor): support `classNames` and `styles` for component and ConfigProvider [#52866](https://github.com/ant-design/ant-design/pull/52866)
+    - feat(Pagination): support `classNames` and `styles` for component and ConfigProvider [#52893](https://github.com/ant-design/ant-design/pull/52893)
+    - feat(Tabs): support `classNames` and `styles` for component and ConfigProvider [#52895](https://github.com/ant-design/ant-design/pull/52895)
+    - feat(Timeline): support `classNames` and `styles` for component and ConfigProvider [#52976](https://github.com/ant-design/ant-design/pull/52976)
+    - feat(Mentions): support `classNames` and `styles` for component and ConfigProvider [#52961](https://github.com/ant-design/ant-design/pull/52961)
+    - feat(Upload): support `classNames` and `styles` for component and ConfigProvider [#52972](https://github.com/ant-design/ant-design/pull/52972)
+    - feat(Tour): support ConfigProvider [#52250](https://github.com/ant-design/ant-design/pull/52250)
+    - feat(Button): support `classNames` and `styles` for component and ConfigProvider [#53055](https://github.com/ant-design/ant-design/pull/53055)
+    - feat(Select): support `classNames` and `styles` for component and ConfigProvider [#52948](https://github.com/ant-design/ant-design/pull/52948)
+    - feat(Image): support `classNames` and `styles` for component and ConfigProvider [#53028](https://github.com/ant-design/ant-design/pull/53028)
+    - feat(Tree): support `classNames` and `styles` for component and ConfigProvider [#53174](https://github.com/ant-design/ant-design/pull/53174)
+    - feat(AutoComplete): support `classNames` and `styles` for component and ConfigProvider [#53150](https://github.com/ant-design/ant-design/pull/53150)
+    - feat(Splitter): support `classNames` and `styles` [#53225](https://github.com/ant-design/ant-design/pull/53225) [@wanpan11](https://github.com/wanpan11)
+    - feat(Form): support `classNames` and `styles` for component and ConfigProvider [#53226](https://github.com/ant-design/ant-design/pull/53226)
+    - feat(Calendar): support `classNames` and `styles` for component and ConfigProvider [#53159](https://github.com/ant-design/ant-design/pull/53159)
+    - feat(TreeSelect): support `classNames` and `styles` for component and ConfigProvider [#53229](https://github.com/ant-design/ant-design/pull/53229)
+    - feat(ColorPicker): support `classNames` and `styles` for component and ConfigProvider [#53303](https://github.com/ant-design/ant-design/pull/53303)
+    - feat(Transfer): support `classNames` and `styles` for component and ConfigProvider [#53429](https://github.com/ant-design/ant-design/pull/53429) [@zombieJ](https://github.com/zombieJ)
+    - feat(QRCode): support ConfigProvider [#52172](https://github.com/ant-design/ant-design/pull/52172)
+    - feat(Progress): support `classNames` and `styles` for component and ConfigProvider [#53535](https://github.com/ant-design/ant-design/pull/53535) [@zombieJ](https://github.com/zombieJ)
+    - feat(TimePicker, DatePicker): support `classNames` and `styles` for components and ConfigProvider [#53489](https://github.com/ant-design/ant-design/pull/53489)
+    - feat(Menu): support `classNames` and `styles` for component and ConfigProvider [#53324](https://github.com/ant-design/ant-design/pull/53324)
+    - feat(Dropdown): support `classNames` and `styles` for component and ConfigProvider [#53272](https://github.com/ant-design/ant-design/pull/53272)
+    - feat(Cascader): support `classNames` and `styles` for component and ConfigProvider [#53694](https://github.com/ant-design/ant-design/pull/53694)
+    - feat(InputNumber): support `classNames` and `styles` for component and ConfigProvider [#53698](https://github.com/ant-design/ant-design/pull/53698)
+    - feat(Steps): support `classNames` and `styles` for component and ConfigProvider [#53789](https://github.com/ant-design/ant-design/pull/53789) [@zombieJ](https://github.com/zombieJ)
+    - feat(Table): support `classNames` and `styles` for component and ConfigProvider [#53659](https://github.com/ant-design/ant-design/pull/53659)
+    - feat(Divider): support `classNames` and `styles` for component and ConfigProvider [#53890](https://github.com/ant-design/ant-design/pull/53890)
+    - feat(Input): support semantic DOM [#53958](https://github.com/ant-design/ant-design/pull/53958) [@aojunhao123](https://github.com/aojunhao123)
+    - feat(FloatButton): support semantic structure and support ConfigProvider to pass related props [#54145](https://github.com/ant-design/ant-design/pull/54145) [@zombieJ](https://github.com/zombieJ)
+    - refactor(Select): support semantic structure [#55430](https://github.com/ant-design/ant-design/pull/55430) [@zombieJ](https://github.com/zombieJ)
+
+  </details>
+
+  <details>
+    <summary>🔥 antd components support dynamic semantic structure generation via function, spearheaded by <a href="https://github.com/meet-student" target="_blank">@meet-student</a>.</summary>
+
+    - feat(button): Support better customization with semantic classNames/styles as  function [#54813](https://github.com/ant-design/ant-design/pull/54813)
+    - feat(input): Support better customization with semantic classNames/styles as function [#54919](https://github.com/ant-design/ant-design/pull/54919)
+    - feat(float-button): Support better customization with semantic classNames/styles as  function [#54917](https://github.com/ant-design/ant-design/pull/54917)
+    - feat(divider): Support better customization with semantic classNames/styles as function [#54949](https://github.com/ant-design/ant-design/pull/54949)
+    - feat(breadcrumb): Support better customization with semantic classNames/styles as function [#54950](https://github.com/ant-design/ant-design/pull/54950)
+    - feat(anchor): Support better customization with semantic classNames/styles as function [#54948](https://github.com/ant-design/ant-design/pull/54948)
+    - feat(masonry): Support better customization with semantic classNames/styles as function [#55032](https://github.com/ant-design/ant-design/pull/55032)
+    - feat(Progress): Support better customization with semantic classNames & styles [#55058](https://github.com/ant-design/ant-design/pull/55058) [@li-jia-nan](https://github.com/li-jia-nan)
+    - feat(menu): Support better customization with semantic classNames/styles as function [#54955](https://github.com/ant-design/ant-design/pull/54955)
+    - feat(space): Support better customization with semantic classNames/styles as function [#55031](https://github.com/ant-design/ant-design/pull/55031) [@hcjlxl](https://github.com/hcjlxl)
+    - feat(tabs): Support better customization with semantic classNames/styles as function [#54958](https://github.com/ant-design/ant-design/pull/54958)
+    - feat(splitter): Support better customization with semantic classNames/styles as function [#55013](https://github.com/ant-design/ant-design/pull/55013) [@hcjlxl](https://github.com/hcjlxl)
+    - feat(pagination): Support better customization with semantic classNames/styles as function [#54957](https://github.com/ant-design/ant-design/pull/54957)
+    - feat(steps): Support better customization with semantic classNames/styles as function [#54956](https://github.com/ant-design/ant-design/pull/54956)
+    - feat(dropdown): Support better customization with semantic classNames/styles as function [#55114](https://github.com/ant-design/ant-design/pull/55114) [@Arktomson](https://github.com/Arktomson)
+    - feat(checkbox_radio): Support better customization with semantic classNames/styles as function [#55056](https://github.com/ant-design/ant-design/pull/55056)
+    - feat(auto-complete): Support better customization with semantic classNames/styles as function [#54959](https://github.com/ant-design/ant-design/pull/54959)
+    - feat(form): Support better customization with semantic classNames/styles as function [#55126](https://github.com/ant-design/ant-design/pull/55126)
+    - feat(date-picker_time-picker): Support better customization with semantic classNames/styles as function [#54969](https://github.com/ant-design/ant-design/pull/54969)
+    - feat(InputNumber): Support better customization with semantic classNames/styles as function [#54996](https://github.com/ant-design/ant-design/pull/54996) [@zjr222](https://github.com/zjr222)
+    - feat(input-otp_textarea_search): Support better customization with semantic classNames/styles as function [#55109](https://github.com/ant-design/ant-design/pull/55109) [@Arktomson](https://github.com/Arktomson)
+    - feat(mentions): Support better customization with semantic classNames/styles as function [#54963](https://github.com/ant-design/ant-design/pull/54963)
+    - feat(select): Support better customization with semantic classNames/styles as function [#55101](https://github.com/ant-design/ant-design/pull/55101) [@Linkodt](https://github.com/Linkodt)
+    - feat(slider): Support better customization with semantic classNames/styles as function [#54965](https://github.com/ant-design/ant-design/pull/54965)
+    - feat(switch): Support better customization with semantic classNames/styles as function [#54994](https://github.com/ant-design/ant-design/pull/54994) [@xkhanhan](https://github.com/xkhanhan)
+    - feat(transfer): Support better customization with semantic classNames/styles as function [#54966](https://github.com/ant-design/ant-design/pull/54966)
+    - feat(upload): Support better customization with semantic classNames/styles as function [#54968](https://github.com/ant-design/ant-design/pull/54968)
+    - feat(calendar): Support better customization with semantic classNames/styles as function [#54978](https://github.com/ant-design/ant-design/pull/54978)
+    - feat(descriptions): Support better customization with semantic classNames/styles [#55118](https://github.com/ant-design/ant-design/pull/55118) [@tanjiahao24](https://github.com/tanjiahao24)
+    - feat(empty): Support better customization with semantic classNames/styles as function [#55007](https://github.com/ant-design/ant-design/pull/55007) [@Susuperli](https://github.com/Susuperli)
+    - refactor: semantic of Descriptions [#55190](https://github.com/ant-design/ant-design/pull/55190)
+    - feat(qr-code): Support better customization with semantic classNames/styles as function [#54982](https://github.com/ant-design/ant-design/pull/54982)
+    - feat(statistic): Support better customization with semantic classNames/styles as function [#55117](https://github.com/ant-design/ant-design/pull/55117) [@Arktomson](https://github.com/Arktomson)
+    - feat(table): Support better customization with semantic classNames/styles as function [#54983](https://github.com/ant-design/ant-design/pull/54983)
+    - feat(tag): Support better customization with semantic classNames/styles as function [#54984](https://github.com/ant-design/ant-design/pull/54984)
+    - feat(alert): Support better customization with semantic classNames/styles [#55060](https://github.com/ant-design/ant-design/pull/55060) [@ccc1018](https://github.com/ccc1018)
+    - feat(result): Support better customization with semantic classNames/styles as function [#55044](https://github.com/ant-design/ant-design/pull/55044) [@ccc1018](https://github.com/ccc1018)
+    - feat(Drawer): Support better customization with semantic classNames & styles [#55096](https://github.com/ant-design/ant-design/pull/55096) [@li-jia-nan](https://github.com/li-jia-nan)
+    - feat(Modal): Support better customization with semantic classNames & styles [#55081](https://github.com/ant-design/ant-design/pull/55081) [@li-jia-nan](https://github.com/li-jia-nan)
+    - feat(notification): Support better customization with semantic classNames/styles as function [#55021](https://github.com/ant-design/ant-design/pull/55021) [@GinWU05](https://github.com/GinWU05)
+    - feat(spin): Support better customization with semantic classNames/styles as function [#55157](https://github.com/ant-design/ant-design/pull/55157) [@Susuperli](https://github.com/Susuperli)
+    - feat(card): Support better customization with semantic classNames/styles as function [#55161](https://github.com/ant-design/ant-design/pull/55161) [@lovelts](https://github.com/lovelts)
+    - feat(collapse): Support better customization with semantic classNames/styles as function [#54979](https://github.com/ant-design/ant-design/pull/54979)
+    - feat(message): support better customization with semantic classNames/styles [#55054](https://github.com/ant-design/ant-design/pull/55054) [@nmsn](https://github.com/nmsn)
+    - feat(image): Support better customization with semantic classNames/styles as function [#54980](https://github.com/ant-design/ant-design/pull/54980)
+    - feat(segmented): Support better customization with semantic classNames/styles as function [#55119](https://github.com/ant-design/ant-design/pull/55119) [@Arktomson](https://github.com/Arktomson)
+    - feat(timeline): Support better customization with semantic classNames/styles as function [#54985](https://github.com/ant-design/ant-design/pull/54985)
+    - refactor: semantic of message and notification [#55199](https://github.com/ant-design/ant-design/pull/55199)
+    - feat(tour): Support better customization with semantic classNames/styles as function [#54987](https://github.com/ant-design/ant-design/pull/54987)
+    - feat(tree): Support better customization with semantic classNames/styles as function [#54988](https://github.com/ant-design/ant-design/pull/54988)
+    - feat(Popover/Tooltip/Popconfirm): Support better customization with semantic classNames/styles as function [#54986](https://github.com/ant-design/ant-design/pull/54986)
+    - feat(Skeleton): Support better customization with semantic classNames & styles [#55099](https://github.com/ant-design/ant-design/pull/55099) [@li-jia-nan](https://github.com/li-jia-nan)
+    - feat(cascader): Support better customization with semantic classNames/styles as function [#54960](https://github.com/ant-design/ant-design/pull/54960)
+    - feat(color-picker): Support better customization with semantic classNames/styles as function [#54962](https://github.com/ant-design/ant-design/pull/54962)
+    - feat(badge): Support better customization with semantic classNames/styles as function [#54977](https://github.com/ant-design/ant-design/pull/54977)
+    - feat(tree-select): Support better customization with semantic classNames/styles as function [#54967](https://github.com/ant-design/ant-design/pull/54967)
+    - feat(CheckableTagGroup): Support better customization with semantic classNames/styles as function [#55796](https://github.com/ant-design/ant-design/pull/55796)
+
+  </details>
+
 - 🔥 New Masonry component. [#52162](https://github.com/ant-design/ant-design/pull/52162) [@OysterD3](https://github.com/OysterD3)
 - ConfigProvider
   - 🆕 ConfigProvider support Table `rowKey` global config. [#52751](https://github.com/ant-design/ant-design/pull/52751) [@guoyunhe](https://github.com/guoyunhe)
@@ -91,6 +233,7 @@ tag: vVERSION
 - Notification
   - 🛠 Notification support `closable` to take `onClose` & `closeIcon` into it. [#54645](https://github.com/ant-design/ant-design/pull/54645) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 Notification support custom progress bar color. [#52964](https://github.com/ant-design/ant-design/pull/52964) [@yellowryan](https://github.com/yellowryan)
+  - 🆕 Notification adds new `title` property to replace the `message` property, and deprecates `message`. [#52759](https://github.com/ant-design/ant-design/pull/52759) [@thinkasany](https://github.com/thinkasany)
 - Image
   - 🆕 Image `cover` support placement. [#54492](https://github.com/ant-design/ant-design/pull/54492) [@kiner-tang](https://github.com/kiner-tang)
   - 🛠 Image remove default cover icon & text (Still can use `cover` to config). [#54379](https://github.com/ant-design/ant-design/pull/54379) [@765477020](https://github.com/765477020)
