@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
@@ -90,6 +91,10 @@ type CompoundedComponent = React.FC<DropdownProps> & {
 };
 
 const Dropdown: CompoundedComponent = (props) => {
+  const [maxHeight, setMaxHeight] = useState<string | undefined>(undefined);
+
+  const triggerRef = React.useRef<React.ReactNode>(null);
+
   const {
     menu,
     arrow,
@@ -215,6 +220,7 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled: child.props.disabled ?? disabled,
+    ref: triggerRef,
   });
   const triggerActions = disabled ? [] : trigger;
   const alignPoint = !!triggerActions?.includes('contextMenu');
@@ -226,6 +232,28 @@ const Dropdown: CompoundedComponent = (props) => {
     onOpenChange?.(nextOpen, { source: 'trigger' });
     setOpen(nextOpen);
   });
+
+  useEffect(() => {
+    if (!mergedOpen) return;
+
+    const triggerElement = triggerRef.current;
+    if (!(triggerElement instanceof HTMLElement)) return;
+
+    const rect = triggerElement.getBoundingClientRect();
+    const spaceAboveDropdown = rect.top;
+    const spaceBelowDropdown = window.innerHeight - rect.bottom;
+
+    const gutter = 16;
+    const minBottomSpace = window.innerHeight * 0.25;
+
+    if (!autoAdjustOverflow || spaceBelowDropdown >= spaceAboveDropdown) {
+      if (spaceBelowDropdown > minBottomSpace) {
+        setMaxHeight(`${spaceBelowDropdown - gutter}px`);
+      }
+      return;
+    }
+    setMaxHeight(`${Math.max(spaceAboveDropdown - gutter, 0)}px`);
+  }, [mergedOpen, autoAdjustOverflow]);
 
   // =========================== Overlay ============================
   const overlayClassNameCustomized = clsx(
@@ -264,6 +292,7 @@ const Dropdown: CompoundedComponent = (props) => {
     if (menu?.items) {
       overlayNode = (
         <Menu
+          style={{ ...menu?.style, maxHeight }}
           {...menu}
           classNames={{
             ...menuClassNames,

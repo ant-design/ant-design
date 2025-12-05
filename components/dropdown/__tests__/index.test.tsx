@@ -7,7 +7,7 @@ import Dropdown from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 let triggerProps: TriggerProps;
@@ -180,6 +180,7 @@ describe('Dropdown', () => {
 
     // Open
     fireEvent.click(container.querySelector('a')!);
+
     act(() => {
       jest.runAllTimers();
     });
@@ -551,5 +552,119 @@ describe('Dropdown', () => {
     expect(itemIcon).toHaveStyle(objectStyles.itemIcon);
     expect(itemContent).toHaveStyle(objectStyles.itemContent);
     expect(itemTitle).toHaveStyle(objectStyles.itemTitle);
+  });
+
+  it('should dynamically set maxHeight - dropdown menu renders on top', () => {
+    const rectSpy = jest
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue({ top: 900, bottom: 922 } as DOMRect);
+
+    Object.defineProperty(window, 'innerHeight', { value: 1000, writable: true });
+    const { container } = render(
+      <Dropdown open menu={{ items: [{ key: '1', label: 'Test item' }] }}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const dropdown = container.querySelector('.ant-dropdown-menu') as HTMLElement;
+    expect(dropdown).not.toBeNull();
+
+    //because the dropdown menu will render above (if overflowing), calculate (totalViewportHeight - top - 16)
+    expect(dropdown).toHaveStyle({ maxHeight: '884px' });
+
+    rectSpy.mockRestore();
+  });
+
+  it('should dynamically set maxHeight - dropdown menu renders on bottom', () => {
+    const rectSpy = jest
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue({ top: 100, bottom: 122 } as DOMRect);
+
+    Object.defineProperty(window, 'innerHeight', { value: 1000, writable: true });
+    const { container } = render(
+      <Dropdown open menu={{ items: [{ key: '1', label: 'Test item' }] }}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const dropdown = container.querySelector('.ant-dropdown-menu') as HTMLElement;
+    expect(dropdown).not.toBeNull();
+
+    //because the dropdown menu will render below, calculate (window.innerHeight - rect.bottom - 16)
+    expect(dropdown).toHaveStyle({ maxHeight: '862px' });
+
+    rectSpy.mockRestore();
+  });
+
+  it('should dynamically set maxHeight - dropdown on bottom of viewport with autoAdjustOverflow={false}', () => {
+    const rectSpy = jest
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue({ top: 950, bottom: 972 } as DOMRect);
+
+    Object.defineProperty(window, 'innerHeight', { value: 1000, writable: true });
+    const { container } = render(
+      <Dropdown
+        open
+        menu={{ items: [{ key: '1', label: 'Test item' }] }}
+        autoAdjustOverflow={false}
+      >
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const dropdown = container.querySelector('.ant-dropdown-menu') as HTMLElement;
+    expect(dropdown).not.toBeNull();
+
+    //The dropdown menu will render on bottom because autoAdjustOverflow={false}, but there is not enough space, so default 35vh should be set
+    expect(dropdown).toHaveStyle({ maxHeight: '35vh' });
+
+    rectSpy.mockRestore();
+  });
+
+  it('should successfully set maxHeight on submenu', async () => {
+    const rectSpy = jest
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue({ top: 400, bottom: 422 } as DOMRect);
+
+    Object.defineProperty(window, 'innerHeight', { value: 1000, writable: true });
+    render(
+      <Dropdown
+        forceRender
+        open
+        menu={{
+          triggerSubMenuAction: 'click',
+          forceSubMenuRender: true,
+
+          items: [
+            {
+              key: '1',
+              label: 'Test item',
+              children: [
+                {
+                  key: '1-1',
+                  label: '1st menu item',
+                },
+                {
+                  key: '1-2',
+                  label: '2nd menu item',
+                },
+              ],
+            },
+          ],
+          openKeys: ['1'],
+        }}
+        autoAdjustOverflow={false}
+      >
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const submenu = await waitFor(
+      () => document.querySelector('ul.ant-dropdown-menu-sub') as HTMLElement,
+    );
+
+    expect(submenu).toHaveStyle({ maxHeight: '35vh' });
+
+    rectSpy.mockRestore();
   });
 });
