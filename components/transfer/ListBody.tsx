@@ -137,7 +137,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
             onClick={onInternalClick}
             onRemove={onRemove}
             checked={selectedKeys.includes(item.key)}
-            disabled={globalDisabled || item.disabled}
+            disabled={globalDisabled ?? item.disabled}
           />
         ))}
       </ul>

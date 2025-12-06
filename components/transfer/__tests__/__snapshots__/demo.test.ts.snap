@@ -1919,14 +1919,13 @@ Array [
             title="content1"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -2020,14 +2019,13 @@ Array [
             title="content5"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -2121,14 +2119,13 @@ Array [
             title="content9"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -2347,14 +2344,13 @@ Array [
             title="content13"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -2448,14 +2444,13 @@ Array [
             title="content17"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5612,14 +5607,13 @@ Array [
             title="content1"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5663,14 +5657,13 @@ Array [
             title="content4"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5714,14 +5707,13 @@ Array [
             title="content7"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5765,14 +5757,13 @@ Array [
             title="content10"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5816,14 +5807,13 @@ Array [
             title="content13"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5867,14 +5857,13 @@ Array [
             title="content16"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span
@@ -5918,14 +5907,13 @@ Array [
             title="content19"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
-                  disabled=""
                   type="checkbox"
                 />
                 <span

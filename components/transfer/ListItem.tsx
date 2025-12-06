@@ -90,7 +90,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
         className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
         style={styles.itemIcon}
         checked={checked}
-        disabled={disabled || item.disabled}
+        disabled={disabled ?? item.disabled}
       />
       {labelNode}
     </li>
