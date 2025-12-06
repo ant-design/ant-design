@@ -605,6 +605,7 @@ export default genStyleHooks(
   },
   prepareComponentToken,
   {
+    resetFont: false,
     unitless: {
       expandIconScale: true,
     },
