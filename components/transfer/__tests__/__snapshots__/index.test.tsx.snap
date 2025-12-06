@@ -373,13 +373,14 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target"
+              class="ant-checkbox ant-wave-target ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
