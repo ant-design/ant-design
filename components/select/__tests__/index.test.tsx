@@ -83,6 +83,42 @@ describe('Select', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
+  it('should close dropdown after selecting option in Form', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Form>
+        <Form.Item name="test">
+          <Select
+            onChange={onChange}
+            options={[
+              { label: 'Option 1', value: '1' },
+              { label: 'Option 2', value: '2' },
+            ]}
+          />
+        </Form.Item>
+      </Form>,
+    );
+
+    // Open dropdown
+    toggleOpen(container);
+    expect(container.querySelector('.ant-select-dropdown')).toBeTruthy();
+
+    // Click on first option
+    const option = container.querySelector('.ant-select-item-option');
+    fireEvent.click(option!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Verify onChange was called
+    expect(onChange).toHaveBeenCalledWith('1', expect.anything());
+
+    // Verify dropdown has leave animation class (closing)
+    expect(
+      container.querySelector('.ant-select-dropdown.ant-slide-up-leave'),
+    ).toBeTruthy();
+  });
+
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
