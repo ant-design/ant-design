@@ -25,7 +25,31 @@ const locales = {
 
 const Block: React.FC<MentionProps> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
+  const [value, setValue] = React.useState<string>('');
   const memoizedValue = React.useMemo<UnstableContextProps>(() => ({ open: true }), []);
+
+  React.useEffect(() => {
+    if (!IntersectionObserver) return;
+    const target = divRef.current;
+    if (!target) return;
+
+    // eslint-disable-next-line compat/compat
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setValue('Hi, @');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div ref={divRef} style={{ position: 'absolute', height: 200, overflow: 'hidden' }}>
       <UnstableContext.Provider value={memoizedValue}>
@@ -33,7 +57,8 @@ const Block: React.FC<MentionProps> = (props) => {
           {...props}
           placement="bottom"
           style={{ width: '100%' }}
-          value="Hi, @"
+          value={value}
+          onChange={(newValue) => setValue(newValue)}
           allowClear
           getPopupContainer={() => divRef.current!}
           styles={{
