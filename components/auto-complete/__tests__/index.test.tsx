@@ -1,5 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import { fireEvent } from '@testing-library/react';
 
 import AutoComplete from '..';
 import { resetWarned } from '../../_util/warning';
@@ -187,5 +188,56 @@ describe('AutoComplete', () => {
     );
 
     errSpy.mockRestore();
+  });
+
+  it('should allow text selection when using Input with showCount', () => {
+    const handleMouseDown = jest.fn();
+    const { container } = render(
+      <AutoComplete options={[]}>
+        <Input showCount onMouseDown={handleMouseDown} />
+      </AutoComplete>,
+    );
+
+    const input = container.querySelector('input');
+    expect(input).toBeTruthy();
+
+    // Simulate mouse down event
+    const mouseDownEvent = new MouseEvent('mousedown', {
+      bubbles: true,
+      cancelable: true,
+    });
+    input?.dispatchEvent(mouseDownEvent);
+
+    // Original handler should be called
+    expect(handleMouseDown).toHaveBeenCalled();
+
+    // Input should be selectable (no preventDefault should be called)
+    // We can't directly test selection in JSDOM, but we can verify
+    // that the event handler is preserved and called
+  });
+
+  it('should stop propagation on input element to allow text selection', () => {
+    const handleMouseDown = jest.fn();
+    const parentMouseDown = jest.fn();
+
+    const { container } = render(
+      <div onMouseDown={parentMouseDown}>
+        <AutoComplete options={[]} value="test text">
+          <Input showCount onMouseDown={handleMouseDown} />
+        </AutoComplete>
+      </div>,
+    );
+
+    const input = container.querySelector('input') as HTMLInputElement;
+    expect(input).toBeTruthy();
+
+    // Simulate mouse down on input using fireEvent which works with React event system
+    fireEvent.mouseDown(input);
+
+    // Original handler should be called
+    expect(handleMouseDown).toHaveBeenCalled();
+
+    // The parent listener should not be called because we stop propagation
+    expect(parentMouseDown).not.toHaveBeenCalled();
   });
 });
