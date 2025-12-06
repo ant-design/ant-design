@@ -109,6 +109,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 <ComponentTokenTable component="List"></ComponentTokenTable>
 
 ## FAQ {#faq}
+
 ### Is there a replacement for the deprecated List component? {#faq-listy-replacement}
 
 In Ant Design v6, we will introduce a brand-new Listy component as the successor to List.
