@@ -55,6 +55,7 @@ import type { StatisticProps } from '../statistic';
 import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
+import type { GetRowKey } from '../table/interface';
 import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
@@ -167,11 +168,12 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
-  rowKey?: string;
+  rowKey?: string | keyof RecordType | GetRowKey<RecordType>;
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
