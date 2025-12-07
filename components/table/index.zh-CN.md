@@ -403,7 +403,7 @@ return <Table rowKey={(record) => record.uid} />;
 
 ### 为什么 components.body.wrapper 或 components.body.row 在 virtual 开启时会报错？ {#faq-virtual-wrapper-ref}
 
-因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。如以代码：
+因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。如以下代码：
 
 ```jsx
 const EditableRow: React.FC<EditableRowProps> = forwardRef(({ index, ...props }, ref) => {
@@ -422,6 +422,7 @@ const EditableRow: React.FC<EditableRowProps> = forwardRef(({ index, ...props },
 
 ```jsx
 <Table
-    //@ts-ignore // 这个属性未导出，但能透传给内部的虚拟滚动组件
-    // listItemHeight={36} // 帮助虚拟滚动正确计算高度，每行固定高度36px
+  //@ts-ignore // 这个属性未导出，但能透传给内部的虚拟滚动组件
+  listItemHeight={36} // 帮助虚拟滚动正确计算高度，每行固定高度36px
+/>
 ```
