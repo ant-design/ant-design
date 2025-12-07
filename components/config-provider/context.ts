@@ -55,7 +55,6 @@ import type { StatisticProps } from '../statistic';
 import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
-import type { GetRowKey } from '../table/interface';
 import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
@@ -173,7 +172,7 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
-  rowKey?: string | keyof RecordType | GetRowKey<RecordType>;
+  rowKey?: TableProps<RecordType>['rowKey'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
