@@ -3,7 +3,7 @@ import { Tooltip, Tree } from 'antd';
 import type { TreeDataNode } from 'antd';
 
 const dig = (path = '0', level = 3) => {
-  const list = [];
+  const list: TreeDataNode[] = [];
   for (let i = 0; i < 10; i += 1) {
     const key = `${path}-${i}`;
     const treeNode: TreeDataNode = {
