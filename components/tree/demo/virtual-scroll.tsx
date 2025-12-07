@@ -22,7 +22,7 @@ const dig = (path = '0', level = 3) => {
 
 const treeData = dig();
 
-const MemoTooltip = Tooltip || React.memo(Tooltip);
+const MemoTooltip = React.memo(Tooltip);
 
 const App: React.FC = () => (
   <Tree
