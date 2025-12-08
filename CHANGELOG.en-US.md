@@ -32,7 +32,7 @@ tag: vVERSION
 - 🐞 Fix Button tokens (primaryColor, dangerColor, defaultHoverBg, defaultActiveBg) not working with specific variants (solid, outlined, dashed). [#55934](https://github.com/ant-design/ant-design/pull/55934) [@tuzixiangs](https://github.com/tuzixiangs)
 - 💄 Fix the styles defined in the Menu component's items were not working. [#56041](https://github.com/ant-design/ant-design/pull/56041) [@Wxh16144](https://github.com/Wxh16144) 
 - 🛠 MISC: `@ant-design/react-slick` remove `classnames`. [#56080](https://github.com/ant-design/ant-design/pull/56080) [@yoyo837](https://github.com/yoyo837)
-- 🛠 MISC: Migrate `rc-overflow` to `@rc-component/overflow` to remove `rc-util`. [#56074](https://github.com/ant-design/ant-design/pull/56074) [@yoyo837](https://github.com/yoyo837)
+- 🛠 MISC: Migrate `rc-overflow` to `@rc-component/overflow`, `rc-virtual-list` to `@rc-component/virtual-list` to remove `rc-util`. [#56074](https://github.com/ant-design/ant-design/pull/56074) [@yoyo837](https://github.com/yoyo837)
 - TypeScript
   - 🤖 Alert now exports ErrorBoundaryProps type. [#55974](https://github.com/ant-design/ant-design/pull/55974) [@guoyunhe](https://github.com/guoyunhe)
   - 🤖 ConfigProvider supports passing a function as a Table `rowKey`. [#56095](https://github.com/ant-design/ant-design/pull/56095) [@li-jia-nan](https://github.com/li-jia-nan)
