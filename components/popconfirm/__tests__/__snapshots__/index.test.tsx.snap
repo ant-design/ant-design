@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `
-<span
-  aria-describedby="test-id"
-/>
-`;
+exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
 
 exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
 <div
