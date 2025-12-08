@@ -1,18 +1,16 @@
 import React from 'react';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
-import KeyCode from 'rc-util/lib/KeyCode';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import type { ConfigProviderProps } from '../../config-provider';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
-jest.mock('rc-util/lib/Portal');
-jest.mock('rc-motion');
+jest.mock('@rc-component/util/lib/Portal');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -27,12 +25,9 @@ jest.mock('react-dom', () => {
 });
 
 describe('Modal.hook', () => {
-  // Inject CSSMotion to replace with No transition support
-  const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach((key) => {
-    // @ts-ignore
-    CSSMotion[key] = MockCSSMotion[key];
-  });
+  const ConfigWarp = (conf?: ConfigProviderProps) => {
+    return <ConfigProvider {...conf} theme={{ token: { motion: false } }} />;
+  };
 
   it('hooks support context', () => {
     jest.useFakeTimers();
@@ -60,7 +55,11 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container } = render(
+      <ConfigWarp>
+        <Demo />
+      </ConfigWarp>,
+    );
     fireEvent.click(container.querySelectorAll('button')[0]);
 
     expect(document.body.querySelectorAll('.test-hook')[0].textContent).toBe('bamboo');
@@ -105,12 +104,12 @@ describe('Modal.hook', () => {
       }
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={showConfirm}>
             confirm
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -145,9 +144,9 @@ describe('Modal.hook', () => {
     };
 
     const { container } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigWarp direction="rtl">
         <Demo />
-      </ConfigProvider>,
+      </ConfigWarp>,
     );
 
     fireEvent.click(container.querySelectorAll('button')[0]);
@@ -172,12 +171,12 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -196,7 +195,7 @@ describe('Modal.hook', () => {
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
 
-      const openBrokenModal = React.useCallback(() => {
+      const openBrokenModal = () => {
         const instance = modal.info({
           title: 'Light',
         });
@@ -204,7 +203,45 @@ describe('Modal.hook', () => {
         instance.update({
           title: 'Bamboo',
         });
-      }, [modal]);
+
+        instance.update((ori) => ({
+          ...ori,
+          content: 'Little',
+        }));
+      };
+
+      return (
+        <ConfigWarp>
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </ConfigWarp>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+      'Little',
+    );
+  });
+
+  it('support update config', () => {
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = () => {
+        const instance = modal.info({
+          title: 'Light',
+          content: 'Little',
+        });
+
+        instance.update(() => ({
+          title: 'Bamboo',
+        }));
+      };
 
       return (
         <div className="App">
@@ -217,9 +254,10 @@ describe('Modal.hook', () => {
     };
 
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.querySelectorAll('.ant-modal-confirm-title')[0].textContent).toEqual(
-      'Bamboo',
+    fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+      'Little',
     );
   });
 
@@ -228,10 +266,7 @@ describe('Modal.hook', () => {
       const [modal, contextHolder] = Modal.useModal();
 
       const openBrokenModal = React.useCallback(() => {
-        const instance = modal.info({
-          title: 'Light',
-        });
-
+        const instance = modal.info({ title: 'Light' });
         instance.destroy();
       }, [modal]);
 
@@ -247,7 +282,7 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
+    expect(document.body).not.toHaveClass('ant-modal-confirm-title');
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
@@ -268,12 +303,12 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -360,7 +395,7 @@ describe('Modal.hook', () => {
         });
       }, []);
 
-      return <ConfigProvider autoInsertSpaceInButton={false}>{contextHolder}</ConfigProvider>;
+      return <ConfigWarp autoInsertSpaceInButton={false}>{contextHolder}</ConfigWarp>;
     };
 
     render(<Demo />);
@@ -375,7 +410,7 @@ describe('Modal.hook', () => {
       React.useEffect(() => {
         modal.confirm({ title: 'Confirm', afterClose });
       }, []);
-      return contextHolder;
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
     };
 
     render(<Demo />);
@@ -385,40 +420,65 @@ describe('Modal.hook', () => {
     expect(afterClose).toHaveBeenCalledTimes(1);
   });
 
+  it('it should call afterClose in closable', () => {
+    const closableAfterClose = jest.fn();
+    const afterClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({
+          title: 'Confirm',
+          closable: { afterClose: closableAfterClose },
+          afterClose,
+        });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(afterClose).toHaveBeenCalledTimes(1);
+    expect(closableAfterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call onClose in closable', () => {
+    const onClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', closable: { onClose }, open: true });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
   it('should be applied correctly locale', async () => {
     jest.useFakeTimers();
 
-    const Demo: React.FC<{ count: number }> = ({ count }) => {
+    const Demo: React.FC<{ zh?: boolean }> = ({ zh }) => {
+      const [modal, contextHolder] = Modal.useModal();
+
       React.useEffect(() => {
-        const instance = Modal.confirm({});
-        return () => {
-          instance.destroy();
-        };
-      }, [count]);
+        const instance = modal.confirm({});
+        return () => instance.destroy();
+      }, []);
 
-      let node = null;
-
-      for (let i = 0; i < count; i += 1) {
-        node = <ConfigProvider locale={zhCN}>{node}</ConfigProvider>;
-      }
-
-      return node;
+      return <ConfigWarp locale={zh ? zhCN : undefined}>{contextHolder}</ConfigWarp>;
     };
 
-    const { rerender } = render(<div />);
+    const { unmount } = render(<Demo zh />);
+    await waitFakeTimer();
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+    unmount();
 
-    for (let i = 10; i > 0; i -= 1) {
-      rerender(<Demo count={i} />);
-
-      await waitFakeTimer();
-
-      expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
-      fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
-
-      await waitFakeTimer();
-    }
-
-    rerender(<Demo count={0} />);
+    render(<Demo />);
     await waitFakeTimer();
     expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
 
@@ -449,7 +509,7 @@ describe('Modal.hook', () => {
           })();
         }, []);
 
-        return contextHolder;
+        return <ConfigWarp>{contextHolder}</ConfigWarp>;
       };
 
       render(<Demo />);
@@ -487,7 +547,7 @@ describe('Modal.hook', () => {
         })();
       }, []);
 
-      return contextHolder;
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
     };
 
     render(<Demo />);

@@ -18,14 +18,14 @@ const App: React.FC = () => {
         options={options}
         style={{ width: 200 }}
         placeholder="Outlined"
-        onSearch={(text) => setOptions(getPanelValue(text))}
+        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
         onSelect={globalThis.console.log}
       />
       <AutoComplete
         options={options}
         style={{ width: 200 }}
         placeholder="Filled"
-        onSearch={(text) => setOptions(getPanelValue(text))}
+        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
         onSelect={globalThis.console.log}
         variant="filled"
       />
@@ -33,9 +33,17 @@ const App: React.FC = () => {
         options={options}
         style={{ width: 200 }}
         placeholder="Borderless"
-        onSearch={(text) => setOptions(getPanelValue(text))}
+        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
         onSelect={globalThis.console.log}
         variant="borderless"
+      />
+      <AutoComplete
+        options={options}
+        style={{ width: 200 }}
+        placeholder="Underlined"
+        onSearch={(text) => setOptions(getPanelValue(text))}
+        onSelect={globalThis.console.log}
+        variant="underlined"
       />
     </Flex>
   );

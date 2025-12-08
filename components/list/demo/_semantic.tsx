@@ -1,10 +1,9 @@
 import React from 'react';
-
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
-import useLocale from '../../../.dumi/hooks/useLocale';
-
-import { Avatar, List, Space } from 'antd';
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
+import { Avatar, List, Space } from 'antd';
+
+import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -54,6 +53,7 @@ const BlockList: React.FC<React.PropsWithChildren> = (props) => {
             ]}
             extra={
               <img
+                draggable={false}
                 width={272}
                 alt="logo"
                 src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"

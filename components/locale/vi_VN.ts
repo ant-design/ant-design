@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/vi_VN';
+import Pagination from '@rc-component/pagination/lib/locale/vi_VN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/vi_VN';
@@ -61,6 +61,7 @@ const localeValues: Locale = {
     selectAll: 'Chọn tất cả',
     removeAll: 'Gỡ bỏ tất cả',
     selectInvert: 'Đảo ngược trang hiện tại',
+    deselectAll: 'Bỏ chọn tất cả',
   },
   Upload: {
     uploading: 'Đang tải lên...',
@@ -80,6 +81,7 @@ const localeValues: Locale = {
     copy: 'Sao chép',
     copied: 'Đã sao chép',
     expand: 'Mở rộng',
+    collapse: 'Thu gọn',
   },
   Form: {
     optional: '(Tùy chọn)',
@@ -131,12 +133,16 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Xem trước',
-  },
   QRCode: {
     expired: 'Mã QR hết hạn',
     refresh: 'Làm mới',
+    scanned: 'Đã quét',
+  },
+  ColorPicker: {
+    presetEmpty: 'Trống',
+    transparent: 'Trong suốt',
+    singleColor: 'Màu đơn',
+    gradientColor: 'Màu chuyển sắc',
   },
 };
 

@@ -1,72 +1,42 @@
 import React from 'react';
 import { TreeSelect } from 'antd';
-import type { TreeSelectProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
-import useLocale from '../../../.dumi/hooks/useLocale';
-
-const locales = {
-  cn: {
-    root: '根元素',
-    'popup.root': '弹出菜单元素',
-  },
-  en: {
-    root: 'Root element',
-    'popup.root': 'Popup element',
-  },
-};
-const treeData = [
-  {
-    value: 'contributors',
-    title: 'contributors',
-    children: [
-      {
-        value: 'thinkasany',
-        title: 'thinkasany',
-      },
-      {
-        value: 'aojunhao123',
-        title: 'aojunhao123',
-      },
-    ],
-  },
-];
-
-const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  const [value, setValue] = React.useState<string>();
-  return (
-    <div ref={divRef}>
-      <TreeSelect
-        {...props}
-        getPopupContainer={() => divRef.current!}
-        showSearch
-        placement="bottomLeft"
-        open
-        style={{ width: 200, marginBottom: 80, marginTop: -10 }}
-        styles={{ popup: { root: { zIndex: 1, height: 90 } } }}
-        value={value}
-        placeholder="Please select"
-        treeDefaultExpandAll
-        onChange={setValue}
-        treeData={treeData}
-      />
-    </div>
-  );
-};
+import TreeSelectSemanticTemplate from '../../../.dumi/theme/common/TreeSelectSemanticTemplate';
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
+  const treeData = [
+    {
+      value: 'contributors',
+      title: 'contributors',
+      children: [
+        {
+          value: 'aojunhao123',
+          title: 'aojunhao123',
+        },
+        {
+          value: 'thinkasany',
+          title: 'thinkasany',
+        },
+        {
+          value: 'meet-student',
+          title: 'meet-student',
+        },
+      ],
+    },
+  ];
+
   return (
-    <SemanticPreview
+    <TreeSelectSemanticTemplate
+      component={TreeSelect}
       componentName="TreeSelect"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '5.25.0' },
-        { name: 'popup.root', desc: locale['popup.root'], version: '5.25.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
+      prefix="prefix"
+      style={{ width: 300 }}
+      multipleProps={{ multiple: true }}
+      treeData={treeData}
+      treeDefaultExpandAll
+      showSearch
+      allowClear
+    />
   );
 };
 

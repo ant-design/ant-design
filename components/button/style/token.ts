@@ -17,6 +17,11 @@ export interface ComponentToken {
    */
   fontWeight: CSSProperties['fontWeight'];
   /**
+   * @desc 图标文字间距
+   * @descEN Gap between icon and text
+   */
+  iconGap: CSSProperties['gap'];
+  /**
    * @desc 默认按钮阴影
    * @descEN Shadow of default button
    */
@@ -87,6 +92,7 @@ export interface ComponentToken {
    */
   defaultActiveBorderColor: string;
   /**
+   * @deprecated use `colorBorderDisabled` instead
    * @desc 禁用状态边框颜色
    * @descEN Border color of disabled button
    */
@@ -220,6 +226,16 @@ export interface ComponentToken {
    * @descEN Line height of small button content
    */
   contentLineHeightSM: number;
+  /**
+   * @desc type='default' 禁用状态下的背景颜色
+   * @descE background color when type='default' is disabled
+   */
+  defaultBgDisabled: string;
+  /**
+   * @desc type='dashed' 禁用状态下的背景颜色
+   * @descE background color when type='dashed' is disabled
+   */
+  dashedBgDisabled: string;
 }
 
 type ShadowColorMap = {
@@ -251,12 +267,13 @@ export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap {
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize } = token;
+  const { paddingInline, onlyIconSize, borderColorDisabled } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
     buttonPaddingVertical: 0,
     buttonIconOnlyFontSize: onlyIconSize,
+    colorBorderDisabled: borderColorDisabled,
   });
 
   return buttonToken;
@@ -280,16 +297,19 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     }),
     {},
   );
+  const defaultBgDisabled = token.colorBgContainerDisabled;
+  const dashedBgDisabled = token.colorBgContainerDisabled;
 
   return {
     ...shadowColorTokens,
     fontWeight: 400,
+    iconGap: token.marginXS,
     defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
     primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
     dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
     primaryColor: token.colorTextLightSolid,
     dangerColor: token.colorTextLightSolid,
-    borderColorDisabled: token.colorBorder,
+    borderColorDisabled: token.colorBorderDisabled,
     defaultGhostColor: token.colorBgContainer,
     ghostBg: 'transparent',
     defaultGhostBorderColor: token.colorBgContainer,
@@ -334,5 +354,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
       (token.controlHeightLG - contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
       0,
     ),
+    defaultBgDisabled,
+    dashedBgDisabled,
   };
 };

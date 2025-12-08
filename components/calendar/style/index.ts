@@ -269,7 +269,7 @@ export default genStyleHooks(
         .equal() as number,
     });
 
-    return [genCalendarStyles(calendarToken)];
+    return genCalendarStyles(calendarToken);
   },
   prepareComponentToken,
 );

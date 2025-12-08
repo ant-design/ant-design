@@ -1,5 +1,7 @@
 import React from 'react';
+import { Tooltip } from 'antd';
 import dayjs from 'dayjs';
+import { renderToString } from 'react-dom/server';
 
 import type { CountdownProps } from '..';
 import Statistic from '..';
@@ -200,6 +202,24 @@ describe('Statistic', () => {
         '00:30:01',
       );
     });
+
+    it('ssr', async () => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+
+      const html = renderToString(
+        <Statistic.Timer
+          type="countdown"
+          value={Date.now() + 2300}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      document.body.innerHTML = html;
+
+      expect(document.querySelector('.ant-statistic-content-value')!.textContent).toEqual('-');
+    });
   });
 
   describe('Deprecated Countdown', () => {
@@ -305,5 +325,31 @@ describe('Statistic', () => {
     it('format should support escape', () => {
       expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
+  });
+
+  it('should works for statistic timer', async () => {
+    const onOpenChange = jest.fn();
+    const ref = React.createRef<any>();
+
+    const { container } = render(
+      <Tooltip title="countdown" onOpenChange={onOpenChange} ref={ref}>
+        <Statistic.Timer type="countdown" value={Date.now() + 1000 * 60 * 2} format="m:s" />
+      </Tooltip>,
+    );
+
+    expect(container.getElementsByClassName('ant-statistic')).toHaveLength(1);
+    const statistic = container.getElementsByClassName('ant-statistic')[0];
+
+    fireEvent.mouseEnter(statistic);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(document.querySelector('.ant-tooltip')).not.toHaveClass('ant-tooltip-hidden');
+    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
+
+    fireEvent.mouseLeave(statistic);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(document.querySelector('.ant-tooltip')).toHaveClass('ant-tooltip-hidden');
+    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 });

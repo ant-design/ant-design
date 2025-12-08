@@ -12,13 +12,13 @@ import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   componentsOverviewGroupTitle: css`
-    margin-bottom: ${token.marginLG}px !important;
+    margin-bottom: ${cssVar.marginLG} !important;
   `,
   componentsOverviewTitle: css`
     overflow: hidden;
-    color: ${token.colorTextHeading};
+    color: ${cssVar.colorTextHeading};
     text-overflow: ellipsis;
   `,
   componentsOverviewImg: css`
@@ -39,51 +39,47 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   componentsOverviewAffix: css`
     display: flex;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     justify-content: space-between;
   `,
   componentsOverviewSearch: css`
     padding: 0;
     box-shadow: none !important;
     .anticon-search {
-      color: ${token.colorTextDisabled};
+      color: ${cssVar.colorTextDisabled};
     }
   `,
   componentsOverviewContent: css`
     &:empty:after {
       display: block;
-      padding: ${token.padding}px 0 ${token.paddingMD * 2}px;
-      color: ${token.colorTextDisabled};
+      padding: ${cssVar.padding} 0 calc(${cssVar.paddingMD} * 2);
+      color: ${cssVar.colorTextDisabled};
       text-align: center;
-      border-bottom: 1px solid ${token.colorSplit};
+      border-bottom: 1px solid ${cssVar.colorSplit};
       content: 'Not Found';
     }
   `,
 }));
 
 const onClickCard = (pathname: string) => {
-  if (window.gtag) {
-    window.gtag('event', '点击', {
-      event_category: '组件总览卡片',
-      event_label: pathname,
-    });
-  }
+  window.gtag?.('event', '点击', {
+    event_category: '组件总览卡片',
+    event_label: pathname,
+  });
 };
 
 const reportSearch = debounce<(value: string) => void>((value) => {
-  if (window.gtag) {
-    window.gtag('event', '搜索', {
-      event_category: '组件总览卡片',
-      event_label: value,
-    });
-  }
+  window.gtag?.('event', '搜索', {
+    event_category: '组件总览卡片',
+    event_label: value,
+  });
 }, 2000);
 
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const { styles } = useStyle();
-  const { theme } = React.use(SiteContext);
+  const { isDark } = React.use(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -227,10 +223,9 @@ const Overview: React.FC = () => {
                       >
                         <div className={styles.componentsOverviewImg}>
                           <img
+                            draggable={false}
                             src={
-                              theme.includes('dark') && component.coverDark
-                                ? component.coverDark
-                                : component.cover
+                              isDark && component.coverDark ? component.coverDark : component.cover
                             }
                             alt={component.title}
                           />

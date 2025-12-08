@@ -1,17 +1,23 @@
 {
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      ".dumi/tmp*",
-      ".dumi/scripts/clarity.js",
-      "dist/*",
-      "es/**/*",
-      "lib/**/*",
-      "_site/**/*",
-      "node_modules",
-      "server",
-      "scripts/previewEditor/**/*",
-      "package.json"
+    "includes": [
+      "**",
+      "!.dumi/tmp*",
+      "!report.html",
+      "!.dumi/scripts/clarity.js",
+      "!dist/*",
+      "!es/**/*",
+      "!lib/**/*",
+      "!_site/**/*",
+      "!node_modules",
+      "!server",
+      "!scripts/previewEditor/**/*",
+      "!**/*.tmp",
+      "!package.json",
+      "!components/style/antd.css",
+      "!scripts/visual-regression/report-template.html"
     ]
   },
   "formatter": {
@@ -21,47 +27,55 @@
     "indentWidth": 2
   },
   "javascript": {
+    "jsxRuntime": "reactClassic",
     "formatter": {
       "quoteStyle": "single"
     }
   },
-  "organizeImports": {
-    "enabled": false
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
   },
   "linter": {
     "rules": {
       "style": {
-        "useImportType": "off",
-        "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
-        "noNonNullAssertion": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noNonNullAssertion": "off"
       },
       "complexity": {
-        "noUselessTypeConstraint": "off",
-        "noForEach": "off"
+        "useDateNow": "off",
+        "noImportantStyles": "off",
+        "useOptionalChain": "off"
       },
       "correctness": {
+        "useUniqueElementIds": "off",
         "useExhaustiveDependencies": "off"
       },
       "suspicious": {
-        "noGlobalIsNan": "off",
-        "noGlobalIsFinite": "off",
+        "noTsIgnore": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
-        "noThenProperty": "off"
+        "noNonNullAssertedOptionalChain": "off",
+        "noThenProperty": "off",
+        "noTemplateCurlyInString": "off",
+        "useIterableCallbackReturn": "off"
       },
       "performance": {
-        "noDelete": "off",
-        "noAccumulatingSpread": "off"
+        "noAccumulatingSpread": "off",
+        "noDynamicNamespaceImportAccess": "off"
       },
       "a11y": {
-        "noAriaHiddenOnFocusable": "off",
         "noLabelWithoutControl": "off",
         "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
-        "useSemanticElements": "off"
+        "useSemanticElements": "off",
+        "noStaticElementInteractions": "off",
+        "useAriaPropsSupportedByRole": "off",
+        "useAriaPropsForRole": "off"
       }
     }
   },
@@ -72,14 +86,10 @@
   },
   "overrides": [
     {
-      "include": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
+      "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
-          "style": {
-            "noParameterAssign": "off"
-          },
           "suspicious": {
-            "noThenProperty": "off",
             "noImplicitAnyLet": "off"
           },
           "complexity": {
@@ -87,14 +97,13 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
     },
     {
-      "include": ["components/*/demo/*"],
+      "includes": ["components/*/demo/*"],
       "linter": {
         "rules": {
           "correctness": {
@@ -102,8 +111,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }

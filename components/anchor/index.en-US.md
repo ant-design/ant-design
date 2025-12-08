@@ -30,6 +30,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
 <code src="./demo/replace.tsx" iframe="200">Replace href in history</code>
 <code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
+<code src="./demo/style-class.tsx" iframe="200" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" iframe="800" debug>Component Token</code>
 
 ## API
@@ -42,10 +43,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | affix | Fixed mode of Anchor | boolean \| Omit<AffixProps, 'offsetTop' \| 'target' \| 'children'> | true | object: 5.19.0 |
 | bounds | Bounding distance of anchor area | number | 5 |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | getContainer | Scrolling container | () => HTMLElement | () => window |  |
 | getCurrentAnchor | Customize the anchor highlight | (activeLink: string) => string | - |  |
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |  |
 | showInkInFixed | Whether show ink-square when `affix={false}` | boolean | false |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#anchor-demo-targetoffset) | number | - |  |
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 | onClick | Set the handler to handle `click` event | (e: MouseEvent, link: object) => void | - |  |
@@ -74,6 +77,18 @@ We recommend using the items form instead.
 | target   | Specifies where to display the linked URL | string    |         |         |
 | title    | The content of hyperlink                  | ReactNode |         |         |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Anchor"></ComponentTokenTable>
+
+## FAQ
+
+### In version `5.25.0+`, the `:target` pseudo-class of the destination element does not take effect as expected after anchor navigation. {#faq-target-pseudo-class}
+
+For the purpose of page performance optimization, the implementation of anchor navigation has been changed from `window.location.href` to `window.history.pushState/replaceState`. Since `pushState/replaceState` does not trigger a page reload, the browser will not automatically update the matching state of the `:target` pseudo-class. To resolve this issue, you can manually construct the full URL: `href = window.location.origin + window.location.pathname + '#xxx'`.
+
+Related issues: [#53143](https://github.com/ant-design/ant-design/issues/53143) [#54255](https://github.com/ant-design/ant-design/issues/54255)

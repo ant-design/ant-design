@@ -41,4 +41,4 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook('Wave', (token) => [genWaveStyle(token)]);
+export default genComponentStyleHook('Wave', genWaveStyle);

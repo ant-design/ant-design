@@ -5,11 +5,17 @@ title: List
 description: Basic list display, which can carry text, lists, pictures, paragraphs.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: DEPRECATED
 ---
 
 ## When To Use
 
 A list can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
+
+<!-- prettier-ignore -->
+:::warning{title=Deprecated Notice}
+List component has been deprecated. Will be removed in the next major version.
+:::
 
 ## Examples
 
@@ -23,6 +29,10 @@ A list can be used to display content related to a single subject. The content c
 <code src="./demo/grid-test.tsx" debug>Test Grid</code>
 <code src="./demo/responsive.tsx">Responsive grid list</code>
 <code src="./demo/infinite-load.tsx">Scrolling loaded</code>
+<code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
+<code src="./demo/grid-drag-sorting.tsx">Grid Drag sorting</code>
+<code src="./demo/grid-drag-sorting-handler.tsx">Grid Drag sorting with handler</code>
 <code src="./demo/virtual-list.tsx">virtual list</code>
 <code src="./demo/component-token.tsx" debug>custom component token</code>
 
@@ -97,3 +107,20 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 ## Design Token
 
 <ComponentTokenTable component="List"></ComponentTokenTable>
+
+## FAQ {#faq}
+
+### Is there a replacement for the deprecated List component? {#faq-listy-replacement}
+
+In Ant Design v6, we will introduce a brand-new Listy component as the successor to List.
+
+Listy comes with built-in virtual scrolling and places greater emphasis on flexible layout control, empowering developers to build highly customizable lists tailored to various business scenarios.
+
+The underlying implementation, rc-listy, is already largely complete and is currently awaiting review and further adjustments by core maintainers.
+
+Ant Design v6 will officially provide the Listy component based on rc-listy.
+
+Related links:
+
+- Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
+- RFC Discussion: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)

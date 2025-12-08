@@ -1,10 +1,11 @@
 import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
-import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { clsx } from 'clsx';
 
 import type { AnyObject } from '../../_util/type';
+import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
@@ -125,6 +126,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
+  a11yLocale?: Locale['global'],
 ): ColumnsType<RecordType> => {
   const finalColumns = (columns || []).map((column, index) => {
     const columnPos = getColumnPos(index, pos);
@@ -147,21 +149,17 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
       } else {
         const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
           <CaretUpOutlined
-            className={classNames(`${prefixCls}-column-sorter-up`, {
-              active: sortOrder === ASCEND,
-            })}
+            className={clsx(`${prefixCls}-column-sorter-up`, { active: sortOrder === ASCEND })}
           />
         );
         const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
           <CaretDownOutlined
-            className={classNames(`${prefixCls}-column-sorter-down`, {
-              active: sortOrder === DESCEND,
-            })}
+            className={clsx(`${prefixCls}-column-sorter-down`, { active: sortOrder === DESCEND })}
           />
         );
         sorter = (
           <span
-            className={classNames(`${prefixCls}-column-sorter`, {
+            className={clsx(`${prefixCls}-column-sorter`, {
               [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
             })}
           >
@@ -189,7 +187,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           : { title: sortTip };
       newColumn = {
         ...newColumn,
-        className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
+        className: clsx(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
           const columnSortersClass = `${prefixCls}-column-sorters`;
           const renderColumnTitleWrapper = (
@@ -210,7 +208,10 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
             ) {
               return (
                 <div
-                  className={`${columnSortersClass} ${prefixCls}-column-sorters-tooltip-target-sorter`}
+                  className={clsx(
+                    columnSortersClass,
+                    `${columnSortersClass}-tooltip-target-sorter`,
+                  )}
                 >
                   {renderColumnTitleWrapper}
                   <Tooltip {...tooltipProps}>{sorter}</Tooltip>
@@ -253,8 +254,10 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           if (sortOrder) {
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
           }
+          // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
+          cell['aria-description'] = a11yLocale?.sortable;
           cell['aria-label'] = displayTitle || '';
-          cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.className = clsx(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
           if (column.ellipsis) {
             cell.title = (renderTitle ?? '').toString();
@@ -276,6 +279,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           tableLocale,
           tableShowSorterTooltip,
           columnPos,
+          a11yLocale,
         ),
       };
     }
@@ -389,6 +393,7 @@ interface SorterConfig<RecordType = AnyObject> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean | SorterTooltipProps;
+  globalLocale?: Locale['global'];
 }
 
 const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
@@ -406,6 +411,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     tableLocale,
     showSorterTooltip,
     onSorterChange,
+    globalLocale,
   } = props;
 
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(() =>
@@ -512,6 +518,8 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
       sortDirections,
       tableLocale,
       showSorterTooltip,
+      undefined,
+      globalLocale,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);

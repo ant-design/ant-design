@@ -43,7 +43,7 @@ Follow the steps below to play around with Ant Design yourself:
 
 ### 1. Create a codesandbox
 
-Visit https://u.ant.design/codesandbox-repro to create a codesandbox -- don't forget to press the save button as well to create a new instance.
+Visit https://u.ant.design/reproduce to create a codesandbox -- don't forget to press the save button as well to create a new instance.
 
 ### 2. Use and modify an antd component
 
@@ -96,7 +96,7 @@ Now add the following jsx inside the `render` function.
   <DatePicker onChange={value => this.handleChange(value)} />
   <div style={{ marginTop: 20 }}>
 -   Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-+   <Alert message="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
++   <Alert title="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
   </div>
 ```
 

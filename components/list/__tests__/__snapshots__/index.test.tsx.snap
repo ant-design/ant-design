@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`List rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-rtl"
+  class="ant-list ant-list-split ant-list-rtl css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -14,7 +14,7 @@ exports[`List rtl render component should be rendered correctly in RTL direction
         class="ant-list-empty-text"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-rtl"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-rtl"
         >
           <div
             class="ant-empty-image"

@@ -1,12 +1,13 @@
 import type * as React from 'react';
-import type { Reference } from 'rc-table';
+import type { Reference } from '@rc-component/table';
 import type {
+  ExpandableConfig,
   FixedType,
   GetComponentProps,
+  GetRowKey,
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
-} from 'rc-table/lib/interface';
-import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
+} from '@rc-component/table/lib/interface';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
@@ -25,7 +26,7 @@ export type RefInternalTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
-export { ExpandableConfig, GetRowKey };
+export type { ExpandableConfig, GetRowKey };
 
 export type Key = React.Key;
 
@@ -81,12 +82,11 @@ export interface ColumnFilterItem {
 }
 
 export interface ColumnTitleProps<RecordType = AnyObject> {
-  /** @deprecated Please use `sorterColumns` instead. */
+  /** @deprecated Will be remove in v7, Please use `sorterColumns` instead. */
   sortOrder?: SortOrder;
-  /** @deprecated Please use `sorterColumns` instead. */
+  /** @deprecated Will be remove in v7, Please use `sorterColumns` instead. */
   sortColumn?: ColumnType<RecordType>;
   sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
-
   filters?: Record<string, FilterValue>;
 }
 
@@ -188,10 +188,6 @@ export interface ColumnType<RecordType = AnyObject>
    * @since 4.23.0
    */
   onFilterDropdownOpenChange?: (visible: boolean) => void;
-  /** @deprecated Please use `filterDropdownProps.open` instead. */
-  filterDropdownVisible?: boolean;
-  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
-  onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
 export interface ColumnGroupType<RecordType = AnyObject>
@@ -228,13 +224,13 @@ export interface TableRowSelection<T = AnyObject> {
   onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
+  /** @deprecated This function will be remove in v7 and should use `onChange` instead */
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
+  /** @deprecated This function will be remove in v7 and should use `onChange` instead */
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
+  /** @deprecated This function will be remove in v7 and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
+  /** @deprecated This function will be remove in v7 and should use `onChange` instead */
   onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
@@ -251,6 +247,8 @@ export interface TableRowSelection<T = AnyObject> {
     originNode: React.ReactNode,
   ) => React.ReactNode | RcRenderedCell<T>;
   onCell?: GetComponentProps<T>;
+  getTitleCheckboxProps?: () => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>> &
+    React.AriaAttributes;
 }
 
 export type TransformColumns<RecordType = AnyObject> = (
@@ -271,7 +269,16 @@ export interface SorterResult<RecordType = AnyObject> {
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
-type TablePaginationPosition =
+export type TablePaginationPlacement =
+  | 'topStart'
+  | 'topCenter'
+  | 'topEnd'
+  | 'bottomStart'
+  | 'bottomCenter'
+  | 'bottomEnd'
+  | 'none';
+
+export type TablePaginationPosition =
   | 'topLeft'
   | 'topCenter'
   | 'topRight'
@@ -281,5 +288,7 @@ type TablePaginationPosition =
   | 'none';
 
 export interface TablePaginationConfig extends PaginationProps {
+  placement?: TablePaginationPlacement[];
+  /** @deprecated please use `placement` instead */
   position?: TablePaginationPosition[];
 }

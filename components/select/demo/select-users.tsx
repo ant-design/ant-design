@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Select, Spin, Avatar } from 'antd';
+import { Avatar, Select, Spin } from 'antd';
 import type { SelectProps } from 'antd';
 import debounce from 'lodash/debounce';
 
@@ -45,8 +45,7 @@ function DebounceSelect<
   return (
     <Select
       labelInValue
-      filterOption={false}
-      onSearch={debounceFetcher}
+      showSearch={{ filterOption: false, onSearch: debounceFetcher }}
       notFoundContent={fetching ? <Spin size="small" /> : 'No results found'}
       {...props}
       options={options}

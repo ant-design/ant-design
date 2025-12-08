@@ -8,7 +8,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 使用
+## 使用 {#usage}
 
 ConfigProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
 
@@ -26,7 +26,7 @@ const Demo: React.FC = () => (
 export default Demo;
 ```
 
-### Content Security Policy
+### 内容安全策略（CSP）{#csp}
 
 部分组件为了支持波纹效果，使用了动态样式。如果开启了 Content Security Policy (CSP)，你可以通过 `csp` 属性来进行配置：
 
@@ -36,7 +36,7 @@ export default Demo;
 </ConfigProvider>
 ```
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/locale.tsx">国际化</code>
@@ -57,8 +57,8 @@ export default Demo;
 | componentSize | 设置 antd 组件大小 | `small` \| `middle` \| `large` | - |  |
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
 | direction | 设置文本展示方向。 [示例](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
-| getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
-| getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
+| getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | `(trigger?: HTMLElement) => HTMLElement \| ShadowRoot` | () => document.body |  |
+| getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | `() => HTMLElement \| Window \| ShadowRoot` | () => window | 4.2.0 |
 | iconPrefixCls | 设置图标统一样式前缀 | string | `anticon` | 4.11.0 |
 | locale | 语言包配置，语言包可到 [antd/locale](http://unpkg.com/antd/locale/) 目录下寻找 | object | - |  |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | - | 5.5.0 |
@@ -70,7 +70,7 @@ export default Demo;
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 | warning | 设置警告等级，`strict` 为 `false` 时会将废弃相关信息聚合为单条信息 | { strict: boolean } | - | 5.10.0 |
 
-### ConfigProvider.config()
+### ConfigProvider.config() {#config}
 
 设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
@@ -89,9 +89,9 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig() `5.3.0+`
+### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-`5.2.0` 版本后可用。获取父级 `Provider` 的值。如 `DisabledContextProvider`、`SizeContextProvider`。
+获取父级 `Provider` 的值，如 `DisabledContextProvider`、`SizeContextProvider`。
 
 ```jsx
 const {
@@ -106,85 +106,94 @@ const {
 | componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
 | componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
 
-### 组件配置
+### 组件配置 {#component-config}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| affix | 设置 Affix 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 6.0.0 |
 | alert | 设置 Alert 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
-| anchor | 设置 Anchor 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| anchor | 设置 Anchor 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [AnchorStyleConfig\["classNames"\]](/components/anchor-cn#semantic-dom), styles?: [AnchorStyleConfig\["styles"\]](/components/anchor-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | avatar | 设置 Avatar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| badge | 设置 Badge 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge-cn#api), styles?: [BadgeProps\["styles"\]](/components/badge-cn#api) } | - | 5.7.0 |
-| breadcrumb | 设置 Breadcrumb 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button-cn#api), styles?: [ButtonProps\["styles"\]](/components/button-cn#api), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` 和 `color`: 5.25.0 |
-| calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#api), styles?: [CardProps\["styles"\]](/components/card-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
+| badge | 设置 Badge 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge-cn#semantic-dom), styles?: [BadgeProps\["styles"\]](/components/badge-cn#semantic-dom) } | - | 5.7.0 |
+| breadcrumb | 设置 Breadcrumb 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BreadcrumbConfig\["classNames"\]](/components/breadcrumb-cn#semantic-dom), styles?: [BreadcrumbConfig\["styles"\]](/components/breadcrumb-cn#semantic-dom), separator?: ReactNode } | - | 5.7.0, `classNames`, `separator` 和 `styles`: 6.0.0 |
+| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button-cn#semantic-dom), styles?: [ButtonProps\["styles"\]](/components/button-cn#semantic-dom), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType, shape?: [ButtonProps\["shape"\]](/components/button#api) } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` 和 `color`: 5.25.0, `shape`: 5.27.0 |
+| calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CalendarConfig\["classNames"\]](/components/calendar-cn#semantic-dom), styles?: [CalendarConfig\["styles"\]](/components/calendar-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#semantic-dom), styles?: [CardProps\["styles"\]](/components/card-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
+| cardMeta | 设置 Card.Meta 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardMetaProps\["classNames"\]](/components/card-cn#semantic-dom), styles?: [CardMetaProps\["styles"\]](/components/card-cn#semantic-dom) } | - | 6.0.0 |
 | carousel | 设置 Carousel 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| cascader | 设置 Cascader 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CascaderProps\["classNames"\]](/components/cascader-cn#semantic-dom), styles?: [CascaderProps\["styles"\]](/components/cascader-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
-| checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
-| colorPicker | 设置 ColorPicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker-cn#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
+| cascader | 设置 Cascader 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CheckboxConfig\["classNames"\]](/components/checkbox-cn#semantic-dom), styles?: [CheckboxConfig\["styles"\]](/components/checkbox-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode, classNames?: [CollapseProps\["classNames"\]](/components/collapse-cn#semantic-dom), styles?: [CollapseProps\["styles"\]](/components/collapse-cn#semantic-dom) } | - | 5.7.0, `expandIcon`: 5.15.0, `classNames` 和 `styles`: 6.0.0 |
+| colorPicker | 设置 ColorPicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ColorPickerConfig\["classNames"\]](/components/color-picker-cn#semantic-dom), styles?: [ColorPickerConfig\["styles"\]](/components/color-picker-cn#semantic-dom) } | - | 5.7.0 |
+| datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker-cn#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker-cn#semantic-dom) } | - | 5.7.0 |
 | rangePicker | 设置 RangePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
-| descriptions | 设置 Descriptions 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions-cn#api), styles?: [DescriptionsProps\["styles"\]](/components/descriptions-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
-| divider | 设置 Divider 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| drawer | 设置 Drawer 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer-cn#api), styles?: [DrawerProps\["styles"\]](/components/drawer-cn#api), closeIcon?: ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
-| dropdown | 设置 Dropdown 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
-| empty | 设置 Empty 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[EmptyProps\["classNames"\]](/components/empty-cn#api), styles?: [EmptyProps\["styles"\]](/components/empty-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
+| descriptions | 设置 Descriptions 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions-cn#semantic-dom), styles?: [DescriptionsProps\["styles"\]](/components/descriptions-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
+| divider | 设置 Divider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DividerProps\["classNames"\]](/components/divider-cn#semantic-dom), styles?: [DividerProps\["styles"\]](/components/divider-cn#semantic-dom) } | - |  |
+| drawer | 设置 Drawer 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer-cn#semantic-dom), styles?: [DrawerProps\["styles"\]](/components/drawer-cn#semantic-dom), closeIcon?: ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
+| dropdown | 设置 Dropdown 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DropdownConfig\["classNames"\]](/components/dropdown-cn#semantic-dom), styles?: [DropdownConfig\["styles"\]](/components/dropdown-cn#semantic-dom) } | - |  |
+| empty | 设置 Empty 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[EmptyProps\["classNames"\]](/components/empty-cn#api), styles?: [EmptyProps\["styles"\]](/components/empty-cn#api), image?: ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0, `image`: 5.27.0 |
 | flex | 设置 Flex 组件的通用属性 | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
-| floatButtonGroup | 设置 FloatButton.Group 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.16.0 |
-| form | 设置 Form 组件的通用属性 | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), `requiredMark`?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)} | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` 和 `style`: 5.7.0 |
-| image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, `closeIcon`: 5.14.0 |
-| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, `allowClear`: 5.15.0 |
-| textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
+| floatButton | 设置 FloatButton 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [FloatButtonProps\["classNames"\]](/components/float-button-cn#semantic-dom), styles?: [FloatButtonProps\["styles"\]](/components/float-button-cn#semantic-dom), backTopIcon?: React.ReactNode } | - |  |
+| floatButtonGroup | 设置 FloatButton.Group 组件的通用属性 | { closeIcon?: React.ReactNode, className?: string, style?: React.CSSProperties, classNames?: [FloatButtonProps\["classNames"\]](/components/float-button-cn#semantic-dom), styles?: [FloatButtonProps\["styles"\]](/components/float-button-cn#semantic-dom) } | - |  |
+| form | 设置 Form 组件的通用属性 | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), requiredMark?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options), classNames?:[FormConfig\["classNames"\]](/components/form-cn#semantic-dom), styles?: [FormConfig\["styles"\]](/components/form-cn#semantic-dom) } | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` 和 `style`: 5.7.0 |
+| image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode, classNames?:[ImageConfig\["classNames"\]](/components/image-cn#semantic-dom), styles?: [ImageConfig\["styles"\]](/components/image-cn#semantic-dom) }, fallback?: string } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
+| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties,classNames?:[InputConfig\["classNames"\]](/components/input-cn#semantic-input), styles?: [InputConfig\["styles"\]](/components/input-cn#semantic-input), allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, `allowClear`: 5.15.0 |
+| inputNumber | 设置 Input 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [InputNumberConfig\["classNames"\]](/components/input-number-cn#semantic-dom), styles?: [InputNumberConfig\["styles"\]](/components/input-number-cn#semantic-dom) } | - |  |
+| otp | 设置 OTP 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [OTPConfig\["classNames"\]](/components/input-cn#semantic-otp), styles?: [OTPConfig\["styles"\]](/components/input-cn#semantic-otp) } | - |  |
+| inputSearch | 设置 Search 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [InputSearchConfig\["classNames"\]](/components/input-cn#semantic-search), styles?: [InputSearchConfig\["styles"\]](/components/input-cn#semantic-search) } | - |  |
+| textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties,classNames?:[TextAreaConfig\["classNames"\]](/components/input-cn#semantic-textarea), styles?: [TextAreaConfig\["styles"\]](/components/input-cn#semantic-textarea), allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | 设置 Layout 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | 设置 List 组件的通用属性 | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list-cn#listitem), styles: [ListItemProps\["styles"\]](/components/list-cn#listitem) } } | - | 5.7.0 |
+| masonry | 设置 Masonry 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#semantic-dom), styles?: [MasonryProps\["styles"\]](/components/masonry#semantic-dom) } | - |  |
 | menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
-| mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#api), styles?: [ModalProps\["styles"\]](/components/modal-cn#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
-| notification | 设置 Notification 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
-| pagination | 设置 Pagination 组件的通用属性 | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| progress | 设置 Progress 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[MentionsConfig\["classNames"\]](/components/mentions-cn#semantic-dom), styles?: [MentionsConfig\["styles"\]](/components/mentions-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MessageConfig\["classNames"\]](/components/message-cn#semantic-dom), styles?: [MessageConfig\["styles"\]](/components/message-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#semantic-dom), styles?: [ModalProps\["styles"\]](/components/modal-cn#semantic-dom), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
+| notification | 设置 Notification 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification-cn#semantic-dom), styles?: [NotificationConfig\["styles"\]](/components/notification-cn#semantic-dom) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
+| pagination | 设置 Pagination 组件的通用属性 | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties,classNames?:[PaginationConfig\["classNames"\]](/components/pagination-cn#semantic-dom), styles?: [PaginationConfig\["styles"\]](/components/pagination-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| progress | 设置 Progress 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ProgressConfig\["classNames"\]](/components/progress#semantic-dom), styles?: [ProgressConfig\["styles"\]](/components/progress#semantic-dom) } | - |  |
+| radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [RadioConfig\["classNames"\]](/components/radio-cn#semantic-dom), styles?: [RadioConfig\["styles"\]](/components/radio-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | rate | 设置 Rate 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectProps\["classNames"\]](/components/select-cn#api), styles?: [SelectProps\["styles"\]](/components/select-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
-| slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#api), styles?: [SliderProps\["styles"\]](/components/slider-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
-| switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space-cn#api), styles?: [SpaceProps\["styles"\]](/components/space-cn#api) } | - | 5.6.0 |
-| splitter | 设置 Splitter 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
-| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, `indicator`: 5.20.0 |
-| statistic | 设置 Statistic 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, `expandable`: 5.14.0 |
-| tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
-| tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
-| timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker-cn#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
-| tour | 设置 Tour 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.14.0 |
-| tooltip | 设置 Tooltip 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip-cn#api), styles?: [Tooltip\["styles"\]](/components/tooltip-cn#api) } | - | 5.23.0 |
-| popover | 设置 Popover 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover-cn#api), styles?: [Popover\["styles"\]](/components/popover-cn#api) } | - | 5.23.0 |
-| popconfirm | 设置 Popconfirm 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm-cn#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm-cn#api) } | - | 5.23.0 |
-| transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
-| tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| treeSelect | 设置 TreeSelect 组件的通用属性 | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select-cn#api), styles?: [TreeSelect\["styles"\]](/components/tree-select-cn#api) } | - | 5.25.0 |
+| result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ResultProps\["classNames"\]](/components/result-cn#semantic-dom), styles?: [ResultProps\["styles"\]](/components/result-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge-cn#semantic-dom) } | - | 6.0.0 |
+| skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton-cn#semantic-dom), styles?: [SkeletonProps\["styles"\]](/components/skeleton-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented-cn#semantic-dom), styles?: [SegmentedProps\["styles"\]](/components/segmented-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select-cn#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select-cn#semantic-dom) } | - | 5.7.0,`classNames` 和 `styles`: 6.0.0 |
+| slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#semantic-dom), styles?: [SliderProps\["styles"\]](/components/slider-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
+| switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SwitchStyleConfig\["classNames"\]](/components/switch-cn#semantic-dom), styles?: [SwitchStyleConfig\["styles"\]](/components/switch-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space-cn#semantic-dom), styles?: [SpaceProps\["styles"\]](/components/space-cn#semantic-dom) } | - | 5.6.0 |
+| splitter | 设置 Splitter 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Splitter\["classNames"\]](/components/splitter-cn#semantic-dom), styles?: [Splitter\["styles"\]](/components/splitter-cn#semantic-dom) } | - | 5.21.0 |
+| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement, classNames?:[SpinConfig\["classNames"\]](/components/spin-cn#semantic-dom), styles?: [SpinConfig\["styles"\]](/components/spin-cn#semantic-dom) } | - | 5.7.0, `indicator`: 5.20.0, `classNames` 和 `styles`: 6.0.0 |
+| statistic | 设置 Statistic 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [StatisticProps\["classNames"\]](/components/statistic-cn#semantic-dom), styles?: [StatisticProps\["styles"\]](/components/statistic-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[StepsConfig\["classNames"\]](/components/steps#semantic-dom), styles?: [StepsConfig\["styles"\]](/components/steps#semantic-dom) } | - |  |
+| table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode }, classNames?: [TableProps\["classNames"\]](/components/table-cn#semantic-dom), styles?: [TableProps\["styles"\]](/components/table-cn#semantic-dom) } | - |  |
+| tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode, classNames?: [TabsConfig\["classNames"\]](/components/tabs-cn#semantic-dom), styles?: [TabsConfig\["styles"\]](/components/tabs-cn#semantic-dom) } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0, `classNames` 和 `styles`: 6.0.0 |
+| tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [TagProps\["classNames"\]](/components/tag-cn#semantic-dom), styles?: [TagProps\["styles"\]](/components/tag-cn#semantic-dom) } | - | 5.7.0, closeIcon: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
+| timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TimelineConfig\["classNames"\]](/components/timeline-cn#semantic-dom), styles?: [TimelineConfig\["styles"\]](/components/timeline-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker-cn#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker-cn#semantic-dom) } | - | 5.7.0 |
+| tour | 设置 Tour 组件的通用属性 | { closeIcon?: React.ReactNode, className?: string, style?: React.CSSProperties, classNames?: [TourProps\["classNames"\]](/components/tour-cn#semantic-dom), styles?: [TourProps\["styles"\]](/components/tour-cn#semantic-dom) } | - | 5.14.0, `classNames`、`styles`、`className`、`style`: 6.0.0 |
+| tooltip | 设置 Tooltip 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip-cn#semantic-dom), styles?: [Tooltip\["styles"\]](/components/tooltip-cn#semantic-dom), arrow: boolean \| { pointAtCenter: boolean }, unique?: boolean, trigger?: [Tooltip\["trigger"\]](/components/tooltip-cn#api)} | - | `trigger`: 6.1.0 |
+| popover | 设置 Popover 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover-cn#semantic-dom), styles?: [Popover\["styles"\]](/components/popover-cn#semantic-dom), arrow: boolean \| { pointAtCenter: boolean }, trigger?: [Popover\["trigger"\]](/components/popover-cn#api)} | - | 5.23.0, `arrow`: 6.0.0, `trigger`: 6.1.0 |
+| popconfirm | 设置 Popconfirm 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm-cn#semantic-dom), styles?: [Popconfirm\["styles"\]](/components/popconfirm-cn#semantic-dom), arrow: boolean \| { pointAtCenter: boolean }, trigger?: [Popconfirm\["trigger"\]](/components/popconfirm-cn#api)} | - | 5.23.0, `arrow`: 6.0.0, `trigger`: 6.1.0 |
+| qrcode | 设置 QRCode 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[QRCode\["classNames"\]](/components/qr-code-cn#semantic-dom), styles?: [QRCode\["styles"\]](/components/qr-code-cn#semantic-dom) } | - |  |
+| transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TransferConfig\["classNames"\]](/components/transfer-cn#semantic-dom), styles?: [TransferConfig\["styles"\]](/components/transfer-cn#semantic-dom), selectionsIcon?: React.ReactNode } | - |  |
+| tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TreeConfig\["classNames"\]](/components/tree-cn#semantic-dom), styles?: [TreeConfig\["styles"\]](/components/tree-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| treeSelect | 设置 TreeSelect 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TreeSelectConfig\["classNames"\]](/components/tree-select-cn#semantic-dom), styles?: [TreeSelectConfig\["styles"\]](/components/tree-select-cn#semantic-dom), switcherIcon?: [TreeSelect\["switcherIcon"\]](/components/tree-select-cn#api)} | - |  |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload-cn#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload-cn#semantic-dom), customRequest?: [Upload\["customRequest"\]](/components/upload#api) } | - | 5.7.0, `customRequest`: 5.27.0, `classNames` 和 `styles`: 6.0.0 |
 | wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
 
-#### 如何增加一个新的语言包？
+### 如何增加一个新的语言包？ {#faq-add-locale}
 
 参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
 
-#### 为什么时间类组件的国际化 locale 设置不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
 参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
 
-#### 配置 `getPopupContainer` 导致 Modal 报错？
+### 配置 `getPopupContainer` 导致 Modal 报错？ {#faq-get-popup-container}
 
 相关 issue：<https://github.com/ant-design/ant-design/issues/19974>
 
@@ -204,17 +213,17 @@ const {
  </ConfigProvider>
 ```
 
-#### 为什么 message.info、notification.open 或 Modal.confirm 等方法内的 ReactNode 无法继承 ConfigProvider 的属性？比如 `prefixCls` 和 `theme`。
+### 为什么 message.info、notification.open 或 Modal.confirm 等方法内的 ReactNode 无法继承 ConfigProvider 的属性？比如 `prefixCls` 和 `theme`。 {#faq-message-inherit}
 
 静态方法是使用 ReactDOM.render 重新渲染一个 React 根节点上，和主应用的 React 节点是脱离的。我们建议使用 useMessage、useNotification 和 useModal 来使用相关方法。原先的静态方法在 5.0 中已被废弃。
 
-#### Vite 生产模式打包后国际化 locale 设置不生效？
+### Vite 生产模式打包后国际化 locale 设置不生效？ {#faq-vite-locale-not-work}
 
 相关 issue：[#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 由于 Vite 生产模式下打包与开发模式不同，cjs 格式的文件会多一层，需要 `zhCN.default` 来获取。推荐 Vite 用户直接从 `antd/es/locale` 目录下引入 esm 格式的 locale 文件。
 
-#### prefixCls 优先级(前者被后者覆盖)
+### prefixCls 优先级(前者被后者覆盖) {#faq-prefixcls-priority}
 
 1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
 2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`

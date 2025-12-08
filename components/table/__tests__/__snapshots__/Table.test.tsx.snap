@@ -1,17 +1,17 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table renders JSX correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -22,7 +22,6 @@ exports[`Table renders JSX correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -112,16 +111,16 @@ exports[`Table renders JSX correctly 1`] = `
 
 exports[`Table rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-table-wrapper ant-table-wrapper-rtl"
+  class="css-var-root ant-table-css-var ant-table-wrapper ant-table-wrapper-rtl"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-rtl"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var ant-table-rtl"
       >
         <div
           class="ant-table-container"
@@ -132,7 +131,6 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -152,7 +150,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-empty ant-empty-normal ant-empty-rtl"
+                      class="css-var-root ant-empty ant-empty-normal ant-empty-rtl"
                     >
                       <div
                         class="ant-empty-image"
@@ -214,16 +212,16 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
 exports[`Table should render title 1`] = `
 <div>
   <div
-    class="ant-table-wrapper"
+    class="css-var-root ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-root"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-empty"
+          class="ant-table ant-table-empty css-var-root ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -234,19 +232,18 @@ exports[`Table should render title 1`] = `
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
                   <tr>
                     <th
+                      aria-description="sortable"
                       aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -311,13 +308,13 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -377,13 +374,13 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -448,13 +445,13 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label="color"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -512,13 +509,13 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label="sex"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -588,7 +585,7 @@ exports[`Table should render title 1`] = `
                       colspan="5"
                     >
                       <div
-                        class="ant-empty ant-empty-normal"
+                        class="css-var-root ant-empty ant-empty-normal"
                       >
                         <div
                           class="ant-empty-image"
@@ -650,16 +647,16 @@ exports[`Table should render title 1`] = `
 
 exports[`Table support wireframe 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-test-id ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -670,7 +667,6 @@ exports[`Table support wireframe 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -693,7 +689,7 @@ exports[`Table support wireframe 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-test-id ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"

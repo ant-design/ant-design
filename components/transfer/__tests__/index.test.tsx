@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import type { DefaultRecordType } from '@rc-component/table/lib/interface';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import type { DefaultRecordType } from 'rc-table/lib/interface';
 
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
@@ -8,6 +8,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -88,6 +90,12 @@ const generateData = (n = 20) => {
   return data;
 };
 
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button type="link" onClick={onClick}>
+    Custom Button
+  </Button>
+);
+
 describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
@@ -100,7 +108,7 @@ describe('Transfer', () => {
   it('should move selected keys to corresponding list', () => {
     const handleChange = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onChange={handleChange} />);
-    fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!); // move selected keys to right list
+    fireEvent.click(container.querySelector('.ant-transfer-actions')?.querySelector('button')!); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
@@ -115,7 +123,7 @@ describe('Transfer', () => {
       />,
     );
     fireEvent.click(
-      container.querySelector('.ant-transfer-operation')?.querySelectorAll('button')?.[1]!,
+      container.querySelector('.ant-transfer-actions')?.querySelectorAll('button')?.[1]!,
     ); // move selected keys to left list
     expect(handleChange).toHaveBeenCalledWith([], 'left', ['a']);
   });
@@ -123,7 +131,7 @@ describe('Transfer', () => {
   it('should move selected keys expect disabled to corresponding list', () => {
     const handleChange = jest.fn();
     const { container } = render(<Transfer {...listDisabledProps} onChange={handleChange} />);
-    fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!); // move selected keys to right list
+    fireEvent.click(container.querySelector('.ant-transfer-actions')?.querySelector('button')!); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
@@ -313,7 +321,7 @@ describe('Transfer', () => {
 
     fireEvent.change(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('input[type="text"]')!,
       { target: { value: 'a' } },
@@ -321,7 +329,7 @@ describe('Transfer', () => {
 
     expect(
       container
-        .querySelectorAll('.ant-transfer-list')
+        .querySelectorAll('.ant-transfer-section')
         .item(0)
         .querySelectorAll('.ant-transfer-list-content input[type="checkbox"]'),
     ).toHaveLength(1);
@@ -341,7 +349,7 @@ describe('Transfer', () => {
     );
     fireEvent.change(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('input[type="text"]')!,
       { target: { value: 'content2' } },
@@ -423,7 +431,7 @@ describe('Transfer', () => {
     );
     fireEvent.change(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('input[type="text"]')!,
       { target: { value: 'content2' } },
@@ -467,10 +475,10 @@ describe('Transfer', () => {
     );
     fireEvent.click(
       container
-        ?.querySelector('.ant-transfer-list')
+        ?.querySelector('.ant-transfer-section')
         ?.querySelector('.ant-transfer-list-header input[type="checkbox"]')!,
     );
-    fireEvent.click(container.querySelector('.ant-transfer-operation')?.querySelector('button')!);
+    fireEvent.click(container.querySelector('.ant-transfer-actions')?.querySelector('button')!);
     expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
 
@@ -493,14 +501,14 @@ describe('Transfer', () => {
 
     fireEvent.change(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('input[type="text"]')!,
       { target: { value: 'a' } },
     );
     fireEvent.click(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('.ant-transfer-list-header input[type="checkbox"]')!,
     );
@@ -509,7 +517,7 @@ describe('Transfer', () => {
 
     fireEvent.click(
       container
-        ?.querySelectorAll('.ant-transfer-list')
+        ?.querySelectorAll('.ant-transfer-section')
         ?.item(0)
         ?.querySelector('.ant-transfer-list-header input[type="checkbox"]')!,
     );
@@ -542,18 +550,18 @@ describe('Transfer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should add custom styles when their props are provided', () => {
+  it('should apply custom styles when their props are provided', () => {
     const style: React.CSSProperties = {
-      backgroundColor: 'red',
+      padding: 10,
     };
     const leftStyle: React.CSSProperties = {
-      backgroundColor: 'blue',
+      padding: 20,
     };
     const rightStyle: React.CSSProperties = {
-      backgroundColor: 'red',
+      padding: 30,
     };
     const operationStyle: React.CSSProperties = {
-      backgroundColor: 'yellow',
+      padding: 40,
     };
 
     const { container } = render(
@@ -566,14 +574,103 @@ describe('Transfer', () => {
     );
 
     const wrapper = container.querySelector<HTMLDivElement>('.ant-transfer');
-    const listSource = container.querySelectorAll<HTMLDivElement>('.ant-transfer-list').item(0);
-    const listTarget = container.querySelectorAll<HTMLDivElement>('.ant-transfer-list').item(1);
-    const operation = container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation').item(0);
+    const listSource = container.querySelectorAll<HTMLDivElement>('.ant-transfer-section').item(0);
+    const listTarget = container.querySelectorAll<HTMLDivElement>('.ant-transfer-section').item(1);
+    const operation = container.querySelectorAll<HTMLDivElement>('.ant-transfer-actions').item(0);
 
-    expect(wrapper?.style.backgroundColor).toEqual('red');
-    expect(listSource.style.backgroundColor).toEqual('blue');
-    expect(listTarget.style.backgroundColor).toEqual('red');
-    expect(operation.style.backgroundColor).toEqual('yellow');
+    expect(wrapper).toHaveStyle({ padding: '10px' });
+    expect(listSource).toHaveStyle({ padding: '20px' });
+    expect(listTarget).toHaveStyle({ padding: '30px' });
+    expect(operation).toHaveStyle({ padding: '40px' });
+  });
+
+  it('should apply custom classNames and styles to Transfer', () => {
+    const customClassNames: TransferProps['classNames'] = {
+      root: 'custom-transfer-root',
+      section: 'custom-transfer-section',
+      header: 'custom-transfer-header',
+      actions: 'custom-transfer-actions',
+    };
+
+    const customStyles: TransferProps['styles'] = {
+      root: { color: 'rgb(255, 0, 0)' },
+      section: { color: 'rgb(0, 0, 255)' },
+      header: { color: 'rgb(255, 255, 0)' },
+      actions: { color: 'rgb(0, 128, 0)' },
+    };
+
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        classNames={customClassNames}
+        styles={customStyles}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-transfer');
+    const sectionElements = container.querySelectorAll<HTMLElement>('.ant-transfer-section');
+    const headerElements = container.querySelectorAll<HTMLElement>('.ant-transfer-list-header');
+    const actionsElement = container.querySelector<HTMLElement>('.ant-transfer-actions');
+
+    // check classNames
+    expect(rootElement).toHaveClass(customClassNames.root!);
+    expect(sectionElements[0]).toHaveClass(customClassNames.section!);
+    expect(sectionElements[1]).toHaveClass(customClassNames.section!);
+    expect(headerElements[0]).toHaveClass(customClassNames.header!);
+    expect(headerElements[1]).toHaveClass(customClassNames.header!);
+    expect(actionsElement).toHaveClass(customClassNames.actions!);
+
+    // check styles
+    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
+    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section?.color });
+    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section?.color });
+    expect(headerElements[0]).toHaveStyle({ color: customStyles.header?.color });
+    expect(headerElements[1]).toHaveStyle({ color: customStyles.header?.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions?.color });
+  });
+
+  it('should support classNames and styles as functions', () => {
+    const classNamesFn: TransferProps['classNames'] = (info) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-transfer' };
+      }
+      return { root: 'enabled-transfer' };
+    };
+
+    const stylesFn: TransferProps['styles'] = (info) => {
+      if (info.props.showSearch) {
+        return { root: { padding: '10px' } };
+      }
+      return { root: { margin: '10px' } };
+    };
+
+    const { container, rerender } = render(
+      <Transfer
+        {...listCommonProps}
+        disabled
+        classNames={classNamesFn}
+        styles={stylesFn}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-transfer');
+    expect(rootElement).toHaveClass('disabled-transfer');
+    expect(rootElement).toHaveStyle({ margin: '10px' });
+
+    rerender(
+      <Transfer
+        {...listCommonProps}
+        showSearch
+        classNames={classNamesFn}
+        styles={stylesFn}
+        render={(item) => item.title}
+      />,
+    );
+
+    expect(rootElement).toHaveClass('enabled-transfer');
+    expect(rootElement).toHaveStyle({ padding: '10px' });
   });
 
   it('should support onScroll', () => {
@@ -582,7 +679,7 @@ describe('Transfer', () => {
 
     fireEvent.scroll(
       container
-        .querySelectorAll('.ant-transfer-list')
+        .querySelectorAll('.ant-transfer-section')
         .item(0)
         .querySelectorAll('.ant-transfer-list-content')
         .item(0),
@@ -591,7 +688,7 @@ describe('Transfer', () => {
 
     fireEvent.scroll(
       container
-        .querySelectorAll('.ant-transfer-list')
+        .querySelectorAll('.ant-transfer-section')
         .item(1)
         .querySelectorAll('.ant-transfer-list-content')
         .item(0),
@@ -670,7 +767,7 @@ describe('Transfer', () => {
     }));
     const { container } = render(<Transfer {...listDisabledProps} dataSource={dataSource} />);
     expect(
-      container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation button').item(0),
+      container.querySelectorAll<HTMLDivElement>('.ant-transfer-actions button').item(0),
     ).toBeDisabled();
   });
 
@@ -686,7 +783,7 @@ describe('Transfer', () => {
       );
       expect(
         container
-          .querySelectorAll('.ant-transfer-list')
+          .querySelectorAll('.ant-transfer-section')
           .item(0)
           .querySelectorAll('.ant-transfer-list-content-item'),
       ).toHaveLength(1);
@@ -716,7 +813,7 @@ describe('Transfer', () => {
         <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
       );
 
-      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(container.querySelector('.ant-select')!);
       fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
       expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
     });
@@ -731,7 +828,7 @@ describe('Transfer', () => {
         />,
       );
 
-      fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(container.querySelector('.ant-select')!);
       fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
       expect(container.querySelectorAll('.ant-transfer-list-content-item').length).toBe(20);
     });
@@ -862,11 +959,40 @@ describe('Transfer', () => {
       expect(input).toHaveValue('values');
     });
   });
-});
 
-const ButtonRender = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick}>Right button reload</Button>
-);
+  describe('form disabled', () => {
+    it('should support Form disabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <Form.Item name="transfer1" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('.ant-transfer.ant-transfer-disabled')).toBeTruthy();
+    });
+
+    it('set Transfer enabled when ConfigProvider componentDisabled is false', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="transfer1" label="启用">
+              <Transfer {...listCommonProps} />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="transfer2" label="禁用">
+            <Transfer {...listCommonProps} />
+          </Form.Item>
+        </Form>,
+      );
+
+      const transfers = container.querySelectorAll('.ant-transfer');
+      expect(transfers[0]).not.toHaveClass('ant-transfer-disabled');
+      expect(transfers[1]).toHaveClass('ant-transfer-disabled');
+    });
+  });
+});
 
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
@@ -911,7 +1037,6 @@ describe('immutable data', () => {
       return (
         <Transfer
           dataSource={mockData}
-          operations={['to right', 'to left']}
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}
@@ -922,11 +1047,11 @@ describe('immutable data', () => {
 
     const { container } = render(<App />);
     fireEvent.click(container.querySelector('.ant-transfer-list-header input[type="checkbox"]')!);
-    fireEvent.click(container.querySelector('.ant-transfer-operation .ant-btn')!);
-    expect(container.querySelectorAll('.ant-transfer-list')[1]).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-transfer-actions .ant-btn')!);
+    expect(container.querySelectorAll('.ant-transfer-section')[1]).toBeTruthy();
     expect(
       container
-        .querySelectorAll('.ant-transfer-list')[1]
+        .querySelectorAll('.ant-transfer-section')[1]
         .querySelectorAll('.ant-transfer-list-content-item').length,
     ).toBe(2);
 

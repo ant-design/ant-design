@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Tag, TagProps } from 'antd';
+import { Tag } from 'antd';
+import type { TagProps } from 'antd';
 
 // https://github.com/umijs/dumi/blob/master/src/client/theme-default/builtins/Badge/index.tsx
 interface BadgeProps extends TagProps {
@@ -15,7 +16,7 @@ const colorMap = {
 
 export default ({ type = 'info', ...props }: BadgeProps) => (
   <Tag
-    bordered={false}
+    variant="filled"
     color={colorMap[type]}
     {...props}
     style={{ verticalAlign: 'top', ...props.style }}

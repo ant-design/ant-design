@@ -7,10 +7,10 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
+import Form from '../../form';
 import Input from '../../input';
 import Select from '../../select';
 import Table from '../../table';
-import Form from '../../form';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -184,5 +184,44 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('#variant-input-4')).toHaveClass('ant-input-filled');
     expect(container.querySelector('#variant-input-5')).toHaveClass('ant-input-filled');
     expect(container.querySelector('#variant-input-6')).toHaveClass('ant-input-outlined');
+  });
+
+  it('motion config should not trigger re-mount', () => {
+    let mountTime = 0;
+
+    const Render = () => {
+      React.useEffect(() => {
+        mountTime += 1;
+      }, []);
+
+      return null;
+    };
+
+    // No motion
+    const { rerender } = render(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Render />
+      </ConfigProvider>,
+      {
+        wrapper: undefined!,
+      },
+    );
+    expect(mountTime).toBe(1);
+
+    // Motion
+    rerender(
+      <ConfigProvider theme={{ token: { motion: true } }}>
+        <Render />
+      </ConfigProvider>,
+    );
+    expect(mountTime).toBe(1);
+
+    // No motion again
+    rerender(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Render />
+      </ConfigProvider>,
+    );
+    expect(mountTime).toBe(1);
   });
 });

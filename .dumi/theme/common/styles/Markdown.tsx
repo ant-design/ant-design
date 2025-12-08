@@ -26,6 +26,7 @@ const GlobalStyle: React.FC = () => {
         .markdown img {
           max-width: calc(100% - 32px);
           max-height: 100%;
+          display: inline;
         }
 
         .markdown > a > img,
@@ -175,6 +176,13 @@ const GlobalStyle: React.FC = () => {
             line-height: 2;
           }
         }
+
+        [data-prefers-color='dark'] {
+          .markdown .dumi-default-source-code {
+            background-color: ${token.siteMarkdownCodeBgDark};
+          }
+        }
+
         .pic-plus {
           & > * {
             display: inline-block !important;
@@ -201,13 +209,13 @@ const GlobalStyle: React.FC = () => {
           padding-inline-start: 0.8em;
           color: ${token.colorTextSecondary};
           font-size: 90%;
-          border-left: 4px solid ${token.colorSplit};
+          border-inline-start: 4px solid ${token.colorSplit};
 
           .rtl & {
             padding-inline-end: 0.8em;
             padding-inline-start: 0;
-            border-right: 4px solid ${token.colorSplit};
-            border-left: none;
+            border-inline-end: 4px solid ${token.colorSplit};
+            border-inline-start: none;
           }
         }
 
@@ -291,11 +299,11 @@ const GlobalStyle: React.FC = () => {
               border: 1px solid ${token.colorSplit};
 
               &:first-child {
-                border-left: 1px solid ${token.colorSplit};
+                border-inline-start: 1px solid ${token.colorSplit};
               }
 
               &:last-child {
-                border-right: 1px solid ${token.colorSplit};
+                border-inline-end: 1px solid ${token.colorSplit};
               }
 
               img {
@@ -374,23 +382,23 @@ const GlobalStyle: React.FC = () => {
             }
           }
 
-            /*
+          /*
               Api 表中某些属性用 del 标记，表示已废弃（但仍期望给开发者一个过渡期)用 css 标记出来。仅此而已。
               有更多看法？移步讨论区: https://github.com/ant-design/ant-design/discussions/51298
             */
-            tr:has(td:first-child > del) {
-              color: ${token.colorWarning} !important;
-              background-color: ${token.colorWarningBg} !important;
-              display: var(--antd-site-api-deprecated-display, none);
+          tr:has(td:first-child > del) {
+            color: ${token.colorWarning} !important;
+            background-color: ${token.colorWarningBg} !important;
+            display: var(--antd-site-api-deprecated-display, none);
 
-              del {
-                color: ${token.colorWarning};
-              }
-
-              &:hover del {
-                text-decoration: none;
-              }
+            del {
+              color: ${token.colorWarning};
             }
+
+            &:hover del {
+              text-decoration: none;
+            }
+          }
         }
 
         .grid-demo,

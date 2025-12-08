@@ -1,18 +1,18 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
-import { genCalc as calc, mergeToken, statisticToken, statistic } from '@ant-design/cssinjs-utils';
+import { genCalc as calc, mergeToken, statistic, statisticToken } from '@ant-design/cssinjs-utils';
 
 import type {
   AliasToken,
+  FullToken,
   GenerateStyle,
+  GenStyleFn,
+  GetDefaultToken,
+  GlobalToken,
+  OverrideComponent,
   PresetColorKey,
   PresetColorType,
   SeedToken,
-  GlobalToken,
   UseComponentStyleResult,
-  FullToken,
-  GetDefaultToken,
-  OverrideComponent,
-  GenStyleFn,
 } from './interface';
 import { PresetColors } from './interface';
 import { getLineHeight } from './themes/shared/genFontSizes';
@@ -21,38 +21,38 @@ import { genComponentStyleHook, genStyleHooks, genSubStyleComponent } from './ut
 import genPresetColor from './util/genPresetColor';
 import useResetIconStyle from './util/useResetIconStyle';
 
+export { defaultConfig, DesignTokenContext } from './context';
 export type { CSSUtil, TokenWithCommonCls } from '@ant-design/cssinjs-utils';
 
-export { DesignTokenContext, defaultConfig } from './context';
 export {
+  calc,
   // generators
   genComponentStyleHook,
-  genSubStyleComponent,
   genPresetColor,
   genStyleHooks,
+  genSubStyleComponent,
+  getLineHeight,
   // utils
   mergeToken,
+  // constant
+  PresetColors,
+  statistic,
   statisticToken,
-  calc,
-  getLineHeight,
   // hooks
   useResetIconStyle,
   useStyleRegister,
   useToken,
-  // constant
-  PresetColors,
-  statistic,
 };
 export type {
   AliasToken,
   FullToken,
-  OverrideComponent,
   GenerateStyle,
+  GenStyleFn,
+  GetDefaultToken,
+  GlobalToken,
+  OverrideComponent,
   PresetColorKey,
   PresetColorType,
   SeedToken,
   UseComponentStyleResult,
-  GetDefaultToken,
-  GlobalToken,
-  GenStyleFn,
 };

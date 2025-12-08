@@ -28,7 +28,7 @@ jobs:
           echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
       - name: Comment on PR
         if: steps.get_commit_count.outputs.COUNT < 3
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -36,7 +36,7 @@ jobs:
 
             🎉 感谢您的贡献！如果您还没有加入钉钉社区群，请扫描下方二维码加入我们（加群时请提供此 PR 链接）。
 
-            <img src="https://github.com/user-attachments/assets/cfee105e-8731-481f-a336-92b79a84d35a" height="200" />
+            <img alt="钉钉社区群二维码" src="https://github.com/user-attachments/assets/bb99df70-b3aa-40d3-958a-cb6822a3c584" height="200" />
 
             <!-- WELCOME_CONTRIBUTION -->
           body-include: <!-- WELCOME_CONTRIBUTION -->

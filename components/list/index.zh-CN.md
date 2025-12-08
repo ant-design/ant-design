@@ -6,13 +6,19 @@ subtitle: 列表
 description: 最基础的列表展示，可承载文字、列表、图片、段落。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: DEPRECATED
 ---
 
 ## 何时使用 {#when-to-use}
 
 最基础的列表展示，可承载文字、列表、图片、段落，常用于后台数据展示页面。
 
-## 代码演示
+<!-- prettier-ignore -->
+:::warning{title=废弃提示}
+List 组件已经进入废弃阶段，将于下个 major 版本移除。
+:::
+
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/simple.tsx">简单列表</code>
@@ -24,6 +30,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 <code src="./demo/grid-test.tsx" debug>测试栅格列表</code>
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
 <code src="./demo/infinite-load.tsx">滚动加载</code>
+<code src="./demo/drag-sorting.tsx">拖拽排序</code>
+<code src="./demo/drag-sorting-handler.tsx">拖拽排序（拖拽手柄）</code>
+<code src="./demo/grid-drag-sorting.tsx">栅格拖拽排序</code>
+<code src="./demo/grid-drag-sorting-handler.tsx">栅格拖拽排序（拖拽手柄）</code>
 <code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 token</code>
 
@@ -97,6 +107,23 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="List"></ComponentTokenTable>
+
+## FAQ {#faq}
+
+### List 组件废弃后，有替代方案吗？ {#faq-listy-replacement}
+
+在 Ant Design v6 中，我们将推出一个全新的 Listy 组件作为 List 的继任者。
+
+Listy 内置虚拟滚动能力，并更加强调灵活的布局控制，旨在帮助开发者根据不同业务场景更高效地实现自定义列表。
+
+目前，底层实现 rc-listy 已基本开发完成，正在等待核心维护者的评审与后续调整。
+
+Ant Design v6 将基于 rc-listy 正式提供 Listy 组件。
+
+相关链接：
+
+- Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
+- RFC 讨论: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)

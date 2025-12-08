@@ -443,57 +443,46 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       },
 
       // ====================== Week Panel ======================
-      '&-week-panel': {
-        // Clear cell style
-        [`${componentCls}-cell`]: {
-          [`&:hover ${pickerCellInnerCls},
-            &-selected ${pickerCellInnerCls},
-            ${pickerCellInnerCls}`]: {
-            background: 'transparent !important',
+      '&-week-panel-row': {
+        td: {
+          '&:before': {
+            transition: `background ${motionDurationMid}`,
+          },
+
+          '&:first-child:before': {
+            borderStartStartRadius: borderRadiusSM,
+            borderEndStartRadius: borderRadiusSM,
+          },
+
+          '&:last-child:before': {
+            borderStartEndRadius: borderRadiusSM,
+            borderEndEndRadius: borderRadiusSM,
           },
         },
 
-        '&-row': {
-          td: {
+        '&:hover td:before': {
+          background: cellHoverBg,
+        },
+
+        '&-range-start td, &-range-end td, &-selected td, &-hover td': {
+          // Rise priority to override hover style
+          [`&${pickerCellCls}`]: {
             '&:before': {
-              transition: `background ${motionDurationMid}`,
+              background: colorPrimary,
             },
 
-            '&:first-child:before': {
-              borderStartStartRadius: borderRadiusSM,
-              borderEndStartRadius: borderRadiusSM,
+            [`&${componentCls}-cell-week`]: {
+              color: new FastColor(colorTextLightSolid).setA(0.5).toHexString(),
             },
 
-            '&:last-child:before': {
-              borderStartEndRadius: borderRadiusSM,
-              borderEndEndRadius: borderRadiusSM,
+            [pickerCellInnerCls]: {
+              color: colorTextLightSolid,
             },
           },
+        },
 
-          '&:hover td:before': {
-            background: cellHoverBg,
-          },
-
-          '&-range-start td, &-range-end td, &-selected td, &-hover td': {
-            // Rise priority to override hover style
-            [`&${pickerCellCls}`]: {
-              '&:before': {
-                background: colorPrimary,
-              },
-
-              [`&${componentCls}-cell-week`]: {
-                color: new FastColor(colorTextLightSolid).setA(0.5).toHexString(),
-              },
-
-              [pickerCellInnerCls]: {
-                color: colorTextLightSolid,
-              },
-            },
-          },
-
-          '&-range-hover td:before': {
-            background: controlItemBgActive,
-          },
+        '&-range-hover td:before': {
+          background: controlItemBgActive,
         },
       },
 

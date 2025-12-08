@@ -47,11 +47,10 @@ const App: React.FC = () => {
         />
       </Header>
       <div style={{ padding: '0 48px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb
+          style={{ margin: '16px 0' }}
+          items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
+        />
         <Layout
           style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}
         >

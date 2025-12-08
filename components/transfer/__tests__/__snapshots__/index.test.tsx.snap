@@ -1,17 +1,17 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Transfer rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-transfer ant-transfer-rtl"
+  class="ant-transfer ant-transfer-rtl css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -28,7 +28,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl"
         role="img"
       >
         <svg
@@ -62,7 +62,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -113,10 +113,10 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
       disabled=""
       type="button"
     >
@@ -145,7 +145,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
       disabled=""
       type="button"
     >
@@ -175,13 +175,13 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -198,7 +198,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl"
         role="img"
       >
         <svg
@@ -232,7 +232,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -287,16 +287,16 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
 
 exports[`Transfer should render correctly 1`] = `
 <div
-  class="ant-transfer"
+  class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -313,7 +313,7 @@ exports[`Transfer should render correctly 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -350,7 +350,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -373,7 +373,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -396,10 +396,10 @@ exports[`Transfer should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       type="button"
     >
       <span
@@ -427,7 +427,7 @@ exports[`Transfer should render correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -457,13 +457,13 @@ exports[`Transfer should render correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -479,7 +479,7 @@ exports[`Transfer should render correctly 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -516,7 +516,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -542,16 +542,16 @@ exports[`Transfer should render correctly 1`] = `
 
 exports[`Transfer should show sorted targetKey 1`] = `
 <div
-  class="ant-transfer"
+  class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -567,7 +567,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -605,7 +605,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
           title="a"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -629,10 +629,10 @@ exports[`Transfer should show sorted targetKey 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -661,7 +661,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -691,13 +691,13 @@ exports[`Transfer should show sorted targetKey 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -713,7 +713,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -751,7 +751,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
           title="c"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -776,7 +776,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
           title="b"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -804,16 +804,16 @@ exports[`Transfer should show sorted targetKey 1`] = `
 
 exports[`Transfer should support render value and label in item 1`] = `
 <div
-  class="ant-transfer"
+  class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -829,7 +829,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -867,7 +867,7 @@ exports[`Transfer should support render value and label in item 1`] = `
           title="title value"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -891,10 +891,10 @@ exports[`Transfer should support render value and label in item 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -923,7 +923,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -953,13 +953,13 @@ exports[`Transfer should support render value and label in item 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -976,7 +976,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -1010,7 +1010,7 @@ exports[`Transfer should support render value and label in item 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -1065,16 +1065,16 @@ exports[`Transfer should support render value and label in item 1`] = `
 
 exports[`immutable data dataSource is frozen 1`] = `
 <div
-  class="ant-transfer"
+  class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -1090,7 +1090,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -1127,7 +1127,7 @@ exports[`immutable data dataSource is frozen 1`] = `
           class="ant-transfer-list-content-item"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1149,10 +1149,10 @@ exports[`immutable data dataSource is frozen 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1181,7 +1181,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1211,13 +1211,13 @@ exports[`immutable data dataSource is frozen 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1234,7 +1234,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -1268,7 +1268,7 @@ exports[`immutable data dataSource is frozen 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+          class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"

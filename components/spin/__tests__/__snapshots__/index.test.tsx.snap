@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Spin if indicator set null should not be render default indicator 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning"
+  class="ant-spin ant-spin-spinning css-var-root"
 >
   <span
     class="ant-spin-dot-holder"
@@ -33,7 +33,7 @@ exports[`Spin rtl render component should be rendered correctly in RTL direction
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning ant-spin-rtl"
+  class="ant-spin ant-spin-spinning ant-spin-rtl css-var-root"
 >
   <span
     class="ant-spin-dot-holder"
@@ -62,7 +62,7 @@ exports[`Spin should render custom indicator when it's set 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning"
+  class="ant-spin ant-spin-spinning css-var-root"
 >
   <div
     class="custom-indicator ant-spin-dot"
@@ -74,7 +74,7 @@ exports[`Spin should support static method Spin.setDefaultIndicator 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning"
+  class="ant-spin ant-spin-spinning css-var-root"
 >
   <em
     class="custom-spinner ant-spin-dot"

@@ -11,7 +11,7 @@ dayjs.extend(customParseFormat);
 const { RangePicker } = DatePicker;
 
 const range = (start: number, end: number) => {
-  const result = [];
+  const result: number[] = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
@@ -21,6 +21,11 @@ const range = (start: number, end: number) => {
 const disabledDate: RangePickerProps['disabledDate'] = (current) => {
   // Can not select days before today and today
   return current && current < dayjs().endOf('day');
+};
+
+const disabledDateForMonth: RangePickerProps['disabledDate'] = (current) => {
+  // Can not select months before this month
+  return current && current < dayjs().startOf('month');
 };
 
 const disabledDateTime = () => ({
@@ -45,21 +50,21 @@ const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
       disabledDate={disabledDate}
       disabledTime={disabledDateTime}
-      showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
+      showTime={{ defaultOpenValue: dayjs('00:00:00', 'HH:mm:ss') }}
     />
-    <DatePicker picker="month" disabledDate={disabledDate} />
+    <DatePicker picker="month" disabledDate={disabledDateForMonth} />
     <RangePicker disabledDate={disabledDate} />
     <RangePicker
       disabledDate={disabledDate}
       disabledTime={disabledRangeTime}
       showTime={{
         hideDisabledOptions: true,
-        defaultValue: [dayjs('00:00:00', 'HH:mm:ss'), dayjs('11:59:59', 'HH:mm:ss')],
+        defaultOpenValue: [dayjs('00:00:00', 'HH:mm:ss'), dayjs('11:59:59', 'HH:mm:ss')],
       }}
       format="YYYY-MM-DD HH:mm:ss"
     />

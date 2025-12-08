@@ -1,77 +1,86 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
-import RcDrawer from 'rc-drawer';
-import type { Placement } from 'rc-drawer/lib/Drawer';
-import type { CSSMotionProps } from 'rc-motion';
+import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
+import RcDrawer from '@rc-component/drawer';
+import type { Placement } from '@rc-component/drawer/lib/Drawer';
+import type { CSSMotionProps } from '@rc-component/motion';
+import { composeRef } from '@rc-component/util/lib/ref';
+import useId from '@rc-component/util/lib/hooks/useId';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import { useMergedMask, useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { MaskType } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
+import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
 const _SizeTypes = ['default', 'large'] as const;
+
 type sizeType = (typeof _SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;
 }
 
+export interface DrawerResizableConfig {
+  onResize?: (size: number) => void;
+  onResizeStart?: () => void;
+  onResizeEnd?: () => void;
+}
+
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
-    Omit<DrawerPanelProps, 'prefixCls'> {
-  size?: sizeType;
-
+  extends Omit<
+      RcDrawerProps,
+      'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable' | 'classNames' | 'styles'
+    >,
+    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
+  size?: sizeType | number;
+  resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
-
   afterOpenChange?: (open: boolean) => void;
-
-  // Deprecated
-  /** @deprecated Please use `open` instead */
-  visible?: boolean;
-  /** @deprecated Please use `afterOpenChange` instead */
-  afterVisibleChange?: (open: boolean) => void;
-  classNames?: DrawerClassNames;
-  styles?: DrawerStyles;
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean;
   /**
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  mask?: MaskType;
 }
 
 const defaultPushState: PushState = { distance: 180 };
+
+const DEFAULT_SIZE = 378;
 
 const Drawer: React.FC<DrawerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 } = (props) => {
   const {
     rootClassName,
-    width,
+    size,
+    defaultSize = DEFAULT_SIZE,
     height,
-    size = 'default',
-    mask = true,
+    width,
+    mask: drawerMask,
     push = defaultPushState,
     open,
     afterOpenChange,
     onClose,
     prefixCls: customizePrefixCls,
     getContainer: customizeGetContainer,
+    panelRef = null,
     style,
     className,
+    resizable,
+    'aria-labelledby': ariaLabelledby,
 
     // Deprecated
-    visible,
-    afterVisibleChange,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -79,6 +88,10 @@ const Drawer: React.FC<DrawerProps> & {
     destroyOnHidden,
     ...rest
   } = props;
+
+  const { placement } = rest;
+  const id = useId();
+  const ariaId = rest.title ? id : undefined;
 
   const {
     getPopupContainer,
@@ -88,11 +101,12 @@ const Drawer: React.FC<DrawerProps> & {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    mask: contextMask,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -100,30 +114,20 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  const drawerClassName = classNames(
-    {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
 
     [
-      ['visible', 'open'],
-      ['afterVisibleChange', 'afterOpenChange'],
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.content'],
+      ['drawerStyle', 'styles.section'],
       ['destroyInactivePanel', 'destroyOnHidden'],
+      ['width', 'size'],
+      ['height', 'size'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -138,15 +142,25 @@ const Drawer: React.FC<DrawerProps> & {
   }
 
   // ============================ Size ============================
-  const mergedWidth = React.useMemo<string | number>(
-    () => width ?? (size === 'large' ? 736 : 378),
-    [width, size],
-  );
+  const drawerSize = React.useMemo<string | number | undefined>(() => {
+    if (typeof size === 'number') {
+      return size;
+    }
 
-  const mergedHeight = React.useMemo<string | number>(
-    () => height ?? (size === 'large' ? 736 : 378),
-    [height, size],
-  );
+    if (size === 'large') {
+      return 736;
+    }
+
+    if (size === 'default') {
+      return DEFAULT_SIZE;
+    }
+
+    if (!placement || placement === 'left' || placement === 'right') {
+      return width;
+    }
+
+    return height;
+  }, [size, placement, width, height]);
 
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
@@ -167,15 +181,46 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ============================ Refs ============================
   // Select `ant-drawer-content` by `panelRef`
-  const panelRef = usePanelRef();
+  const innerPanelRef = usePanelRef();
+  const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames, styles, rootStyle } = rest;
 
-  return wrapCSSVar(
+  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+
+  const mergedProps: DrawerProps = {
+    ...props,
+    zIndex,
+    panelRef,
+    mask: mergedMask,
+    defaultSize,
+    push,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DrawerClassNamesType,
+    DrawerStylesType,
+    DrawerProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const drawerClassName = clsx(
+    {
+      'no-mask': !mergedMask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    mergedClassNames.root,
+  );
+
+  return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <RcDrawer
@@ -185,46 +230,44 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            mask: classNames(propClassNames.mask, contextClassNames.mask),
-            content: classNames(propClassNames.content, contextClassNames.content),
-            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
+            mask: clsx(mergedClassNames.mask, maskBlurClassName.mask),
+            section: mergedClassNames.section,
+            wrapper: mergedClassNames.wrapper,
+            dragger: mergedClassNames.dragger,
           }}
           styles={{
-            mask: {
-              ...propStyles.mask,
-              ...maskStyle,
-              ...contextStyles.mask,
-            },
-            content: {
-              ...propStyles.content,
-              ...drawerStyle,
-              ...contextStyles.content,
-            },
-            wrapper: {
-              ...propStyles.wrapper,
-              ...contentWrapperStyle,
-              ...contextStyles.wrapper,
-            },
+            mask: { ...mergedStyles.mask, ...maskStyle },
+            section: { ...mergedStyles.section, ...drawerStyle },
+            wrapper: { ...mergedStyles.wrapper, ...contentWrapperStyle },
+            dragger: mergedStyles.dragger,
           }}
-          open={open ?? visible}
-          mask={mask}
+          open={open}
+          mask={mergedMask}
           push={push}
-          width={mergedWidth}
-          height={mergedHeight}
+          size={drawerSize}
+          defaultSize={defaultSize}
           style={{ ...contextStyle, ...style }}
-          className={classNames(contextClassName, className)}
+          rootStyle={{ ...rootStyle, ...mergedStyles.root }}
+          className={clsx(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
-          afterOpenChange={afterOpenChange ?? afterVisibleChange}
-          panelRef={panelRef}
+          afterOpenChange={afterOpenChange}
+          panelRef={mergedPanelRef}
           zIndex={zIndex}
-          // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
-          destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          {...(resizable ? { resizable } : {})}
+          aria-labelledby={ariaLabelledby ?? ariaId}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
-          <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+          <DrawerPanel
+            prefixCls={prefixCls}
+            size={size}
+            {...rest}
+            ariaId={ariaId}
+            onClose={onClose}
+          />
         </RcDrawer>
       </zIndexContext.Provider>
-    </ContextIsolator>,
+    </ContextIsolator>
   );
 };
 
@@ -248,9 +291,9 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-pure`,
     `${prefixCls}-${placement}`,
@@ -259,10 +302,10 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
     className,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={style}>
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
-    </div>,
+    </div>
   );
 };
 

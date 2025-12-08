@@ -1,12 +1,14 @@
 import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
-import RcSwitch from 'rc-switch';
-import type { SwitchChangeEventHandler, SwitchClickEventHandler } from 'rc-switch';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import RcSwitch from '@rc-component/switch';
+import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-component/switch';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks';
 import Wave from '../_util/wave';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
@@ -14,6 +16,10 @@ import useStyle from './style';
 export type SwitchSize = 'small' | 'default';
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
 
+type SemanticName = 'root' | 'content';
+
+export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SemanticName>;
+export type SwitchStylesType = SemanticStylesType<SwitchProps, SemanticName>;
 export interface SwitchProps {
   prefixCls?: string;
   size?: SwitchSize;
@@ -42,6 +48,8 @@ export interface SwitchProps {
   title?: string;
   tabIndex?: number;
   id?: string;
+  classNames?: SwitchClassNamesType;
+  styles?: SwitchStylesType;
 }
 
 const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
@@ -58,15 +66,24 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     defaultChecked: defaultCheckedProp,
     defaultValue,
     onChange,
+    styles,
+    classNames,
     ...restProps
   } = props;
 
-  const [checked, setChecked] = useMergedState<boolean>(false, {
-    value: checkedProp ?? value,
-    defaultValue: defaultCheckedProp ?? defaultValue,
-  });
+  const [checked, setChecked] = useControlledState<boolean>(
+    defaultCheckedProp ?? defaultValue ?? false,
+    checkedProp ?? value,
+  );
 
-  const { getPrefixCls, direction, switch: SWITCH } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('switch');
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -81,12 +98,26 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   );
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedSize = useSize(customizeSize);
 
-  const classes = classNames(
-    SWITCH?.className,
+  const mergedProps: SwitchProps = {
+    ...props,
+    size: mergedSize,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SwitchClassNamesType,
+    SwitchStylesType,
+    SwitchProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const classes = clsx(
+    contextClassName,
     {
       [`${prefixCls}-small`]: mergedSize === 'small',
       [`${prefixCls}-loading`]: loading,
@@ -94,21 +125,28 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     },
     className,
     rootClassName,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...SWITCH?.style, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...mergedStyles.root,
+    ...contextStyle,
+    ...style,
+  };
 
   const changeHandler: SwitchChangeEventHandler = (...args) => {
     setChecked(args[0]);
     onChange?.(...args);
   };
 
-  return wrapCSSVar(
-    <Wave component="Switch">
+  return (
+    <Wave component="Switch" disabled={mergedDisabled}>
       <RcSwitch
         {...restProps}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
         checked={checked}
         onChange={changeHandler}
         prefixCls={prefixCls}
@@ -118,7 +156,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
         ref={ref}
         loadingIcon={loadingIcon}
       />
-    </Wave>,
+    </Wave>
   );
 });
 

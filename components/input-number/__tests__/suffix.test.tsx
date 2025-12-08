@@ -13,24 +13,18 @@ describe('suffix', () => {
     const { container } = render(<InputNumber suffix={<i>antd</i>} />);
 
     const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-    fireEvent.click(container.querySelector('i')!);
+    fireEvent.mouseDown(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });
 
-  it('should has classname when without controls', () => {
-    const { container } = render(<InputNumber suffix={<i>antd</i>} controls={false} />);
-
-    expect(
-      container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
-    ).toBeTruthy();
-  });
-
-  it('should not show the control buttons when inputNumber is disabled', () => {
-    // Since the hover effect cannot be tested in the jsdom environment
-    // Just to make sure whether there is a corresponding classname
-    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} disabled />);
-    expect(container.querySelector('.ant-input-number-affix-wrapper')).toHaveClass(
-      'ant-input-number-affix-wrapper-without-controls',
-    );
+  it.each([
+    ['controls=false', { controls: false }],
+    // https://github.com/ant-design/ant-design/issues/53181
+    ['disabled', { disabled: true }],
+    // https://github.com/ant-design/ant-design/discussions/54583
+    ['readOnly', { readOnly: true }],
+  ])('should not show the control buttons when inputNumber is %s', (_, props) => {
+    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} {...props} />);
+    expect(container.querySelector('.ant-input-number-without-controls')).toBeTruthy();
   });
 });

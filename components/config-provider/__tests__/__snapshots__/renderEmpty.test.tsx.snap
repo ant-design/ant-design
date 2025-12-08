@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renderEmpty should render Cascader empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal ant-empty-small"
+  class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
     class="ant-empty-image"
@@ -53,7 +53,7 @@ exports[`renderEmpty should render Cascader empty 1`] = `
 
 exports[`renderEmpty should render List empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal"
+  class="css-var-root ant-empty ant-empty-normal"
 >
   <div
     class="ant-empty-image"
@@ -104,7 +104,7 @@ exports[`renderEmpty should render List empty 1`] = `
 
 exports[`renderEmpty should render Mentions empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal ant-empty-small"
+  class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
     class="ant-empty-image"
@@ -155,7 +155,7 @@ exports[`renderEmpty should render Mentions empty 1`] = `
 
 exports[`renderEmpty should render Select empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal ant-empty-small"
+  class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
     class="ant-empty-image"
@@ -206,7 +206,7 @@ exports[`renderEmpty should render Select empty 1`] = `
 
 exports[`renderEmpty should render Table empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal"
+  class="css-var-root ant-empty ant-empty-normal"
 >
   <div
     class="ant-empty-image"
@@ -259,7 +259,7 @@ exports[`renderEmpty should render Table.filter empty 1`] = `null`;
 
 exports[`renderEmpty should render Transfer empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal ant-empty-small"
+  class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
     class="ant-empty-image"
@@ -310,7 +310,7 @@ exports[`renderEmpty should render Transfer empty 1`] = `
 
 exports[`renderEmpty should render TreeSelect empty 1`] = `
 <div
-  class="ant-empty ant-empty-normal ant-empty-small"
+  class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
     class="ant-empty-image"
@@ -361,7 +361,7 @@ exports[`renderEmpty should render TreeSelect empty 1`] = `
 
 exports[`renderEmpty should return empty when componentName is not matched 1`] = `
 <div
-  class="ant-empty"
+  class="css-var-root ant-empty"
 >
   <div
     class="ant-empty-image"

@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 
-import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
+import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -213,7 +213,7 @@ export default genStyleHooks(
     const combinedToken = mergeToken<MessageToken>(token, {
       height: 150,
     });
-    return [genMessageStyle(combinedToken)];
+    return genMessageStyle(combinedToken);
   },
   prepareComponentToken,
 );

@@ -21,12 +21,12 @@ describe('Spin', () => {
 
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const { container } = render(
-      <Spin style={{ background: 'red' }}>
+      <Spin style={{ padding: 20 }}>
         <div>content</div>
       </Spin>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')?.style.length).toBe(0);
-    expect(container.querySelector<HTMLElement>('.ant-spin')?.style.background).toBe('red');
+    expect(container.querySelector('.ant-spin-nested-loading')).not.toHaveAttribute('style');
+    expect(container.querySelector<HTMLElement>('.ant-spin')).toHaveStyle({ padding: '20px' });
   });
 
   it('should not apply nested styles when full screen', () => {
@@ -133,5 +133,29 @@ describe('Spin', () => {
       const { container } = render(<Spin indicator={<MyIndicator />} percent={23} />);
       expect(container.querySelector('.custom-indicator')?.textContent).toBe('23');
     });
+  });
+
+  it('custom styles', () => {
+    const customStyles = {
+      root: { background: 'rgb(255, 0, 0)' },
+      indicator: { color: 'rgb(0, 0, 255)' },
+      mask: { background: 'rgb(0, 255, 0)' },
+    };
+    const customClassNames = {
+      root: 'custom-root',
+      indicator: 'custom-indicator',
+      mask: 'custom-mask',
+    };
+    const { container } = render(<Spin styles={customStyles} classNames={customClassNames} />);
+    const { container: fullscreenContainer } = render(
+      <Spin fullscreen styles={customStyles} classNames={customClassNames} />,
+    );
+    expect(container.querySelector('.custom-root'))?.toHaveStyle('background: rgb(255, 0, 0)');
+    expect(fullscreenContainer.querySelector('.custom-mask'))?.toHaveStyle(
+      'background: rgb(0, 255, 0)',
+    );
+    expect(fullscreenContainer.querySelector('.custom-indicator'))?.toHaveStyle(
+      'color: rgb(0, 0, 255)',
+    );
   });
 });

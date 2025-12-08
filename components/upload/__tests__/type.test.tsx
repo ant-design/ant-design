@@ -1,7 +1,8 @@
 import React from 'react';
 
-import type { UploadListProps, UploadProps } from '..';
+import type { DraggerProps, UploadListProps, UploadProps } from '..';
 import Upload from '..';
+import Dragger from '../Dragger';
 import UploadList from '../UploadList';
 
 describe('Upload.typescript', () => {
@@ -230,5 +231,15 @@ describe('Upload.typescript', () => {
       previewIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
     };
     expect(<UploadList {...uploadListProps} />).toBeTruthy();
+  });
+
+  it('DraggerProps type', () => {
+    const draggerProps: DraggerProps<number | string> = {
+      customRequest({ onSuccess }) {
+        onSuccess?.(1234);
+        onSuccess?.('test');
+      },
+    };
+    expect(<Dragger {...draggerProps} />).toBeTruthy();
   });
 });

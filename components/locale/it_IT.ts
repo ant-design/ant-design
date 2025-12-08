@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/it_IT';
+import Pagination from '@rc-component/pagination/lib/locale/it_IT';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/it_IT';
@@ -131,8 +131,16 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Anteprima',
+  QRCode: {
+    expired: 'Codice QR scaduto',
+    refresh: 'Ricarica',
+    scanned: 'Scansionato',
+  },
+  ColorPicker: {
+    presetEmpty: 'Vuoto',
+    transparent: 'Trasparente',
+    singleColor: 'Tinta unita',
+    gradientColor: 'Gradiente',
   },
 };
 

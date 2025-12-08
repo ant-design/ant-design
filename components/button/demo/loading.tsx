@@ -6,6 +6,8 @@ const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {
+    console.log('Start loading:', index);
+
     setLoadings((prevLoadings) => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
@@ -43,7 +45,7 @@ const App: React.FC = () => {
           type="primary"
           loading={loadings[2]}
           onClick={() => enterLoading(2)}
-          iconPosition="end"
+          iconPlacement="end"
         >
           Icon End
         </Button>

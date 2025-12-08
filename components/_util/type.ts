@@ -1,9 +1,13 @@
 import type React from 'react';
 
+export type Primitive = null | undefined | string | number | boolean | symbol | bigint;
+
 /** https://github.com/Microsoft/TypeScript/issues/29729 */
-export type LiteralUnion<T extends string> = T | (string & {});
+export type LiteralUnion<T, U extends Primitive = string> = T | (U & Record<never, never>);
 
 export type AnyObject = Record<PropertyKey, any>;
+
+export type EmptyObject = Record<never, never>;
 
 export type CustomComponent<P = AnyObject> = React.ComponentType<P> | string;
 
@@ -15,16 +19,22 @@ export type CustomComponent<P = AnyObject> = React.ComponentType<P> | string;
  * import type { GetProps } from 'antd';
  *
  * type CheckboxGroupProps = GetProps<typeof Checkbox.Group>
+ *
+ * const MyContext = React.createContext<{ sample?: boolean }>({});
+ * type MyContextProps = GetProps<typeof MyContext>;
+ *
  * ```
  * @since 5.13.0
  */
-export type GetProps<T extends React.ComponentType<any> | object> = T extends React.ComponentType<
-  infer P
+export type GetProps<T extends React.ComponentType<any> | object> = T extends React.Context<
+  infer CP
 >
-  ? P
-  : T extends object
-    ? T
-    : never;
+  ? CP
+  : T extends React.ComponentType<infer P>
+    ? P
+    : T extends object
+      ? T
+      : never;
 
 /**
  * Get component props by component name
@@ -72,9 +82,30 @@ export type GetRef<T extends ReactRefComponent<any> | React.Component<any>> =
       ? ExtractRefAttributesRef<P>
       : never;
 
-export type GetContextProps<T> = T extends React.Context<infer P> ? P : never;
-
-export type GetContextProp<
-  T extends React.Context<any>,
-  PropName extends keyof GetContextProps<T>,
-> = NonNullable<GetContextProps<T>[PropName]>;
+export type ValidChar =
+  | 'a'
+  | 'b'
+  | 'c'
+  | 'd'
+  | 'e'
+  | 'f'
+  | 'g'
+  | 'h'
+  | 'i'
+  | 'j'
+  | 'k'
+  | 'l'
+  | 'm'
+  | 'n'
+  | 'o'
+  | 'p'
+  | 'q'
+  | 'r'
+  | 's'
+  | 't'
+  | 'u'
+  | 'v'
+  | 'w'
+  | 'x'
+  | 'y'
+  | 'z';

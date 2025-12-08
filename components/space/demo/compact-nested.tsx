@@ -2,8 +2,6 @@ import React from 'react';
 import { CopyOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Cascader, Input, InputNumber, Select, Space, TimePicker } from 'antd';
 
-const { Option } = Select;
-
 const App: React.FC = () => (
   <>
     <Space.Compact block>
@@ -14,10 +12,13 @@ const App: React.FC = () => (
         </Space.Compact>
         <Space.Compact>
           <InputNumber defaultValue={12} />
-          <Select defaultValue="Option1">
-            <Option value="Option1">Opt1</Option>
-            <Option value="Option2">Opt2</Option>
-          </Select>
+          <Select
+            defaultValue="Option1"
+            options={[
+              { label: 'Opt1', value: 'Option1' },
+              { label: 'Opt2', value: 'Option2' },
+            ]}
+          />
         </Space.Compact>
       </Space.Compact>
       <Button type="primary">Separator</Button>
@@ -32,55 +33,53 @@ const App: React.FC = () => (
         </Space.Compact>
       </Space.Compact>
     </Space.Compact>
-    <>
-      <br />
-      <Space.Compact block>
-        <Space.Compact>
-          <TimePicker />
-          <Button type="primary">Submit</Button>
-        </Space.Compact>
-        <Space.Compact>
-          <Cascader
-            options={[
-              {
-                value: 'zhejiang',
-                label: 'Zhejiang',
-                children: [
-                  {
-                    value: 'hangzhou',
-                    label: 'Hangzhou',
-                    children: [
-                      {
-                        value: 'xihu',
-                        label: 'West Lake',
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                value: 'jiangsu',
-                label: 'Jiangsu',
-                children: [
-                  {
-                    value: 'nanjing',
-                    label: 'Nanjing',
-                    children: [
-                      {
-                        value: 'zhonghuamen',
-                        label: 'Zhong Hua Men',
-                      },
-                    ],
-                  },
-                ],
-              },
-            ]}
-            placeholder="Select Address"
-          />
-          <Button type="primary">Submit</Button>
-        </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Space.Compact>
+        <TimePicker />
+        <Button type="primary">Submit</Button>
       </Space.Compact>
-    </>
+      <Space.Compact>
+        <Cascader
+          options={[
+            {
+              value: 'zhejiang',
+              label: 'Zhejiang',
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: 'Hangzhou',
+                  children: [
+                    {
+                      value: 'xihu',
+                      label: 'West Lake',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              value: 'jiangsu',
+              label: 'Jiangsu',
+              children: [
+                {
+                  value: 'nanjing',
+                  label: 'Nanjing',
+                  children: [
+                    {
+                      value: 'zhonghuamen',
+                      label: 'Zhong Hua Men',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          placeholder="Select Address"
+        />
+        <Button type="primary">Submit</Button>
+      </Space.Compact>
+    </Space.Compact>
   </>
 );
 

@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from 'rc-util/lib/warning';
+import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
@@ -10,7 +10,9 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
-import type { BaseButtonProps } from '../button';
+import type { BaseButtonProps } from '../Button';
+
+const { resetWarned } = warning;
 
 describe('Button', () => {
   mountTest(Button);
@@ -174,7 +176,11 @@ describe('Button', () => {
 
   it('should support custom icon styles', () => {
     const { container } = render(
-      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+      <Button
+        type="primary"
+        icon={<SearchOutlined />}
+        styles={{ icon: { color: 'rgb(255, 0, 0)' } }}
+      />,
     );
     expect(container).toMatchSnapshot();
   });
@@ -342,7 +348,7 @@ describe('Button', () => {
         <a id="link">test</a>
       </Button>,
     );
-    expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
+    expect(container.querySelector('#link')).toHaveStyle({ pointerEvents: 'none' });
   });
 
   it('Correct type', () => {
@@ -452,7 +458,7 @@ describe('Button', () => {
 
   it('should support solidTextColor when theme changes', () => {
     const { container: defaultContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
         <Button color="default" variant="solid">
           btn1
         </Button>
@@ -464,7 +470,7 @@ describe('Button', () => {
     });
 
     const { container: darkContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm] }}>
         <Button color="default" variant="solid">
           btn2
         </Button>
@@ -514,6 +520,86 @@ describe('Button', () => {
     expect(handleClick).toHaveBeenCalled();
   });
 
+  it('should support classnames and styles', () => {
+    const cusomStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      icon: { background: 'blue' },
+      content: { fontSize: '20px' },
+    };
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+    };
+    const { container, rerender, getByText } = render(
+      <Button classNames={customClassNames} styles={cusomStyles} icon={<SearchOutlined />}>
+        antd
+      </Button>,
+    );
+    const root = container.querySelector('.ant-btn');
+    const icon = container.querySelector('.ant-btn-icon');
+    const content = getByText('antd');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(icon).toHaveClass(customClassNames.icon);
+    expect(root).toHaveStyle(cusomStyles.root);
+    expect(icon).toHaveStyle(cusomStyles.icon);
+    expect(content).toHaveStyle(cusomStyles.content);
+    rerender(
+      <Button classNames={customClassNames} styles={cusomStyles} loading>
+        antd
+      </Button>,
+    );
+    const loadingIcon = container.querySelector('.ant-btn-icon');
+    expect(loadingIcon).toHaveClass(customClassNames.icon);
+    expect(loadingIcon).toHaveStyle(cusomStyles.icon);
+  });
+
+  it('should support customizing the background color of default type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              defaultBgDisabled: 'rgba(0, 0, 0, 0.1)',
+            },
+          },
+        }}
+      >
+        <Button disabled>button</Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-default')!;
+    expect(button).toBeDisabled();
+    expect(button).toHaveStyle({
+      '--ant-button-default-bg-disabled': 'rgba(0, 0, 0, 0.1)',
+    });
+  });
+
+  it('should support customizing the background color of dashed type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              dashedBgDisabled: 'rgba(0, 0, 0, 0.2)',
+            },
+          },
+        }}
+      >
+        <Button type="dashed" disabled>
+          button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-dashed')!;
+    expect(button).toBeDisabled();
+    expect(button).toHaveStyle({
+      '--ant-button-dashed-bg-disabled': 'rgba(0, 0, 0, 0.2)',
+    });
+  });
+
   it('ConfigProvider support button variant', () => {
     const { container } = render(
       <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
@@ -523,6 +609,15 @@ describe('Button', () => {
 
     expect(container.firstChild).toHaveClass('ant-btn-variant-dashed');
     expect(container.firstChild).toHaveClass('ant-btn-color-blue');
+  });
+
+  it('ConfigProvider support button shape', () => {
+    const { container } = render(
+      <ConfigProvider button={{ shape: 'round' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+    expect(container.firstChild).toHaveClass('ant-btn-round');
   });
 
   it('should show the component internal properties', () => {
@@ -549,5 +644,45 @@ describe('Button', () => {
 
     expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
     expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
+  });
+
+  describe('Button icon placement', () => {
+    let consoleWarnSpy: jest.SpyInstance;
+    beforeEach(() => {
+      consoleWarnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+    afterEach(() => {
+      consoleWarnSpy.mockRestore();
+    });
+    it('should use iconPlacement when provided ,and not log a deprecation with iconPosition', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Button iconPlacement="end">Test</Button>);
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+      expect(consoleWarnSpy).not.toHaveBeenCalled();
+    });
+
+    it('should fall back to iconPosition when iconPlacement is not provided and should log a deprecation', () => {
+      const { container } = render(<Button iconPosition="end">Test</Button>);
+      render(<Button iconPosition="end">Test</Button>);
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Button] `iconPosition` is deprecated. Please use `iconPlacement` instead.',
+      );
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+    });
+
+    it('should use default "start" when neither prop is provided', () => {
+      const { container } = render(<Button>Test</Button>);
+      expect(container.querySelector('.ant-btn-icon-start')).toBeNull();
+      expect(container.querySelector('.ant-btn-icon-end')).toBeNull();
+    });
+
+    it('should prioritize iconPlacement over iconPosition when both are provided', () => {
+      const { container } = render(
+        <Button iconPosition="start" iconPlacement="end">
+          Test
+        </Button>,
+      );
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+    });
   });
 });

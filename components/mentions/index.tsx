@@ -1,14 +1,16 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import RcMentions from 'rc-mentions';
+import RcMentions from '@rc-component/mentions';
 import type {
   DataDrivenOptionProps as MentionsOptionProps,
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
-} from 'rc-mentions/lib/Mentions';
-import { composeRef } from 'rc-util/lib/ref';
+} from '@rc-component/mentions/lib/Mentions';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -16,8 +18,12 @@ import toList from '../_util/toList';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
@@ -31,7 +37,7 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
+export type { DataDrivenOptionProps as MentionsOptionProps } from '@rc-component/mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
@@ -39,7 +45,12 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
+type SemanticName = 'root' | 'textarea' | 'popup' | 'suffix';
+
+export type MentionsClassNamesType = SemanticClassNamesType<MentionProps, SemanticName>;
+export type MentionsStylesType = SemanticStylesType<MentionProps, SemanticName>;
+
+export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;
   loading?: boolean;
   status?: InputStatus;
@@ -50,6 +61,9 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
    * @default "outlined"
    */
   variant?: Variant;
+  classNames?: MentionsClassNamesType;
+  styles?: MentionsStylesType;
+  size?: SizeType;
 }
 
 export interface MentionsProps extends MentionProps {}
@@ -71,7 +85,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
-    disabled,
+    disabled: customDisabled,
     loading,
     filterOption,
     children,
@@ -82,11 +96,17 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     popupClassName,
     style,
     variant: customVariant,
+    classNames,
+    styles,
+    size: customSize,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>(null);
   const mergedRef = composeRef(ref, innerRef);
+
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => customSize ?? ctx);
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
@@ -97,16 +117,42 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const {
     getPrefixCls,
-    renderEmpty,
     direction,
-    mentions: contextMentions,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('mentions');
+  const { renderEmpty } = React.useContext(ConfigContext);
   const {
     status: contextStatus,
     hasFeedback,
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
+  // ===================== Disabled =====================
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? contextDisabled;
+
+  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: MentionProps = {
+    ...props,
+    disabled: mergedDisabled,
+    status: mergedStatus,
+    loading,
+    options,
+    variant: customVariant,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MentionsClassNamesType,
+    MentionsStylesType,
+    MentionProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -153,54 +199,71 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
-  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
-
   const mergedAllowClear = getAllowClear(allowClear);
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
-  const mergedClassName = classNames(
-    contextMentions?.className,
+  const mergedClassName = clsx(
+    contextClassName,
     className,
     rootClassName,
     cssVarCls,
     rootCls,
+    mergedClassNames.root,
+    {
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+    },
   );
 
-  const mentions = (
+  return (
     <RcMentions
       silent={loading}
       prefixCls={prefixCls}
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
-      disabled={disabled}
+      disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       direction={direction}
-      style={{ ...contextMentions?.style, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
       suffix={suffixNode}
+      styles={{
+        textarea: mergedStyles.textarea,
+        popup: mergedStyles.popup,
+        suffix: mergedStyles.suffix,
+      }}
       classNames={{
-        mentions: classNames(
+        textarea: clsx(mergedClassNames.textarea),
+        popup: clsx(
+          mergedClassNames.popup,
+          popupClassName,
+          rootClassName,
+          hashId,
+          cssVarCls,
+          rootCls,
+        ),
+        suffix: mergedClassNames.suffix,
+        mentions: clsx(
           {
-            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-disabled`]: mergedDisabled,
             [`${prefixCls}-focused`]: focused,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        variant: classNames(
+        variant: clsx(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
@@ -212,8 +275,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       {mentionOptions}
     </RcMentions>
   );
-
-  return wrapCSSVar(mentions);
 });
 
 type CompoundedComponent = typeof InternalMentions & {

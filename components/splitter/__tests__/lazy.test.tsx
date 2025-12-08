@@ -1,11 +1,13 @@
 import React from 'react';
+import { warning } from '@rc-component/util';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 import { Splitter } from 'antd';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import { resetWarned } from 'rc-util/lib/warning';
 
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
-import { PanelProps, SplitterProps } from '../interface';
+import type { PanelProps, SplitterProps } from '../interface';
+
+const { resetWarned } = warning;
 
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>
@@ -49,19 +51,28 @@ describe('Splitter lazy', () => {
     jest.useRealTimers();
   });
 
-  const mockDrag = (draggerEle: HTMLElement, onResize: jest.Mock, offset: number) => {
+  const mockDrag = (
+    draggerEle: HTMLElement,
+    onResize: jest.Mock,
+    offset: number,
+    container?: HTMLElement,
+  ) => {
     // Down
     const downEvent = createEvent.mouseDown(draggerEle);
-    (downEvent as any).pageX = 0;
-    (downEvent as any).pageY = 0;
-
+    Object.defineProperty(downEvent, 'pageX', { value: 0 });
+    Object.defineProperty(downEvent, 'pageY', { value: 0 });
     fireEvent(draggerEle, downEvent);
 
     // Move
     const moveEvent = createEvent.mouseMove(window);
-    (moveEvent as any).pageX = offset;
-    (moveEvent as any).pageY = offset;
+    Object.defineProperty(moveEvent, 'pageX', { value: offset });
+    Object.defineProperty(moveEvent, 'pageY', { value: offset });
     fireEvent(window, moveEvent);
+
+    // mask should exist
+    if (container) {
+      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+    }
 
     expect(onResize).not.toHaveBeenCalled();
 
@@ -115,7 +126,7 @@ describe('Splitter lazy', () => {
     await resizeSplitter();
 
     // Right
-    mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, 1000);
+    mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, 1000, container);
     expect(onResizeEnd).toHaveBeenCalledTimes(1);
     expect(onResizeEnd).toHaveBeenCalledWith([70, 30]);
 

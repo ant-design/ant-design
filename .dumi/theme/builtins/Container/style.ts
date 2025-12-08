@@ -1,11 +1,8 @@
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token, prefixCls, css }) => ({
-  container: css`
-    margin: ${token.marginXS}px 0;
-  `,
-
+const useStyles = createStyles(({ prefixCls, css }) => ({
   alert: css`
+    padding: 12px 16px;
     .${prefixCls}-alert-message {
       font-weight: bold;
     }

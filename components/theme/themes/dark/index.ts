@@ -18,23 +18,30 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
       }, {});
     })
     .reduce((prev, cur) => {
-      // biome-ignore lint/style/noParameterAssign: it is a reduce
       prev = { ...prev, ...cur };
       return prev;
     }, {});
 
   const mergedMapToken = mapToken ?? defaultAlgorithm(token);
 
+  const colorMapToken = genColorMapToken(token, {
+    generateColorPalettes,
+    generateNeutralColorPalettes,
+  });
+
   return {
     ...mergedMapToken,
 
     // Dark tokens
     ...colorPalettes,
+
     // Colors
-    ...genColorMapToken(token, {
-      generateColorPalettes,
-      generateNeutralColorPalettes,
-    }),
+    ...colorMapToken,
+
+    // Customize selected item background color
+    // https://github.com/ant-design/ant-design/issues/30524#issuecomment-871961867
+    colorPrimaryBg: colorMapToken.colorPrimaryBorder,
+    colorPrimaryBgHover: colorMapToken.colorPrimaryBorderHover,
   };
 };
 

@@ -1,78 +1,54 @@
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSizeSM, iconSize } = token;
+const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+  const { componentCls, calc } = token;
+  const itemCls = `${componentCls}-item`;
 
   return {
-    [`&${componentCls}-vertical`]: {
-      display: 'flex',
+    [`${componentCls}-vertical`]: {
+      '--steps-vertical-rail-margin': calc(token.marginXXS).mul(1.5).equal(),
+
       flexDirection: 'column',
+      alignItems: 'stretch',
 
-      [`> ${componentCls}-item`]: {
-        display: 'block',
-        flex: '1 0 auto',
-        paddingInlineStart: 0,
-        overflow: 'visible',
+      // Item
+      [`> ${itemCls}`]: {
+        minHeight: calc(token.controlHeight).mul(1.5).equal(),
+        paddingBottom: token.paddingSM,
 
-        [`${componentCls}-item-icon`]: {
-          float: 'left',
-          marginInlineEnd: token.margin,
+        '&:last-child': {
+          paddingBottom: 0,
         },
-        [`${componentCls}-item-content`]: {
-          display: 'block',
-          minHeight: token.calc(token.controlHeight).mul(1.5).equal(),
-          overflow: 'hidden',
-        },
-        [`${componentCls}-item-title`]: {
-          lineHeight: unit(iconSize),
-        },
-        [`${componentCls}-item-description`]: {
-          paddingBottom: token.paddingSM,
-        },
-      },
-      [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineStart: token.calc(iconSize).div(2).sub(token.lineWidth).equal(),
-        width: token.lineWidth,
-        height: '100%',
-        padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSize).equal())} 0 ${unit(
-          token.calc(token.marginXXS).mul(1.5).equal(),
-        )}`,
 
-        '&::after': {
-          width: token.lineWidth,
-          height: '100%',
+        // Icon
+        [`${itemCls}-icon`]: {
+          marginInlineStart: 'calc((var(--steps-icon-size-max) - var(--steps-icon-size)) / 2)',
         },
-      },
-      [`> ${componentCls}-item:not(:last-child) > ${componentCls}-item-container > ${componentCls}-item-tail`]:
-        {
-          display: 'block',
-        },
-      [` > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-content > ${componentCls}-item-title`]:
-        {
-          '&::after': {
-            display: 'none',
-          },
-        },
-      [`&${componentCls}-small ${componentCls}-item-container`]: {
-        [`${componentCls}-item-tail`]: {
+
+        // >>> Rail
+        [`${itemCls}-rail`]: {
+          '--steps-rail-offset': calc('var(--steps-heading-height)')
+            .sub('var(--steps-icon-size)')
+            .div(2)
+            .equal(),
+
+          borderInlineStartWidth: 'var(--steps-rail-size)',
           position: 'absolute',
-          top: 0,
-          insetInlineStart: token.calc(iconSizeSM).div(2).sub(token.lineWidth).equal(),
-          padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSizeSM).equal())} 0 ${unit(
-            token.calc(token.marginXXS).mul(1.5).equal(),
-          )}`,
-        },
-        [`${componentCls}-item-title`]: {
-          lineHeight: unit(iconSizeSM),
+          top: calc(`var(--steps-icon-size)`)
+            .add('var(--steps-item-wrapper-padding-top)')
+            .add('var(--steps-rail-offset)')
+            .add('var(--steps-vertical-rail-margin)')
+            .equal(),
+          insetInlineStart: calc(`var(--steps-icon-size-max)`).div(2).equal(),
+          bottom: calc('var(--steps-vertical-rail-margin)').sub('var(--steps-rail-offset)').equal(),
+          marginInlineStart: `calc(var(--steps-rail-size) / -2)`,
         },
       },
     },
   };
 };
-export default genStepsVerticalStyle;
+
+export default genVerticalStyle;

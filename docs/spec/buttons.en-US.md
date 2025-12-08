@@ -52,14 +52,13 @@ Common button types could be used to showcase to different **emphasis**.
 ### Do & Don't
 
 <ImagePreview>
-<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*di8jS5EWYSIAAAAAAAAAAABkARQnAQ" alt="Don't" description="Don't put more than 1 primary button in the same group.">
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3WUkT5pD1SUAAAAAAAAAAABkARQnAQ" alt="Do" description="1. Emphasize on the primary action. <br/>2. If there is no primary action, then default buttons is the safest choice.">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*di8jS5EWYSIAAAAAAAAAAABkARQnAQ" alt="Don't" description="Don't put more than 1 primary button in the same group.">
 </ImagePreview>
 
 <ImagePreview>
-<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zBtTRq2xbTYAAAAAAAAAAABkARQnAQ" alt="Don't" description="Put 2 icons in the same button.">
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="Do" description="1. Should place the buttons in the order of importance. <br/>2. The less important actions should be place on right or at bottom.">
-<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3WUkT5pD1SUAAAAAAAAAAABkARQnAQ" alt="Do" description="1. Emphasize on the primary action. <br/>2. If there is no primary action, then default buttons is the safest choice.">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zBtTRq2xbTYAAAAAAAAAAABkARQnAQ" alt="Don't" description="Put 2 icons in the same button.">
 </ImagePreview>
 
 ### Special Button Types

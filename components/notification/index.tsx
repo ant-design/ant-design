@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { render } from '@rc-component/util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender } from '../config-provider/UnstableContext';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -114,7 +114,7 @@ const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) 
   );
 });
 
-function flushNotice() {
+const flushNotificationQueue = () => {
   if (!notification) {
     const holderFragment = document.createDocumentFragment();
 
@@ -126,18 +126,15 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      const reactRender = unstableSetRender();
-
-      reactRender(
+      render(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
-
             Promise.resolve().then(() => {
               if (!newNotification.instance && instance) {
                 newNotification.instance = instance;
                 newNotification.sync = sync;
-                flushNotice();
+                flushNotificationQueue();
               }
             });
           }}
@@ -169,7 +166,7 @@ function flushNotice() {
 
       case 'destroy':
         act(() => {
-          notification?.instance!.destroy(task.key);
+          notification?.instance?.destroy(task.key);
         });
         break;
     }
@@ -177,7 +174,7 @@ function flushNotice() {
 
   // Clean up
   taskQueue = [];
-}
+};
 
 // ==============================================================================
 // ==                                  Export                                  ==
@@ -202,19 +199,13 @@ function open(config: ArgsProps) {
     warnContext('notification');
   }
 
-  taskQueue.push({
-    type: 'open',
-    config,
-  });
-  flushNotice();
+  taskQueue.push({ type: 'open', config });
+  flushNotificationQueue();
 }
 
 const destroy: BaseMethods['destroy'] = (key) => {
-  taskQueue.push({
-    type: 'destroy',
-    key,
-  });
-  flushNotice();
+  taskQueue.push({ type: 'destroy', key });
+  flushNotificationQueue();
 };
 
 interface BaseMethods {
@@ -256,24 +247,22 @@ methods.forEach((type: keyof NoticeMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @internal Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
-export let actWrapper: (wrapper: any) => void = noop;
-
+let _actWrapper: (wrapper: any) => void = noop;
 if (process.env.NODE_ENV === 'test') {
-  actWrapper = (wrapper) => {
+  _actWrapper = (wrapper) => {
     act = wrapper;
   };
 }
+const actWrapper = _actWrapper;
+export { actWrapper };
 
-/** @internal Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
-export let actDestroy = noop;
-
+let _actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
-  actDestroy = () => {
+  _actDestroy = () => {
     notification = null;
   };
 }
+const actDestroy = _actDestroy;
+export { actDestroy };
 
 export default staticMethods;

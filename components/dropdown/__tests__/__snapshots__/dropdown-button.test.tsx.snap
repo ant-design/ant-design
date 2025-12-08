@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-space-compact ant-space-compact-rtl ant-space-compact-block ant-dropdown-button"
 >
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-rtl ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-item-rtl"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-rtl ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-item-rtl"
     type="button"
   />
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-rtl ant-btn-compact-item ant-btn-compact-last-item ant-btn-compact-item-rtl ant-dropdown-trigger ant-dropdown-rtl"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-rtl ant-btn-compact-item ant-btn-compact-last-item ant-btn-compact-item-rtl ant-dropdown-trigger ant-dropdown-rtl"
     type="button"
   >
     <span
@@ -44,12 +44,13 @@ exports[`DropdownButton should support href like Button 1`] = `
   class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >
   <a
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+    aria-disabled="false"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
     href="https://ant.design"
     tabindex="0"
   />
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span

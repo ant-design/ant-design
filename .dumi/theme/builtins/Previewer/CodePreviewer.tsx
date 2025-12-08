@@ -1,45 +1,20 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
-import React, { useEffect, useRef, useState } from 'react';
-import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
-import type { Project } from '@stackblitz/sdk';
-import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Flex, Tooltip } from 'antd';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { UpOutlined } from '@ant-design/icons';
+import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
-import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
-import LZString from 'lz-string';
+import { clsx } from 'clsx';
+import { FormattedMessage, useLiveDemo } from 'dumi';
 
+import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
-import CodePenIcon from '../../icons/CodePenIcon';
-import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
-import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
-import DemoContext from '../../slots/DemoContext';
 import SiteContext from '../../slots/SiteContext';
-import CodeBlockButton from './CodeBlockButton';
-import type { AntdPreviewerProps } from './Previewer';
+import Actions from './Actions';
 
-const { ErrorBoundary } = Alert;
-
-function compress(string: string): string {
-  return LZString.compressToBase64(string)
-    .replace(/\+/g, '-') // Convert '+' to '-'
-    .replace(/\//g, '_') // Convert '/' to '_'
-    .replace(/=+$/, ''); // Remove ending '='
-}
-
-const track = ({ type, demo }: { type: string; demo: string }) => {
-  if (!window.gtag) {
-    return;
-  }
-  window.gtag('event', 'demo', { event_category: type, event_label: demo });
-};
-
-const useStyle = createStyles(({ token }) => {
-  const { borderRadius } = token;
+const useStyle = createStyles(({ cssVar }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -50,17 +25,17 @@ const useStyle = createStyles(({ token }) => {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
-      border-top: 1px solid ${token.colorSplit};
-      color: ${token.colorTextSecondary};
-      transition: all ${token.motionDurationMid} ease-in-out;
-      background-color: ${token.colorBgElevated};
+      border-radius: 0 0 ${cssVar.borderRadius} ${cssVar.borderRadius};
+      border-top: 1px solid ${cssVar.colorSplit};
+      color: ${cssVar.colorTextSecondary};
+      transition: all ${cssVar.motionDurationMid} ease-in-out;
+      background-color: ${cssVar.colorBgElevated};
       cursor: pointer;
       &:hover {
-        color: ${token.colorPrimary};
+        color: ${cssVar.colorPrimary};
       }
       span {
-        margin-inline-end: ${token.marginXXS}px;
+        margin-inline-end: ${cssVar.marginXXS};
       }
     `,
   };
@@ -86,17 +61,12 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
-  const { codeType } = React.use(DemoContext);
-
-  const { pkg } = useSiteData();
   const location = useLocation();
-
   const { styles } = useStyle();
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
 
-  const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
   const {
     node: liveDemoNode,
@@ -107,13 +77,11 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     containerRef: demoContainer as React.RefObject<HTMLElement>,
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
-  const codeSandboxIconRef = useRef<HTMLFormElement>(null);
-  const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const { theme } = React.use(SiteContext);
+  const { isDark } = React.use(SiteContext);
 
   const { hash, pathname, search } = location;
-  const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
+  const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
 
@@ -124,26 +92,26 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     );
   }, []);
 
-  const handleCodeExpand = (demo: string) => {
-    setCodeExpand((prev) => !prev);
-    track({ type: 'expand', demo });
-  };
-
   useEffect(() => {
     if (asset.id === hash.slice(1)) {
       anchorRef.current?.click();
     }
-  }, []);
+  }, [asset.id, hash]);
 
   useEffect(() => {
     setCodeExpand(expand);
   }, [expand]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
-  const demoUrlWithTheme = `${demoUrl}${theme.includes('dark') ? '?theme=dark' : ''}`;
+  const demoUrlWithTheme = useMemo(() => {
+    return `${demoUrl}${isDark ? '?theme=dark' : ''}`;
+  }, [demoUrl, isDark]);
 
-  if (!previewDemo.current) {
-    previewDemo.current = iframe ? (
+  const iframePreview = useMemo(() => {
+    if (!iframe) {
+      return null;
+    }
+    return (
       <BrowserFrame>
         <iframe
           src={demoUrlWithTheme}
@@ -152,197 +120,22 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           className="iframe-demo"
         />
       </BrowserFrame>
-    ) : (
-      mergedChildren
     );
-  }
+  }, [demoUrlWithTheme, iframe]);
 
-  const codeBoxClass = classNames('code-box', {
+  const previewContent = iframePreview ?? mergedChildren;
+
+  const codeBoxClass = clsx('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
-    'code-box-simplify': simplify,
+    'code-box-simplify': simplify && !iframe,
   });
 
-  const localizedTitle = title;
-  const highlightClass = classNames('highlight-wrapper', {
+  const highlightClass = clsx('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
 
-  const html = `
-    <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width">
-          <meta name="theme-color" content="#000000">
-        </head>
-        <body>
-          <div id="container" style="padding: 24px" />
-          <script>const mountNode = document.getElementById('container');</script>
-        </body>
-      </html>
-    `;
-
-  const tsconfig = {
-    compilerOptions: {
-      target: 'esnext',
-      module: 'esnext',
-      esModuleInterop: true,
-      moduleResolution: 'node',
-      jsx: 'react',
-      jsxFactory: 'React.createElement',
-      jsxFragmentFactory: 'React.Fragment',
-    },
-  };
-
-  const suffix = codeType === 'tsx' ? 'tsx' : 'js';
-
-  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
-    (acc, line) => {
-      const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches?.[1]) {
-        const paths = matches[1].split('/');
-        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
-      }
-      return acc;
-    },
-    { antd: pkg.version },
-  );
-
-  dependencies['@ant-design/icons'] = 'latest';
-
-  if (suffix === 'tsx') {
-    dependencies['@types/react'] = '^18.0.0';
-    dependencies['@types/react-dom'] = '^18.0.0';
-  }
-
-  dependencies.react = '^18.0.0';
-  dependencies['react-dom'] = '^18.0.0';
-
-  const codepenPrefillConfig = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    html,
-    js: `const { createRoot } = ReactDOM;\n${jsx
-      .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
-      .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
-      .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
-      .replace("import moment from 'moment';", '')
-      .replace("import React from 'react';", '')
-      .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
-      .replace(
-        /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
-        'const { $1 } = ReactRouterDOM;',
-      )
-      .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
-      .replace(
-        /export default/,
-        'const ComponentDemo =',
-      )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-    editors: '001',
-    css: '',
-    js_external: [
-      'react@18/umd/react.development.js',
-      'react-dom@18/umd/react-dom.development.js',
-      'dayjs@1/dayjs.min.js',
-      `antd@${pkg.version}/dist/antd-with-locales.min.js`,
-      `@ant-design/icons/dist/index.umd.js`,
-      'react-router-dom/dist/umd/react-router-dom.production.min.js',
-      'react-router/dist/umd/react-router.production.min.js',
-    ]
-      .map((url) => `https://unpkg.com/${url}`)
-      .join(';'),
-    js_pre_processor: 'typescript',
-  };
-
-  // Reorder source code
-  let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
-  let importReactContent = "import React from 'react';";
-  const importReactReg = /import React(\D*)from 'react';/;
-  const matchImportReact = parsedSourceCode.match(importReactReg);
-  if (matchImportReact) {
-    [importReactContent] = matchImportReact;
-    parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
-  }
-  const demoJsContent = `
-${importReactContent}
-import './index.css';
-${parsedSourceCode}
-    `.trim();
-  const indexCssContent = (style || '')
-    .trim()
-    .replace(new RegExp(`#${asset.id}\\s*`, 'g'), '')
-    .replace('</style>', '')
-    .replace('<style>', '')
-    .replace('```css', '')
-    .replace('```', '');
-
-  const indexJsContent = `import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Demo from './demo';
-
-createRoot(document.getElementById('container')).render(<Demo />);
-  `;
-
-  const codesandboxPackage = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    main: 'index.js',
-    dependencies: {
-      ...dependencies,
-      'rc-util': pkgDependencyList['rc-util'],
-      react: '^18.0.0',
-      'react-dom': '^18.0.0',
-      'react-scripts': '^5.0.0',
-    },
-    devDependencies: {
-      typescript: '^5.0.2',
-    },
-    scripts: {
-      start: 'react-scripts start',
-      build: 'react-scripts build',
-      test: 'react-scripts test --env=jsdom',
-      eject: 'react-scripts eject',
-    },
-    browserslist: ['>0.2%', 'not dead'],
-  };
-
-  const codesanboxPrefillConfig = {
-    files: {
-      'package.json': { content: codesandboxPackage },
-      'index.css': { content: indexCssContent },
-      [`index.${suffix}`]: { content: indexJsContent },
-      [`demo.${suffix}`]: { content: demoJsContent },
-      'index.html': {
-        content: html,
-      },
-    },
-  };
-
-  const stackblitzPrefillConfig: Project = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    template: 'create-react-app',
-    dependencies:{
-      ...dependencies,
-      react: '^19.0.0',
-      'react-dom': '^19.0.0',
-      '@types/react': '^19.0.0',
-      '@types/react-dom': '^19.0.0',
-      '@ant-design/v5-patch-for-react-19': '^1.0.3'
-    },
-    description: '',
-    files: {
-      'index.css': indexCssContent,
-      [`index.${suffix}`]: `import '@ant-design/v5-patch-for-react-19';\n${indexJsContent}`,
-      [`demo.${suffix}`]: demoJsContent,
-      'index.html': html,
-    },
-  };
-
-  if (suffix === 'tsx') {
-    stackblitzPrefillConfig.files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2);
-  }
-
-  const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
+  const backgroundGrey = isDark ? '#303030' : '#f0f2f5';
 
   const codeBoxDemoStyle: React.CSSProperties = {
     padding: iframe || compact ? 0 : undefined,
@@ -352,19 +145,20 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle} ref={demoContainer}>
-        {liveDemoNode || (
-          <ErrorBoundary>
-            <React.StrictMode>{previewDemo.current}</React.StrictMode>
-          </ErrorBoundary>
-        )}
+      <section
+        className="code-box-demo notranslate"
+        translate="no"
+        style={codeBoxDemoStyle}
+        ref={demoContainer}
+      >
+        {liveDemoNode || <React.StrictMode>{previewContent}</React.StrictMode>}
       </section>
       {!simplify && (
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
               <a href={`#${asset.id}`} ref={anchorRef}>
-                {localizedTitle}
+                {title}
               </a>
             </Tooltip>
             <EditButton
@@ -379,112 +173,19 @@ createRoot(document.getElementById('container')).render(<Demo />);
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}
-          <Flex wrap gap="middle" className="code-box-actions">
-            {showOnlineUrl && (
-              <Tooltip title={<FormattedMessage id="app.demo.online" />}>
-                <a
-                  className="code-box-code-action"
-                  target="_blank"
-                  rel="noreferrer"
-                  href={docsOnlineUrl}
-                >
-                  <LinkOutlined aria-label="open in new tab" className="code-box-online" />
-                </a>
-              </Tooltip>
-            )}
-            <form
-              className="code-box-code-action"
-              action="https://codesandbox.io/api/v1/sandboxes/define"
-              method="POST"
-              target="_blank"
-              ref={codeSandboxIconRef}
-              onClick={() => {
-                track({ type: 'codesandbox', demo: asset.id });
-                codeSandboxIconRef.current?.submit();
-              }}
-            >
-              <input
-                type="hidden"
-                name="parameters"
-                value={compress(JSON.stringify(codesanboxPrefillConfig))}
-              />
-              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                <CodeSandboxIcon className="code-box-codesandbox" />
-              </Tooltip>
-            </form>
-            <CodeBlockButton title={localizedTitle} dependencies={dependencies} jsx={jsx} />
-            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
-              <span
-                className="code-box-code-action"
-                onClick={() => {
-                  track({ type: 'stackblitz', demo: asset.id });
-                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
-                    openFile: [`demo.${suffix}`],
-                  });
-                }}
-              >
-                <ThunderboltOutlined
-                  className="code-box-stackblitz"
-                  style={{ transform: 'scale(1.2)' }}
-                />
-              </span>
-            </Tooltip>
-            <form
-              className="code-box-code-action"
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              ref={codepenIconRef}
-              onClick={() => {
-                track({ type: 'codepen', demo: asset.id });
-                codepenIconRef.current?.submit();
-              }}
-            >
-              <ClientOnly>
-                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              </ClientOnly>
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <CodePenIcon className="code-box-codepen" />
-              </Tooltip>
-            </form>
-            <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-              <a
-                className="code-box-code-action"
-                aria-label="open in new tab"
-                target="_blank"
-                rel="noreferrer"
-                href={demoUrlWithTheme}
-              >
-                <ExternalLinkIcon className="code-box-separate" />
-              </a>
-            </Tooltip>
-            <Tooltip
-              title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
-            >
-              <div className="code-expand-icon code-box-code-action">
-                <img
-                  alt="expand code"
-                  src={
-                    theme?.includes('dark')
-                      ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
-                      : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
-                  }
-                  className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-                  onClick={() => handleCodeExpand(asset.id)}
-                />
-                <img
-                  alt="expand code"
-                  src={
-                    theme?.includes('dark')
-                      ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
-                      : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
-                  }
-                  className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-                  onClick={() => handleCodeExpand(asset.id)}
-                />
-              </div>
-            </Tooltip>
-          </Flex>
+          <Actions
+            showOnlineUrl={showOnlineUrl}
+            docsOnlineUrl={docsOnlineUrl}
+            entryCode={entryCode}
+            styleCode={style}
+            pkgDependencyList={pkgDependencyList}
+            assetId={asset.id}
+            title={title}
+            jsx={jsx}
+            demoUrlWithTheme={demoUrlWithTheme}
+            codeExpand={codeExpand}
+            onCodeExpand={() => setCodeExpand((prev) => !prev)}
+          />
         </section>
       )}
       {codeExpand && (
@@ -520,8 +221,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     if (!style) {
       return;
     }
-    const styleTag = document.createElement('style') as HTMLStyleElement;
-    styleTag.type = 'text/css';
+    const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
     (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
     document.head.appendChild(styleTag);

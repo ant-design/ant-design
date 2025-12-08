@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/flex/demo/align.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
 >
   <p>
     Select justify :
   </p>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -26,8 +26,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="flex-start"
         >
           flex-start
@@ -42,8 +43,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="center"
         >
           center
@@ -58,8 +60,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="flex-end"
         >
           flex-end
@@ -74,8 +77,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="space-between"
         >
           space-between
@@ -90,8 +94,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="space-around"
         >
           space-around
@@ -106,8 +111,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="space-evenly"
         >
           space-evenly
@@ -120,7 +126,7 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -137,8 +143,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="flex-start"
         >
           flex-start
@@ -153,8 +160,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="center"
         >
           center
@@ -169,8 +177,9 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="flex-end"
         >
           flex-end
@@ -179,11 +188,11 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-flex-start ant-flex-justify-flex-start"
+    class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-justify-flex-start"
     style="width:100%;height:120px;border-radius:6px;border:1px solid #40a9ff"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -191,7 +200,7 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -199,7 +208,7 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -207,7 +216,7 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -220,13 +229,13 @@ exports[`renders components/flex/demo/align.tsx correctly 1`] = `
 
 exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -249,7 +258,7 @@ exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -272,7 +281,7 @@ exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
       style="width:25%;height:54px;background-color:#1677ffbf"
@@ -292,7 +301,7 @@ exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable"
+  class="ant-card ant-card-bordered ant-card-hoverable css-var-test-id"
   style="width:620px"
 >
   <div
@@ -300,24 +309,26 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
     style="padding:0;overflow:hidden"
   >
     <div
-      class="ant-flex ant-flex-justify-space-between"
+      class="ant-flex css-var-test-id ant-flex-justify-space-between"
     >
       <img
         alt="avatar"
+        draggable="false"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style="display:block;width:273px"
       />
       <div
-        class="ant-flex ant-flex-align-flex-end ant-flex-justify-space-between ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-flex-end ant-flex-justify-space-between ant-flex-vertical"
         style="padding:32px"
       >
         <h3
-          class="ant-typography"
+          class="ant-typography css-var-test-id"
         >
           “antd is an enterprise-class UI design language and React UI library.”
         </h3>
         <a
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          aria-disabled="false"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           href="https://ant.design"
           tabindex="0"
           target="_blank"
@@ -335,7 +346,7 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
 exports[`renders components/flex/demo/debug.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+    class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   >
     <div
       style="height:60px;background-color:#1677ffbf"
@@ -351,7 +362,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="margin-top:20px"
   >
     <div
@@ -372,13 +383,13 @@ Array [
 
 exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -401,7 +412,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -423,7 +434,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -445,7 +456,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -468,10 +479,10 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-flex ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -479,7 +490,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -487,7 +498,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+      class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
     >
       <span>
@@ -495,7 +506,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -508,10 +519,10 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
 
 exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -519,7 +530,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -527,7 +538,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -535,7 +546,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -543,7 +554,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -551,7 +562,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -559,7 +570,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -567,7 +578,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -575,7 +586,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -583,7 +594,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -591,7 +602,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -599,7 +610,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -607,7 +618,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -615,7 +626,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -623,7 +634,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -631,7 +642,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -639,7 +650,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -647,7 +658,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -655,7 +666,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -663,7 +674,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -671,7 +682,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -679,7 +690,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -687,7 +698,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -695,7 +706,7 @@ exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>

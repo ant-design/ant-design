@@ -1,6 +1,6 @@
 import React from 'react';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { render } from '@testing-library/react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import { resetWarned } from '../../_util/warning';
 import { createEvent, fireEvent } from '../../../tests/utils';
@@ -41,8 +41,8 @@ describe('ColorPicker.gradient', () => {
   ) {
     const ele = typeof query === 'object' ? query : container.querySelector(query)!;
     const mouseDown = createEvent.mouseDown(ele);
-    (mouseDown as any).pageX = start;
-    (mouseDown as any).pageY = start;
+    Object.defineProperty(mouseDown, 'pageX', { value: start });
+    Object.defineProperty(mouseDown, 'pageY', { value: start });
 
     const preventDefault = jest.fn();
 
@@ -65,8 +65,8 @@ describe('ColorPicker.gradient', () => {
 
   function doMouseMove(end: number) {
     const mouseMove = createEvent.mouseMove(document);
-    (mouseMove as any).pageX = end;
-    (mouseMove as any).pageY = end;
+    Object.defineProperty(mouseMove, 'pageX', { value: end });
+    Object.defineProperty(mouseMove, 'pageY', { value: end });
     fireEvent(document, mouseMove);
   }
 
@@ -339,5 +339,46 @@ describe('ColorPicker.gradient', () => {
     expect(handle2).not.toHaveStyle({
       backgroundColor: 'rgb(255,0,0)',
     });
+  });
+
+  it('preset color', () => {
+    const onChange = jest.fn();
+
+    render(
+      <ColorPicker
+        mode={['gradient']}
+        open
+        presets={[
+          {
+            label: 'Liner',
+            colors: [
+              [
+                {
+                  color: '#FF0000',
+                  percent: 0,
+                },
+                {
+                  color: '#0000FF',
+                  percent: 100,
+                },
+              ],
+            ],
+          },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeFalsy();
+
+    // Select preset
+    fireEvent.click(
+      document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
+    );
+    const color = onChange.mock.calls[0][0];
+    expect(color.toCssString()).toEqual(
+      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
+    );
+    expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();
   });
 });

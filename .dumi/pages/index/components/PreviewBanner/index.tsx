@@ -1,7 +1,7 @@
 import React, { Suspense, use } from 'react';
 import { Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -29,17 +29,19 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps) => {
-  const textShadow = `0 0 4px ${token.colorBgContainer}`;
-  const isDark = siteConfig.theme.includes('dark');
+const useStyle = createStyles(({ cssVar, css, cx }, siteConfig: SiteContextProps) => {
+  const textShadow = `0 0 4px ${cssVar.colorBgContainer}`;
   const mask = cx(css`
     position: absolute;
     inset: 0;
     backdrop-filter: blur(2px);
     opacity: 1;
-    background-color: ${isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+    background-color: rgba(255, 255, 255, 0.2);
     transition: all 1s ease;
     pointer-events: none;
+    [data-prefers-color='dark'] & {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   `);
 
   const block = cx(css`
@@ -61,7 +63,7 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       perspective: 800px;
       /* fix safari bug by removing blur style */
       transform: translateZ(1000px);
-      row-gap: ${token.marginXL}px;
+      row-gap: ${cssVar.marginXL};
 
       &:hover {
         .${mask} {
@@ -80,17 +82,16 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       text-align: center;
       position: relative;
       z-index: 1;
-      padding-inline: ${token.paddingXL}px;
+      padding-inline: ${cssVar.paddingXL};
       text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
       h1 {
-        font-family: AliPuHui, ${token.fontFamily} !important;
         font-weight: 900 !important;
-        font-size: ${token.fontSizeHeading2 * 2}px !important;
-        line-height: ${token.lineHeightHeading2} !important;
+        font-size: calc(${cssVar.fontSizeHeading2} * 2) !important;
+        line-height: ${cssVar.lineHeightHeading2} !important;
       }
 
       p {
-        font-size: ${token.fontSizeLG}px !important;
+        font-size: ${cssVar.fontSizeLG} !important;
         font-weight: normal !important;
         margin-bottom: 0;
       }
@@ -104,7 +105,7 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       z-index: 1;
     `,
     btnWrap: css`
-      margin-bottom: ${token.marginXL}px;
+      margin-bottom: ${cssVar.marginXL};
     `,
     bgImg: css`
       position: absolute;
@@ -136,14 +137,14 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
         alt="bg"
         src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
         draggable={false}
-        className={classNames(styles.bgImg, styles.bgImgTop)}
+        className={clsx(styles.bgImg, styles.bgImgTop)}
       />
       {/* Image Right Top */}
       <img
         alt="bg"
         src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
         draggable={false}
-        className={classNames(styles.bgImg, styles.bgImgBottom)}
+        className={clsx(styles.bgImg, styles.bgImgBottom)}
       />
 
       <div className={styles.holder}>
@@ -157,7 +158,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
         </Suspense>
         <div className={styles.mask} />
         <Typography className={styles.typography}>
-          <h1>Ant Design 5.0</h1>
+          <h1>Ant Design</h1>
           <p>{locale.slogan}</p>
         </Typography>
         <Flex gap="middle" className={styles.btnWrap}>

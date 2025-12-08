@@ -1,9 +1,12 @@
+import getReactMajorVersion from './_util/getReactMajorVersionCanDelMe';
+import warning from './_util/warning';
+
 export type { Breakpoint } from './_util/responsiveObserver';
-export type { GetProps, GetRef, GetProp } from './_util/type';
+export type { GetProp, GetProps, GetRef } from './_util/type';
 export { default as Affix } from './affix';
 export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
-export type { AlertProps } from './alert';
+export type { AlertProps, ErrorBoundaryProps } from './alert';
 export { default as Anchor } from './anchor';
 export type { AnchorLinkProps, AnchorProps } from './anchor';
 export { default as App } from './app';
@@ -24,11 +27,12 @@ export { default as Calendar } from './calendar';
 export type { CalendarMode, CalendarProps } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
+export type { CardMetaProps } from './card/CardMeta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderProps, CascaderAutoProps } from './cascader';
-export type { CascaderPanelProps, CascaderPanelAutoProps } from './cascader/Panel';
+export type { CascaderAutoProps, CascaderProps } from './cascader';
+export type { CascaderPanelAutoProps, CascaderPanelProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
 export type {
   CheckboxChangeEvent,
@@ -56,6 +60,7 @@ export { default as Dropdown } from './dropdown';
 export type {
   // typo, but we need to support it for backwards compatibility
   // https://github.com/ant-design/ant-design/pull/35161
+  /** @deprecated Use `DropdownProps` instead. */
   DropdownProps as DropDownProps,
   DropdownProps,
 } from './dropdown';
@@ -64,11 +69,7 @@ export type { EmptyProps } from './empty';
 export { default as Flex } from './flex';
 export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
-export type {
-  FloatButtonGroupProps,
-  FloatButtonProps,
-  FloatButtonRef,
-} from './float-button/interface';
+export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef } from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -89,6 +90,8 @@ export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListProps } from './list';
+export { default as Masonry } from './masonry';
+export type { MasonryProps } from './masonry';
 export { default as Mentions } from './mentions';
 export type { MentionProps, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
@@ -96,7 +99,7 @@ export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from 
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
-export type { ModalFuncProps, ModalProps } from './modal';
+export type { ModalFuncProps, ModalLocale, ModalProps } from './modal';
 export { default as notification } from './notification';
 export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';
@@ -129,18 +132,20 @@ export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps } from './spin';
+export { default as Splitter } from './splitter';
+export type { SplitterProps } from './splitter';
 export { default as Statistic } from './statistic';
-export type { StatisticTimerProps, CountdownProps, StatisticProps } from './statistic';
+export type { CountdownProps, StatisticProps, StatisticTimerProps } from './statistic';
 export { default as Steps } from './steps';
-export type { StepProps, StepsProps } from './steps';
+export type { StepsProps } from './steps';
 export { default as Switch } from './switch';
 export type { SwitchProps } from './switch';
 export { default as Table } from './table';
 export type {
   ColumnGroupType as TableColumnGroupType,
   ColumnProps as TableColumnProps,
-  ColumnType as TableColumnType,
   ColumnsType as TableColumnsType,
+  ColumnType as TableColumnType,
   TablePaginationConfig,
   TableProps,
 } from './table';
@@ -171,12 +176,25 @@ export type { TreeSelectProps } from './tree-select';
 export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
-export type { UploadFile, UploadProps, DraggerProps } from './upload';
+export type { DraggerProps, UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
-export { default as Splitter } from './splitter';
-export type { SplitterProps } from './splitter';
 
-// TODO: Remove in v6
-export { unstableSetRender } from './config-provider/UnstableContext';
+export const unstableSetRender: any = () => {
+  warning(
+    false,
+    'compatible',
+    "antd v6 support React 19 already, it's no need to call the compatible function or just remove `@ant-design/v5-patch-for-react-19`",
+  );
+};
+
+// Warning if React is less than 18 (not include 18)
+if (process.env.NODE_ENV !== 'production') {
+  const majorVersion = getReactMajorVersion();
+  warning(
+    majorVersion >= 18,
+    'version',
+    `antd v6 no longer supports React versions below 18. Please upgrade to React 18 or higher.`,
+  );
+}

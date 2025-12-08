@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
+import type { DrawerPopupProps } from '@rc-component/drawer/lib/DrawerPopup';
 
 import Drawer from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -80,7 +80,7 @@ const MultiDrawer: React.FC<DrawerPropsType> = (props) => {
             width: '100%',
             borderTop: '1px solid #e8e8e8',
             padding: '10px 16px',
-            textAlign: 'right',
+            textAlign: 'end',
             left: 0,
             backgroundColor: '#fff',
             borderRadius: '0 0 4px 4px',

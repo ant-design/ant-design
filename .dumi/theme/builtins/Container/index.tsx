@@ -19,25 +19,23 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   const { styles, cx } = useStyles();
 
   return (
-    <div data-type={type} className={styles.container}>
-      <Alert
-        showIcon
-        type={type}
-        message={title || type.toUpperCase()}
-        description={
-          <div
-            className={cx(
-              styles.desc,
-              // 为了让 markdown 的样式生效，需要在这里添加一个额外的 class
-              'markdown',
-            )}
-          >
-            {children}
-          </div>
-        }
-        className={styles.alert}
-      />
-    </div>
+    <Alert
+      showIcon
+      type={type}
+      title={title || type.toUpperCase()}
+      description={
+        <div
+          className={cx(
+            styles.desc,
+            // 为了让 markdown 的样式生效，需要在这里添加一个额外的 class
+            'markdown',
+          )}
+        >
+          {children}
+        </div>
+      }
+      className={styles.alert}
+    />
   );
 };
 

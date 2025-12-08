@@ -143,7 +143,6 @@ export interface TabsToken extends FullToken<'Tabs'> {
   tabsCardPadding: string;
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
-  tabsActiveTextShadow: string;
   tabsDropdownHeight: number | string;
   tabsDropdownWidth: number | string;
   tabsHorizontalItemMargin: string;
@@ -175,16 +174,17 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           background: token.colorBgContainer,
         },
 
-        [`${componentCls}-tab-focus`]: {
-          ...genFocusOutline(token, -3),
+        [`${componentCls}-tab-focus:has(${componentCls}-tab-btn:focus-visible)`]: genFocusOutline(
+          token,
+          -3,
+        ),
+
+        [`& ${componentCls}-tab${componentCls}-tab-focus ${componentCls}-tab-btn:focus-visible`]: {
+          outline: 'none',
         },
 
         [`${componentCls}-ink-bar`]: {
           visibility: 'hidden',
-        },
-
-        [`& ${componentCls}-tab${componentCls}-tab-focus ${componentCls}-tab-btn`]: {
-          outline: 'none',
         },
       },
 
@@ -716,11 +716,13 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       outline: 'none',
       cursor: 'pointer',
       color: itemColor,
+
       '&-btn, &-remove': {
         '&:focus:not(:focus-visible), &:active': {
           color: itemActiveColor,
         },
       },
+
       '&-btn': {
         outline: 'none',
         transition: `all ${token.motionDurationSlow}`,
@@ -728,8 +730,10 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
           marginInlineEnd: token.marginSM,
         },
       },
+
       '&-remove': {
         flex: 'none',
+        lineHeight: 1,
         marginRight: {
           _skip_check_: true,
           value: token.calc(token.marginXXS).mul(-1).equal(),
@@ -750,31 +754,33 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         },
         ...genFocusStyle(token),
       },
+
       '&:hover': {
         color: itemHoverColor,
       },
 
       [`&${tabCls}-active ${tabCls}-btn`]: {
         color: itemSelectedColor,
-        textShadow: token.tabsActiveTextShadow,
       },
 
-      [`&${tabCls}-focus ${tabCls}-btn`]: {
-        ...genFocusOutline(token),
-      },
+      [`&${tabCls}-focus ${tabCls}-btn:focus-visible`]: genFocusOutline(token),
 
       [`&${tabCls}-disabled`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
       },
+
       [`&${tabCls}-disabled ${tabCls}-btn, &${tabCls}-disabled ${componentCls}-remove`]: {
         '&:focus, &:active': {
           color: token.colorTextDisabled,
         },
       },
+
       [`& ${tabCls}-remove ${iconCls}`]: {
         margin: 0,
+        verticalAlign: 'middle',
       },
+
       [`${iconCls}:not(:last-child)`]: {
         marginRight: {
           _skip_check_: true,
@@ -1104,7 +1110,6 @@ export default genStyleHooks(
       // `cardPadding` is empty by default, so we could calculate with dynamic `cardHeight`
       tabsCardPadding: token.cardPadding,
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
-      tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,
       tabsDropdownWidth: 120,
       tabsHorizontalItemMargin: `0 0 0 ${unit(token.horizontalItemGutter)}`,

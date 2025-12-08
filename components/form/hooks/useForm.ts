@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type { FormInstance as RcFormInstance } from 'rc-field-form';
-import { useForm as useRcForm } from 'rc-field-form';
-import { getDOM } from 'rc-util/lib/Dom/findDOMNode';
+import type { FormInstance as RcFormInstance } from '@rc-component/form';
+import { useForm as useRcForm } from '@rc-component/form';
+import { getDOM } from '@rc-component/util/lib/Dom/findDOMNode';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
@@ -20,7 +20,7 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   getFieldInstance: (name: NamePath) => any;
 }
 
-function toNamePathStr(name: NamePath) {
+export function toNamePathStr(name: NamePath) {
   const namePath = toArray(name);
   return namePath.join('_');
 }

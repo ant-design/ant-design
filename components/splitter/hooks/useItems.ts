@@ -1,39 +1,44 @@
 import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 
 import type { PanelProps } from '../interface';
 
-function getCollapsible(collapsible?: PanelProps['collapsible']) {
+export type ItemType = Omit<PanelProps, 'collapsible'> & {
+  collapsible: {
+    start?: boolean;
+    end?: boolean;
+    showCollapsibleIcon: 'auto' | boolean;
+  };
+};
+
+function getCollapsible(collapsible?: PanelProps['collapsible']): ItemType['collapsible'] {
   if (collapsible && typeof collapsible === 'object') {
-    return collapsible;
+    return {
+      ...collapsible,
+      showCollapsibleIcon:
+        collapsible.showCollapsibleIcon === undefined ? 'auto' : collapsible.showCollapsibleIcon,
+    };
   }
 
   const mergedCollapsible = !!collapsible;
   return {
     start: mergedCollapsible,
     end: mergedCollapsible,
+    showCollapsibleIcon: 'auto',
   };
 }
-
-export type ItemType = Omit<PanelProps, 'collapsible'> & {
-  collapsible: {
-    start?: boolean;
-    end?: boolean;
-  };
-};
 
 /**
  * Convert `children` into `items`.
  */
-export default function useItems(children: React.ReactNode): ItemType[] {
+function useItems(children: React.ReactNode): ItemType[] {
   const items = React.useMemo(
     () =>
       toArray(children)
-        .filter(React.isValidElement)
+        .filter((item) => React.isValidElement<PanelProps>(item))
         .map((node) => {
-          const { props } = node as React.ReactElement<PanelProps>;
+          const { props } = node;
           const { collapsible, ...restProps } = props;
-
           return {
             ...restProps,
             collapsible: getCollapsible(collapsible),
@@ -43,3 +48,5 @@ export default function useItems(children: React.ReactNode): ItemType[] {
   );
   return items;
 }
+
+export default useItems;

@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Unconfirmed Issues to DingTalk
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
             DINGDING_BOT_TOKEN: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
             actionTitle: 近 7 天未确认的 issue

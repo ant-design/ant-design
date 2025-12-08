@@ -19,6 +19,7 @@ const App: React.FC = () => {
       description: 'Put your files here.',
       cover: (
         <img
+          draggable={false}
           alt="tour.png"
           src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
         />
@@ -38,7 +39,7 @@ const App: React.FC = () => {
       <Button type="primary" onClick={() => setOpen(true)}>
         Begin Tour
       </Button>
-      <Space style={{ display: 'flex', marginTop: 12 }} direction="vertical">
+      <Space style={{ display: 'flex', marginTop: 12 }} vertical>
         <Row>
           <Col span={6}>
             <Text>Radius:</Text>

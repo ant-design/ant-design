@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="box-shadow:0 0 10px rgba(0, 0, 0, 0.1);height:200px"
   >
     <div
@@ -13,11 +13,11 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           First
@@ -40,11 +40,11 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Second
@@ -53,7 +53,7 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-splitter ant-splitter-vertical"
+    class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
     style="box-shadow:0 0 10px rgba(0, 0, 0, 0.1);height:300px"
   >
     <div
@@ -61,11 +61,11 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           First
@@ -88,11 +88,11 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Second
@@ -103,12 +103,174 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
+exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:20px"
 >
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-flex css-var-test-id"
+    style="gap:5px"
+  >
+    <p>
+      ShowCollapsibleIcon: 
+    </p>
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    >
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="auto"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          Auto
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="true"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          True
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="false"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          False
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
+    style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="33"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="67"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          Third
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -116,11 +278,11 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
       style="flex-basis:50%;flex-grow:0"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           First
@@ -143,11 +305,11 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
       style="flex-basis:50%;flex-grow:0"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Second
@@ -156,11 +318,11 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-justify-space-between ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-justify-space-between ant-flex-gap-middle"
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -183,7 +345,7 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -194,17 +356,201 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/splitter/demo/customize.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
+    style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:40%;flex-grow:0"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          Panel 1
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="40"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
+      >
+        <div
+          class="ant-splitter-bar-dragger-icon"
+        >
+          <span
+            aria-label="column-width"
+            class="anticon anticon-column-width acss-jp9u09"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="column-width"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M180 176h-60c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8zm724 0h-60c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8zM785.3 504.3L657.7 403.6a7.23 7.23 0 00-11.7 5.7V476H378v-62.8c0-6-7-9.4-11.7-5.7L238.7 508.3a7.14 7.14 0 000 11.3l127.5 100.8c4.7 3.7 11.7.4 11.7-5.7V548h268v62.8c0 6 7 9.4 11.7 5.7l127.5-100.8c3.8-2.9 3.8-8.5.2-11.4z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          Panel 2
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="70"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
+      >
+        <div
+          class="ant-splitter-bar-dragger-icon"
+        >
+          <span
+            aria-label="column-width"
+            class="anticon anticon-column-width acss-jp9u09"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="column-width"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M180 176h-60c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8zm724 0h-60c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8zM785.3 504.3L657.7 403.6a7.23 7.23 0 00-11.7 5.7V476H378v-62.8c0-6-7-9.4-11.7-5.7L238.7 508.3a7.14 7.14 0 000 11.3l127.5 100.8c4.7 3.7 11.7.4 11.7-5.7V548h268v62.8c0 6 7 9.4 11.7 5.7l127.5-100.8c3.8-2.9 3.8-8.5.2-11.4z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          Panel 3
+        </h5>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />,
+  <div
+    class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
+    style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:40%;flex-grow:0"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="40"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize acss-13lz4mh"
+      >
+        <div
+          class="ant-splitter-bar-dragger-icon"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="white-space:nowrap"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <h3
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     [true, 0, false]
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -212,11 +558,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -228,7 +574,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
@@ -241,11 +587,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:0;flex-grow:0"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -270,11 +616,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -285,12 +631,12 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     </div>
   </div>
   <h3
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     [false, 0, true]
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -298,11 +644,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -314,7 +660,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
@@ -327,11 +673,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:0;flex-grow:0"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -356,11 +702,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -371,12 +717,12 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     </div>
   </div>
   <h3
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Start have min & max
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -384,11 +730,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -400,12 +746,12 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        class="ant-splitter-bar-dragger"
       />
     </div>
     <div
@@ -413,11 +759,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -428,12 +774,12 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     </div>
   </div>
   <h3
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     End have min & max
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -441,11 +787,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -470,11 +816,11 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       style="flex-basis:auto;flex-grow:1"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
         style="height:100%"
       >
         <h5
-          class="ant-typography ant-typography-secondary"
+          class="ant-typography ant-typography-secondary css-var-test-id"
           style="white-space:nowrap"
         >
           Panel 
@@ -489,7 +835,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-horizontal"
+  class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
   style="height:300px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -497,11 +843,11 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         Left
@@ -524,18 +870,18 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-splitter ant-splitter-vertical"
+      class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
     >
       <div
         class="ant-splitter-panel"
         style="flex-basis:auto;flex-grow:1"
       >
         <div
-          class="ant-flex ant-flex-align-center ant-flex-justify-center"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
           style="height:100%"
         >
           <h5
-            class="ant-typography ant-typography-secondary"
+            class="ant-typography ant-typography-secondary css-var-test-id"
             style="white-space:nowrap"
           >
             Top
@@ -558,11 +904,11 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
         style="flex-basis:auto;flex-grow:1"
       >
         <div
-          class="ant-flex ant-flex-align-center ant-flex-justify-center"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
           style="height:100%"
         >
           <h5
-            class="ant-typography ant-typography-secondary"
+            class="ant-typography ant-typography-secondary css-var-test-id"
             style="white-space:nowrap"
           >
             Bottom
@@ -576,14 +922,14 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width:100%"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-splitter ant-splitter-horizontal"
+      class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
       style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
     >
       <div
@@ -591,11 +937,11 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
         style="flex-basis:40%;flex-grow:0"
       >
         <div
-          class="ant-flex ant-flex-align-center ant-flex-justify-center"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
           style="height:100%"
         >
           <h5
-            class="ant-typography ant-typography-secondary"
+            class="ant-typography ant-typography-secondary css-var-test-id"
             style="white-space:nowrap"
           >
             First
@@ -622,11 +968,11 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
         style="flex-basis:auto;flex-grow:1"
       >
         <div
-          class="ant-flex ant-flex-align-center ant-flex-justify-center"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
           style="height:100%"
         >
           <h5
-            class="ant-typography ant-typography-secondary"
+            class="ant-typography ant-typography-secondary css-var-test-id"
             style="white-space:nowrap"
           >
             Second
@@ -639,7 +985,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-splitter ant-splitter-vertical"
+      class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
       style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
     >
       <div
@@ -647,11 +993,11 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
         style="flex-basis:40%;flex-grow:0"
       >
         <div
-          class="ant-flex ant-flex-align-center ant-flex-justify-center"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
           style="height:100%"
         >
           <h5
-            class="ant-typography ant-typography-secondary"
+            class="ant-typography ant-typography-secondary css-var-test-id"
             style="white-space:nowrap"
           >
             First
@@ -678,11 +1024,11 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
         style="flex-basis:auto;flex-grow:1"
       >
         <div
-          class="ant-flex ant-flex-align-center ant-flex-justify-center"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
           style="height:100%"
         >
           <h5
-            class="ant-typography ant-typography-secondary"
+            class="ant-typography ant-typography-secondary css-var-test-id"
             style="white-space:nowrap"
           >
             Second
@@ -696,7 +1042,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-horizontal"
+  class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
   style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -704,11 +1050,11 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         Panel 
@@ -733,11 +1079,11 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         Panel 
@@ -762,11 +1108,11 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         Panel 
@@ -780,7 +1126,7 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/nested-in-tabs.tsx correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top"
+  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -880,7 +1226,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-horizontal"
+  class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
   style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -888,11 +1234,11 @@ exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
     style="flex-basis:40%;flex-grow:0"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         First
@@ -915,11 +1261,11 @@ exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         Second
@@ -929,9 +1275,111 @@ exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal acss-3vbbjp css-var-test-id ant-splitter-css-var"
+    style="background-color:#fffbe6;height:200px"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="color:#000"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+        style="background-color:rgba(194,223,252,0.4)"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+          style="color:#000"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal acss-3vbbjp css-var-test-id ant-splitter-css-var"
+    style="border-width:2px;border-style:dashed;margin-bottom:10px;height:200px"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          First
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:auto;flex-grow:1"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Second
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/splitter/demo/vertical.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-vertical"
+  class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
   style="height:300px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -939,11 +1387,11 @@ exports[`renders components/splitter/demo/vertical.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         First
@@ -966,11 +1414,11 @@ exports[`renders components/splitter/demo/vertical.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="height:100%"
     >
       <h5
-        class="ant-typography ant-typography-secondary"
+        class="ant-typography ant-typography-secondary css-var-test-id"
         style="white-space:nowrap"
       >
         Second

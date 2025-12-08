@@ -3,9 +3,13 @@ import type {
   MenuItemGroupType as RcMenuItemGroupType,
   MenuItemType as RcMenuItemType,
   SubMenuType as RcSubMenuType,
-} from 'rc-menu/lib/interface';
+} from '@rc-component/menu/lib/interface';
 
-export interface MenuItemType extends RcMenuItemType {
+export type DataAttributes = {
+  [Key in `data-${string}`]: unknown;
+};
+
+export interface MenuItemType extends RcMenuItemType, DataAttributes {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;

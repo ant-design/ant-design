@@ -1,9 +1,10 @@
 import React from 'react';
-import { Tooltip, Button } from 'antd';
+import { omit } from '@rc-component/util';
+import { Button, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-export interface LangBtnProps {
+import { clsx } from 'clsx';
+
+export interface SwitchBtnProps {
   label1: React.ReactNode;
   label2: React.ReactNode;
   tooltip1?: React.ReactNode;
@@ -17,14 +18,13 @@ export interface LangBtnProps {
 
 const BASE_SIZE = '1.2em';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { colorText, controlHeight, colorBgContainer, motionDurationMid } = token;
-
+const useStyle = createStyles(({ cssVar, css }) => {
   return {
     btn: css`
-      width: ${controlHeight}px;
+      width: ${cssVar.controlHeight};
       .btn-inner {
-        transition: all ${motionDurationMid};
+        transition: all ${cssVar.motionDurationMid};
+        display: flex;
       }
       img {
         width: ${BASE_SIZE};
@@ -40,15 +40,15 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       font-size: ${BASE_SIZE};
       line-height: 1;
-      border: 1px solid ${colorText};
-      color: ${colorText};
+      border: 1px solid ${cssVar.colorText};
+      color: ${cssVar.colorText};
     `,
     label1Style: css`
       inset-inline-start: -5%;
       top: 0;
       z-index: 1;
-      background-color: ${colorText};
-      color: ${colorBgContainer};
+      background-color: ${cssVar.colorText};
+      color: ${cssVar.colorBgContainer};
       transform: scale(0.7);
       transform-origin: 0 0;
     `,
@@ -62,7 +62,7 @@ const useStyle = createStyles(({ token, css }) => {
   };
 });
 
-const LangBtn: React.FC<LangBtnProps> = (props) => {
+const SwitchBtn: React.FC<SwitchBtnProps> = (props) => {
   const { label1, label2, tooltip1, tooltip2, value, pure, onClick, ...rest } = props;
 
   const {
@@ -81,10 +81,10 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (
           <div className={innerDiv}>
-            <span className={classNames(labelStyle, value === 1 ? label1Style : label2Style)}>
+            <span className={clsx(labelStyle, value === 1 ? label1Style : label2Style)}>
               {label1}
             </span>
-            <span className={classNames(labelStyle, value === 1 ? label2Style : label1Style)}>
+            <span className={clsx(labelStyle, value === 1 ? label2Style : label1Style)}>
               {label2}
             </span>
           </div>
@@ -100,4 +100,4 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
   return node;
 };
 
-export default LangBtn;
+export default SwitchBtn;

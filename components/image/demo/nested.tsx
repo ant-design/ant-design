@@ -60,6 +60,7 @@ const App: React.FC = () => {
           >
             <Image
               width={200}
+              alt="svg image"
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
             />
             <Divider />
@@ -71,6 +72,7 @@ const App: React.FC = () => {
             >
               <Image
                 width={200}
+                alt="svg image"
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
               <Image

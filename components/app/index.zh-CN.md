@@ -16,15 +16,15 @@ tag: 5.1.0
 - 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
 - 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/config.tsx">Hooks 配置</code>
 
-## 如何使用
+## 如何使用 {#how-to-use}
 
-### 基础用法
+### 基础用法 {#basic-usage}
 
 App 组件通过 `Context` 提供上下文方法调用，因而 useApp 需要作为子组件才能使用，我们推荐在应用中顶层包裹 App。
 
@@ -35,7 +35,7 @@ import { App } from 'antd';
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
   message.success('Good!');
-  notification.info({ message: 'Good' });
+  notification.info({ title: 'Good' });
   modal.warning({ title: 'Good' });
   // ....
   // other message, notification, modal static function
@@ -53,7 +53,7 @@ export default MyApp;
 
 注意：App.useApp 必须在 App 之下方可使用。
 
-### 与 ConfigProvider 先后顺序
+### 与 ConfigProvider 先后顺序 {#sequence-with-configprovider}
 
 App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果需要使用其样式重置能力，则 ConfigProvider 与 App 组件必须成对出现。
 
@@ -65,7 +65,7 @@ App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果�
 </ConfigProvider>
 ```
 
-### 内嵌使用场景（如无必要，尽量不做嵌套）
+### 内嵌使用场景（如无必要，尽量不做嵌套） {#embedded-usage-scenarios}
 
 ```tsx
 <App>
@@ -76,7 +76,7 @@ App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果�
 </App>
 ```
 
-### 全局场景（redux 场景）
+### 全局场景（redux 场景） {#global-scene-redux}
 
 ```tsx
 // Entry component
@@ -136,12 +136,12 @@ export default () => {
 | message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
 | notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="App"></ComponentTokenTable>
 
 ## FAQ
 
-### CSS Var 在 `<App component={false}>` 内不起作用
+### CSS Var 在 `<App component={false}>` 内不起作用 {#faq-css-var-component-false}
 
 请确保 App 的 `component` 是一个有效的 html 标签名，以便在启用 CSS 变量时有一个容器来承载 CSS 类名。如果不设置，则默认为 `div` 标签，如果设置为 `false`，则不会创建额外的 DOM 节点，也不会提供默认样式。

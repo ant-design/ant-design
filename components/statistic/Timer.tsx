@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { useEvent } from 'rc-util';
-import raf from 'rc-util/lib/raf';
+import { useEvent } from '@rc-component/util';
 
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
@@ -10,6 +8,8 @@ import type { FormatConfig, valueType } from './utils';
 import { formatCounter } from './utils';
 
 export type TimerType = 'countdown' | 'countup';
+
+const UPDATE_INTERVAL = 1000 / 60;
 
 export interface StatisticTimerProps extends FormatConfig, StatisticProps {
   type: TimerType;
@@ -29,14 +29,15 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
   const { value, format = 'HH:mm:ss', onChange, onFinish, type, ...rest } = props;
   const down = type === 'countdown';
 
-  const forceUpdate = useForceUpdate();
+  // We reuse state here to do same as `forceUpdate`
+  const [showTime, setShowTime] = React.useState<null | object>(null);
 
   // ======================== Update ========================
   const update = useEvent(() => {
     const now = Date.now();
     const timestamp = getTime(value);
 
-    forceUpdate();
+    setShowTime({});
     const timeDiff = !down ? now - timestamp : timestamp - now;
 
     onChange?.(timeDiff);
@@ -51,26 +52,36 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
 
   // Effect trigger
   React.useEffect(() => {
-    let rafId: number;
+    let intervalId: number;
 
-    const clear = () => raf.cancel(rafId!);
-
-    const rafUpdate = () => {
-      rafId = raf(() => {
-        if (update()) {
-          rafUpdate();
-        }
-      });
+    const tick = () => {
+      if (!update()) {
+        window.clearInterval(intervalId);
+      }
     };
 
-    rafUpdate();
+    const startTimer = () => {
+      intervalId = window.setInterval(tick, UPDATE_INTERVAL);
+    };
 
-    return clear;
+    const stopTimer = () => {
+      window.clearInterval(intervalId);
+    };
+
+    startTimer();
+
+    return () => {
+      stopTimer();
+    };
   }, [value, down]);
+
+  React.useEffect(() => {
+    setShowTime({});
+  }, []);
 
   // ======================== Format ========================
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
-    formatCounter(formatValue, { ...config, format }, down);
+    showTime ? formatCounter(formatValue, { ...config, format }, down) : '-';
 
   const valueRender: StatisticProps['valueRender'] = (node) =>
     cloneElement(node, { title: undefined });

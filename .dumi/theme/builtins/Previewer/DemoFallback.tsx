@@ -2,12 +2,12 @@ import React from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   skeletonWrapper: css`
     width: 100% !important;
     height: 250px;
-    margin-bottom: ${token.margin}px;
-    border-radius: ${token.borderRadiusLG}px;
+    margin-bottom: ${cssVar.margin};
+    border-radius: ${cssVar.borderRadiusLG};
   `,
 }));
 
