@@ -15,6 +15,29 @@ tag: vVERSION
 
 ---
 
+## 6.1.0
+
+`2025-12-08`
+
+- 🆕 ConfigProvider supports configuring the `trigger` property for Tooltip, Popover, and Popconfirm. [#55932](https://github.com/ant-design/ant-design/pull/55932) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Alert add semantic close button element. [#55815](https://github.com/ant-design/ant-design/pull/55815) [@coding-ice](https://github.com/coding-ice)
+- Drawer
+  - 🆕 Drawer add semantic close button element. [#55816](https://github.com/ant-design/ant-design/pull/55816) [@coding-ice](https://github.com/coding-ice)
+  - 🆕 Drawer add boolean type setting for `resizable`. [#55861](https://github.com/ant-design/ant-design/pull/55861) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- Select
+  - 🆕 Select add multi-field search functionality to `optionFilterProp`. [#56057](https://github.com/ant-design/ant-design/pull/56057) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 Fix Select input cursor displayed in non search mode. [#56067](https://github.com/ant-design/ant-design/pull/56067) [@afc163](https://github.com/afc163)
+  - 🐞 Fix the「Select」option was not enabled when Select contained interactive content. [#56054](https://github.com/ant-design/ant-design/pull/56054) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fixe the Table `cellFontSizeSM` and `cellFontSizeLG` tokens were not working. [#55770](https://github.com/ant-design/ant-design/pull/55770) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Button tokens (primaryColor, dangerColor, defaultHoverBg, defaultActiveBg) not working with specific variants (solid, outlined, dashed). [#55934](https://github.com/ant-design/ant-design/pull/55934) [@tuzixiangs](https://github.com/tuzixiangs)
+- 💄 Fix the styles defined in the Menu component's items were not working. [#56041](https://github.com/ant-design/ant-design/pull/56041) [@Wxh16144](https://github.com/Wxh16144) 
+- 🛠 MISC: `@ant-design/react-slick` remove `classnames`. [#56080](https://github.com/ant-design/ant-design/pull/56080) [@yoyo837](https://github.com/yoyo837)
+- 🛠 MISC: Migrate `rc-overflow` to `@rc-component/overflow` to remove `rc-util`. [#56074](https://github.com/ant-design/ant-design/pull/56074) [@yoyo837](https://github.com/yoyo837)
+- TypeScript
+  - 🤖 Alert now exports ErrorBoundaryProps type. [#55974](https://github.com/ant-design/ant-design/pull/55974) [@guoyunhe](https://github.com/guoyunhe)
+  - 🤖 ConfigProvider supports passing a function as a Table `rowKey`. [#56095](https://github.com/ant-design/ant-design/pull/56095) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 The `title` attribute of the notification has been changed to be optional. [#56027](https://github.com/ant-design/ant-design/pull/56027) [@afc163](https://github.com/afc163)
+
 ## 6.0.1
 
 `2025-12-02`
