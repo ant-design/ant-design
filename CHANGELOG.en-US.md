@@ -28,7 +28,7 @@ tag: vVERSION
   - 🆕 Select add multi-field search functionality to `optionFilterProp`. [#56057](https://github.com/ant-design/ant-design/pull/56057) [@ug-hero](https://github.com/ug-hero)
   - 🐞 Fix Select input cursor displayed in non-search mode. [#56067](https://github.com/ant-design/ant-design/pull/56067) [@afc163](https://github.com/afc163)
   - 🐞 Fix the「Select」option was not enabled when Select contained interactive content. [#56054](https://github.com/ant-design/ant-design/pull/56054) [@yoyo837](https://github.com/yoyo837)
-- 🐞 Fix the Table `cellFontSizeSM` and `cellFontSizeLG` tokens were not working. [#55770](https://github.com/ant-design/ant-design/pull/55770) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Table `cellFontSizeSM` and `cellFontSizeLG` tokens not working. [#55770](https://github.com/ant-design/ant-design/pull/55770) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Button tokens (primaryColor, dangerColor, defaultHoverBg, defaultActiveBg) not working with specific variants (solid, outlined, dashed). [#55934](https://github.com/ant-design/ant-design/pull/55934) [@tuzixiangs](https://github.com/tuzixiangs)
 - 💄 Fix Menu item styles not taking effect. [#56041](https://github.com/ant-design/ant-design/pull/56041) [@Wxh16144](https://github.com/Wxh16144) 
 - 🛠 MISC: `@ant-design/react-slick` remove `classnames`. [#56080](https://github.com/ant-design/ant-design/pull/56080) [@yoyo837](https://github.com/yoyo837)
