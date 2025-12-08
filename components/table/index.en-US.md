@@ -404,13 +404,13 @@ Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/compon
 
 Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom. Like this:
 
-```jsx
+```tsx
 const EditableRow: React.FC<EditableRowProps> = forwardRef(({ index, ...props }, ref) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
       <EditableContext.Provider value={form}>
-        <tr {...props} ref={ref}/>
+        <tr {...props} ref={ref} />
       </EditableContext.Provider>
     </Form>
   );
