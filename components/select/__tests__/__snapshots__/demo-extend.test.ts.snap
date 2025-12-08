@@ -10816,6 +10816,7 @@ exports[`renders components/select/demo/placement.tsx extend context correctly 1
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -11063,6 +11064,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -13564,6 +13566,7 @@ exports[`renders components/select/demo/size.tsx extend context correctly 1`] = 
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"

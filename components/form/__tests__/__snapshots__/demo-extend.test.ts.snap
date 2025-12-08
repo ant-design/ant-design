@@ -2439,6 +2439,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -10010,6 +10011,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             <div
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="layout"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -12556,6 +12558,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             <div
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="requiredMarkValue"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -12885,6 +12888,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             <div
               class="ant-radio-group ant-radio-group-outline ant-radio-group-default css-var-test-id ant-radio-css-var"
               id="size"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -23638,6 +23642,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             <div
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="validate_other_radio-group"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -23741,6 +23746,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               aria-required="true"
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="validate_other_radio-button"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -23843,6 +23849,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             <div
               class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
               id="validate_other_checkbox-group"
+              role="group"
             >
               <div
                 class="ant-row css-var-test-id"

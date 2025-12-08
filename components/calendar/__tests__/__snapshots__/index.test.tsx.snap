@@ -113,6 +113,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -1047,6 +1048,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -1981,6 +1983,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
@@ -2915,6 +2918,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
