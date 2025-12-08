@@ -167,11 +167,12 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
-  rowKey?: string;
+  rowKey?: TableProps<RecordType>['rowKey'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
