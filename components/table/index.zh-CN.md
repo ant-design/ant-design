@@ -420,7 +420,7 @@ const EditableRow: React.FC<EditableRowProps> = forwardRef(({ index, ...props },
 
 对于固定行高纵向滚动的场景，可以使用以下方法：
 
-```jsx
+```tsx
 <Table
   //@ts-ignore // 这个属性未导出，但能透传给内部的虚拟滚动组件
   listItemHeight={36} // 帮助虚拟滚动正确计算高度，每行固定高度36px
