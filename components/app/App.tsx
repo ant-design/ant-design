@@ -12,6 +12,7 @@ import useNotification from '../notification/useNotification';
 import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
+import useApp from './useApp';
 
 export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;
@@ -41,12 +42,15 @@ const App: React.FC<AppProps> = (props) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const appConfig = useContext<AppConfig>(AppConfigContext);
+  const appConfig = useApp();
 
   const mergedAppConfig = React.useMemo<AppConfig>(
     () => ({
       message: { ...appConfig.message, ...message },
       notification: { ...appConfig.notification, ...notification },
+      breadcrumb: {
+        items: [...(appConfig.breadcrumb?.items || []), ...(props.breadcrumb?.items || [])],
+      },
     }),
     [message, notification, appConfig.message, appConfig.notification],
   );
@@ -62,8 +66,9 @@ const App: React.FC<AppProps> = (props) => {
       message: messageApi,
       notification: notificationApi,
       modal: ModalApi,
+      breadcrumb: { items: mergedAppConfig.breadcrumb?.items || [] },
     }),
-    [messageApi, notificationApi, ModalApi],
+    [messageApi, notificationApi, ModalApi, mergedAppConfig.breadcrumb],
   );
 
   // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526

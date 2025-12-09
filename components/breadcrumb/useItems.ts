@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import useApp from '../app/useApp';
 import type { BreadcrumbItemType, BreadcrumbSeparatorType, ItemType } from './Breadcrumb';
 
 type MergedType = BreadcrumbItemType & {
@@ -30,15 +31,17 @@ export default function useItems(
   items?: ItemType[],
   routes?: ItemType[],
 ): Partial<MergedType & BreadcrumbSeparatorType>[] | null {
+  const { breadcrumb } = useApp();
+
   return useMemo<ItemType[] | null>(() => {
     if (items) {
-      return items;
+      return [...breadcrumb.items, ...items];
     }
 
     if (routes) {
-      return routes.map(route2item);
+      return [...breadcrumb.items, ...routes.map(route2item)];
     }
 
     return null;
-  }, [items, routes]);
+  }, [items, routes, breadcrumb.items]);
 }

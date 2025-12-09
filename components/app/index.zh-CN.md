@@ -15,12 +15,14 @@ tag: 5.1.0
 
 - 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
 - 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。
+- 在布局文件中便捷地为 `Breadcrumb` 统一设定前置项，并在多个页面生效。
 
 ## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/config.tsx">Hooks 配置</code>
+<code src="./demo/breadcrumb.tsx">Breadcrumb</code>
 
 ## 如何使用 {#how-to-use}
 
@@ -135,6 +137,7 @@ export default () => {
 | component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | div | 5.11.0 |
 | message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
 | notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
+| breadcrumb | Breadcrumb 前置项 | { items?: BreadcrumbItemType[] } | - | 6.2.0 |
 
 ## 主题变量（Design Token）{#design-token}
 
