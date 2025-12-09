@@ -66,7 +66,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         listStyle: 'none',
       },
 
-      a: {
+      [`a${componentCls}-link, ${componentCls}-link a`]: {
         color: token.linkColor,
         transition: `color ${token.motionDurationMid}`,
         padding: `0 ${unit(token.paddingXXS)}`,
