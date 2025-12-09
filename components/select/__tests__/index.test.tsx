@@ -93,6 +93,13 @@ describe('Select', () => {
     expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
+  it('should have text cursor when showSearch', () => {
+    jest.useFakeTimers();
+    const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
+    const content = container.querySelector('.ant-select-show-search');
+    expect(content).toHaveStyle({ cursor: 'text' });
+  });
+
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const { rerender, asFragment } = render(
