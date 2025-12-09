@@ -143,7 +143,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         paddingInline: 'var(--select-padding-horizontal)',
         paddingBlock: 'var(--select-padding-vertical)',
 
-        // ========================= Show Search =========================
+        // ======================= Show Search ======================
         [`&${componentCls}-show-search`]: {
           cursor: 'text',
         },
