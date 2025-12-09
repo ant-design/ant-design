@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import { devUseWarning } from '../_util/warning';
 import Button from '../button';
 import type { ButtonHTMLType, ButtonProps } from '../button';
-import type { ButtonGroupProps } from '../button/button-group';
+import type { ButtonGroupProps } from '../button/ButtonGroup';
 import { ConfigContext } from '../config-provider';
 import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';

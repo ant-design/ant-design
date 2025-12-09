@@ -3655,7 +3655,6 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -3714,7 +3713,6 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -3773,7 +3771,6 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -3832,7 +3829,6 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div
@@ -3891,7 +3887,6 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div

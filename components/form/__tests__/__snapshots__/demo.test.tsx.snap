@@ -2729,7 +2729,6 @@ Array [
                   class="ant-slider-step"
                 />
                 <div
-                  aria-describedby="test-id"
                   aria-disabled="true"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -2771,7 +2770,6 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                aria-describedby="test-id"
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
               >
                 <div
@@ -7655,7 +7653,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
         >
           Nickname
           <span
-            aria-describedby="test-id"
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
@@ -8559,7 +8556,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
         >
           Field A
           <span
-            aria-describedby="test-id"
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
@@ -8619,7 +8615,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
         >
           Field B
           <span
-            aria-describedby="test-id"
             aria-label="info-circle"
             class="anticon anticon-info-circle ant-form-item-tooltip"
             role="img"
@@ -10914,7 +10909,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 />
               </div>
               <div
-                aria-describedby="test-id"
                 aria-disabled="false"
                 aria-orientation="horizontal"
                 aria-valuemax="100"
@@ -11915,7 +11909,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-describedby="test-id"
               aria-required="true"
               class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
               id="validate_other_color-picker"

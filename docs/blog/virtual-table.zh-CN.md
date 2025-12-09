@@ -35,7 +35,7 @@ Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table
 
 ## 一些细节
 
-antd 的 Table 底层使用了 `@rc-component/table` 组件，我们的虚拟滚动功能也是复用了上文提到的 `components` 属性。将中间的 `<tbody>` 替换为 `rc-virtual-list`，该组件广泛应用于 antd 的各个虚拟滚动场景中。例如 Select、Tree 都可以见到它的身影。而 `rc-virtual-list` 本身并不支持横向滚动能力，因而我们在这次改造中，也为其添加了横向滚动的支持。
+antd 的 Table 底层使用了 `@rc-component/table` 组件，我们的虚拟滚动功能也是复用了上文提到的 `components` 属性。将中间的 `<tbody>` 替换为 `@rc-component/virtual-list`，该组件广泛应用于 antd 的各个虚拟滚动场景中。例如 Select、Tree 都可以见到它的身影。而 `@rc-component/virtual-list` 本身并不支持横向滚动能力，因而我们在这次改造中，也为其添加了横向滚动的支持。
 
 ### 固定列
 
@@ -47,7 +47,7 @@ antd 的 Table 底层使用了 `@rc-component/table` 组件，我们的虚拟滚
 
 <img alt="Stack Sticky" height="279" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HSW-S40yR_wAAAAAAAAAAAAADrJ8AQ/original" />
 
-在虚拟滚动中，我们同样可以利用该特性。直接复用 `sticky` 样式，即可实现固定列的效果。而 `rc-virtual-list` 需要付出的仅仅是提供横向滚动，而不需要关心固定列的实现。
+在虚拟滚动中，我们同样可以利用该特性。直接复用 `sticky` 样式，即可实现固定列的效果。而 `@rc-component/virtual-list` 需要付出的仅仅是提供横向滚动，而不需要关心固定列的实现。
 
 ### 可展开
 
@@ -130,7 +130,7 @@ const Demo = () => {
 
 <img alt="fully cut off" height="400" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_LBQRKPhLaIAAAAAAAAAAAAADrJ8AQ/original" />
 
-`rc-virtual-list` 提供了 `extraRender` 方法，它会提供当前虚拟滚动中所渲染的行号。我们只需要对这个范围内的 Record 执行一次 `onCell` 获取每个 `cell` 的 `rowSpan` 和 `colSpan` 信息。既可以知道当前行是否存在对外的 `rowSpan` 依赖：
+`@rc-component/virtual-list` 提供了 `extraRender` 方法，它会提供当前虚拟滚动中所渲染的行号。我们只需要对这个范围内的 Record 执行一次 `onCell` 获取每个 `cell` 的 `rowSpan` 和 `colSpan` 信息。既可以知道当前行是否存在对外的 `rowSpan` 依赖：
 
 ```tsx
 // Fake code. Not used in real world
