@@ -144,7 +144,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         paddingBlock: 'var(--select-padding-vertical)',
 
         // ========================= Show Search =========================
-        [`${componentCls}-show-search&`]: {
+        [`&${componentCls}-show-search`]: {
           cursor: 'text',
         },
 
