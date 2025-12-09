@@ -1010,7 +1010,6 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-slider-step"
               />
               <div
-                aria-describedby="test-id"
                 aria-disabled="true"
                 aria-orientation="horizontal"
                 aria-valuemax="100"
@@ -1052,7 +1051,6 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-describedby="test-id"
               class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
             >
               <div

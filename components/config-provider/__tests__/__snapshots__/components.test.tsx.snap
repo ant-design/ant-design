@@ -10724,24 +10724,6 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -10850,24 +10832,6 @@ exports[`ConfigProvider components Carousel configProvider componentDisabled 1`]
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -10984,24 +10948,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize large 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11110,24 +11056,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize middle 
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -11244,24 +11172,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize small 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11374,24 +11284,6 @@ exports[`ConfigProvider components Carousel normal 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11500,24 +11392,6 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -12426,7 +12300,6 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
   <div
@@ -12437,7 +12310,6 @@ exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider componentDisabled 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var config-color-picker-trigger-disabled"
 >
   <div
@@ -12448,7 +12320,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentDisabled 
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize large 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-lg css-var-root config-color-picker-css-var"
 >
   <div
@@ -12459,7 +12330,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize larg
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
   <div
@@ -12470,7 +12340,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize midd
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize small 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-sm css-var-root config-color-picker-css-var"
 >
   <div
@@ -12481,7 +12350,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize smal
 
 exports[`ConfigProvider components ColorPicker normal 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
 >
   <div
@@ -12492,7 +12360,6 @@ exports[`ConfigProvider components ColorPicker normal 1`] = `
 
 exports[`ConfigProvider components ColorPicker prefixCls 1`] = `
 <div
-  aria-describedby="test-id"
   class="prefix-ColorPicker-trigger css-var-root prefix-ColorPicker-css-var"
 >
   <div
@@ -17566,7 +17433,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17644,7 +17510,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17722,7 +17587,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17800,7 +17664,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17878,7 +17741,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17956,7 +17818,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -18035,7 +17896,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="prefix-Menu-item prefix-Menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               prefixcls="prefix-Menu"
@@ -25954,7 +25814,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26050,7 +25909,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26263,7 +26121,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26359,7 +26216,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26574,7 +26430,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26670,7 +26525,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26883,7 +26737,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26979,7 +26832,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27192,7 +27044,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27288,7 +27139,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27501,7 +27351,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -27597,7 +27446,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27810,7 +27658,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="prefix-Table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="prefix-Table-column-sorters"
                         >
                           <span
@@ -27906,7 +27753,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"

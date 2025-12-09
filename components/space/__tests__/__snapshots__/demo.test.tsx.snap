@@ -224,7 +224,6 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -317,7 +316,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -1858,7 +1856,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item css-var-test-id ant-color-picker-css-var"
       >
         <div
@@ -2006,7 +2003,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
@@ -2035,7 +2031,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2073,7 +2068,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2102,7 +2096,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2131,7 +2124,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2160,7 +2152,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2254,7 +2245,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -2284,7 +2274,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
@@ -2342,7 +2331,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -2372,7 +2360,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2491,7 +2478,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
@@ -3306,7 +3292,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         value=""
       />
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -4146,7 +4131,6 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -4159,7 +4143,6 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"

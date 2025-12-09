@@ -22,6 +22,7 @@ demo:
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/search-filter-option.tsx">自定义搜索</code>
+<code src="./demo/search-multi-field.tsx">多字段搜索</code>
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/option-render.tsx">自定义下拉选项</code>
@@ -88,7 +89,7 @@ demo:
 | mode | 设置 Select 的模式为多选或标签 | `multiple` \| `tags` | - |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | open | 是否展开下拉菜单 | boolean | - |  |
-| ~~optionFilterProp~~ | 搜索时过滤对应的 `option` 属性，如设置为 `children` 表示对内嵌内容进行搜索。若通过 `options` 属性配置选项内容，建议设置 `optionFilterProp="label"` 来对内容进行搜索。 | string | `value` |  |
+| ~~optionFilterProp~~ | 已废弃，见 `showSearch.optionFilterProp` |  |  |  |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
@@ -130,7 +131,7 @@ demo:
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false。[示例](#select-demo-search) | boolean \| function(inputValue, option) | true |  |
 | filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
-| optionFilterProp | 搜索时过滤对应的 `option` 属性，如设置为 `children` 表示对内嵌内容进行搜索。若通过 `options` 属性配置选项内容，建议设置 `optionFilterProp="label"` 来对内容进行搜索。 | string | `value` |  |
+| optionFilterProp | 搜索时过滤对应的 `option` 属性，如设置为 `children` 表示对内嵌内容进行搜索。<br/> 若通过 `options` 属性配置选项内容，建议设置 `optionFilterProp="label"` 来对内容进行搜索。<br/> 当传入 `string[]` 时多个字段进行 OR 匹配搜索 | string \| string[] | `value` | `string[]`: 6.1.0 |
 | searchValue | 控制搜索文本 | string | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 

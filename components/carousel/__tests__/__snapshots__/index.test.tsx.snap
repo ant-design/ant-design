@@ -6,7 +6,6 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
 >
   <div
     class="slick-slider slick-initialized"
-    dir="ltr"
   >
     <div
       class="slick-list"
@@ -26,7 +25,6 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
 >
   <div
     class="slick-slider slick-initialized"
-    dir="ltr"
   >
     <div
       class="slick-list"
@@ -51,18 +49,6 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
         </div>
       </div>
     </div>
-    <ul
-      class="slick-dots slick-dots-bottom"
-      style="display: block;"
-    >
-      <li
-        class="slick-active"
-      >
-        <button>
-          1
-        </button>
-      </li>
-    </ul>
   </div>
 </div>
 `;
@@ -73,11 +59,9 @@ exports[`Carousel should works for dotPosition left 1`] = `
 >
   <div
     class="slick-slider slick-vertical slick-initialized"
-    dir="ltr"
   >
     <div
       class="slick-list"
-      style="height: 0px;"
     >
       <div
         class="slick-track"
@@ -99,18 +83,6 @@ exports[`Carousel should works for dotPosition left 1`] = `
         </div>
       </div>
     </div>
-    <ul
-      class="slick-dots slick-dots-start"
-      style="display: block;"
-    >
-      <li
-        class="slick-active"
-      >
-        <button>
-          1
-        </button>
-      </li>
-    </ul>
   </div>
 </div>
 `;
@@ -121,11 +93,9 @@ exports[`Carousel should works for dotPosition right 1`] = `
 >
   <div
     class="slick-slider slick-vertical slick-initialized"
-    dir="ltr"
   >
     <div
       class="slick-list"
-      style="height: 0px;"
     >
       <div
         class="slick-track"
@@ -147,18 +117,6 @@ exports[`Carousel should works for dotPosition right 1`] = `
         </div>
       </div>
     </div>
-    <ul
-      class="slick-dots slick-dots-end"
-      style="display: block;"
-    >
-      <li
-        class="slick-active"
-      >
-        <button>
-          1
-        </button>
-      </li>
-    </ul>
   </div>
 </div>
 `;
@@ -169,7 +127,6 @@ exports[`Carousel should works for dotPosition top 1`] = `
 >
   <div
     class="slick-slider slick-initialized"
-    dir="ltr"
   >
     <div
       class="slick-list"
@@ -194,18 +151,6 @@ exports[`Carousel should works for dotPosition top 1`] = `
         </div>
       </div>
     </div>
-    <ul
-      class="slick-dots slick-dots-top"
-      style="display: block;"
-    >
-      <li
-        class="slick-active"
-      >
-        <button>
-          1
-        </button>
-      </li>
-    </ul>
   </div>
 </div>
 `;

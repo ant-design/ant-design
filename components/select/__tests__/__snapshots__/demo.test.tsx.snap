@@ -4384,9 +4384,7 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
             <span
               class="ant-select-selection-item-content"
             >
-              <span
-                aria-describedby="test-id"
-              >
+              <span>
                 Hover Me
               </span>
             </span>
@@ -4535,6 +4533,59 @@ exports[`renders components/select/demo/search-filter-option.tsx correctly 1`] =
       style="visibility:visible"
     >
       Select a person
+    </div>
+    <input
+      aria-autocomplete="list"
+      aria-controls="test-id_list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="test-id_list"
+      autocomplete="off"
+      class="ant-select-input"
+      id="test-id"
+      role="combobox"
+      type="search"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-select-suffix"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/select/demo/search-multi-field.tsx correctly 1`] = `
+<div
+  class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+>
+  <div
+    class="ant-select-content"
+  >
+    <div
+      class="ant-select-placeholder"
+      style="visibility:visible"
+    >
+      Select an option
     </div>
     <input
       aria-autocomplete="list"
