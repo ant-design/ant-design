@@ -5,11 +5,13 @@ This document describes the security measures implemented in ant-design's GitHub
 ## Background: PWN Request Vulnerability
 
 The "PWN Request" (or "Pull Request Target") vulnerability occurs when workflows:
+
 1. Use `pull_request_target`, `workflow_run`, or `issue_comment` triggers
 2. Check out code from untrusted sources (fork PRs)
 3. Execute that code with elevated privileges or access to secrets
 
 This can allow attackers to:
+
 - Steal repository secrets
 - Execute remote code in the CI/CD environment
 - Modify repository contents
@@ -29,6 +31,7 @@ All workflows using `pull_request_target` follow these rules:
 - ✅ Use minimal permissions (explicitly defined per job)
 
 **Safe workflows:**
+
 - `preview-start.yml` - Only comments on PRs
 - `pr-open-notify.yml` - Only sends notifications
 - `pr-open-check.yml` - Only validates PR content
@@ -42,12 +45,14 @@ All workflows using `pull_request_target` follow these rules:
 We use the "build in PR, deploy in workflow_run" pattern:
 
 **Build Phase** (uses `pull_request` trigger):
+
 - `preview-build.yml` - Builds site from PR code with restricted permissions
 - `visual-regression-diff-build.yml` - Generates screenshots from PR code
 - Uses `pull_request` trigger (no secrets, read-only repository access)
 - Uploads build artifacts (no secrets included)
 
 **Deploy Phase** (uses `workflow_run` trigger):
+
 - `preview-deploy.yml` - Downloads artifacts and deploys
 - `visual-regression-diff-finish.yml` - Downloads artifacts and posts results
 - Only downloads artifacts, never checks out untrusted code
@@ -68,7 +73,7 @@ All workflows follow the principle of least privilege:
 
 ```yaml
 permissions:
-  contents: read  # Default read-only access
+  contents: read # Default read-only access
 
 jobs:
   specific-job:
@@ -81,6 +86,7 @@ jobs:
 ### 5. Pinned Action Versions
 
 Critical actions are pinned to specific commit SHAs:
+
 - `actions-cool/verify-files-modify@9f38a3b3d324d4d92c88c8a946001522e17ad554`
 
 This prevents supply chain attacks via compromised action updates.
@@ -88,6 +94,7 @@ This prevents supply chain attacks via compromised action updates.
 ### 6. Input Validation
 
 All external inputs are validated:
+
 - PR numbers are validated as numeric before use
 - File paths are checked before operations
 - User associations are verified before privileged operations

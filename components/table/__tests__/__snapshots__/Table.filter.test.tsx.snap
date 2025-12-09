@@ -568,7 +568,6 @@ exports[`Table.filter renders menu correctly 1`] = `
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-boy"
       role="menuitem"
@@ -598,7 +597,6 @@ exports[`Table.filter renders menu correctly 1`] = `
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-girl"
       role="menuitem"
@@ -710,7 +708,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-boy"
       role="menuitem"
@@ -740,7 +737,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-girl"
       role="menuitem"

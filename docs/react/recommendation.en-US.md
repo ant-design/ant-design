@@ -29,7 +29,7 @@ title: Third-Party Libraries
 | i18n | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown renderer | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
+| Infinite Scroll | [@rc-component/virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | Map | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap](https://github.com/uiwjs/react-amap) |
 | Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | Context Menu | [react-contexify](https://github.com/fkhadra/react-contexify) |
