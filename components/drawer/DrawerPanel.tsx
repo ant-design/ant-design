@@ -92,7 +92,10 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     DrawerStylesType,
     DrawerPanelProps
   >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], {
-    props,
+    props: {
+      ...props,
+      closable: closable ?? contextClosable,
+    },
   });
 
   const closablePlacement = React.useMemo<'start' | 'end' | undefined>(() => {
@@ -100,7 +103,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (mergedClosableVal === false) {
       return undefined;
     }
-    if (typeof mergedClosableVal === 'object' && mergedClosableVal && mergedClosableVal.placement === 'end') {
+    if (
+      typeof mergedClosableVal === 'object' &&
+      mergedClosableVal &&
+      mergedClosableVal.placement === 'end'
+    ) {
       return 'end';
     }
     return 'start';
