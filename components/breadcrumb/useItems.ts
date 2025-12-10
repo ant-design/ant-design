@@ -42,6 +42,6 @@ export default function useItems(
       return [...breadcrumb.items, ...routes.map(route2item)];
     }
 
-    return null;
+    return breadcrumb.items || null;
   }, [items, routes, breadcrumb.items]);
 }
