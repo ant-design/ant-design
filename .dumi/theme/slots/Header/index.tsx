@@ -258,6 +258,10 @@ const Header: React.FC = () => {
   );
 
   const { menuVisible, windowWidth, searching } = headerState;
+  const isHome = ['', 'index', 'index-cn'].includes(pathname);
+  const isZhCN = lang === 'cn';
+  const isRTL = direction === 'rtl';
+  
   const docVersions: Record<string, string> = {
     ...themeConfig?.docNewVersions,
     [pkg.version]: pkg.version,
@@ -265,12 +269,8 @@ const Header: React.FC = () => {
   };
   const versionOptions = Object.keys(docVersions).map((version) => ({
     value: docVersions[version],
-    label: version,
+    label: version === 'LATEST_VERSION' ? (isZhCN ? '最新版本' : 'Latest') : version,
   }));
-
-  const isHome = ['', 'index', 'index-cn'].includes(pathname);
-  const isZhCN = lang === 'cn';
-  const isRTL = direction === 'rtl';
 
   // Get banner data from site config
   const bannerData = getBannerData();

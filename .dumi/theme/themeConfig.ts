@@ -56,6 +56,7 @@ export default {
     '0.9.x': 'https://09x.ant.design',
   },
   docNewVersions: {
+    LATEST_VERSION: chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design',
     '6.x': chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design',
   },
 };
