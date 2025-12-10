@@ -31,6 +31,7 @@ const App: React.FC<AppProps> = (props) => {
     rootClassName,
     message,
     notification,
+    breadcrumb,
     style,
     component = 'div',
   } = props;
@@ -49,10 +50,17 @@ const App: React.FC<AppProps> = (props) => {
       message: { ...appConfig.message, ...message },
       notification: { ...appConfig.notification, ...notification },
       breadcrumb: {
-        items: [...(appConfig.breadcrumb?.items || []), ...(props.breadcrumb?.items || [])],
+        items: [...(appConfig.breadcrumb?.items || []), ...(breadcrumb?.items || [])],
       },
     }),
-    [message, notification, appConfig.message, appConfig.notification],
+    [
+      message,
+      notification,
+      breadcrumb?.items,
+      appConfig.message,
+      appConfig.notification,
+      appConfig.breadcrumb?.items,
+    ],
   );
 
   const [messageApi, messageContextHolder] = useMessage(mergedAppConfig.message);
