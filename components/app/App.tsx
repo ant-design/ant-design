@@ -12,7 +12,6 @@ import useNotification from '../notification/useNotification';
 import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
-import useApp from './useApp';
 
 export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;
@@ -43,7 +42,7 @@ const App: React.FC<AppProps> = (props) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const appConfig = useApp();
+  const appConfig = useContext<AppConfig>(AppConfigContext);
 
   const mergedAppConfig = React.useMemo<AppConfig>(
     () => ({
