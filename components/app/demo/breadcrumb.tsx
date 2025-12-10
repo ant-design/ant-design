@@ -22,8 +22,10 @@ const PasswordPage = () => {
 
 // Entry component
 export default () => (
-  <App breadcrumb={{ items: [{ title: 'Home' }, { title: 'Settings' }] }}>
-    <EmailPage />
-    <PasswordPage />
+  <App breadcrumb={{ items: [{ title: 'Home' }] }}>
+    <App breadcrumb={{ items: [{ title: 'Settings' }] }}>
+      <EmailPage />
+      <PasswordPage />
+    </App>
   </App>
 );
