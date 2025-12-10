@@ -137,7 +137,7 @@ export default () => {
 | component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | div | 5.11.0 |
 | message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
 | notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
-| breadcrumb | Breadcrumb 前置项 | { items?: BreadcrumbItemType[], root?: boolean } | - | 6.2.0 |
+| breadcrumb | 为所有 Breadcrumb 组件统一设定前置项。通过 `items` 设置前置面包屑项，这些项会被添加到所有子级 Breadcrumb 组件的前面。通过 `root: true` 可以重置继承链，不继承父级 App 的面包屑配置 | { items?: BreadcrumbItemType[], root?: boolean } | - | 6.2.0 |
 
 ## 主题变量（Design Token）{#design-token}
 
