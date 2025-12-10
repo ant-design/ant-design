@@ -2,6 +2,7 @@
 
 exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -67,6 +68,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 2
 
 exports[`renders components/breadcrumb/demo/component-token.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -350,6 +352,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
 
 exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -496,6 +499,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
 
 exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -711,6 +715,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
 
 exports[`renders components/breadcrumb/demo/separator.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -770,6 +775,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
 
 exports[`renders components/breadcrumb/demo/separator-component.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -931,6 +937,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
 
 exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -1016,6 +1023,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
 
 exports[`renders components/breadcrumb/demo/withParams.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>

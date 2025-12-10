@@ -5,7 +5,7 @@ import { App, Breadcrumb, Typography } from 'antd';
 const EmailPage = () => {
   return (
     <div>
-      <Breadcrumb items={[{ title: 'Email' }]} />
+      <Breadcrumb items={[{ title: 'Email' }]} aria-label="Email Breadcrumb" />
       <Typography.Title level={2}>Email Settings</Typography.Title>
     </div>
   );
@@ -14,7 +14,7 @@ const EmailPage = () => {
 const PasswordPage = () => {
   return (
     <div>
-      <Breadcrumb items={[{ title: 'Password' }]} />
+      <Breadcrumb items={[{ title: 'Password' }]} aria-label="Password Breadcrumb" />
       <Typography.Title level={2}>Password Settings</Typography.Title>
     </div>
   );

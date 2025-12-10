@@ -60,6 +60,7 @@ exports[`renders components/app/demo/breadcrumb.tsx correctly 1`] = `
     >
       <div>
         <nav
+          aria-label="Email Breadcrumb"
           class="ant-breadcrumb css-var-test-id"
         >
           <ol>
@@ -106,6 +107,7 @@ exports[`renders components/app/demo/breadcrumb.tsx correctly 1`] = `
       </div>
       <div>
         <nav
+          aria-label="Password Breadcrumb"
           class="ant-breadcrumb css-var-test-id"
         >
           <ol>
