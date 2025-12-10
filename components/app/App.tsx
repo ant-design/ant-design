@@ -50,13 +50,16 @@ const App: React.FC<AppProps> = (props) => {
       message: { ...appConfig.message, ...message },
       notification: { ...appConfig.notification, ...notification },
       breadcrumb: {
-        items: [...(appConfig.breadcrumb?.items || []), ...(breadcrumb?.items || [])],
+        items: breadcrumb?.root
+          ? breadcrumb?.items || []
+          : [...(appConfig.breadcrumb?.items || []), ...(breadcrumb?.items || [])],
       },
     }),
     [
       message,
       notification,
       breadcrumb?.items,
+      breadcrumb?.root,
       appConfig.message,
       appConfig.notification,
       appConfig.breadcrumb?.items,

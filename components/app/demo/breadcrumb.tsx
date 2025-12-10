@@ -22,10 +22,17 @@ const PasswordPage = () => {
 
 // Entry component
 export default () => (
-  <App breadcrumb={{ items: [{ title: 'Home' }] }}>
-    <App breadcrumb={{ items: [{ title: 'Settings' }] }}>
-      <EmailPage />
-      <PasswordPage />
+  <App breadcrumb={{ items: [{ title: 'Whatever' }] }}>
+    <App
+      breadcrumb={{
+        items: [{ title: 'Home' }],
+        root: true, // don't inherit the parent's breadcrumb
+      }}
+    >
+      <App breadcrumb={{ items: [{ title: 'Settings' }] }}>
+        <EmailPage />
+        <PasswordPage />
+      </App>
     </App>
   </App>
 );

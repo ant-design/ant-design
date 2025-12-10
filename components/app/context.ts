@@ -8,7 +8,7 @@ import type { NotificationConfig, NotificationInstance } from '../notification/i
 export interface AppConfig {
   message?: MessageConfig;
   notification?: NotificationConfig;
-  breadcrumb?: { items?: BreadcrumbItemType[] };
+  breadcrumb?: { items?: BreadcrumbItemType[]; root?: boolean };
 }
 
 export const AppConfigContext = React.createContext<AppConfig>({});
