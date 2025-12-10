@@ -23,6 +23,7 @@ import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
+const LATEST_VERSION_KEY = 'LATEST_VERSION';
 
 export const ANT_LOCAL_TYPE_KEY = 'ANT_LOCAL_TYPE_KEY';
 
@@ -261,7 +262,7 @@ const Header: React.FC = () => {
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
-  
+
   const docVersions: Record<string, string> = {
     ...themeConfig?.docNewVersions,
     [pkg.version]: pkg.version,
@@ -269,7 +270,7 @@ const Header: React.FC = () => {
   };
   const versionOptions = Object.keys(docVersions).map((version) => ({
     value: docVersions[version],
-    label: version === 'LATEST_VERSION' ? (isZhCN ? '最新版本' : 'Latest') : version,
+    label: version === LATEST_VERSION_KEY ? (isZhCN ? '最新版本' : 'Latest') : version,
   }));
 
   // Get banner data from site config
