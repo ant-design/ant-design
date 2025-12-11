@@ -154,10 +154,8 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -430,10 +428,8 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
