@@ -4,6 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 import { clsx } from 'clsx';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
@@ -141,6 +142,7 @@ const Result: ResultType = (props) => {
     extra,
     styles,
     classNames,
+    ...rest
   } = props;
 
   const {
@@ -203,8 +205,10 @@ const Result: ResultType = (props) => {
     ...style,
   };
 
+  const restProps = pickAttrs(rest, { aria: true, data: true });
+
   return (
-    <div className={rootClassNames} style={rootStyles}>
+    <div {...restProps} className={rootClassNames} style={rootStyles}>
       <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
       <div className={titleClassNames} style={mergedStyles.title}>
         {title}

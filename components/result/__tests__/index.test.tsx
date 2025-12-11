@@ -75,4 +75,33 @@ describe('Result', () => {
     const { container: container2 } = render(<Result title="404" icon={false} />);
     expect(container2.querySelectorAll('.ant-result-icon')).toHaveLength(0);
   });
+
+  it('should pass data-* attributes to root element', () => {
+    const { container } = render(
+      <Result status="success" title="Success" data-testid="my-result" data-track-id="track-123" />,
+    );
+
+    const root = container.querySelector('.ant-result') as HTMLElement;
+
+    expect(root).not.toBeNull();
+    expect(root.getAttribute('data-testid')).toBe('my-result');
+    expect(root.getAttribute('data-track-id')).toBe('track-123');
+  });
+
+  it('should pass aria-* attributes to root element', () => {
+    const { container } = render(
+      <Result
+        status="error"
+        title="Error"
+        aria-label="操作结果"
+        aria-describedby="result-description"
+      />,
+    );
+
+    const root = container.querySelector('.ant-result') as HTMLElement;
+
+    expect(root).not.toBeNull();
+    expect(root.getAttribute('aria-label')).toBe('操作结果');
+    expect(root.getAttribute('aria-describedby')).toBe('result-description');
+  });
 });
