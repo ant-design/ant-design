@@ -162,7 +162,9 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         nodeSpacing: 40,
       },
     });
+  }, []);
 
+  useEffect(() => {
     let isCancelled = false;
     const renderChart = async () => {
       if (chartRef.current && mermaidCode) {
