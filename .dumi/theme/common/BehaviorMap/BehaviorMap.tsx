@@ -12,7 +12,7 @@ interface BehaviorMapItem {
   targetType?: 'mvp' | 'extension';
   children?: BehaviorMapItem[];
   link?: string;
-  type?: 'behavior-start-node' | 'behavior-sub-node';
+}
 }
 
 export interface BehaviorMapProps {
