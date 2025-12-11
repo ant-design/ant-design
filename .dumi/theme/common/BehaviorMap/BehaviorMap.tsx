@@ -172,8 +172,19 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           const { svg } = await mermaid.render(id, mermaidCode);
           if (!isCancelled) {
             chartRef.current.innerHTML = svg;
+          // Error reporting: use console.error in development, placeholder for production
+          if (process.env.NODE_ENV === 'production') {
+            // TODO: Integrate with error reporting service, e.g., Sentry
+          } else {
+            console.error('Mermaid render error:', error);
           }
-        } catch (error) {
+          // Fallback UI: show a styled, informative, internationalized error message
+          chartRef.current.innerHTML = `
+            <div style="padding: 16px; color: #d4380d; background: #fffbe6; border-radius: 4px; border: 1px solid #ffe58f;">
+              <strong>${locale.renderErrorTitle || 'Failed to render chart.'}</strong>
+              <div style="margin-top: 8px;">${locale.renderErrorDesc || 'Please try refreshing the page or contact support.'}</div>
+            </div>
+          `;
           if (!isCancelled) {
             console.error('Mermaid render error:', error);
             chartRef.current.innerHTML = 'Render Error';
