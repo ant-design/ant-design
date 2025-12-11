@@ -77,15 +77,12 @@ describe('Result', () => {
   });
 
   it('should pass data-* attributes to root element', () => {
-    const { container } = render(
+    const { getByTestId } = render(
       <Result status="success" title="Success" data-testid="my-result" data-track-id="track-123" />,
     );
 
-    const root = container.querySelector('.ant-result') as HTMLElement;
-
-    expect(root).not.toBeNull();
-    expect(root.getAttribute('data-testid')).toBe('my-result');
-    expect(root.getAttribute('data-track-id')).toBe('track-123');
+    const root = getByTestId('my-result');
+    expect(root).toHaveAttribute('data-track-id', 'track-123');
   });
 
   it('should pass aria-* attributes to root element', () => {
