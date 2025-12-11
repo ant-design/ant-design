@@ -33,6 +33,21 @@ const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           justifyContent: 'flex-end',
         },
       },
+
+      [`${componentCls}-pagination-fixed`]: {
+        position: 'sticky',
+        zIndex: 9999,
+        overflow: 'hidden',
+        backgroundColor: token.colorBgContainer,
+
+        '&-bottom': {
+          bottom: 0,
+        },
+
+        '&-top': {
+          top: 0,
+        },
+      },
     },
   };
 };

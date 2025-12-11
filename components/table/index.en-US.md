@@ -238,6 +238,7 @@ Properties for pagination.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | placement | Specify the placement of `Pagination`, could be`topStart` \| `topCenter` \| `topEnd` \|`bottomStart` \| `bottomCenter` \| `bottomEnd` \| `none` | Array | \[`bottomEnd`] |
+| fixed | Fixed pagination | boolean \| {offset?:number} | false |
 | ~~position~~ | Specify the position of `Pagination`, could be`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` \| `none`, please use `placement` instead | Array | \[`bottomRight`] |
 
 More about pagination, please check [`Pagination`](/components/pagination/).

@@ -287,8 +287,15 @@ export type TablePaginationPosition =
   | 'bottomRight'
   | 'none';
 
+export type TablePaginationFixed =
+  | {
+      offset?: number;
+    }
+  | boolean;
+
 export interface TablePaginationConfig extends PaginationProps {
   placement?: TablePaginationPlacement[];
+  fixed?: TablePaginationFixed;
   /** @deprecated please use `placement` instead */
   position?: TablePaginationPosition[];
 }

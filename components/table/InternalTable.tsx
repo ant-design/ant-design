@@ -4,6 +4,7 @@ import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-c
 import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
+import { isObject } from 'lodash';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
 import type {
@@ -573,18 +574,36 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
-      <Pagination
-        {...mergedPagination}
-        classNames={mergedClassNames.pagination}
-        styles={mergedStyles.pagination}
-        className={clsx(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
-          mergedPagination.className,
-        )}
-        size={paginationSize}
-      />
-    );
+    const renderPagination = (
+      placement: 'start' | 'end' | 'center' = 'end',
+      fixedPosition: 'top' | 'bottom' = 'bottom',
+    ) => {
+      const pagination = (
+        <Pagination
+          {...mergedPagination}
+          classNames={mergedClassNames.pagination}
+          styles={mergedStyles.pagination}
+          className={clsx(
+            `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
+            mergedPagination.className,
+          )}
+          size={paginationSize}
+        />
+      );
+      const { offset = 0 } = isObject(mergedPagination.fixed) ? mergedPagination.fixed : {};
+      return mergedPagination.fixed ? (
+        <div
+          className={clsx(`${prefixCls}-pagination-fixed`, {
+            [`${prefixCls}-pagination-fixed-${fixedPosition}`]: mergedPagination.fixed,
+          })}
+          style={{ [fixedPosition]: offset }}
+        >
+          {pagination}
+        </div>
+      ) : (
+        pagination
+      );
+    };
 
     const { placement, position } = mergedPagination;
     const mergedPlacement = placement ?? position;
@@ -604,10 +623,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         bottomPaginationNode = renderPagination();
       }
       if (topPos) {
-        topPaginationNode = renderPagination(normalizePlacement(topPos));
+        topPaginationNode = renderPagination(normalizePlacement(topPos), 'top');
       }
       if (bottomPos) {
-        bottomPaginationNode = renderPagination(normalizePlacement(bottomPos));
+        bottomPaginationNode = renderPagination(normalizePlacement(bottomPos), 'bottom');
       }
     } else {
       bottomPaginationNode = renderPagination();
