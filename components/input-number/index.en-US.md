@@ -32,6 +32,7 @@ When a numeric value needs to be provided.
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/focus.tsx" version="5.22.0">Focus</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/allow-clear.tsx">Allow Clear</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
@@ -44,6 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  |
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  |
+| allowClear | Whether to show clear button | boolean \| { clearIcon?: ReactNode } | - |  |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |

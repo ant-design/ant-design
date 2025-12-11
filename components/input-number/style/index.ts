@@ -16,6 +16,43 @@ import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
+const genAllowClearStyle = (token: InputNumberToken): any => {
+  const { componentCls } = token;
+  return {
+    // ========================= Input =========================
+    [`${componentCls}-clear-icon`]: {
+      margin: 0,
+      padding: 0,
+      lineHeight: 0,
+      color: token.colorTextQuaternary,
+      fontSize: token.fontSizeIcon,
+      verticalAlign: -1,
+      // https://github.com/ant-design/ant-design/pull/18151
+      // https://codesandbox.io/s/wizardly-sun-u10br
+      cursor: 'pointer',
+      transition: `color ${token.motionDurationSlow}`,
+      border: 'none',
+      outline: 'none',
+      backgroundColor: 'transparent',
+      '&:hover': {
+        color: token.colorIcon,
+      },
+
+      '&:active': {
+        color: token.colorText,
+      },
+
+      '&-hidden': {
+        visibility: 'hidden',
+      },
+
+      '&-has-suffix': {
+        margin: `0 ${unit(token.inputAffixPadding)}`,
+      },
+    },
+  };
+};
+
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     componentCls,
@@ -317,6 +354,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
       },
     },
+
+    // ==========================================================
+    // ==                     Allow Clear                      ==
+    // ==========================================================
+    genAllowClearStyle(token),
   ];
 };
 

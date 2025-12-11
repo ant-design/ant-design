@@ -33,6 +33,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/focus.tsx" version="5.22.0">聚焦</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/allow-clear.tsx">可清除</code>
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
@@ -45,6 +46,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 |
+| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode } | - |  |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |

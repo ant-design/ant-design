@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import { CloseCircleFilled, MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import RcInputNumber from '@rc-component/input-number';
@@ -11,6 +11,7 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
+import getAllowClear from '../_util/getAllowClear';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
@@ -41,7 +42,10 @@ export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticSty
 >;
 
 export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
+  extends Omit<
+    RcInputNumberProps<T>,
+    'prefix' | 'size' | 'controls' | 'classNames' | 'styles' | 'allowClear'
+  > {
   prefixCls?: string;
   rootClassName?: string;
   classNames?: InputNumberClassNamesType;
@@ -92,6 +96,10 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * @default "outlined"
    */
   variant?: Variant;
+  /**
+   * If allow to remove input content with clear icon
+   */
+  allowClear?: boolean | { clearIcon?: React.ReactNode };
 }
 
 type InternalInputNumberProps = InputNumberProps & {
@@ -123,8 +131,18 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       classNames,
       styles,
       mode,
+      allowClear,
+      value,
+      defaultValue,
+      onChange,
       ...others
     } = props;
+
+    // Track the current value for uncontrolled components
+    const [currentValue, setCurrentValue] = React.useState<ValueType | null | undefined>(
+      defaultValue,
+    );
+    const isControlled = value !== undefined;
 
     const {
       direction,
@@ -181,6 +199,78 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       props: mergedProps,
     });
 
+    // ===================== Allow Clear =====================
+    const mergedAllowClear = getAllowClear(allowClear);
+
+    // Handle clear event
+    const handleReset = (e: React.MouseEvent<HTMLElement>) => {
+      // Call onChange with null to clear the value
+      const newValue = null;
+      props.onChange?.(newValue);
+
+      // Update local state for uncontrolled components
+      if (!isControlled) {
+        setCurrentValue(newValue);
+      }
+
+      // Focus the input element
+      if (inputRef.current?.nativeElement) {
+        const inputElement = inputRef.current.nativeElement.querySelector('input');
+        inputElement?.focus();
+      }
+
+      e.preventDefault();
+    };
+
+    // Wrap onChange to update local state for uncontrolled components
+    const handleChange: typeof onChange = (newValue) => {
+      props.onChange?.(newValue);
+
+      // Update local state for uncontrolled components
+      if (!isControlled) {
+        setCurrentValue(newValue);
+      }
+    };
+
+    // Combine suffix with clear icon if allowClear is enabled
+    let combinedSuffix = suffixNode || suffix;
+    // Check if there's a value to determine if we should show the clear icon
+    // For controlled components, check props.value
+    // For uncontrolled components, check the current value state
+    const hasValue = isControlled
+      ? props.value !== null && props.value !== undefined && props.value !== ''
+      : currentValue !== null && currentValue !== undefined && currentValue !== '';
+
+    // Only show clear icon when allowClear is enabled, there's a value (for controlled) or always (for uncontrolled),
+    // and the component is not disabled or readOnly
+    if (mergedAllowClear && hasValue && !props.disabled && !props.readOnly) {
+      // Create clear icon with proper event handling
+      const clearIcon = (
+        <span
+          className={`${prefixCls}-clear-icon`}
+          onClick={handleReset}
+          onMouseDown={(e) => e.preventDefault()}
+          style={{
+            pointerEvents: 'auto',
+            cursor: 'pointer',
+          }}
+        >
+          {typeof mergedAllowClear === 'object' ? (
+            mergedAllowClear.clearIcon
+          ) : (
+            <CloseCircleFilled />
+          )}
+        </span>
+      );
+
+      combinedSuffix = (
+        <>
+          {combinedSuffix}
+          {clearIcon}
+        </>
+      );
+    }
+
     return (
       <RcInputNumber
         ref={inputRef}
@@ -210,9 +300,10 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         readOnly={readOnly}
         controls={controlsTemp}
         prefix={prefix}
-        suffix={suffixNode || suffix}
+        suffix={combinedSuffix}
         classNames={mergedClassNames}
         styles={mergedStyles}
+        onChange={handleChange}
         {...others}
       />
     );
