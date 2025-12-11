@@ -6,6 +6,7 @@ import WarningFilled from '@ant-design/icons/WarningFilled';
 import { clsx } from 'clsx';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
+import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
@@ -38,7 +39,7 @@ export type ResultClassNamesType = SemanticClassNamesType<ResultProps, SemanticN
 
 export type ResultStylesType = SemanticStylesType<ResultProps, SemanticName>;
 
-export interface ResultProps {
+export interface ResultProps extends HTMLAriaDataAttributes {
   icon?: React.ReactNode;
   status?: ResultStatusType;
   title?: React.ReactNode;
