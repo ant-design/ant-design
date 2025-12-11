@@ -20,7 +20,8 @@ export interface BehaviorMapProps {
 const useStyle = createStyles(({ cssVar }) => ({
   container: css`
     width: 100%;
-    height: 600px;
+    min-height: 600px;
+    height: fit-content;
     background-color: #f5f5f5;
     border: 1px solid #e8e8e8;
     border-radius: ${cssVar.borderRadiusLG};
@@ -157,7 +158,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         htmlLabels: true,
         curve: 'linear',
         rankSpacing: 150,
-        nodeSpacing: 40,
+        nodeSpacing: 10,
       },
     });
 
