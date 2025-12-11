@@ -87,6 +87,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Custom preview class names object | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | fallback | Fallback URL for load error | string | - |  |
 | items | Array of preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
 | preview | Preview configuration; disable by setting to false | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
@@ -96,7 +97,6 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
-| classNames | Custom preview class names object | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
 | countRender | Custom preview count render | (current: number, total: number) => React.ReactNode | - |  |
 | current | Index of the current preview image | number | - |  |

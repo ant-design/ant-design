@@ -88,6 +88,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 自定义预览类名对象 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | fallback | 加载失败容错地址 | string | - |  |
 | items | 预览数组 | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
@@ -97,7 +98,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | actionsRender | 自定义工具栏渲染 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
-| classNames | 自定义预览类名对象 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - |  |
 | current | 当前预览图的 index | number | - |  |
