@@ -195,7 +195,12 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
     renderChart();
 
-    return () => {
+      <div
+        ref={chartRef}
+        className={styles.chartContainer}
+        role="img"
+        aria-label={`${locale.behaviorMap} - ${meta.frontmatter.title}`}
+      />
       isCancelled = true;
     };
   }, [mermaidCode]);
