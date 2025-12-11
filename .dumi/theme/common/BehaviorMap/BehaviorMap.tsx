@@ -163,21 +163,29 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       },
     });
 
+    let isCancelled = false;
     const renderChart = async () => {
       if (chartRef.current && mermaidCode) {
         try {
           const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
-          chartRef.current.innerHTML = '';
           const { svg } = await mermaid.render(id, mermaidCode);
-          chartRef.current.innerHTML = svg;
+          if (!isCancelled) {
+            chartRef.current.innerHTML = svg;
+          }
         } catch (error) {
-          console.error('Mermaid render error:', error);
-          chartRef.current.innerHTML = 'Render Error';
+          if (!isCancelled) {
+            console.error('Mermaid render error:', error);
+            chartRef.current.innerHTML = 'Render Error';
+          }
         }
       }
     };
 
     renderChart();
+
+    return () => {
+      isCancelled = true;
+    };
   }, [mermaidCode]);
 
   return (
