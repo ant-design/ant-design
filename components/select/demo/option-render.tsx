@@ -49,7 +49,7 @@ const App: React.FC = () => (
         <span role="img" aria-label={option.data.label}>
           {option.data.emoji}
         </span>
-        {`${option.data.label}(${option.data.desc})`}
+        {`${option.data.label} (${option.data.desc})`}
       </Space>
     )}
   />
