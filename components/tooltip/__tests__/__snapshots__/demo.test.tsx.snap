@@ -653,10 +653,8 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
         />
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           disabled=""
