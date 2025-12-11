@@ -89,7 +89,7 @@ describe('Result', () => {
   });
 
   it('should pass aria-* attributes to root element', () => {
-    const { container } = render(
+    const { getByLabelText } = render(
       <Result
         status="error"
         title="Error"
@@ -98,10 +98,7 @@ describe('Result', () => {
       />,
     );
 
-    const root = container.querySelector('.ant-result') as HTMLElement;
-
-    expect(root).not.toBeNull();
-    expect(root.getAttribute('aria-label')).toBe('操作结果');
-    expect(root.getAttribute('aria-describedby')).toBe('result-description');
+    const root = getByLabelText('操作结果');
+    expect(root).toHaveAttribute('aria-describedby', 'result-description');
   });
 });
