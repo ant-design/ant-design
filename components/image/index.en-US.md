@@ -87,7 +87,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Custom preview class names object | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | Fallback URL for load error | string | - |  |
 | items | Array of preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
 | preview | Preview configuration; disable by setting to false | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
