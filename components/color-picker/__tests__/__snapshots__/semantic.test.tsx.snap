@@ -2,7 +2,6 @@
 
 exports[`ColorPicker.Semantic rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
 >
   <div

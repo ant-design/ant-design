@@ -578,7 +578,6 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       class="ant-segmented-group"
     >
       <label
-        aria-describedby="test-id"
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
@@ -609,7 +608,6 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         </div>
       </label>
       <label
-        aria-describedby="test-id"
         class="ant-segmented-item"
       >
         <input
@@ -643,7 +641,6 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         </div>
       </label>
       <label
-        aria-describedby="test-id"
         class="ant-segmented-item"
       >
         <input
@@ -1836,10 +1833,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"

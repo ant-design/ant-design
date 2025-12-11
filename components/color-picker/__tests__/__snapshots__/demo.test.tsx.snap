@@ -2,7 +2,6 @@
 
 exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
 >
   <div
@@ -18,7 +17,6 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
 >
   <div
@@ -40,7 +38,6 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -57,7 +54,6 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -75,7 +71,6 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
 >
   <div
@@ -96,7 +91,6 @@ exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/disabled-alpha.tsx correctly 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
 >
   <div
@@ -125,7 +119,6 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -159,7 +152,6 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -193,7 +185,6 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -228,7 +219,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx correctly 1`] = 
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -269,7 +259,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx correctly 1`] = 
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -330,7 +319,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -362,7 +350,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -382,7 +369,6 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
 >
   <div
@@ -404,7 +390,6 @@ exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
     style="padding-bottom:0;position:relative;min-width:0"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
       style="margin:0"
     >
@@ -435,7 +420,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -452,7 +436,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -469,7 +452,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -494,7 +476,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -516,7 +497,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -538,7 +518,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
         >
           <div
@@ -573,7 +552,6 @@ exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-gap-small"
     >
       <div
-        aria-describedby="test-id"
         class="ant-color-picker-trigger acss-pbemrr css-var-test-id ant-color-picker-css-var"
       >
         <div
@@ -594,7 +572,6 @@ exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-gap-small"
     >
       <div
-        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-lg acss-pbemrr css-var-test-id ant-color-picker-css-var"
       >
         <div
@@ -619,7 +596,6 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -641,7 +617,6 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -669,7 +644,6 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
@@ -711,7 +685,6 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/trigger.tsx correctly 1`] = `
 <button
-  aria-describedby="test-id"
   class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   style="background-color:#1677ff"
   type="button"
@@ -724,7 +697,6 @@ exports[`renders components/color-picker/demo/trigger.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/trigger-event.tsx correctly 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
 >
   <div

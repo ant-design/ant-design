@@ -8,7 +8,7 @@ import type {
   SemanticStylesType,
 } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import type { ButtonProps, LegacyButtonType } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 
 export type SemanticName =
