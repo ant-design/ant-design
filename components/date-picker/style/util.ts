@@ -51,7 +51,7 @@ export const getMultipleSelectorUnit = (
 };
 
 /**
- * Get the `rc-overflow` needed style.
+ * Get the `@rc-component/overflow` needed style.
  * It's a share style which means not affected by `size`.
  */
 export const genOverflowStyle = (

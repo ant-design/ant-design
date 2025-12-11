@@ -151,10 +151,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -527,10 +525,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -908,10 +904,8 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -1281,10 +1275,8 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -1663,10 +1655,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -2017,10 +2007,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -2333,10 +2321,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -2721,10 +2707,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -3315,10 +3299,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -4012,10 +3994,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -4439,10 +4419,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -4842,10 +4820,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <input
                             aria-autocomplete="list"
-                            aria-controls="test-id_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="test-id_list"
                             autocomplete="off"
                             class="ant-select-input"
                             id="test-id"
@@ -5801,10 +5777,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <input
                             aria-autocomplete="list"
-                            aria-controls="test-id_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="test-id_list"
                             autocomplete="off"
                             class="ant-select-input"
                             id="test-id"
@@ -6181,10 +6155,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -6986,10 +6958,8 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -7374,10 +7344,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -7747,10 +7715,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8120,10 +8086,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8506,10 +8470,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8884,10 +8846,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -9262,10 +9222,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -9642,10 +9600,8 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -10011,10 +9967,8 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -10406,10 +10360,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -10786,10 +10738,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -11183,10 +11133,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -11557,10 +11505,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -11933,10 +11879,8 @@ Array [
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"

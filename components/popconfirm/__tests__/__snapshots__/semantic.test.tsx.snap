@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Popconfirm.semantic rtl render component should be rendered correctly in RTL direction 1`] = `
-<span
-  aria-describedby="test-id"
-/>
-`;
+exports[`Popconfirm.semantic rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
