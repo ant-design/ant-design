@@ -177,7 +177,7 @@ It's caused by option with different `label` and `value`. You can use `optionFil
 
 You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
-### I don't want dropdown close when click inside `popupRender`? {#faq-dropdown-keep-open}
+### I don't want dropdown close when click inside `popupRender`? {#faq-popup-keep-open}
 
 Select will close when it lose focus. You can prevent event to handle this:
 
