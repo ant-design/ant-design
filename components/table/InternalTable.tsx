@@ -590,7 +590,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           size={paginationSize}
         />
       );
-      const { offset = 0 } = isObject(mergedPagination.fixed) ? mergedPagination.fixed : {};
+      const offset = isObject(mergedPagination.fixed) ? (mergedPagination.fixed.offset ?? 0) : 0;
       return mergedPagination.fixed ? (
         <div
           className={clsx(`${prefixCls}-pagination-fixed`, {
