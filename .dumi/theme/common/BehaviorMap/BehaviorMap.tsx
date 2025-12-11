@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
 import mermaid from 'mermaid';
@@ -12,7 +11,6 @@ interface BehaviorMapItem {
   targetType?: 'mvp' | 'extension';
   children?: BehaviorMapItem[];
   link?: string;
-}
 }
 
 export interface BehaviorMapProps {
@@ -66,7 +64,7 @@ const useStyle = createStyles(({ cssVar }) => ({
       width: 8px;
       height: 8px;
       margin-inline-end: ${cssVar.marginXS};
-      background-color: #1677ff;
+      background-color: rgb(22, 119, 255);
       border-radius: 50%;
       content: '';
     }
@@ -79,7 +77,7 @@ const useStyle = createStyles(({ cssVar }) => ({
       width: 8px;
       height: 8px;
       margin-inline-end: ${cssVar.marginXS};
-      background-color: #a0a0a0;
+      background-color: rgb(160, 160, 160);
       border-radius: 50%;
       content: '';
     }
@@ -154,7 +152,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
     mermaid.initialize({
       startOnLoad: false,
       theme: 'base',
-      securityLevel: 'loose',
+      securityLevel: 'strict',
       flowchart: {
         htmlLabels: true,
         curve: 'linear',
@@ -162,31 +160,19 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         nodeSpacing: 40,
       },
     });
-  }, []);
 
-  useEffect(() => {
     let isCancelled = false;
     const renderChart = async () => {
       if (chartRef.current && mermaidCode) {
+        let mermaidChartCounter = 0;
+        try {
           mermaidChartCounter += 1;
           const id = `mermaid-${Date.now()}-${mermaidChartCounter}`;
-          const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
           const { svg } = await mermaid.render(id, mermaidCode);
           if (!isCancelled) {
             chartRef.current.innerHTML = svg;
-          // Error reporting: use console.error in development, placeholder for production
-          if (process.env.NODE_ENV === 'production') {
-            // TODO: Integrate with error reporting service, e.g., Sentry
-          } else {
-            console.error('Mermaid render error:', error);
           }
-          // Fallback UI: show a styled, informative, internationalized error message
-          chartRef.current.innerHTML = `
-            <div style="padding: 16px; color: #d4380d; background: #fffbe6; border-radius: 4px; border: 1px solid #ffe58f;">
-              <strong>${locale.renderErrorTitle || 'Failed to render chart.'}</strong>
-              <div style="margin-top: 8px;">${locale.renderErrorDesc || 'Please try refreshing the page or contact support.'}</div>
-            </div>
-          `;
+        } catch (error) {
           if (!isCancelled) {
             console.error('Mermaid render error:', error);
             chartRef.current.innerHTML = 'Render Error';
@@ -197,12 +183,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
     renderChart();
 
-      <div
-        ref={chartRef}
-        className={styles.chartContainer}
-        role="img"
-        aria-label={`${locale.behaviorMap} - ${meta.frontmatter.title}`}
-      />
+    return () => {
       isCancelled = true;
     };
   }, [mermaidCode]);
