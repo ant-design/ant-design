@@ -166,7 +166,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
     let isCancelled = false;
     const renderChart = async () => {
       if (chartRef.current && mermaidCode) {
-        try {
+          mermaidChartCounter += 1;
+          const id = `mermaid-${Date.now()}-${mermaidChartCounter}`;
           const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
           const { svg } = await mermaid.render(id, mermaidCode);
           if (!isCancelled) {
