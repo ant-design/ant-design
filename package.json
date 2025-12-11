@@ -208,7 +208,7 @@
     "@types/jsdom": "^27.0.0",
     "@types/lodash": "^4.17.20",
     "@types/minimist": "^1.2.5",
-    "@types/node": "^24.6.2",
+    "@types/node": "^25.0.0",
     "@types/nprogress": "^0.2.3",
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.5",
