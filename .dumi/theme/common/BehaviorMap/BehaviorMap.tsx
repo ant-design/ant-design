@@ -107,7 +107,7 @@ const generateMermaidCode = (root: BehaviorMapItem): string => {
   lines.push(`classDef baseNode fill:#fff,stroke:none,stroke-width:0px,rx:5,ry:5,font-size:14px`);
 
   const traverse = (node: BehaviorMapItem, parentId?: string) => {
-    const safeId = `node_${node.id.replace(/[^a-z0-9]/i, '_')}`;
+    const safeId = `node_${node.id.replace(/[^a-z0-9]/gi, '_')}`;
     let labelText = node.label.replace(/"/g, "'");
 
     if (!parentId) {
