@@ -15,6 +15,29 @@ tag: vVERSION
 
 ---
 
+## 6.1.0
+
+`2025-12-08`
+
+- 🆕 ConfigProvider 新增支持配置 Tooltip、Popover 和 Popconfirm 的 `trigger` 属性。[#55932](https://github.com/ant-design/ant-design/pull/55932) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Alert 新增语义化关闭按钮元素。[#55815](https://github.com/ant-design/ant-design/pull/55815) [@coding-ice](https://github.com/coding-ice)
+- Drawer
+  - 🆕 Drawer 新增语义化关闭按钮元素。[#55816](https://github.com/ant-design/ant-design/pull/55816) [@coding-ice](https://github.com/coding-ice)
+  - 🆕 Drawer 新增 `resizable`的布尔类型设置。[#55861](https://github.com/ant-design/ant-design/pull/55861) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- Select
+  - 🆕 Select 新增 `optionFilterProp` 多字段搜索。[#56057](https://github.com/ant-design/ant-design/pull/56057) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 修复 Select 非搜索状态下显示输入光标的问题。[#56067](https://github.com/ant-design/ant-design/pull/56067) [@afc163](https://github.com/afc163)
+  - 🐞 修复 Select 包含交互内容时「选择」选项未打开的问题。[#56054](https://github.com/ant-design/ant-design/pull/56054) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Table `cellFontSizeSM` 和 `cellFontSizeLG` token 不生效的问题。[#55770](https://github.com/ant-design/ant-design/pull/55770) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Button 部分 Token（primaryColor, dangerColor, defaultHoverBg, defaultActiveBg）在特定变体（solid, outlined, dashed）下不生效的问题。[#55934](https://github.com/ant-design/ant-design/pull/55934) [@tuzixiangs](https://github.com/tuzixiangs)
+- 💄 修复 Menu  组件 item 中定义的 style 不生效错误。[#56041](https://github.com/ant-design/ant-design/pull/56041) [@Wxh16144](https://github.com/Wxh16144) 
+- 🛠 杂项：更新 `@ant-design/react-slick` 版本以删除 `classnames`。[#56080](https://github.com/ant-design/ant-design/pull/56080) [@yoyo837](https://github.com/yoyo837)
+- 🛠 杂项：迁移 `rc-overflow` 到  `@rc-component/overflow`、`rc-virtual-list` 到  `@rc-component/virtual-list` 以删除 `rc-util`。[#56074](https://github.com/ant-design/ant-design/pull/56074) [@yoyo837](https://github.com/yoyo837)
+- TypeScript
+  - 🤖 Alert 新增导出 ErrorBoundaryProps 类型。[#55974](https://github.com/ant-design/ant-design/pull/55974) [@guoyunhe](https://github.com/guoyunhe)
+  - 🤖 ConfigProvider 支持 Table `rowKey` 传入函数。[#56095](https://github.com/ant-design/ant-design/pull/56095) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Notification `title` 属性修改为可选。[#56027](https://github.com/ant-design/ant-design/pull/56027) [@afc163](https://github.com/afc163)
+
 ## 6.0.1
 
 `2025-12-02`

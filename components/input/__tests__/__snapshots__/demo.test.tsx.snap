@@ -58,10 +58,8 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -119,10 +117,8 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -258,10 +254,8 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -661,10 +655,8 @@ Array [
       </div>
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -712,10 +704,8 @@ Array [
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -762,10 +752,8 @@ Array [
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -812,10 +800,8 @@ Array [
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -864,10 +850,8 @@ Array [
       </div>
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -1111,10 +1095,8 @@ Array [
       </div>
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -1694,10 +1676,8 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -2522,10 +2502,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -2734,10 +2712,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3016,10 +2992,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3068,10 +3042,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3125,10 +3097,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3205,10 +3175,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3257,10 +3225,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3291,10 +3257,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -3343,10 +3307,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"

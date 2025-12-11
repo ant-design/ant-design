@@ -1122,10 +1122,8 @@ Array [
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="owner_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="owner_list"
                                 aria-required="true"
                                 autocomplete="off"
                                 class="ant-select-input"
@@ -1289,10 +1287,8 @@ Array [
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="type_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="type_list"
                                 aria-required="true"
                                 autocomplete="off"
                                 class="ant-select-input"
@@ -1461,10 +1457,8 @@ Array [
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="approver_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="approver_list"
                                 aria-required="true"
                                 autocomplete="off"
                                 class="ant-select-input"

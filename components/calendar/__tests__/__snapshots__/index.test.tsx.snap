@@ -22,10 +22,8 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -74,10 +72,8 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -957,10 +953,8 @@ exports[`Calendar Calendar should support locale 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1009,10 +1003,8 @@ exports[`Calendar Calendar should support locale 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1892,10 +1884,8 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1944,10 +1934,8 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -2827,10 +2815,8 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -2879,10 +2865,8 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"

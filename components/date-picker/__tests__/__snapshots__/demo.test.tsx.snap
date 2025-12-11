@@ -7684,11 +7684,9 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Picker Type"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
