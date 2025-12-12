@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
-import mermaid from 'mermaid';
 
 import useLocale from '../../../hooks/useLocale';
 
@@ -150,34 +149,42 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   }, [data]);
 
   useEffect(() => {
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'base',
-      securityLevel: 'strict',
-      flowchart: {
-        htmlLabels: true,
-        curve: 'linear',
-        rankSpacing: 150,
-        nodeSpacing: 10,
-      },
-    });
-
     let isCancelled = false;
+
     const renderChart = async () => {
-      if (chartRef.current && mermaidCode) {
+      if (!chartRef.current || !mermaidCode) return;
+
+      try {
+        const mermaidModule = await import('mermaid');
+        const mermaid = mermaidModule.default;
+
+        if (isCancelled) return;
+
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'base',
+          securityLevel: 'strict',
+          flowchart: {
+            htmlLabels: true,
+            curve: 'linear',
+            rankSpacing: 150,
+            nodeSpacing: 10,
+          },
+        });
+
         let mermaidChartCounter = 0;
-        try {
-          mermaidChartCounter += 1;
-          const id = `mermaid-${Date.now()}-${mermaidChartCounter}`;
-          const { svg } = await mermaid.render(id, mermaidCode);
-          if (!isCancelled) {
-            chartRef.current.innerHTML = svg;
-          }
-        } catch (error) {
-          if (!isCancelled) {
-            console.error('Mermaid render error:', error);
-            chartRef.current.innerHTML = 'Render Error';
-          }
+        mermaidChartCounter += 1;
+        const id = `mermaid-${Date.now()}-${mermaidChartCounter}`;
+
+        const { svg } = await mermaid.render(id, mermaidCode);
+
+        if (!isCancelled && chartRef.current) {
+          chartRef.current.innerHTML = svg;
+        }
+      } catch (error) {
+        if (!isCancelled && chartRef.current) {
+          console.error('Mermaid render error:', error);
+          chartRef.current.innerHTML = 'Render Error';
         }
       }
     };
