@@ -138,7 +138,6 @@ const generateMermaidCode = (root: BehaviorMapItem): string => {
 };
 
 const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
@@ -197,7 +196,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   }, [mermaidCode]);
 
   return (
-    <div ref={containerRef} className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.title}>{`${meta.frontmatter.title} ${locale.behaviorMap}`}</div>
       <div ref={chartRef} className={styles.chartContainer} />
       <div className={styles.tips}>
