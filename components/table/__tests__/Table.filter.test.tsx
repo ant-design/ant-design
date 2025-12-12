@@ -3158,4 +3158,47 @@ describe('Table.filter', () => {
       expect(container.querySelector('.ant-dropdown-placement-topLeft')).toBeTruthy();
     });
   });
+
+  describe('filteredValue and defaultFilteredValue should support all type of React.Key', () => {
+    const filters = [
+      { text: 'Number', value: 1 },
+      { text: 'Boolean', value: true },
+      { text: 'String', value: 'text' },
+    ];
+    const column: ColumnGroupType<any> | ColumnType<any> = {
+      title: 'Name',
+      dataIndex: 'text',
+      filters,
+      onFilter: (value, record) => record.name === value,
+    };
+    const testCase = filters.flatMap((filter) =>
+      ['filteredValue', 'defaultFilteredValue'].map((propName) => ({
+        propName,
+        filter,
+        description: `prop: ${propName}, value: ${filter.value} (${filter.text})`,
+      })),
+    );
+    it.each(testCase)('should handle $description', ({ propName, filter }) => {
+      const { container } = render(
+        createTable({
+          columns: [{ ...column, [propName]: [filter.value] }],
+          dataSource: [
+            { key: 1, name: 1, text: '1' },
+            { key: 2, name: true, text: 'true' },
+            { key: 3, name: 'text', text: 'text' },
+          ],
+        }),
+      );
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect(container.querySelectorAll('.ant-dropdown-menu-item-selected').length).toBe(1);
+      expect(container.querySelector('.ant-dropdown-menu-item-selected')?.textContent).toBe(
+        filter.text,
+      );
+      expect(container.querySelectorAll('tbody tr').length).toBe(1);
+      expect(container.querySelector('tbody tr')?.textContent).toBe(String(filter.value));
+    });
+  });
 });
