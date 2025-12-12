@@ -174,17 +174,17 @@ demo:
 
 这一般是 `options` 中的 `label` 和 `value` 不同导致的，你可以通过 `optionFilterProp="label"` 将过滤设置为展示值以避免这种情况。
 
-### 点击 `dropdownRender` 里的元素，下拉菜单不会自动消失？ {#faq-dropdown-not-close}
+### 点击 `popupRender` 里的元素，下拉菜单不会自动消失？ {#faq-dropdown-not-close}
 
 你可以使用受控模式，手动设置 `open` 属性：[codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js)。
 
-### 反过来希望点击 `dropdownRender` 里元素不消失该怎么办？ {#faq-dropdown-keep-open}
+### 反过来希望点击 `popupRender` 里元素不消失该怎么办？ {#faq-dropdown-keep-open}
 
 Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
 
 ```tsx
 <Select
-  dropdownRender={() => (
+  popupRender={() => (
     <div
       onMouseDown={(e) => {
         e.preventDefault();
