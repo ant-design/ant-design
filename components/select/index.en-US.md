@@ -173,17 +173,17 @@ Common props ref：[Common props](/docs/react/common-props)
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
-### When I click elements in dropdownRender, the select dropdown will not be closed? {#faq-dropdown-not-close}
+### When I click elements in popupRender, the select dropdown will not be closed? {#faq-popup-not-close}
 
 You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
-### I don't want dropdown close when click inside `dropdownRender`? {#faq-dropdown-keep-open}
+### I don't want dropdown close when click inside `popupRender`? {#faq-popup-keep-open}
 
 Select will close when it lose focus. You can prevent event to handle this:
 
 ```tsx
 <Select
-  dropdownRender={() => (
+  popupRender={() => (
     <div
       onMouseDown={(e) => {
         e.preventDefault();
