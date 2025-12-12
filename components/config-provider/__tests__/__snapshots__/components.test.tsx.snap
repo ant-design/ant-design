@@ -377,10 +377,8 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -405,10 +403,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -434,10 +430,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -462,10 +456,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -490,10 +482,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -518,10 +508,8 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="ant-select-input"
       id="test-id"
@@ -546,10 +534,8 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="prefix-AutoComplete-input"
       id="test-id"
@@ -1595,10 +1581,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -1647,10 +1631,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -2526,10 +2508,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -2871,10 +2851,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -2924,10 +2902,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -3806,10 +3782,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -4154,10 +4128,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -4206,10 +4178,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5085,10 +5055,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5430,10 +5398,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5482,10 +5448,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6361,10 +6325,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6706,10 +6668,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6758,10 +6718,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -7637,10 +7595,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -7982,10 +7938,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8034,10 +7988,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8913,10 +8865,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -9258,10 +9208,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -9310,10 +9258,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -10189,10 +10135,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -11434,10 +11378,8 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11485,10 +11427,8 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -11537,10 +11477,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11588,10 +11526,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11639,10 +11575,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11690,10 +11624,8 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="ant-select-input"
       id="test-id"
@@ -11741,10 +11673,8 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="prefix-Cascader-input"
       id="test-id"
@@ -18671,11 +18601,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -18807,11 +18735,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -18948,11 +18874,9 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -19085,11 +19009,9 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -19227,11 +19149,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19363,11 +19283,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19504,11 +19422,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19640,11 +19556,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19781,11 +19695,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19917,11 +19829,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -20058,11 +19968,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20194,11 +20102,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20335,11 +20241,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20471,11 +20375,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -24110,10 +24012,8 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
     </div>
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -41699,10 +41599,8 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""

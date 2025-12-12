@@ -208,7 +208,7 @@
     "@types/jsdom": "^27.0.0",
     "@types/lodash": "^4.17.20",
     "@types/minimist": "^1.2.5",
-    "@types/node": "^24.6.2",
+    "@types/node": "^25.0.0",
     "@types/nprogress": "^0.2.3",
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.5",
@@ -249,7 +249,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "fast-glob": "^3.3.3",
-    "father": "4.6.8",
+    "father": "4.6.9",
     "fs-extra": "^11.3.2",
     "gh-pages": "^6.3.0",
     "github-slugger": "^2.0.0",
@@ -341,7 +341,7 @@
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "615 KiB",
+      "limit": "616 KiB",
       "gzip": true
     }
   ],
