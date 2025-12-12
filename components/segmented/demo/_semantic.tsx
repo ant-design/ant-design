@@ -2,8 +2,8 @@ import React from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 import { Segmented } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -33,7 +33,7 @@ const App: React.FC = () => {
         { name: 'icon', desc: locale.icon, version: '6.0.0' },
       ]}
     >
-      <Segmented
+      <Segmented<string>
         options={[
           { label: 'List', value: 'List', icon: <BarsOutlined /> },
           { label: 'Kanban', value: 'Kanban', icon: <AppstoreOutlined /> },
