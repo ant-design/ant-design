@@ -1668,6 +1668,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -2545,6 +2546,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -2940,6 +2942,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -3820,6 +3823,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -4215,6 +4219,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -5092,6 +5097,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -5485,6 +5491,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -6362,6 +6369,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -6755,6 +6763,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -7632,6 +7641,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -8025,6 +8035,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -8902,6 +8913,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
@@ -9295,6 +9307,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -10172,6 +10185,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
@@ -11712,6 +11726,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
 exports[`ConfigProvider components Checkbox configProvider 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11739,6 +11754,7 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
 exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper config-checkbox-wrapper-disabled css-var-root config-checkbox-css-var"
@@ -11767,6 +11783,7 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
 exports[`ConfigProvider components Checkbox configProvider componentSize large 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11794,6 +11811,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
 exports[`ConfigProvider components Checkbox configProvider componentSize middle 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11821,6 +11839,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
 exports[`ConfigProvider components Checkbox configProvider componentSize small 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11848,6 +11867,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
 exports[`ConfigProvider components Checkbox normal 1`] = `
 <div
   class="ant-checkbox-group css-var-root ant-checkbox-css-var"
+  role="group"
 >
   <label
     class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
@@ -11875,6 +11895,7 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
 exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 <div
   class="prefix-Checkbox-group css-var-root prefix-Checkbox-css-var"
+  role="group"
 >
   <label
     class="prefix-Checkbox-wrapper css-var-root prefix-Checkbox-css-var"
@@ -21394,6 +21415,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21420,6 +21442,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
   </div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21451,6 +21474,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked config-radio-wrapper-disabled css-var-root config-radio-css-var"
@@ -21478,6 +21502,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
   </div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -21510,6 +21535,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21536,6 +21562,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21567,6 +21594,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21593,6 +21621,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21624,6 +21653,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21650,6 +21680,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21681,6 +21712,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
@@ -21707,6 +21739,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -21738,6 +21771,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 <div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline css-var-root prefix-Radio-css-var"
+    role="radiogroup"
   >
     <label
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked css-var-root prefix-Radio-css-var"
@@ -21764,6 +21798,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
   </div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline css-var-root prefix-Radio-css-var"
+    role="radiogroup"
   >
     <label
       class="prefix-Radio-button-wrapper prefix-Radio-button-wrapper-checked css-var-root prefix-Radio-css-var"
