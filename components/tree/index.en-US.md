@@ -25,6 +25,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/customized-icon.tsx">Customize Icon</code>
 <code src="./demo/directory.tsx">directory</code>
 <code src="./demo/directory-debug.tsx" debug>Directory Debug</code>
+<code src="./demo/file-drop.tsx">File Drop</code>
 <code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
 <code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
@@ -108,6 +109,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | expandAction | Directory opening logic, options: false \| `click` \| `doubleClick` | string \| boolean | `click` |
+| allowFileDrop | Whether to allow dropping files from the file system. Note: When enabled, this will disable the draggable property as file dropping and node dragging use different event handling mechanisms | boolean | false |
+| onFileDrop | Callback function for when files are dropped from the file system | function({event, files}) | - |
 
 ## Note
 
