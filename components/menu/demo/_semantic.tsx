@@ -94,10 +94,7 @@ const Block: React.FC<
 
   return (
     <Flex vertical gap="middle" ref={divRef} align="center">
-      <Segmented<ModeType>
-        options={['horizontal', 'vertical', 'inline']}
-        onChange={(value) => setMode(value)}
-      />
+      <Segmented<ModeType> options={['horizontal', 'vertical', 'inline']} onChange={setMode} />
       <div style={{ height: 360 }}>
         <Menu
           onClick={onClick}
