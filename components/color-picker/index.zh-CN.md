@@ -16,7 +16,7 @@ group:
 
 当用户需要自定义颜色选择的时候使用。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
@@ -53,7 +53,7 @@ group:
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
-| disabledFormat | 禁用选择颜色格式 | boolean | - | |
+| disabledFormat | 禁用选择颜色格式 | boolean | - | 5.22.0 |
 | ~~destroyTooltipOnHide~~ | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | destroyOnHidden | 关闭后是否销毁弹窗 | `boolean` | false | 5.25.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | - | |
@@ -115,6 +115,6 @@ type PresetColorType = {
 
 ## FAQ
 
-### 关于颜色赋值的问题
+### 关于颜色赋值的问题 {#faq-color-assignment}
 
 颜色选择器的值同时支持字符串色值和选择器生成的 `Color` 对象，但由于不同格式的颜色字符串互相转换会有精度误差问题，所以受控场景推荐使用选择器生成的 `Color` 对象来进行赋值操作，这样可以避免精度问题，保证取值是精准的，选择器也可以按照预期工作。

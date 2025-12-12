@@ -35,7 +35,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Whether to allow clear when click again | boolean | true |  |
 | allowHalf | Whether to allow semi selection | boolean | false |  |
-| autoFocus | If get focus when component mounted | boolean | false |  |
 | character | The custom character of rate | ReactNode \| (RateProps) => ReactNode | &lt;StarFilled /> | function(): 4.4.0 |
 | className | The custom class name of rate | string | - |  |
 | count | Star count | number | 5 |  |

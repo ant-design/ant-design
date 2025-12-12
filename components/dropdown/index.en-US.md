@@ -47,7 +47,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | arrow | Whether the dropdown arrow should be visible | boolean \| { pointAtCenter: boolean } | false |  |
 | autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean | true | 5.2.0 |
-| autoFocus | Focus element in `overlay` when opened | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the Dropdown component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | ~~destroyPopupOnHide~~ | Whether destroy dropdown when hidden, use `destroyOnHidden` instead | boolean | false |  |
@@ -78,6 +77,6 @@ Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouse
 
 ## FAQ
 
-### How to prevent Dropdown from being squeezed when it exceeds the screen horizontally?
+### How to prevent Dropdown from being squeezed when it exceeds the screen horizontally? {#faq-dropdown-squeezed}
 
 You can use `width: max-content` style to handle this. ref [#43025](https://github.com/ant-design/ant-design/issues/43025#issuecomment-1594394135).

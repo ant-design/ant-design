@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MobileMenu from '@rc-component/drawer';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
@@ -11,7 +11,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-top: ${cssVar.marginXL};
+      padding-top: 0;
       padding-bottom: ${cssVar.marginXXL} !important;
       font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
       padding-inline: ${cssVar.paddingXXS};
@@ -114,6 +114,16 @@ const Sidebar: React.FC = () => {
   const [menuItems, selectedKey] = useMenu();
   const { colorBgContainer } = useTheme();
 
+  const defaultOpenKeys = sidebarData?.map<string>(({ title }) => title!).filter(Boolean) || [];
+  const [openKeys, setOpenKeys] = React.useState<string[]>(defaultOpenKeys);
+
+  useEffect(() => {
+    if (openKeys.join(',') === defaultOpenKeys.join(',')) {
+      return;
+    }
+    setOpenKeys(defaultOpenKeys);
+  }, [defaultOpenKeys.join(',')]);
+
   const menuChild = (
     <ConfigProvider
       theme={{ components: { Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer } } }}
@@ -125,7 +135,8 @@ const Sidebar: React.FC = () => {
         mode="inline"
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
-        defaultOpenKeys={sidebarData?.map<string>(({ title }) => title!).filter(Boolean)}
+        openKeys={openKeys}
+        onOpenChange={setOpenKeys}
       />
     </ConfigProvider>
   );

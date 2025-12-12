@@ -1584,11 +1584,9 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         />
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-describedby="test-id"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           disabled=""

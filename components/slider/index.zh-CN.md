@@ -14,7 +14,7 @@ demo:
 
 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -38,7 +38,6 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | 值为 true 时，滑块为禁用状态 | boolean | false |  |
@@ -89,6 +88,6 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Slider"></ComponentTokenTable>

@@ -15,41 +15,13 @@ demo:
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 - You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
 
-### Usage upgrade <Badge>5.11.0+</Badge>
-
-<!-- prettier-ignore -->
-:::warning{title="Upgrade Tip"}
-After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` with better performance and potential of writing simpler code style in your applications.
-Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
-:::
-
-```tsx
-// works when >=5.11.0, recommended ✅
-return (
-  <Select
-    onChange={onChange}
-    options={[
-      { value: '1', label: <span>Option 1</span> },
-      { value: '2', label: <span>Option 2</span> },
-    ]}
-  />
-);
-
-// works when <5.11.0, deprecated when >=5.11.0 🙅🏻‍♀️
-return (
-  <Select onChange={onChange}>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-  </Select>
-);
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/search.tsx">Select with search field</code>
 <code src="./demo/search-filter-option.tsx">Custom Search</code>
+<code src="./demo/search-multi-field.tsx">Multi field search</code>
 <code src="./demo/multiple.tsx">multiple selection</code>
 <code src="./demo/size.tsx">Sizes</code>
 <code src="./demo/option-render.tsx">Custom dropdown options</code>
@@ -91,7 +63,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | ~autoClearSearchValue~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
-| autoFocus | Get focus by default | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
@@ -117,7 +88,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | mode | Set mode of Select | `multiple` \| `tags` | - |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Controlled open state of dropdown | boolean | - |  |
-| ~~optionFilterProp~~ | Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label` | string | `value` |  |
+| ~~optionFilterProp~~ | Deprecated, see `showSearch.optionFilterProp` |  |  |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | optionRender | Customize the rendering dropdown options | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
@@ -159,7 +130,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
-| optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label` | string | `value` |  |
+| optionFilterProp | Which prop value of option will be used for filter if filterOption is true. <br/> If `options` is set, it should be set to `label`. <br/> When a string[] is provided, multiple fields are searched using OR matching. | string \| string[] | `value` | `string[]`: 6.1.0 |
 | searchValue | The current input "search" text | string | - |  |
 | onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
 
@@ -198,21 +169,21 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tags` mode?
+### Why sometime search will show 2 same option when in `tags` mode? {#faq-tags-mode-duplicate}
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
-### When I click elements in dropdownRender, the select dropdown will not be closed?
+### When I click elements in popupRender, the select dropdown will not be closed? {#faq-popup-not-close}
 
 You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
-### I don't want dropdown close when click inside `dropdownRender`?
+### I don't want dropdown close when click inside `popupRender`? {#faq-popup-keep-open}
 
 Select will close when it lose focus. You can prevent event to handle this:
 
 ```tsx
 <Select
-  dropdownRender={() => (
+  popupRender={() => (
     <div
       onMouseDown={(e) => {
         e.preventDefault();
@@ -225,7 +196,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 />
 ```
 
-### Why sometime customize Option cause scroll break?
+### Why sometime customize Option cause scroll break? {#faq-custom-option-scroll}
 
 Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
@@ -235,13 +206,13 @@ Virtual scroll internal set item height as `24px`. You need to adjust `listItemH
 
 Note: `listItemHeight` and `listHeight` are internal props. Please only modify when necessary.
 
-### Why a11y test report missing `aria-` props?
+### Why a11y test report missing `aria-` props? {#faq-aria-attribute}
 
 Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
 
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
 
-### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close
+### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close {#faq-tagrender-dropdown}
 
 If you don't want a drop-down menu to appear automatically after clicking on an element (such as a close icon), you can prevent the `MouseDown` event from propagating on it.
 

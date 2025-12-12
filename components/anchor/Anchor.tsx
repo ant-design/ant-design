@@ -269,6 +269,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
     (link) => {
+      const previousActiveLink = activeLinkRef.current;
       setCurrentActiveLink(link);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
@@ -279,7 +280,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
         return;
       }
 
-      if (animating.current && activeLinkRef.current !== link) {
+      if (animating.current) {
+        if (previousActiveLink === link) {
+          return;
+        }
         scrollRequestId.current?.();
       }
 

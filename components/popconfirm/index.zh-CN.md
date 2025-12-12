@@ -16,7 +16,7 @@ demo:
 
 和 `confirm` 弹出的全屏居中模态对话框相比，交互形式更轻量。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -59,7 +59,7 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 

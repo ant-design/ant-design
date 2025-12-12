@@ -51,9 +51,9 @@ const Palette: React.FC<PaletteProps> = (props) => {
     setHexColors(colors);
   }, []);
 
-  const onCopy = async (colorText: string) => {
-    await copy(hexColors[colorText]);
-    message.success(`@${colorText} copied: ${hexColors[colorText]}`);
+  const onCopy = async (colorText: string, colorKey: string) => {
+    await copy(hexColors[colorKey]);
+    message.success(`@${colorText} copied: ${hexColors[colorKey]}`);
   };
 
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
@@ -67,13 +67,14 @@ const Palette: React.FC<PaletteProps> = (props) => {
 
   const colors = Array.from<any, React.ReactNode>({ length: count }, (_, i) => {
     const colorText = `${name}-${i}`;
+    const colorKey = `${name}-${i + 1}`;
     const defaultBgStyle = dark && name ? presetDarkPalettes[name][i - 1] : '';
     return (
       <div
         key={i}
         ref={(node) => {
           if (node) {
-            colorNodesRef.current[`${name}-${i + 1}`] = node;
+            colorNodesRef.current[colorKey] = node;
           }
         }}
         className={`main-color-item palette-${name}-${i + 1}`}
@@ -84,10 +85,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
           cursor: 'pointer',
         }}
         title="click to copy color"
-        onClick={() => onCopy(colorText)}
+        onClick={() => onCopy(colorText, colorKey)}
       >
         <span className="main-color-text">{colorText}</span>
-        <span className="main-color-value">{hexColors[colorText]}</span>
+        <span className="main-color-value">{hexColors[colorKey]}</span>
       </div>
     );
   });

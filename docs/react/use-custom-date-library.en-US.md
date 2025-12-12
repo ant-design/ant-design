@@ -22,7 +22,7 @@ Create `src/components/DatePicker.tsx`.
 For example:
 
 ```tsx
-import momentGenerateConfig from '@rc-component/picker/lib/generate/moment';
+import momentGenerateConfig from '@rc-component/picker/generate/moment';
 import { DatePicker } from 'antd';
 import type { Moment } from 'moment';
 
@@ -62,7 +62,7 @@ Create `src/components/Calendar.tsx`.
 For example:
 
 ```tsx
-import momentGenerateConfig from '@rc-component/picker/es/generate/moment';
+import momentGenerateConfig from '@rc-component/picker/generate/moment';
 import { Calendar } from 'antd';
 import type { Moment } from 'moment';
 
@@ -122,7 +122,7 @@ Create `src/components/DatePicker.tsx`.
 Code as follows:
 
 ```tsx
-import dateFnsGenerateConfig from '@rc-component/picker/lib/generate/dateFns';
+import dateFnsGenerateConfig from '@rc-component/picker/generate/dateFns';
 import { DatePicker } from 'antd';
 
 const MyDatePicker = DatePicker.generatePicker<Date>(dateFnsGenerateConfig);
@@ -139,7 +139,7 @@ Since `antd 5.4.0`, [luxon](https://moment.github.io/luxon/) can be used instead
 Create a `src/components/DatePicker.tsx` file, and implement the luxon based picker as follows:
 
 ```tsx
-import luxonGenerateConfig from '@rc-component/picker/lib/generate/luxon';
+import luxonGenerateConfig from '@rc-component/picker/generate/luxon';
 import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 
@@ -162,7 +162,7 @@ This introduces some formatting differences with the other date libraries. As of
 It is possible to customize these default luxon behaviors by adjusting the luxon config:
 
 ```tsx
-import luxonGenerateConfig from '@rc-component/picker/lib/generate/luxon';
+import luxonGenerateConfig from '@rc-component/picker/generate/luxon';
 import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 

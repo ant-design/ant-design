@@ -30,7 +30,7 @@ title: 社区精选组件
 | 应用国际化 | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
+| 无限滚动 | [@rc-component/virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | 地图 | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap 高德地图](https://github.com/uiwjs/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contexify](https://github.com/fkhadra/react-contexify) |

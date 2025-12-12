@@ -19,7 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 
 > 注意：穿梭框组件只支持受控使用，不支持非受控模式。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
@@ -105,12 +105,12 @@ return <Transfer rowKey={(record) => record.uid} />;
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 
-### 怎样让 Transfer 穿梭框列表支持异步数据加载
+### 怎样让 Transfer 穿梭框列表支持异步数据加载 {#faq-async-data-loading}
 
 为了保持页码同步，在勾选时可以不移除选项而以禁用代替：<https://codesandbox.io/s/objective-wing-6iqbx>

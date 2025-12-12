@@ -7,7 +7,7 @@ import type {
   PanelSemanticName as PopupSemantic,
   Locale as RcPickerLocale,
   SemanticName,
-} from '@rc-component/picker/lib/interface';
+} from '@rc-component/picker/interface';
 
 import type {
   SemanticClassNames,

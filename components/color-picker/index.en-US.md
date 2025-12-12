@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
-| disabledFormat | Disable format of color | boolean | - | |
+| disabledFormat | Disable format of color | boolean | - | 5.22.0 |
 | ~~destroyTooltipOnHide~~ | Whether destroy dom when close | `boolean` | false | 5.7.0 |
 | destroyOnHidden | Whether destroy dom when close | `boolean` | false | 5.25.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | - | |
@@ -114,6 +114,6 @@ type PresetColorType = {
 
 ## FAQ
 
-### Questions about color assignment
+### Questions about color assignment {#faq-color-assignment}
 
 The value of the color selector supports both string color values and selector-generated `Color` objects. However, since there is a precision error when converting color strings of different formats to each other, it is recommended to use selector-generated `Color` objects for assignment operations in controlled scenarios, so that the precision problem can be avoided and the values are guaranteed to be accurate and the selector can work as expected.

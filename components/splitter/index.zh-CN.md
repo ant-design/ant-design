@@ -17,7 +17,7 @@ tag: 5.21.0
 - 当需要自由拖拽调整各区域大小。
 - 当需要指定区域的最大最小宽高时。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/size.tsx">基本用法</code>
@@ -72,6 +72,6 @@ tag: 5.21.0
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component='Splitter'></ComponentTokenTable>

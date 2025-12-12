@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import type { Components } from '@rc-component/picker/lib/interface';
+import type { Components } from '@rc-component/picker/interface';
 
 import PickerButton from '../PickerButton';
 

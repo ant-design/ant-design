@@ -18,7 +18,7 @@ demo:
 - 当需要展现上传的进度时。
 - 当需要使用拖拽交互时。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">点击上传</code>
@@ -174,34 +174,34 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Upload"></ComponentTokenTable>
 
 ## FAQ
 
-### 服务端如何实现？
+### 服务端如何实现？ {#faq-server-implement}
 
 - 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side)。
 - 如果要做本地 mock 可以参考这个 [express 的例子](https://github.com/react-component/upload/blob/211979fdaa2c7896b6496df7061a0cfc0fc5434e/server.js)。
 
-### 如何显示下载链接？
+### 如何显示下载链接？ {#faq-show-download-link}
 
 请使用 `fileList` 属性设置数组项的 `url` 属性进行展示控制。
 
-### `customRequest` 怎么使用？
+### `customRequest` 怎么使用？ {#faq-custom-request}
 
 请参考 <https://github.com/react-component/upload#customrequest>。
 
-### 为何 `fileList` 受控时，上传不在列表中的文件不会触发 `onChange` 后续的 `status` 更新事件？
+### 为何 `fileList` 受控时，上传不在列表中的文件不会触发 `onChange` 后续的 `status` 更新事件？ {#faq-filelist-controlled-status}
 
 `onChange` 事件仅会作用于在列表中的文件，因而 `fileList` 不存在对应文件时后续事件会被忽略。请注意，在 `4.13.0` 版本之前受控状态存在 bug 导致不在列表中的文件也会触发。
 
-### `onChange` 为什么有时候返回 File 有时候返回 { originFileObj: File }？
+### `onChange` 为什么有时候返回 File 有时候返回 { originFileObj: File }？ {#faq-on-change-return-type}
 
 历史原因，在 `beforeUpload` 返回 `false` 时，会返回 `File` 对象。在下个大版本我们会统一返回 `{ originFileObj: File }` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 `File` 写法。你可以提前切换。
 
-### 为何有时 Chrome 点击 Upload 无法弹出文件选择框？
+### 为何有时 Chrome 点击 Upload 无法弹出文件选择框？ {#faq-chrome-file-picker}
 
 与 `antd` 无关，原生上传也会失败。请重启 `Chrome` 浏览器，让其完成升级工作。
 
@@ -214,7 +214,7 @@ demo:
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)
 
-### 文件夹上传在 Safari 仍然可以选中文件?
+### 文件夹上传在 Safari 仍然可以选中文件? {#faq-safari-folder-upload}
 
 组件内部是以 `directory`、`webkitdirectory` 属性控制 input 来实现文件夹选择的, 但似乎在 Safari 的实现中，[并不会阻止用户选择文件](https://stackoverflow.com/q/55649945/3040605)。可以通过 `accept` 配置来解决此问题，例如：
 

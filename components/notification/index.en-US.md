@@ -63,8 +63,8 @@ The properties of config are as follows:
 | pauseOnHover | keep the timer running or not on hover | boolean | true | 5.18.0 |
 | icon | Customized icon | ReactNode | - | - |
 | key | The unique identifier of the Notification | string | - | - |
-| title | The title of notification box (required) | ReactNode | - | 6.0.0 |
-| ~~message~~ | The title of notification box (required), please use `title` instead | ReactNode | - | - |
+| title | The title of notification box | ReactNode | - | 6.0.0 |
+| ~~message~~ | The title of notification box (deprecated), please use `title` instead | ReactNode | - | - |
 | placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - |
 | role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
@@ -142,7 +142,7 @@ notification.config({
 
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification? {#faq-context-redux}
 
 antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
 
@@ -166,6 +166,6 @@ return (
 
 > [App Package Component](/components/app) can be used to simplify the problem of `useNotification` and other methods that need to manually implant contextHolder.
 
-### How to set static methods prefixCls ？
+### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

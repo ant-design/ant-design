@@ -28,7 +28,7 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>
-<code src="./demo/dark.tsx" debug>Dark Bg</code>
+<code src="./demo/dark.tsx" debug>Demo for debugging</code>
 <code src="./demo/button-props.tsx">Customize footer buttons props</code>
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
@@ -206,11 +206,11 @@ const confirmed = await modal.confirm({ ... });
 
 ## FAQ
 
-### Why content not update when Modal closed?
+### Why content not update when Modal closed? {#faq-content-not-update}
 
 Modal will use memo to avoid content jumping when closed. Also, if you use Form in Modal, you can reset `initialValues` by calling `resetFields` in effect.
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx? {#faq-context-redux}
 
 antd will dynamic create React instance by `ReactDOM.render` when call Modal methods. Whose context is different with origin code located context.
 
@@ -236,6 +236,6 @@ return (
 
 > [App Package Component](/components/app) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
 
-### How to set static methods prefixCls ？
+### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

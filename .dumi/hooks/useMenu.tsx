@@ -47,6 +47,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     font-weight: normal;
     font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
+    margin-left: 4px;
   `,
 }));
 

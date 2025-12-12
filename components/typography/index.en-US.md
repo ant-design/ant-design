@@ -174,15 +174,3 @@ interface EllipsisConfig {
 ## Design Token
 
 <ComponentTokenTable component="Typography"></ComponentTokenTable>
-
-## FAQ
-
-### How to use Typography.Link in react-router?
-
-`react-router` support [customize](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md#component-reactcomponent) render component:
-
-```tsx
-<Link to="/" component={Typography.Link} />
-```
-
-**Note：** This is not equivalent to the execution logic of react-router's Link [reference](https://github.com/ant-design/ant-design/pull/26737/files#r488769888)

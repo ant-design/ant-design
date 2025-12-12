@@ -31,7 +31,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoFocus | Whether get focus when component mounted | boolean | false |  |
 | checked | Determine whether the Switch is checked | boolean | false |  |
 | checkedChildren | The content to be shown when the state is checked | ReactNode | - |  |
 | className | The additional class to Switch | string | - |  |
@@ -64,7 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why not work in Form.Item?
+### Why not work in Form.Item? {#faq-binding-data}
 
 Form.Item default bind value to `value` property, but Switch value property is `checked`. You can use `valuePropName` to change bind property.
 

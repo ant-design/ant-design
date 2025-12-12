@@ -45,7 +45,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support Object type |
-| autoFocus | If get focus when component mounted | boolean | false |  |
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | children | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
@@ -106,12 +105,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why doesn't the text composition system work well with onSearch in controlled mode?
+### Why doesn't the text composition system work well with onSearch in controlled mode? {#faq-controlled-onsearch-composition}
 
 Please use `onChange` to manage control state. `onSearch` is used for searching input which is not the same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### Why won't a controlled open AutoComplete display a drop-down menu when options are empty?
+### Why won't a controlled open AutoComplete display a drop-down menu when options are empty? {#faq-empty-options-controlled-open}
 
 The AutoComplete component is essentially an extension of the Input form element. When the `options` property is empty, displaying empty text could mislead the user into believing the component is not operational, when in fact they are still able to input text. To avoid confusion, the `open` property will not display the drop-down menu when set to `true` and in combination with an empty `options` property. The `open` property must be used in conjunction with the `options` property.

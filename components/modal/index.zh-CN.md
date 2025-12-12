@@ -16,7 +16,7 @@ demo:
 
 另外当需要一个简洁的确认框询问用户时，可以使用 [`App.useApp`](/components/app-cn/) 封装的语法糖方法。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -29,7 +29,7 @@ demo:
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>
-<code src="./demo/dark.tsx" debug>暗背景</code>
+<code src="./demo/dark.tsx" debug>调试使用</code>
 <code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
@@ -201,17 +201,17 @@ const confirmed = await modal.confirm({ ... });
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 
 ## FAQ
 
-### 为什么 Modal 关闭时，内容不会更新？
+### 为什么 Modal 关闭时，内容不会更新？ {#faq-content-not-update}
 
 Modal 在关闭时会将内容进行 memo 从而避免关闭过程中的内容跳跃。也因此如果你在配合使用 Form 有关闭时重置 `initialValues` 的操作，请通过在 effect 中调用 `resetFields` 来重置。
 
-### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls/theme` 等配置？
+### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls/theme` 等配置？ {#faq-context-redux}
 
 直接调用 Modal 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -235,6 +235,6 @@ return (
 
 > 可通过 [App 包裹组件](/components/app-cn) 简化 `useModal` 等方法需要手动植入 contextHolder 的问题。
 
-### 静态方法如何设置 prefixCls ？
+### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
 你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
