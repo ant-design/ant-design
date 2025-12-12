@@ -96,7 +96,7 @@ jobs:
       - run: ut
 
       - name: restore cache from dist
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: dist
           key: dist-${{ github.sha }}
@@ -146,13 +146,13 @@ jobs:
       - run: ut
 
       - name: cache lib
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: lib
           key: lib-${{ github.sha }}
 
       - name: cache es
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: es
           key: es-${{ github.sha }}
@@ -161,7 +161,7 @@ jobs:
         run: ut compile
 
       - name: cache dist
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: dist
           key: dist-${{ github.sha }}
@@ -213,7 +213,7 @@ jobs:
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
