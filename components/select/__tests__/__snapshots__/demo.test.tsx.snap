@@ -3699,12 +3699,12 @@ exports[`renders components/select/demo/option-render.tsx correctly 1`] = `
     >
       <span
         class="ant-select-selection-item"
-        title="China"
+        title="Happy"
       >
         <span
           class="ant-select-selection-item-content"
         >
-          China
+          Happy
         </span>
         <span
           aria-hidden="true"
