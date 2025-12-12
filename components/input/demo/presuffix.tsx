@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoCircleOutlined, UserOutlined, LockOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Input, Tooltip } from 'antd';
 
 const App: React.FC = () => (

@@ -2,16 +2,16 @@
 
 exports[`Table.expand click to expand 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -81,7 +81,7 @@ exports[`Table.expand click to expand 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-end ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
       >
         <li
           aria-disabled="true"

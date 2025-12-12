@@ -21,13 +21,14 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
+<code src="./demo/mask.tsx">mask</code>
 <code src="./demo/loading.tsx" version="5.18.0">Loading</code>
 <code src="./demo/footer-render.tsx" version="5.9.0">Customized Footer render function</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>
-<code src="./demo/dark.tsx" debug>Dark Bg</code>
+<code src="./demo/dark.tsx" debug>Demo for debugging</code>
 <code src="./demo/button-props.tsx">Customize footer buttons props</code>
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
@@ -35,6 +36,7 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/confirm.tsx">Static confirmation</code>
 <code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/nested.tsx" debug>Nested Modal</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
@@ -48,12 +50,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| classNames | Config Modal build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| styles | Config Modal build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
-| closable | Whether a close (x) button is visible on top right or not | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; } | true |  |
+| classNames | Customize class for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | ~~destroyOnClose~~ | Whether to unmount child components on onClose | boolean | false |  |
@@ -63,13 +64,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | forceRender | Force render Modal | boolean | false |  |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Whether show mask or not | boolean | true |  |
+| mask | Mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
+| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | loading | Show the skeleton | boolean |  | 5.18.0 |
 | title | The modal dialog's title | ReactNode | - |  |
 | open | Whether the modal dialog is visible or not | boolean | false |  |
@@ -106,14 +108,14 @@ The items listed above are all functions, expecting a settings object as paramet
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
-| closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
+| closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean \| [ClosableType](#closabletype) | false | - |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
 | footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | - | renderFunction: 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Whether show mask or not. | boolean | true |  |
+| mask | Mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
@@ -127,6 +129,15 @@ The items listed above are all functions, expecting a settings object as paramet
 | onOk | Click to onOk the callback, the parameter is the closing function, if it returns a promise, resolve means normal closing, reject means not closing | function(close) | - |  |
 
 All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
+
+### ClosableType
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| afterClose | Specify a function that will be called when modal is closed completely | function | - | - |
+| closeIcon | Custom close icon | ReactNode | undefined | - |
+| disabled | Whether disabled close icon | boolean | false | - |
+| onClose | Trigger when modal close | Function | undefined | - |
 
 ```jsx
 const modal = Modal.info();
@@ -195,11 +206,11 @@ const confirmed = await modal.confirm({ ... });
 
 ## FAQ
 
-### Why content not update when Modal closed?
+### Why content not update when Modal closed? {#faq-content-not-update}
 
 Modal will use memo to avoid content jumping when closed. Also, if you use Form in Modal, you can reset `initialValues` by calling `resetFields` in effect.
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx? {#faq-context-redux}
 
 antd will dynamic create React instance by `ReactDOM.render` when call Modal methods. Whose context is different with origin code located context.
 
@@ -225,6 +236,6 @@ return (
 
 > [App Package Component](/components/app) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
 
-### How to set static methods prefixCls ？
+### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

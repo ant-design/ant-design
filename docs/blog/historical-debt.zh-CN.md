@@ -52,7 +52,7 @@ Warning: [antd: XXX] `old prop` is deprecated. Please use `new prop` instead.
 
 ### 拓展问题
 
-如上所述，API 设计不存在银弹。为了防止 breaking change，我们一般不会改动现有的 API 实现。但是对于一些约定的内容，这就会造成麻烦。比如说 `ref` 组件是很典型的约定，只要是 React 的开发者就能明白，通过 `ref` 可以获取 DOM 节点以及做一些诸如 `focus` 的基本操作。但是对于复合组件而言，调用方法和 DOM 不一定能够统一。比如说 Table 组件的 `ref` 显然应该是最外层的 div，但是对于 `scrollTo` 方法则应该对应到滚动容器上（如果是 VirtualTable 则应该交由内部的 `rc-virtual-list` 进行处理）。在 antd mobile 中 `ref` 被设计为复合结构，DOM 节点总是通过 `nativeElement` 返回：
+如上所述，API 设计不存在银弹。为了防止 breaking change，我们一般不会改动现有的 API 实现。但是对于一些约定的内容，这就会造成麻烦。比如说 `ref` 组件是很典型的约定，只要是 React 的开发者就能明白，通过 `ref` 可以获取 DOM 节点以及做一些诸如 `focus` 的基本操作。但是对于复合组件而言，调用方法和 DOM 不一定能够统一。比如说 Table 组件的 `ref` 显然应该是最外层的 div，但是对于 `scrollTo` 方法则应该对应到滚动容器上（如果是 VirtualTable 则应该交由内部的 `@rc-component/virtual-list` 进行处理）。在 antd mobile 中 `ref` 被设计为复合结构，DOM 节点总是通过 `nativeElement` 返回：
 
 ```tsx
 export interface SampleRef {

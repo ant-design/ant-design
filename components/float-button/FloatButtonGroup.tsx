@@ -1,31 +1,72 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
-import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import CSSMotion from '@rc-component/motion';
+import { useControlledState, useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { FloatButtonGroupProvider } from './context';
+import Flex from '../flex';
+import Space from '../space';
+import { GroupContext } from './context';
+import type { GroupContextProps } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { FloatButtonGroupProps } from './interface';
+import type { FloatButtonGroupTrigger, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
+
+type InternalFloatButtonGroupSemanticName =
+  | 'root'
+  | 'list'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
+  | 'trigger'
+  | 'triggerIcon'
+  | 'triggerContent';
+
+export type FloatButtonGroupClassNamesType = SemanticClassNamesType<
+  FloatButtonGroupProps,
+  InternalFloatButtonGroupSemanticName
+>;
+export type FloatButtonGroupStylesType = SemanticStylesType<
+  FloatButtonGroupProps,
+  InternalFloatButtonGroupSemanticName
+>;
+
+export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classNames' | 'styles'> {
+  // Styles
+  classNames?: FloatButtonGroupClassNamesType;
+  styles?: FloatButtonGroupStylesType;
+
+  // Control
+  trigger?: FloatButtonGroupTrigger;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+
+  // UI
+  closeIcon?: React.ReactNode;
+  children: React.ReactNode;
+  placement?: 'top' | 'left' | 'right' | 'bottom';
+}
 
 const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
     style,
+    classNames,
+    styles,
+    rootClassName,
+
     shape = 'circle',
     type = 'default',
-    placement = 'top',
+    placement,
     icon = <FileTextOutlined />,
     closeIcon,
-    description,
     trigger,
     children,
     onOpenChange,
@@ -38,38 +79,36 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     direction,
     getPrefixCls,
     closeIcon: contextCloseIcon,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    className: contextClassName,
+    style: contextStyle,
   } = useComponentConfig('floatButtonGroup');
 
   const mergedCloseIcon = closeIcon ?? contextCloseIcon ?? <CloseOutlined />;
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const groupPrefixCls = `${prefixCls}-group`;
 
   const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
-  const isValidPlacement = placement && ['top', 'left', 'right', 'bottom'].includes(placement);
-
-  const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
-    [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-    [`${groupPrefixCls}-${shape}`]: shape,
-    [`${groupPrefixCls}-${shape}-shadow`]: !isMenuMode,
-    [`${groupPrefixCls}-${placement}`]: isMenuMode && isValidPlacement, // 只有菜单模式才支持弹出方向
-  });
 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
-  const mergedStyle: React.CSSProperties = { ...style, zIndex };
-
-  const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
-
-  const [open, setOpen] = useMergedState(false, { value: customOpen });
-
+  // ============================= Refs =============================
   const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
+  // ========================== Placement ==========================
+  const mergedPlacement = ['top', 'left', 'right', 'bottom'].includes(placement!)
+    ? placement
+    : 'top';
+
   // ========================== Open ==========================
+  const [open, setOpen] = useControlledState(false, customOpen);
+
   const hoverTrigger = trigger === 'hover';
   const clickTrigger = trigger === 'click';
 
@@ -126,39 +165,142 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     );
   }
 
+  // ======================== Contexts ========================
+  const individual = shape === 'circle';
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: FloatButtonGroupProps = {
+    ...props,
+    shape,
+    type,
+    placement: mergedPlacement,
+  };
+
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FloatButtonGroupClassNamesType,
+    FloatButtonGroupStylesType,
+    FloatButtonGroupProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const listContext = React.useMemo<GroupContextProps>(
+    () => ({
+      shape,
+      individual,
+      classNames: {
+        root: mergedClassNames.item,
+        icon: mergedClassNames.itemIcon,
+        content: mergedClassNames.itemContent,
+      },
+      styles: {
+        root: mergedStyles.item,
+        icon: mergedStyles.itemIcon,
+        content: mergedStyles.itemContent,
+      },
+    }),
+    [shape, individual, mergedClassNames, mergedStyles],
+  );
+
+  const triggerContext = React.useMemo<GroupContextProps>(
+    () => ({
+      ...listContext,
+      individual: true,
+      classNames: {
+        root: mergedClassNames.trigger,
+        icon: mergedClassNames.triggerIcon,
+        content: mergedClassNames.triggerContent,
+      },
+      styles: {
+        root: mergedStyles.trigger,
+        icon: mergedStyles.triggerIcon,
+        content: mergedStyles.triggerContent,
+      },
+    }),
+    [listContext, mergedClassNames, mergedStyles],
+  );
+
   // ========================= Render =========================
-  return wrapCSSVar(
-    <FloatButtonGroupProvider value={shape}>
+  // >>> List
+  let listNode: React.ReactNode;
+  const listCls = `${groupPrefixCls}-list`;
+
+  const renderList = (motionClassName?: string) => {
+    const vertical = mergedPlacement === 'top' || mergedPlacement === 'bottom';
+
+    const sharedProps = {
+      className: clsx(listCls, mergedClassNames.list, motionClassName),
+      style: mergedStyles.list,
+    };
+
+    if (individual) {
+      listNode = (
+        <Flex vertical={vertical} {...sharedProps}>
+          {children}
+        </Flex>
+      );
+    } else {
+      listNode = (
+        <Space.Compact vertical={vertical} {...sharedProps}>
+          {children}
+        </Space.Compact>
+      );
+    }
+
+    return listNode;
+  };
+
+  // >>> Render
+  return (
+    <GroupContext.Provider value={listContext}>
       <div
+        className={clsx(
+          groupPrefixCls,
+          hashId,
+          cssVarCls,
+          rootCls,
+          contextClassName,
+          mergedClassNames.root,
+          className,
+          rootClassName,
+          {
+            [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+            [`${groupPrefixCls}-individual`]: individual,
+            [`${groupPrefixCls}-${mergedPlacement}`]: isMenuMode,
+            [`${groupPrefixCls}-menu-mode`]: isMenuMode,
+          },
+        )}
+        style={{ ...contextStyle, zIndex, ...mergedStyles.root, ...style }}
+        // ref
         ref={floatButtonGroupRef}
-        className={groupCls}
-        style={mergedStyle}
         // Hover trigger
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         {isMenuMode ? (
-          <>
-            <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
-              {({ className: motionClassName }) => (
-                <div className={classNames(motionClassName, wrapperCls)}>{children}</div>
-              )}
-            </CSSMotion>
+          <CSSMotion visible={open} motionName={`${listCls}-motion`}>
+            {({ className: motionClassName }) => renderList(motionClassName)}
+          </CSSMotion>
+        ) : (
+          renderList()
+        )}
+
+        {/* If is menu mode, we have additional trigger button */}
+        {isMenuMode && (
+          <GroupContext.Provider value={triggerContext}>
             <FloatButton
               type={type}
               icon={open ? mergedCloseIcon : icon}
-              description={description}
               aria-label={props['aria-label']}
               className={`${groupPrefixCls}-trigger`}
               onClick={onInternalTriggerButtonClick}
               {...floatButtonProps}
             />
-          </>
-        ) : (
-          children
+          </GroupContext.Provider>
         )}
       </div>
-    </FloatButtonGroupProvider>,
+    </GroupContext.Provider>
   );
 };
 

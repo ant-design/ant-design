@@ -98,26 +98,6 @@ describe('AutoComplete', () => {
     expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
 
-  it('deprecated dropdownClassName', () => {
-    resetWarned();
-
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
-      <AutoComplete
-        dropdownClassName="legacy"
-        open
-        options={[{ label: 'little', value: 'little' }]}
-        searchValue="l"
-      />,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
-    );
-    expect(container.querySelector('.legacy')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
   it('deprecated popupClassName', () => {
     resetWarned();
 
@@ -162,7 +142,7 @@ describe('AutoComplete', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <AutoComplete
-        dropdownStyle={{ color: 'red' }}
+        dropdownStyle={{ color: 'rgb(255, 0, 0)' }}
         open
         options={[{ label: 'little', value: 'little' }]}
       />,

@@ -5,7 +5,7 @@ order: 1
 title: CSS Compatible
 ---
 
-### Default Style Compatibility
+## Default Style Compatibility
 
 Ant Design supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=defaults). If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
 
@@ -14,9 +14,7 @@ Ant Design supports the [last 2 versions of modern browsers](https://browsersl.i
 | [:where Selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:where) | `>=5.0.0` | [caniuse](https://caniuse.com/?search=%3Awhere) | Chrome 88 | `<StyleProvider hashPriority="high">` |
 | [CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) | `>=5.0.0` | [caniuse](https://caniuse.com/css-logical-props) | Chrome 89 | `<StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>` |
 
-If you need to support older browsers, please use `@ant-design/cssinjs@1.x` [StyleProvider](https://github.com/ant-design/cssinjs#styleprovider) for degradation handling according to your actual requirements.
-
-**🚨 Note: Please use `@ant-design/cssinjs` version 1.x for v5.**
+If you need to support older browsers, please use `@ant-design/cssinjs` [StyleProvider](https://github.com/ant-design/cssinjs#styleprovider) for degradation handling according to your actual requirements.
 
 ## `:where` in selector
 
@@ -26,7 +24,7 @@ If you need to support older browsers, please use `@ant-design/cssinjs@1.x` [Sty
 - Minimum Chrome Version Supported: 88
 - Default Enabled: Yes
 
-The CSS-in-JS feature of Ant Design uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers, you can use `@ant-design/cssinjs@1.x` to disable the default lowering of specificity (please ensure version consistency with antd).
+The CSS-in-JS feature of Ant Design uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers, you can use `@ant-design/cssinjs` to disable the default lowering of specificity (please ensure version consistency with antd).
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
@@ -72,7 +70,7 @@ Raise priority through plugin:
 - Minimum Chrome Version Supported: 89
 - Default Enabled: Yes
 
-To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider` of `@ant-design/cssinjs@1.x`:
+To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider` of `@ant-design/cssinjs`:
 
 ```tsx
 import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
@@ -130,6 +128,56 @@ antd styles will be encapsulated in `@layer` to lower the priority:
 ++  }
 ```
 
+⚠️ zeroRuntime Scenario Notes (Added in 6.0.0)
+
+When `zeroRuntime` is enabled, Ant Design’s styles are precompiled into a standalone `antd.css` file. If you also enable the `@layer` specificity–lowering mechanism, you must ensure that `antd.css` is placed inside the same layer (e.g., `layer(antd)`). Otherwise, its specificity will be higher than the styles injected by StyleProvider, causing the lowering mechanism to fail or resulting in unexpected override behavior.
+
+```css
+/* global.css / app.css */
+@layer theme, base, antd, components, utilities;
+
+/* The precompiled antd.css output by zeroRuntime must explicitly specify a layer */
+@import url(antd.css) layer(antd);
+```
+
+If you cannot use the `@import ... layer()` syntax, you may wrap the content during your build process instead:
+
+```css
+@layer antd {
+  /* contents of antd.css */
+}
+```
+
+## autoPrefixer
+
+- antd version: `>=6.0.0`
+- Browser Compatibility: Automatically adds browser prefixes for wider browser support
+- Default Enabled: No
+
+Some styles rely on browser prefixes for compatibility. The `autoPrefixer` transformer can automatically add browser prefixes to styles, ensuring they work properly across different browsers.
+
+```tsx | pure
+import { autoPrefixTransformer, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider transformers={[autoPrefixTransformer]}>
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+The final transformed styles:
+
+```diff
+  .sample-box {
+--  user-select: none;
+++  -webkit-user-select: none;
+++  -moz-user-select: none;
+++  -ms-user-select: none;
+++  user-select: none;
+  }
+```
+
 ## Rem Adaptation
 
 In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.
@@ -182,7 +230,7 @@ For more details, please refer to: [px2rem.ts#Options](https://github.com/ant-de
 
 ## Shadow DOM Usage
 
-Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@ant-design/cssinjs@1.x` to configure the `container` property to set the insertion position:
+Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@ant-design/cssinjs` to configure the `container` property to set the insertion position:
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
@@ -248,15 +296,26 @@ In global.css, adjust `@layer` to control the order of style override. Place `an
 @import 'tailwindcss';
 ```
 
-### reset.css
+### reset.css and antd.css
 
-If you use antd's `reset.css` style, you need to specify `@layer` for it to prevent the style from overriding antd:
+If you are using Ant Design’s `reset.css`, you need to assign it to a specific `@layer` to prevent it from overriding the lowered-specificity antd styles. Similarly, in the `zeroRuntime` scenario, if you import `antd.css` separately, you must also place it inside `layer(antd)` to keep the layer hierarchy consistent:
 
-```less
+```css
+/* Both reset.css and antd.css must specify a layer */
 @layer reset, antd;
 
+/* reset styles */
 @import url(reset.css) layer(reset);
+
+/* antd styles */
+@import url(antd.css) layer(antd);
 ```
+
+This ensures that:
+
+- reset.css will not override Ant Design styles that have been lowered via @layer
+- antd.css (in zeroRuntime mode) stays aligned with the layer injected by StyleProvider
+- Layer order still works correctly with third-party styling systems such as Tailwind, Emotion, or other CSS-in-JS libraries
 
 ### With other CSS-in-JS libraries
 

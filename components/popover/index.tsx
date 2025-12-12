@@ -1,19 +1,32 @@
 import * as React from 'react';
 import { isValidElement } from 'react';
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import KeyCode from 'rc-util/lib/KeyCode';
+import { useControlledState } from '@rc-component/util';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
-import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import type {
+  AbstractTooltipProps,
+  TooltipRef,
+  SemanticName as TooltipSemanticName,
+} from '../tooltip';
 import Tooltip from '../tooltip';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
+
+export type PopoverSemanticName = TooltipSemanticName | 'title' | 'content';
+
+export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticName>;
+
+export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticName>;
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -22,6 +35,8 @@ export interface PopoverProps extends AbstractTooltipProps {
     open: boolean,
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
+  classNames?: PopoverClassNamesType;
+  styles?: PopoverStylesType;
 }
 
 const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
@@ -31,15 +46,17 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     content,
     overlayClassName,
     placement = 'top',
-    trigger = 'hover',
+    trigger,
     children,
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     onOpenChange,
     overlayStyle = {},
     styles,
-    classNames: popoverClassNames,
-    ...otherProps
+    classNames,
+    motion,
+    arrow: popoverArrow,
+    ...restProps
   } = props;
   const {
     getPrefixCls,
@@ -47,32 +64,51 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
+    trigger: contextTrigger,
   } = useComponentConfig('popover');
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
+  const mergedArrow = useMergedArrow(popoverArrow, contextArrow);
+  const mergedTrigger = trigger || contextTrigger || 'hover';
 
-  const rootClassNames = classNames(
+  // ============================= Styles =============================
+  const mergedProps: PopoverProps = {
+    ...props,
+    placement,
+    trigger: mergedTrigger,
+    mouseEnterDelay,
+    mouseLeaveDelay,
+    overlayStyle,
+    styles,
+    classNames,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopoverClassNamesType,
+    PopoverStylesType,
+    PopoverProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  const rootClassNames = clsx(
     overlayClassName,
     hashId,
     cssVarCls,
     contextClassName,
-    contextClassNames.root,
-    popoverClassNames?.root,
+    mergedClassNames.root,
   );
-  const bodyClassNames = classNames(contextClassNames.body, popoverClassNames?.body);
 
-  const [open, setOpen] = useMergedState(false, {
-    value: props.open ?? props.visible,
-    defaultValue: props.defaultOpen ?? props.defaultVisible,
-  });
+  const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
 
   const settingOpen = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    setOpen(value, true);
+    setOpen(value);
     onOpenChange?.(value, e);
   };
 
@@ -89,36 +125,47 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  return wrapCSSVar(
+  return (
     <Tooltip
+      unique={false}
+      arrow={mergedArrow}
       placement={placement}
-      trigger={trigger}
+      trigger={mergedTrigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      {...otherProps}
+      {...restProps}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      classNames={{
+        root: rootClassNames,
+        container: mergedClassNames.container,
+        arrow: mergedClassNames.arrow,
+      }}
       styles={{
-        root: {
-          ...contextStyles.root,
-          ...contextStyle,
-          ...overlayStyle,
-          ...styles?.root,
-        },
-        body: {
-          ...contextStyles.body,
-          ...styles?.body,
-        },
+        root: { ...mergedStyles.root, ...contextStyle, ...overlayStyle },
+        container: mergedStyles.container,
+        arrow: mergedStyles.arrow,
       }}
       ref={ref}
       open={open}
       onOpenChange={onInternalOpenChange}
       overlay={
         titleNode || contentNode ? (
-          <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />
+          <Overlay
+            prefixCls={prefixCls}
+            title={titleNode}
+            content={contentNode}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
+          />
         ) : null
       }
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+      motion={{
+        motionName: getTransitionName(
+          rootPrefixCls,
+          'zoom-big',
+          typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
+        ),
+      }}
       data-popover-inject
     >
       {cloneElement(children, {
@@ -131,7 +178,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
           onKeyDown(e);
         },
       })}
-    </Tooltip>,
+    </Tooltip>
   );
 });
 

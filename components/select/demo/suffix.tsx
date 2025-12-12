@@ -14,6 +14,7 @@ const App: React.FC = () => (
     <Select
       prefix="User"
       defaultValue="lucy"
+      placeholder="Select User"
       style={{ width: 200 }}
       onChange={handleChange}
       options={[
@@ -22,10 +23,13 @@ const App: React.FC = () => (
         { value: 'Yiminghe', label: 'yiminghe' },
         { value: 'disabled', label: 'Disabled', disabled: true },
       ]}
+      allowClear
+      showSearch
     />
     <Select
       suffixIcon={smileIcon}
       defaultValue="lucy"
+      placeholder="Select"
       style={{ width: 120 }}
       onChange={handleChange}
       options={[
@@ -38,6 +42,7 @@ const App: React.FC = () => (
     <Select
       suffixIcon={mehIcon}
       defaultValue="lucy"
+      placeholder="Select"
       style={{ width: 120 }}
       disabled
       options={[{ value: 'lucy', label: 'Lucy' }]}
@@ -46,6 +51,7 @@ const App: React.FC = () => (
     <Select
       prefix="User"
       defaultValue={['lucy']}
+      placeholder="Select"
       mode="multiple"
       style={{ width: 200 }}
       onChange={handleChange}
@@ -59,6 +65,7 @@ const App: React.FC = () => (
     <Select
       suffixIcon={smileIcon}
       defaultValue={['lucy']}
+      placeholder="Select"
       mode="multiple"
       style={{ width: 120 }}
       onChange={handleChange}
@@ -72,6 +79,7 @@ const App: React.FC = () => (
     <Select
       suffixIcon={mehIcon}
       defaultValue={['lucy']}
+      placeholder="Select"
       mode="multiple"
       style={{ width: 120 }}
       disabled

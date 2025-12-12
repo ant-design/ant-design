@@ -1,21 +1,18 @@
-/**
- * 本地运行视觉回归测试
- */
+import { spawnSync } from 'child_process';
 import path from 'path';
-import fs from 'fs-extra';
-import simpleGit from 'simple-git';
-import envPaths from 'env-paths';
-import fg from 'fast-glob';
-import minimist from 'minimist';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
-import { extract } from 'tar';
+import { checkbox, confirm, input, select } from '@inquirer/prompts';
 import { Octokit } from '@octokit/rest';
-import { spawnSync } from 'child_process';
+import envPaths from 'env-paths';
+import fg from 'fast-glob';
+import fs from 'fs-extra';
 import difference from 'lodash/difference';
+import minimist from 'minimist';
 import open from 'open';
-import { select, input, checkbox, confirm } from '@inquirer/prompts';
 import { getUserAgent, resolveCommand } from 'package-manager-detector';
+import simpleGit from 'simple-git';
+import { extract } from 'tar';
 
 const ROOT = path.resolve(__dirname, '../../');
 // ==================== 环境变量 ====================
@@ -37,20 +34,17 @@ fs.ensureDirSync(STORE_PATH);
 const git = simpleGit(ROOT);
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 const packageManager = getUserAgent();
-const components = fg.sync('components/*/index.ts[x]', { cwd: ROOT }).reduce((acc, file) => {
-  const basePath = path.dirname(file);
-  if (
-    [
-      fs.existsSync(path.join(basePath, 'index.en-US.md')),
-      fs.existsSync(path.join(basePath, 'demo')),
-      fs.existsSync(path.join(basePath, '__tests__')),
-    ].every(Boolean)
-  ) {
-    acc.push(basePath);
-  }
 
-  return acc;
-}, [] as string[]);
+const components = fg
+  .sync('components/*/index.ts[x]', { cwd: ROOT })
+  .reduce<string[]>((acc, file) => {
+    const basePath = path.dirname(file);
+    const requiredFiles = ['index.en-US.md', 'demo', '__tests__'];
+    if (requiredFiles.every((item) => fs.existsSync(path.join(basePath, item)))) {
+      acc.push(basePath);
+    }
+    return acc;
+  }, []);
 
 // ==================== scripts ====================
 const imagesTestsScript = 'test:image';

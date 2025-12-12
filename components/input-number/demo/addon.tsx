@@ -27,7 +27,7 @@ const selectAfter = (
 );
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
     <InputNumber addonBefore={selectBefore} addonAfter={selectAfter} defaultValue={100} />
     <InputNumber addonAfter={<SettingOutlined />} defaultValue={100} />

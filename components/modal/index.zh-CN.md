@@ -16,19 +16,20 @@ demo:
 
 另外当需要一个简洁的确认框询问用户时，可以使用 [`App.useApp`](/components/app-cn/) 封装的语法糖方法。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
+<code src="./demo/mask.tsx">遮罩</code>
 <code src="./demo/loading.tsx" version="5.18.0">加载中</code>
 <code src="./demo/footer-render.tsx" version="5.9.0">自定义页脚渲染函数</code>
 <code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>
-<code src="./demo/dark.tsx" debug>暗背景</code>
+<code src="./demo/dark.tsx" debug>调试使用</code>
 <code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
@@ -36,6 +37,7 @@ demo:
 <code src="./demo/confirm.tsx">静态确认对话框</code>
 <code src="./demo/classNames.tsx">自定义内部模块 className</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/nested.tsx" debug>嵌套弹框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
@@ -49,12 +51,11 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
-| classNames | 配置弹窗内置模块的 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| styles | 配置弹窗内置模块的 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
-| closable | 是否显示右上角的关闭按钮 | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; } | true |  |
+| classNames | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | ~~destroyOnClose~~ | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
@@ -64,13 +65,14 @@ demo:
 | forceRender | 强制渲染 Modal | boolean | false |  |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 是否展示遮罩 | boolean | true |  |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
+| styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | loading | 显示骨架屏 | boolean |  | 5.18.0 |
 | title | 标题 | ReactNode | - |  |
 | open | 对话框是否可见 | boolean | - |  |
@@ -107,14 +109,14 @@ demo:
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | false | - |
 | closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | - | renderFunction: 5.9.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 是否展示遮罩 | boolean | true |  |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
@@ -128,6 +130,15 @@ demo:
 | onOk | 点击确定回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
+
+### ClosableType
+
+| 参数       | 说明                   | 类型      | 默认值    | 版本 |
+| ---------- | ---------------------- | --------- | --------- | ---- |
+| afterClose | Modal 完全关闭后的回调 | function  | -         | -    |
+| closeIcon  | 自定义关闭图标         | ReactNode | undefined | -    |
+| disabled   | 关闭图标是否禁用       | boolean   | false     | -    |
+| onClose    | 弹窗关闭即时调用       | Function  | undefined | -    |
 
 ```jsx
 const modal = Modal.info();
@@ -190,17 +201,17 @@ const confirmed = await modal.confirm({ ... });
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 
 ## FAQ
 
-### 为什么 Modal 关闭时，内容不会更新？
+### 为什么 Modal 关闭时，内容不会更新？ {#faq-content-not-update}
 
 Modal 在关闭时会将内容进行 memo 从而避免关闭过程中的内容跳跃。也因此如果你在配合使用 Form 有关闭时重置 `initialValues` 的操作，请通过在 effect 中调用 `resetFields` 来重置。
 
-### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls/theme` 等配置？
+### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls/theme` 等配置？ {#faq-context-redux}
 
 直接调用 Modal 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -224,6 +235,6 @@ return (
 
 > 可通过 [App 包裹组件](/components/app-cn) 简化 `useModal` 等方法需要手动植入 contextHolder 的问题。
 
-### 静态方法如何设置 prefixCls ？
+### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
 你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。

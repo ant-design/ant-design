@@ -33,6 +33,7 @@ The differences with Select are:
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/allowClear.tsx">Customize clear button</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/form-debug.tsx" debug>Debug in Form</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete and Select</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -44,10 +45,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support Object type |
-| autoFocus | If get focus when component mounted | boolean | false |  |
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | children | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
@@ -57,16 +57,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
-| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
+| ~~filterOption~~ | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | getPopupContainer | Parent node of the dropdown. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | - |  |
 | open | Controlled open state of dropdown | boolean | - |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
+| showSearch | search for configuration | true \| [Object](#showsearch) | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | size | The size of the input box | `large` \| `middle` \| `small` | - |  |
 | value | Selected option | string | - |  |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
@@ -74,11 +75,18 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | (open: boolean) => void | - |  |
 | onOpenChange | Called when dropdown open | (open: boolean) => void | - |  |
 | onFocus | Called when entering the component | function() | - |  |
-| onSearch | Called when searching items | function(value) | - |  |
+| ~~onSearch~~ | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
+
+### showSearch
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
+| onSearch | Called when searching items | function(value) | - |  |
 
 ## Methods
 
@@ -97,12 +105,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why doesn't the text composition system work well with onSearch in controlled mode?
+### Why doesn't the text composition system work well with onSearch in controlled mode? {#faq-controlled-onsearch-composition}
 
 Please use `onChange` to manage control state. `onSearch` is used for searching input which is not the same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### Why won't a controlled open AutoComplete display a drop-down menu when options are empty?
+### Why won't a controlled open AutoComplete display a drop-down menu when options are empty? {#faq-empty-options-controlled-open}
 
 The AutoComplete component is essentially an extension of the Input form element. When the `options` property is empty, displaying empty text could mislead the user into believing the component is not operational, when in fact they are still able to input text. To avoid confusion, the `open` property will not display the drop-down menu when set to `true` and in combination with an empty `options` property. The `open` property must be used in conjunction with the `options` property.

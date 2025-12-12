@@ -8,8 +8,6 @@ declare module '*.svg' {
   export default src;
 }
 
-declare module 'rc-util*';
-
 declare module 'jsonml-to-react-element';
 
 declare module 'jsonml.js/*';
@@ -18,6 +16,12 @@ declare module '*.json' {
   const value: any;
   export const version: string;
   export default value;
+}
+
+// https://github.com/umijs/dumi/pull/2281
+declare module '*.md' {
+  const content: React.FC;
+  export default content;
 }
 
 declare module '@npmcli/run-script' {

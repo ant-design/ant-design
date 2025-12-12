@@ -73,7 +73,7 @@ const AdvancedSearchForm = () => {
   return (
     <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>{getFields()}</Row>
-      <div style={{ textAlign: 'right' }}>
+      <div style={{ textAlign: 'end' }}>
         <Space size="small">
           <Button type="primary" htmlType="submit">
             Search

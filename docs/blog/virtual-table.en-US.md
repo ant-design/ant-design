@@ -9,7 +9,7 @@ juejin_url: https://juejin.cn/post/7322305961196126217
 
 In v4, we added a custom `components` example for Table, which replaces the default `<tbody>` with `components.body` to achieve virtual scrolling. But many developers feedback that the virtual table in the Demo has many functions that cannot be implemented. For example, fixed columns, merged rows and columns, expandable rows, etc.
 
-So we proposed [[RFC] StaticTable for fast perf & virtual scroll support](https://github.com/ant-design/ant-design/discussions/41500) in v5. The RFC expects to provide a high-performance Table.StaticTable, which will support virtual scrolling by default. But as the development progressed, we eventually decided to implement StaticTable on the underlying `rc-table`, and on the antd side, we only need to enable it with `<Table virtual />`.
+So we proposed [[RFC] StaticTable for fast perf & virtual scroll support](https://github.com/ant-design/ant-design/discussions/41500) in v5. The RFC expects to provide a high-performance Table.StaticTable, which will support virtual scrolling by default. But as the development progressed, we eventually decided to implement StaticTable on the underlying `@rc-component/table`, and on the antd side, we only need to enable it with `<Table virtual />`.
 
 ## TL;DR
 
@@ -35,7 +35,7 @@ You can visit the [virtual list](/components/table#table-demo-virtual-list) exam
 
 ## Some details
 
-Table in antd internally uses the `rc-table` component. Our virtual scrolling feature also reuses the `components` property mentioned above. Replace the middle `<tbody>` with `rc-virtual-list`, which is widely used in various virtual scrolling scenarios of antd like Select and Tree. `rc-virtual-list` itself does not support horizontal scrolling, so we also added horizontal scrolling support for it in this refactoring.
+Table in antd internally uses the `@rc-component/table` component. Our virtual scrolling feature also reuses the `components` property mentioned above. Replace the middle `<tbody>` with `@rc-component/virtual-list`, which is widely used in various virtual scrolling scenarios of antd like Select and Tree. `@rc-component/virtual-list` itself does not support horizontal scrolling, so we also added horizontal scrolling support for it in this refactoring.
 
 ### Fixed columns
 
@@ -47,11 +47,11 @@ For overlapping fixed columns, you only need to configure different offsets:
 
 <img alt="Stack Sticky" height="279" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HSW-S40yR_wAAAAAAAAAAAAADrJ8AQ/original" />
 
-We can also use this feature in virtual scrolling. Just reuse the `sticky` style to achieve the effect of fixed columns. `rc-virtual-list` only needs to provide horizontal scrolling, and does not need to care about the implementation of fixed columns.
+We can also use this feature in virtual scrolling. Just reuse the `sticky` style to achieve the effect of fixed columns. `@rc-component/virtual-list` only needs to provide horizontal scrolling, and does not need to care about the implementation of fixed columns.
 
 ### Expandable
 
-We will flatten the tree structure of `dataSource` through `useFlattenRecords` in `rc-table`, so as to support developers' custom virtual scrolling capabilities. Thanks to [@crawler-django](https://github.com/react-component/table/pull/619) for his contribution at that time, so we don't need to implement the flattening logic again.
+We will flatten the tree structure of `dataSource` through `useFlattenRecords` in `@rc-component/table`, so as to support developers' custom virtual scrolling capabilities. Thanks to [@crawler-django](https://github.com/react-component/table/pull/619) for his contribution at that time, so we don't need to implement the flattening logic again.
 
 But in testing, we found a strange phenomenon. When the table is rendered for the first time or re-render, there will be a very large lag. When debugging, it comes from the `useFlattenRecords` hook. It's strange that test code itself does not use the expandable tree function. It was found that there were a lot of GC operations in `useFlattenRecords`. And these operations are caused by a piece of inconspicuous code:
 
@@ -130,7 +130,7 @@ So, think backwards. We only need to start from the visible area. Then get the R
 
 <img alt="fully cut off" height="400" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_LBQRKPhLaIAAAAAAAAAAAAADrJ8AQ/original" />
 
-`rc-virtual-list` provides the `extraRender` method, which will provide the row number currently rendered in virtual scrolling. We only need to execute `onCell` on each Record in this range to get the `rowSpan` and `colSpan` information of each `cell`. So we can know whether the current row has `rowSpan`:
+`@rc-component/virtual-list` provides the `extraRender` method, which will provide the row number currently rendered in virtual scrolling. We only need to execute `onCell` on each Record in this range to get the `rowSpan` and `colSpan` information of each `cell`. So we can know whether the current row has `rowSpan`:
 
 ```tsx
 // Fake code. Not used in real word

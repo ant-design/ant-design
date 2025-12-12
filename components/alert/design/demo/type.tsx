@@ -63,37 +63,37 @@ const Demo: React.FC = () => {
         <Alert
           showIcon
           type="success"
-          message={locale.successMessage2}
+          title={locale.successMessage2}
           description={locale.successDescription2}
         />
       </Flex>
       <Flex gap="middle" vertical>
         <div>{locale.infoTitle}</div>
-        <Alert showIcon type="info" message={locale.infoMessage1} />
+        <Alert showIcon type="info" title={locale.infoMessage1} />
         <Alert
           showIcon
           type="info"
-          message={locale.infoMessage2}
+          title={locale.infoMessage2}
           description={locale.infoDescription2}
         />
       </Flex>
       <Flex gap="middle" vertical>
         <div>{locale.warningTitle}</div>
-        <Alert showIcon type="warning" message={locale.warningMessage1} />
+        <Alert showIcon type="warning" title={locale.warningMessage1} />
         <Alert
           showIcon
           type="warning"
-          message={locale.warningMessage2}
+          title={locale.warningMessage2}
           description={locale.warningDescription2}
         />
       </Flex>
       <Flex gap="middle" vertical>
         <div>{locale.errorTitle}</div>
-        <Alert showIcon type="error" message={locale.errorMessage1} />
+        <Alert showIcon type="error" title={locale.errorMessage1} />
         <Alert
           showIcon
           type="error"
-          message={locale.errorMessage2}
+          title={locale.errorMessage2}
           description={locale.errorDescription2}
         />
       </Flex>

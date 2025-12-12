@@ -94,14 +94,14 @@ It's also easy to extend for scenarios that need to inherit `className`:
 ```tsx
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { button, getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const btnPrefixCls = getPrefixCls('btn');
   const { styles } = useButtonStyle(btnPrefixCls);
   return (
-    <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
+    <ConfigProvider button={{ className: clsx(button?.className, styles.btn) }}>
       {props.children}
     </ConfigProvider>
   );

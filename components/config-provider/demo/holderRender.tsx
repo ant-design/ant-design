@@ -34,7 +34,7 @@ const Demo: React.FC = () => {
           type="primary"
           onClick={() => {
             notification.open({
-              message: 'Notification Title',
+              title: 'Notification Title',
               description:
                 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
             });

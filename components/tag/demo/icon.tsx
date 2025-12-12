@@ -18,8 +18,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Divider orientation="left">Tag with icon</Divider>
-      <Flex gap="4px 0" wrap align="center">
+      <Divider titlePlacement="start">Tag with icon</Divider>
+      <Flex gap="small" wrap align="center">
         <Tag icon={<TwitterOutlined />} color="#55acee">
           Twitter
         </Tag>
@@ -33,10 +33,10 @@ const App: React.FC = () => {
           LinkedIn
         </Tag>
       </Flex>
-      <Divider orientation="left">CheckableTag with icon</Divider>
-      <Flex gap="4px 0" wrap align="center">
+      <Divider titlePlacement="start">CheckableTag with icon</Divider>
+      <Flex gap="small" wrap align="center">
         <Tag.CheckableTag
-          icon={<TwitterOutlined />} // `icon` available since `5.27.0`
+          icon={<TwitterOutlined />}
           checked={checked[0]}
           onChange={(checked) => handleChange(0, checked)}
         >

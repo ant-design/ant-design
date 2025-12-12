@@ -1,23 +1,29 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
+import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
+import { clsx } from 'clsx';
 
-import { pickClosable, useClosable } from '../_util/hooks';
-import type { ClosableType } from '../_util/hooks';
+import type { DrawerProps } from '.';
+import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
-export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
-  header?: string;
-  body?: string;
-  footer?: string;
-}
+export type SemanticName =
+  | 'root'
+  | 'mask'
+  | 'header'
+  | 'title'
+  | 'extra'
+  | 'section'
+  | 'body'
+  | 'footer'
+  | 'wrapper'
+  | 'dragger'
+  | 'close';
 
-export interface DrawerStyles extends NonNullable<RCDrawerProps['styles']> {
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-}
+export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
+
+export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -25,6 +31,7 @@ export interface DrawerPanelProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
+  size?: DrawerProps['size'];
   /**
    * Recommend to use closeIcon instead
    *
@@ -32,17 +39,13 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?:
-    | boolean
-    | (Extract<ClosableType, object> & {
-        placement?: 'start' | 'end';
-      });
+  closable?: boolean | (Extract<ClosableType, object> & { placement?: 'start' | 'end' });
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
-  classNames?: DrawerClassNames;
-  styles?: DrawerStyles;
+  classNames?: DrawerClassNamesType;
+  styles?: DrawerStylesType;
   loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
@@ -76,30 +79,59 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     classNames: drawerClassNames,
     styles: drawerStyles,
   } = props;
+
   const drawerContext = useComponentConfig('drawer');
 
-  let closablePlacement: string | undefined;
-  if (closable === false) {
-    closablePlacement = undefined;
-  } else if (closable === undefined || closable === true) {
-    closablePlacement = 'start';
-  } else {
-    closablePlacement = closable?.placement === 'end' ? 'end' : 'start';
-  }
+  const {
+    classNames: contextClassNames,
+    styles: contextStyles,
+    closable: contextClosable,
+  } = drawerContext;
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DrawerClassNamesType,
+    DrawerStylesType,
+    DrawerPanelProps
+  >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], {
+    props: {
+      ...props,
+      closable: closable ?? contextClosable,
+    },
+  });
+
+  const closablePlacement = React.useMemo<'start' | 'end' | undefined>(() => {
+    const mergedClosableVal = closable ?? contextClosable;
+    if (mergedClosableVal === false) {
+      return undefined;
+    }
+    if (
+      typeof mergedClosableVal === 'object' &&
+      mergedClosableVal &&
+      mergedClosableVal.placement === 'end'
+    ) {
+      return 'end';
+    }
+    return 'start';
+  }, [closable, contextClosable]);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
       <button
         type="button"
         onClick={onClose}
-        className={classNames(`${prefixCls}-close`, {
-          [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
-        })}
+        className={clsx(
+          `${prefixCls}-close`,
+          {
+            [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
+          },
+          mergedClassNames.close,
+        )}
+        style={mergedStyles.close}
       >
         {icon}
       </button>
     ),
-    [onClose, prefixCls, closablePlacement],
+    [onClose, prefixCls, closablePlacement, mergedClassNames.close, mergedStyles.close],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
@@ -117,25 +149,31 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     }
     return (
       <div
-        style={{ ...drawerContext.styles?.header, ...headerStyle, ...drawerStyles?.header }}
-        className={classNames(
-          `${prefixCls}-header`,
-          {
-            [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
-          },
-          drawerContext.classNames?.header,
-          drawerClassNames?.header,
-        )}
+        style={{ ...mergedStyles.header, ...headerStyle }}
+        className={clsx(`${prefixCls}-header`, mergedClassNames.header, {
+          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
+        })}
       >
         <div className={`${prefixCls}-header-title`}>
           {closablePlacement === 'start' && mergedCloseIcon}
           {title && (
-            <div className={`${prefixCls}-title`} id={ariaId}>
+            <div
+              className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
+              style={mergedStyles.title}
+              id={ariaId}
+            >
               {title}
             </div>
           )}
         </div>
-        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        {extra && (
+          <div
+            className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
+            style={mergedStyles.extra}
+          >
+            {extra}
+          </div>
+        )}
         {closablePlacement === 'end' && mergedCloseIcon}
       </div>
     );
@@ -145,15 +183,10 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (!footer) {
       return null;
     }
-    const footerClassName = `${prefixCls}-footer`;
     return (
       <div
-        className={classNames(
-          footerClassName,
-          drawerContext.classNames?.footer,
-          drawerClassNames?.footer,
-        )}
-        style={{ ...drawerContext.styles?.footer, ...footerStyle, ...drawerStyles?.footer }}
+        className={clsx(`${prefixCls}-footer`, mergedClassNames.footer)}
+        style={{ ...mergedStyles.footer, ...footerStyle }}
       >
         {footer}
       </div>
@@ -164,12 +197,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     <>
       {renderHeader()}
       <div
-        className={classNames(
-          `${prefixCls}-body`,
-          drawerClassNames?.body,
-          drawerContext.classNames?.body,
-        )}
-        style={{ ...drawerContext.styles?.body, ...bodyStyle, ...drawerStyles?.body }}
+        className={clsx(`${prefixCls}-body`, mergedClassNames.body)}
+        style={{ ...mergedStyles.body, ...bodyStyle }}
       >
         {loading ? (
           <Skeleton

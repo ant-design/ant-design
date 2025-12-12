@@ -1,7 +1,8 @@
 import * as React from 'react';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import raf from 'rc-util/lib/raf';
+import { useEvent } from '@rc-component/util';
+import raf from '@rc-component/util/lib/raf';
 
+import type { WaveProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
 import { TARGET_CLS } from './interface';
@@ -12,6 +13,7 @@ const useWave = (
   nodeRef: React.RefObject<HTMLElement | null>,
   className: string,
   component?: WaveComponent,
+  colorSource?: WaveProps['colorSource'],
 ) => {
   const { wave } = React.useContext(ConfigContext);
   const [, token, hashId] = useToken();
@@ -34,10 +36,19 @@ const useWave = (
       component,
       event,
       hashId,
+      colorSource,
     });
   });
 
   const rafId = React.useRef<number>(null);
+
+  // Clean up RAF on unmount to prevent memory leaks and stale callbacks
+  React.useEffect(
+    () => () => {
+      raf.cancel(rafId.current!);
+    },
+    [],
+  );
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {

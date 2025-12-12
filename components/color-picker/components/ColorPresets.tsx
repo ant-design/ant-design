@@ -1,8 +1,7 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { clsx } from 'clsx';
 
 import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
@@ -43,10 +42,7 @@ const genCollapsePanelKey = (preset: PresetsItem, index: number) => {
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
   const [, token] = useToken();
-  const [presetsValue] = useMergedState(genPresetColor(presets), {
-    value: genPresetColor(presets),
-    postState: genPresetColor,
-  });
+  const presetsValue = useMemo(() => genPresetColor(presets), [presets]);
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
   const activeKeys = useMemo(
@@ -71,23 +67,27 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
-          (preset.colors as AggregationColor[]).map((presetColor, index) => (
-            <ColorBlock
-              // eslint-disable-next-line react/no-array-index-key
-              key={`preset-${index}-${presetColor.toHexString()}`}
-              color={generateColor(presetColor).toRgbString()}
-              prefixCls={prefixCls}
-              className={classNames(`${colorPresetsPrefixCls}-color`, {
-                [`${colorPresetsPrefixCls}-color-checked`]:
-                  presetColor.toHexString() === color?.toHexString(),
-                [`${colorPresetsPrefixCls}-color-bright`]: isBright(
-                  presetColor,
-                  token.colorBgElevated,
-                ),
-              })}
-              onClick={() => handleClick(presetColor)}
-            />
-          ))
+          (preset.colors as AggregationColor[]).map((presetColor, index) => {
+            const colorInst = generateColor(presetColor);
+
+            return (
+              <ColorBlock
+                // eslint-disable-next-line react/no-array-index-key
+                key={`preset-${index}-${presetColor.toHexString()}`}
+                color={colorInst.toCssString()}
+                prefixCls={prefixCls}
+                className={clsx(`${colorPresetsPrefixCls}-color`, {
+                  [`${colorPresetsPrefixCls}-color-checked`]:
+                    presetColor.toCssString() === color?.toCssString(),
+                  [`${colorPresetsPrefixCls}-color-bright`]: isBright(
+                    presetColor,
+                    token.colorBgElevated,
+                  ),
+                })}
+                onClick={() => handleClick(presetColor)}
+              />
+            );
+          })
         ) : (
           <span className={`${colorPresetsPrefixCls}-empty`}>{locale.presetEmpty}</span>
         )}

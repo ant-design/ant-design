@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 type widthUnit = number | string;
 
@@ -30,7 +30,7 @@ const Paragraph: React.FC<SkeletonParagraphProps> = (props) => {
     <li key={index} style={{ width: getWidth(index, props) }} />
   ));
   return (
-    <ul className={classNames(prefixCls, className)} style={style}>
+    <ul className={clsx(prefixCls, className)} style={style}>
       {rowList}
     </ul>
   );
