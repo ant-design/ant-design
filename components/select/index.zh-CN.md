@@ -174,7 +174,7 @@ demo:
 
 这一般是 `options` 中的 `label` 和 `value` 不同导致的，你可以通过 `optionFilterProp="label"` 将过滤设置为展示值以避免这种情况。
 
-### 点击 `popupRender` 里的元素，下拉菜单不会自动消失？ {#faq-dropdown-not-close}
+### 点击 `popupRender` 里的元素，下拉菜单不会自动消失？ {#faq-popup-not-close}
 
 你可以使用受控模式，手动设置 `open` 属性：[codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js)。
 
