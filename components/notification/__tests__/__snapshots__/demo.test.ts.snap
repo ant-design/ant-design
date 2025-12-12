@@ -12,63 +12,43 @@ exports[`renders components/notification/demo/basic.tsx correctly 1`] = `
 `;
 
 exports[`renders components/notification/demo/component-token.tsx correctly 1`] = `
-Array [
-  <h4>
-    Custom Theme (Enhanced Colors)
-  </h4>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap:8px"
+>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-green ant-btn-variant-outlined"
+    type="button"
   >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
-      >
-        <span>
-          Custom Success
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Custom Info
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Custom Warning
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Custom Error
-        </span>
-      </button>
-    </div>
-  </div>,
-]
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-blue ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-yellow ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Warning
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-red ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Error
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/notification/demo/custom-icon.tsx correctly 1`] = `
@@ -832,55 +812,40 @@ exports[`renders components/notification/demo/with-btn.tsx correctly 1`] = `
 
 exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap:8px"
 >
-  <div
-    class="ant-space-item"
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-green ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-blue ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Info
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-yellow ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Warning
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-red ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
+    <span>
+      Error
+    </span>
+  </button>
 </div>
 `;
