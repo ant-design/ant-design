@@ -178,7 +178,7 @@ demo:
 
 你可以使用受控模式，手动设置 `open` 属性：[codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js)。
 
-### 反过来希望点击 `popupRender` 里元素不消失该怎么办？ {#faq-dropdown-keep-open}
+### 反过来希望点击 `popupRender` 里元素不消失该怎么办？ {#faq-popup-keep-open}
 
 Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
 
