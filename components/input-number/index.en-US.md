@@ -35,6 +35,7 @@ When a numeric value needs to be provided.
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
+<code src="./demo/allow-clear.tsx" version="6.x">Allow Clear</code>
 
 ## API
 
@@ -69,9 +70,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | mode | Show input or spinner | `'input' \| 'spinner'` | `'input'` |  |
 | value | The current value of the component | number | - | - |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
+| allowClear | If allow clear, click to remove the content | `boolean` \| { clearIcon?: React.ReactNode } | false | 6.x |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - |  |
+| onClear | The callback function that is triggered when click clear icon | `function(e: React.MouseEvent<HTMLDivElement>)` | - | 6.x |
 
 ## Ref
 
@@ -112,3 +115,20 @@ InputNumber's value is wrapped by internal logic. The `event.target.value` you g
 > The use of the `type` attribute is deprecated
 
 The InputNumber component allows you to use all the attributes of the input element and ultimately pass them to the input element, This attribute will also be added to the input element when you pass in `type='number'`, which will activate native behavior (allowing the mouse wheel to change the value), As a result `changeOnWheel` cannot control whether the mouse wheel changes the value.
+
+### How to use allowClear feature? {#faq-allow-clear}
+
+The `allowClear` property allows users to quickly clear the input content by clicking the clear button on the right side. When set to `true`, the clear button will be displayed when the input has content and is not disabled. You can also customize the clear icon using `allowClear={{ clearIcon: <CustomIcon /> }}`. Clicking the clear button will trigger the `onClear` callback and set the value to `null`.
+
+```tsx
+// Basic usage
+<InputNumber allowClear />
+
+// Custom clear icon
+<InputNumber
+  allowClear={{ clearIcon: <CustomClearIcon /> }}
+  onClear={(e) => console.log('cleared!')}
+/>
+```
+
+Note: The clear button will not be displayed when the `value` is `0`, as `0` is considered a valid numeric value.
