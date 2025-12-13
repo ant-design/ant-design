@@ -37,6 +37,7 @@ import useStyle from './style';
 import useIcons from './useIcons';
 import usePopupRender from './usePopupRender';
 import useShowArrow from './useShowArrow';
+import { useMemo } from 'react';
 
 type RawValue = string | number;
 
@@ -243,14 +244,29 @@ const InternalSelect = <
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
-  let mergedNotFound: React.ReactNode;
-  if (notFoundContent !== undefined) {
-    mergedNotFound = notFoundContent;
-  } else if (mode === 'combobox') {
-    mergedNotFound = null;
-  } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
-  }
+  const mergedNotFound = useMemo(() => {
+    if (props.showSearch && !notFoundContent && (!mode || isMultiple)) {
+      return (
+        renderEmpty?.('Select') ||
+        React.createElement(DefaultRenderEmpty, {
+          componentName: 'Select',
+        })
+      );
+    }
+    let defaultContent = null;
+    if (notFoundContent !== undefined) {
+      defaultContent = notFoundContent;
+    } else if (mode === 'combobox') {
+      defaultContent = null;
+    } else {
+      defaultContent =
+        renderEmpty?.('Select') ||
+        React.createElement(DefaultRenderEmpty, {
+          componentName: 'Select',
+        });
+    }
+    return defaultContent;
+  }, [notFoundContent, mode, props.showSearch, isMultiple]);
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
@@ -381,6 +397,14 @@ const InternalSelect = <
     (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
   );
 
+  // ====================== mousedown =========================
+  const mergedOnMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    props?.onMouseDown?.(event);
+    if (!event.isPropagationStopped()) {
+      event.stopPropagation();
+    }
+  };
+
   // ====================== Render =======================
   return (
     <RcSelect<ValueType, OptionType>
@@ -415,6 +439,7 @@ const InternalSelect = <
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
+      onMouseDown={mergedOnMouseDown}
     />
   );
 };
