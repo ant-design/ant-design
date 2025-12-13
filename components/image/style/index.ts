@@ -288,18 +288,19 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
   return {
     [previewCls]: {
       '&-fade': {
-        transition: `opacity ${motionDurationSlow}`,
-
         '&-enter, &-appear': {
           opacity: 0,
-
+          'animation-timing-function': 'linear',
+          'animation-fill-mode': 'both',
+          'animation-play-state': 'paused',
           [`${previewCls}-body`]: {
             transform: 'scale(0)',
           },
 
           '&-active': {
             opacity: 1,
-
+            'animation-name': 'antFadeIn',
+            'animation-play-state': 'running',
             [`${previewCls}-body`]: {
               transform: 'scale(1)',
               transition: `transform ${motionDurationSlow}`,
@@ -309,10 +310,14 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 
         '&-leave': {
           opacity: 1,
+          'animation-timing-function': 'linear',
+          'animation-fill-mode': 'both',
+          'animation-play-state': 'paused',
 
           '&-active': {
             opacity: 0,
-
+            'animation-name': 'antFadeOut',
+            'animation-play-state': 'running',
             [`${previewCls}-body`]: {
               transform: 'scale(0)',
               transition: `transform ${motionDurationSlow}`,
