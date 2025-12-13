@@ -1,7 +1,8 @@
 import React, { Suspense, useRef } from 'react';
-import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import { BugOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Flex, Tooltip } from 'antd';
+import type { SelectProps } from 'antd';
+import { Flex, Select, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
@@ -28,8 +29,6 @@ function compress(string: string): string {
 }
 
 interface ActionsProps {
-  showOnlineUrl: boolean;
-  docsOnlineUrl?: string;
   assetId: string;
   title?: string;
   pkgDependencyList: Record<PropertyKey, string>;
@@ -39,11 +38,10 @@ interface ActionsProps {
   onCodeExpand: () => void;
   entryCode: string;
   styleCode: string;
+  debugOptions?: SelectProps['options'];
 }
 
 const Actions: React.FC<ActionsProps> = ({
-  showOnlineUrl,
-  docsOnlineUrl,
   assetId,
   title,
   jsx,
@@ -53,6 +51,7 @@ const Actions: React.FC<ActionsProps> = ({
   pkgDependencyList,
   entryCode,
   styleCode,
+  debugOptions,
 }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
@@ -212,22 +211,37 @@ createRoot(document.getElementById('container')).render(<Demo />);
     isZhCN,
   });
 
+  const handleDebug = (_: string, option: any) => {
+    if (option.url) {
+      window.open(option.url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
-    <Flex wrap gap="middle" className="code-box-actions">
-      {/* 在线文档按钮 */}
-      {showOnlineUrl && (
-        <Tooltip title={<FormattedMessage id="app.demo.online" />}>
-          <a
-            className="code-box-code-action"
-            aria-label="open in new tab"
-            target="_blank"
-            rel="noreferrer"
-            href={docsOnlineUrl || ''}
-          >
-            <LinkOutlined className="code-box-online" />
-          </a>
-        </Tooltip>
-      )}
+    <Flex wrap gap="middle" className="code-box-actions" align="center">
+      {
+        // 调试选项
+        debugOptions?.length ? (
+          <Select
+            size="small"
+            variant="filled"
+            value="Debug"
+            styles={{
+              root: { width: 98 },
+            }}
+            onSelect={handleDebug}
+            popupMatchSelectWidth={false}
+            optionRender={(option) => (
+              <Flex align="center" gap="small">
+                {option.data.icon}
+                {option.data.label}
+              </Flex>
+            )}
+            prefix={<BugOutlined />}
+            options={debugOptions}
+          />
+        ) : null
+      }
       {/* CodeSandbox 按钮 */}
       <form
         className="code-box-code-action"
