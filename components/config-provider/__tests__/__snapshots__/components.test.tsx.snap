@@ -1123,6 +1123,7 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
 
 exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="config-breadcrumb css-var-root"
 >
   <ol>
@@ -1152,6 +1153,7 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
 
 exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="config-breadcrumb css-var-root"
 >
   <ol>
@@ -1181,6 +1183,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize large 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="config-breadcrumb css-var-root"
 >
   <ol>
@@ -1210,6 +1213,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="config-breadcrumb css-var-root"
 >
   <ol>
@@ -1239,6 +1243,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize small 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="config-breadcrumb css-var-root"
 >
   <ol>
@@ -1268,6 +1273,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
 
 exports[`ConfigProvider components Breadcrumb normal 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-root"
 >
   <ol>
@@ -1297,6 +1303,7 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
 
 exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="prefix-Breadcrumb css-var-root"
 >
   <ol>

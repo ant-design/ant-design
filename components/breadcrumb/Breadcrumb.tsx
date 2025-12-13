@@ -276,7 +276,12 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
 
   return (
     <BreadcrumbContext.Provider value={memoizedValue}>
-      <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
+      <nav
+        className={breadcrumbClassName}
+        style={mergedStyle}
+        aria-label="Breadcrumb"
+        {...restProps}
+      >
         <ol>{crumbs}</ol>
       </nav>
     </BreadcrumbContext.Provider>
