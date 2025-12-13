@@ -996,13 +996,16 @@ describe('Transfer', () => {
 
     it('prioritize using the disabled property of the Transfer component', () => {
       const App: React.FC = () => {
-        const mockData = Array.from({ length: 20 }).map((_, i) => ({
+        const mockData = Array.from({ length: 20 })
+          .map((_, i) => ({
           key: i.toString(),
           title: `content${i + 1}`,
           description: `description of content${i + 1}`,
-          disabled:i <= 5
+          disabled: i <= 5,
         }));
-        const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
+        const initialTargetKeys = mockData
+          .filter((item) => Number(item.key) > 10)
+          .map((item) => item.key);
         const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
         const [transferDisabled, setTransferDisabled] = useState<boolean>(true);
         const [targetKeys] = useState<TransferProps['targetKeys']>(initialTargetKeys);
