@@ -22,7 +22,7 @@ jobs:
 
       - uses: utooland/setup-utoo@v1
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -40,7 +40,7 @@ jobs:
 
       - name: Download success lock file as `success.lock`
         if: ${{ failure() }}
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
