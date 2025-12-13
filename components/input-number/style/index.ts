@@ -43,6 +43,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     handleBorderColor,
     filledHandleBg,
     lineHeightLG,
+    colorTextQuaternary,
+    colorTextTertiary,
   } = token;
 
   const borderStyle = `${unit(lineWidth)} ${lineType} ${handleBorderColor}`;
@@ -313,6 +315,34 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`&:hover:not(${componentCls}-without-controls)`]: {
           [`${componentCls}-suffix`]: {
             marginInlineEnd: token.handleWidth,
+          },
+        },
+
+        // ======================= Clear Button =======================
+        [`${componentCls}-clear`]: {
+          ...resetIcon(),
+          marginInlineStart: inputAffixPadding,
+          color: colorTextQuaternary,
+          fontSize: token.fontSizeIcon,
+          verticalAlign: 'top',
+          cursor: 'pointer',
+          transition: `color ${motionDurationMid}`,
+          alignSelf: 'center',
+          lineHeight: 1,
+          pointerEvents: 'auto',
+
+          '&:hover': {
+            color: colorTextTertiary,
+          },
+        },
+
+        [`&:hover ${componentCls}-clear`]: {
+          opacity: 1,
+        },
+
+        '&-has-clear': {
+          [`${componentCls}-suffix`]: {
+            marginInlineStart: 0,
           },
         },
       },

@@ -36,6 +36,7 @@ demo:
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
+<code src="./demo/allow-clear.tsx" version="6.x">可清空</code>
 
 ## API
 
@@ -70,9 +71,11 @@ demo:
 | mode | 展示输入框或拨轮 | `'input' \| 'spinner'` | `'input'` |  |
 | value | 当前值 | number | - | - |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
+| allowClear | 是否显示清除按钮，点击时清空内容 | `boolean` \| { clearIcon?: React.ReactNode } | false | 6.x |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头的回调 | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
+| onClear | 点击清除按钮的回调 | `function(e: React.MouseEvent<HTMLDivElement>)` | - | 6.x |
 
 ## Ref
 
@@ -109,3 +112,20 @@ InputNumber 的值由内部逻辑封装而成，通过 `onBlur` 等事件获取�
 > 不建议使用 `type` 属性
 
 InputNumber 组件允许你使用 input 元素的所有属性最终透传至 input 元素，当你传入 `type="number"` 时 input 元素也会添加这个属性，这会使 input 元素触发原生特性（允许鼠标滚轮改变数值），从而导致 `changeOnWheel` 无法控制鼠标滚轮是否改变数值。
+
+### 如何使用 allowClear 功能？ {#faq-allow-clear}
+
+`allowClear` 属性允许用户通过点击右侧的清除按钮快速清空输入内容。当值为 `true` 时，在输入框有内容且未禁用状态下会显示清除按钮。你也可以通过 `allowClear={{ clearIcon: <CustomIcon /> }}` 自定义清除图标。点击清除按钮会触发 `onClear` 回调并将值设为 `null`。
+
+```tsx
+// 基本用法
+<InputNumber allowClear />
+
+// 自定义清除图标
+<InputNumber
+  allowClear={{ clearIcon: <CustomClearIcon /> }}
+  onClear={(e) => console.log('已清空！')}
+/>
+```
+
+注意：当 `value` 为 `0` 时，清除按钮不会显示，因为 `0` 是有效数值。
