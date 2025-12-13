@@ -36,6 +36,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 <code src="./demo/custom-popup-render.tsx">Custom Submenu Render</code>
+<code src="./demo/sorted.tsx">Sorted Menu</code>
 
 ## API
 
@@ -59,6 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
+| sorted | Sort menu items alphabetically by label (case-insensitive, recursive) | boolean | false |  |
 | style | Style of the root node | CSSProperties | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
