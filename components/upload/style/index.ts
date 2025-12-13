@@ -66,11 +66,11 @@ export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
 export default genStyleHooks(
   'Upload',
   (token) => {
-    const { fontSizeHeading3, fontHeight, lineWidth, pictureCardSize, calc } = token;
+    const { fontSizeHeading3, marginXS, lineWidth, pictureCardSize, calc } = token;
 
     const uploadToken = mergeToken<UploadToken>(token, {
       uploadThumbnailSize: calc(fontSizeHeading3).mul(2).equal(),
-      uploadProgressOffset: calc(calc(fontHeight).div(2)).add(lineWidth).equal(),
+      uploadProgressOffset: calc(calc(marginXS).div(2)).add(lineWidth).equal(),
       uploadPicCardSize: pictureCardSize,
     });
 
