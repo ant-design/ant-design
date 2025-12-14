@@ -12,12 +12,10 @@ import { version as packageVersion } from '../package.json';
 
 dayjs.extend(relativeTime);
 
-const CONCH_TAG = 'conch-v5';
+const CONCH_V5_TAG = 'conch-v5';
 
 function matchDeprecated(v: string) {
-  const match = Object.keys(deprecatedVersions).find((depreciated) =>
-    semver.satisfies(v, depreciated),
-  );
+  const match = Object.keys(deprecatedVersions).find((item) => semver.satisfies(v, item));
 
   const reason = deprecatedVersions[match as keyof typeof deprecatedVersions] || [];
 
@@ -48,7 +46,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     (res: Response) => res.json(),
   );
 
-  console.log('🐚 Latest Conch Version:', chalk.green(distTags[CONCH_TAG] || 'null'), '\n');
+  console.log('🐚 Latest Conch Version:', chalk.green(distTags[CONCH_V5_TAG] || 'null'), '\n');
 
   // Sort and get the latest versions
   const versionList = Object.keys(time)
@@ -101,8 +99,8 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   let defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
 
   // If default version is less than current, use current
-  if (semver.compare(defaultVersion!, distTags[CONCH_TAG]) < 0) {
-    defaultVersion = distTags[CONCH_TAG];
+  if (semver.compare(defaultVersion ?? '', distTags[CONCH_V5_TAG]) < 0) {
+    defaultVersion = distTags[CONCH_V5_TAG];
   }
 
   let conchVersion = await select({
@@ -123,7 +121,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
           // Default Mark
           value === defaultVersion ? '(default)' : '',
           // Current Mark
-          value === distTags[CONCH_TAG] ? chalk.gray('- current') : '',
+          value === distTags[CONCH_V5_TAG] ? chalk.gray('- current') : '',
         ]
           .filter((str) => Boolean(String(str).trim()))
           .join(' '),
@@ -152,10 +150,12 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   }
 
   // Check if need to update
-  if (!conchVersion || distTags[CONCH_TAG] === conchVersion) {
+  if (!conchVersion || distTags[CONCH_V5_TAG] === conchVersion) {
     console.log(`🎃 Conch Version not change. Safe to ${chalk.green('ignore')}.`);
   } else {
     console.log('💾 Tagging Conch Version:', chalk.green(conchVersion));
-    spawnSync('npm', ['dist-tag', 'add', `antd@${conchVersion}`, CONCH_TAG], { stdio: 'inherit' });
+    spawnSync('npm', ['dist-tag', 'add', `antd@${conchVersion}`, CONCH_V5_TAG], {
+      stdio: 'inherit',
+    });
   }
 })();
