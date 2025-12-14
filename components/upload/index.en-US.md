@@ -101,6 +101,7 @@ Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File) with addit
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
+| metadata | Custom user metadata |  any | - | 5.20.3 |
 | name | File name | string | - | - |
 | percent | Upload progress percent | number | - | - |
 | status | Upload status. Show different style when configured | `error` \| `done` \| `uploading` \| `removed` | - | - |
