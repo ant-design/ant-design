@@ -2,7 +2,7 @@
 
 ### Why does the warning `findDOMNode is deprecated` sometimes appear in strict mode?
 
-This is due to the implementation of `rc-trigger`. `rc-trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React.forwardRef` transparently passes `ref` to native html tags.
+This is due to the implementation of `@rc-component/trigger`. `@rc-component/trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React.forwardRef` transparently passes `ref` to native html tags.
 
 - `findDOMNode is deprecated` reproduce: <https://codesandbox.io/p/sandbox/finddomnode-c5hy96>
 - Using `forwardRef` to fix: <https://codesandbox.io/p/sandbox/no-finddomnode-warning-forked-gdxczs>
