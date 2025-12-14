@@ -192,7 +192,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
     />
   ) : null;
-  if (title || extra || tabs) {
+  const hasHead = title || extra || tabs;
+  if (hasHead) {
     const headClasses = clsx(`${prefixCls}-head`, mergedClassNames.header);
     const titleClasses = clsx(`${prefixCls}-head-title`, mergedClassNames.title);
     const extraClasses = clsx(`${prefixCls}-extra`, mergedClassNames.extra);
@@ -254,6 +255,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       [`${prefixCls}-bordered`]: variant !== 'borderless',
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
+      [`${prefixCls}-contain-grid-no-head`]: isContainGrid && !hasHead,
       [`${prefixCls}-contain-tabs`]: tabList?.length,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
       [`${prefixCls}-type-${type}`]: !!type,
