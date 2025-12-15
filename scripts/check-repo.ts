@@ -10,6 +10,8 @@ const cwd = process.cwd();
 const git = simpleGit(cwd);
 const spinner = ora('Loading unicorns').start('开始检查仓库状态');
 
+export const STABLE_BRANCH = '5.x-stable';
+
 function exitProcess(code = 1) {
   console.log(''); // Keep an empty line here to make looks good~
   process.exit(code);
@@ -52,8 +54,8 @@ async function checkBranch({ current }: StatusResult) {
     version.includes('-experimental.')
   ) {
     spinner.info(chalk.cyan('😃 Alpha version. Skip branch check.'));
-  } else if (current !== '5.x-stable') {
-    spinner.fail(chalk.red('🤔 You are not in the 5.x-stable branch!'));
+  } else if (current !== STABLE_BRANCH) {
+    spinner.fail(chalk.red(`🤔 You are not in the ${STABLE_BRANCH} branch!`));
     exitProcess();
   }
   spinner.succeed('分支检查通过');
@@ -73,7 +75,7 @@ async function checkCommit({ files }: StatusResult) {
 
 async function checkRemote() {
   spinner.start('正在检查远程分支');
-  const { remote } = await git.fetch('origin', '5.x-stable');
+  const { remote } = await git.fetch('origin', STABLE_BRANCH);
   if (!remote?.includes('ant-design/ant-design')) {
     const { value } = await git.getConfig('remote.origin.url');
     if (!value?.includes('ant-design/ant-design')) {
