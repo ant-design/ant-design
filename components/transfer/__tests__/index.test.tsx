@@ -12,7 +12,6 @@ import Checkbox from '../../checkbox';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 
-
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
   selectedKeys?: string[];
@@ -996,8 +995,7 @@ describe('Transfer', () => {
 
     it('prioritize using the disabled property of the Transfer component', () => {
       const App: React.FC = () => {
-        const mockData = Array.from({ length: 20 })
-          .map((_, i) => ({
+        const mockData = Array.from({ length: 20 }).map((_, i) => ({
           key: i.toString(),
           title: `content${i + 1}`,
           description: `description of content${i + 1}`,
@@ -1043,13 +1041,13 @@ describe('Transfer', () => {
               </Form.Item>
             </Form>
           </>
-        )
-      }
+        );
+      };
       const { container } = render(<App />);
       const transfer = container.querySelector('.ant-transfer');
       const checkboxes = container.querySelectorAll('.ant-checkbox-input');
-      const formCheck :HTMLInputElement = checkboxes[0] as HTMLInputElement
-      const transferCheck:HTMLInputElement = checkboxes[1] as HTMLInputElement
+      const formCheck: HTMLInputElement = checkboxes[0] as HTMLInputElement;
+      const transferCheck: HTMLInputElement = checkboxes[1] as HTMLInputElement;
 
       expect(formCheck.checked).toBe(true);
       expect(transferCheck.checked).toBe(true);
@@ -1058,12 +1056,16 @@ describe('Transfer', () => {
       fireEvent.click(transferCheck);
       expect(formCheck.checked).toBe(true);
       expect(transferCheck.checked).toBe(false);
-      expect(container.querySelectorAll('.ant-transfer-list-content-item-disabled')).toHaveLength(6);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item-disabled')).toHaveLength(
+        6,
+      );
 
       fireEvent.click(formCheck);
       expect(formCheck.checked).toBe(false);
       expect(transferCheck.checked).toBe(false);
-      expect(container.querySelectorAll('.ant-transfer-list-content-item-disabled')).toHaveLength(6);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item-disabled')).toHaveLength(
+        6,
+      );
 
       fireEvent.click(transferCheck);
       expect(formCheck.checked).toBe(false);
