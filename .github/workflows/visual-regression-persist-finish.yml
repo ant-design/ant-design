@@ -89,7 +89,7 @@ jobs:
           path: ./tmp
 
       - name: Persist Image Snapshot to OSS
-        if: github.repository == 'ant-design/ant-design' && github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature' || github.event.workflow_run.head_branch == 'next')
+        if: github.repository == 'ant-design/ant-design' && github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature' || github.event.workflow_run.head_branch == 'next' || github.event.workflow_run.head_branch == '5.x-stable')
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}

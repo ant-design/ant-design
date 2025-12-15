@@ -8,7 +8,7 @@ name: 👀 Visual Regression Diff Start
 
 on:
   pull_request_target:
-    branches: [master, feature, next]
+    branches: [master, feature, next, 5.x-stable]
     types: [opened, synchronize, reopened]
 
 permissions:

@@ -8,6 +8,7 @@ on:
       - master
       - feature
       - next
+      - 5.x-stable
 
 permissions:
   contents: read

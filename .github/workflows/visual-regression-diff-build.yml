@@ -4,7 +4,7 @@ name: 👀 Visual Regression Diff Build
 
 on:
   pull_request:
-    branches: [master, feature, next]
+    branches: [master, feature, next, 5.x-stable]
     types: [opened, synchronize, reopened]
 
 # Cancel prev CI if new commit come
