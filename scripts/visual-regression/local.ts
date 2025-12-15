@@ -65,8 +65,9 @@ async function parseArgs() {
   if (!baseRef) {
     baseRef = await select({
       message: '📚 请选择基准分支',
-      default: 'master',
+      default: '5.x-stable',
       choices: [
+        '5.x-stable',
         'master',
         'feature',
         'next',
@@ -77,7 +78,7 @@ async function parseArgs() {
     if (baseRef.endsWith('Custom Input')) {
       baseRef = await input({
         message: '📚 请输入基准分支',
-        default: 'master',
+        default: '5.x-stable',
       });
     }
   }

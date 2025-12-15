@@ -48,7 +48,7 @@ const locales = {
   },
 };
 
-const branchUrl = (repo: string) => `https://github.com/${repo}/edit/master/`;
+const branchUrl = (repo: string) => `https://github.com/${repo}/edit/5.x-stable/`;
 
 function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
@@ -126,7 +126,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     if (String(source) === 'true') {
       const kebabComponent = kebabCase(component);
       return [
-        `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
+        `https://github.com/${repo}/blob/5.x-stable/components/${kebabComponent}`,
         `components/${kebabComponent}`,
       ];
     }
