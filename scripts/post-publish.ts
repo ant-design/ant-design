@@ -106,7 +106,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   }
 
   let conchVersion = await select({
-    default: defaultVersion,
+    default: defaultVersion ?? '',
     message: 'Please select Conch Version:',
     choices: latestVersions.map((info) => {
       const { value, publishTime, depreciated } = info;
