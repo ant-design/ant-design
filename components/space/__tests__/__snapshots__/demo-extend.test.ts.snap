@@ -9402,11 +9402,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-button-vertical.tsx extend context correctly 1`] = `
 <div
@@ -16427,11 +16423,7 @@ Array [
 ]
 `;
 
-exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = `
 <div

@@ -9,6 +9,7 @@ on:
       - 2.x-stable
       - 3.x-stable
       - 4.x-stable
+      - 5.x-stable
   create:
   workflow_dispatch:
 
