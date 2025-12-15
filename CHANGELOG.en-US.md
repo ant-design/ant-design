@@ -22,7 +22,7 @@ tag: vVERSION
 - 🐞 Fix DatePicker cannot support webpack 4: Can't resolve '@rc-component/picker/locale/en_US'. [#56219](https://github.com/ant-design/ant-design/pull/56219) [@afc163](https://github.com/afc163)
 - 🐞 Fix ColorPicker inconsistent input heights. [#56220](https://github.com/ant-design/ant-design/pull/56220) [@ug-hero](https://github.com/ug-hero)
 - 🐞 Fix notification default background color not white when cssVar is disabled. [#56169](https://github.com/ant-design/ant-design/pull/56169) [@wanpan11](https://github.com/wanpan11)
-- 🐞 Fix Input border missing when focused in Space.Compact with `allowClear` prop. [#56105](https://github.com/ant-design/ant-design/pull/56105) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix Input border missing when focused on Space.Compact with `allowClear` prop. [#56105](https://github.com/ant-design/ant-design/pull/56105) [@tuzixiangs](https://github.com/tuzixiangs)
 - 🐞 Fix vertical Splitter incorrect collapse behavior in RTL mode, RTL flipping is now applied only to horizontal layouts [#56179](https://github.com/ant-design/ant-design/pull/56179) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Result not passing through `data-*` and `aria-*` attributes to the root DOM element. [#56165](https://github.com/ant-design/ant-design/pull/56165) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 MISC: `theme.cssVar.prefix` and `theme.cssVar.key` now respect empty string value. [#56146](https://github.com/ant-design/ant-design/pull/56146) [@QDyanbing](https://github.com/QDyanbing)
