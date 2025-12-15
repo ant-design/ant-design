@@ -2014,11 +2014,7 @@ Array [
 ]
 `;
 
-exports[`renders components/button/demo/debug-icon.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/button/demo/debug-icon.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/disabled.tsx extend context correctly 1`] = `
 <div
