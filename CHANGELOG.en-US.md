@@ -30,6 +30,7 @@ tag: vVERSION
 - 🐞 Fix ConfigProvider `closable.placement` not working. [#55985](https://github.com/ant-design/ant-design/pull/55985) [@meet-student](https://github.com/meet-student)
 - 🐞 Fix Form `onValuesChange` params missing Form.List nest content. [#56129](https://github.com/ant-design/ant-design/pull/56129) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Select `selectorBg` token not working. [#56052](https://github.com/ant-design/ant-design/pull/56052) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix Upload incorrect progress position style. [#56194](https://github.com/ant-design/ant-design/pull/56194) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.1.0
 

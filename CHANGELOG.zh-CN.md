@@ -30,6 +30,7 @@ tag: vVERSION
 - 🐞 修复 ConfigProvider `closable.placement` 配置失效的问题。[#55985](https://github.com/ant-design/ant-design/pull/55985) [@meet-student](https://github.com/meet-student)
 - 🐞 修复 Form `onValuesChange` 对存在嵌套数据的 Form.List 缺失内容的问题。[#56129](https://github.com/ant-design/ant-design/pull/56129) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Select `selectorBg` token 不生效的问题。[#56052](https://github.com/ant-design/ant-design/pull/56052) [@ug-hero](https://github.com/ug-hero)
+- 🐞 修复 Upload 进度条位置样式错误的问题。[#56194](https://github.com/ant-design/ant-design/pull/56194) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.1.0
 
