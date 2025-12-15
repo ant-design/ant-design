@@ -599,6 +599,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -1121,10 +1122,8 @@ Array [
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="owner_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="owner_list"
                                 aria-required="true"
                                 autocomplete="off"
                                 class="ant-select-input"
@@ -1288,10 +1287,8 @@ Array [
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="type_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="type_list"
                                 aria-required="true"
                                 autocomplete="off"
                                 class="ant-select-input"
@@ -1460,10 +1457,8 @@ Array [
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="approver_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="approver_list"
                                 aria-required="true"
                                 autocomplete="off"
                                 class="ant-select-input"
@@ -3537,6 +3532,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -3855,6 +3851,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"

@@ -60,7 +60,6 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
-| classNames | Custom semantic structure class names | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
 | cover | Custom preview mask | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
 | ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
@@ -87,6 +86,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | Fallback URL for load error | string | - |  |
 | items | Array of preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
 | preview | Preview configuration; disable by setting to false | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
@@ -96,7 +96,6 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
-| classNames | Custom preview class names object | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
 | countRender | Custom preview count render | (current: number, total: number) => React.ReactNode | - |  |
 | current | Index of the current preview image | number | - |  |
