@@ -7992,9 +7992,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-space-compact ant-space-compact-block"
-              id="register_phone"
             >
               <div
                 class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
@@ -8062,7 +8060,9 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 </span>
               </div>
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+                id="register_phone"
                 style="width:100%"
                 type="text"
                 value=""
@@ -8100,9 +8100,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-space-compact ant-space-compact-block"
-              id="register_donation"
             >
               <div
                 class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
@@ -8170,8 +8168,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-required="true"
                     autocomplete="off"
                     class="ant-input-number-input"
+                    id="register_donation"
                     role="spinbutton"
                     step="1"
                     value=""
