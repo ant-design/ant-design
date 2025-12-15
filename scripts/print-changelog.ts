@@ -85,15 +85,17 @@ async function printLog() {
 
   let toVersion = await select({
     message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
-    choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map((i) => ({
-      name: i,
-      value: i,
-    })),
+    choices: ['master', '5.x-stable', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map(
+      (i) => ({
+        name: i,
+        value: i,
+      }),
+    ),
   });
 
   if (toVersion.startsWith('custom input')) {
     toVersion = await input({
-      default: 'master',
+      default: '5.x-stable',
       message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
         fromVersion,
       )}:`,
