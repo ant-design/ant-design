@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.29.2
 
-`2025-12-12`
+`2025-12-15`
 
 - 🐞 修复关闭 `cssVar` 时 notification 背景色异常的问题。[#56133](https://github.com/ant-design/ant-design/pull/56133) [@afc163](https://github.com/afc163)
 - 🐞 提升 Breadcrumb 链接样式的优先级以避免被全局样式覆盖。[#56139](https://github.com/ant-design/ant-design/pull/56139) [@guoyunhe](https://github.com/guoyunhe)
