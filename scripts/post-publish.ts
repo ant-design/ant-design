@@ -98,7 +98,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
 
   // Not find to use the latest version instead
   defaultVersionObj = defaultVersionObj || defaultVersionList[defaultVersionList.length - 1];
-  let defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
+  let defaultVersion = defaultVersionObj ? defaultVersionObj.value : undefined;
 
   // If default version is less than current, use current
   if (semver.compare(defaultVersion!, distTags[CONCH_TAG]) < 0) {
