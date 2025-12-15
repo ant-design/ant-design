@@ -22,6 +22,7 @@ tag: vVERSION
 - 🐞 Fix notification background colors incorrect when `cssVar` is disabled. [#56133](https://github.com/ant-design/ant-design/pull/56133) [@afc163](https://github.com/afc163)
 - 🐞 Raise Breadcrumb link style priority to avoid being overridden by global styles (v5). [#56139](https://github.com/ant-design/ant-design/pull/56139) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Input.Search should not warn about deprecated `addonAfter`. [#55806](https://github.com/ant-design/ant-design/pull/55806) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Splitter failing to fill its container when the sum of panel proportions is not 1. [#56217](https://github.com/ant-design/ant-design/pull/56217) [@zombieJ](https://github.com/zombieJ)
 
 ## 5.29.1
 
