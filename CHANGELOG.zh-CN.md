@@ -22,6 +22,7 @@ tag: vVERSION
 - 🐞 修复关闭 `cssVar` 时 notification 背景色异常的问题。[#56133](https://github.com/ant-design/ant-design/pull/56133) [@afc163](https://github.com/afc163)
 - 🐞 提升 Breadcrumb 链接样式的优先级以避免被全局样式覆盖。[#56139](https://github.com/ant-design/ant-design/pull/56139) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修复 Input.Search 会报 `addonAfter` 已经废弃的警告信息的问题。[#55806](https://github.com/ant-design/ant-design/pull/55806) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Splitter 在 Panel 总占比不为 1 时出现占不满的情况。 [#56217](https://github.com/ant-design/ant-design/pull/56217) [@zombieJ](https://github.com/zombieJ)
 
 ## 5.29.1
 
