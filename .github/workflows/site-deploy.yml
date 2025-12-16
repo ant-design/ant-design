@@ -45,7 +45,7 @@ jobs:
           fi
 
       - name: upload site artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: real-site
           path: _site/
@@ -63,7 +63,7 @@ jobs:
       - uses: utooland/setup-utoo@v1
 
       - name: download site artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: real-site
           path: _site
@@ -107,7 +107,7 @@ jobs:
     needs: build-site
     steps:
       - name: download site artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: real-site
           path: _site
