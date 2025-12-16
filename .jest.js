@@ -1,4 +1,11 @@
 const compileModules = [
+  'react-sticky-box',
+  'rc-tween-one',
+  '@babel',
+  '@ant-design',
+  'countup.js',
+  '.pnpm',
+  '@asamuzakjp/css-color',
   '@rc-component',
   // jsdom 27+ depends on ESM parse5, need transform
   'parse5',
