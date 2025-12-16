@@ -8,7 +8,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="check-circle"
@@ -85,7 +85,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="close-circle"
@@ -289,7 +289,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="exclamation-circle"
@@ -328,7 +328,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="exclamation-circle"
@@ -409,7 +409,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="close-circle"
@@ -669,7 +669,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -708,7 +708,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -747,7 +747,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -786,7 +786,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -825,7 +825,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -869,7 +869,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -913,7 +913,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -957,7 +957,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="smile"
@@ -1110,7 +1110,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="check-circle"
@@ -1149,7 +1149,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="info-circle"
@@ -1188,7 +1188,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="exclamation-circle"
@@ -1253,7 +1253,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="close-circle"
@@ -1293,7 +1293,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="check-circle"
@@ -1337,7 +1337,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="info-circle"
@@ -1381,7 +1381,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="exclamation-circle"
@@ -1451,7 +1451,7 @@ Array [
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="close-circle"
@@ -1646,7 +1646,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
       style="font-size: 18px;"
     >
       <span
@@ -1699,7 +1699,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
     style="background-color: rgba(82, 196, 26, 0.1); border-color: rgb(183, 235, 143);"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
       style="color: rgb(82, 196, 26);"
     >
       <span

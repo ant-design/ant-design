@@ -7,7 +7,7 @@ exports[`Alert custom action 1`] = `
   role="alert"
 >
   <span
-    class="ant-alert-icon ant-alert-icon"
+    class="ant-alert-icon"
   >
     <span
       aria-label="check-circle"

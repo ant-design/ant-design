@@ -8640,7 +8640,7 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
     role="alert"
   >
     <span
-      class="ant-alert-icon ant-alert-icon"
+      class="ant-alert-icon"
     >
       <span
         aria-label="info-circle"

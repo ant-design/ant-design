@@ -102,8 +102,7 @@ interface IconNodeProps {
 }
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
-  const { icon, prefixCls, type, className, style, successIcon, infoIcon, warningIcon, errorIcon } =
-    props;
+  const { icon, type, className, style, successIcon, infoIcon, warningIcon, errorIcon } = props;
   const iconMapFilled = {
     success: successIcon ?? <CheckCircleFilled />,
     info: infoIcon ?? <InfoCircleFilled />,
@@ -111,7 +110,7 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
     warning: warningIcon ?? <ExclamationCircleFilled />,
   };
   return (
-    <span className={clsx(`${prefixCls}-icon`, className)} style={style}>
+    <span className={className} style={style}>
       {icon ?? iconMapFilled[type!]}
     </span>
   );
