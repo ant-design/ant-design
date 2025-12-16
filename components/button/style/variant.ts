@@ -233,6 +233,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
             [getCssVar('text-color')]: token.defaultColor,
             [getCssVar('text-color-hover')]: token.defaultHoverColor,
+            [getCssVar('text-color-active')]: token.defaultActiveColor,
             [getCssVar('bg-color-hover')]: token.defaultHoverBg,
             [getCssVar('bg-color-active')]: token.defaultActiveBg,
           },
