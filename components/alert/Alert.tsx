@@ -110,10 +110,9 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
     error: errorIcon ?? <CloseCircleFilled />,
     warning: warningIcon ?? <ExclamationCircleFilled />,
   };
-  const iconNode = icon ?? iconMapFilled[type!] ?? null;
   return (
     <span className={clsx(`${prefixCls}-icon`, className)} style={style}>
-      {iconNode}
+      {icon ?? iconMapFilled[type!]}
     </span>
   );
 };
