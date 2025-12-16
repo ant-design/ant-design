@@ -36,7 +36,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     onRemove,
     showRemove,
   } = props;
-  const mergedDisabled = disabled ? true : (item?.disabled ?? disabled);
+  const mergedDisabled = disabled || item?.disabled;
   const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
     [`${prefixCls}-content-item-disabled`]: mergedDisabled,
     [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
