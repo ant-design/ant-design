@@ -31,7 +31,7 @@ jobs:
 
       # Upload `imageSnapshots` on master
       - name: upload report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: image-snapshots
           path: imageSnapshots.tar.gz
@@ -43,7 +43,7 @@ jobs:
 
       - name: Upload persist key
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: visual-regression-ref
           path: ./visual-regression-ref.txt
