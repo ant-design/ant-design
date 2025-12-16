@@ -279,6 +279,13 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
+      // ======================== Show Search =======================
+      {
+        [`&-show-search:not(${componentCls}-customize-input)`]: {
+          cursor: 'text',
+        },
+      },
+
       // ============================================================
       // ==                        Multiple                        ==
       // ============================================================
