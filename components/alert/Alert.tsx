@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -13,7 +12,6 @@ import { clsx } from 'clsx';
 import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
-import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
@@ -90,13 +88,6 @@ export interface AlertProps {
   id?: string;
 }
 
-const iconMapFilled = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
-};
-
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
@@ -104,21 +95,30 @@ interface IconNodeProps {
   description: AlertProps['description'];
   className?: string;
   style?: React.CSSProperties;
+  successIcon?: React.ReactNode;
+  infoIcon?: React.ReactNode;
+  warningIcon?: React.ReactNode;
+  errorIcon?: React.ReactNode;
 }
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
-  const { icon, prefixCls, type, className, style } = props;
-  const iconType = iconMapFilled[type!] || null;
-  if (icon) {
-    return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: clsx((icon as ReactElement<{ className?: string }>).props.className, className),
-      style,
-    })) as ReactElement;
+  const { icon, prefixCls, type, className, style, successIcon, infoIcon, warningIcon, errorIcon } =
+    props;
+  const iconMapFilled = {
+    success: successIcon ?? <CheckCircleFilled />,
+    info: infoIcon ?? <InfoCircleFilled />,
+    error: errorIcon ?? <CloseCircleFilled />,
+    warning: warningIcon ?? <ExclamationCircleFilled />,
+  };
+  const iconNode = icon ?? iconMapFilled[type!] ?? null;
+  if (iconNode) {
+    return (
+      <span className={clsx(`${prefixCls}-icon`, className)} style={style}>
+        {iconNode}
+      </span>
+    );
   }
-  return React.createElement(iconType, {
-    className,
-    style,
-  });
+  return null;
 };
 
 type CloseIconProps = {
@@ -203,6 +203,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    successIcon,
+    infoIcon,
+    warningIcon,
+    errorIcon,
   } = useComponentConfig('alert');
 
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
@@ -342,6 +346,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
               icon={props.icon}
               prefixCls={prefixCls}
               type={type}
+              successIcon={successIcon}
+              infoIcon={infoIcon}
+              warningIcon={warningIcon}
+              errorIcon={errorIcon}
             />
           ) : null}
           <div
