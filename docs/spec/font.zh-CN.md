@@ -28,7 +28,7 @@ title: 字体
 
 > 参考自 https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ 和 http://markdotto.com/2018/02/07/github-system-fonts/
 
-另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体 [font-variant-numeric](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) 设置为 `tabular-nums`，使其为等宽字体。
+另外，在中后台系统中，数字经常需要进行纵向对比展示，我们推荐将数字的字体 [font-variant-numeric](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) 设置为 `tabular-nums`，使其为等宽字体。
 
 > 参考 https://stackoverflow.com/questions/32660748/how-to-use-apples-new-san-francisco-font-on-a-webpage#comment78509178_32660790
 
