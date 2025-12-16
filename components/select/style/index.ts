@@ -27,13 +27,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
 
-      // ======================== Show Search ======================
-      [`&:not(${componentCls}-customize-input)`]: {
-        [`&${componentCls}-show-search`]: {
-          cursor: 'text',
-        },
-      },
-
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
         flex: 1,
