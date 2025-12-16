@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event.pull_request.head.ref == 'next' || github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master') && github.event.pull_request.head.user.login == 'ant-design'
     steps:
-      - uses: actions-cool/issues-helper@v3
+      - uses: actions-cool/issues-helper@cbca8dff5d68beaba6fa47e9f49608ed2de544d6
         with:
           actions: create-comment
           issue-number: ${{ github.event.number }}

@@ -100,7 +100,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     useSizes(items, containerSize);
 
   // ====================== Resizable =======================
-  const resizableInfos = useResizable(items, itemPxSizes, isRTL);
+  const resizableInfos = useResizable(items, itemPxSizes, reverse);
 
   const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
     items,
@@ -108,7 +108,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     itemPtgSizes,
     containerSize,
     updateSizes,
-    isRTL,
+    reverse,
   );
 
   // ======================== Events ========================

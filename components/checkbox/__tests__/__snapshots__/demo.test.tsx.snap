@@ -248,7 +248,6 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx correctly 1`
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
-        aria-describedby="test-id"
         checked=""
         class="ant-checkbox-input"
         disabled=""

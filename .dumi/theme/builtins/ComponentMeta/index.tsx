@@ -61,7 +61,7 @@ const transformComponentName = (componentName: string) => {
   return componentName;
 };
 
-const useStyle = createStyles(({ cssVar }) => ({
+const useStyle = createStyles(({ cssVar, token }) => ({
   code: css`
     cursor: pointer;
     position: relative;
@@ -71,7 +71,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     border-radius: ${cssVar.borderRadiusSM};
     padding-inline: ${cssVar.paddingXXS} !important;
     transition: all ${cssVar.motionDurationSlow} !important;
-    font-family: ${cssVar.codeFamily};
+    font-family: ${token.codeFamily};
     color: ${cssVar.colorTextSecondary} !important;
     &:hover {
       background: ${cssVar.controlItemBgHover};

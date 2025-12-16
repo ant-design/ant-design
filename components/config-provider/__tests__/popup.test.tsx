@@ -4,9 +4,12 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { fireEvent, getByRole, render } from '../../../tests/utils';
 import Cascader from '../../cascader';
+import Popconfirm from '../../popconfirm';
+import Popover from '../../popover';
 import Select from '../../select';
+import Tooltip from '../../tooltip';
 import TreeSelect from '../../tree-select';
 
 dayjs.extend(customParseFormat);
@@ -99,6 +102,37 @@ describe('ConfigProvider.Popup', () => {
       );
 
       expect(triggerProps().builtinPlacements!.topLeft!.htmlRegion).toBe('scroll');
+    });
+  });
+
+  describe('config trigger', () => {
+    it('Overlay components (Popover/Popconfirm/Tooltip) should support trigger config', () => {
+      const { container, baseElement } = render(
+        <ConfigProvider
+          popover={{ trigger: ['contextMenu'] }}
+          popconfirm={{ trigger: ['contextMenu'] }}
+          tooltip={{ trigger: ['contextMenu'] }}
+        >
+          <Popover content="content">
+            <button type="button">popover</button>
+          </Popover>
+          <Popconfirm title="title">
+            <button type="button">popconfirm</button>
+          </Popconfirm>
+          <Tooltip title="title">
+            <button type="button">tooltip</button>
+          </Tooltip>
+        </ConfigProvider>,
+      );
+
+      fireEvent.contextMenu(getByRole(container, 'button', { name: 'popover' }));
+      expect(baseElement.querySelector('.ant-popover')).toBeTruthy();
+
+      fireEvent.contextMenu(getByRole(container, 'button', { name: 'popconfirm' }));
+      expect(baseElement.querySelector('.ant-popconfirm')).toBeTruthy();
+
+      fireEvent.contextMenu(getByRole(container, 'button', { name: 'tooltip' }));
+      expect(baseElement.querySelector('.ant-tooltip')).toBeTruthy();
     });
   });
 });
