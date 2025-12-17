@@ -103,6 +103,22 @@ const App: React.FC = () => (
         </Button>
       </Flex>
     </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            defaultBg: '#000',
+            defaultColor: '#f00',
+            defaultHoverColor: '#0f0',
+            defaultActiveColor: '#00f',
+          },
+        },
+      }}
+    >
+      <Flex gap="small" vertical align="start">
+        <Button>Default Button</Button>
+      </Flex>
+    </ConfigProvider>
   </Flex>
 );
 
