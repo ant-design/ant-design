@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 6.1.1
+
+`2025-12-15`
+
+- 🐞 Fix DatePicker cannot support webpack 4: Can't resolve '@rc-component/picker/locale/en_US'. [#56219](https://github.com/ant-design/ant-design/pull/56219) [@afc163](https://github.com/afc163)
+- 🐞 Fix ColorPicker inconsistent input heights. [#56220](https://github.com/ant-design/ant-design/pull/56220) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix notification default background color not white when cssVar is disabled. [#56169](https://github.com/ant-design/ant-design/pull/56169) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Input border missing when focused on Space.Compact with `allowClear` prop. [#56105](https://github.com/ant-design/ant-design/pull/56105) [@tuzixiangs](https://github.com/tuzixiangs)
+- 🐞 Fix vertical Splitter incorrect collapse behavior in RTL mode, RTL flipping is now applied only to horizontal layouts [#56179](https://github.com/ant-design/ant-design/pull/56179) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Result not passing through `data-*` and `aria-*` attributes to the root DOM element. [#56165](https://github.com/ant-design/ant-design/pull/56165) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 MISC: `theme.cssVar.prefix` and `theme.cssVar.key` now respect empty string value. [#56146](https://github.com/ant-design/ant-design/pull/56146) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Lift Breadcrumb link style priority. [#56137](https://github.com/ant-design/ant-design/pull/56137) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix ConfigProvider `closable.placement` not working. [#55985](https://github.com/ant-design/ant-design/pull/55985) [@meet-student](https://github.com/meet-student)
+- 🐞 Fix Form `onValuesChange` params missing Form.List nested content. [#56129](https://github.com/ant-design/ant-design/pull/56129) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Select `selectorBg` token not working. [#56052](https://github.com/ant-design/ant-design/pull/56052) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix Upload incorrect progress position style. [#56194](https://github.com/ant-design/ant-design/pull/56194) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.1.0
 
 `2025-12-08`
@@ -30,7 +47,7 @@ tag: vVERSION
   - 🐞 Fix the「Select」option was not enabled when Select contained interactive content. [#56054](https://github.com/ant-design/ant-design/pull/56054) [@yoyo837](https://github.com/yoyo837)
 - 🐞 Fix Table `cellFontSizeSM` and `cellFontSizeLG` tokens not working. [#55770](https://github.com/ant-design/ant-design/pull/55770) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Button tokens (primaryColor, dangerColor, defaultHoverBg, defaultActiveBg) not working with specific variants (solid, outlined, dashed). [#55934](https://github.com/ant-design/ant-design/pull/55934) [@tuzixiangs](https://github.com/tuzixiangs)
-- 💄 Fix Menu item styles not taking effect. [#56041](https://github.com/ant-design/ant-design/pull/56041) [@Wxh16144](https://github.com/Wxh16144) 
+- 💄 Fix Menu item styles not taking effect. [#56041](https://github.com/ant-design/ant-design/pull/56041) [@Wxh16144](https://github.com/Wxh16144)
 - 🛠 MISC: `@ant-design/react-slick` remove `classnames`. [#56080](https://github.com/ant-design/ant-design/pull/56080) [@yoyo837](https://github.com/yoyo837)
 - 🛠 MISC: Migrate `rc-overflow` to `@rc-component/overflow`, `rc-virtual-list` to `@rc-component/virtual-list` in order to remove `rc-util`. [#56074](https://github.com/ant-design/ant-design/pull/56074) [@yoyo837](https://github.com/yoyo837)
 - TypeScript

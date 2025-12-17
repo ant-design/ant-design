@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -247,7 +247,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "fast-glob": "^3.3.3",
-    "father": "4.6.9",
+    "father": "4.6.10",
     "fs-extra": "^11.3.2",
     "gh-pages": "^6.3.0",
     "github-slugger": "^2.0.0",
@@ -268,7 +268,7 @@
     "jest-image-snapshot": "^6.5.1",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^3.7.1",
-    "jsdom": "27.0.0",
+    "jsdom": "^27.3.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^16.2.7",
