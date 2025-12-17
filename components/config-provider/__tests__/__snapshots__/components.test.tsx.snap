@@ -10457,7 +10457,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
 
 exports[`ConfigProvider components Card configProvider 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-contain-grid-no-head css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid css-var-root"
 >
   <div
     class="config-card-body"
@@ -10475,7 +10475,7 @@ exports[`ConfigProvider components Card configProvider 1`] = `
 
 exports[`ConfigProvider components Card configProvider componentDisabled 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-contain-grid-no-head css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid css-var-root"
 >
   <div
     class="config-card-body"
@@ -10493,7 +10493,7 @@ exports[`ConfigProvider components Card configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components Card configProvider componentSize large 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-contain-grid-no-head config-card-large css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid config-card-large css-var-root"
 >
   <div
     class="config-card-body"
@@ -10511,7 +10511,7 @@ exports[`ConfigProvider components Card configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Card configProvider componentSize middle 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-contain-grid-no-head config-card-middle css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid config-card-middle css-var-root"
 >
   <div
     class="config-card-body"
@@ -10529,7 +10529,7 @@ exports[`ConfigProvider components Card configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Card configProvider componentSize small 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-contain-grid-no-head config-card-small css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid config-card-small css-var-root"
 >
   <div
     class="config-card-body"
@@ -10547,7 +10547,7 @@ exports[`ConfigProvider components Card configProvider componentSize small 1`] =
 
 exports[`ConfigProvider components Card normal 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-contain-grid ant-card-contain-grid-no-head css-var-root"
+  class="ant-card ant-card-bordered ant-card-contain-grid css-var-root"
 >
   <div
     class="ant-card-body"
@@ -10565,7 +10565,7 @@ exports[`ConfigProvider components Card normal 1`] = `
 
 exports[`ConfigProvider components Card prefixCls 1`] = `
 <div
-  class="prefix-Card prefix-Card-bordered prefix-Card-contain-grid prefix-Card-contain-grid-no-head css-var-root"
+  class="prefix-Card prefix-Card-bordered prefix-Card-contain-grid css-var-root"
 >
   <div
     class="prefix-Card-body"
