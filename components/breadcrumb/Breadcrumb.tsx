@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DownOutlined } from '@ant-design/icons';
 import { toArray } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
@@ -18,7 +19,6 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
-import { DownOutlined } from '@ant-design/icons';
 
 export interface BreadcrumbItemType extends React.AriaAttributes {
   key?: React.Key;
