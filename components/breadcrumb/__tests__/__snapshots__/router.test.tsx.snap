@@ -5,7 +5,9 @@ exports[`react router react router legacy 1`] = `
   class="ant-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <a
         class="ant-breadcrumb-link"
         href="#/"
@@ -19,7 +21,9 @@ exports[`react router react router legacy 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <a
         class="ant-breadcrumb-link"
         href="#//apps"
@@ -33,7 +37,9 @@ exports[`react router react router legacy 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <a
         class="ant-breadcrumb-link"
         href="#//apps/1"
@@ -47,7 +53,9 @@ exports[`react router react router legacy 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <a
         class="ant-breadcrumb-link"
         href="#//apps/1/detail"
