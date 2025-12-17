@@ -33,3 +33,5 @@ updates:
       - github-actions
       - dependencies
       - skip-verify-files
+    ignore:
+      - dependency-name: "actions/upload-artifact"
