@@ -18,6 +18,7 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
+import { DownOutlined } from '@ant-design/icons';
 
 export interface BreadcrumbItemType extends React.AriaAttributes {
   key?: React.Key;
@@ -68,6 +69,7 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   prefixCls?: string;
   params?: T;
   separator?: React.ReactNode;
+  dropdownIcon?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -108,6 +110,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     params = {},
     classNames,
     styles,
+    dropdownIcon,
     ...restProps
   } = props;
 
@@ -119,9 +122,11 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     classNames: contextClassNames,
     styles: contextStyles,
     separator: contextSeparator,
+    dropdownIcon: contextDropdownIcon,
   } = useComponentConfig('breadcrumb');
 
   const mergedSeparator = separator ?? contextSeparator ?? '/';
+  const mergedDropdownIcon = dropdownIcon ?? contextDropdownIcon ?? <DownOutlined />;
 
   let crumbs: React.ReactNode;
 
@@ -227,6 +232,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           className={itemClassName}
           style={style}
           dropdownProps={dropdownProps}
+          dropdownIcon={mergedDropdownIcon}
           href={href}
           separator={isLastItem ? '' : mergedSeparator}
           onClick={onClick}
