@@ -380,7 +380,9 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
         style="margin:16px 0"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -393,7 +395,9 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -406,7 +410,9 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -705,7 +711,9 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       style="margin:16px 0"
     >
       <ol>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -718,7 +726,9 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -731,7 +741,9 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1707,7 +1719,9 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         style="margin:16px 0"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -1720,7 +1734,9 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2014,7 +2030,9 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       style="margin:16px 0"
     >
       <ol>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2027,7 +2045,9 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2040,7 +2060,9 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2176,7 +2198,9 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       style="margin:16px 0"
     >
       <ol>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2189,7 +2213,9 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2202,7 +2228,9 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2752,7 +2780,9 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         style="margin:16px 0"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2765,7 +2795,9 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2778,7 +2810,9 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
