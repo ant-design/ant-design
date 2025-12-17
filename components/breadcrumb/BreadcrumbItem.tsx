@@ -94,7 +94,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
   if (link !== undefined && link !== null) {
     return (
       <>
-        <li>{link}</li>
+        <li className={`${prefixCls}-item`}>{link}</li>
         {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
       </>
     );
