@@ -106,35 +106,34 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     setCodeExpand(expand);
   }, [expand]);
 
-  // 部署在非官方域名时，才启用直达线上功能
+  // Enable "Go Online Docs" only when deployed on non-official domains
   const enableDocsOnlineUrl = process.env.NODE_ENV === 'development' || !deployedOnOfficialHost;
   const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
 
-  //  上一个版本的 demo，仅维护周期限内有效
-  const [supportsPreviousVersionDemo, previousVersionPreviewUrl, previousVersion] =
-    (function determinePreviousVersionAvailability() {
-      const maintenanceDeadline = new Date('2026/12/31');
+  // Previous version demos are only available during the maintenance window
+  const [supportsPreviousVersionDemo, previousVersionPreviewUrl, previousVersion] = useMemo(() => {
+    const maintenanceDeadline = new Date('2026/12/31');
 
-      if (new Date() > maintenanceDeadline) {
-        return [false, '', -1];
-      }
+    if (new Date() > maintenanceDeadline) {
+      return [false, '', -1] as const;
+    }
 
-      const currentMajor = major(pkg.version);
-      const previousMajor = Math.min(currentMajor - 1, 5);
+    const currentMajor = major(pkg.version);
+    const previousMajor = Math.min(currentMajor - 1, 5);
 
-      let _enabled = true;
-      // 如果 demo 被指定了版本号，可以再进一步判断，否则默认开启
-      if (version) {
-        const minVer = minVersion(version);
-        _enabled = minVer?.major ? minVer.major < currentMajor : true;
-      }
+    let enabled = true;
+    // If the demo specifies a version, perform an additional check;
+    if (version) {
+      const minVer = minVersion(version);
+      enabled = minVer?.major ? minVer.major < currentMajor : true;
+    }
 
-      return [
-        _enabled,
-        `https://${previousMajor}x.ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`,
-        previousMajor,
-      ];
-    })();
+    return [
+      enabled,
+      `https://${previousMajor}x.ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`,
+      previousMajor,
+    ]
+  }, [version, pkg.version, pathname, search, asset.id]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
   const demoUrlWithTheme = useMemo(() => {

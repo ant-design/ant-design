@@ -207,9 +207,9 @@ export function matchDeprecated(v: string): MatchDeprecatedResult {
 }
 
 /**
- * 判断一个 hostname 是否为官方域名
- * antd 会为每一个 PR 创建一个临时预览站点，方便预览和测试。
- * 通常在 surge.sh 或者 Cloudflare Pages 等平台上。
+ * Determine if a hostname is an official domain.
+ * antd creates a temporary preview site for each PR for convenient preview and testing.
+ * Usually on platforms like surge.sh or Cloudflare Pages.
  */
 export function isOfficialHost(hostname: string) {
   const officialHostnames = ['ant.design', 'antgroup.com'];
