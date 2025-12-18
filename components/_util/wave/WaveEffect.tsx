@@ -40,6 +40,7 @@ const WaveEffect = (props: WaveEffectProps) => {
     width,
     height,
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
+    pointerEvents: 'none',
   };
 
   if (color) {
