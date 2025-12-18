@@ -106,16 +106,18 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     setCodeExpand(expand);
   }, [expand]);
 
+  const generateDocUrl = (domain = 'https://ant.design') =>
+    `${domain}${pathname ?? ''}${search ?? ''}#${asset.id}`;
+
   // Enable "Go Online Docs" only when deployed on non-official domains
   const enableDocsOnlineUrl = process.env.NODE_ENV === 'development' || !deployedOnOfficialHost;
-  const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
 
   // Previous version demos are only available during the maintenance window
-  const [supportsPreviousVersionDemo, previousVersionPreviewUrl, previousVersion] = useMemo(() => {
+  const [supportsPreviousVersionDemo, previousVersionDomain, previousVersion] = useMemo(() => {
     const maintenanceDeadline = new Date('2026/12/31');
 
     if (new Date() > maintenanceDeadline) {
-      return [false, '', -1] as const;
+      return [false, undefined, -1] as const;
     }
 
     const currentMajor = major(pkg.version);
@@ -128,12 +130,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       enabled = minVer?.major ? minVer.major < currentMajor : true;
     }
 
-    return [
-      enabled,
-      `https://${previousMajor}x.ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`,
-      previousMajor,
-    ]
-  }, [version, pkg.version, pathname, search, asset.id]);
+    return [enabled, `https://${previousMajor}x.ant.design`, previousMajor];
+  }, [version, pkg.version]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
   const demoUrlWithTheme = useMemo(() => {
@@ -181,7 +179,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       label: <FormattedMessage id="app.demo.online" />,
       value: 'online',
       icon: <LinkOutlined />,
-      url: docsOnlineUrl,
+      url: generateDocUrl(),
       enabled: enableDocsOnlineUrl,
     },
     {
@@ -190,7 +188,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       ),
       value: 'previousVersion',
       icon: <LinkOutlined />,
-      url: previousVersionPreviewUrl,
+      url: generateDocUrl(previousVersionDomain),
       enabled: supportsPreviousVersionDemo,
     },
   ].filter(({ enabled }) => showDebug && enabled);
