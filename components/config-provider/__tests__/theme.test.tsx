@@ -325,5 +325,32 @@ describe('ConfigProvider.Theme', () => {
         '--ant-select-z-index-popup': '1050',
       });
     });
+
+    it('select active shadow component tokens should work', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            cssVar: { key: 'foo' },
+            hashed: true,
+            components: {
+              Select: {
+                activeShadow: '0 0 0 4px rgba(24, 144, 255, 0.2)',
+                errorActiveShadow: '0 0 0 4px rgba(255, 77, 79, 0.2)',
+                warningActiveShadow: '0 0 0 4px rgba(255, 177, 0, 0.2)',
+              },
+            },
+          }}
+        >
+          <Select className="select-shadow-test" />
+        </ConfigProvider>,
+      );
+
+      const select = container.querySelector('.select-shadow-test')!;
+      expect(select).toHaveStyle({
+        '--ant-select-active-shadow': '0 0 0 4px rgba(24, 144, 255, 0.2)',
+        '--ant-select-error-active-shadow': '0 0 0 4px rgba(255, 77, 79, 0.2)',
+        '--ant-select-warning-active-shadow': '0 0 0 4px rgba(255, 177, 0, 0.2)',
+      });
+    });
   });
 });
