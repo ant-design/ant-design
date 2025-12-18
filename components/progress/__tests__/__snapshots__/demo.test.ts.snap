@@ -1327,6 +1327,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     gapDegree:
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-test-id"
       role="radiogroup"
       tabindex="0"
@@ -1344,9 +1345,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
             title="50"
           >
             50
@@ -1361,9 +1360,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="100"
           >
             100
@@ -1376,6 +1373,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     gapPlacement:
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-test-id"
       role="radiogroup"
       tabindex="0"
@@ -1392,9 +1390,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="start"
           >
             start
@@ -1409,9 +1405,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="end"
           >
             end
@@ -1426,9 +1420,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="top"
           >
             top
@@ -1444,9 +1436,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
             title="bottom"
           >
             bottom
