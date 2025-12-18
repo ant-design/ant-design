@@ -2093,6 +2093,7 @@ exports[`renders components/timeline/demo/title.tsx extend context correctly 1`]
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 20px;"
   >
     <label

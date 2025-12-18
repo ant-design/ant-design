@@ -3283,6 +3283,7 @@ Array [
   />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -4259,6 +4260,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -4469,6 +4471,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:16px"
   >
     <label
@@ -5015,6 +5018,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:8px"
   >
     <label
