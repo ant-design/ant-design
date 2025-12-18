@@ -36,4 +36,4 @@ updates:
     ignore:
       # `actions/upload-artifact` modify the upload logic
       # which can not correct download by `dawidd6/action-download-artifact`
-      - dependency-name: "actions/upload-artifact"
+      - dependency-name: actions/upload-artifact
