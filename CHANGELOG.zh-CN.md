@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 5.29.3
+
+`2025-12-18`
+
+- 🐞 修复 Breadcrumb 自定义 `itemRender` 时链接颜色被覆盖的问题。[#56251](https://github.com/ant-design/ant-design/pull/56251) [@guoyunhe](https://github.com/guoyunhe)
+
 ## 5.29.2
 
 `2025-12-15`

@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 5.29.3
+
+`2025-12-18`
+
+- 🐞 Fix Breadcrumb link color being overridden when using custom `itemRender`. [#56251](https://github.com/ant-design/ant-design/pull/56251) [@guoyunhe](https://github.com/guoyunhe)
+
 ## 5.29.2
 
 `2025-12-15`
