@@ -2,6 +2,7 @@ import InternalAlert from './Alert';
 import ErrorBoundary from './ErrorBoundary';
 
 export type { AlertProps } from './Alert';
+export type { ErrorBoundaryProps } from './ErrorBoundary';
 
 type CompoundedComponent = typeof InternalAlert & {
   ErrorBoundary: typeof ErrorBoundary;

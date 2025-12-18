@@ -77,6 +77,7 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         flex: 1,
         width: 0,
         [`${componentCls}-hsb-input,${componentCls}-rgb-input`]: {
+          height: controlHeightSM,
           display: 'flex',
           gap: marginXXS,
           alignItems: 'center',

@@ -42,7 +42,7 @@ const Block: React.FC<Readonly<ProgressProps>> = (props) => {
         <Segmented
           options={['line', 'steps', 'circle', 'dashboard']}
           value={type}
-          onChange={(value) => setType(value)}
+          onChange={setType}
         />
         <Switch
           checked={gradient}
