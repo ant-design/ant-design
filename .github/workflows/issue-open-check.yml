@@ -99,7 +99,7 @@ jobs:
           DING_TALK_TOKEN: |
             ${{ secrets.DINGDING_BOT_TOKEN }}
             ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
-          notify_title: '🔥 ![](${{ github.event.issue.user.avatar_url }}&s=24)@${{ github.event.issue.user.login }} 创建了 issue：${{ github.event.issue.title }} ${{ github.event.issue.html_url }}'
+          notify_title: '🔥 ![](${{ github.event.issue.user.avatar_url }}&s=36)@${{ github.event.issue.user.login }} 创建了 issue：${{ github.event.issue.title }} ${{ github.event.issue.html_url }}'
           notify_body: |
             ### 🔥 [@${{ github.event.issue.user.login }}](https://github.com/${{ github.event.issue.user.login }}) 创建了 issue：
             [${{ github.event.issue.title }} · Issue #${{ github.event.issue.number }}](${{ github.event.issue.html_url }})
