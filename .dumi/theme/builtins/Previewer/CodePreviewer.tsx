@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { LinkOutlined, UpOutlined } from '@ant-design/icons';
-import type { SelectProps } from 'antd';
+import type { MenuProps } from 'antd';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
@@ -174,19 +174,19 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     backgroundColor: background === 'grey' ? backgroundGrey : undefined,
   };
 
-  const debugOptions: SelectProps['options'] = [
+  const debugOptions: MenuProps['items'] = [
     {
+      key: 'online',
       label: <FormattedMessage id="app.demo.online" />,
-      value: 'online',
       icon: <LinkOutlined />,
       url: generateDocUrl(),
       enabled: enableDocsOnlineUrl,
     },
     {
+      key: 'previousVersion',
       label: (
         <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
       ),
-      value: 'previousVersion',
       icon: <LinkOutlined />,
       url: generateDocUrl(previousVersionDomain),
       enabled: supportsPreviousVersionDemo,

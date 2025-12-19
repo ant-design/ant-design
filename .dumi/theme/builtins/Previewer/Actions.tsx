@@ -1,8 +1,8 @@
 import React, { Suspense, useRef } from 'react';
 import { BugOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
-import type { SelectProps } from 'antd';
-import { Flex, Select, Tooltip } from 'antd';
+import type { MenuProps } from 'antd';
+import { Button, Dropdown, Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
@@ -38,7 +38,7 @@ interface ActionsProps {
   onCodeExpand: () => void;
   entryCode: string;
   styleCode: string;
-  debugOptions?: SelectProps['options'];
+  debugOptions?: MenuProps['items'];
 }
 
 const Actions: React.FC<ActionsProps> = ({
@@ -211,8 +211,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
     isZhCN,
   });
 
-  const handleDebug = (_: string, option: any) => {
-    if (option.url) {
+  const handleDebug: MenuProps['onClick'] = ({ key }) => {
+    const option: any = debugOptions?.find((opt) => opt?.key === key);
+
+    if (typeof option?.url === 'string') {
       window.open(option.url, '_blank', 'noopener,noreferrer');
     }
   };
@@ -222,24 +224,11 @@ createRoot(document.getElementById('container')).render(<Demo />);
       {
         // 调试选项
         debugOptions?.length ? (
-          <Select
-            size="small"
-            variant="filled"
-            value="Debug"
-            styles={{
-              root: { width: 98 },
-            }}
-            onSelect={handleDebug}
-            popupMatchSelectWidth={false}
-            optionRender={(option) => (
-              <Flex align="center" gap="small">
-                {option.data.icon}
-                {option.data.label}
-              </Flex>
-            )}
-            prefix={<BugOutlined />}
-            options={debugOptions}
-          />
+          <Dropdown menu={{ items: debugOptions, onClick: handleDebug }}>
+            <Button icon={<BugOutlined />} color="orange" variant="filled" size="small">
+              Debug
+            </Button>
+          </Dropdown>
         ) : null
       }
       {/* CodeSandbox 按钮 */}
