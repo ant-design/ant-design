@@ -3908,6 +3908,7 @@ Array [
   />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -4310,10 +4311,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4470,10 +4469,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4630,10 +4627,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4774,10 +4769,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -5436,6 +5429,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -5673,6 +5667,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 16px;"
   >
     <label
@@ -6296,6 +6291,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 8px;"
   >
     <label

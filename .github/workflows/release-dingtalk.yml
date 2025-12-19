@@ -48,7 +48,7 @@ jobs:
           dingding-msg: CHANGELOG.zh-CN.md
           dingding-delay-minute: 10
           release: false
-          conch-tag: 'conch-v5, conch'
+          conch-tag: 'conch-v6, conch-v5, conch'
           antd-conch-msg: 🐟 当前 Bigfish 内嵌 antd 版本：
           msg-title: '# Ant Design {{v}} 发布日志'
           msg-poster: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ'

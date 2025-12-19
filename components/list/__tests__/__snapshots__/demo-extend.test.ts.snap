@@ -3012,6 +3012,7 @@ Array [
         >
           <div
             class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+            role="radiogroup"
           >
             <label
               class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -3102,6 +3103,7 @@ Array [
         >
           <div
             class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+            role="radiogroup"
           >
             <label
               class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"

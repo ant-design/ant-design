@@ -80,13 +80,13 @@ const Block: React.FC<BlockProps> = ({
       align="center"
     >
       {!singleOnly && (
-        <Segmented
+        <Segmented<'single' | 'multiple'>
           options={[
             { label: 'Single', value: 'single' },
             { label: 'Multiple', value: 'multiple' },
           ]}
           value={mode}
-          onChange={(value) => onModeChange(value as 'single' | 'multiple')}
+          onChange={onModeChange}
         />
       )}
       <Component

@@ -380,10 +380,13 @@ export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
   progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
-  colorSuccessBg: token.colorSuccessBg,
-  colorErrorBg: token.colorErrorBg,
-  colorInfoBg: token.colorInfoBg,
-  colorWarningBg: token.colorWarningBg,
+  // Fix notification background color issue
+  // https://github.com/ant-design/ant-design/issues/55649
+  // https://github.com/ant-design/ant-design/issues/56055
+  colorSuccessBg: undefined,
+  colorErrorBg: undefined,
+  colorInfoBg: undefined,
+  colorWarningBg: undefined,
 });
 
 export const prepareNotificationToken: (

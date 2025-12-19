@@ -181,6 +181,7 @@ exports[`Form form should support disabled 1`] = `
           >
             <div
               class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item css-var-root ant-radio-css-var"
@@ -307,10 +308,8 @@ exports[`Form form should support disabled 1`] = `
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   disabled=""
@@ -387,10 +386,8 @@ exports[`Form form should support disabled 1`] = `
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   disabled=""
@@ -467,10 +464,8 @@ exports[`Form form should support disabled 1`] = `
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   disabled=""
