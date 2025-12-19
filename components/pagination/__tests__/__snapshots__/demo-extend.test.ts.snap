@@ -4379,11 +4379,9 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4805,11 +4803,9 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             disabled=""
