@@ -7,10 +7,6 @@ export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-// export type SemanticClassNames<Name extends string> = Partial<Record<Name, string>>;
-
-// export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
-
 export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T);
 
 export type SemanticClassNamesType<

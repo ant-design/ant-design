@@ -2,10 +2,8 @@ import React from 'react';
 
 import Skeleton from '..';
 import type { SkeletonProps } from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
-
-type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';
+import type { SkeletonSemanticClassNames, SkeletonSemanticStyles } from '../Skeleton';
 
 const genSkeleton = (props?: SkeletonProps) => render(<Skeleton {...props} />);
 
@@ -18,22 +16,22 @@ describe('Skeleton.Semantic', () => {
     const titleStyle = { background: 'red' };
     const paragraphStyle = { background: 'orange' };
 
-    const customStyles: SemanticStyles<SemanticName> = {
-      root: rootStyle,
-      header: headerStyle,
-      section: sectionStyle,
-      avatar: avatarStyle,
-      title: titleStyle,
-      paragraph: paragraphStyle,
-    };
-
-    const customClassNames: Required<SemanticClassNames<SemanticName>> = {
+    const customClassNames: Required<SkeletonSemanticClassNames> = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',
       avatar: 'custom-avatar',
       title: 'custom-title',
       paragraph: 'custom-paragraph',
+    };
+
+    const customStyles: Required<SkeletonSemanticStyles> = {
+      root: rootStyle,
+      header: headerStyle,
+      section: sectionStyle,
+      avatar: avatarStyle,
+      title: titleStyle,
+      paragraph: paragraphStyle,
     };
 
     const { container } = genSkeleton({
