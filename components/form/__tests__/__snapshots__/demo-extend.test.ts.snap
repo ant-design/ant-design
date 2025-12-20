@@ -32259,6 +32259,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
           >
             <div
               aria-label="segmented control"
+              aria-orientation="horizontal"
               class="ant-segmented css-var-test-id"
               id="variant"
               role="radiogroup"
@@ -32276,9 +32277,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="false"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="outlined"
                   >
                     outlined
@@ -32294,9 +32293,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="true"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="filled"
                   >
                     filled
@@ -32311,9 +32308,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="false"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="borderless"
                   >
                     borderless
@@ -32328,9 +32323,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="false"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="underlined"
                   >
                     underlined
