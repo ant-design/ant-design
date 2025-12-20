@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import isNonNullable from '../_util/isNonNullable';
 import { ConfigContext } from '../config-provider';
