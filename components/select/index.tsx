@@ -37,7 +37,6 @@ import useStyle from './style';
 import useIcons from './useIcons';
 import usePopupRender from './usePopupRender';
 import useShowArrow from './useShowArrow';
-import { useMemo } from 'react';
 
 type RawValue = string | number;
 
@@ -244,29 +243,14 @@ const InternalSelect = <
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
-  const mergedNotFound = useMemo(() => {
-    if (props.showSearch && !notFoundContent && (!mode || isMultiple)) {
-      return (
-        renderEmpty?.('Select') ||
-        React.createElement(DefaultRenderEmpty, {
-          componentName: 'Select',
-        })
-      );
-    }
-    let defaultContent = null;
-    if (notFoundContent !== undefined) {
-      defaultContent = notFoundContent;
-    } else if (mode === 'combobox') {
-      defaultContent = null;
-    } else {
-      defaultContent =
-        renderEmpty?.('Select') ||
-        React.createElement(DefaultRenderEmpty, {
-          componentName: 'Select',
-        });
-    }
-    return defaultContent;
-  }, [notFoundContent, mode, props.showSearch, isMultiple]);
+  let mergedNotFound: React.ReactNode;
+  if (notFoundContent !== undefined) {
+    mergedNotFound = notFoundContent;
+  } else if (mode === 'combobox') {
+    mergedNotFound = null;
+  } else {
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+  }
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
