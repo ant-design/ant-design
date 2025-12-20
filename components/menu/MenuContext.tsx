@@ -20,13 +20,13 @@ export interface MenuContextProps {
   firstLevel: boolean;
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
-  classNames?: MenuSemanticClassNames & {
-    popup?: PopupSemanticClassNames;
-    subMenu?: SubMenuSemanticClassNames;
+  classNames: MenuSemanticClassNames & {
+    popup: PopupSemanticClassNames;
+    subMenu: SubMenuSemanticClassNames;
   };
-  styles?: MenuSemanticStyles & {
-    popup?: PopupSemanticStyles;
-    subMenu?: SubMenuSemanticStyles;
+  styles: MenuSemanticStyles & {
+    popup: PopupSemanticStyles;
+    subMenu: SubMenuSemanticStyles;
   };
 }
 
