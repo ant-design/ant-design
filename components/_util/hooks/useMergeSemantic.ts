@@ -7,23 +7,23 @@ export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-export type SemanticClassNames<Name extends string> = Partial<Record<Name, string>>;
+// export type SemanticClassNames<Name extends string> = Partial<Record<Name, string>>;
 
-export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
+// export type SemanticStyles<Name extends string> = Partial<Record<Name, React.CSSProperties>>;
 
 export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T);
 
 export type SemanticClassNamesType<
   Props extends AnyObject,
-  SemanticName extends string,
+  SemanticClassNames extends Record<PropertyKey, string>,
   NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticClassNames<SemanticName>>, Props> & NestedStructure;
+> = Resolvable<Readonly<SemanticClassNames>, Props> & NestedStructure;
 
 export type SemanticStylesType<
   Props extends AnyObject,
-  SemanticName extends string,
+  SemanticStyles extends Record<PropertyKey, React.CSSProperties>,
   NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticStyles<SemanticName>>, Props> & NestedStructure;
+> = Resolvable<Readonly<SemanticStyles>, Props> & NestedStructure;
 
 // ========================= ClassNames =========================
 export const mergeClassNames = <

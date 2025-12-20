@@ -16,10 +16,20 @@ import useStyle from './style';
 export type SwitchSize = 'small' | 'default';
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
 
-type SemanticName = 'root' | 'content';
+export type SwitchSemanticClassNames = {
+  root?: string;
+  content?: string;
+};
 
-export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SemanticName>;
-export type SwitchStylesType = SemanticStylesType<SwitchProps, SemanticName>;
+export type SwitchSemanticStyles = {
+  root?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSemanticClassNames>;
+
+export type SwitchStylesType = SemanticStylesType<SwitchProps, SwitchSemanticStyles>;
+
 export interface SwitchProps {
   prefixCls?: string;
   size?: SwitchSize;

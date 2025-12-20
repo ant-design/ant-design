@@ -44,9 +44,21 @@ export interface RadioGroupContextProps {
   block?: boolean;
 }
 
-type RadioSemanticName = 'root' | 'icon' | 'label';
-export type RadioClassNamesType = SemanticClassNamesType<RadioProps, RadioSemanticName>;
-export type RadioStylesType = SemanticStylesType<RadioProps, RadioSemanticName>;
+export type RadioSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  label?: string;
+};
+
+export type RadioSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  label?: React.CSSProperties;
+};
+
+export type RadioClassNamesType = SemanticClassNamesType<RadioProps, RadioSemanticClassNames>;
+
+export type RadioStylesType = SemanticStylesType<RadioProps, RadioSemanticStyles>;
 
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
   /**

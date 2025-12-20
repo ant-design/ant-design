@@ -31,9 +31,24 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
 
-export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  content?: string;
+};
 
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type ButtonClassNamesType = SemanticClassNamesType<
+  BaseButtonProps,
+  ButtonSemanticClassNames
+>;
+
+export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>;
 
 export interface BaseButtonProps {
   type?: ButtonType;

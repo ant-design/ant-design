@@ -3,21 +3,28 @@ import React, { useContext } from 'react';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
-type SemanticName = 'actions' | 'extra';
+type ListItemSemanticClassNames = {
+  actions?: string;
+  extra?: string;
+};
+
+type ListItemSemanticStyles = {
+  actions?: React.CSSProperties;
+  extra?: React.CSSProperties;
+};
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: SemanticClassNames<SemanticName>;
+  classNames?: ListItemSemanticClassNames;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: SemanticStyles<SemanticName>;
+  styles?: ListItemSemanticStyles;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;

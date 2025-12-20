@@ -9,12 +9,7 @@ import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/inte
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -37,18 +32,40 @@ export type { TabPaneProps };
 
 export type TabsSemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header';
 
-type PopupSemantic = 'root';
+export type TabsSemanticClassNames = {
+  root?: string;
+  item?: string;
+  indicator?: string;
+  content?: string;
+  header?: string;
+};
+
+export type TabsSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+  content?: React.CSSProperties;
+  header?: React.CSSProperties;
+};
 
 export type TabsClassNamesType = SemanticClassNamesType<
   TabsProps,
-  TabsSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  TabsSemanticClassNames,
+  {
+    popup?: {
+      root?: string;
+    };
+  }
 >;
 
 export type TabsStylesType = SemanticStylesType<
   TabsProps,
-  TabsSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  TabsSemanticStyles,
+  {
+    popup?: {
+      root?: React.CSSProperties;
+    };
+  }
 >;
 
 export interface CompatibilityProps {
