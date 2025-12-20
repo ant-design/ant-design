@@ -42,7 +42,7 @@ jobs:
             const data = await response.json();
             const issueList = [];
             for (const item of data.items) {
-                const { created_at, html_url, pull_request, state, title, labels } = item;
+                const { created_at, html_url, pull_request, state, title, labels, number } = item;
                 const createdAt = new Date(created_at);
                 const now = new Date();
                 const diffTime = Math.abs(now - createdAt);
@@ -60,6 +60,7 @@ jobs:
 
                 if (!pull_request && !html_url.includes('pull') && state === 'open') {
                     issueList.push({
+                        number,
                         html_url,
                         created_at,
                         title
@@ -70,7 +71,7 @@ jobs:
             const actionTitle = process.env.actionTitle + `(${issueList.length})`;
 
             const markdownList = `## ${actionTitle}\n\n`
-            + issueList.map(issue => `- [${issue.title}](${issue.html_url}) ${fromNow(issue.created_at)}`).join('\n')
+            + issueList.map(issue => `- ${fromNow(issue.created_at)} [#${issue.number} ${issue.title}](${issue.html_url})`).join('\n')
             + `\n\n > 🫵🏻 快去帮忙处理吧，社区需要你的帮助！`;
 
             console.log(markdownList);

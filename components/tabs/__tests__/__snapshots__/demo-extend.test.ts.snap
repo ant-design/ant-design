@@ -2833,6 +2833,7 @@ exports[`renders components/tabs/demo/custom-indicator.tsx extend context correc
 Array [
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom: 8px;"
@@ -2850,9 +2851,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="start"
         >
           start
@@ -2868,9 +2867,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -2885,9 +2882,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="end"
         >
           end

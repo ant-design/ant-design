@@ -25,7 +25,7 @@ const Wave: React.FC<WaveProps> = (props) => {
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
-  const [, hashId] = useStyle(prefixCls);
+  const hashId = useStyle(prefixCls);
 
   // =============================== Wave ===============================
   const showWave = useWave(containerRef, clsx(prefixCls, hashId), component, colorSource);
