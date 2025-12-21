@@ -52,6 +52,7 @@ And 4 other properties additionally.
 <code src="./demo/chinese-chars-loading.tsx" debug>Loading style bug</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/linear-gradient.tsx">Gradient Button</code>
+<code src="./demo/wave.tsx">Custom Wave</code>
 <code src="./demo/custom-disabled-bg.tsx">Custom disabled backgroundColor</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
