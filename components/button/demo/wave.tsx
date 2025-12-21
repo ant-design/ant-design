@@ -66,8 +66,8 @@ const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) =
 };
 
 // Shake Effect
-const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
-  if (component !== 'Button') {
+const showShakeEffect: WaveConfig['showEffect'] = (node, info) => {
+  if (info.component !== 'Button') {
     return;
   }
 
@@ -76,7 +76,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
 
   let steps = 0;
 
-  function loop() {
+  const loop = () => {
     cancelAnimationFrame((node as any).effectTimeout);
 
     (node as any).effectTimeout = requestAnimationFrame(() => {
@@ -99,7 +99,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
       steps += 1;
       loop();
     });
-  }
+  };
 
   loop();
 };
