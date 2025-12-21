@@ -44,6 +44,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
     "build": "npm run compile && cross-env NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
+    "build:docs": "tsx packages/docs/build.ts",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
     "clean": "antd-tools run clean && rimraf es lib coverage locale dist report.html artifacts.zip oss-artifacts.zip",
     "clean:lockfiles": "rimraf package-lock.json yarn.lock",

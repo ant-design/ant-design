@@ -1,0 +1,33 @@
+{
+  "name": "@ant-design/docs",
+  "version": "6.1.1",
+  "description": "Ant Design documentation files as Markdown",
+  "license": "MIT",
+  "homepage": "https://ant.design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design"
+  },
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design/issues"
+  },
+  "keywords": [
+    "ant-design",
+    "antd",
+    "docs",
+    "documentation",
+    "markdown"
+  ],
+  "files": [
+    "README.md",
+    "build.ts",
+    "components",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsx build.ts"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
