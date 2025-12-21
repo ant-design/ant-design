@@ -20,7 +20,6 @@
   ],
   "files": [
     "README.md",
-    "build.ts",
     "dist"
   ],
   "scripts": {
