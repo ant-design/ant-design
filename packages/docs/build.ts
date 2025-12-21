@@ -5,20 +5,14 @@ import { glob } from 'glob';
 
 const ROOT_DIR = path.join(__dirname, '..', '..');
 const OUTPUT_DIR = __dirname;
+const DIST_DIR = path.join(OUTPUT_DIR, 'dist');
 
 async function buildDocsPackage() {
   console.log('Building @ant-design/docs package...');
 
-  // Clean up output directory (keep package.json)
-  await fs.ensureDir(OUTPUT_DIR);
-
-  // Remove all files except package.json and build.ts
-  const files = await fs.readdir(OUTPUT_DIR);
-  for (const file of files) {
-    if (file !== 'package.json' && file !== 'build.ts' && file !== '.gitignore') {
-      await fs.remove(path.join(OUTPUT_DIR, file));
-    }
-  }
+  // Clean up dist directory
+  await fs.ensureDir(DIST_DIR);
+  await fs.emptyDir(DIST_DIR);
 
   // 1. Copy docs/**/*.md (rename en-US.md to .md only)
   console.log('Copying docs/**/*.md...');
@@ -30,7 +24,7 @@ async function buildDocsPackage() {
     const srcPath = path.join(ROOT_DIR, file);
     // Rename en-US.md to .md
     const destFile = file.replace(/\.en-US\.md$/, '.md');
-    const destPath = path.join(OUTPUT_DIR, destFile);
+    const destPath = path.join(DIST_DIR, destFile);
     await fs.ensureDir(path.dirname(destPath));
     await fs.copy(srcPath, destPath);
   }
@@ -45,7 +39,7 @@ async function buildDocsPackage() {
     const srcPath = path.join(ROOT_DIR, file);
     // Rename index.en-US.md to index.md
     const destFile = file.replace(/index\.en-US\.md$/, 'index.md');
-    const destPath = path.join(OUTPUT_DIR, destFile);
+    const destPath = path.join(DIST_DIR, destFile);
     await fs.ensureDir(path.dirname(destPath));
     await fs.copy(srcPath, destPath);
   }
@@ -64,7 +58,7 @@ async function buildDocsPackage() {
     const srcPath = path.join(ROOT_DIR, file);
     // Rename *.en-US.md to *.md
     const destFile = file.replace(/\.en-US\.md$/, '.md');
-    const destPath = path.join(OUTPUT_DIR, destFile);
+    const destPath = path.join(DIST_DIR, destFile);
     await fs.ensureDir(path.dirname(destPath));
     await fs.copy(srcPath, destPath);
   }
@@ -79,7 +73,7 @@ async function buildDocsPackage() {
     const srcPath = path.join(ROOT_DIR, file);
     // Rename *.en-US.md to *.md
     const destFile = file.replace(/\.en-US\.md$/, '.md');
-    const destPath = path.join(OUTPUT_DIR, destFile);
+    const destPath = path.join(DIST_DIR, destFile);
     await fs.ensureDir(path.dirname(destPath));
     await fs.copy(srcPath, destPath);
   }
@@ -98,14 +92,14 @@ npm install @ant-design/docs
 ## Usage
 
 \`\`\`javascript
-import buttonDocs from '@ant-design/docs/components/button/index.md';
-import gettingStarted from '@ant-design/docs/docs/react/getting-started.md';
+import buttonDocs from '@ant-design/docs/dist/components/button/index.md';
+import gettingStarted from '@ant-design/docs/dist/docs/react/getting-started.md';
 \`\`\`
 
 ## Structure
 
-- \`docs/\` - General documentation (react, blog, spec)
-- \`components/\` - Component documentation files
+- \`dist/docs/\` - General documentation (react, blog, spec)
+- \`dist/components/\` - Component documentation files
 
 ## License
 
@@ -114,7 +108,7 @@ MIT
   await fs.writeFile(path.join(OUTPUT_DIR, 'README.md'), readmeContent, 'utf8');
 
   console.log('✅ Build completed successfully!');
-  console.log(`📦 Package output: ${OUTPUT_DIR}`);
+  console.log(`📦 Package output: ${DIST_DIR}`);
 }
 
 buildDocsPackage().catch((error) => {

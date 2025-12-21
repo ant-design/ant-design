@@ -21,8 +21,7 @@
   "files": [
     "README.md",
     "build.ts",
-    "components",
-    "docs"
+    "dist"
   ],
   "scripts": {
     "build": "tsx build.ts"
