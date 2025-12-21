@@ -66,8 +66,8 @@ const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) =
 };
 
 // Shake Effect
-const showShakeEffect: WaveConfig['showEffect'] = (node, info) => {
-  if (info.component !== 'Button') {
+const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
+  if (component !== 'Button') {
     return;
   }
 
@@ -84,7 +84,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, info) => {
       const current = seq[currentStep];
       const next = seq[currentStep + 1];
 
-      if (!next) {
+      if (next === undefined || next === null) {
         node.style.transform = '';
         node.style.transition = '';
         return;

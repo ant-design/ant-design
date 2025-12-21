@@ -76,7 +76,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
 
   let steps = 0;
 
-  function loop() {
+  const loop = () => {
     cancelAnimationFrame((node as any).effectTimeout);
 
     (node as any).effectTimeout = requestAnimationFrame(() => {
@@ -84,7 +84,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
       const current = seq[currentStep];
       const next = seq[currentStep + 1];
 
-      if (!next) {
+      if (next === undefined || next === null) {
         node.style.transform = '';
         node.style.transition = '';
         return;
@@ -99,7 +99,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
       steps += 1;
       loop();
     });
-  }
+  };
 
   loop();
 };
