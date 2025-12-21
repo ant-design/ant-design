@@ -7,6 +7,143 @@ const ROOT_DIR = path.join(__dirname, '..', '..');
 const OUTPUT_DIR = __dirname;
 const DIST_DIR = path.join(OUTPUT_DIR, 'dist');
 
+interface DocMetadata {
+  title?: string;
+  group?: string;
+  order?: number;
+}
+
+interface DocEntry {
+  title: string;
+  group: string;
+  path: string;
+  order: number;
+}
+
+// Parse frontmatter from markdown content
+function parseFrontmatter(content: string): DocMetadata {
+  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!frontmatterMatch) return {};
+
+  const fm = frontmatterMatch[1];
+
+  // Extract title
+  const titleMatch = fm.match(/^title:\s*(.+)$/m);
+  const title = titleMatch?.[1]?.trim();
+
+  // Extract group (handle both object and string format)
+  let group: string | undefined;
+  const groupObjectMatch = fm.match(/^group:\s*$/m);
+  if (groupObjectMatch) {
+    // Object format: group:\n  title: ...
+    const groupTitleMatch = fm.match(/^group:\s*\n\s+title:\s*(.+)$/m);
+    group = groupTitleMatch?.[1]?.trim();
+  } else {
+    // String format: group: ...
+    const groupStringMatch = fm.match(/^group:\s*(.+)$/m);
+    group = groupStringMatch?.[1]?.trim();
+  }
+
+  // Extract order
+  const orderMatch = fm.match(/^order:\s*(\d+)$/m);
+  const order = orderMatch ? Number.parseInt(orderMatch[1], 10) : undefined;
+
+  return { title, group, order };
+}
+
+// Collect documentation entries from markdown files
+async function collectDocEntries(
+  files: string[],
+  rootDir: string,
+  pathTransform: (file: string) => string,
+): Promise<DocEntry[]> {
+  const entries: DocEntry[] = [];
+
+  for (const file of files) {
+    const srcPath = path.join(rootDir, file);
+    const content = await fs.readFile(srcPath, 'utf-8');
+    const metadata = parseFrontmatter(content);
+
+    if (metadata.title) {
+      entries.push({
+        title: metadata.title,
+        group: metadata.group || '', // Empty string for entries without group
+        path: pathTransform(file),
+        order: metadata.order ?? 999,
+      });
+    }
+  }
+
+  return entries;
+}
+
+// Generate table of contents markdown
+function generateTOC(
+  componentEntries: DocEntry[],
+  reactEntries: DocEntry[],
+  specEntries: DocEntry[],
+): string {
+  const sections = [
+    { name: 'Components', entries: componentEntries },
+    { name: 'Development', entries: reactEntries },
+    { name: 'Design', entries: specEntries },
+  ];
+
+  let toc = '## Table of Contents\n\n';
+
+  for (const section of sections) {
+    if (section.entries.length === 0) continue;
+
+    toc += `### ${section.name}\n\n`;
+
+    // Separate entries with and without groups
+    const entriesWithoutGroup = section.entries.filter((e) => e.group === '');
+    const entriesWithGroup = section.entries.filter((e) => e.group !== '');
+
+    // First, list entries without group (directly under section)
+    if (entriesWithoutGroup.length > 0) {
+      const sortedEntries = entriesWithoutGroup.sort((a, b) => a.order - b.order);
+      for (const entry of sortedEntries) {
+        toc += `- [${entry.title}](${entry.path})\n`;
+      }
+      toc += '\n';
+    }
+
+    // Then, list grouped entries
+    if (entriesWithGroup.length > 0) {
+      // Group entries by group field
+      const groupMap = new Map<string, DocEntry[]>();
+      for (const entry of entriesWithGroup) {
+        if (!groupMap.has(entry.group)) {
+          groupMap.set(entry.group, []);
+        }
+        groupMap.get(entry.group)!.push(entry);
+      }
+
+      // Sort groups and entries within each group
+      const sortedGroups = Array.from(groupMap.entries()).sort((a, b) => {
+        const minOrderA = Math.min(...a[1].map((e) => e.order));
+        const minOrderB = Math.min(...b[1].map((e) => e.order));
+        return minOrderA - minOrderB;
+      });
+
+      for (const [groupName, groupEntries] of sortedGroups) {
+        toc += `#### ${groupName}\n\n`;
+
+        // Sort entries by order
+        const sortedEntries = groupEntries.sort((a, b) => a.order - b.order);
+
+        for (const entry of sortedEntries) {
+          toc += `- [${entry.title}](${entry.path})\n`;
+        }
+        toc += '\n';
+      }
+    }
+  }
+
+  return toc;
+}
+
 async function buildDocsPackage() {
   console.log('Building @ant-design/docs package...');
 
@@ -78,33 +215,35 @@ async function buildDocsPackage() {
     await fs.copy(srcPath, destPath);
   }
 
-  // Create README.md
+  // 5. Generate Table of Contents
+  console.log('Generating Table of Contents...');
+
+  const componentEntries = await collectDocEntries(componentIndexFiles, ROOT_DIR, (file) =>
+    file.replace(/index\.en-US\.md$/, 'index.md').replace(/^/, 'dist/'),
+  );
+
+  const reactFiles = await glob('docs/react/*.en-US.md', {
+    cwd: ROOT_DIR,
+    absolute: false,
+  });
+  const reactEntries = await collectDocEntries(reactFiles, ROOT_DIR, (file) =>
+    file.replace(/\.en-US\.md$/, '.md').replace(/^/, 'dist/'),
+  );
+
+  const specFiles = await glob('docs/spec/*.en-US.md', {
+    cwd: ROOT_DIR,
+    absolute: false,
+  });
+  const specEntries = await collectDocEntries(specFiles, ROOT_DIR, (file) =>
+    file.replace(/\.en-US\.md$/, '.md').replace(/^/, 'dist/'),
+  );
+
+  const toc = generateTOC(componentEntries, reactEntries, specEntries);
+
+  // Create README.md with TOC
   const readmeContent = `# @ant-design/docs
 
-Ant Design documentation files as Markdown.
-
-## Installation
-
-\`\`\`bash
-npm install @ant-design/docs
-\`\`\`
-
-## Usage
-
-\`\`\`javascript
-import buttonDocs from '@ant-design/docs/dist/components/button/index.md';
-import gettingStarted from '@ant-design/docs/dist/docs/react/getting-started.md';
-\`\`\`
-
-## Structure
-
-- \`dist/docs/\` - General documentation (react, blog, spec)
-- \`dist/components/\` - Component documentation files
-
-## License
-
-MIT
-`;
+${toc}`;
   await fs.writeFile(path.join(OUTPUT_DIR, 'README.md'), readmeContent, 'utf8');
 
   console.log('✅ Build completed successfully!');
