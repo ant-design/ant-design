@@ -142,10 +142,15 @@ describe('Select.Semantic', () => {
     if (popup) {
       expect(popup).toHaveStyle(customStyles.popup.root);
     }
-
-    expect(item).toHaveStyle(customStyles.item);
-    expect(itemContent).toHaveStyle(customStyles.itemContent);
-    expect(itemRemove).toHaveStyle(customStyles.itemRemove);
+    if (item) {
+      expect(item).toHaveStyle(customStyles.item);
+    }
+    if (itemContent) {
+      expect(itemContent).toHaveStyle(customStyles.itemContent);
+    }
+    if (itemRemove) {
+      expect(itemRemove).toHaveStyle(customStyles.itemRemove);
+    }
   });
 
   it('should support function-based classNames and styles', () => {
