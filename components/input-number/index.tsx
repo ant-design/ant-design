@@ -2,6 +2,7 @@ import * as React from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import RcInputNumber from '@rc-component/input-number';
 import type {
   InputNumberProps as RcInputNumberProps,
@@ -107,6 +108,15 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * @default "outlined"
    */
   variant?: Variant;
+  /**
+   * Allow to clear input number
+   * @default false
+   */
+  allowClear?: boolean | { clearIcon?: React.ReactNode };
+  /**
+   * Callback when click clear icon
+   */
+  onClear?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 type InternalInputNumberProps = InputNumberProps & {
@@ -138,6 +148,10 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       classNames,
       styles,
       mode,
+      allowClear = false,
+      onClear,
+      value,
+      onChange,
       ...others
     } = props;
 
@@ -178,6 +192,36 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
 
     const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
+    // ===================== Clear Button =====================
+    const hasValue = value !== null && value !== undefined && value !== '';
+    const showClear = !mergedDisabled && allowClear && hasValue;
+
+    const defaultClearIcon = <CloseCircleFilled />;
+    const mergedAllowClear = typeof allowClear === 'object' ? allowClear : {};
+    const clearIcon = mergedAllowClear.clearIcon ?? defaultClearIcon;
+
+    const handleClear = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation();
+      onClear?.(e);
+      onChange?.(null as any);
+    };
+
+    const clearButton = showClear ? (
+      <div
+        className={`${prefixCls}-clear`}
+        onClick={handleClear}
+        onMouseDown={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+        role="button"
+        tabIndex={-1}
+        aria-label="clear"
+      >
+        {clearIcon}
+      </div>
+    ) : null;
+
     const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
     // =========== Merged Props for Semantic ==========
@@ -216,6 +260,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
             [`${prefixCls}-rtl`]: direction === 'rtl',
             [`${prefixCls}-in-form-item`]: isFormItemInput,
             [`${prefixCls}-without-controls`]: !mergedControls,
+            [`${prefixCls}-has-clear`]: showClear,
           },
         )}
         style={{ ...mergedStyles.root, ...contextStyle, ...style }}
@@ -225,9 +270,11 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         readOnly={readOnly}
         controls={controlsTemp}
         prefix={prefix}
-        suffix={suffixNode || suffix}
+        suffix={clearButton || suffixNode || suffix}
         classNames={mergedClassNames}
         styles={mergedStyles}
+        value={value}
+        onChange={onChange}
         {...others}
       />
     );
