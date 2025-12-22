@@ -16,7 +16,7 @@ describe('Select.Semantic', () => {
     },
   ];
   it('support classNames and styles', () => {
-    const classNames: SelectClassNamesType = {
+    const classNames = {
       root: 'custom-root',
       prefix: 'custom-prefix',
       suffix: 'custom-suffix',
@@ -28,7 +28,7 @@ describe('Select.Semantic', () => {
         list: 'custom-list',
         listItem: 'custom-list-item',
       },
-    };
+    } satisfies SelectClassNamesType;
     const styles = {
       root: { color: 'rgb(255, 0, 0)' },
       prefix: { color: 'rgb(0, 128, 255)' },
@@ -72,16 +72,22 @@ describe('Select.Semantic', () => {
       root: 'custom-root',
       prefix: 'custom-prefix',
       suffix: 'custom-suffix',
+      item: 'custom-item',
+      itemContent: 'custom-item-content',
+      itemRemove: 'custom-item-remove',
       popup: {
         root: 'custom-popup',
         list: 'custom-list',
         listItem: 'custom-list-item',
       },
-    };
+    } satisfies SelectClassNamesType;
     const customStyles = {
       root: { color: 'rgb(255, 0, 0)' },
       prefix: { color: 'rgb(0, 128, 255)' },
       suffix: { color: 'rgb(255, 128, 0)' },
+      item: { background: 'rgb(255, 255, 240)' },
+      itemContent: { color: 'rgb(128, 0, 128)' },
+      itemRemove: { color: 'rgb(255, 0, 0)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
         list: { color: 'rgb(0, 0, 255)' },
@@ -107,6 +113,9 @@ describe('Select.Semantic', () => {
     const list = container.querySelector('.rc-virtual-list');
     const listItem = container.querySelector('.ant-select-item');
     const popup = container.querySelector('.ant-select-dropdown');
+    const item = container.querySelector(`.${customClassNames.item}`);
+    const itemContent = container.querySelector(`.${customClassNames.itemContent}`);
+    const itemRemove = container.querySelector(`.${customClassNames.itemRemove}`);
 
     expect(root).toHaveClass(customClassNames.root);
     expect(prefix).toHaveClass(customClassNames.prefix);
@@ -133,6 +142,10 @@ describe('Select.Semantic', () => {
     if (popup) {
       expect(popup).toHaveStyle(customStyles.popup.root);
     }
+
+    expect(item).toHaveStyle(customStyles.item);
+    expect(itemContent).toHaveStyle(customStyles.itemContent);
+    expect(itemRemove).toHaveStyle(customStyles.itemRemove);
   });
 
   it('should support function-based classNames and styles', () => {
