@@ -8,12 +8,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -72,24 +67,46 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: SemanticClassNames<SemanticName> & { popup?: SemanticClassNames<PopupSemantic> };
-  styles?: SemanticStyles<SemanticName> & { popup?: SemanticStyles<PopupSemantic> };
+  classNames?: SelectSemanticClassNames & { popup?: PopupSemanticClassNames };
+  styles?: SelectSemanticStyles & { popup?: PopupSemanticStyles };
 }
 
-type SemanticName = 'root' | 'prefix' | 'suffix';
+export type SelectSemanticName = 'root' | 'prefix' | 'suffix';
 
-type PopupSemantic = 'root' | 'listItem' | 'list';
+export type SelectSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  suffix?: string;
+};
+
+export type SelectSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+};
+
+export type PopupSemanticClassNames = {
+  root?: string;
+  listItem?: string;
+  list?: string;
+};
+
+export type PopupSemanticStyles = {
+  root?: React.CSSProperties;
+  listItem?: React.CSSProperties;
+  list?: React.CSSProperties;
+};
 
 export type SelectClassNamesType = SemanticClassNamesType<
   SelectProps,
-  SemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  SelectSemanticClassNames,
+  { popup?: PopupSemanticClassNames }
 >;
 
 export type SelectStylesType = SemanticStylesType<
   SelectProps,
-  SemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  SelectSemanticStyles,
+  { popup?: PopupSemanticStyles }
 >;
 
 export interface SelectProps<

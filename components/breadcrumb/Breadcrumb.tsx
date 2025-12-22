@@ -54,14 +54,26 @@ export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparator
 
 export type BreadcrumbSemanticName = 'root' | 'item' | 'separator';
 
+export type BreadcrumbSemanticClassNames = {
+  root?: string;
+  item?: string;
+  separator?: string;
+};
+
+export type BreadcrumbSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  separator?: React.CSSProperties;
+};
+
 export type BreadcrumbClassNamesType<T extends AnyObject = AnyObject> = SemanticClassNamesType<
   BreadcrumbProps<T>,
-  BreadcrumbSemanticName
+  BreadcrumbSemanticClassNames
 >;
 
 export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticStylesType<
   BreadcrumbProps<T>,
-  BreadcrumbSemanticName
+  BreadcrumbSemanticStyles
 >;
 
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> {

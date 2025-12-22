@@ -29,12 +29,22 @@ export type SemanticName = 'root' | 'item';
 
 export type PaginationSemanticName = SemanticName;
 
+export type PaginationSemanticClassNames = {
+  root?: string;
+  item?: string;
+};
+
+export type PaginationSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
+
 export type PaginationClassNamesType = SemanticClassNamesType<
   PaginationProps,
-  PaginationSemanticName
+  PaginationSemanticClassNames
 >;
 
-export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticName>;
+export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticStyles>;
 
 export interface PaginationProps
   extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
