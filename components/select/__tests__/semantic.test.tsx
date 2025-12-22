@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Select from '..';
-import type { SelectProps } from '..';
+import type { SelectClassNamesType, SelectProps } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Select.Semantic', () => {
@@ -16,7 +16,7 @@ describe('Select.Semantic', () => {
     },
   ];
   it('support classNames and styles', () => {
-    const classNames = {
+    const classNames: SelectClassNamesType = {
       root: 'custom-root',
       prefix: 'custom-prefix',
       suffix: 'custom-suffix',
@@ -60,9 +60,9 @@ describe('Select.Semantic', () => {
     expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
     expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
     expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
-    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
-    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
-    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+    expect(container.querySelector(`.${classNames.popup?.root}`)).toHaveStyle(styles.popup.root);
+    expect(container.querySelector(`.${classNames.popup?.list}`)).toHaveStyle(styles.popup.list);
+    expect(container.querySelector(`.${classNames.popup?.listItem}`)).toHaveStyle(
       styles.popup.listItem,
     );
   });

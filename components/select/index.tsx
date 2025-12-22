@@ -76,7 +76,16 @@ export interface InternalSelectProps<
   styles?: SemanticStyles<SemanticName> & { popup?: SemanticStyles<PopupSemantic> };
 }
 
-type SemanticName = 'root' | 'prefix' | 'suffix';
+type SemanticName =
+  | 'root'
+  | 'prefix'
+  | 'suffix'
+  | 'input'
+  | 'placeholder'
+  | 'content'
+  | 'item'
+  | 'itemContent'
+  | 'itemRemove';
 
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
