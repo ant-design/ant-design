@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { LinkOutlined, UpOutlined } from '@ant-design/icons';
+import { UpOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Badge, Tooltip } from 'antd';
+import { Badge, Tag, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
@@ -177,18 +177,30 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const debugOptions: MenuProps['items'] = [
     {
       key: 'online',
-      label: <FormattedMessage id="app.demo.online" />,
-      icon: <LinkOutlined />,
-      url: generateDocUrl(),
+      label: (
+        <a href={generateDocUrl()} target="_blank" rel="noreferrer">
+          <FormattedMessage id="app.demo.online" />
+        </a>
+      ),
+      icon: (
+        <Tag variant="filled" color="blue">
+          ant.design
+        </Tag>
+      ),
       enabled: enableDocsOnlineUrl,
     },
     {
       key: 'previousVersion',
       label: (
-        <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
+        <a href={generateDocUrl(previousVersionDomain)} target="_blank" rel="noreferrer">
+          <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
+        </a>
       ),
-      icon: <LinkOutlined />,
-      url: generateDocUrl(previousVersionDomain),
+      icon: (
+        <Tag variant="filled" color="purple">
+          v{previousVersion}
+        </Tag>
+      ),
       enabled: supportsPreviousVersionDemo,
     },
   ].filter(({ enabled }) => showDebug && enabled);

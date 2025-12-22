@@ -211,23 +211,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
     isZhCN,
   });
 
-  const handleDebug: MenuProps['onClick'] = ({ key }) => {
-    const option: any = debugOptions?.find((opt) => opt?.key === key);
-
-    if (typeof option?.url === 'string') {
-      window.open(option.url, '_blank', 'noopener,noreferrer');
-    }
-  };
-
   return (
     <Flex wrap gap="middle" className="code-box-actions" align="center">
       {
         // 调试选项
         debugOptions?.length ? (
-          <Dropdown menu={{ items: debugOptions, onClick: handleDebug }}>
-            <Button icon={<BugOutlined />} color="orange" variant="filled" size="small">
-              Debug
-            </Button>
+          <Dropdown menu={{ items: debugOptions }} arrow={{ pointAtCenter: true }}>
+            <Button icon={<BugOutlined />} color="purple" variant="filled" size="small" />
           </Dropdown>
         ) : null
       }
