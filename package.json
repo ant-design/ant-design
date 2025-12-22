@@ -224,7 +224,7 @@
     "ajv": "^8.17.1",
     "ali-oss": "^6.23.0",
     "antd-img-crop": "^4.27.0",
-    "antd-style": "4.0.0-alpha.1",
+    "antd-style": "^4.0.0-beta.1",
     "antd-token-previewer": "^3.0.0",
     "axios": "^1.13.2",
     "chalk": "^5.6.2",
