@@ -15,10 +15,19 @@ import type { PresetColorKey } from '../theme/internal';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
-type SemanticName = 'root' | 'indicator';
+export type BadgeSemanticClassNames = {
+  root?: string;
+  indicator?: string;
+};
 
-export type BadgeClassNamesType = SemanticClassNamesType<BadgeProps, SemanticName>;
-export type BadgeStylesType = SemanticStylesType<BadgeProps, SemanticName>;
+export type BadgeSemanticStyles = {
+  root?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+};
+
+export type BadgeClassNamesType = SemanticClassNamesType<BadgeProps, BadgeSemanticClassNames>;
+
+export type BadgeStylesType = SemanticStylesType<BadgeProps, BadgeSemanticStyles>;
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Number to show in badge */

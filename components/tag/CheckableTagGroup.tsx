@@ -32,6 +32,16 @@ interface CheckableTagGroupMultipleProps<CheckableTagValue> {
 
 export type SemanticName = 'root' | 'item';
 
+export type TagGroupSemanticClassNames = {
+  root?: string;
+  item?: string;
+};
+
+export type TagGroupSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
+
 type CheckableTagGroupBaseProps<CheckableTagValue> = {
   // style
   prefixCls?: string;
@@ -49,11 +59,12 @@ type CheckableTagGroupBaseProps<CheckableTagValue> = {
 
 export type CheckableTagGroupClassNamesType = SemanticClassNamesType<
   CheckableTagGroupBaseProps<any>,
-  SemanticName
+  TagGroupSemanticClassNames
 >;
+
 export type CheckableTagGroupStylesType = SemanticStylesType<
   CheckableTagGroupBaseProps<any>,
-  SemanticName
+  TagGroupSemanticStyles
 >;
 
 export type CheckableTagGroupProps<CheckableTagValue> =

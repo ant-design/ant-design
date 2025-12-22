@@ -3,13 +3,7 @@ import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { clsx } from 'clsx';
 
-import type {
-  MaskType,
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -55,18 +49,44 @@ export interface CompositionImage<P> extends React.FC<P> {
 
 export type ImageSemanticName = 'root' | 'image' | 'cover';
 
-export type PopupSemantic = 'root' | 'mask' | 'body' | 'footer' | 'actions';
+export type ImageSemanticClassNames = {
+  root?: string;
+  image?: string;
+  cover?: string;
+};
+
+export type ImageSemanticStyles = {
+  root?: React.CSSProperties;
+  image?: React.CSSProperties;
+  cover?: React.CSSProperties;
+};
+
+type PopupSemanticClassNames = {
+  root?: string;
+  mask?: string;
+  body?: string;
+  footer?: string;
+  actions?: string;
+};
+
+type PopupSemanticStyles = {
+  root?: React.CSSProperties;
+  mask?: React.CSSProperties;
+  body?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  actions?: React.CSSProperties;
+};
 
 export type ImageClassNamesType = SemanticClassNamesType<
   ImageProps,
-  ImageSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  ImageSemanticClassNames,
+  { popup?: PopupSemanticClassNames }
 >;
 
 export type ImageStylesType = SemanticStylesType<
   ImageProps,
-  ImageSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  ImageSemanticStyles,
+  { popup?: PopupSemanticStyles }
 >;
 
 export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {

@@ -43,10 +43,29 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
-type SemanticName = 'root' | 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
+export type DropdownSemanticClassNames = {
+  root?: string;
+  item?: string;
+  itemTitle?: string;
+  itemIcon?: string;
+  itemContent?: string;
+};
 
-export type DropdownClassNamesType = SemanticClassNamesType<DropdownProps, SemanticName>;
-export type DropdownStylesType = SemanticStylesType<DropdownProps, SemanticName>;
+export type DropdownSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+};
+
+export type DropdownClassNamesType = SemanticClassNamesType<
+  DropdownProps,
+  DropdownSemanticClassNames
+>;
+
+export type DropdownStylesType = SemanticStylesType<DropdownProps, DropdownSemanticStyles>;
+
 export interface DropdownProps {
   classNames?: DropdownClassNamesType;
   styles?: DropdownStylesType;
