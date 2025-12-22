@@ -113,9 +113,9 @@ describe('Select.Semantic', () => {
     const list = container.querySelector('.rc-virtual-list');
     const listItem = container.querySelector('.ant-select-item');
     const popup = container.querySelector('.ant-select-dropdown');
-    const item = container.querySelector(`.${customClassNames.item}`);
-    const itemContent = container.querySelector(`.${customClassNames.itemContent}`);
-    const itemRemove = container.querySelector(`.${customClassNames.itemRemove}`);
+    const item = container.querySelector('.ant-select-selection-item');
+    const itemContent = container.querySelector('.ant-select-selection-item-content');
+    const itemRemove = container.querySelector('.ant-select-selection-item-remove');
 
     expect(root).toHaveClass(customClassNames.root);
     expect(prefix).toHaveClass(customClassNames.prefix);
@@ -128,6 +128,15 @@ describe('Select.Semantic', () => {
     }
     if (popup) {
       expect(popup).toHaveClass(customClassNames.popup.root);
+    }
+    if (item) {
+      expect(item).toHaveClass(customClassNames.item);
+    }
+    if (itemContent) {
+      expect(itemContent).toHaveClass(customClassNames.itemContent);
+    }
+    if (itemRemove) {
+      expect(itemRemove).toHaveClass(customClassNames.itemRemove);
     }
 
     expect(root).toHaveStyle(customStyles.root);
