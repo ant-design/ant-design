@@ -1,5 +1,5 @@
-import { defineConfig } from 'father';
 import path from 'path';
+import { defineConfig } from 'father';
 
 const externalsConfig = {
   react: {

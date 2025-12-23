@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { render } from '../../../tests/utils';
 import Spin from '..';
 import type { SpinProps } from '..';
+import { render } from '../../../tests/utils';
 
 describe('Spin.Semantic', () => {
   it('supports object classNames and styles for default mode', () => {

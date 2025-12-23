@@ -2,8 +2,8 @@ import React from 'react';
 import { Badge, Card } from 'antd';
 import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {

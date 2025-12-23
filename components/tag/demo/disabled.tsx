@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Flex, message, Tag } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { Flex, message, Tag } from 'antd';
 
 const { CheckableTag } = Tag;
 

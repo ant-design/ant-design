@@ -1,7 +1,9 @@
 import React from 'react';
+
 import message, { actWrapper } from '..';
 import { act, render } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
+
 jest.mock('react-dom', () => {
   const realReactDOM = jest.requireActual('react-dom');
 

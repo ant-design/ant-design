@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
+
 import Descriptions from '..';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 
 describe('Descriptions.Item span property types', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import type { StatisticProps } from './Statistic';
-import type { valueType } from './utils';
 import StatisticTimer from './Timer';
+import type { valueType } from './utils';
 
 export interface CountdownProps extends StatisticProps {
   format?: string;

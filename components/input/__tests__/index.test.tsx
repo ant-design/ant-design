@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { ConfigProvider } from 'antd';
 
 import type { InputProps, InputRef } from '..';
 import Input from '..';
@@ -9,7 +10,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
 import Form from '../../form';
 import { triggerFocus } from '../Input';
-import { ConfigProvider } from 'antd';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

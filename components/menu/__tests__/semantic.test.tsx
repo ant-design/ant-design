@@ -1,5 +1,6 @@
 import React from 'react';
 import { MailOutlined } from '@ant-design/icons';
+
 import type { MenuProps } from '..';
 import Menu from '..';
 import { render } from '../../../tests/utils';

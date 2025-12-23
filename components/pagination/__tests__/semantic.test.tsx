@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';

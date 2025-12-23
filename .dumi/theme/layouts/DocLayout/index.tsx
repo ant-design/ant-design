@@ -11,12 +11,12 @@ import { Helmet, useOutlet, useSearchParams, useSiteData } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
+import VersionUpgrade from '../../common/VersionUpgrade';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
-import VersionUpgrade from '../../common/VersionUpgrade';
 
 const locales = {
   cn: {

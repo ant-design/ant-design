@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import type { InternalDescriptionsItemType } from '.';
 import Cell from './Cell';
 import type { DescriptionsContextProps } from './DescriptionsContext';

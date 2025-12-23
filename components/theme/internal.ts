@@ -17,8 +17,8 @@ import type {
 import { PresetColors } from './interface';
 import { getLineHeight } from './themes/shared/genFontSizes';
 import useToken from './useToken';
-import { genComponentStyleHook, genStyleHooks, genSubStyleComponent } from './util/genStyleUtils';
 import genPresetColor from './util/genPresetColor';
+import { genComponentStyleHook, genStyleHooks, genSubStyleComponent } from './util/genStyleUtils';
 import useResetIconStyle from './util/useResetIconStyle';
 
 export { defaultConfig, DesignTokenContext } from './context';

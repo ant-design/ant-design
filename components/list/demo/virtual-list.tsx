@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, List, message } from 'antd';
 import VirtualList from '@rc-component/virtual-list';
+import { Avatar, List, message } from 'antd';
 
 interface UserItem {
   email: string;

@@ -3,6 +3,7 @@ import { Card, Divider, Flex, Masonry, Typography } from 'antd';
 import type { MasonryProps } from 'antd';
 import { createStyles } from 'antd-style';
 import type { MasonryItemType } from 'antd/es/masonry/MasonryItem';
+
 const { Title } = Typography;
 
 const useStyles = createStyles(() => ({

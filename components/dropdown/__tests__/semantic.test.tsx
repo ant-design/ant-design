@@ -1,8 +1,9 @@
 import React from 'react';
-import type { MenuProps } from '../../menu';
-import Dropdown from '..';
 import { SaveOutlined } from '@ant-design/icons';
+
+import Dropdown from '..';
 import { render } from '../../../tests/utils';
+import type { MenuProps } from '../../menu';
 
 describe('Dropdown.Semantic', () => {
   it('support classNames and styles', () => {

@@ -1,9 +1,9 @@
 import React from 'react';
+import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
-import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 import SiteContext from './slots/SiteContext';
 

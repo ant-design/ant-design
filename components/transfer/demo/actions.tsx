@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, message, Transfer } from 'antd';
 import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
+import { Button, message, Transfer } from 'antd';
 import type { TransferProps } from 'antd';
 
 interface RecordType {

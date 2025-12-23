@@ -1,8 +1,8 @@
 import React from 'react';
 import { message } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = message;
 

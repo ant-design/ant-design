@@ -4,8 +4,8 @@ import { SmileOutlined } from '@ant-design/icons';
 import notification, { actWrapper } from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { awaitPromise, triggerMotionEnd } from './util';
 import type { ArgsProps as NotificationArgsProps } from '../interface';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {

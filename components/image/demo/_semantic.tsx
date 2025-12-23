@@ -1,7 +1,7 @@
 import React from 'react';
+import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { Flex, Image, theme } from 'antd';
 import type { ImageProps } from 'antd';
-import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
 

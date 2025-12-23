@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Form from '..';
-import Input from '../../input';
 import { render } from '../../../tests/utils';
+import Input from '../../input';
 
 describe('Form.Semantic', () => {
   it('support classNames and styles', () => {

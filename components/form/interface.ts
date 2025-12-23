@@ -1,4 +1,5 @@
 import type { Options } from 'scroll-into-view-if-needed';
+
 export type {
   InternalNamePath,
   NamePath,

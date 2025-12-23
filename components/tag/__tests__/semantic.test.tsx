@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { CheckCircleOutlined } from '@ant-design/icons';
+
 import Tag from '..';
 import { render } from '../../../tests/utils';
 

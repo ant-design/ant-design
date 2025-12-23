@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { render } from '../../../tests/utils';
 import Breadcrumb from '..';
+import { render } from '../../../tests/utils';
 
 describe('Breadcrumb.Semantic', () => {
   it('should support function classNames and styles', () => {

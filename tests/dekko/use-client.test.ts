@@ -1,6 +1,6 @@
-import $ from 'dekko';
-import chalk from 'chalk';
 import fs from 'node:fs';
+import chalk from 'chalk';
+import $ from 'dekko';
 
 const includeUseClient = (filename: string) =>
   fs.readFileSync(filename).toString().includes('"use client"');

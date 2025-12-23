@@ -3,8 +3,8 @@ import { ArrowUpOutlined } from '@ant-design/icons';
 import { Statistic } from 'antd';
 import type { StatisticProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {

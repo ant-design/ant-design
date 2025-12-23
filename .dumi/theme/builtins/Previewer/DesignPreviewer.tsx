@@ -3,10 +3,10 @@ import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStyles } from 'antd-style';
-import copy from '../../../../components/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
 import type { AntdPreviewerProps } from '.';
+import copy from '../../../../components/_util/copy';
 import useLocale from '../../../hooks/useLocale';
 
 const locales = {

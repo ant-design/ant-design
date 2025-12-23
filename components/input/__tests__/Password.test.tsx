@@ -1,4 +1,5 @@
 import React from 'react';
+import { LockOutlined } from '@ant-design/icons';
 
 import type { InputRef } from '..';
 import Input from '..';
@@ -7,7 +8,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Password from '../Password';
-import { LockOutlined } from '@ant-design/icons';
 
 describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });

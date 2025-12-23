@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Statistic from '..';
-import { render } from '../../../tests/utils';
 import type { StatisticProps } from '..';
+import { render } from '../../../tests/utils';
 
 describe('Statistic.Semantic', () => {
   it('support function classNames and styles', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
+import type { Tab } from '@rc-component/tabs/lib/interface';
 import { ConfigProvider, Tabs } from 'antd';
 import SourceCode from 'dumi/theme-default/builtins/SourceCode';
-import type { Tab } from '@rc-component/tabs/lib/interface';
 
 import BunLogo from './bun';
 import NpmLogo from './npm';
