@@ -178,7 +178,12 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     {
       key: 'online',
       label: (
-        <a href={generateDocUrl()} target="_blank" rel="noreferrer">
+        <a
+          aria-label="Go to online documentation"
+          href={generateDocUrl()}
+          target="_blank"
+          rel="noreferrer"
+        >
           <FormattedMessage id="app.demo.online" />
         </a>
       ),
@@ -192,7 +197,12 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     {
       key: 'previousVersion',
       label: (
-        <a href={generateDocUrl(previousVersionDomain)} target="_blank" rel="noreferrer">
+        <a
+          aria-label="Go to previous version documentation"
+          href={generateDocUrl(previousVersionDomain)}
+          target="_blank"
+          rel="noreferrer"
+        >
           <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
         </a>
       ),
