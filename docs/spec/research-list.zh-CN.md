@@ -52,7 +52,7 @@ title: 列表页
 
 将数据过滤模块放置在侧栏，当过滤条件过多，横向空间充裕时使用。
 
-#### [模版 - 查询表格](https://preview.pro.ant.design/list/table-list)
+#### [模板 - 查询表格](https://preview.pro.ant.design/list/table-list)
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uAGRTY5EMvIAAAAAAAAAAABkARQnAQ">
@@ -62,7 +62,7 @@ title: 列表页
 
 每个条目都需要露出很多字段；用户在搜寻条目时有准确的查询范围时使用。
 
-#### 模版 - 标准列表
+#### 模板 - 标准列表
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
@@ -82,7 +82,7 @@ title: 列表页
 
 用户无需以特定顺序浏览条目，将每个条目以富有吸引力的方式呈现。
 
-#### 模版 - 搜索列表
+#### 模板 - 搜索列表
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yW4QQKNi_0QAAAAAAAAAAABkARQnAQ">
@@ -96,7 +96,7 @@ title: 列表页
 
 筛选、搜索
 
-#### 模版 - 成员管理
+#### 模板 - 成员管理
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aJxDR6oP19gAAAAAAAAAAABkARQnAQ">
