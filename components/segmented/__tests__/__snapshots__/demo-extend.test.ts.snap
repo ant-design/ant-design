@@ -3,6 +3,7 @@
 exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="horizontal"
   class="ant-segmented"
   role="radiogroup"
   tabindex="0"
@@ -20,7 +21,6 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
         title="Daily"
       >
@@ -36,7 +36,6 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Weekly"
       >
@@ -52,7 +51,6 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Monthly"
       >
@@ -68,7 +66,6 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Quarterly"
       >
@@ -84,7 +81,6 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Yearly"
       >
@@ -100,6 +96,7 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 2`
 exports[`renders components/segmented/demo/block.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="horizontal"
   class="ant-segmented ant-segmented-block"
   role="radiogroup"
   tabindex="0"
@@ -117,7 +114,6 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
         title="123"
       >
@@ -133,7 +129,6 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="456"
       >
@@ -149,7 +144,6 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="longtext-longtext-longtext-longtext"
       >
@@ -166,6 +160,7 @@ exports[`renders components/segmented/demo/componentToken.tsx extend context cor
 Array [
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -183,7 +178,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -199,7 +193,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -215,7 +208,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -231,7 +223,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Quarterly"
         >
@@ -247,7 +238,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Yearly"
         >
@@ -259,6 +249,7 @@ Array [
     ,
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -276,7 +267,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -292,7 +282,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -308,7 +297,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -324,7 +312,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Quarterly"
         >
@@ -340,7 +327,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Yearly"
         >
@@ -357,6 +343,7 @@ exports[`renders components/segmented/demo/componentToken.tsx extend context cor
 exports[`renders components/segmented/demo/controlled.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="horizontal"
   class="ant-segmented"
   role="radiogroup"
   tabindex="0"
@@ -374,7 +361,6 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
         title="Map"
       >
@@ -390,7 +376,6 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Transit"
       >
@@ -406,7 +391,6 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Satellite"
       >
@@ -423,6 +407,7 @@ exports[`renders components/segmented/demo/controlled-two.tsx extend context cor
 Array [
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -440,7 +425,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="AND"
         >
@@ -456,7 +440,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="OR"
         >
@@ -472,7 +455,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="NOT"
         >
@@ -484,6 +466,7 @@ Array [
     ,
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -501,7 +484,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="AND"
         >
@@ -517,7 +499,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="OR"
         >
@@ -533,7 +514,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="NOT"
         >
@@ -553,6 +533,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
 >
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -570,7 +551,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
         >
           <div
@@ -598,7 +578,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
         >
           <div
@@ -630,7 +609,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
         >
           <div
@@ -670,6 +648,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
   </div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -687,7 +666,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
         >
           <div
@@ -711,7 +689,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
         >
           <div
@@ -735,7 +712,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
         >
           <div
@@ -759,7 +735,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
         >
           <div
@@ -787,6 +762,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 >
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented ant-segmented-disabled"
     role="radiogroup"
   >
@@ -804,7 +780,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Map"
         >
@@ -821,7 +796,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Transit"
         >
@@ -838,7 +812,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Satellite"
         >
@@ -849,6 +822,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
   </div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -866,7 +840,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -883,7 +856,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -899,7 +871,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -916,7 +887,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Quarterly"
         >
@@ -932,7 +902,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Yearly"
         >
@@ -952,6 +921,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 >
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -969,7 +939,6 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -985,7 +954,6 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -1001,7 +969,6 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -1026,6 +993,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 exports[`renders components/segmented/demo/icon-only.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="horizontal"
   class="ant-segmented"
   role="radiogroup"
   tabindex="0"
@@ -1043,7 +1011,6 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
       >
         <span
@@ -1080,7 +1047,6 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
       >
         <span
@@ -1120,6 +1086,7 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
 >
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -1136,7 +1103,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="small"
         >
@@ -1153,7 +1119,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="middle"
         >
@@ -1169,7 +1134,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="large"
         >
@@ -1180,6 +1144,7 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
   </div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented ant-segmented-shape-round"
     role="radiogroup"
     tabindex="0"
@@ -1197,7 +1162,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
         >
           <span
@@ -1235,7 +1199,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
         >
           <span
@@ -1277,6 +1240,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
 >
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented ant-segmented-lg"
     role="radiogroup"
     tabindex="0"
@@ -1294,7 +1258,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -1310,7 +1273,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -1326,7 +1288,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -1342,7 +1303,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Quarterly"
         >
@@ -1358,7 +1318,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Yearly"
         >
@@ -1369,6 +1328,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -1386,7 +1346,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -1402,7 +1361,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -1418,7 +1376,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -1434,7 +1391,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Quarterly"
         >
@@ -1450,7 +1406,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Yearly"
         >
@@ -1461,6 +1416,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented ant-segmented-sm"
     role="radiogroup"
     tabindex="0"
@@ -1478,7 +1434,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Daily"
         >
@@ -1494,7 +1449,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Weekly"
         >
@@ -1510,7 +1464,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Monthly"
         >
@@ -1526,7 +1479,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Quarterly"
         >
@@ -1542,7 +1494,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Yearly"
         >
@@ -1563,6 +1514,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented ant-segmented-lg"
       role="radiogroup"
       style="margin-inline-end: 6px;"
@@ -1581,7 +1533,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="true"
             class="ant-segmented-item-label"
             title="Daily"
           >
@@ -1597,7 +1548,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
             class="ant-segmented-item-label"
             title="Weekly"
           >
@@ -1613,7 +1563,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
             class="ant-segmented-item-label"
             title="Monthly"
           >
@@ -1634,6 +1583,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented"
       role="radiogroup"
       style="margin-inline-end: 6px;"
@@ -1652,7 +1602,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="true"
             class="ant-segmented-item-label"
             title="Daily"
           >
@@ -1668,7 +1617,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
             class="ant-segmented-item-label"
             title="Weekly"
           >
@@ -1684,7 +1632,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
             class="ant-segmented-item-label"
             title="Monthly"
           >
@@ -1704,6 +1651,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented ant-segmented-sm"
       role="radiogroup"
       style="margin-inline-end: 6px;"
@@ -1722,7 +1670,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="true"
             class="ant-segmented-item-label"
             title="Daily"
           >
@@ -1738,7 +1685,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
             class="ant-segmented-item-label"
             title="Weekly"
           >
@@ -1754,7 +1700,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             type="radio"
           />
           <div
-            aria-selected="false"
             class="ant-segmented-item-label"
             title="Monthly"
           >
@@ -1892,6 +1837,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 exports[`renders components/segmented/demo/vertical.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="vertical"
   class="ant-segmented ant-segmented-vertical ant-segmented-vertical"
   role="radiogroup"
   tabindex="0"
@@ -1909,7 +1855,6 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
       >
         <span
@@ -1946,7 +1891,6 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
       >
         <span
@@ -1983,6 +1927,7 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
 exports[`renders components/segmented/demo/with-icon.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="horizontal"
   class="ant-segmented"
   role="radiogroup"
   tabindex="0"
@@ -2000,7 +1945,6 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
       >
         <span
@@ -2040,7 +1984,6 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
       >
         <span
@@ -2080,6 +2023,7 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
 exports[`renders components/segmented/demo/with-name.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
+  aria-orientation="horizontal"
   class="ant-segmented"
   role="radiogroup"
   tabindex="0"
@@ -2097,7 +2041,6 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="true"
         class="ant-segmented-item-label"
         title="Daily"
       >
@@ -2113,7 +2056,6 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Weekly"
       >
@@ -2129,7 +2071,6 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Monthly"
       >
@@ -2145,7 +2086,6 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Quarterly"
       >
@@ -2161,7 +2101,6 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
         type="radio"
       />
       <div
-        aria-selected="false"
         class="ant-segmented-item-label"
         title="Yearly"
       >

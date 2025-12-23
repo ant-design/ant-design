@@ -9,6 +9,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -26,7 +27,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="flex-start"
         >
@@ -42,7 +42,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="center"
         >
@@ -58,7 +57,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="flex-end"
         >
@@ -74,7 +72,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="space-between"
         >
@@ -90,7 +87,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="space-around"
         >
@@ -106,7 +102,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="space-evenly"
         >
@@ -120,6 +115,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented"
     role="radiogroup"
     tabindex="0"
@@ -137,7 +133,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="flex-start"
         >
@@ -153,7 +148,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="center"
         >
@@ -169,7 +163,6 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="flex-end"
         >

@@ -4018,6 +4018,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 >
                   <div
                     aria-label="segmented control"
+                    aria-orientation="horizontal"
                     class="ant-segmented ant-segmented-sm"
                     role="radiogroup"
                     tabindex="0"
@@ -4035,7 +4036,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           type="radio"
                         />
                         <div
-                          aria-selected="false"
                           class="ant-segmented-item-label"
                           title="Single"
                         >
@@ -4051,7 +4051,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           type="radio"
                         />
                         <div
-                          aria-selected="true"
                           class="ant-segmented-item-label"
                           title="Gradient"
                         >
