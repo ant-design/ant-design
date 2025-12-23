@@ -71,18 +71,30 @@ export interface InternalSelectProps<
   styles?: SelectSemanticStyles & { popup?: PopupSemanticStyles };
 }
 
-export type SelectSemanticName = 'root' | 'prefix' | 'suffix';
-
 export type SelectSemanticClassNames = {
   root?: string;
   prefix?: string;
   suffix?: string;
+  input?: string;
+  placeholder?: string;
+  content?: string;
+  item?: string;
+  itemContent?: string;
+  itemRemove?: string;
+  clear?: string;
 };
 
 export type SelectSemanticStyles = {
   root?: React.CSSProperties;
   prefix?: React.CSSProperties;
   suffix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  placeholder?: React.CSSProperties;
+  content?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  itemRemove?: React.CSSProperties;
+  clear?: React.CSSProperties;
 };
 
 export type PopupSemanticClassNames = {

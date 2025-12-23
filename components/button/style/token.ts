@@ -182,11 +182,6 @@ export interface ComponentToken {
    */
   onlyIconSizeSM: number | string;
   /**
-   * @desc 按钮组边框颜色
-   * @descEN Border color of button group
-   */
-  groupBorderColor: string;
-  /**
    * @desc 链接按钮悬浮态背景色
    * @descEN Background color of link button when hover
    */
@@ -246,7 +241,17 @@ type ShadowColorMap = {
   [Key in `${PresetColorKey}ShadowColor`]: string;
 };
 
-export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap {
+type GroupToken = {
+  /**
+   * @desc 按钮组边框颜色
+   * @descEN Border color of button group
+   * @internal Button.Group 已废弃相关token不应该在显示在文档上
+   */
+
+  groupBorderColor: string;
+};
+
+export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap, GroupToken {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button
