@@ -85,7 +85,8 @@ type SemanticName =
   | 'content'
   | 'item'
   | 'itemContent'
-  | 'itemRemove';
+  | 'itemRemove'
+  | 'clear';
 
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
