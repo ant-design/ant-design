@@ -19,11 +19,11 @@ tag: vVERSION
 `2025-12-23`
 
 - Transfer
-  - 💄 Remove the class name for the selected state when the component is `disabled`. [#56316](https://github.com/ant-design/ant-design/pull/56316) [@zenggpzqbx](https://github.com/zenggpzqbx)
-  - 🐞 Prioritize using the `disabled` property of the component. [#56280](https://github.com/ant-design/ant-design/pull/56280) [#56093](https://github.com/ant-design/ant-design/pull/56093) [@zenggpzqbx](https://github.com/zenggpzqbx)
+  - 💄 Remove  Transfer className for the selected state when the component is `disabled`. [#56316](https://github.com/ant-design/ant-design/pull/56316) [@zenggpzqbx](https://github.com/zenggpzqbx)
+  - 🐞 Transfer prioritize using the `disabled` property of the component. [#56280](https://github.com/ant-design/ant-design/pull/56280) [#56093](https://github.com/ant-design/ant-design/pull/56093) [@zenggpzqbx](https://github.com/zenggpzqbx)
 - Select
-  - 🐞 Fix missing semantic DOM names. [#56322](https://github.com/ant-design/ant-design/pull/56322) [@seanparmelee](https://github.com/seanparmelee)
-  - 🐞 Fix missing input cursor when in search mode. [#56130](https://github.com/ant-design/ant-design/pull/56130) [@fpsqdb](https://github.com/fpsqdb)
+  - 🐞 Fix Select missing semantic DOM names. [#56322](https://github.com/ant-design/ant-design/pull/56322) [@seanparmelee](https://github.com/seanparmelee)
+  - 🐞 Fix Select missing input cursor when in search mode. [#56130](https://github.com/ant-design/ant-design/pull/56130) [@fpsqdb](https://github.com/fpsqdb)
 - 💄 Breadcrumb fix style issue when using a custom `itemRender`. [#56253](https://github.com/ant-design/ant-design/pull/56253) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Button fix missing wave effect and the issue where the component could not show Dropdown on hover immediately after clicking. [#56273](https://github.com/ant-design/ant-design/pull/56273) [@zombieJ](https://github.com/zombieJ)
 -💄 Card fix style issue where an unexpected border radius is displayed when using `Card.Grid` without a header. [#56214](https://github.com/ant-design/ant-design/pull/56214) [@DDDDD12138](https://github.com/DDDDD12138)
