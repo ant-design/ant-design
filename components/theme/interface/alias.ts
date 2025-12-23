@@ -169,7 +169,7 @@ export interface AliasToken extends MapToken {
    * @desc 控制选择器、级联选择器等中的操作图标字体大小。正常情况下与 fontSizeSM 相同。
    * @descEN Control the font size of operation icon in Select, Cascader, etc. Normally same as fontSizeSM.
    */
-  fontSizeIcon: number;
+  fontSizeIcon: number | string;
 
   /**
    * @nameZH 标题类组件（如 h1、h2、h3）或选中项的字体粗细
