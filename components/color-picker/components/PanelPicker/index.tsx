@@ -93,6 +93,17 @@ const PanelPicker: FC = () => {
 
   const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
 
+  // Normalize HSB hue value: 360 should be treated as 0
+  const normalizedPickerColor = React.useMemo(() => {
+    if (!mergedPickerColor) return undefined;
+    const hsb = mergedPickerColor.toHsb();
+    // Normalize hue: 360 degrees should be treated as 0
+    if (hsb.h === 360) {
+      hsb.h = 0;
+    }
+    return hsb;
+  }, [mergedPickerColor]);
+
   useLayoutEffect(() => {
     setPickerColor(activeColor);
   }, [forceSync, activeColor?.toHexString()]);
@@ -190,7 +201,7 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={mergedPickerColor?.toHsb()}
+        value={normalizedPickerColor}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, info) => {
           onPickerChange(colorValue, true, info);

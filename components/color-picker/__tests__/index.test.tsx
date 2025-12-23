@@ -337,6 +337,19 @@ describe('ColorPicker', () => {
     ).toEqual('background: rgb(99, 22, 22);');
   });
 
+  it('Should FF0001 color display correctly (hue 360 normalization)', async () => {
+    const { container } = render(<ColorPicker open defaultValue="#FF0001" />);
+    await waitFakeTimer();
+    const colorBlock = container.querySelector('.ant-color-picker-color-block-inner');
+    expect(colorBlock?.getAttribute('style')).toEqual('background: rgb(255, 0, 1);');
+    const sliderRail = container.querySelector('.ant-color-picker-slider-rail');
+    const railStyle = sliderRail?.getAttribute('style');
+    expect(railStyle).toBeTruthy();
+    expect(railStyle).toContain('rgb(255, 0, 0) 0%');
+    expect(railStyle).not.toContain('rgb(255, 0, 255) 0%');
+    expect(railStyle).toMatch(/linear-gradient\(90deg,/);
+  });
+
   it('Should not trigger onChange when click clear after clearing', async () => {
     const onChange = jest.fn();
     const { container } = render(
