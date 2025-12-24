@@ -10,23 +10,25 @@ import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { IconType, NotificationSemantic } from './interface';
+import type {
+  IconType,
+  NotificationSemanticClassNames,
+  NotificationSemanticStyles,
+} from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
 
-export type PurePanelClassNamesType = SemanticClassNamesType<PurePanelProps, NotificationSemantic>;
+export type PurePanelClassNamesType = SemanticClassNamesType<
+  PurePanelProps,
+  NotificationSemanticClassNames
+>;
 
-export type PurePanelStylesType = SemanticStylesType<PurePanelProps, NotificationSemantic>;
+export type PurePanelStylesType = SemanticStylesType<PurePanelProps, NotificationSemanticStyles>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -55,8 +57,8 @@ export interface PureContentProps {
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames: SemanticClassNames<NotificationSemantic>;
-  styles: SemanticStyles<NotificationSemantic>;
+  classNames: NotificationSemanticClassNames;
+  styles: NotificationSemanticStyles;
 }
 
 const typeToIcon = {

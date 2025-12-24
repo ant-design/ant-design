@@ -53,6 +53,7 @@ group:
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/linear-gradient.tsx">渐变按钮</code>
+<code src="./demo/wave.tsx">自定义按钮波纹</code>
 <code src="./demo/chinese-space.tsx" version="5.17.0">移除两个汉字之间的空格</code>
 <code src="./demo/custom-disabled-bg.tsx">自定义禁用样式背景</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>

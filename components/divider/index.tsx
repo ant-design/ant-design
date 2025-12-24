@@ -9,8 +9,6 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
-type SemanticName = 'root' | 'rail' | 'content';
-
 export type TitlePlacement =
   | 'left'
   | 'right'
@@ -20,8 +18,21 @@ export type TitlePlacement =
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
 
-export type DividerClassNamesType = SemanticClassNamesType<DividerProps, SemanticName>;
-export type DividerStylesType = SemanticStylesType<DividerProps, SemanticName>;
+export type DividerSemanticClassNames = {
+  root?: string;
+  rail?: string;
+  content?: string;
+};
+
+export type DividerSemanticStyles = {
+  root?: React.CSSProperties;
+  rail?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type DividerClassNamesType = SemanticClassNamesType<DividerProps, DividerSemanticClassNames>;
+
+export type DividerStylesType = SemanticStylesType<DividerProps, DividerSemanticStyles>;
 
 export interface DividerProps {
   prefixCls?: string;
