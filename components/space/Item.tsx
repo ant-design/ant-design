@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
@@ -13,8 +12,12 @@ export interface ItemProps {
   index: number;
   separator?: React.ReactNode;
   style?: React.CSSProperties;
-  classNames: SemanticClassNames<'separator'>;
-  styles: SemanticStyles<'separator'>;
+  classNames?: {
+    separator?: string;
+  };
+  styles?: {
+    separator?: React.CSSProperties;
+  };
 }
 
 const Item: React.FC<ItemProps> = (props) => {
@@ -33,8 +36,8 @@ const Item: React.FC<ItemProps> = (props) => {
       </div>
       {index < latestIndex && separator && (
         <span
-          className={clsx(`${prefix}-item-separator`, classNames.separator)}
-          style={styles.separator}
+          className={clsx(`${prefix}-item-separator`, classNames?.separator)}
+          style={styles?.separator}
         >
           {separator}
         </span>

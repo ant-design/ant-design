@@ -15,7 +15,6 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -28,9 +27,10 @@ import type {
   ArgsStylesType,
   ConfigOptions,
   MessageInstance,
+  MessageSemanticClassNames,
+  MessageSemanticStyles,
   MessageType,
   NoticeType,
-  SemanticName,
   TypeOpen,
 } from './interface';
 import { PureContent } from './PurePanel';
@@ -50,8 +50,8 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   message?: MessageConfig;
-  classNames?: SemanticClassNames<SemanticName>;
-  styles?: SemanticStyles<SemanticName>;
+  classNames?: MessageSemanticClassNames;
+  styles?: MessageSemanticStyles;
 }
 
 const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
@@ -219,14 +219,14 @@ export function useInternalMessage(
       const contextStyles = resolveStyleOrClass(rawContextStyles, { props: contextConfig });
       const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
 
-      const mergedClassNames: SemanticClassNames<SemanticName> = mergeClassNames(
+      const mergedClassNames: MessageSemanticClassNames = mergeClassNames(
         undefined,
         contextClassNames,
         semanticClassNames,
         originClassNames,
       );
 
-      const mergedStyles: SemanticStyles<SemanticName> = mergeStyles(
+      const mergedStyles: MessageSemanticStyles = mergeStyles(
         contextStyles,
         semanticStyles,
         originStyles,

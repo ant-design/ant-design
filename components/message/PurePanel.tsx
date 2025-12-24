@@ -9,11 +9,16 @@ import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { ArgsClassNamesType, ArgsStylesType, NoticeType, SemanticName } from './interface';
+import type {
+  ArgsClassNamesType,
+  ArgsStylesType,
+  MessageSemanticClassNames,
+  MessageSemanticStyles,
+  NoticeType,
+} from './interface';
 import useStyle from './style';
 
 export const TypeIcon = {
@@ -28,8 +33,8 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
-  classNames?: SemanticClassNames<SemanticName>;
-  styles?: SemanticStyles<SemanticName>;
+  classNames?: MessageSemanticClassNames;
+  styles?: MessageSemanticStyles;
 }
 
 export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
