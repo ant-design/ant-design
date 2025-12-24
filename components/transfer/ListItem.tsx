@@ -39,7 +39,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   const mergedDisabled = disabled || item?.disabled;
   const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
     [`${prefixCls}-content-item-disabled`]: mergedDisabled,
-    [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
+    [`${prefixCls}-content-item-checked`]: checked && !mergedDisabled,
   });
 
   let title: string | undefined;

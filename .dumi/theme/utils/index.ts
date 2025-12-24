@@ -206,4 +206,14 @@ export function matchDeprecated(v: string): MatchDeprecatedResult {
   };
 }
 
+/**
+ * Determine if a hostname is an official domain.
+ * antd creates a temporary preview site for each PR for convenient preview and testing.
+ * Usually on platforms like surge.sh or Cloudflare Pages.
+ */
+export function isOfficialHost(hostname: string) {
+  const officialHostnames = ['ant.design', 'antgroup.com'];
+  return officialHostnames.some((official) => hostname.includes(official));
+}
+
 export const getThemeConfig = () => themeConfig;
