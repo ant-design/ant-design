@@ -26,9 +26,9 @@ tag: vVERSION
 - Select
   - 🐞 Fix Select missing semantic DOM names. [#56322](https://github.com/ant-design/ant-design/pull/56322) [@seanparmelee](https://github.com/seanparmelee)
   - 🐞 Fix Select wrong hover cursor style when in search mode. [#56130](https://github.com/ant-design/ant-design/pull/56130) [@fpsqdb](https://github.com/fpsqdb)
-  - 🐞 Fix Select cursor style when disabled with `showSearch` enabled. [#56340](https://github.com/ant-design/ant-design/pull/56340)
+  - 🐞 Fix Select cursor style when disabled with `showSearch` enabled. [#56340](https://github.com/ant-design/ant-design/pull/56340) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 Card fix style issue where an unexpected border radius is displayed when using `Card.Grid` without a header. [#56214](https://github.com/ant-design/ant-design/pull/56214) [@DDDDD12138](https://github.com/DDDDD12138)
-- 💄 Tag deepen default background to improve borderless contrast. [#56326](https://github.com/ant-design/ant-design/pull/56326)
+- 💄 Tag deepen default background to improve borderless contrast.[#56326](https://github.com/ant-design/ant-design/pull/56326) [@QDyanbing](https://github.com/QDyanbing)
 - ⌨ Segmented fix duplicate `role` and unnecessary `aria-` attributes on items. [#56278](https://github.com/ant-design/ant-design/pull/56278) [@aojunhao123](https://github.com/aojunhao123)
 
 ## 6.1.1
