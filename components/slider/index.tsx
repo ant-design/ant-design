@@ -21,8 +21,29 @@ export type SliderMarks = RcSliderProps['marks'];
 
 export type SemanticName = 'root' | 'tracks' | 'track' | 'rail' | 'handle';
 
-export type SliderClassNamesType = SemanticClassNamesType<SliderBaseProps, SemanticName>;
-export type SliderStylesType = SemanticStylesType<SliderBaseProps, SemanticName>;
+export type SliderSemanticClassNames = {
+  root?: string;
+  tracks?: string;
+  track?: string;
+  rail?: string;
+  handle?: string;
+};
+
+export type SliderSemanticStyles = {
+  root?: React.CSSProperties;
+  tracks?: React.CSSProperties;
+  track?: React.CSSProperties;
+  rail?: React.CSSProperties;
+  handle?: React.CSSProperties;
+};
+
+export type SliderClassNamesType = SemanticClassNamesType<
+  SliderBaseProps,
+  SliderSemanticClassNames
+>;
+
+export type SliderStylesType = SemanticStylesType<SliderBaseProps, SliderSemanticStyles>;
+
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
   classNames?: SliderClassNamesType;
   styles?: SliderStylesType;

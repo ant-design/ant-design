@@ -57,10 +57,24 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-type SemanticName = 'root' | 'icon' | 'label';
+export type CheckboxSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  label?: string;
+};
 
-export type CheckboxClassNamesType = SemanticClassNamesType<CheckboxProps, SemanticName>;
-export type CheckboxStylesType = SemanticStylesType<CheckboxProps, SemanticName>;
+export type CheckboxSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  label?: React.CSSProperties;
+};
+
+export type CheckboxClassNamesType = SemanticClassNamesType<
+  CheckboxProps,
+  CheckboxSemanticClassNames
+>;
+
+export type CheckboxStylesType = SemanticStylesType<CheckboxProps, CheckboxSemanticStyles>;
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;

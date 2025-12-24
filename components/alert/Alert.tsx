@@ -31,8 +31,29 @@ export type AlertSemanticName =
   | 'actions'
   | 'close';
 
-export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticName>;
-export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticName>;
+export type AlertSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  section?: string;
+  title?: string;
+  description?: string;
+  actions?: string;
+  close?: string;
+};
+
+export type AlertSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  section?: React.CSSProperties;
+  title?: React.CSSProperties;
+  description?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  close?: React.CSSProperties;
+};
+
+export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticClassNames>;
+
+export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticStyles>;
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */

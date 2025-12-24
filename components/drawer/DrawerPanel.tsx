@@ -21,9 +21,37 @@ export type SemanticName =
   | 'dragger'
   | 'close';
 
-export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
+export type DrawerSemanticClassNames = {
+  root?: string;
+  mask?: string;
+  header?: string;
+  title?: string;
+  extra?: string;
+  section?: string;
+  body?: string;
+  footer?: string;
+  wrapper?: string;
+  dragger?: string;
+  close?: string;
+};
 
-export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
+export type DrawerSemanticStyles = {
+  root?: React.CSSProperties;
+  mask?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  section?: React.CSSProperties;
+  body?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  wrapper?: React.CSSProperties;
+  dragger?: React.CSSProperties;
+  close?: React.CSSProperties;
+};
+
+export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, DrawerSemanticClassNames>;
+
+export type DrawerStylesType = SemanticStylesType<DrawerProps, DrawerSemanticStyles>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
