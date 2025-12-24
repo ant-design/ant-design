@@ -18,7 +18,8 @@ export type SemanticName =
   | 'body'
   | 'footer'
   | 'wrapper'
-  | 'dragger';
+  | 'dragger'
+  | 'close';
 
 export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
 
@@ -81,38 +82,56 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const drawerContext = useComponentConfig('drawer');
 
-  const { classNames: contextClassNames, styles: contextStyles } = drawerContext;
+  const {
+    classNames: contextClassNames,
+    styles: contextStyles,
+    closable: contextClosable,
+  } = drawerContext;
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     DrawerClassNamesType,
     DrawerStylesType,
     DrawerPanelProps
   >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], {
-    props,
+    props: {
+      ...props,
+      closable: closable ?? contextClosable,
+    },
   });
 
-  let closablePlacement: string | undefined;
-  if (closable === false) {
-    closablePlacement = undefined;
-  } else if (closable === undefined || closable === true) {
-    closablePlacement = 'start';
-  } else {
-    closablePlacement = closable?.placement === 'end' ? 'end' : 'start';
-  }
+  const closablePlacement = React.useMemo<'start' | 'end' | undefined>(() => {
+    const mergedClosableVal = closable ?? contextClosable;
+    if (mergedClosableVal === false) {
+      return undefined;
+    }
+    if (
+      typeof mergedClosableVal === 'object' &&
+      mergedClosableVal &&
+      mergedClosableVal.placement === 'end'
+    ) {
+      return 'end';
+    }
+    return 'start';
+  }, [closable, contextClosable]);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
       <button
         type="button"
         onClick={onClose}
-        className={clsx(`${prefixCls}-close`, {
-          [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
-        })}
+        className={clsx(
+          `${prefixCls}-close`,
+          {
+            [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
+          },
+          mergedClassNames.close,
+        )}
+        style={mergedStyles.close}
       >
         {icon}
       </button>
     ),
-    [onClose, prefixCls, closablePlacement],
+    [onClose, prefixCls, closablePlacement, mergedClassNames.close, mergedStyles.close],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(

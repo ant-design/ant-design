@@ -2,7 +2,7 @@
 
 ### 为何在严格模式中有时候会出现 `findDOMNode is deprecated` 这个警告？
 
-这是由于 `rc-trigger` 的实现方式导致的，`rc-trigger` 强制要求 children 能够接受 ref，否则就会 fallback 到 findDOMNode，所以 children 需要是原生 html 标签，如果不是，则需要使用 `React.forwardRef` 把 `ref` 透传到原生 html 标签。
+这是由于 `@rc-component/trigger` 的实现方式导致的，`@rc-component/trigger` 强制要求 children 能够接受 ref，否则就会 fallback 到 findDOMNode，所以 children 需要是原生 html 标签，如果不是，则需要使用 `React.forwardRef` 把 `ref` 透传到原生 html 标签。
 
 - `findDOMNode is deprecated` 重现：<https://codesandbox.io/p/sandbox/finddomnode-c5hy96>
 - 使用 `forwardRef` 消除警告：<https://codesandbox.io/p/sandbox/no-finddomnode-warning-forked-gdxczs>
@@ -20,3 +20,28 @@
 <img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
 
 当设置为边缘对齐方向如 `topLeft` `bottomRight` 等，则会仅做翻转而不做位移。
+
+### 如何支持键盘无障碍访问？
+
+Tooltip 等组件的默认触发方式（`trigger`）为 `hover`，不包含 `focus`，因此无法响应键盘聚焦事件。如果你希望组件支持键盘操作，可以通过以下方式开启：
+
+- **单个组件开启**：将 `trigger` 属性设置为包含 `focus` 的值，例如 `trigger="focus"` 或 `trigger={['hover', 'focus']}`。
+- **全局开启**：通过 `ConfigProvider` 进行全局配置，这样应用内的所有相关组件都会默认支持键盘聚焦触发。
+
+```jsx
+import { ConfigProvider, Tooltip, Button } from 'antd';
+
+// 单个组件
+<Tooltip trigger={['hover', 'focus']} title="Title">
+  <Button>Button</Button>
+</Tooltip>
+
+// 全局配置
+<ConfigProvider
+  tooltip={{ trigger: ['hover', 'focus'] }}
+  popover={{ trigger: ['hover', 'focus'] }}
+  popconfirm={{ trigger: ['hover', 'focus'] }}
+>
+  <App />
+</ConfigProvider>
+```

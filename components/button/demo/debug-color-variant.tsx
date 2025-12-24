@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, ConfigProvider, Flex } from 'antd';
+import type { ThemeConfig } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useSpecStyle = createStyles(({ css }) => ({
@@ -46,6 +47,17 @@ const useOriginalClsStyle = createStyles(({ css }) => ({
   `,
 }));
 
+const theme: ThemeConfig = {
+  components: {
+    Button: {
+      defaultHoverBg: 'orange',
+      defaultActiveBg: 'blue',
+      primaryColor: 'pink',
+      dangerColor: 'green',
+    },
+  },
+};
+
 const App: React.FC = () => {
   const { styles: specStyle } = useSpecStyle();
   const { styles: originalClsStyle } = useOriginalClsStyle();
@@ -86,6 +98,24 @@ const App: React.FC = () => {
         <Button type="dashed">Dashed Button</Button>
         <Button type="text">Text Button</Button>
         <Button type="link">Link Button</Button>
+      </Flex>
+
+      {/* theme config */}
+      <Flex gap="small" wrap>
+        <ConfigProvider theme={theme}>
+          <Button type="primary" variant="solid">
+            Primary
+          </Button>
+          <Button color="primary" variant="solid">
+            Solid primary
+          </Button>
+          <Button color="danger" variant="solid">
+            Solid danger
+          </Button>
+          <Button type="default">Default</Button>
+          <Button variant="outlined">Outlined</Button>
+          <Button type="dashed">Dashed</Button>
+        </ConfigProvider>
       </Flex>
     </Flex>
   );

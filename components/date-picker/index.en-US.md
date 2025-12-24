@@ -95,7 +95,6 @@ The following APIs are shared by DatePicker, RangePicker.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
-| autoFocus | If get focus when component mounted | boolean | false |  |
 | className | The picker className | string | - |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |

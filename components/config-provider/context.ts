@@ -167,11 +167,14 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
-  rowKey?: string;
+  rowKey?: TableProps<RecordType>['rowKey'];
+  classNames?: TableProps['classNames'];
+  styles?: TableProps['styles'];
 }
 
 export type ImageConfig = ComponentStyleConfig &
@@ -312,7 +315,7 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type TooltipConfig = Pick<
   TooltipProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -324,12 +327,12 @@ export type TooltipConfig = Pick<
 
 export type PopoverConfig = Pick<
   PopoverProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
 >;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
 >;
 
 export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;

@@ -104,6 +104,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     mask,
     type,
     onInput,
+    onFocus,
     inputMode,
     classNames,
     styles,
@@ -273,6 +274,19 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     refs.current[nextIndex]?.focus();
   };
 
+  // ======================== Focus ========================
+  const onInputFocus = (event: React.FocusEvent<HTMLInputElement>, index: number) => {
+    // keep focus on the first empty cell
+    for (let i = 0; i < index; i += 1) {
+      if (!refs.current[i]?.input?.value) {
+        refs.current[i]?.focus();
+        break;
+      }
+    }
+
+    onFocus?.(event);
+  };
+
   // ======================== Render ========================
   const inputSharedProps: Partial<OTPInputProps> = {
     variant,
@@ -322,6 +336,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 value={singleValue}
                 onActiveChange={onInputActiveChange}
                 autoFocus={index === 0 && autoFocus}
+                onFocus={(event) => onInputFocus(event, index)}
                 {...inputSharedProps}
               />
               {index < length - 1 && (

@@ -885,7 +885,9 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
         style="margin: 16px 0px;"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -898,7 +900,9 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -911,7 +915,9 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -1343,7 +1349,9 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
       style="margin: 16px 0px;"
     >
       <ol>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1356,7 +1364,9 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1369,7 +1379,9 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1401,7 +1413,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
-    style="overflow: auto; height: 100vh; position: sticky; inset-inline-start: 0; top: 0px; bottom: 0px; scrollbar-width: thin; scrollbar-gutter: stable; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+    style="overflow: auto; height: 100vh; position: sticky; inset-inline-start: 0; top: 0px; scrollbar-width: thin; scrollbar-gutter: stable; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -2843,7 +2855,9 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
         style="margin: 16px 0px;"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2856,7 +2870,9 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -3432,7 +3448,9 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
       style="margin: 16px 0px;"
     >
       <ol>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3445,7 +3463,9 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3458,7 +3478,9 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3660,7 +3682,9 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       style="margin: 16px 0px;"
     >
       <ol>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3673,7 +3697,9 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3686,7 +3712,9 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         >
           /
         </li>
-        <li>
+        <li
+          class="ant-breadcrumb-item"
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -5308,7 +5336,9 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         style="margin: 16px 0px;"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -5321,7 +5351,9 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -5334,7 +5366,9 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           >
             /
           </li>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <span
               class="ant-breadcrumb-link"
             >

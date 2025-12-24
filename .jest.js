@@ -7,16 +7,16 @@ const compileModules = [
   '.pnpm',
   '@asamuzakjp/css-color',
   '@rc-component',
+  // jsdom 27+ depends on ESM parse5, need transform
+  'parse5',
+  'jsdom',
 ];
 
-const ignoreList = [];
-
 // cnpm use `_` as prefix
-['', '_'].forEach((prefix) => {
-  compileModules.forEach((module) => {
-    ignoreList.push(`${prefix}${module}`);
-  });
-});
+const ignoreList = ['', '_'].reduce(
+  (acc, prefix) => [...acc, ...compileModules.map((module) => `${prefix}${module}`)],
+  [],
+);
 
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
