@@ -19,6 +19,7 @@ tag: vVERSION
 `2025-12-24`
 
 - 🐞 Button fix missing wave effect and the issue where the component could not show Dropdown on hover immediately after clicking. [#56273](https://github.com/ant-design/ant-design/pull/56273) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Form.List with `useWatch` causing double rendering on item removal, with the first render showing an incorrect intermediate state. [#56319](https://github.com/ant-design/ant-design/pull/56319) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 Breadcrumb fix style issue when using a custom `itemRender`. [#56253](https://github.com/ant-design/ant-design/pull/56253) [@guoyunhe](https://github.com/guoyunhe)
 - Transfer
   - 💄 Remove Transfer className for the selected state when the component is `disabled`. [#56316](https://github.com/ant-design/ant-design/pull/56316) [@zenggpzqbx](https://github.com/zenggpzqbx)

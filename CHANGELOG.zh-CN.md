@@ -20,6 +20,7 @@ tag: vVERSION
 `2025-12-23`
 
 - 🐞 修复 Wave 组件水波纹消失的问题，以及 Button 组件在配置 Dropdown 后，点击触发再次 `hover` 时无法立刻显示 Dropdown 的问题。[#56273](https://github.com/ant-design/ant-design/pull/56273) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Form.List 使用 `useWatch` 时，删除项会触发两次渲染，第一次为不正确的中间状态的问题。[#56319](https://github.com/ant-design/ant-design/pull/56319) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 修复 Breadcrumb 组件自定义 `itemRender` 时的链接颜色异常的问题。[#56253](https://github.com/ant-design/ant-design/pull/56253) [@guoyunhe](https://github.com/guoyunhe)
 - Transfer
   - 💄 修复 Transfer 组件在禁用时不存在选择状态样式类的问题。[#56316](https://github.com/ant-design/ant-design/pull/56316) [@zenggpzqbx](https://github.com/zenggpzqbx)
