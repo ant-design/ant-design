@@ -347,6 +347,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
   >
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-test-id"
       role="radiogroup"
       tabindex="0"
@@ -364,9 +365,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
             title="canvas"
           >
             canvas
@@ -381,9 +380,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="svg"
           >
             svg
@@ -439,6 +436,7 @@ Array [
   </div>,
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
@@ -456,9 +454,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="L"
         >
           L
@@ -473,9 +469,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="M"
         >
           M
@@ -490,9 +484,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="Q"
         >
           Q
@@ -507,9 +499,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="H"
         >
           H

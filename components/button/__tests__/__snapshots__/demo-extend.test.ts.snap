@@ -4411,3 +4411,52 @@ exports[`renders components/button/demo/style-class.tsx extend context correctly
 `;
 
 exports[`renders components/button/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/button/demo/wave.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-large"
+>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Disabled
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Inset
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Shake
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Happy Work
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/button/demo/wave.tsx extend context correctly 2`] = `[]`;

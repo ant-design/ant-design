@@ -66,7 +66,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         listStyle: 'none',
       },
 
-      [`a${componentCls}-link, ${componentCls}-link a`]: {
+      [`${componentCls}-item a`]: {
         color: token.linkColor,
         transition: `color ${token.motionDurationMid}`,
         padding: `0 ${unit(token.paddingXXS)}`,
@@ -83,7 +83,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         ...genFocusStyle(token),
       },
 
-      'li:last-child': {
+      [`${componentCls}-item:last-child`]: {
         color: token.lastItemColor,
       },
 
