@@ -87,6 +87,30 @@ describe('Drawer', () => {
     expect(drawerWrapper).toHaveStyle({ width: '736px' });
   });
 
+  it('render correctly with size string', () => {
+    const { container, rerender } = render(
+      <Drawer open size="20vw" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    let drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '20vw' });
+
+    rerender(
+      <Drawer open size="500" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '500px' });
+  });
+
   it('getContainer return undefined', () => {
     const { container, rerender } = render(
       <DrawerTest getContainer={() => undefined as unknown as HTMLElement} />,
