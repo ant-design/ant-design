@@ -88,7 +88,7 @@ describe('Drawer', () => {
   });
 
   it('render correctly with size string', () => {
-    const { container } = render(
+    const { container, rerender } = render(
       <Drawer open size="20vw" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
@@ -96,8 +96,19 @@ describe('Drawer', () => {
 
     triggerMotion();
 
-    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    let drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
     expect(drawerWrapper).toHaveStyle({ width: '20vw' });
+
+    rerender(
+      <Drawer open size="500" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '500px' });
   });
 
   it('getContainer return undefined', () => {

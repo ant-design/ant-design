@@ -156,9 +156,11 @@ const Drawer: React.FC<DrawerProps> & {
     }
 
     if (typeof size === 'string') {
+      if (/^\d+(\.\d+)?$/.test(size)) {
+        return Number(size);
+      }
       return size;
     }
-
     if (!placement || placement === 'left' || placement === 'right') {
       return width;
     }
