@@ -151,7 +151,7 @@
     "@rc-component/tree-select": "~1.5.0",
     "@rc-component/trigger": "^3.7.2",
     "@rc-component/upload": "~1.1.0",
-    "@rc-component/util": "^1.6.0",
+    "@rc-component/util": "^1.6.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "scroll-into-view-if-needed": "^3.1.0",
