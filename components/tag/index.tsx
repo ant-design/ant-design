@@ -12,6 +12,8 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import CheckableTag from './CheckableTag';
 import CheckableTagGroup from './CheckableTagGroup';
 import useColor from './hooks/useColor';
@@ -43,6 +45,10 @@ export type TagStylesType = SemanticStylesType<TagProps, TagSemanticStyles>;
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
+  /**
+   * @since 5.27.0
+   */
+  size?: SizeType;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   variant?: 'filled' | 'solid' | 'outlined';
@@ -79,6 +85,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       target,
       styles,
       classNames,
+      size: customizeSize,
       ...restProps
     } = props;
 
@@ -106,6 +113,16 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     );
 
     const isInternalColor = isPreset || isStatus;
+
+    const sizeClassNameMap: Record<NonNullable<SizeType>, string | undefined> = {
+      large: 'lg',
+      small: 'sm',
+      middle: undefined, // default size
+    };
+
+    const sizeFullName = useSize((ctxSize) => customizeSize ?? ctxSize ?? 'middle');
+
+    const sizeCls = sizeClassNameMap[sizeFullName];
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -159,6 +176,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
         [`${prefixCls}-hidden`]: !visible,
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-disabled`]: mergedDisabled,
+        [`${prefixCls}-${sizeCls}`]: sizeCls,
       },
       className,
       rootClassName,
