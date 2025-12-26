@@ -54,7 +54,7 @@ jobs:
       - uses: utooland/setup-utoo@v1
       - run: ut
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           pattern: snapshot-artifacts-*
           merge-multiple: true

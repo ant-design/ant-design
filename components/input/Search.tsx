@@ -6,15 +6,10 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
-import Button from '../button';
-import type { ButtonSemanticName } from '../button/button';
+import Button from '../button/Button';
+import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
@@ -22,14 +17,31 @@ import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 import useStyle from './style/search';
 
-type SemanticName = 'root' | 'input' | 'prefix' | 'suffix' | 'count';
-
-export type InputSearchClassNamesType = SemanticClassNamesType<SearchProps, SemanticName> & {
-  button?: SemanticClassNames<ButtonSemanticName>;
+export type InputSearchSemanticClassNames = {
+  root?: string;
+  input?: string;
+  prefix?: string;
+  suffix?: string;
+  count?: string;
 };
 
-export type InputSearchStylesType = SemanticStylesType<SearchProps, SemanticName> & {
-  button?: SemanticStyles<ButtonSemanticName>;
+export type InputSearchSemanticStyles = {
+  root?: React.CSSProperties;
+  input?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+  count?: React.CSSProperties;
+};
+
+export type InputSearchClassNamesType = SemanticClassNamesType<
+  SearchProps,
+  InputSearchSemanticClassNames
+> & {
+  button?: ButtonSemanticClassNames;
+};
+
+export type InputSearchStylesType = SemanticStylesType<SearchProps, InputSearchSemanticStyles> & {
+  button?: ButtonSemanticStyles;
 };
 
 export interface SearchProps extends InputProps {

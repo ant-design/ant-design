@@ -8,7 +8,7 @@ import type {
   SemanticStylesType,
 } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import type { ButtonProps, LegacyButtonType } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 
 export type SemanticName =
@@ -21,9 +21,31 @@ export type SemanticName =
   | 'wrapper'
   | 'mask';
 
-export type ModalClassNamesType = SemanticClassNamesType<ModalProps, SemanticName>;
+export type ModalSemanticClassNames = {
+  root?: string;
+  header?: string;
+  body?: string;
+  footer?: string;
+  container?: string;
+  title?: string;
+  wrapper?: string;
+  mask?: string;
+};
 
-export type ModalStylesType = SemanticStylesType<ModalProps, SemanticName>;
+export type ModalSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  container?: React.CSSProperties;
+  title?: React.CSSProperties;
+  wrapper?: React.CSSProperties;
+  mask?: React.CSSProperties;
+};
+
+export type ModalClassNamesType = SemanticClassNamesType<ModalProps, ModalSemanticClassNames>;
+
+export type ModalStylesType = SemanticStylesType<ModalProps, ModalSemanticStyles>;
 
 interface ModalCommonProps
   extends Omit<

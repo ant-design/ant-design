@@ -6,8 +6,29 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import { useComponentConfig } from '../config-provider/context';
 
 export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
-export type CardMetaClassNamesType = SemanticClassNamesType<CardMetaProps, SemanticName>;
-export type CardMetaStylesType = SemanticStylesType<CardMetaProps, SemanticName>;
+
+export type CardMetaSemanticClassNames = {
+  root?: string;
+  section?: string;
+  avatar?: string;
+  title?: string;
+  description?: string;
+};
+
+export type CardMetaSemanticStyles = {
+  root?: React.CSSProperties;
+  section?: React.CSSProperties;
+  avatar?: React.CSSProperties;
+  title?: React.CSSProperties;
+  description?: React.CSSProperties;
+};
+
+export type CardMetaClassNamesType = SemanticClassNamesType<
+  CardMetaProps,
+  CardMetaSemanticClassNames
+>;
+
+export type CardMetaStylesType = SemanticStylesType<CardMetaProps, CardMetaSemanticStyles>;
 
 export interface CardMetaProps {
   prefixCls?: string;

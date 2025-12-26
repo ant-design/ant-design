@@ -340,4 +340,27 @@ describe('Theme', () => {
     expect(cssVar.colorLinkHover).toBe('var(--ant-color-link-hover)');
     expect(cssVar.colorLinkActive).toBe('var(--ant-color-link-active)');
   });
+
+  it('should respect empty string cssVar prefix', () => {
+    const { cssVar: defaultCssVar } = getHookToken();
+    const { cssVar: emptyPrefixCssVar } = getHookToken({
+      cssVar: {
+        prefix: '',
+        key: '',
+      },
+    });
+
+    // Default behavior should still use "ant" prefix
+    expect(defaultCssVar.colorLink).toBe('var(--ant-color-link)');
+
+    // When cssVar.prefix is an empty string, it should not equal default value
+    expect(emptyPrefixCssVar.colorLink).not.toBe(defaultCssVar.colorLink);
+
+    // It should not start with "ant" prefix
+    expect(emptyPrefixCssVar.colorLink.startsWith('var(--ant-')).toBeFalsy();
+
+    // It should still be a valid CSS variable reference and contain "color-link"
+    expect(emptyPrefixCssVar.colorLink.startsWith('var(--')).toBeTruthy();
+    expect(emptyPrefixCssVar.colorLink).toContain('color-link');
+  });
 });

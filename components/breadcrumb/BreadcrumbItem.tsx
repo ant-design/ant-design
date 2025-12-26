@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import { clsx } from 'clsx';
 
 import isNonNullable from '../_util/isNonNullable';
 import { ConfigContext } from '../config-provider';
@@ -16,6 +17,7 @@ export interface SeparatorType {
 }
 
 type MenuType = NonNullable<DropdownProps['menu']>;
+
 interface MenuItem {
   key?: React.Key;
   title?: React.ReactNode;
@@ -86,7 +88,10 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
   if (isNonNullable(link)) {
     return (
       <>
-        <li className={mergedClassNames?.item} style={mergedStyles?.item}>
+        <li
+          className={clsx(`${prefixCls}-item`, mergedClassNames?.item)}
+          style={mergedStyles?.item}
+        >
           {link}
         </li>
         {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}

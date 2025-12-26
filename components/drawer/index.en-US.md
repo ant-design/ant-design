@@ -76,7 +76,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| size | preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | 4.17.0 |
+| size | preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number \| string | 'default' | 4.17.0, string: 6.2.0 |
 | title | The title for Drawer | ReactNode | - |  |
 | loading | Show the Skeleton | boolean | false | 5.17.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |

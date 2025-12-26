@@ -6,18 +6,21 @@ import { clsx } from 'clsx';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { ButtonProps, LegacyButtonType } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
-import type { PopoverProps, PopoverSemanticName } from '../popover';
+import type { PopoverProps, PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
-export type PopconfirmClassNamesType = SemanticClassNamesType<PopconfirmProps, PopoverSemanticName>;
+export type PopconfirmClassNamesType = SemanticClassNamesType<
+  PopconfirmProps,
+  PopoverSemanticClassNames
+>;
 
-export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopoverSemanticName>;
+export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopoverSemanticStyles>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;

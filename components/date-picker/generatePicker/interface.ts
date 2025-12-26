@@ -3,18 +3,9 @@ import type {
   PickerProps as RcPickerProps,
   RangePickerProps as RcRangePickerProps,
 } from '@rc-component/picker';
-import type {
-  PanelSemanticName as PopupSemantic,
-  Locale as RcPickerLocale,
-  SemanticName,
-} from '@rc-component/picker/interface';
+import type { Locale as RcPickerLocale } from '@rc-component/picker/interface';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';
@@ -25,16 +16,54 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
+// import type {SemanticName} from "@rc-component/picker/interface"
+export type DatePickerSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  input?: string;
+  suffix?: string;
+};
+
+// import type {SemanticName} from "@rc-component/picker/interface"
+export type DatePickerSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+};
+
+// import type {PanelSemanticName} from "@rc-component/picker/interface"
+type PanelSemanticClassNames = {
+  root?: string;
+  header?: string;
+  body?: string;
+  content?: string;
+  item?: string;
+  footer?: string;
+  container?: string;
+};
+
+// import type {PanelSemanticName} from "@rc-component/picker/interface"
+type PanelSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  content?: React.CSSProperties;
+  item?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  container?: React.CSSProperties;
+};
+
 export type DatePickerClassNamesType<P> = SemanticClassNamesType<
   InjectDefaultProps<P>,
-  SemanticName,
-  { popup?: string | SemanticClassNames<PopupSemantic> }
+  DatePickerSemanticClassNames,
+  { popup?: string | PanelSemanticClassNames }
 >;
 
 export type DatePickerStylesType<P> = SemanticStylesType<
   InjectDefaultProps<P>,
-  SemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  DatePickerSemanticStyles,
+  { popup?: PanelSemanticStyles }
 >;
 
 export type PickerLocale = {
@@ -87,8 +116,8 @@ export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
 
 export type RequiredSemanticPicker = Readonly<
   [
-    classNames: SemanticClassNames<SemanticName> & { popup: SemanticClassNames<PopupSemantic> },
-    styles: SemanticStyles<SemanticName> & { popup: SemanticStyles<PopupSemantic> },
+    classNames: DatePickerSemanticClassNames & { popup: PanelSemanticClassNames },
+    styles: DatePickerSemanticStyles & { popup: PanelSemanticStyles },
   ]
 >;
 

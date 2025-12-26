@@ -13,7 +13,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import Group, { GroupSizeContext } from './button-group';
+import Group, { GroupSizeContext } from './ButtonGroup';
 import type {
   ButtonColorType,
   ButtonHTMLType,
@@ -31,9 +31,24 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
 
-export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  content?: string;
+};
 
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type ButtonClassNamesType = SemanticClassNamesType<
+  BaseButtonProps,
+  ButtonSemanticClassNames
+>;
+
+export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>;
 
 export interface BaseButtonProps {
   type?: ButtonType;

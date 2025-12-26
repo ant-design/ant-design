@@ -167,11 +167,12 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
-  rowKey?: string;
+  rowKey?: TableProps<RecordType>['rowKey'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
@@ -231,7 +232,12 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
+  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+    successIcon?: React.ReactNode;
+    infoIcon?: React.ReactNode;
+    warningIcon?: React.ReactNode;
+    errorIcon?: React.ReactNode;
+  };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 

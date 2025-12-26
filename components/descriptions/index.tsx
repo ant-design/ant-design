@@ -34,11 +34,33 @@ export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefi
   key?: React.Key;
 }
 
-type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content';
+export type DescriptionsSemanticClassNames = {
+  root?: string;
+  header?: string;
+  title?: string;
+  extra?: string;
+  label?: string;
+  content?: string;
+};
 
-export type DescriptionsClassNamesType = SemanticClassNamesType<DescriptionsProps, SemanticName>;
+export type DescriptionsSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  label?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
 
-export type DescriptionsStylesType = SemanticStylesType<DescriptionsProps, SemanticName>;
+export type DescriptionsClassNamesType = SemanticClassNamesType<
+  DescriptionsProps,
+  DescriptionsSemanticClassNames
+>;
+
+export type DescriptionsStylesType = SemanticStylesType<
+  DescriptionsProps,
+  DescriptionsSemanticStyles
+>;
 
 export interface DescriptionsProps {
   prefixCls?: string;
@@ -150,12 +172,12 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       labelStyle,
       contentStyle,
       styles: {
-        label: mergedStyles.label!,
-        content: mergedStyles.content!,
+        label: mergedStyles.label,
+        content: mergedStyles.content,
       },
       classNames: {
-        label: clsx(mergedClassNames.label),
-        content: clsx(mergedClassNames.content),
+        label: mergedClassNames.label,
+        content: mergedClassNames.content,
       },
     }),
     [
@@ -211,7 +233,6 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
             )}
           </div>
         )}
-
         <div className={`${prefixCls}-view`}>
           <table>
             <tbody>

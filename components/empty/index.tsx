@@ -19,8 +19,23 @@ export interface TransferLocale {
 
 export type EmptySemanticName = 'root' | 'image' | 'description' | 'footer';
 
-export type EmptyClassNamesType = SemanticClassNamesType<EmptyProps, EmptySemanticName>;
-export type EmptyStylesType = SemanticStylesType<EmptyProps, EmptySemanticName>;
+export type EmptySemanticClassNames = {
+  root?: string;
+  image?: string;
+  description?: string;
+  footer?: string;
+};
+
+export type EmptySemanticStyles = {
+  root?: React.CSSProperties;
+  image?: React.CSSProperties;
+  description?: React.CSSProperties;
+  footer?: React.CSSProperties;
+};
+
+export type EmptyClassNamesType = SemanticClassNamesType<EmptyProps, EmptySemanticClassNames>;
+
+export type EmptyStylesType = SemanticStylesType<EmptyProps, EmptySemanticStyles>;
 
 // For backward compatibility
 export type SemanticName = EmptySemanticName;

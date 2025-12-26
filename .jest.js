@@ -7,6 +7,9 @@ const compileModules = [
   '.pnpm',
   '@asamuzakjp/css-color',
   '@rc-component',
+  // jsdom 27+ depends on ESM parse5, need transform
+  'parse5',
+  'jsdom',
 ];
 
 // cnpm use `_` as prefix

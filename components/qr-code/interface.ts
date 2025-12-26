@@ -22,8 +22,19 @@ export type StatusRenderInfo = {
 
 export type QRCodeSemanticName = 'root' | 'cover';
 
-export type QRCodeClassNamesType = SemanticClassNamesType<QRCodeProps, QRCodeSemanticName>;
-export type QRCodeStylesType = SemanticStylesType<QRCodeProps, QRCodeSemanticName>;
+export type QRCodeSemanticClassNames = {
+  root?: string;
+  cover?: string;
+};
+
+export type QRCodeSemanticStyles = {
+  root?: React.CSSProperties;
+  cover?: React.CSSProperties;
+};
+
+export type QRCodeClassNamesType = SemanticClassNamesType<QRCodeProps, QRCodeSemanticClassNames>;
+
+export type QRCodeStylesType = SemanticStylesType<QRCodeProps, QRCodeSemanticStyles>;
 
 export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
   type?: 'canvas' | 'svg';
