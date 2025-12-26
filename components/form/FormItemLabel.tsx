@@ -90,14 +90,14 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
-  if (tooltip || tooltipProps?.title) {
+  if (mergedTooltip) {
     // tooltip prop can be either a React node or a TooltipProps object
     // but we will only allow React node in v7
-    const deprecated = !React.isValidElement(tooltip);
+    const deprecated = typeof mergedTooltip === 'object' && !React.isValidElement(mergedTooltip);
     if (deprecated) {
-      mergedTooltip = (tooltip as TooltipProps).title;
-      mergedTooltipIcon = (tooltip as { icon?: React.ReactNode }).icon;
-      mergedTooltipProps = omit(tooltip as TooltipProps & { icon?: React.ReactNode }, [
+      mergedTooltip = (mergedTooltip as TooltipProps).title;
+      mergedTooltipIcon = (mergedTooltip as { icon?: React.ReactNode }).icon;
+      mergedTooltipProps = omit(mergedTooltip as TooltipProps & { icon?: React.ReactNode }, [
         'title',
         'icon',
       ]);
