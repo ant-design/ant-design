@@ -1,8 +1,8 @@
 import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import convertToTooltipProps from '../_util/convertToTooltipProps';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';
@@ -14,12 +14,6 @@ import { FormContext } from './context';
 import type { RequiredMark } from './Form';
 import type { FormLabelAlign } from './interface';
 
-export type WrapperTooltipProps = TooltipProps & {
-  icon?: React.ReactElement;
-};
-
-export type LabelTooltipType = WrapperTooltipProps | React.ReactNode;
-
 export interface FormItemLabelProps {
   colon?: boolean;
   htmlFor?: string;
@@ -30,7 +24,9 @@ export interface FormItemLabelProps {
    * @internal Used for pass `requiredMark` from `<Form />`
    */
   requiredMark?: RequiredMark;
-  tooltip?: LabelTooltipType;
+  tooltip?: React.ReactNode;
+  tooltipIcon?: React.ReactNode;
+  tooltipProps?: TooltipProps;
   vertical?: boolean;
 }
 
@@ -44,6 +40,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   required,
   requiredMark,
   tooltip,
+  tooltipIcon,
+  tooltipProps,
   vertical,
 }) => {
   const [formLocale] = useLocale('Form');
@@ -55,6 +53,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     colon: contextColon,
     classNames: contextClassNames,
     styles: contextStyles,
+    tooltipIcon: contextTooltipIcon,
+    tooltipProps: contextTooltipProps,
   } = React.useContext<FormContextProps>(FormContext);
 
   if (!label) {
@@ -64,6 +64,10 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const mergedLabelCol: ColProps = labelCol || contextLabelCol || {};
 
   const mergedLabelAlign: FormLabelAlign | undefined = labelAlign || contextLabelAlign;
+
+  let mergedTooltip: TooltipProps['title'] = tooltip ?? tooltipProps?.title;
+  let mergedTooltipIcon = tooltipIcon ?? contextTooltipIcon;
+  let mergedTooltipProps = { ...contextTooltipProps, ...tooltipProps };
 
   const labelClsBasic = `${prefixCls}-item-label`;
   const labelColClassName = clsx(
@@ -86,23 +90,30 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
-  // Tooltip
-  const tooltipProps = convertToTooltipProps(tooltip);
+  if (tooltip || tooltipProps?.title) {
+    // tooltip prop can be either a React node or a TooltipProps object
+    // but we will only allow React node in v7
+    const deprecated = !React.isValidElement(tooltip);
+    if (deprecated) {
+      mergedTooltip = (tooltip as TooltipProps).title;
+      mergedTooltipIcon = (tooltip as { icon?: React.ReactNode }).icon;
+      mergedTooltipProps = omit(tooltip as TooltipProps & { icon?: React.ReactNode }, [
+        'title',
+        'icon',
+      ]);
+    }
 
-  if (tooltipProps) {
-    const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
     const tooltipNode: React.ReactNode = (
-      <Tooltip {...restTooltipProps}>
-        {React.cloneElement(icon, {
-          className: `${prefixCls}-item-tooltip`,
-          title: '',
-          onClick: (e: React.MouseEvent) => {
-            // Prevent label behavior in tooltip icon
-            // https://github.com/ant-design/ant-design/issues/46154
+      <Tooltip {...mergedTooltipProps} title={mergedTooltip}>
+        <span
+          className={`${prefixCls}-item-tooltip`}
+          onClick={(e: React.MouseEvent) => {
             e.preventDefault();
-          },
-          tabIndex: null,
-        })}
+          }}
+          tabIndex={-1}
+        >
+          {mergedTooltipIcon || <QuestionCircleOutlined />}
+        </span>
       </Tooltip>
     );
 

@@ -1601,10 +1601,10 @@ describe('Form', () => {
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
-    it('config tooltip should show when hover on icon', async () => {
+    it('TooltipProps (deprecated)', async () => {
       const { container } = render(
         <Form>
-          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' } as any}>
             <Input />
           </Form.Item>
         </Form>,

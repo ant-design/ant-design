@@ -7,6 +7,7 @@ import { omit } from '@rc-component/util';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
+import type { TooltipProps } from '../tooltip';
 import type {
   FormInstance,
   FormLayout,
@@ -32,6 +33,8 @@ export interface FormContextProps {
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   form?: FormInstance;
   feedbackIcons?: FeedbackIcons;
+  tooltipIcon?: React.ReactNode;
+  tooltipProps?: TooltipProps;
 }
 
 export const FormContext = React.createContext<FormContextProps>({
