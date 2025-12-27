@@ -52,7 +52,7 @@ const DrawerNode = (
     styles={{
       header: { padding: 16 },
       body: { padding: 16 },
-      footer: { padding: '16px 10px', backgroundColor: 'rgba(250,250,250, .8)' },
+      footer: { padding: '16px 10px', backgroundColor: 'rgba(250,250,250, 0.8)' },
     }}
     footer={
       <Flex gap="middle" justify="flex-end">
