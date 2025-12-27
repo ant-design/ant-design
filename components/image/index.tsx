@@ -47,7 +47,7 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export type ImageSemanticName = 'root' | 'image' | 'cover';
+export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSemanticStyles;
 
 export type ImageSemanticClassNames = {
   root?: string;

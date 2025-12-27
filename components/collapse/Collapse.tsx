@@ -20,7 +20,7 @@ import useStyle from './style';
 
 export type ExpandIconPlacement = 'start' | 'end';
 
-export type CollapseSemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
+export type CollapseSemanticName = keyof CollapseSemanticClassNames & keyof CollapseSemanticStyles;
 
 export type CollapseSemanticClassNames = {
   root?: string;

@@ -85,9 +85,10 @@ export type ItemRender<T = any> = (
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
+
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export type SemanticName = 'root' | 'list' | 'item';
+export type SemanticName = keyof UploadSemanticClassNames & keyof UploadSemanticStyles;
 
 export type UploadSemanticClassNames = {
   root?: string;
