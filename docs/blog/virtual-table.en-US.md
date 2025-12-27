@@ -35,7 +35,7 @@ You can visit the [virtual list](/components/table#table-demo-virtual-list) exam
 
 ## Some details
 
-Table in antd internally uses the `@rc-component/table` component. Our virtual scrolling feature also reuses the `components` property mentioned above. Replace the middle `<tbody>` with `rc-virtual-list`, which is widely used in various virtual scrolling scenarios of antd like Select and Tree. `rc-virtual-list` itself does not support horizontal scrolling, so we also added horizontal scrolling support for it in this refactoring.
+Table in antd internally uses the `@rc-component/table` component. Our virtual scrolling feature also reuses the `components` property mentioned above. Replace the middle `<tbody>` with `@rc-component/virtual-list`, which is widely used in various virtual scrolling scenarios of antd like Select and Tree. `@rc-component/virtual-list` itself does not support horizontal scrolling, so we also added horizontal scrolling support for it in this refactoring.
 
 ### Fixed columns
 
@@ -47,7 +47,7 @@ For overlapping fixed columns, you only need to configure different offsets:
 
 <img alt="Stack Sticky" height="279" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HSW-S40yR_wAAAAAAAAAAAAADrJ8AQ/original" />
 
-We can also use this feature in virtual scrolling. Just reuse the `sticky` style to achieve the effect of fixed columns. `rc-virtual-list` only needs to provide horizontal scrolling, and does not need to care about the implementation of fixed columns.
+We can also use this feature in virtual scrolling. Just reuse the `sticky` style to achieve the effect of fixed columns. `@rc-component/virtual-list` only needs to provide horizontal scrolling, and does not need to care about the implementation of fixed columns.
 
 ### Expandable
 
@@ -130,7 +130,7 @@ So, think backwards. We only need to start from the visible area. Then get the R
 
 <img alt="fully cut off" height="400" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_LBQRKPhLaIAAAAAAAAAAAAADrJ8AQ/original" />
 
-`rc-virtual-list` provides the `extraRender` method, which will provide the row number currently rendered in virtual scrolling. We only need to execute `onCell` on each Record in this range to get the `rowSpan` and `colSpan` information of each `cell`. So we can know whether the current row has `rowSpan`:
+`@rc-component/virtual-list` provides the `extraRender` method, which will provide the row number currently rendered in virtual scrolling. We only need to execute `onCell` on each Record in this range to get the `rowSpan` and `colSpan` information of each `cell`. So we can know whether the current row has `rowSpan`:
 
 ```tsx
 // Fake code. Not used in real word

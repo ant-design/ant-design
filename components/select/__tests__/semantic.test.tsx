@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Select from '..';
-import type { SelectProps } from '..';
+import type { SelectClassNamesType, SelectProps } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Select.Semantic', () => {
@@ -28,7 +28,7 @@ describe('Select.Semantic', () => {
         list: 'custom-list',
         listItem: 'custom-list-item',
       },
-    };
+    } satisfies SelectClassNamesType;
     const styles = {
       root: { color: 'rgb(255, 0, 0)' },
       prefix: { color: 'rgb(0, 128, 255)' },
@@ -60,9 +60,9 @@ describe('Select.Semantic', () => {
     expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
     expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
     expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
-    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
-    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
-    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+    expect(container.querySelector(`.${classNames.popup?.root}`)).toHaveStyle(styles.popup.root);
+    expect(container.querySelector(`.${classNames.popup?.list}`)).toHaveStyle(styles.popup.list);
+    expect(container.querySelector(`.${classNames.popup?.listItem}`)).toHaveStyle(
       styles.popup.listItem,
     );
   });
@@ -72,16 +72,22 @@ describe('Select.Semantic', () => {
       root: 'custom-root',
       prefix: 'custom-prefix',
       suffix: 'custom-suffix',
+      item: 'custom-item',
+      itemContent: 'custom-item-content',
+      itemRemove: 'custom-item-remove',
       popup: {
         root: 'custom-popup',
         list: 'custom-list',
         listItem: 'custom-list-item',
       },
-    };
+    } satisfies SelectClassNamesType;
     const customStyles = {
       root: { color: 'rgb(255, 0, 0)' },
       prefix: { color: 'rgb(0, 128, 255)' },
       suffix: { color: 'rgb(255, 128, 0)' },
+      item: { background: 'rgb(255, 255, 240)' },
+      itemContent: { color: 'rgb(128, 0, 128)' },
+      itemRemove: { color: 'rgb(255, 0, 0)' },
       popup: {
         root: { color: 'rgb(128, 0, 128)' },
         list: { color: 'rgb(0, 0, 255)' },
@@ -107,6 +113,9 @@ describe('Select.Semantic', () => {
     const list = container.querySelector('.rc-virtual-list');
     const listItem = container.querySelector('.ant-select-item');
     const popup = container.querySelector('.ant-select-dropdown');
+    const item = container.querySelector('.ant-select-selection-item');
+    const itemContent = container.querySelector('.ant-select-selection-item-content');
+    const itemRemove = container.querySelector('.ant-select-selection-item-remove');
 
     expect(root).toHaveClass(customClassNames.root);
     expect(prefix).toHaveClass(customClassNames.prefix);
@@ -120,6 +129,15 @@ describe('Select.Semantic', () => {
     if (popup) {
       expect(popup).toHaveClass(customClassNames.popup.root);
     }
+    if (item) {
+      expect(item).toHaveClass(customClassNames.item);
+    }
+    if (itemContent) {
+      expect(itemContent).toHaveClass(customClassNames.itemContent);
+    }
+    if (itemRemove) {
+      expect(itemRemove).toHaveClass(customClassNames.itemRemove);
+    }
 
     expect(root).toHaveStyle(customStyles.root);
     expect(prefix).toHaveStyle(customStyles.prefix);
@@ -132,6 +150,15 @@ describe('Select.Semantic', () => {
     }
     if (popup) {
       expect(popup).toHaveStyle(customStyles.popup.root);
+    }
+    if (item) {
+      expect(item).toHaveStyle(customStyles.item);
+    }
+    if (itemContent) {
+      expect(itemContent).toHaveStyle(customStyles.itemContent);
+    }
+    if (itemRemove) {
+      expect(itemRemove).toHaveStyle(customStyles.itemRemove);
     }
   });
 

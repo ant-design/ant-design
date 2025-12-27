@@ -8,6 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import Checkbox from '../../checkbox';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 
@@ -960,6 +961,11 @@ describe('Transfer', () => {
     });
   });
 
+  it('should be no class name for the selected state,when transfer is disabled', () => {
+    const { container } = render(<Transfer {...listCommonProps} disabled={true} />);
+    expect(container.querySelectorAll('.ant-transfer-list-content-item-checked')).toHaveLength(0);
+  });
+
   describe('form disabled', () => {
     it('should support Form disabled', () => {
       const { container } = render(
@@ -990,6 +996,86 @@ describe('Transfer', () => {
       const transfers = container.querySelectorAll('.ant-transfer');
       expect(transfers[0]).not.toHaveClass('ant-transfer-disabled');
       expect(transfers[1]).toHaveClass('ant-transfer-disabled');
+    });
+
+    it('prioritize using the disabled property of the Transfer component', () => {
+      const App: React.FC = () => {
+        const mockData = Array.from({ length: 20 }).map((_, i) => ({
+          key: i.toString(),
+          title: `content${i + 1}`,
+          description: `description of content${i + 1}`,
+          disabled: i <= 5,
+        }));
+        const initialTargetKeys = mockData
+          .filter((item) => Number(item.key) > 10)
+          .map((item) => item.key);
+        const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
+        const [transferDisabled, setTransferDisabled] = useState<boolean>(true);
+        const [targetKeys] = useState<TransferProps['targetKeys']>(initialTargetKeys);
+        const [selectedKeys] = useState<TransferProps['targetKeys']>([]);
+        return (
+          <>
+            <Checkbox
+              checked={componentDisabled}
+              onChange={(e) => setComponentDisabled(e.target.checked)}
+            >
+              Form disabled
+            </Checkbox>
+            <Checkbox
+              checked={transferDisabled}
+              onChange={(e) => setTransferDisabled(e.target.checked)}
+            >
+              Transfer disabled
+            </Checkbox>
+            <Form
+              labelCol={{ span: 4 }}
+              wrapperCol={{ span: 14 }}
+              layout="horizontal"
+              disabled={componentDisabled}
+              style={{ maxWidth: 600 }}
+            >
+              <Form.Item label="Transfer">
+                <Transfer
+                  dataSource={mockData}
+                  titles={['Source', 'Target']}
+                  targetKeys={targetKeys}
+                  selectedKeys={selectedKeys}
+                  disabled={transferDisabled}
+                  render={(item) => item.title}
+                />
+              </Form.Item>
+            </Form>
+          </>
+        );
+      };
+      const { container } = render(<App />);
+      const transfer = container.querySelector('.ant-transfer');
+      const checkboxes = container.querySelectorAll('.ant-checkbox-input');
+      const formCheck: HTMLInputElement = checkboxes[0] as HTMLInputElement;
+      const transferCheck: HTMLInputElement = checkboxes[1] as HTMLInputElement;
+
+      expect(formCheck.checked).toBe(true);
+      expect(transferCheck.checked).toBe(true);
+      expect(transfer).toHaveClass('ant-transfer-disabled');
+
+      fireEvent.click(transferCheck);
+      expect(formCheck.checked).toBe(true);
+      expect(transferCheck.checked).toBe(false);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item-disabled')).toHaveLength(
+        6,
+      );
+
+      fireEvent.click(formCheck);
+      expect(formCheck.checked).toBe(false);
+      expect(transferCheck.checked).toBe(false);
+      expect(container.querySelectorAll('.ant-transfer-list-content-item-disabled')).toHaveLength(
+        6,
+      );
+
+      fireEvent.click(transferCheck);
+      expect(formCheck.checked).toBe(false);
+      expect(transferCheck.checked).toBe(true);
+      expect(transfer).toHaveClass('ant-transfer-disabled');
     });
   });
 });

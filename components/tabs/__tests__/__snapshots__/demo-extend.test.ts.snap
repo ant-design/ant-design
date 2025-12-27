@@ -2833,6 +2833,7 @@ exports[`renders components/tabs/demo/custom-indicator.tsx extend context correc
 Array [
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom: 8px;"
@@ -2850,9 +2851,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="start"
         >
           start
@@ -2868,9 +2867,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -2885,9 +2882,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="end"
         >
           end
@@ -4310,10 +4305,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4470,10 +4463,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4630,10 +4621,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4774,10 +4763,8 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"

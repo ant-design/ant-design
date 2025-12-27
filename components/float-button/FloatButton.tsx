@@ -9,9 +9,9 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { BadgeProps } from '../badge';
-import Button from '../button';
-import type { ButtonHTMLType } from '../button';
-import type { ButtonSemanticName } from '../button/button';
+import Button from '../button/Button';
+import type { ButtonHTMLType } from '../button/buttonHelpers';
+import type { ButtonSemanticName } from '../button/Button';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';

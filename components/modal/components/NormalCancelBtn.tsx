@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
 
-import Button from '../../button';
+import Button from '../../button/Button';
 import { ModalContext } from '../context';
 import type { ModalProps } from '../interface';
 

@@ -30,6 +30,7 @@ const App: React.FC = () => (
       <Select
         size="small"
         defaultValue="lucy"
+        aria-label="select"
         style={{ width: 150 }}
         options={[{ label: 'Lucy', value: 'lucy' }]}
       />

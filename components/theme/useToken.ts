@@ -118,8 +118,8 @@ export default function useToken(): [
   } = React.useContext(DesignTokenContext);
 
   const cssVar = {
-    prefix: ctxCssVar?.prefix || 'ant',
-    key: ctxCssVar?.key || 'css-var-root',
+    prefix: ctxCssVar?.prefix ?? 'ant',
+    key: ctxCssVar?.key ?? 'css-var-root',
   };
 
   const salt = `${version}-${hashed || ''}`;

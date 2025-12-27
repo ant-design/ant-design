@@ -175,15 +175,3 @@ interface EllipsisConfig {
 ## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Typography"></ComponentTokenTable>
-
-## FAQ
-
-### Typography.Link 如何与 react-router 库集成？ {#faq-link-react-router}
-
-`react-router` 支持[自定义](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md#component-reactcomponent)渲染组件：
-
-```tsx
-<Link to="/" component={Typography.Link} />
-```
-
-**注意：** 这并不是和 react-router 的 Link 的执行逻辑等价 [参考](https://github.com/ant-design/ant-design/pull/26737/files#r488769888)
