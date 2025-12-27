@@ -37,7 +37,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
   if (rect.width || rect.height) {
     if (container === window) {
-      return rect.top - element.ownerDocument!.documentElement!.clientTop;
+      return rect.top - element.ownerDocument.documentElement!.clientTop;
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
