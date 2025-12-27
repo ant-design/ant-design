@@ -98,7 +98,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
         // Makes vertical dropdowns have a scrollbar once they become taller than the viewport.
         '&-menu-vertical': {
-          maxHeight: '100vh',
+          maxHeight: '35vh',
           overflowY: 'auto',
         },
 
