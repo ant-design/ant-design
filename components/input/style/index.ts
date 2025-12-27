@@ -40,7 +40,7 @@ export const genActiveStyle = (token: InputToken) => ({
   backgroundColor: token.activeBg,
 });
 
-const genInputLargeStyle = (token: InputToken): CSSObject => {
+export const genInputLargeStyle = (token: InputToken): CSSObject => {
   const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
 
   return {

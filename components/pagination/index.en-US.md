@@ -20,7 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>
 <code src="./demo/jump.tsx">Jumper</code>
-<code src="./demo/mini.tsx">Mini size</code>
+<code src="./demo/mini.tsx">Size</code>
 <code src="./demo/simple.tsx">Simple mode</code>
 <code src="./demo/controlled.tsx">Controlled</code>
 <code src="./demo/total.tsx">Total number</code>
@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
 | simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  |
-| size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
+| size | Component size | `default` \| `small` \| `large` | `default` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
