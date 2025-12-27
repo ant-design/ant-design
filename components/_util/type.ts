@@ -11,6 +11,24 @@ export type EmptyObject = Record<never, never>;
 
 export type CustomComponent<P = AnyObject> = React.ComponentType<P> | string;
 
+type AnyFunction = (...args: any[]) => any;
+
+type Builtin = Primitive | Date | RegExp | Error | AnyFunction;
+
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Promise<infer U>
+    ? Promise<DeepPartial<U>>
+    : T extends Map<infer K, infer V>
+      ? Map<DeepPartial<K>, DeepPartial<V>>
+      : T extends Set<infer U>
+        ? Set<DeepPartial<U>>
+        : T extends ReadonlyArray<infer U>
+          ? ReadonlyArray<DeepPartial<U>>
+          : T extends object
+            ? { [K in keyof T]?: DeepPartial<T[K]> }
+            : T;
+
 /**
  * Get component props
  * @example
