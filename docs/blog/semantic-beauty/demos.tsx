@@ -23,7 +23,12 @@ const ModalNode = (
         >
           Cancel
         </Button>
-        <Button type="primary" styles={{ root: { backgroundColor: '#171717' } }}>
+        <Button
+          type="primary"
+          styles={{
+            root: { backgroundColor: '#171717', boxShadow: '0 2px 0 rgba(23,23,23,0.31)' },
+          }}
+        >
           Submit
         </Button>
       </>
@@ -33,7 +38,7 @@ const ModalNode = (
       container: { borderRadius: 14, border: '1px solid #ccc', padding: 0, overflow: 'hidden' },
       header: { padding: 16, margin: 0 },
       body: { padding: '0 16px' },
-      footer: { padding: 10, backgroundColor: '#fafafa' },
+      footer: { padding: 10, backgroundColor: 'rgba(250,250,250, .8)' },
     }}
   >
     <div>🌈 Following the Ant Design specification.</div>
@@ -47,7 +52,7 @@ const DrawerNode = (
     styles={{
       header: { padding: 16 },
       body: { padding: 16 },
-      footer: { padding: '16px 10px', backgroundColor: '#fafafa' },
+      footer: { padding: '16px 10px', backgroundColor: 'rgba(250,250,250, .8)' },
     }}
     footer={
       <Flex gap="middle" justify="flex-end">
@@ -56,7 +61,12 @@ const DrawerNode = (
         >
           Cancel
         </Button>
-        <Button type="primary" styles={{ root: { backgroundColor: '#171717' } }}>
+        <Button
+          type="primary"
+          styles={{
+            root: { backgroundColor: '#171717', boxShadow: '0 2px 0 rgba(23,23,23,0.31)' },
+          }}
+        >
           Submit
         </Button>
       </Flex>
