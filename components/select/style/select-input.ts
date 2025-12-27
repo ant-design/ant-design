@@ -218,6 +218,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           background: token.colorBgContainerDisabled,
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
+
+          input: {
+            cursor: 'not-allowed',
+          },
         },
 
         // ==========================================================
@@ -281,7 +285,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
       // ======================== Show Search =======================
       {
-        [`&-show-search:not(${componentCls}-customize-input)`]: {
+        [`&-show-search:not(${componentCls}-customize-input):not(${componentCls}-disabled)`]: {
           cursor: 'text',
         },
       },
