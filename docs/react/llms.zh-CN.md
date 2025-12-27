@@ -1,6 +1,7 @@
 ---
 group:
   title: AI
+  order: 0.9
 order: 1
 title: LLMs.txt
 tag: New

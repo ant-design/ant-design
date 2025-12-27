@@ -12,23 +12,22 @@ import useLocation from './useLocation';
 const locales = {
   cn: {
     deprecated: '废弃',
-    update: '更新',
+    updated: '更新',
     new: '新增',
   },
   en: {
     deprecated: 'DEPRECATED',
-    update: 'UPDATE',
+    updated: 'UPDATED',
     new: 'NEW',
   },
 };
 
 const getTagColor = (val?: string) => {
   switch (val?.toUpperCase()) {
-    case 'UPDATE':
+    case 'UPDATED':
       return 'processing';
     case 'DEPRECATED':
       return 'red';
-
     default:
       return 'success';
   }
