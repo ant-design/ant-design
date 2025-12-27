@@ -21,14 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
-      - run: bun
-      - name: bun site
+      - run: bun install
+      - name: bun run site
         id: site
-        run: oven-sh/setup-bun@v2
+        run: bun run site
         env:
           NODE_OPTIONS: --max_old_space_size=4096
       - name: run e2e test
-        run: bun test:site
+        run: bun run test:site
       - name: upload site artifact
         uses: actions/upload-artifact@v4
         with:
