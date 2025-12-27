@@ -3,6 +3,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import { ConfigContext } from '../context';
 
 jest.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
 
@@ -47,5 +48,16 @@ describe('ConfigProvider.Wave', () => {
 
     expect(onClick).toHaveBeenCalled();
     expect(showEffect).toHaveBeenCalled();
+  });
+
+  it('should pass wave config to context', () => {
+    const { container } = render(
+      <ConfigProvider wave={{ triggerType: 'onPointerDown' }}>
+        <ConfigContext.Consumer>
+          {(context) => <div id="trigger">{context.wave?.triggerType}</div>}
+        </ConfigContext.Consumer>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('#trigger')?.textContent).toBe('onPointerDown');
   });
 });
