@@ -14,7 +14,7 @@ jobs:
     permissions:
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: remove inactive
         if: github.event.issue.state == 'open' && github.actor == github.event.issue.user.login

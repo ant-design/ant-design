@@ -13,7 +13,7 @@ jobs:
       contents: read  # for visiky/dingtalk-release-notify to get latest release
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions-cool/check-user-permission@v2
         id: checkUser

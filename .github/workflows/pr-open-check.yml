@@ -12,7 +12,7 @@ jobs:
     permissions:
       issues: write  # for actions-cool/pr-welcome to create, update & react on issues
       pull-requests: write  # for actions-cool/pr-welcome to request reviewer
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions-cool/pr-welcome@4bd317d60ef3b40a3ccda39c22f66c3358010f92
         with:
@@ -30,7 +30,7 @@ jobs:
   check-changelog:
     permissions:
       pull-requests: write  # for actions-cool/pr-check-fill to create or update PR comments
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: check fill
         uses: actions-cool/pr-check-fill@35194e32fd717c88c4fde15fbde9005933c2d452

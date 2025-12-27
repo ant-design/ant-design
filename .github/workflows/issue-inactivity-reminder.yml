@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   reminder_job:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: Send reminders for inactive issues
         uses: actions/github-script@v8
