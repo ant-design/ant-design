@@ -8,7 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*f0SISaETY0wAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*y92yRYhObU8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
-tag: 5.21.0
 ---
 
 ## 何时使用 {#when-to-use}

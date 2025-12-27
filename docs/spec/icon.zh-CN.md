@@ -47,12 +47,12 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bVtUZqDRbGuaoVbwYqua.png" alt="分层">
 </div>
 
-## 轮廓线与模版
+## 轮廓线与模板
 
-我们对设计模版进行了优化，根据出血位的尺寸，调整轮廓线的宽高，同时增加两个等边三角形和一个圆，这些都是图标设计中最常用的基本形式，设计师可以快速的调用并在此基础上做变形。
+我们对设计模板进行了优化，根据出血位的尺寸，调整轮廓线的宽高，同时增加两个等边三角形和一个圆，这些都是图标设计中最常用的基本形式，设计师可以快速的调用并在此基础上做变形。
 
 <div>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ycDkLxfAqjnRsWZuHvik.png" alt="轮廓线与模版">
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ycDkLxfAqjnRsWZuHvik.png" alt="轮廓线与模板">
 </div>
 
 ## 图标设计指引
