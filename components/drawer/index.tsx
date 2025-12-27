@@ -41,7 +41,7 @@ export interface DrawerProps
       'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable' | 'classNames' | 'styles'
     >,
     Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
-  size?: sizeType | number;
+  size?: sizeType | number | string;
   resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
@@ -155,6 +155,12 @@ const Drawer: React.FC<DrawerProps> & {
       return DEFAULT_SIZE;
     }
 
+    if (typeof size === 'string') {
+      if (/^\d+(\.\d+)?$/.test(size)) {
+        return Number(size);
+      }
+      return size;
+    }
     if (!placement || placement === 'left' || placement === 'right') {
       return width;
     }
