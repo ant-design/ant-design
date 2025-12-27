@@ -52,7 +52,8 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export type BreadcrumbSemanticName = 'root' | 'item' | 'separator';
+export type BreadcrumbSemanticName = keyof BreadcrumbSemanticClassNames &
+  keyof BreadcrumbSemanticStyles;
 
 export type BreadcrumbSemanticClassNames = {
   root?: string;

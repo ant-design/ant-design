@@ -20,14 +20,7 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
-export type AlertSemanticName =
-  | 'root'
-  | 'icon'
-  | 'section'
-  | 'title'
-  | 'description'
-  | 'actions'
-  | 'close';
+export type AlertSemanticName = keyof AlertSemanticClassNames & keyof AlertSemanticStyles;
 
 export type AlertSemanticClassNames = {
   root?: string;

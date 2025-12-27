@@ -112,7 +112,7 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export type TreeSemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
+export type TreeSemanticName = keyof TreeSemanticClassNames & keyof TreeSemanticStyles;
 
 export type TreeSemanticClassNames = {
   root?: string;

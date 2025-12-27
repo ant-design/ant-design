@@ -30,7 +30,7 @@ interface CheckableTagGroupMultipleProps<CheckableTagValue> {
   onChange?: (value: CheckableTagValue[]) => void;
 }
 
-export type SemanticName = 'root' | 'item';
+export type SemanticName = keyof TagGroupSemanticClassNames & keyof TagGroupSemanticStyles;
 
 export type TagGroupSemanticClassNames = {
   root?: string;
