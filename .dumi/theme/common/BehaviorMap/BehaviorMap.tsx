@@ -22,7 +22,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     width: 100%;
     min-height: 600px;
     height: fit-content;
-    background-color: #f5f5f5;
+    background-color: ${cssVar.colorBgLayout};
     border: 1px solid #e8e8e8;
     border-radius: ${cssVar.borderRadiusLG};
     overflow: hidden;
@@ -54,7 +54,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     inset-inline-end: 20px;
     z-index: 10;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: ${cssVar.fontSize};
   `,
   mvp: css`
     margin-inline-end: ${cssVar.marginMD};
