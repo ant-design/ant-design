@@ -961,6 +961,11 @@ describe('Transfer', () => {
     });
   });
 
+  it('should be no class name for the selected state,when transfer is disabled', () => {
+    const { container } = render(<Transfer {...listCommonProps} disabled={true} />);
+    expect(container.querySelectorAll('.ant-transfer-list-content-item-checked')).toHaveLength(0);
+  });
+
   describe('form disabled', () => {
     it('should support Form disabled', () => {
       const { container } = render(

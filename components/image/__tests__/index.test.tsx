@@ -247,26 +247,25 @@ describe('Image', () => {
       ),
     ];
     demos.forEach((demo, index) => {
-      it.each(testCases)(
-        `${index === 0 ? 'Image:' : 'Image.PreviewGroup'} imageMask = %s configMask = %s ,mask blur = %s`,
-        (imageMask, configMask, expectedBlurClass, openMask) => {
-          render(demo(imageMask as MaskType, configMask));
-          fireEvent.click(document.querySelector('.ant-image')!);
+      it.each(
+        testCases,
+      )(`${index === 0 ? 'Image:' : 'Image.PreviewGroup'} imageMask = %s configMask = %s ,mask blur = %s`, (imageMask, configMask, expectedBlurClass, openMask) => {
+        render(demo(imageMask as MaskType, configMask));
+        fireEvent.click(document.querySelector('.ant-image')!);
 
-          const maskElement = document.querySelector('.ant-image-preview-mask');
-          expect(maskElement).toBeInTheDocument();
-          if (!openMask) {
-            const hiddenMask = document.querySelector('.ant-image-preview-mask-hidden');
-            expect(hiddenMask).toBeTruthy();
-            return;
-          }
-          if (expectedBlurClass) {
-            expect(maskElement).toHaveClass('ant-image-preview-mask-blur');
-          } else {
-            expect(maskElement).not.toHaveClass('ant-image-preview-mask-blur');
-          }
-        },
-      );
+        const maskElement = document.querySelector('.ant-image-preview-mask');
+        expect(maskElement).toBeInTheDocument();
+        if (!openMask) {
+          const hiddenMask = document.querySelector('.ant-image-preview-mask-hidden');
+          expect(hiddenMask).toBeTruthy();
+          return;
+        }
+        if (expectedBlurClass) {
+          expect(maskElement).toHaveClass('ant-image-preview-mask-blur');
+        } else {
+          expect(maskElement).not.toHaveClass('ant-image-preview-mask-blur');
+        }
+      });
     });
   });
 });
