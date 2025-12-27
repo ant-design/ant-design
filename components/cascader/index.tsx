@@ -53,16 +53,7 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-export type SemanticName =
-  | 'root'
-  | 'prefix'
-  | 'suffix'
-  | 'input'
-  | 'placeholder'
-  | 'content'
-  | 'item'
-  | 'itemContent'
-  | 'itemRemove';
+export type SemanticName = keyof CascaderSemanticClassNames & keyof CascaderSemanticStyles;
 
 export type CascaderSemanticClassNames = {
   root?: string;

@@ -11,15 +11,7 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 
-export type SemanticName =
-  | 'root'
-  | 'header'
-  | 'body'
-  | 'footer'
-  | 'container'
-  | 'title'
-  | 'wrapper'
-  | 'mask';
+export type SemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles;
 
 export type ModalSemanticClassNames = {
   root?: string;
