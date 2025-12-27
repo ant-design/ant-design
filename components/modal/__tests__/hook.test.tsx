@@ -1,5 +1,4 @@
 import React from 'react';
-import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -336,7 +335,7 @@ describe('Modal.hook', () => {
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Press ESC to turn off
     fireEvent.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
-      keyCode: KeyCode.ESC,
+      key: 'Escape',
     });
 
     await waitFakeTimer();
@@ -557,8 +556,7 @@ describe('Modal.hook', () => {
 
     // ESC to close
     fireEvent.keyDown(document.querySelector('.ant-modal')!, {
-      key: 'Esc',
-      keyCode: KeyCode.ESC,
+      key: 'Escape',
     });
     await waitFakeTimer();
 
