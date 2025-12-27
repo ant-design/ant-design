@@ -38,7 +38,7 @@ const ModalNode = (
       container: { borderRadius: 14, border: '1px solid #ccc', padding: 0, overflow: 'hidden' },
       header: { padding: 16, margin: 0 },
       body: { padding: '0 16px' },
-      footer: { padding: 10, backgroundColor: 'rgba(250,250,250, .8)' },
+      footer: { padding: 10, backgroundColor: 'rgba(250,250,250, 0.8)' },
     }}
   >
     <div>🌈 Following the Ant Design specification.</div>
