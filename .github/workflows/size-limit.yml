@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@v1.0.4
       - name: size-limit
         uses: ant-design/size-limit-action@master
         with:
