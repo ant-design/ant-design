@@ -240,6 +240,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | placement | 指定分页显示的位置， 取值为`topStart` \| `topCenter` \| `topEnd` \|`bottomStart` \| `bottomCenter` \| `bottomEnd`\| `none` | Array | \[`bottomEnd`] |
+| fixed | 是否固定分页 | boolean \| {offset?:number} | false |
 | ~~position~~ | 指定分页显示的位置， 取值为`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` \| `none`，请使用 `placement` 替换 | Array | \[`bottomRight`] |
 
 更多配置项，请查看 [`Pagination`](/components/pagination-cn)。
