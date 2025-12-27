@@ -1,4 +1,4 @@
-const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
+const { moduleNameMapper } = require('./.jest');
 
 // jest config for server render environment
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
   },
   testRegex: 'check-site\\.(j|t)s$',
   testEnvironment: 'node',
-  transformIgnorePatterns,
+  transformIgnorePatterns: ['node_modules/(?!(parse5)/)'],
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',
