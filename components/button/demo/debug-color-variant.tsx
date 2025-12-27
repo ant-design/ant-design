@@ -117,6 +117,22 @@ const App: React.FC = () => {
           <Button type="dashed">Dashed</Button>
         </ConfigProvider>
       </Flex>
+      <Flex gap="small" wrap>
+        <ConfigProvider
+          theme={{
+            components: {
+              Button: {
+                textTextColor: '#f60',
+                textTextHoverColor: '#722ed1',
+                textTextActiveColor: '#0f0',
+                textHoverBg: '#000',
+              },
+            },
+          }}
+        >
+          <Button type="text">type="text" (Default)</Button>
+        </ConfigProvider>
+      </Flex>
     </Flex>
   );
 };
