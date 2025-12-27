@@ -20,15 +20,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@v1
-      - run: ut
-      - name: ut site
+      - uses: oven-sh/setup-bun@v2
+      - run: bun
+      - name: bun site
         id: site
-        run: ut site
+        run: oven-sh/setup-bun@v2
         env:
           NODE_OPTIONS: --max_old_space_size=4096
       - name: run e2e test
-        run: ut test:site
+        run: bun test:site
       - name: upload site artifact
         uses: actions/upload-artifact@v4
         with:
