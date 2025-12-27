@@ -10,7 +10,6 @@ demo:
 group:
   title: 数据展示
   order: 5
-tag: 5.1.0
 ---
 
 ## 何时使用 {#when-to-use}
