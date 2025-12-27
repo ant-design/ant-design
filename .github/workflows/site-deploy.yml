@@ -68,23 +68,6 @@ jobs:
           name: real-site
           path: _site
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          exclude_assets: ./_site/report.html
-          force_orphan: true
-
-      # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@v1
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
-        with:
-          source-repo: 'git@github.com:ant-design/ant-design.git'
-          destination-repo: 'git@gitee.com:ant-design/ant-design.git'
-
       - name: Deploy to Surge (with TAG)
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
