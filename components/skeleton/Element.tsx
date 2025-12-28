@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-export type ElementSemanticName = 'root' | 'content';
+export type ElementSemanticName = keyof ElementSemanticClassNames & keyof ElementSemanticStyles;
 
 export type ElementSemanticClassNames = {
   root?: string;
