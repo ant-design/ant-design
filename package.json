@@ -284,7 +284,7 @@
     "ora": "^9.0.0",
     "p-all": "^5.0.1",
     "package-manager-detector": "^1.6.0",
-    "parse5": "6.0.1",
+    "parse5": "8.0.0",
     "parse5-htmlparser2-tree-adapter": "6.0.1",
     "parse5-parser-stream": "6.0.1",
     "pngjs": "^7.0.0",
