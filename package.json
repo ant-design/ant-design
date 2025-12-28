@@ -286,7 +286,7 @@
     "package-manager-detector": "^1.6.0",
     "parse5": "8.0.0",
     "parse5-htmlparser2-tree-adapter": "6.0.1",
-    "parse5-parser-stream": "6.0.1",
+    "parse5-parser-stream": "8.0.0",
     "pngjs": "^7.0.0",
     "portfinder": "^1.0.38",
     "prettier": "^3.7.4",
