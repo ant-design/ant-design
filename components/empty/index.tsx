@@ -17,7 +17,7 @@ export interface TransferLocale {
   description: string;
 }
 
-export type EmptySemanticName = 'root' | 'image' | 'description' | 'footer';
+export type EmptySemanticName = keyof EmptySemanticClassNames & keyof EmptySemanticStyles;
 
 export type EmptySemanticClassNames = {
   root?: string;

@@ -37,7 +37,7 @@ export type FormItemLayout = 'horizontal' | 'vertical';
 
 export type { ScrollFocusOptions };
 
-export type FormSemanticName = 'root' | 'label' | 'content';
+export type FormSemanticName = keyof FormSemanticClassNames & keyof FormSemanticStyles;
 
 export type FormSemanticClassNames = {
   root?: string;

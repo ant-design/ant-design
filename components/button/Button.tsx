@@ -29,7 +29,7 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export type ButtonSemanticName = 'root' | 'icon' | 'content';
+export type ButtonSemanticName = keyof ButtonSemanticClassNames & keyof ButtonSemanticStyles;
 
 export type ButtonSemanticClassNames = {
   root?: string;

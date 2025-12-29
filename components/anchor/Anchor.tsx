@@ -52,7 +52,7 @@ interface Section {
   top: number;
 }
 
-export type SemanticName = 'root' | 'item' | 'itemTitle' | 'indicator';
+export type SemanticName = keyof AnchorSemanticClassNames & keyof AnchorSemanticStyles;
 
 export type AnchorSemanticClassNames = {
   root?: string;
