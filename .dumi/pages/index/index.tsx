@@ -73,7 +73,7 @@ const Homepage: React.FC = () => {
         <Group
           title={locale.designTitle}
           description={locale.designDesc}
-          background={isDark ? '#393F4A' : '#fff'}
+          background={isDark ? '#393F4A' : token.colorBgContainer}
           decoration={
             <img
               draggable={false}
