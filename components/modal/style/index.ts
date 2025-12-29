@@ -237,10 +237,8 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         width: 'auto',
         maxWidth: `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
         margin: '0 auto',
-        // we should remove it when next major version
-        paddingBottom: token.paddingLG,
+
         '&:focus-visible': {
-          paddingBottom: 0,
           borderRadius: token.borderRadiusLG,
           ...genFocusOutline(token),
         },
