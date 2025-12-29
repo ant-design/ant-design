@@ -1,21 +1,21 @@
 import React, { Suspense, use, useState } from 'react';
 import { Button, Flex, Typography } from 'antd';
+import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { createStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
+import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
+import PromptDrawer from '../../../../theme/common/ThemeSwitch/PromptDrawer';
+import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import type { SiteContextProps } from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import GroupMaskLayer from '../GroupMaskLayer';
 import { muiComponentConfig, muiDark, muiLight } from './themes/mui';
 import { shadcnComponentConfig, shadcnDark, shadcnLight } from './themes/shadcn';
-import PromptDrawer from '../../../../theme/common/ThemeSwitch/PromptDrawer';
-import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
-import type { ConfigProviderProps, ThemeConfig } from 'antd';
-import { DarkContext } from '../../../../hooks/useDark';
 
 import '../SiteContext';
 
@@ -203,7 +203,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { styles } = useStyle(siteConfig);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
-  const [theme, setTheme] = useState('antd');
+  const [theme, setTheme] = useState<THEME_MAP>('antd');
   const isDark = React.use(DarkContext);
 
   const themeMap: Record<THEME_MAP, Theme> = {
@@ -241,6 +241,10 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
       },
       swatches: ['#1677ff', '#91d5ff', '#f0f5ff'],
     },
+  };
+  const config: ConfigProviderProps = {
+    theme: themeMap[theme].theme,
+    ...themeMap[theme].componentsConfig,
   };
 
   return (
@@ -292,7 +296,6 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
                     role="button"
                     tabIndex={0}
                     onClick={() => setTheme(themeMap[key].name)}
-                    onKeyDown={() => {}}
                     className={clsx(styles.presetButton)}
                     style={{
                       ...themeMap[key].style,
@@ -362,12 +365,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
           <Suspense fallback={null}>
             {siteConfig.isMobile ? null : (
               <div className={styles.block} style={{ position: 'relative', zIndex: 1 }}>
-                <ComponentsBlock
-                  config={{
-                    theme: themeMap[theme].theme,
-                    ...themeMap[theme].componentsConfig,
-                  }}
-                />
+                <ComponentsBlock config={config} />
               </div>
             )}
           </Suspense>
