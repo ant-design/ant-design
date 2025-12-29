@@ -49,7 +49,8 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
       max-width: 100%;
       margin-inline: auto;
       box-sizing: border-box;
-      column-gap: calc(${cssVar.paddingMD} * 2);
+      column-gap: calc(${cssVar.paddingMD} * 1);
+      padding: 0 16px;
       align-items: stretch;
       text-align: start;
       min-height: 178px;
