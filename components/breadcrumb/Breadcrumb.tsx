@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DownOutlined } from '@ant-design/icons';
 import { toArray } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
@@ -52,7 +53,8 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export type BreadcrumbSemanticName = 'root' | 'item' | 'separator';
+export type BreadcrumbSemanticName = keyof BreadcrumbSemanticClassNames &
+  keyof BreadcrumbSemanticStyles;
 
 export type BreadcrumbSemanticClassNames = {
   root?: string;
@@ -80,6 +82,7 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   prefixCls?: string;
   params?: T;
   separator?: React.ReactNode;
+  dropdownIcon?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -120,6 +123,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     params = {},
     classNames,
     styles,
+    dropdownIcon,
     ...restProps
   } = props;
 
@@ -131,9 +135,11 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     classNames: contextClassNames,
     styles: contextStyles,
     separator: contextSeparator,
+    dropdownIcon: contextDropdownIcon,
   } = useComponentConfig('breadcrumb');
 
   const mergedSeparator = separator ?? contextSeparator ?? '/';
+  const mergedDropdownIcon = dropdownIcon ?? contextDropdownIcon ?? <DownOutlined />;
 
   let crumbs: React.ReactNode;
 
@@ -239,6 +245,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           className={itemClassName}
           style={style}
           dropdownProps={dropdownProps}
+          dropdownIcon={mergedDropdownIcon}
           href={href}
           separator={isLastItem ? '' : mergedSeparator}
           onClick={onClick}

@@ -32,7 +32,8 @@ export type TimePickerSemanticStyles = {
   suffix?: React.CSSProperties;
 };
 
-export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer' | 'container';
+export type PanelSemanticName = keyof TimePickerPanelSemanticClassNames &
+  keyof TimePickerPanelSemanticStyles;
 
 export type TimePickerPanelSemanticClassNames = {
   root?: string;

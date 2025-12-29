@@ -1,7 +1,7 @@
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
-export type SplitterSemanticName = 'root' | 'panel';
+export type SplitterSemanticName = keyof SplitterSemanticClassNames & keyof SplitterSemanticStyles;
 
 export type SplitterSemanticClassNames = {
   root?: string;
