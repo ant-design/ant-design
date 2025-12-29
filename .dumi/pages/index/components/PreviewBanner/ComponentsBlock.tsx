@@ -110,10 +110,9 @@ interface ComponentsBlockProps {
   config: ThemeConfig;
 }
 
-const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
+const ComponentsBlock: React.FC<ComponentsBlockProps> = ({ config }) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const { config } = props;
 
   return (
     <ConfigProvider {...config}>
