@@ -30,7 +30,7 @@ export type TabPlacement = 'top' | 'end' | 'bottom' | 'start';
 
 export type { TabPaneProps };
 
-export type TabsSemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header';
+export type TabsSemanticName = keyof TabsSemanticClassNames & keyof TabsSemanticStyles;
 
 export type TabsSemanticClassNames = {
   root?: string;

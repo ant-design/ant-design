@@ -20,7 +20,8 @@ import type {
 } from '../select';
 import Select from '../select';
 
-export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input' | 'placeholder' | 'content';
+export type AutoCompleteSemanticName = keyof AutoCompleteSemanticClassNames &
+  keyof AutoCompleteSemanticStyles;
 
 export type AutoCompleteSemanticClassNames = {
   root?: string;

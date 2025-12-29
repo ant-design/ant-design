@@ -15,7 +15,6 @@ import type {
   AbstractTooltipProps,
   TooltipRef,
   TooltipSemanticClassNames,
-  SemanticName as TooltipSemanticName,
   TooltipSemanticStyles,
 } from '../tooltip';
 import Tooltip from '../tooltip';
@@ -24,7 +23,7 @@ import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 
-export type PopoverSemanticName = TooltipSemanticName | 'title' | 'content';
+export type PopoverSemanticName = keyof PopoverSemanticClassNames & keyof PopoverSemanticStyles;
 
 export type PopoverSemanticClassNames = TooltipSemanticClassNames & {
   title?: string;

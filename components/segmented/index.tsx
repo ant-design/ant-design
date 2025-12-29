@@ -20,7 +20,7 @@ import useStyle from './style';
 
 export type { SegmentedValue } from '@rc-component/segmented';
 
-export type SemanticName = 'root' | 'icon' | 'label' | 'item';
+export type SemanticName = keyof SegmentedSemanticClassNames & keyof SegmentedSemanticStyles;
 
 export type SegmentedSemanticClassNames = {
   root?: string;
