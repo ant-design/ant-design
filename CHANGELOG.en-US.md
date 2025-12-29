@@ -20,8 +20,8 @@ tag: vVERSION
 `2025-12-29`
 
 - 🐞 Fix Drawer.PurePanel failing to respond to mouse interactions. [#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
-- 🐞 Fix Select unknown-prop warnings by preventing `options` props from leaking to the DOM. [#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
-- 🤖 Improve TypeScript type definitions for components. [#56401](https://github.com/ant-design/ant-design/pull/56401) [@meet-student](https://github.com/meet-student)
+- 🐞 Fix Select `options` props leaking to DOM elements and causing React unknown-prop warnings. [#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+- 🤖 MISC: Improve TypeScript type definitions. [#56401](https://github.com/ant-design/ant-design/pull/56401) [@meet-student](https://github.com/meet-student)
 
 ## 6.1.2
 
