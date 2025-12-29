@@ -8,18 +8,7 @@ import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '.
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
-export type SemanticName =
-  | 'root'
-  | 'mask'
-  | 'header'
-  | 'title'
-  | 'extra'
-  | 'section'
-  | 'body'
-  | 'footer'
-  | 'wrapper'
-  | 'dragger'
-  | 'close';
+export type SemanticName = keyof DrawerSemanticClassNames & keyof DrawerSemanticStyles;
 
 export type DrawerSemanticClassNames = {
   root?: string;

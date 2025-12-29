@@ -4,7 +4,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
-export type SemanticName = 'root' | 'icon' | 'content';
+export type SemanticName = keyof MessageSemanticClassNames & keyof MessageSemanticStyles;
 
 export type MessageSemanticClassNames = {
   root?: string;

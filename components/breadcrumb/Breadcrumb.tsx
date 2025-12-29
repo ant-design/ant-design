@@ -14,7 +14,7 @@ import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbContextProps } from './BreadcrumbContext';
 import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
-import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
+import { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
 import useItemRender from './useItemRender';
@@ -53,7 +53,8 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export type BreadcrumbSemanticName = 'root' | 'item' | 'separator';
+export type BreadcrumbSemanticName = keyof BreadcrumbSemanticClassNames &
+  keyof BreadcrumbSemanticStyles;
 
 export type BreadcrumbSemanticClassNames = {
   root?: string;
@@ -300,9 +301,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     </BreadcrumbContext.Provider>
   );
 };
-
-Breadcrumb.Item = BreadcrumbItem;
-Breadcrumb.Separator = BreadcrumbSeparator;
 
 if (process.env.NODE_ENV !== 'production') {
   Breadcrumb.displayName = 'Breadcrumb';

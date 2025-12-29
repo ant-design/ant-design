@@ -20,7 +20,7 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
-export type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';
+export type SemanticName = keyof SkeletonSemanticClassNames & keyof SkeletonSemanticStyles;
 
 export type SkeletonSemanticClassNames = {
   root?: string;

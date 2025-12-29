@@ -5,7 +5,7 @@ import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 
-export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
+export type SemanticName = keyof CardMetaSemanticClassNames & keyof CardMetaSemanticStyles;
 
 export type CardMetaSemanticClassNames = {
   root?: string;

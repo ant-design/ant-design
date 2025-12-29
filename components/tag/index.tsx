@@ -22,7 +22,7 @@ import StatusCmp from './style/statusCmp';
 export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
-export type TagSemanticName = 'root' | 'icon' | 'content';
+export type TagSemanticName = keyof TagSemanticClassNames & keyof TagSemanticStyles;
 
 export type TagSemanticClassNames = {
   root?: string;

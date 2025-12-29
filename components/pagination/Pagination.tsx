@@ -25,7 +25,7 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
-export type SemanticName = 'root' | 'item';
+export type SemanticName = keyof PaginationSemanticClassNames & keyof PaginationSemanticStyles;
 
 export type PaginationSemanticName = SemanticName;
 
