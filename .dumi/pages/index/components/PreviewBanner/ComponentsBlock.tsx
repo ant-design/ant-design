@@ -18,7 +18,7 @@ import {
   Switch,
   Tooltip,
 } from 'antd';
-import type { ThemeConfig } from 'antd';
+import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -107,12 +107,13 @@ const useStyle = createStyles(({ cssVar, css }) => {
   };
 });
 interface ComponentsBlockProps {
-  config: ThemeConfig;
+  config: ConfigProviderProps;
 }
 
-const ComponentsBlock: React.FC<ComponentsBlockProps> = ({ config }) => {
+const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
+  const { config } = props;
 
   return (
     <ConfigProvider {...config}>
