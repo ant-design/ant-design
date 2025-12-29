@@ -17,6 +17,14 @@ tag: vVERSION
 
 ## 6.1.2
 
+`2025-12-29`
+
+- 🐞 修复 Drawer.PurePanel 无法响应鼠标交互的问题。[#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Select 组件 `options` 属性透传至 DOM 导致的 React 无关属性警告。[#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+- 🤖 优化 TypeScript 相关的组件类型定义。[#56401](https://github.com/ant-design/ant-design/pull/56401) [@meet-student](https://github.com/meet-student)
+
+## 6.1.2
+
 `2025-12-24`
 
 - 🐞 修复 Wave 组件水波纹消失的问题，以及 Button 组件在配置 Dropdown 后，点击触发再次 `hover` 时无法立刻显示 Dropdown 的问题。[#56273](https://github.com/ant-design/ant-design/pull/56273) [@zombieJ](https://github.com/zombieJ)
