@@ -1,13 +1,14 @@
 import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import {
-  Alert,
+  Card,
   Carousel,
   DatePicker,
   Flex,
   FloatButton,
+  Masonry,
   Modal,
-  Progress,
+  Splitter,
   Tag,
   Tour,
   Typography,
@@ -181,29 +182,30 @@ const ComponentsList: React.FC = () => {
         ),
       },
 
-      {
-        title: 'Progress',
-        type: 'update',
-        node: (
-          <Flex gap="small" vertical>
-            <Flex gap="small" align="center">
-              <Progress type="circle" railColor="#e6f4ff" percent={60} size={14} />
-              {locale.inProgress}
-            </Flex>
-            <Flex gap="small" align="center">
-              <Progress type="circle" percent={100} size={14} />
-              {locale.success}
-            </Flex>
-            <Flex gap="small" align="center">
-              <Progress type="circle" status="exception" percent={88} size={14} />
-              {locale.taskFailed}
-            </Flex>
-          </Flex>
-        ),
-      },
+      // {
+      //   title: 'Progress',
+      //   type: 'update',
+      //   node: (
+      //     <Flex gap="small" vertical>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" railColor="#e6f4ff" percent={60} size={14} />
+      //         {locale.inProgress}
+      //       </Flex>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" percent={100} size={14} />
+      //         {locale.success}
+      //       </Flex>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" status="exception" percent={88} size={14} />
+      //         {locale.taskFailed}
+      //       </Flex>
+      //     </Flex>
+      //   ),
+      // },
+
       {
         title: 'Tour',
-        type: 'new',
+        type: 'update',
         node: (
           <TourDoNotUseOrYouWillBeFired
             title="Ant Design"
@@ -214,9 +216,10 @@ const ComponentsList: React.FC = () => {
           />
         ),
       },
+
       {
         title: 'FloatButton',
-        type: 'new',
+        type: 'update',
         node: (
           <Flex align="center" gap="large">
             <FloatButtonDoNotUseOrYouWillBeFired
@@ -246,17 +249,76 @@ const ComponentsList: React.FC = () => {
       // },
 
       {
-        title: 'Alert',
-        type: 'update',
+        title: 'Splitter',
+        type: 'new',
         node: (
-          <Alert
-            style={{ width: 400 }}
-            title="Ant Design"
-            description={locale.sampleContent}
-            closable={{ closeIcon: true, disabled: true }}
+          <Splitter
+            style={{
+              height: 200,
+              width: 300,
+              backgroundColor: '#fff',
+              boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Splitter.Panel defaultSize="40%" min="20%" max="70%">
+              <Flex justify="center" align="center" style={{ height: '100%' }}>
+                <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+                  First
+                </Typography.Title>
+              </Flex>
+            </Splitter.Panel>
+
+            <Splitter.Panel>
+              <Flex justify="center" align="center" style={{ height: '100%' }}>
+                <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+                  Second
+                </Typography.Title>
+              </Flex>
+            </Splitter.Panel>
+          </Splitter>
+        ),
+      },
+
+      {
+        title: 'Masonry',
+        type: 'new',
+        node: (
+          <Masonry
+            columns={2}
+            gutter={8}
+            style={{ width: '300px', height: '320px' }}
+            items={[
+              { key: '1', data: 80 },
+              { key: '2', data: 60 },
+              { key: '3', data: 40 },
+              { key: '4', data: 120 },
+              { key: '5', data: 90 },
+              { key: '6', data: 40 },
+              { key: '7', data: 60 },
+              { key: '8', data: 70 },
+              { key: '9', data: 120 },
+            ]}
+            itemRender={({ data, index }) => (
+              <Card size="small" style={{ height: data }}>
+                {index + 1}
+              </Card>
+            )}
           />
         ),
       },
+
+      // {
+      //   title: 'Alert',
+      //   type: 'update',
+      //   node: (
+      //     <Alert
+      //       style={{ width: 400 }}
+      //       title="Ant Design"
+      //       description={locale.sampleContent}
+      //       closable={{ closeIcon: true, disabled: true }}
+      //     />
+      //   ),
+      // },
     ],
     [
       isMobile,
