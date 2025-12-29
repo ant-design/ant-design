@@ -50,13 +50,6 @@ const Homepage: React.FC = () => {
       </PreviewBanner>
 
       <div>
-        {/* 定制主题 */}
-        <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-          <Suspense fallback={null}>
-            <Theme />
-          </Suspense>
-        </ConfigProvider>
-
         {/* 组件列表 */}
         <Group
           background={token.colorBgElevated}
@@ -70,11 +63,18 @@ const Homepage: React.FC = () => {
           </Suspense>
         </Group>
 
+        {/* 定制主题 */}
+        <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+          <Suspense fallback={null}>
+            <Theme />
+          </Suspense>
+        </ConfigProvider>
+
         {/* 设计语言 */}
         <Group
           title={locale.designTitle}
           description={locale.designDesc}
-          background={isDark ? '#393F4A' : '#F5F8FF'}
+          background={isDark ? '#393F4A' : '#fff'}
           decoration={
             <img
               draggable={false}

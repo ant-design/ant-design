@@ -5,6 +5,7 @@ import {
   Button,
   Checkbox,
   ColorPicker,
+  ConfigProvider,
   Dropdown,
   Input,
   message,
@@ -17,9 +18,11 @@ import {
   Switch,
   Tooltip,
 } from 'antd';
+import type { ThemeConfig } from 'antd';
 import { createStyles } from 'antd-style';
 
 import useLocale from '../../../../hooks/useLocale';
+
 import Tilt from './Tilt';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
@@ -103,118 +106,124 @@ const useStyle = createStyles(({ cssVar, css }) => {
     `,
   };
 });
+interface ComponentsBlockProps {
+  config: ThemeConfig;
+}
 
-const ComponentsBlock: React.FC = () => {
+const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
+  const { config } = props;
 
   return (
-    <Tilt options={{ max: 4, glare: false, scale: 0.98 }} className={styles.holder}>
-      <ModalPanel title="Ant Design" width="100%">
-        {locale.text}
-      </ModalPanel>
-      <Alert title={locale.infoText} type="info" />
-      {/* Line */}
-      <div className={styles.flex}>
-        <ColorPicker style={{ flex: 'none' }} />
-        <div style={{ flex: 'none' }}>
-          <Space.Compact>
-            <Button>{locale.dropdown}</Button>
-            <Dropdown
-              menu={{
-                items: Array.from({ length: 5 }).map((_, index) => ({
-                  key: `opt${index}`,
-                  label: `${locale.option} ${index}`,
-                })),
-              }}
-            >
-              <Button icon={<DownOutlined />} />
-            </Dropdown>
-          </Space.Compact>
+    <ConfigProvider {...config}>
+      <Tilt options={{ max: 4, glare: false, scale: 0.98 }} className={styles.holder}>
+        <ModalPanel title="Ant Design" width="100%">
+          {locale.text}
+        </ModalPanel>
+        <Alert title={locale.infoText} type="info" />
+        {/* Line */}
+        <div className={styles.flex}>
+          <ColorPicker style={{ flex: 'none' }} />
+          <div style={{ flex: 'none' }}>
+            <Space.Compact>
+              <Button>{locale.dropdown}</Button>
+              <Dropdown
+                menu={{
+                  items: Array.from({ length: 5 }).map((_, index) => ({
+                    key: `opt${index}`,
+                    label: `${locale.option} ${index}`,
+                  })),
+                }}
+              >
+                <Button icon={<DownOutlined />} />
+              </Dropdown>
+            </Space.Compact>
+          </div>
+          <Select
+            style={{ flex: 'auto' }}
+            mode="multiple"
+            maxTagCount="responsive"
+            defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
+            options={[
+              { value: 'apple', label: locale.apple },
+              { value: 'banana', label: locale.banana },
+              { value: 'orange', label: locale.orange },
+              { value: 'watermelon', label: locale.watermelon },
+            ]}
+          />
+          <Input style={{ flex: 'none', width: 120 }} />
         </div>
-        <Select
-          style={{ flex: 'auto' }}
-          mode="multiple"
-          maxTagCount="responsive"
-          defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
-          options={[
-            { value: 'apple', label: locale.apple },
-            { value: 'banana', label: locale.banana },
-            { value: 'orange', label: locale.orange },
-            { value: 'watermelon', label: locale.watermelon },
+        <Progress
+          style={{ margin: 0 }}
+          percent={100}
+          strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
+        />
+        <Progress style={{ margin: 0 }} percent={33} status="exception" />
+        <Steps
+          current={1}
+          items={[
+            { title: locale.finished },
+            { title: locale.inProgress },
+            { title: locale.waiting },
           ]}
         />
-        <Input style={{ flex: 'none', width: 120 }} />
-      </div>
-      <Progress
-        style={{ margin: 0 }}
-        percent={100}
-        strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
-      />
-      <Progress style={{ margin: 0 }} percent={33} status="exception" />
-      <Steps
-        current={1}
-        items={[
-          { title: locale.finished },
-          { title: locale.inProgress },
-          { title: locale.waiting },
-        ]}
-      />
-      {/* Line */}
-      <div className={styles.block}>
-        <Slider
-          style={{ marginInline: 20 }}
-          range
-          marks={{
-            0: '0°C',
-            26: '26°C',
-            37: '37°C',
-            100: {
-              style: { color: '#f50' },
-              label: <strong>100°C</strong>,
-            },
-          }}
-          defaultValue={[26, 37]}
-        />
-      </div>
-      {/* Line */}
-      <div className={styles.flex}>
-        <Button className={styles.ptg_20} type="primary">
-          {locale.primary}
-        </Button>
-        <Button className={styles.ptg_20} type="primary" danger>
-          {locale.danger}
-        </Button>
-        <Button className={styles.ptg_20}>{locale.default}</Button>
-        <Button className={styles.ptg_20} type="dashed">
-          {locale.dashed}
-        </Button>
-        <Button className={styles.ptg_20} icon={<AntDesignOutlined />}>
-          {locale.icon}
-        </Button>
-      </div>
-      {/* Line */}
-      <div className={styles.block}>
-        <div className={styles.flex}>
-          <Switch
-            className={styles.ptg_none}
-            defaultChecked
-            checkedChildren={<CheckOutlined />}
-            unCheckedChildren={<CloseOutlined />}
-          />
-          <Checkbox.Group
-            className={styles.ptg_none}
-            options={[locale.apple, locale.banana, locale.orange]}
-            defaultValue={[locale.apple]}
+        {/* Line */}
+        <div className={styles.block}>
+          <Slider
+            style={{ marginInline: 20 }}
+            range
+            marks={{
+              0: '0°C',
+              26: '26°C',
+              37: '37°C',
+              100: {
+                style: { color: '#f50' },
+                label: <strong>100°C</strong>,
+              },
+            }}
+            defaultValue={[26, 37]}
           />
         </div>
-      </div>
-      <div>
-        <InternalMessage content={locale.release} type="success" />
-      </div>
-      <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
-      <Alert title="Ant Design love you!" type="success" />
-    </Tilt>
+        {/* Line */}
+        <div className={styles.flex}>
+          <Button className={styles.ptg_20} type="primary">
+            {locale.primary}
+          </Button>
+          <Button className={styles.ptg_20} type="primary" danger>
+            {locale.danger}
+          </Button>
+          <Button className={styles.ptg_20}>{locale.default}</Button>
+          <Button className={styles.ptg_20} type="dashed">
+            {locale.dashed}
+          </Button>
+          <Button className={styles.ptg_20} icon={<AntDesignOutlined />}>
+            {locale.icon}
+          </Button>
+        </div>
+        {/* Line */}
+        <div className={styles.block}>
+          <div className={styles.flex}>
+            <Switch
+              className={styles.ptg_none}
+              defaultChecked
+              checkedChildren={<CheckOutlined />}
+              unCheckedChildren={<CloseOutlined />}
+            />
+            <Checkbox.Group
+              className={styles.ptg_none}
+              options={[locale.apple, locale.banana, locale.orange]}
+              defaultValue={[locale.apple]}
+            />
+          </div>
+        </div>
+        <div>
+          <InternalMessage content={locale.release} type="success" />
+        </div>
+        <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
+        <Alert title="Ant Design love you!" type="success" />
+      </Tilt>
+    </ConfigProvider>
   );
 };
 
