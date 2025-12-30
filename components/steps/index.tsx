@@ -39,9 +39,35 @@ export type StepsSemanticName =
   | 'itemContent'
   | 'itemRail';
 
-export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticName>;
+export type StepsSemanticClassNames = {
+  root?: string;
+  item?: string;
+  itemWrapper?: string;
+  itemIcon?: string;
+  itemSection?: string;
+  itemHeader?: string;
+  itemTitle?: string;
+  itemSubtitle?: string;
+  itemContent?: string;
+  itemRail?: string;
+};
 
-export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticName>;
+export type StepsSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemWrapper?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemSection?: React.CSSProperties;
+  itemHeader?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  itemSubtitle?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  itemRail?: React.CSSProperties;
+};
+
+export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticClassNames>;
+
+export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticStyles>;
 
 interface StepItem {
   className?: string;

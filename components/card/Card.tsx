@@ -12,7 +12,7 @@ import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
-import Grid from './Grid';
+import CardGrid from './CardGrid';
 import useStyle from './style';
 
 export type CardType = 'inner';
@@ -26,10 +26,29 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
-type SemanticName = 'root' | 'header' | 'body' | 'extra' | 'title' | 'actions' | 'cover';
+export type CardSemanticClassNames = {
+  root?: string;
+  header?: string;
+  body?: string;
+  extra?: string;
+  title?: string;
+  actions?: string;
+  cover?: string;
+};
 
-export type CardClassNamesType = SemanticClassNamesType<CardProps, SemanticName>;
-export type CardStylesType = SemanticStylesType<CardProps, SemanticName>;
+export type CardSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  title?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  cover?: React.CSSProperties;
+};
+
+export type CardClassNamesType = SemanticClassNamesType<CardProps, CardSemanticClassNames>;
+
+export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>;
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
@@ -160,7 +179,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const isContainGrid = React.useMemo<boolean>(() => {
     const childNodes: React.ReactNode[] = toArray(children);
-    return childNodes.some((child) => React.isValidElement(child) && child.type === Grid);
+    return childNodes.some((child) => React.isValidElement(child) && child.type === CardGrid);
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
@@ -281,5 +300,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     </div>
   );
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  Card.displayName = 'Card';
+}
 
 export default Card;

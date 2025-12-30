@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
-import type { GenerateConfig } from '@rc-component/picker/lib/generate';
-import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
+import type { GenerateConfig } from '@rc-component/picker/generate';
+import type { CellRenderInfo } from '@rc-component/picker/interface';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -28,15 +28,30 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
 
-type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item';
+export type CalendarSemanticClassNames = {
+  root?: string;
+  header?: string;
+  body?: string;
+  content?: string;
+  item?: string;
+};
+
+export type CalendarSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  content?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
 
 export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
   CalendarProps<DateType>,
-  SemanticName
+  CalendarSemanticClassNames
 >;
+
 export type CalendarStylesType<DateType> = SemanticStylesType<
   CalendarProps<DateType>,
-  SemanticName
+  CalendarSemanticStyles
 >;
 
 export interface CalendarProps<DateType> {

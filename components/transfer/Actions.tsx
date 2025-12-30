@@ -2,7 +2,7 @@ import React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 
-import Button from '../button';
+import Button from '../button/Button';
 import type { DirectionType } from '../config-provider';
 
 export interface TransferOperationProps {

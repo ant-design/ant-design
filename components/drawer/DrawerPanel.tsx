@@ -8,22 +8,39 @@ import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '.
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
-export type SemanticName =
-  | 'root'
-  | 'mask'
-  | 'header'
-  | 'title'
-  | 'extra'
-  | 'section'
-  | 'body'
-  | 'footer'
-  | 'wrapper'
-  | 'dragger'
-  | 'close';
+export type SemanticName = keyof DrawerSemanticClassNames & keyof DrawerSemanticStyles;
 
-export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
+export type DrawerSemanticClassNames = {
+  root?: string;
+  mask?: string;
+  header?: string;
+  title?: string;
+  extra?: string;
+  section?: string;
+  body?: string;
+  footer?: string;
+  wrapper?: string;
+  dragger?: string;
+  close?: string;
+};
 
-export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
+export type DrawerSemanticStyles = {
+  root?: React.CSSProperties;
+  mask?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  section?: React.CSSProperties;
+  body?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  wrapper?: React.CSSProperties;
+  dragger?: React.CSSProperties;
+  close?: React.CSSProperties;
+};
+
+export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, DrawerSemanticClassNames>;
+
+export type DrawerStylesType = SemanticStylesType<DrawerProps, DrawerSemanticStyles>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -82,24 +99,37 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const drawerContext = useComponentConfig('drawer');
 
-  const { classNames: contextClassNames, styles: contextStyles } = drawerContext;
+  const {
+    classNames: contextClassNames,
+    styles: contextStyles,
+    closable: contextClosable,
+  } = drawerContext;
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     DrawerClassNamesType,
     DrawerStylesType,
     DrawerPanelProps
   >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], {
-    props,
+    props: {
+      ...props,
+      closable: closable ?? contextClosable,
+    },
   });
 
-  let closablePlacement: string | undefined;
-  if (closable === false) {
-    closablePlacement = undefined;
-  } else if (closable === undefined || closable === true) {
-    closablePlacement = 'start';
-  } else {
-    closablePlacement = closable?.placement === 'end' ? 'end' : 'start';
-  }
+  const closablePlacement = React.useMemo<'start' | 'end' | undefined>(() => {
+    const mergedClosableVal = closable ?? contextClosable;
+    if (mergedClosableVal === false) {
+      return undefined;
+    }
+    if (
+      typeof mergedClosableVal === 'object' &&
+      mergedClosableVal &&
+      mergedClosableVal.placement === 'end'
+    ) {
+      return 'end';
+    }
+    return 'start';
+  }, [closable, contextClosable]);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (

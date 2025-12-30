@@ -19,10 +19,22 @@ import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
 
-type SemanticName = 'root' | 'input' | 'separator';
+export type OTPSemanticClassNames = {
+  root?: string;
+  input?: string;
+  separator?: string;
+};
 
-export type OTPClassNamesType = SemanticClassNamesType<OTPProps, SemanticName>;
-export type OTPStylesType = SemanticStylesType<OTPProps, SemanticName>;
+export type OTPSemanticStyles = {
+  root?: React.CSSProperties;
+  input?: React.CSSProperties;
+  separator?: React.CSSProperties;
+};
+
+export type OTPClassNamesType = SemanticClassNamesType<OTPProps, OTPSemanticClassNames>;
+
+export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticStyles>;
+
 export interface OTPRef {
   focus: VoidFunction;
   blur: VoidFunction;
@@ -104,6 +116,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     mask,
     type,
     onInput,
+    onFocus,
     inputMode,
     classNames,
     styles,
@@ -273,6 +286,19 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     refs.current[nextIndex]?.focus();
   };
 
+  // ======================== Focus ========================
+  const onInputFocus = (event: React.FocusEvent<HTMLInputElement>, index: number) => {
+    // keep focus on the first empty cell
+    for (let i = 0; i < index; i += 1) {
+      if (!refs.current[i]?.input?.value) {
+        refs.current[i]?.focus();
+        break;
+      }
+    }
+
+    onFocus?.(event);
+  };
+
   // ======================== Render ========================
   const inputSharedProps: Partial<OTPInputProps> = {
     variant,
@@ -322,6 +348,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 value={singleValue}
                 onActiveChange={onInputActiveChange}
                 autoFocus={index === 0 && autoFocus}
+                onFocus={(event) => onInputFocus(event, index)}
                 {...inputSharedProps}
               />
               {index < length - 1 && (

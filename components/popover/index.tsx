@@ -14,7 +14,8 @@ import { useComponentConfig } from '../config-provider/context';
 import type {
   AbstractTooltipProps,
   TooltipRef,
-  SemanticName as TooltipSemanticName,
+  TooltipSemanticClassNames,
+  TooltipSemanticStyles,
 } from '../tooltip';
 import Tooltip from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
@@ -22,11 +23,21 @@ import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 
-export type PopoverSemanticName = TooltipSemanticName | 'title' | 'content';
+export type PopoverSemanticName = keyof PopoverSemanticClassNames & keyof PopoverSemanticStyles;
 
-export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticName>;
+export type PopoverSemanticClassNames = TooltipSemanticClassNames & {
+  title?: string;
+  content?: string;
+};
 
-export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticName>;
+export type PopoverSemanticStyles = TooltipSemanticStyles & {
+  title?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticClassNames>;
+
+export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticStyles>;
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -46,7 +57,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     content,
     overlayClassName,
     placement = 'top',
-    trigger = 'hover',
+    trigger,
     children,
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
@@ -65,18 +76,20 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
+    trigger: contextTrigger,
   } = useComponentConfig('popover');
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
   const mergedArrow = useMergedArrow(popoverArrow, contextArrow);
+  const mergedTrigger = trigger || contextTrigger || 'hover';
 
   // ============================= Styles =============================
   const mergedProps: PopoverProps = {
     ...props,
     placement,
-    trigger,
+    trigger: mergedTrigger,
     mouseEnterDelay,
     mouseLeaveDelay,
     overlayStyle,
@@ -128,7 +141,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       unique={false}
       arrow={mergedArrow}
       placement={placement}
-      trigger={trigger}
+      trigger={mergedTrigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       {...restProps}

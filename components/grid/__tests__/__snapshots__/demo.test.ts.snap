@@ -1073,7 +1073,6 @@ Array [
         />
       </div>
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1171,7 +1170,6 @@ Array [
         />
       </div>
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1269,7 +1267,6 @@ Array [
         />
       </div>
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"

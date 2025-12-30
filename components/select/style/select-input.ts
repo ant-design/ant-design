@@ -27,7 +27,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   const { componentCls } = token;
   const { border, borderHover, borderActive, borderOutline } = colors;
 
-  const baseBG = colors.background || token.colorBgContainer;
+  const baseBG = colors.background || token.selectorBg || token.colorBgContainer;
 
   return {
     '--select-border-color': border,
@@ -183,6 +183,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           // input element with readOnly use cursor pointer
           'input[readonly]': {
             cursor: 'inherit',
+            caretColor: 'transparent',
           },
         },
 
@@ -217,6 +218,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           background: token.colorBgContainerDisabled,
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
+
+          input: {
+            cursor: 'not-allowed',
+          },
         },
 
         // ==========================================================
@@ -249,6 +254,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             border: 0,
             margin: 0,
             padding: 0,
+            color: 'inherit',
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -274,6 +280,13 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           [`${componentCls}-content`]: {
             alignSelf: 'center',
           },
+        },
+      },
+
+      // ======================== Show Search =======================
+      {
+        [`&-show-search:not(${componentCls}-customize-input):not(${componentCls}-disabled)`]: {
+          cursor: 'text',
         },
       },
 

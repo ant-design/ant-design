@@ -6,12 +6,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -27,7 +22,10 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import type { SemanticName as PaginationSemanticType } from '../pagination/Pagination';
+import type {
+  PaginationSemanticClassNames,
+  PaginationSemanticStyles,
+} from '../pagination/Pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
@@ -70,27 +68,55 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-export type TableSemanticName = 'section' | 'title' | 'footer' | 'content' | 'root';
+export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles;
+
+export type TableSemanticClassNames = {
+  root?: string;
+  section?: string;
+  title?: string;
+  footer?: string;
+  content?: string;
+};
+
+export type TableSemanticStyles = {
+  root?: React.CSSProperties;
+  section?: React.CSSProperties;
+  title?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
 
 export type ComponentsSemantic = 'wrapper' | 'cell' | 'row';
 
+export type ComponentsSemanticClassNames = {
+  wrapper?: string;
+  cell?: string;
+  row?: string;
+};
+
+export type ComponentsSemanticStyles = {
+  wrapper?: React.CSSProperties;
+  cell?: React.CSSProperties;
+  row?: React.CSSProperties;
+};
+
 export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
   TableProps<RecordType>,
-  TableSemanticName,
+  TableSemanticClassNames,
   {
-    body?: SemanticClassNames<ComponentsSemantic>;
-    header?: SemanticClassNames<ComponentsSemantic>;
-    pagination?: SemanticClassNames<PaginationSemanticType>;
+    body?: ComponentsSemanticClassNames;
+    header?: ComponentsSemanticClassNames;
+    pagination?: PaginationSemanticClassNames;
   }
 >;
 
 export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
   TableProps<RecordType>,
-  TableSemanticName,
+  TableSemanticStyles,
   {
-    body?: SemanticStyles<ComponentsSemantic>;
-    header?: SemanticStyles<ComponentsSemantic>;
-    pagination?: SemanticStyles<PaginationSemanticType>;
+    body?: ComponentsSemanticStyles;
+    header?: ComponentsSemanticStyles;
+    pagination?: PaginationSemanticStyles;
   }
 >;
 
@@ -153,12 +179,12 @@ export interface TableProps<RecordType = AnyObject>
 
 type SemanticType = {
   classNames: Required<RcTableProps['classNames']> & {
-    root: string;
-    pagination: SemanticClassNames<PaginationSemanticType>;
+    root?: string;
+    pagination?: PaginationSemanticClassNames;
   };
   styles: Required<RcTableProps['styles']> & {
-    root: React.CSSProperties;
-    pagination: SemanticStyles<PaginationSemanticType>;
+    root?: React.CSSProperties;
+    pagination?: PaginationSemanticStyles;
   };
 };
 

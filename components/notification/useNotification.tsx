@@ -18,7 +18,6 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -31,7 +30,8 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationSemantic,
+  NotificationSemanticClassNames,
+  NotificationSemanticStyles,
   NotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
@@ -53,8 +53,8 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
-  classNames: SemanticClassNames<NotificationSemantic>;
-  styles: SemanticStyles<NotificationSemantic>;
+  classNames?: NotificationSemanticClassNames;
+  styles?: NotificationSemanticStyles;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -240,16 +240,13 @@ export function useInternalNotification(
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
 
-      const mergedClassNames: SemanticClassNames<NotificationSemantic> = mergeClassNames(
+      const mergedClassNames: NotificationSemanticClassNames = mergeClassNames(
         undefined,
         originClassNames,
         semanticClassNames,
       );
 
-      const mergedStyles: SemanticStyles<NotificationSemantic> = mergeStyles(
-        originStyles,
-        semanticStyles,
-      );
+      const mergedStyles: NotificationSemanticStyles = mergeStyles(originStyles, semanticStyles);
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"

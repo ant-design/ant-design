@@ -83,6 +83,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = (props) => {
       <OriginSandpack
         theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
         customSetup={setup}
+        template="vite-react-ts"
         options={options}
         files={{
           'index.tsx': indexContent,

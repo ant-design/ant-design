@@ -49,7 +49,6 @@ export type FeedbackIcons = (itemStatus: {
 interface MemoInputProps {
   control: object;
   update: any;
-  children: React.ReactNode;
   childProps: any[];
 }
 
@@ -75,8 +74,8 @@ function isSimilarControl(a: object, b: object) {
   );
 }
 
-const MemoInput = React.memo(
-  ({ children }: MemoInputProps) => children as JSX.Element,
+const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
+  (props) => props.children,
   (prev, next) =>
     isSimilarControl(prev.control, next.control) &&
     prev.update === next.update &&

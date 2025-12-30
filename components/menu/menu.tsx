@@ -7,7 +7,6 @@ import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -35,18 +34,60 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
+export type SemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
 
-export type SubMenuSemanticName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
-
-type MenuClassNamesSchemaType = SemanticClassNames<SemanticName> & {
-  popup?: SemanticClassNames<'root'> | string;
-  subMenu?: SemanticClassNames<SubMenuSemanticName>;
+export type MenuSemanticClassNames = {
+  root?: string;
+  itemTitle?: string;
+  list?: string;
+  item?: string;
+  itemIcon?: string;
+  itemContent?: string;
 };
 
-type MenuStylesSchemaType = SemanticStyles<SemanticName> & {
-  popup?: SemanticStyles<'root'> | React.CSSProperties;
-  subMenu?: SemanticStyles<SubMenuSemanticName>;
+export type MenuSemanticStyles = {
+  root?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  list?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+};
+
+export type SubMenuSemanticName = keyof SubMenuSemanticClassNames & keyof SubMenuSemanticStyles;
+
+export type SubMenuSemanticClassNames = {
+  item?: string;
+  itemTitle?: string;
+  list?: string;
+  itemContent?: string;
+  itemIcon?: string;
+};
+
+export type SubMenuSemanticStyles = {
+  item?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  list?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+};
+
+export type PopupSemanticClassNames = {
+  root?: string;
+};
+
+export type PopupSemanticStyles = {
+  root?: React.CSSProperties;
+};
+
+type MenuClassNamesSchemaType = MenuSemanticClassNames & {
+  popup?: PopupSemanticClassNames | string;
+  subMenu?: SubMenuSemanticClassNames;
+};
+
+type MenuStylesSchemaType = MenuSemanticStyles & {
+  popup?: PopupSemanticStyles | React.CSSProperties;
+  subMenu?: SubMenuSemanticStyles;
 };
 
 export type MenuClassNamesType =

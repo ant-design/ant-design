@@ -30,39 +30,6 @@ export interface ComponentToken {
 
 interface SplitterToken extends FullToken<'Splitter'> {}
 
-const genRtlStyle = (token: SplitterToken): CSSObject => {
-  const { componentCls } = token;
-  return {
-    [`&-rtl${componentCls}-horizontal`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: 0,
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: 'unset',
-          insetInlineStart: 0,
-        },
-      },
-    },
-
-    [`&-rtl${componentCls}-vertical`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-      },
-    },
-  };
-};
-
 const centerStyle: CSSObject = {
   position: 'absolute',
   top: '50%',
@@ -406,8 +373,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           overflow: 'hidden',
         },
       },
-
-      ...genRtlStyle(token),
     },
   };
 };

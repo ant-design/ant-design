@@ -18,23 +18,36 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupTrigger, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
 
-type InternalFloatButtonGroupSemanticName =
-  | 'root'
-  | 'list'
-  | 'item'
-  | 'itemIcon'
-  | 'itemContent'
-  | 'trigger'
-  | 'triggerIcon'
-  | 'triggerContent';
+export type FloatButtonGroupSemanticClassNames = {
+  root?: string;
+  list?: string;
+  item?: string;
+  itemIcon?: string;
+  itemContent?: string;
+  trigger?: string;
+  triggerIcon?: string;
+  triggerContent?: string;
+};
+
+export type FloatButtonGroupSemanticStyles = {
+  root?: React.CSSProperties;
+  list?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  trigger?: React.CSSProperties;
+  triggerIcon?: React.CSSProperties;
+  triggerContent?: React.CSSProperties;
+};
 
 export type FloatButtonGroupClassNamesType = SemanticClassNamesType<
   FloatButtonGroupProps,
-  InternalFloatButtonGroupSemanticName
+  FloatButtonGroupSemanticClassNames
 >;
+
 export type FloatButtonGroupStylesType = SemanticStylesType<
   FloatButtonGroupProps,
-  InternalFloatButtonGroupSemanticName
+  FloatButtonGroupSemanticStyles
 >;
 
 export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classNames' | 'styles'> {
