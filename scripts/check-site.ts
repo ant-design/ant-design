@@ -1,7 +1,7 @@
 import type http from 'http';
 import type https from 'https';
 import { join } from 'path';
-import { load } from 'cheerio';
+import { DOMParser } from 'domparser-rs';
 import { globSync } from 'glob';
 import { createServer } from 'http-server';
 import fetch from 'isomorphic-fetch';
@@ -23,8 +23,27 @@ describe('site test', () => {
     const port = await portPromise;
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
-      const $ = load(html, { xml: true });
-      return { status: res.status, $ };
+      const root = new DOMParser().parseFromString(html, 'text/html');
+      function normalizeNodes(nodes: any): any[] {
+        if (!nodes) return [];
+        if (Array.isArray(nodes)) return nodes;
+        if (nodes.nodeName || nodes.nodeType || nodes.getAttribute) return [nodes];
+        return [];
+      }
+      function wrap(nodes: any[]) {
+        const list = Array.isArray(nodes) ? nodes : [];
+        return {
+          length: list.length,
+          text: () => list.map((n) => (typeof n.text === 'function' ? n.text() : '')).join(''),
+          first: () => wrap(list.slice(0, 1)),
+        };
+      }
+      const $ = (selector: string) => {
+        const res = root.select ? root.select(selector) : null;
+        return wrap(normalizeNodes(res));
+      };
+
+      return { status: res.status, $, root };
     });
     return resp;
   };
