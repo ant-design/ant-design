@@ -1,7 +1,9 @@
+/* eslint-disable unicorn/prefer-dom-node-text-content */
+
 import type http from 'http';
 import type https from 'https';
 import { join } from 'path';
-import { load } from 'cheerio';
+import { DOMParser } from 'domparser-rs';
 import { globSync } from 'glob';
 import { createServer } from 'http-server';
 import fetch from 'isomorphic-fetch';
@@ -23,8 +25,56 @@ describe('site test', () => {
     const port = await portPromise;
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
-      const $ = load(html, { xml: true });
-      return { status: res.status, $ };
+      const root = new DOMParser().parseFromString(html, 'text/html');
+      function getTextContent(node: any): string {
+        if (!node) return '';
+        if (typeof node.textContent === 'string') return node.textContent.trim();
+        if (typeof node.innerText === 'string') return node.innerText.trim();
+        // Fallback: recursively get text from children
+        if (node.children && node.children.length > 0) {
+          return Array.from(node.children)
+            .map((child: any) => getTextContent(child))
+            .join('')
+            .trim();
+        }
+        return '';
+      }
+      function wrap(nodes: any[]) {
+        const list = Array.isArray(nodes) ? nodes : [];
+        return {
+          length: list.length,
+          text: () => {
+            if (list.length === 0) return '';
+            return list.map((n) => getTextContent(n)).join('');
+          },
+          first: () => wrap(list.slice(0, 1)),
+        };
+      }
+      const $ = (selector: string) => {
+        if (!root.querySelector) {
+          console.warn('DOMParser does not support querySelector');
+          return wrap([]);
+        }
+
+        // Handle complex selectors that domparser-rs might not support
+        if (selector === '.markdown table') {
+          // Find all .markdown elements and then find tables within them
+          const markdownElements = root.querySelectorAll('.markdown');
+          const tables = [];
+          for (const markdown of Array.from(markdownElements)) {
+            const tablesInMarkdown = markdown.querySelectorAll('table');
+            tables.push(...Array.from(tablesInMarkdown));
+          }
+          return wrap(tables);
+        } else {
+          // Use querySelectorAll for simple selectors
+          const elements = root.querySelectorAll(selector);
+          const elementsArray = Array.from(elements);
+          return wrap(elementsArray);
+        }
+      };
+
+      return { status: res.status, $, root };
     });
     return resp;
   };
@@ -35,9 +85,27 @@ describe('site test', () => {
   };
 
   const expectComponent = async (component: string) => {
-    const { status, $ } = await render(`/${component}/`);
+    const { status, $, root } = await render(`/${component}/`);
     expect(status).toBe(200);
-    expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
+
+    // Get all h1 elements and find the one in main content (not in header)
+    const h1Elements = root.querySelectorAll('h1');
+    let mainH1Text = '';
+
+    if (h1Elements.length >= 2) {
+      // The second h1 should be the main content title
+      const mainH1 = h1Elements[1];
+      mainH1Text = mainH1.textContent || (mainH1 as any).innerText || '';
+    } else if (h1Elements.length === 1) {
+      // If only one h1, check its content
+      const h1 = h1Elements[0];
+      mainH1Text = h1.textContent || (h1 as any).innerText || '';
+    }
+
+    // Clean up the text and extract the main component name
+    mainH1Text = mainH1Text.trim();
+
+    expect(mainH1Text.toLowerCase()).toMatch(handleComponentName(component));
 
     /**
      * 断言组件的 api table 数量是否符合预期。
