@@ -19,7 +19,7 @@ export interface WaveProps {
 
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component, colorSource } = props;
-  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, wave } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const containerRef = useRef<HTMLElement | null>(null);
 
@@ -38,7 +38,7 @@ const Wave: React.FC<WaveProps> = (props) => {
     }
 
     // Click handler
-    const onClick = (e: MouseEvent) => {
+    const onClick = (e: Event) => {
       // Fix radio button click twice
       if (
         !isVisible(e.target as HTMLElement) ||
@@ -52,15 +52,26 @@ const Wave: React.FC<WaveProps> = (props) => {
       ) {
         return;
       }
-      showWave(e);
+      showWave(e as MouseEvent);
     };
 
+    const triggerType = wave?.triggerType || 'onClick';
+
+    const eventName =
+      {
+        onClick: 'click',
+        onMouseDown: 'mousedown',
+        onMouseUp: 'mouseup',
+        onPointerDown: 'pointerdown',
+        onPointerUp: 'pointerup',
+      }[triggerType] || 'click';
+
     // Bind events
-    node.addEventListener('click', onClick, true);
+    node.addEventListener(eventName, onClick, true);
     return () => {
-      node.removeEventListener('click', onClick, true);
+      node.removeEventListener(eventName, onClick, true);
     };
-  }, [disabled]);
+  }, [disabled, wave]);
 
   // ============================== Render ==============================
   if (!React.isValidElement(children)) {
