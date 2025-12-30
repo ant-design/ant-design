@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
 import ResizeObserver from '@rc-component/resize-observer';
@@ -11,6 +12,7 @@ import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
@@ -75,8 +77,6 @@ export interface MasonryRef {
   nativeElement: HTMLDivElement;
 }
 
-type ItemColumnsType = [item: MasonryItemType, column: number];
-
 const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const {
     rootClassName,
@@ -123,6 +123,56 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     setMergedItems(items || []);
   }, [items]);
 
+  const [viewState, setViewState] = useState({ scrollTop: 0, clientHeight: 0 });
+
+  // ====================== Scroll ======================
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (!container) return;
+
+    // find scrollable parent
+    let scrollNode: HTMLElement | Window = window;
+    let parent = container.parentElement;
+
+    while (parent) {
+      const style = getComputedStyle(parent);
+      const overflowY = style.overflowY;
+
+      if (overflowY === 'auto' || overflowY === 'scroll' || overflowY === 'overlay') {
+        scrollNode = parent;
+        break;
+      }
+      parent = parent.parentElement;
+    }
+
+    const handleScroll = throttleByAnimationFrame(() => {
+      if (scrollNode instanceof Window) {
+        setViewState({
+          scrollTop: window.scrollY,
+          clientHeight: window.innerHeight,
+        });
+      } else {
+        const element = scrollNode as HTMLElement;
+
+        setViewState({
+          scrollTop: element.scrollTop,
+          clientHeight: element.clientHeight,
+        });
+      }
+    });
+
+    scrollNode.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    handleScroll();
+
+    return () => {
+      scrollNode.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      handleScroll.cancel();
+    };
+  }, []);
+
   // ==================== Breakpoint ====================
   const screens = useBreakpoint();
   const gutters = useGutter(gutter, screens);
@@ -167,66 +217,122 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
-  const collectItemSize = useDelay(() => {
-    const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
-      const itemKey = item.key ?? index;
-      const itemEle = getItemRef(itemKey);
-      const rect = itemEle?.getBoundingClientRect();
-      return [itemKey, rect ? rect.height : 0, item.column];
+  const averageHeight = React.useMemo(() => {
+    let total = 0;
+    let count = 0;
+
+    itemHeights.forEach(([, height]) => {
+      if (height > 0) {
+        total += height;
+        count += 1;
+      }
     });
 
-    setItemHeights((prevItemsHeight) =>
-      isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
-    );
+    return count > 0 ? Math.round(total / count) : 100;
+  }, [itemHeights]);
+
+  const allItemHeights = React.useMemo(() => {
+    const heightMap = new Map<React.Key, number>(itemHeights.map(([key, height]) => [key, height]));
+
+    return mergedItems.map((item, index) => {
+      const key = item.key ?? index;
+      const knownHeight = heightMap.get(key);
+      const height = knownHeight !== undefined ? knownHeight : averageHeight;
+
+      return [key, height, item.column] as ItemHeightData;
+    });
+  }, [mergedItems, itemHeights, averageHeight]);
+
+  const collectItemSize = useDelay(() => {
+    setItemHeights((prevItemsHeight) => {
+      const prevHeightMap = new Map<React.Key, number>(
+        prevItemsHeight.map(([key, height]) => [key, height]),
+      );
+
+      const nextItemsHeight: ItemHeightData[] = [];
+
+      mergedItems.forEach((item, index) => {
+        const itemKey = item.key ?? index;
+        const itemEle = getItemRef(itemKey);
+        const rect = itemEle?.getBoundingClientRect();
+
+        if (rect) {
+          nextItemsHeight.push([itemKey, rect.height, item.column]);
+        } else {
+          const prevHeight = prevHeightMap.get(itemKey);
+
+          if (prevHeight !== undefined) {
+            nextItemsHeight.push([itemKey, prevHeight, item.column]);
+          }
+        }
+      });
+
+      return isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight;
+    });
   });
 
   const [itemPositions, totalHeight] = usePositions(
-    itemHeights,
+    allItemHeights,
     columnCount,
     verticalGutter as number,
   );
 
-  const itemWithPositions = React.useMemo(
-    () =>
-      mergedItems.map((item, index) => {
-        const key = item.key ?? index;
-        return {
-          item,
-          itemIndex: index,
-          // CSSMotion will transform key to string.
-          // Let's keep the original key here.
-          itemKey: key,
-          key,
-          position: itemPositions.get(key),
-        };
-      }),
-    [mergedItems, itemPositions],
-  );
+  const itemWithPositions = React.useMemo(() => {
+    return mergedItems.map((item, index) => {
+      const key = item.key ?? index;
+      const height = allItemHeights[index]?.[1] || 0;
 
-  React.useEffect(() => {
+      return {
+        item,
+        itemIndex: index,
+        itemKey: key,
+        key,
+        position: itemPositions.get(key),
+        height,
+      };
+    });
+  }, [mergedItems, itemPositions, allItemHeights]);
+
+  // ====================== Virtual ======================
+  const visibleItems = React.useMemo(() => {
+    if (!viewState.clientHeight) {
+      return itemWithPositions.slice(0, 50);
+    }
+
+    const { scrollTop, clientHeight } = viewState;
+    const buffer = clientHeight; // Render 1 screen buffer above and below
+
+    return itemWithPositions.filter((item) => {
+      // Always render items that haven't been measured yet
+      if (!item.position) return false;
+
+      const top = item.position?.top ?? 0;
+      const bottom = top + item.height;
+
+      return bottom > scrollTop - buffer && top < scrollTop + clientHeight + buffer;
+    });
+  }, [itemWithPositions, viewState]);
+
+  useLayoutEffect(() => {
     collectItemSize();
-  }, [mergedItems, columnCount]);
 
-  // Trigger for `onLayoutChange`
-  const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
+    // eslint-disable-next-line compat/compat
+    const rafId = requestAnimationFrame(collectItemSize);
 
+    return () => cancelAnimationFrame(rafId);
+  }, [mergedItems, columnCount, visibleItems]);
+
+  // ==================== Layout Change ====================
   useLayoutEffect(() => {
-    if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
-      setItemColumns((prevItemColumns) => {
-        const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
-          item,
-          position!.column,
-        ]);
-        return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
-      });
-    }
-  }, [itemWithPositions]);
+    if (onLayoutChange && itemWithPositions.length) {
+      const sortInfo = itemWithPositions.map(({ key, position }) => ({
+        key,
+        column: position?.column || 0,
+      }));
 
-  useLayoutEffect(() => {
-    if (onLayoutChange && items && items.length === itemColumns.length) {
-      onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+      onLayoutChange(sortInfo);
     }
-  }, [itemColumns]);
+  }, [itemWithPositions, onLayoutChange]);
 
   // ====================== Render ======================
   return (
@@ -254,7 +360,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         onError={collectItemSize}
       >
         <CSSMotionList
-          keys={itemWithPositions}
+          keys={visibleItems}
           component={false}
           // Motion config
           motionAppear

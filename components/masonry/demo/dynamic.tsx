@@ -59,17 +59,26 @@ const Update: React.FC = () => {
           </Card>
         )}
         onLayoutChange={(sortedItems) => {
-          setItems((prevItems) =>
-            prevItems.map((item) => {
+          setItems((prevItems) => {
+            let changed = false;
+            const nextItems = prevItems.map((item) => {
               const matchItem = sortedItems.find((sortedItem) => sortedItem.key === item.key);
-              return matchItem
-                ? {
-                    ...item,
-                    column: matchItem.column,
-                  }
-                : item;
-            }),
-          );
+
+              if (matchItem && matchItem.column !== item.column) {
+                changed = true;
+                return {
+                  ...item,
+                  column: matchItem.column,
+                };
+              }
+              return item;
+            });
+
+            if (changed) {
+              return nextItems;
+            }
+            return prevItems;
+          });
         }}
       />
       <Button block onClick={addItem}>

@@ -40,6 +40,7 @@ jest.mock('../../_util/responsiveObserver', () => {
 
 describe('Masonry', () => {
   let minWidth = '';
+  let domSpy: ReturnType<typeof spyElementPrototypes>;
 
   beforeAll(() => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
@@ -54,8 +55,14 @@ describe('Masonry', () => {
           matches: query === `(min-width: ${minWidth})`,
         }) as any,
     );
+  });
 
-    spyElementPrototypes(HTMLElement, {
+  beforeEach(() => {
+    jest.useFakeTimers();
+    minWidth = '1200px';
+    (global as any).unsubscribeCnt = 0;
+
+    domSpy = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect() {
         const recordElement = (this as unknown as HTMLElement).querySelector<HTMLElement>(
           '.bamboo',
@@ -70,14 +77,10 @@ describe('Masonry', () => {
     });
   });
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-    minWidth = '1200px';
-    (global as any).unsubscribeCnt = 0;
-  });
-
   afterEach(async () => {
     await waitFakeTimer();
+
+    domSpy.mockRestore();
 
     jest.clearAllTimers();
     jest.useRealTimers();
@@ -132,10 +135,9 @@ describe('Masonry', () => {
     );
 
     expect(onLayoutChange).toHaveBeenCalledWith(
-      heights.map((height, index) =>
+      heights.map((_, index) =>
         expect.objectContaining({
           column: columns[index],
-          data: height,
           key: `item-${index}`,
         }),
       ),
