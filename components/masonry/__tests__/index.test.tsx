@@ -17,6 +17,21 @@ jest.mock('../../_util/throttleByAnimationFrame', () => (cb: any) => {
   return func;
 });
 
+jest.mock('../hooks/usePositions', () => {
+  const originUsePositions = jest.requireActual('../hooks/usePositions').default;
+  return (items: any[], columns: number, gutter: number) => {
+    const [positions, totalHeight] = originUsePositions(items, columns, gutter);
+    if ((global as any).mockMissingPosition && items.length > 0) {
+      const newPositions = new Map(positions);
+      // Remove the position for the first item to trigger defensive checks
+      const firstKey = items[0][0];
+      newPositions.delete(firstKey);
+      return [newPositions, totalHeight];
+    }
+    return [positions, totalHeight];
+  };
+});
+
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserver', () => {
   const modules = jest.requireActual('../../_util/responsiveObserver');
@@ -96,6 +111,7 @@ describe('Masonry', () => {
     jest.useFakeTimers();
     minWidth = '1200px';
     (global as any).unsubscribeCnt = 0;
+    (global as any).mockMissingPosition = false;
 
     domSpy = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect() {
@@ -396,6 +412,100 @@ describe('Masonry', () => {
       expect(container.querySelector('.ant-masonry')).toHaveStyle({
         height: '8450px',
       });
+    });
+
+    it('should handle window scroll events', async () => {
+      const items = Array.from({ length: 20 }).map((_, i) => ({
+        key: i,
+        data: 50,
+      }));
+
+      // Mock getComputedStyle to return non-scrollable for parent, forcing window scroll
+      const originalGetComputedStyle = window.getComputedStyle;
+      const getComputedStyleSpy = jest
+        .spyOn(window, 'getComputedStyle')
+        .mockImplementation((ele) => {
+          const style = originalGetComputedStyle(ele);
+          return { ...style, overflowY: 'visible' } as any;
+        });
+
+      const { container } = render(
+        <div className="wrapper">
+          <Masonry
+            items={items}
+            itemRender={() => <div className="bamboo" style={{ height: 50 }} />}
+          />
+        </div>,
+      );
+
+      await resizeMasonry();
+
+      fireEvent.scroll(window, { target: { scrollY: 100 } });
+
+      await waitFakeTimer();
+
+      fireEvent.resize(window);
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-masonry')).toBeTruthy();
+
+      getComputedStyleSpy.mockRestore();
+    });
+
+    it('should use default columns when not provided', async () => {
+      const { container } = render(<Masonry items={[{ key: 1, data: 1 }]} />);
+
+      await resizeMasonry();
+
+      const item = container.querySelector('.ant-masonry-item');
+
+      expect(item).toHaveStyle({ '--item-width': 'calc((100% + 0px) / 3)' });
+    });
+
+    it('should handle items with 0 height correctly (averageHeight fallback)', async () => {
+      const items = [
+        { key: 1, data: 0 },
+        { key: 2, data: 0 },
+      ];
+      const { container } = render(
+        <Masonry
+          items={items}
+          itemRender={({ data }) => (
+            <div className="bamboo" data-height={String(data)} style={{ height: data }} />
+          )}
+        />,
+      );
+      await resizeMasonry();
+      expect(container.querySelector('.ant-masonry')).toBeTruthy();
+    });
+
+    it('should handle missing positions gracefully', async () => {
+      (global as any).mockMissingPosition = true;
+      const onLayoutChange = jest.fn();
+      const items = [
+        { key: 'missing', data: 50 },
+        { key: 'normal', data: 50 },
+      ];
+
+      render(
+        <Masonry
+          items={items}
+          onLayoutChange={onLayoutChange}
+          itemRender={({ data }) => (
+            <div className="bamboo" data-height={String(data)} style={{ height: data }} />
+          )}
+        />,
+      );
+      await resizeMasonry();
+
+      // Check onLayoutChange call arguments
+      expect(onLayoutChange).toHaveBeenCalled();
+      const calls = onLayoutChange.mock.calls;
+      const lastCall = calls[calls.length - 1][0];
+      const missingItemInfo = lastCall.find((i: any) => i.key === 'missing');
+      // Should fallback to 0 if position is missing
+      expect(missingItemInfo.column).toBe(0);
     });
   });
 });
