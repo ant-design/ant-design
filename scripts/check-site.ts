@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prefer-dom-node-text-content */
+
 import type http from 'http';
 import type https from 'https';
 import { join } from 'path';
@@ -24,19 +26,16 @@ describe('site test', () => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
       const root = new DOMParser().parseFromString(html, 'text/html');
-      function normalizeNodes(nodes: any): any[] {
-        if (!nodes) return [];
-        if (Array.isArray(nodes)) return nodes;
-        if (nodes.nodeName || nodes.nodeType || nodes.getAttribute) return [nodes];
-        return [];
-      }
       function getTextContent(node: any): string {
         if (!node) return '';
         if (typeof node.textContent === 'string') return node.textContent.trim();
         if (typeof node.innerText === 'string') return node.innerText.trim();
         // Fallback: recursively get text from children
         if (node.children && node.children.length > 0) {
-          return Array.from(node.children).map((child: any) => getTextContent(child)).join('').trim();
+          return Array.from(node.children)
+            .map((child: any) => getTextContent(child))
+            .join('')
+            .trim();
         }
         return '';
       }
@@ -56,19 +55,22 @@ describe('site test', () => {
           console.warn('DOMParser does not support querySelector');
           return wrap([]);
         }
-        
-        if (selector === 'h1') {
-          // Get all h1 elements
-          const h1Elements = root.querySelectorAll('h1');
-          const elementsArray = Array.from(h1Elements);
-          return wrap(elementsArray);
-        } else if (selector === '.markdown table') {
-          const tableElements = root.querySelectorAll('.markdown table');
-          const elementsArray = Array.from(tableElements);
-          return wrap(elementsArray);
+
+        // Handle complex selectors that domparser-rs might not support
+        if (selector === '.markdown table') {
+          // Find all .markdown elements and then find tables within them
+          const markdownElements = root.querySelectorAll('.markdown');
+          const tables = [];
+          for (const markdown of Array.from(markdownElements)) {
+            const tablesInMarkdown = markdown.querySelectorAll('table');
+            tables.push(...Array.from(tablesInMarkdown));
+          }
+          return wrap(tables);
         } else {
-          const element = root.querySelector(selector);
-          return wrap(element ? [element] : []);
+          // Use querySelectorAll for simple selectors
+          const elements = root.querySelectorAll(selector);
+          const elementsArray = Array.from(elements);
+          return wrap(elementsArray);
         }
       };
 
@@ -85,11 +87,11 @@ describe('site test', () => {
   const expectComponent = async (component: string) => {
     const { status, $, root } = await render(`/${component}/`);
     expect(status).toBe(200);
-    
+
     // Get all h1 elements and find the one in main content (not in header)
     const h1Elements = root.querySelectorAll('h1');
     let mainH1Text = '';
-    
+
     if (h1Elements.length >= 2) {
       // The second h1 should be the main content title
       const mainH1 = h1Elements[1];
@@ -99,10 +101,10 @@ describe('site test', () => {
       const h1 = h1Elements[0];
       mainH1Text = h1.textContent || h1.innerText || '';
     }
-    
+
     // Clean up the text and extract the main component name
     mainH1Text = mainH1Text.trim();
-    
+
     expect(mainH1Text.toLowerCase()).toMatch(handleComponentName(component));
 
     /**
