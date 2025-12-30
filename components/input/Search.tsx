@@ -242,7 +242,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       onChange,
       disabled,
     },
-    Object.keys(rootProps) as any[],
+    Object.keys(rootProps) as Array<keyof typeof rootProps>,
   );
 
   return (
