@@ -116,6 +116,11 @@ describe('Masonry', () => {
     domSpy = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect() {
         const element = this as unknown as HTMLElement;
+
+        if (element.hasAttribute('data-no-rect')) {
+          return undefined as any;
+        }
+
         let height = 100;
 
         // Check if the element itself is the item (has bamboo class)
@@ -482,6 +487,7 @@ describe('Masonry', () => {
 
     it('should handle missing positions gracefully', async () => {
       (global as any).mockMissingPosition = true;
+
       const onLayoutChange = jest.fn();
       const items = [
         { key: 'missing', data: 50 },
@@ -506,6 +512,36 @@ describe('Masonry', () => {
       const missingItemInfo = lastCall.find((i: any) => i.key === 'missing');
       // Should fallback to 0 if position is missing
       expect(missingItemInfo.column).toBe(0);
+    });
+
+    it('should handle missing positions with default value when clientHeight is 0', async () => {
+      (global as any).mockMissingPosition = true;
+
+      // Force clientHeight to 0 so visibleItems logic skips the filter that removes items without positions
+      const originalInnerHeight = window.innerHeight;
+      Object.defineProperty(window, 'innerHeight', { value: 0, writable: true });
+
+      const items = [{ key: 'missing', data: 50 }];
+
+      const { container } = render(
+        <Masonry
+          items={items}
+          itemRender={({ data }) => (
+            <div className="bamboo" data-height={String(data)} style={{ height: data }} />
+          )}
+        />,
+      );
+
+      await waitFakeTimer();
+
+      // Item should be rendered despite missing position because of fallback logic
+      // This triggers the `position = {}` default value in Masonry.tsx
+      const item = container.querySelector('.ant-masonry-item');
+      expect(item).toBeTruthy();
+
+      // Restore
+      Object.defineProperty(window, 'innerHeight', { value: originalInnerHeight, writable: true });
+      (global as any).mockMissingPosition = false;
     });
   });
 });
