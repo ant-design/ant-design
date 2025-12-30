@@ -21,7 +21,6 @@ tag: vVERSION
 
 - 🐞 修复 Drawer.PurePanel 无法响应鼠标交互的问题。[#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 Select options 属性透传至原生 DOM 导致 React 未知属性警告的问题。[#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
-- 🤖 杂项：优化 TypeScript 类型定义。[#56401](https://github.com/ant-design/ant-design/pull/56401) [@meet-student](https://github.com/meet-student)
 
 ## 6.1.2
 
