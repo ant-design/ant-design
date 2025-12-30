@@ -248,15 +248,10 @@ const InternalSelect = <
 
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
-  // ===================== Fix: Close popup immediately on select in single mode with search =====================
-  const [internalOpen, setInternalOpen] = React.useState<boolean | undefined>(propOpen);
   const isControlledOpen = propOpen !== undefined;
-
-  React.useEffect(() => {
-    if (isControlledOpen) {
-      setInternalOpen(propOpen);
-    }
-  }, [propOpen, isControlledOpen]);
+  const [internalOpen, setInternalOpen] = React.useState<boolean | undefined>(
+    isControlledOpen ? undefined : propOpen,
+  );
 
   const handleOpenChange = React.useCallback(
     (open: boolean) => {
@@ -270,16 +265,12 @@ const InternalSelect = <
 
   const handleSelect = React.useCallback(
     (value: any, option: any) => {
-      // Close popup immediately in single select mode with search to prevent showing all options before closing
       if (!isMultiple && !!showSearch) {
-        if (!isControlledOpen && internalOpen) {
-          setInternalOpen(false);
-        }
-        mergedOnOpenChange?.(false);
+        handleOpenChange(false);
       }
       propOnSelect?.(value, option);
     },
-    [isMultiple, showSearch, isControlledOpen, internalOpen, mergedOnOpenChange, propOnSelect],
+    [isMultiple, showSearch, handleOpenChange, propOnSelect],
   );
 
   const mergedOpen = isControlledOpen ? propOpen : internalOpen;
