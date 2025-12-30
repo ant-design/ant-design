@@ -30,17 +30,46 @@ describe('site test', () => {
         if (nodes.nodeName || nodes.nodeType || nodes.getAttribute) return [nodes];
         return [];
       }
+      function getTextContent(node: any): string {
+        if (!node) return '';
+        if (typeof node.textContent === 'string') return node.textContent.trim();
+        if (typeof node.innerText === 'string') return node.innerText.trim();
+        // Fallback: recursively get text from children
+        if (node.children && node.children.length > 0) {
+          return Array.from(node.children).map((child: any) => getTextContent(child)).join('').trim();
+        }
+        return '';
+      }
       function wrap(nodes: any[]) {
         const list = Array.isArray(nodes) ? nodes : [];
         return {
           length: list.length,
-          text: () => list.map((n) => (typeof n.text === 'function' ? n.text() : '')).join(''),
+          text: () => {
+            if (list.length === 0) return '';
+            return list.map((n) => getTextContent(n)).join('');
+          },
           first: () => wrap(list.slice(0, 1)),
         };
       }
       const $ = (selector: string) => {
-        const res = root.select ? root.select(selector) : null;
-        return wrap(normalizeNodes(res));
+        if (!root.querySelector) {
+          console.warn('DOMParser does not support querySelector');
+          return wrap([]);
+        }
+        
+        if (selector === 'h1') {
+          // Get all h1 elements
+          const h1Elements = root.querySelectorAll('h1');
+          const elementsArray = Array.from(h1Elements);
+          return wrap(elementsArray);
+        } else if (selector === '.markdown table') {
+          const tableElements = root.querySelectorAll('.markdown table');
+          const elementsArray = Array.from(tableElements);
+          return wrap(elementsArray);
+        } else {
+          const element = root.querySelector(selector);
+          return wrap(element ? [element] : []);
+        }
       };
 
       return { status: res.status, $, root };
@@ -54,9 +83,27 @@ describe('site test', () => {
   };
 
   const expectComponent = async (component: string) => {
-    const { status, $ } = await render(`/${component}/`);
+    const { status, $, root } = await render(`/${component}/`);
     expect(status).toBe(200);
-    expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
+    
+    // Get all h1 elements and find the one in main content (not in header)
+    const h1Elements = root.querySelectorAll('h1');
+    let mainH1Text = '';
+    
+    if (h1Elements.length >= 2) {
+      // The second h1 should be the main content title
+      const mainH1 = h1Elements[1];
+      mainH1Text = mainH1.textContent || mainH1.innerText || '';
+    } else if (h1Elements.length === 1) {
+      // If only one h1, check its content
+      const h1 = h1Elements[0];
+      mainH1Text = h1.textContent || h1.innerText || '';
+    }
+    
+    // Clean up the text and extract the main component name
+    mainH1Text = mainH1Text.trim();
+    
+    expect(mainH1Text.toLowerCase()).toMatch(handleComponentName(component));
 
     /**
      * 断言组件的 api table 数量是否符合预期。
