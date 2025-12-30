@@ -259,11 +259,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         if (rect) {
           nextItemsHeight.push([itemKey, rect.height, item.column]);
         } else {
-          const prevHeight = prevHeightMap.get(itemKey);
+          const prevHeight = prevHeightMap.get(itemKey) || averageHeight;
 
-          if (prevHeight !== undefined) {
-            nextItemsHeight.push([itemKey, prevHeight, item.column]);
-          }
+          nextItemsHeight.push([itemKey, prevHeight, item.column]);
         }
       });
 

@@ -1,14 +1,21 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { act, fireEvent, render } from '@testing-library/react';
 
 import Masonry from '..';
 import type { MasonryProps } from '..';
-import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import { triggerResize, render as utilRender, waitFakeTimer } from '../../../tests/utils';
 
 const resizeMasonry = async () => {
   triggerResize(document.body.querySelector('.ant-masonry')!);
   await waitFakeTimer();
 };
+
+jest.mock('../../_util/throttleByAnimationFrame', () => (cb: any) => {
+  const func = () => cb();
+  (func as any).cancel = () => {};
+  return func;
+});
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserver', () => {
@@ -41,20 +48,48 @@ jest.mock('../../_util/responsiveObserver', () => {
 describe('Masonry', () => {
   let minWidth = '';
   let domSpy: ReturnType<typeof spyElementPrototypes>;
+  let originResizeObserver: any;
 
   beforeAll(() => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
-      (query) =>
-        ({
-          addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              cb({ matches: query === `(min-width: ${minWidth})` });
-            }
-          },
+    originResizeObserver = global.ResizeObserver;
+    global.ResizeObserver = class ResizeObserver {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    };
+
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      return setTimeout(cb, 16) as unknown as number;
+    });
+    jest.spyOn(window, 'cancelAnimationFrame').mockImplementation((id) => {
+      clearTimeout(id);
+    });
+
+    // Mock scrollTo which is used in virtualization
+    if (!HTMLElement.prototype.scrollTo) {
+      (HTMLElement.prototype as any).scrollTo = jest.fn();
+    }
+
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => {
+        const match = query.match(/\(min-width: (\d+)px\)/);
+        const queryWidth = match ? Number.parseInt(match[1], 10) : 0;
+        const currentWidth = Number.parseInt(minWidth, 10) || 0;
+        const matches = currentWidth >= queryWidth;
+
+        return {
+          matches,
+          media: query,
+          onchange: null,
+          addListener: jest.fn(), // Deprecated but used in older antd/browsers
+          removeListener: jest.fn(), // Deprecated
+          addEventListener: jest.fn(),
           removeEventListener: jest.fn(),
-          matches: query === `(min-width: ${minWidth})`,
-        }) as any,
-    );
+          dispatchEvent: jest.fn(),
+        };
+      }),
+    });
   });
 
   beforeEach(() => {
@@ -64,15 +99,55 @@ describe('Masonry', () => {
 
     domSpy = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect() {
-        const recordElement = (this as unknown as HTMLElement).querySelector<HTMLElement>(
-          '.bamboo',
-        );
+        const element = this as unknown as HTMLElement;
+        let height = 100;
+
+        // Check if the element itself is the item (has bamboo class)
+        if (
+          element.classList &&
+          element.classList.contains('bamboo') &&
+          element.hasAttribute('data-height')
+        ) {
+          height = Number(element.getAttribute('data-height'));
+        } else {
+          // Fallback to checking children
+          const recordElement = element.querySelector?.<HTMLElement>('.bamboo');
+          if (recordElement?.hasAttribute('data-height')) {
+            height = Number(recordElement.getAttribute('data-height'));
+          }
+        }
+
         return {
-          height: recordElement?.hasAttribute('data-height')
-            ? Number(recordElement.getAttribute('data-height'))
-            : 100,
+          height,
           width: 100,
+          top: 0,
+          left: 0,
+          bottom: height,
+          right: 100,
+          x: 0,
+          y: 0,
+          toJSON: () => {},
         };
+      },
+
+      offsetHeight: {
+        get() {
+          const element = this as unknown as HTMLElement;
+          if (
+            element.classList &&
+            element.classList.contains('bamboo') &&
+            element.hasAttribute('data-height')
+          ) {
+            return Number(element.getAttribute('data-height'));
+          }
+          return 100;
+        },
+      },
+
+      clientWidth: {
+        get() {
+          return 100;
+        },
       },
     });
   });
@@ -84,8 +159,12 @@ describe('Masonry', () => {
 
     jest.clearAllTimers();
     jest.useRealTimers();
-    jest.restoreAllMocks();
     document.body.innerHTML = '';
+  });
+
+  afterAll(() => {
+    global.ResizeObserver = originResizeObserver;
+    jest.restoreAllMocks();
   });
 
   const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
@@ -121,9 +200,10 @@ describe('Masonry', () => {
     );
   };
 
-  it('should render correctly', async () => {
+  it('should utilRender correctly', async () => {
     const onLayoutChange = jest.fn();
-    const { container } = render(<DemoMasonry columns={3} onLayoutChange={onLayoutChange} />);
+    const { container } = utilRender(<DemoMasonry columns={3} onLayoutChange={onLayoutChange} />);
+
     await resizeMasonry();
 
     expect(container.querySelector('.ant-masonry')).toHaveStyle({
@@ -147,7 +227,7 @@ describe('Masonry', () => {
   it('should handle responsive columns', async () => {
     minWidth = '576px';
 
-    const { container } = render(<DemoMasonry columns={{ xs: 1, sm: 2, md: 3 }} />);
+    const { container } = utilRender(<DemoMasonry columns={{ xs: 1, sm: 2, md: 3 }} />);
 
     await resizeMasonry();
 
@@ -176,7 +256,8 @@ describe('Masonry', () => {
       />
     );
 
-    const { container, rerender } = render(renderDemo(items));
+    const { container, rerender } = utilRender(renderDemo(items));
+
     await resizeMasonry();
 
     const getColumns = () =>
@@ -195,7 +276,7 @@ describe('Masonry', () => {
   });
 
   it('not crash for empty items', async () => {
-    render(<Masonry />);
+    utilRender(<Masonry />);
     await resizeMasonry();
   });
 
@@ -233,7 +314,7 @@ describe('Masonry', () => {
     );
 
     it('should handle array gutter', async () => {
-      render(renderGutter([8, 16]));
+      utilRender(renderGutter([8, 16]));
       await resizeMasonry();
 
       expect(getGutter()).toEqual([8, 16]);
@@ -242,32 +323,79 @@ describe('Masonry', () => {
     it('should handle responsive gutter', async () => {
       minWidth = '576px';
 
-      render(renderGutter({ sm: 8, md: 16 }));
+      utilRender(renderGutter({ sm: 8, md: 16 }));
       await resizeMasonry();
 
       expect(getGutter()).toEqual([8, 8]);
     });
 
     it('should handle responsive gutter with array', async () => {
-      const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
-        (query) =>
-          ({
-            addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
-              if (type === 'change') {
-                cb({ matches: query === '(min-width: 576px)' });
-              }
-            },
-            removeEventListener: jest.fn(),
-            matches: query === '(min-width: 576px)',
-          }) as any,
-      );
+      minWidth = '576px';
 
-      render(renderGutter([{ sm: 8, md: 32 }, 23]));
+      utilRender(renderGutter([{ sm: 8, md: 32 }, 23]));
       await resizeMasonry();
 
       expect(getGutter()).toEqual([8, 23]);
+    });
 
-      mockMatchMedia.mockRestore();
+    it('should use cached height for unmounted items in virtual list', async () => {
+      const items = Array.from({ length: 100 }).map((_, i) => ({
+        key: i,
+        data: 50,
+      }));
+
+      const { container } = render(
+        <div style={{ height: 200, overflow: 'auto' }} className="virtual-container">
+          <Masonry
+            items={items}
+            columns={1}
+            itemRender={(item) => (
+              <div className="bamboo" data-height="50" style={{ height: 50 }}>
+                {item.key}
+              </div>
+            )}
+          />
+        </div>,
+      );
+
+      const virtualContainer = container.querySelector('.virtual-container') as HTMLElement;
+
+      // Mock properties for virtualization
+      Object.defineProperty(virtualContainer, 'clientHeight', { value: 200, configurable: true });
+      Object.defineProperty(virtualContainer, 'scrollTop', {
+        value: 0,
+        configurable: true,
+        writable: true,
+      });
+
+      // Initial load
+      await resizeMasonry();
+
+      // Scroll down to hide top items
+      Object.defineProperty(virtualContainer, 'scrollTop', {
+        value: 2000,
+        configurable: true,
+        writable: true,
+      });
+      fireEvent.scroll(virtualContainer);
+      await waitFakeTimer();
+
+      // End animations for leaving items
+      act(() => {
+        const leavingItems = container.querySelectorAll('.ant-masonry-item-fade-leave');
+        leavingItems.forEach((item) => {
+          fireEvent.transitionEnd(item);
+          fireEvent.animationEnd(item);
+        });
+      });
+      await waitFakeTimer();
+
+      // Trigger resize to force re-measure
+      await resizeMasonry();
+
+      expect(container.querySelector('.ant-masonry')).toHaveStyle({
+        height: '8450px',
+      });
     });
   });
 });
