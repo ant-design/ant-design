@@ -40,7 +40,7 @@ export interface PureContentProps {
 export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
   const { prefixCls, type, icon, children, classNames: pureContentClassNames, styles } = props;
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode = cloneElement<any>(iconElement, (currentProps) => {
+  const iconNode = cloneElement<React.HTMLAttributes<HTMLElement>>(iconElement, (currentProps) => {
     const mergedStyle: React.CSSProperties = { ...currentProps?.style, ...styles?.icon };
     return {
       className: clsx(currentProps.className, pureContentClassNames?.icon),
