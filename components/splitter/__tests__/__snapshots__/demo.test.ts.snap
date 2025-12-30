@@ -117,6 +117,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
     </p>
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-wrapper css-var-test-id ant-radio-css-var"

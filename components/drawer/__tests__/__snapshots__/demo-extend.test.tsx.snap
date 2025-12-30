@@ -599,6 +599,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -3531,6 +3532,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -3849,6 +3851,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -4408,32 +4411,158 @@ exports[`renders components/drawer/demo/size.tsx extend context correctly 1`] = 
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
     >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
+      <div
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
-        <span>
-          Open Default Size (378px)
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
-      >
-        <span>
-          Open Large Size (736px)
-        </span>
-      </button>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="large"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            Large Size (736px)
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="default"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            Default Size (378px)
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="256"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            256
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="500px"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            500px
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="50%"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            50%
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="20vw"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            20vw
+          </span>
+        </label>
+      </div>
     </div>
   </div>,
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Drawer
+    </span>
+  </button>,
   <div
     class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"

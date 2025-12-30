@@ -19,7 +19,22 @@ import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
 
 export type { SegmentedValue } from '@rc-component/segmented';
-export type SemanticName = 'root' | 'icon' | 'label' | 'item';
+
+export type SemanticName = keyof SegmentedSemanticClassNames & keyof SegmentedSemanticStyles;
+
+export type SegmentedSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  label?: string;
+  item?: string;
+};
+
+export type SegmentedSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  label?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
 
 interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
   extends RcSegmentedLabeledOption<ValueType> {
@@ -47,8 +62,12 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
-export type SegmentedClassNamesType = SemanticClassNamesType<SegmentedProps, SemanticName>;
-export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SemanticName>;
+export type SegmentedClassNamesType = SemanticClassNamesType<
+  SegmentedProps,
+  SegmentedSemanticClassNames
+>;
+
+export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SegmentedSemanticStyles>;
 
 export interface SegmentedProps<ValueType = RcSegmentedValue>
   extends Omit<

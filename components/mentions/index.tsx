@@ -45,10 +45,26 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-type SemanticName = 'root' | 'textarea' | 'popup' | 'suffix';
+export type MentionSemanticClassNames = {
+  root?: string;
+  textarea?: string;
+  popup?: string;
+  suffix?: string;
+};
 
-export type MentionsClassNamesType = SemanticClassNamesType<MentionProps, SemanticName>;
-export type MentionsStylesType = SemanticStylesType<MentionProps, SemanticName>;
+export type MentionSemanticStyles = {
+  root?: React.CSSProperties;
+  textarea?: React.CSSProperties;
+  popup?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+};
+
+export type MentionsClassNamesType = SemanticClassNamesType<
+  MentionProps,
+  MentionSemanticClassNames
+>;
+
+export type MentionsStylesType = SemanticStylesType<MentionProps, MentionSemanticStyles>;
 
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;

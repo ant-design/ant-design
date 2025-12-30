@@ -14,7 +14,8 @@ import { useComponentConfig } from '../config-provider/context';
 import type {
   AbstractTooltipProps,
   TooltipRef,
-  SemanticName as TooltipSemanticName,
+  TooltipSemanticClassNames,
+  TooltipSemanticStyles,
 } from '../tooltip';
 import Tooltip from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
@@ -22,11 +23,21 @@ import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 
-export type PopoverSemanticName = TooltipSemanticName | 'title' | 'content';
+export type PopoverSemanticName = keyof PopoverSemanticClassNames & keyof PopoverSemanticStyles;
 
-export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticName>;
+export type PopoverSemanticClassNames = TooltipSemanticClassNames & {
+  title?: string;
+  content?: string;
+};
 
-export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticName>;
+export type PopoverSemanticStyles = TooltipSemanticStyles & {
+  title?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticClassNames>;
+
+export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticStyles>;
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;

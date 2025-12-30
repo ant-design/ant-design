@@ -5990,6 +5990,7 @@ exports[`renders components/steps/demo/steps-in-steps.tsx extend context correct
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 16px;"
   >
     <label
