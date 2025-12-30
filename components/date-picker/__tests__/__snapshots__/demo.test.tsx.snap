@@ -1502,7 +1502,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx correctly 1`] = 
         class="ant-space-item"
       >
         <span>
-          2016-11-21
+          2016-11-22
         </span>
       </div>
       <div
@@ -1543,7 +1543,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx correctly 1`] = 
         class="ant-space-item"
       >
         <span>
-          2016-11-21 ~ 2016-11-22
+          2016-11-22 ~ 2016-11-23
         </span>
       </div>
       <div
