@@ -226,16 +226,11 @@ const genPaginationSmallStyle: GenerateStyle<PaginationToken, CSSObject> = (toke
     [`&${componentCls}-small ${componentCls}-options`]: {
       marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
-      '&-size-changer': {
-        top: token.miniOptionsSizeChangerTop,
-      },
-
       '&-quick-jumper': {
         input: {
           ...genInputSmallStyle(token),
 
           width: token.paginationMiniQuickJumperInputWidth,
-          height: token.controlHeightSM,
         },
       },
     },
@@ -247,18 +242,9 @@ const genPaginationLargeStyle: GenerateStyle<PaginationToken, CSSObject> = (toke
 
   return {
     [`&${componentCls}-large ${componentCls}-options`]: {
-      marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
-
-      '&-size-changer': {
-        top: token.miniOptionsSizeChangerTop,
-      },
-
       '&-quick-jumper': {
         input: {
           ...genInputLargeStyle(token),
-
-          width: token.paginationMiniQuickJumperInputWidth,
-          height: token.controlHeightLG,
         },
       },
     },
@@ -298,7 +284,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         display: 'inline-flex',
         alignItems: 'center',
         height: `var(${getCssVar('item-size-actual')})`,
-        marginInlineEnd: token.marginXS,
+        marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
 
         input: {
           boxSizing: 'border-box',
@@ -414,7 +400,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-prev,
     ${componentCls}-jump-next
     `]: {
-      marginInlineEnd: token.marginXS,
+      marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
     },
 
     [`
@@ -491,9 +477,9 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       '&-quick-jumper': {
         display: 'inline-block',
-        height: token.controlHeight,
+        height: `var(${getCssVar('item-size-actual')})`,
         marginInlineStart: token.marginXS,
-        lineHeight: unit(token.controlHeight),
+        lineHeight: `var(${getCssVar('item-size-actual')})`,
         verticalAlign: 'top',
 
         input: {
@@ -509,11 +495,11 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           },
 
           width: token.quickJumperInputWidth,
-          height: token.controlHeight,
+          height: `var(${getCssVar('item-size-actual')})`,
           boxSizing: 'border-box',
           margin: 0,
-          marginInlineStart: token.marginXS,
-          marginInlineEnd: token.marginXS,
+          marginInlineStart: `var(${getCssVar('item-spacing-actual')})`,
+          marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
         },
       },
     },
@@ -531,7 +517,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       display: 'inline-block',
       minWidth: `var(${getCssVar('item-size-actual')})`,
       height: `var(${getCssVar('item-size-actual')})`,
-      marginInlineEnd: token.marginXS,
+      marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
       fontFamily: token.fontFamily,
       lineHeight: unit(
         token
@@ -600,11 +586,14 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
   return {
     [componentCls]: {
       [getCssVar('item-size-actual')]: unit(token.itemSize),
+      [getCssVar('item-spacing-actual')]: unit(token.marginXS),
       '&-small': {
         [getCssVar('item-size-actual')]: unit(token.itemSizeSM),
+        [getCssVar('item-spacing-actual')]: unit(token.marginXXS),
       },
       '&-large': {
         [getCssVar('item-size-actual')]: unit(token.itemSizeLG),
+        [getCssVar('item-spacing-actual')]: unit(token.marginSM),
       },
 
       ...resetComponent(token),
@@ -640,7 +629,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       [`${componentCls}-total-text`]: {
         display: 'inline-block',
         height: `var(${getCssVar('item-size-actual')})`,
-        marginInlineEnd: token.marginXS,
+        marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
         lineHeight: unit(
           token
             .calc(`var(${getCssVar('item-size-actual')})`)
