@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         shard: [1/2, 2/2]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@v1
@@ -47,7 +47,7 @@ jobs:
   ############################### Diff Images ##############################
   visual-diff-report:
     name: visual-diff report
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: visual-diff-snapshot
     steps:
       - uses: actions/checkout@v6
