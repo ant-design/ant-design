@@ -32,7 +32,7 @@ import type {
   Key,
   TableLocale,
 } from '../../interface';
-import MeasureRowContext from '../../MeasureRowContext';
+import TableMeasureRowContext from '../../TableMeasureRowContext';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 
@@ -175,7 +175,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     onFilterDropdownOpenChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
-  const inMeasureRow = React.useContext(MeasureRowContext);
+  const inMeasureRow = React.useContext(TableMeasureRowContext);
 
   const filtered: boolean = !!(
     filterState &&
