@@ -14,7 +14,7 @@ concurrency:
 jobs:
   pr-check-ci:
     if: github.repository == 'ant-design/ant-design'
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     name: Build Project
     steps:
       - name: checkout

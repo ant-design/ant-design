@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   send-to-dingtalk:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: send to dingtalk
         uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585
