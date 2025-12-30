@@ -95,11 +95,11 @@ describe('site test', () => {
     if (h1Elements.length >= 2) {
       // The second h1 should be the main content title
       const mainH1 = h1Elements[1];
-      mainH1Text = mainH1.textContent || mainH1.innerText || '';
+      mainH1Text = mainH1.textContent || (mainH1 as any).innerText || '';
     } else if (h1Elements.length === 1) {
       // If only one h1, check its content
       const h1 = h1Elements[0];
-      mainH1Text = h1.textContent || h1.innerText || '';
+      mainH1Text = h1.textContent || (h1 as any).innerText || '';
     }
 
     // Clean up the text and extract the main component name
