@@ -48,7 +48,7 @@ export interface AvatarGroupProps {
     popover?: PopoverProps;
   };
   /*
-   * Size of avatar, options: `large`, `small`, `default`
+   * Size of avatar, options: `large`, `middle`, `small`
    * or a custom number size
    * */
   size?: AvatarSize;
