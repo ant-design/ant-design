@@ -26,6 +26,7 @@ export type ModalStaticFunctions = {
   info: ModalFunc;
   success: ModalFunc;
   error: ModalFunc;
+  warn: ModalFunc;
   warning: ModalFunc;
   confirm: ModalFunc;
 };
