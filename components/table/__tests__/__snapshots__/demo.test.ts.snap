@@ -14990,7 +14990,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                           Name
                         </span>
                         <span
-                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
