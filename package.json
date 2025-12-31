@@ -300,7 +300,7 @@
     "react-highlight-words": "^0.21.0",
     "react-icons": "^5.5.0",
     "react-infinite-scroll-component": "^6.1.1",
-    "react-resizable": "3.0.5",
+    "react-resizable": "3.1.1",
     "react-router-dom": "^7.10.1",
     "react-sticky-box": "^2.0.5",
     "rehype-stringify": "^10.0.1",
