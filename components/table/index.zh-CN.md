@@ -98,10 +98,22 @@ const columns = [
 <code src="./demo/drag-sorting.tsx">拖拽排序</code>
 <code src="./demo/drag-column-sorting.tsx">列拖拽排序</code>
 <code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
-
 <!-- <code src="./demo/resizable-column.tsx" debug>可伸缩列</code> -->
-
-<code src="./demo/ellipsis.tsx">单元格自动省略</code> <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code> <code src="./demo/custom-empty.tsx">自定义空状态</code> <code src="./demo/summary.tsx">总结栏</code> <code src="./demo/virtual-list.tsx" version="5.9.0">虚拟列表</code> <code src="./demo/responsive.tsx">响应式</code> <code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code> <code src="./demo/pagination.tsx">分页设置</code> <code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code> <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code> <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code> <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code> <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code> <code src="./demo/component-token.tsx" debug>组件 Token</code> <code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
+<code src="./demo/ellipsis.tsx">单元格自动省略</code>
+<code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
+<code src="./demo/custom-empty.tsx">自定义空状态</code>
+<code src="./demo/summary.tsx">总结栏</code>
+<code src="./demo/virtual-list.tsx" version="5.9.0">虚拟列表</code>
+<code src="./demo/responsive.tsx">响应式</code>
+<code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
+<code src="./demo/pagination.tsx">分页设置</code>
+<code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
+<code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
+<code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
 
 ## API
 
