@@ -60,6 +60,7 @@ import type {
   TablePaginationPosition,
   TableRowSelection,
 } from './interface';
+import TableMeasureRowContext from './TableMeasureRowContext';
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
@@ -747,9 +748,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
           measureRowRender={(measureRow) => (
-            <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
-              {measureRow}
-            </ConfigProvider>
+            <TableMeasureRowContext.Provider value={true}>
+              <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
+                {measureRow}
+              </ConfigProvider>
+            </TableMeasureRowContext.Provider>
           )}
         />
         {bottomPaginationNode}
