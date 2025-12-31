@@ -22,7 +22,13 @@ export type ModalFunc = (props: ModalFuncProps) => {
   update: (configUpdate: ConfigUpdate) => void;
 };
 
-export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
+export type ModalStaticFunctions = {
+  info: ModalFunc;
+  success: ModalFunc;
+  error: ModalFunc;
+  warning: ModalFunc;
+  confirm: ModalFunc;
+};
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const { prefixCls: customizePrefixCls, getContainer, direction } = props;
