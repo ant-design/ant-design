@@ -19,7 +19,8 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export type NotificationSemantic = 'root' | 'title' | 'description' | 'actions' | 'icon';
+export type NotificationSemanticName = keyof NotificationSemanticClassNames &
+  keyof NotificationSemanticStyles;
 
 export type NotificationSemanticClassNames = {
   root?: string;

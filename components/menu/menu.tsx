@@ -34,7 +34,7 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
+export type SemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
 
 export type MenuSemanticClassNames = {
   root?: string;
@@ -54,7 +54,7 @@ export type MenuSemanticStyles = {
   itemContent?: React.CSSProperties;
 };
 
-export type SubMenuSemanticName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
+export type SubMenuSemanticName = keyof SubMenuSemanticClassNames & keyof SubMenuSemanticStyles;
 
 export type SubMenuSemanticClassNames = {
   item?: string;

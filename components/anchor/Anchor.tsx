@@ -37,7 +37,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
   if (rect.width || rect.height) {
     if (container === window) {
-      return rect.top - element.ownerDocument!.documentElement!.clientTop;
+      return rect.top - element.ownerDocument.documentElement!.clientTop;
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
@@ -52,7 +52,7 @@ interface Section {
   top: number;
 }
 
-export type SemanticName = 'root' | 'item' | 'itemTitle' | 'indicator';
+export type SemanticName = keyof AnchorSemanticClassNames & keyof AnchorSemanticStyles;
 
 export type AnchorSemanticClassNames = {
   root?: string;

@@ -20,7 +20,7 @@ export type StatusRenderInfo = {
   onRefresh?: () => void;
 };
 
-export type QRCodeSemanticName = 'root' | 'cover';
+export type QRCodeSemanticName = keyof QRCodeSemanticClassNames & keyof QRCodeSemanticStyles;
 
 export type QRCodeSemanticClassNames = {
   root?: string;

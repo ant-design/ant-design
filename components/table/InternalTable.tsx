@@ -68,7 +68,7 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-export type TableSemanticName = 'root' | 'section' | 'title' | 'footer' | 'content';
+export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles;
 
 export type TableSemanticClassNames = {
   root?: string;

@@ -28,7 +28,7 @@ export type Gap = number | undefined;
 
 export type Key = string | number;
 
-export type SemanticName = 'root' | 'item';
+export type SemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
 
 type MasonrySemanticClassNames = {
   root?: string;
