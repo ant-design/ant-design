@@ -14,7 +14,7 @@ permissions:
 jobs:
   upstream-workflow-summary:
     name: upstream workflow summary
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     if: github.event.workflow_run.event == 'pull_request'
     outputs:
       jobs: ${{ steps.prep-summary.outputs.result }}
@@ -57,7 +57,7 @@ jobs:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: upstream-workflow-summary
     if: github.event.workflow_run.event == 'pull_request'
     steps:

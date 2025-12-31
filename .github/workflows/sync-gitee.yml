@@ -19,7 +19,7 @@ jobs:
   mirror:
     permissions:
       contents: none
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     if: github.repository == 'ant-design/ant-design'
     steps:
       - name: mirror
