@@ -8987,7 +8987,6 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -13280,7 +13279,6 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -14706,7 +14704,6 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -18513,7 +18510,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
             class="ant-pagination-options"
           >
             <div
-              aria-label="Page Size"
               class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
