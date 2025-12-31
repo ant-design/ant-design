@@ -22,7 +22,7 @@ svg.my-icon {
 
 ## Bootstrap Icons
 
-[Bootstrap Icons](https://icons.getbootstrap.com/) is a icon library that provides a lot of icons. You can use it to customize the icons in Ant Design.
+[Bootstrap Icons](https://icons.getbootstrap.com/) is an icon library that provides a lot of icons. You can use it to customize the icons in Ant Design.
 
 ```sandpack
 const sandpackConfig = {
@@ -65,7 +65,7 @@ export default App;
 
 ## Remix Icon
 
-[Remix Icon](https://remixicon.com/) is a icon library that provides a lot of icons. You can use it to customize the icons in Ant Design.
+[Remix Icon](https://remixicon.com/) is an icon library that provides a lot of icons. You can use it to customize the icons in Ant Design.
 
 ```sandpack
 const sandpackConfig = {
