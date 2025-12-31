@@ -13,8 +13,8 @@ By default, Ant Design uses the `@ant-design/icons` package to provide icons. Yo
 To make sure the icons have correct color and size, your custom icons must inherit `color` and `fontSize` styles.
 
 ```css
-.my-icon {
-  color: inherit;
+svg.my-icon {
+  fill: currentColor;
   width: 1em;
   height: 1em;
 }

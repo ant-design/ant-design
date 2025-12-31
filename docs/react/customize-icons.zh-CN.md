@@ -13,8 +13,8 @@ title: 定制图标
 为了确保图标具有正确的颜色和大小，您的自定义图标必须继承 `color` 和 `fontSize` 样式。
 
 ```css
-.my-icon {
-  color: inherit;
+svg.my-icon {
+  fill: currentColor;
   width: 1em;
   height: 1em;
 }
