@@ -51,17 +51,21 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
     const nextItems: GetProp<typeof Bubble.List, 'items'> = [
       {
+        key: 1,
+        role: 'user',
         placement: 'end',
         content: prompt,
-        avatar: { icon: <UserOutlined /> },
+        avatar: <UserOutlined />,
         shape: 'corner',
       },
       {
+        key: 2,
+        role: 'system',
         placement: 'start',
         content: resText,
-        avatar: { icon: <AntDesignOutlined /> },
+        avatar: <AntDesignOutlined />,
         loading: !resText,
-        messageRender: (content: string) => (
+        contentRender: (content: string) => (
           <Typography>
             <pre style={{ margin: 0 }}>{content}</pre>
           </Typography>
@@ -71,9 +75,11 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
     if (!loading) {
       nextItems.push({
+        key: 3,
+        role: 'divider',
         placement: 'start',
         content: locale.finishTips,
-        avatar: { icon: <AntDesignOutlined /> },
+        avatar: <AntDesignOutlined />,
         shape: 'corner',
       });
     }
