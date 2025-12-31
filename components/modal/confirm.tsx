@@ -26,9 +26,10 @@ export type ModalStaticFunctions = {
   info: ModalFunc;
   success: ModalFunc;
   error: ModalFunc;
-  warn: ModalFunc;
   warning: ModalFunc;
   confirm: ModalFunc;
+  /** @deprecated Please use `warning` instead */
+  warn: ModalFunc;
 };
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
