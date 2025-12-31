@@ -559,7 +559,6 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
@@ -1033,7 +1032,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -1363,7 +1361,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
@@ -1661,7 +1658,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -2002,7 +1998,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
@@ -2423,7 +2418,6 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
@@ -2758,7 +2752,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -3099,7 +3092,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
@@ -3522,7 +3514,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -3946,7 +3937,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
@@ -4343,7 +4333,6 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
@@ -4948,7 +4937,6 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -5285,7 +5273,6 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -5577,7 +5564,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -5863,7 +5849,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -6199,7 +6184,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -6529,7 +6513,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
@@ -6860,7 +6843,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -7190,7 +7172,6 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
