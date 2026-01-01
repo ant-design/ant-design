@@ -60,10 +60,10 @@ import type {
   TablePaginationPosition,
   TableRowSelection,
 } from './interface';
-import TableMeasureRowContext from './TableMeasureRowContext';
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
+import TableMeasureRowContext from './TableMeasureRowContext';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -343,27 +343,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     nativeElement: rootRef.current!,
   }));
 
-  // ============================ RowKey ============================
-  const rowKey = customizeRowKey || table?.rowKey || 'key';
-
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
-      'usage',
-      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
-    );
-  }
-
-  const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
-    if (typeof rowKey === 'function') {
-      return rowKey;
-    }
-
-    return (record: RecordType) => record?.[rowKey as string];
-  }, [rowKey]);
-
-  const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
-
   // ============================ Events =============================
   const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
@@ -532,6 +511,35 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedPagination?.pageSize,
     mergedPagination?.total,
   ]);
+
+  // ============================ RowKey ============================
+  const rowKey = customizeRowKey || table?.rowKey || 'key';
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(typeof rowKey === 'function' && rowKey.length > 1),
+      'usage',
+      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+    );
+  }
+
+  const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
+    if (typeof rowKey === 'function') {
+      return rowKey;
+    }
+
+    return (record, index) => {
+      if (typeof customizeRowKey === 'undefined') {
+        if (mergedPagination) {
+          return `${mergedPagination.current}-${index}`;
+        }
+        return index;
+      }
+      return record?.[rowKey as string];
+    };
+  }, [rowKey]);
+
+  const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
 
   // ========================== Selections ==========================
   const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(
