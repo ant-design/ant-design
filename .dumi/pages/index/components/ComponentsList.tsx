@@ -165,7 +165,8 @@ const ComponentsList: React.FC = () => {
         type: 'update',
         node: (
           <DatePickerDoNotUseOrYouWillBeFired
-            value={dayjs('2022-11-18 14:00:00')}
+            value={dayjs('2025-11-22 00:00:00')}
+            // defaultValue={dayjs('2025-11-22 00:00:00')}
             showToday={false}
             presets={
               isMobile
@@ -180,7 +181,6 @@ const ComponentsList: React.FC = () => {
           />
         ),
       },
-
       // {
       //   title: 'Progress',
       //   type: 'update',
