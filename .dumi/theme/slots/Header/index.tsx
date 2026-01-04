@@ -218,18 +218,22 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      const url = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
-      // eslint-disable-next-line compat/compat
-      const response = await fetch(`${url}/versions.json`);
-      const versions: VersionItem[] = await response.json();
-      const matchPrefix = pkg.version.slice(0, 2);
-      const options = versions.map((item) => {
-        const isMatch = item.version.startsWith(matchPrefix);
-        const label = isMatch ? pkg.version : item.version;
-        const value = chineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
-        return { value, label };
-      });
-      setVersionOptions(options);
+      try {
+        const url = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
+        // eslint-disable-next-line compat/compat
+        const response = await fetch(`${url}/versions.json`);
+        const versions: VersionItem[] = await response.json();
+        const matchPrefix = pkg.version.slice(0, 2);
+        const options = versions.map((item) => {
+          const isMatch = item.version.startsWith(matchPrefix);
+          const label = isMatch ? pkg.version : item.version;
+          const value = chineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
+          return { value, label };
+        });
+        setVersionOptions(options);
+      } catch (error) {
+        console.error('Failed to fetch version options:', error);
+      }
     })();
   }, []);
 
