@@ -537,7 +537,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       }
       return record?.[rowKey as string];
     };
-  }, [rowKey]);
+  }, [rowKey, mergedPagination]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
 

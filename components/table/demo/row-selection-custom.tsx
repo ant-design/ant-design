@@ -27,7 +27,7 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 46 }).map<DataType>((_, i) => ({
-  // key: i,
+  key: i,
   name: `Edward King ${i}`,
   age: 32,
   address: `London, Park Lane no. ${i}`,
@@ -80,7 +80,12 @@ const App: React.FC = () => {
     ],
   };
 
-  return <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />;
+  return (
+    <>
+      {JSON.stringify(selectedRowKeys)}
+      <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
+    </>
+  );
 };
 
 export default App;
