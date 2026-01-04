@@ -253,7 +253,6 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
       class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
