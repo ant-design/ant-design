@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
-import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -203,7 +202,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
-    fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
+    fireEvent.keyDown(window, { key: 'Escape' });
 
     await waitFakeTimer(0);
 
@@ -710,7 +709,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-        fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
+        fireEvent.keyDown(window, { key: 'Escape' });
 
         await waitFakeTimer(0);
 

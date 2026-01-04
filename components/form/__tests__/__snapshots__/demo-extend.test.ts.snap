@@ -86,7 +86,6 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -340,7 +339,6 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -1648,7 +1646,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -11466,7 +11463,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -12069,7 +12065,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
@@ -12191,7 +12186,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -22972,7 +22966,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -23132,7 +23125,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <div
@@ -32585,7 +32577,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-filled ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -32726,7 +32717,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
             >
               <div
@@ -32881,7 +32871,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-tree-select ant-select-filled ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
