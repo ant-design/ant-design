@@ -14,7 +14,6 @@ title: 定制图标
 
 ```css
 svg.my-icon {
-  display: inline-block;
   fill: currentColor;
   width: 1em;
   height: 1em;

@@ -14,7 +14,6 @@ To make sure the icons have correct color and size, your custom icons must inher
 
 ```css
 svg.my-icon {
-  display: inline-block;
   fill: currentColor;
   width: 1em;
   height: 1em;
