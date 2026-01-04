@@ -32,12 +32,15 @@ const sandpackConfig = {
   }),
 };
 
-import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image } from 'antd';
+import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image, Modal, Notification } from 'antd';
 import React, { useState } from 'react';
 import { CheckCircle, InfoCircle, ExclamationCircle, XCircle, XLg, ArrowRight, ChevronDown, ArrowUp } from "react-bootstrap-icons";
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
+  const [notificationApi, notificationContextHolder] = Notification.useNotification();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <ConfigProvider
       alert={{
@@ -68,12 +71,19 @@ const App: React.FC = () => {
           closeIcon: <XLg />,
         }
       }}
+      modal={{
+        closeIcon: <XLg />,
+      }}
+      notification={{
+        closeIcon: <XLg />,
+      }}
     >
+      {notificationContextHolder}
       <Flex vertical gap="middle">
-        <Alert type="success" showIcon description="Success" closable />
-        <Alert type="info" showIcon description="Info" closable />
-        <Alert type="warning" showIcon description="Warning" closable />
-        <Alert type="error" showIcon description="Error" closable />
+        <Alert type="success" showIcon title="Success" closable />
+        <Alert type="info" showIcon title="Info" closable />
+        <Alert type="warning" showIcon title="Warning" closable />
+        <Alert type="error" showIcon title="Error" closable />
         <Breadcrumb items={[{ title: 'Home' }, { title: 'List', menu: { items: [{ title: 'Item 1' }, { title: 'Item 2' }] } }, { title: 'Item' }]} />
         <Collapse items={[{ key: '1', label: 'Item 1', children: <div>Content 1</div> }, { key: '2', label: 'Item 2', children: <div>Content 2</div> }]} />
         <div>
@@ -85,12 +95,19 @@ const App: React.FC = () => {
           <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" width={100} height={100} />
           <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" width={100} height={100} />
         </Image.PreviewGroup>
+        <div>
+          <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
+          <Modal title="Modal" open={modalOpen} onClose={() => setModalOpen(false)} />
+        </div>
+        <div>
+          <Button onClick={() => notificationApi.info({ title: 'Notification', description: 'This is a notification' })}>Open Notification</Button>
+        </div>
       </Flex>
     </ConfigProvider>
   );
 };
 
-export default App;
+export default Demo;
 ```
 
 ## Remix Icon
@@ -104,12 +121,15 @@ const sandpackConfig = {
   }),
 };
 
-import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image } from 'antd';
+import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image, Modal, Notification } from 'antd';
 import React, { useState } from 'react';
 import { RiCheckboxCircleLine, RiInformationLine, RiAlertLine, RiCloseCircleLine, RiCloseLine, RiArrowRightLine, RiArrowDropDownLine, RiArrowUpLine } from "@remixicon/react";
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
+  const [notificationApi, notificationContextHolder] = Notification.useNotification();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <ConfigProvider
       alert={{
@@ -141,11 +161,12 @@ const App: React.FC = () => {
         }
       }}
     >
+      {notificationContextHolder}
       <Flex vertical gap="middle">
-        <Alert type="success" showIcon message="Success" closable />
-        <Alert type="info" showIcon message="Info" closable />
-        <Alert type="warning" showIcon message="Warning" closable />
-        <Alert type="error" showIcon message="Error" closable />
+        <Alert type="success" showIcon title="Success" closable />
+        <Alert type="info" showIcon title="Info" closable />
+        <Alert type="warning" showIcon title="Warning" closable />
+        <Alert type="error" showIcon title="Error" closable />
         <Breadcrumb items={[{ title: 'Home' }, { title: 'List', menu: { items: [{ title: 'Item 1' }, { title: 'Item 2' }] } }, { title: 'Item' }]} />
         <Collapse items={[{ key: '1', label: 'Item 1', children: <div>Content 1</div> }, { key: '2', label: 'Item 2', children: <div>Content 2</div> }]} />
         <div>
@@ -157,10 +178,17 @@ const App: React.FC = () => {
           <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" width={100} height={100} />
           <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" width={100} height={100} />
         </Image.PreviewGroup>
+        <div>
+          <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
+          <Modal title="Modal" open={modalOpen} onClose={() => setModalOpen(false)} />
+        </div>
+        <div>
+          <Button onClick={() => notificationApi.info({ title: 'Notification', description: 'This is a notification' })}>Open Notification</Button>
+        </div>
       </Flex>
     </ConfigProvider>
   );
 };
 
-export default App;
+export default Demo;
 ```
