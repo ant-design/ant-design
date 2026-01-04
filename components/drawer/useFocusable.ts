@@ -8,19 +8,14 @@ export interface FocusableConfig {
   trap?: boolean;
 }
 
-export default function useFocusable(
-  focusable?: FocusableConfig,
-  defaultTrap?: boolean,
-  autoFocusButton?: 'ok' | 'cancel' | false,
-  focusTriggerAfterClose?: boolean,
-) {
-  return useMemo(
-    () => ({
+export default function useFocusable(focusable?: FocusableConfig, defaultTrap?: boolean) {
+  return useMemo(() => {
+    const ret = {
       trap: defaultTrap ?? true,
-      autoFocusButton: autoFocusButton ?? 'ok',
-      focusTriggerAfterClose: focusTriggerAfterClose ?? true,
+      focusTriggerAfterClose: true,
       ...focusable,
-    }),
-    [focusable, autoFocusButton, focusTriggerAfterClose, defaultTrap],
-  );
+    };
+
+    return ret;
+  }, [focusable, defaultTrap]);
 }
