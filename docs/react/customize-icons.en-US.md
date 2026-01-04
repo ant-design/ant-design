@@ -32,7 +32,7 @@ const sandpackConfig = {
   }),
 };
 
-import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image, Modal, Notification } from 'antd';
+import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image, Modal, Notification, Table } from 'antd';
 import React, { useState } from 'react';
 import { CheckCircle, InfoCircle, ExclamationCircle, XCircle, XLg, ArrowRight, ChevronDown, ArrowUp } from "react-bootstrap-icons";
 
@@ -77,6 +77,11 @@ const Demo: React.FC = () => {
       notification={{
         closeIcon: <XLg />,
       }}
+      table={{
+        expandable: {
+          expandIcon: <ChevronDown />,
+        },
+      }}
     >
       {notificationContextHolder}
       <Flex vertical gap="middle">
@@ -102,6 +107,7 @@ const Demo: React.FC = () => {
         <div>
           <Button onClick={() => notificationApi.info({ title: 'Notification', description: 'This is a notification' })}>Open Notification</Button>
         </div>
+        <Table dataSource={[{ id: 1, name: 'John Doe' }]} columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]} expandable={{ expandedRowRender: () => <div>Expanded Content</div> }} />
       </Flex>
     </ConfigProvider>
   );
@@ -121,7 +127,7 @@ const sandpackConfig = {
   }),
 };
 
-import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image, Modal, Notification } from 'antd';
+import { Alert, Breadcrumb, Button, ConfigProvider, Collapse, Drawer, Flex, FloatButton, Image, Modal, Notification, Table } from 'antd';
 import React, { useState } from 'react';
 import { RiCheckboxCircleLine, RiInformationLine, RiAlertLine, RiCloseCircleLine, RiCloseLine, RiArrowRightLine, RiArrowDropDownLine, RiArrowUpLine } from "@remixicon/react";
 
@@ -160,6 +166,17 @@ const Demo: React.FC = () => {
           closeIcon: <RiCloseLine />,
         }
       }}
+      modal={{
+        closeIcon: <RiCloseLine />,
+      }}
+      notification={{
+        closeIcon: <RiCloseLine />,
+      }}
+      table={{
+        expandable: {
+          expandIcon: <RiArrowDropDownLine />,
+        },
+      }}
     >
       {notificationContextHolder}
       <Flex vertical gap="middle">
@@ -185,6 +202,7 @@ const Demo: React.FC = () => {
         <div>
           <Button onClick={() => notificationApi.info({ title: 'Notification', description: 'This is a notification' })}>Open Notification</Button>
         </div>
+        <Table dataSource={[{ id: 1, name: 'John Doe' }]} columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]} expandable={{ expandedRowRender: () => <div>Expanded Content</div> }} />
       </Flex>
     </ConfigProvider>
   );
