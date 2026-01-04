@@ -15,6 +15,13 @@ tag: vVERSION
 
 ---
 
+## 6.1.3
+
+`2025-12-29`
+
+- 🐞 Fix Drawer.PurePanel failing to respond to mouse interactions. [#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Select `options` props leaking to DOM elements and causing React unknown-prop warnings. [#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+
 ## 6.1.2
 
 `2025-12-24`

@@ -46,7 +46,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     font-weight: normal;
     font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
-    margin-left: 4px;
+    margin-inline-start: ${cssVar.marginSM};
   `,
 }));
 
@@ -66,6 +66,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { before, after, link, title, subtitle, search, tag, className } = props;
 
   const [locale] = useLocale(locales);
+
   const getLocale = (name: string) => {
     return (locale as any)[name.toLowerCase()] ?? name;
   };
@@ -73,7 +74,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={clsx(className, { [styles.link]: tag })}>
-        <Flex justify="flex-start" align="center" gap="small">
+        <Flex justify="flex-start" align="center">
           <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Flex>
