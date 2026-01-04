@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
+import type { SelectProps } from 'antd';
 import { createStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import dayjs from 'dayjs';
@@ -14,7 +15,6 @@ import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
 import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
-import { getThemeConfig } from '../../utils';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
@@ -149,14 +149,17 @@ interface HeaderState {
   searching: boolean;
 }
 
+type VersionItem = { version: string; url: string; chineseMirrorUrl?: string };
+
 // ================================= Header =================================
 const Header: React.FC = () => {
   const [, lang] = useLocale();
 
   const { pkg } = useSiteData();
 
-  const themeConfig = getThemeConfig();
-
+  const chineseMirror =
+    typeof window.location !== 'undefined' && window.location.hostname.includes('.antgroup.com');
+  const [versionOptions, setVersionOptions] = useState<SelectProps['options']>([]);
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
@@ -213,6 +216,23 @@ const Header: React.FC = () => {
     };
   }, [onWindowResize]);
 
+  useEffect(() => {
+    (async () => {
+      const url = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
+      // eslint-disable-next-line compat/compat
+      const response = await fetch(`${url}/versions.json`);
+      const versions: VersionItem[] = await response.json();
+      const matchPrefix = pkg.version.slice(0, 2);
+      const options = versions.map((item) => {
+        const isMatch = item.version.startsWith(matchPrefix);
+        const label = isMatch ? pkg.version : item.version;
+        const value = chineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
+        return { value, label };
+      });
+      setVersionOptions(options);
+    })();
+  }, []);
+
   const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
@@ -258,14 +278,6 @@ const Header: React.FC = () => {
   );
 
   const { menuVisible, windowWidth, searching } = headerState;
-  const docVersions: Record<string, string> = {
-    [pkg.version]: pkg.version,
-    ...themeConfig?.docVersions,
-  };
-  const versionOptions = Object.keys(docVersions).map((version) => ({
-    value: docVersions[version],
-    label: version,
-  }));
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isZhCN = lang === 'cn';
