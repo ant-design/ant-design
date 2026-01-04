@@ -39,12 +39,6 @@ jobs:
       - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@v1
       - run: ut
-      - name: install react 16
-        if: ${{ matrix.react == '16' }}
-        run: ut bun-install-react-16
-      - name: install react 17
-        if: ${{ matrix.react == '17' }}
-        run: ut bun-install-react-17
       # dom test
       - name: dom test
         run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage

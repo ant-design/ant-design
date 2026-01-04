@@ -1108,7 +1108,6 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            aria-required="true"
                             class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
@@ -1273,7 +1272,6 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            aria-required="true"
                             class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
@@ -1443,7 +1441,6 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            aria-required="true"
                             class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
