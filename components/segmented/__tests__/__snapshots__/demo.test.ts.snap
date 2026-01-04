@@ -1688,7 +1688,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-label="select"
       class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width:150px"
     >
