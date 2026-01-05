@@ -163,13 +163,11 @@ describe('Select', () => {
     it('props custom icon should override ConfigProvider custom icon', () => {
       const ContextIcon = () => <span className="context-icon">Ctx</span>;
       const PropIcon = () => <span className="prop-icon">Prop</span>;
-
       const { container } = render(
-        <ConfigProvider input={{ allowClear: { clearIcon: <ContextIcon /> } }}>
+        <ConfigProvider select={{ allowClear: { clearIcon: <ContextIcon /> } }}>
           <SelectWithValue allowClear={{ clearIcon: <PropIcon /> }} />
         </ConfigProvider>,
       );
-
       expect(container.querySelector('.context-icon')).toBeFalsy();
       expect(container.querySelector('.prop-icon')).toBeTruthy();
     });
