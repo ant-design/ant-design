@@ -7,6 +7,7 @@ import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
+import useSWR from 'swr';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocalStorage from '../../../hooks/useLocalStorage';
@@ -150,6 +151,8 @@ interface HeaderState {
 }
 
 type VersionItem = { version: string; url: string; chineseMirrorUrl?: string };
+// eslint-disable-next-line compat/compat
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 // ================================= Header =================================
 const Header: React.FC = () => {
@@ -159,7 +162,22 @@ const Header: React.FC = () => {
 
   const chineseMirror =
     typeof window.location !== 'undefined' && window.location.hostname.includes('.antgroup.com');
-  const [versionOptions, setVersionOptions] = useState<SelectProps['options']>([]);
+
+  // ============================ SWR Implementation ============================
+  const versionUrl = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
+  const { data: versions = [] } = useSWR<VersionItem[]>(`${versionUrl}/versions.json`, fetcher);
+
+  const versionOptions = useMemo<SelectProps['options']>(() => {
+    const matchPrefix = pkg.version.slice(0, 2);
+    return versions.map((item) => {
+      const isMatch = item.version.startsWith(matchPrefix);
+      const label = isMatch ? pkg.version : item.version;
+      const value = chineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
+      return { value, label };
+    });
+  }, [versions, pkg.version, chineseMirror]);
+  // ============================================================================
+
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
@@ -215,27 +233,6 @@ const Header: React.FC = () => {
       }
     };
   }, [onWindowResize]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const url = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
-        // eslint-disable-next-line compat/compat
-        const response = await fetch(`${url}/versions.json`);
-        const versions: VersionItem[] = await response.json();
-        const matchPrefix = pkg.version.slice(0, 2);
-        const options = versions.map((item) => {
-          const isMatch = item.version.startsWith(matchPrefix);
-          const label = isMatch ? pkg.version : item.version;
-          const value = chineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
-          return { value, label };
-        });
-        setVersionOptions(options);
-      } catch (error) {
-        console.error('Failed to fetch version options:', error);
-      }
-    })();
-  }, []);
 
   const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
