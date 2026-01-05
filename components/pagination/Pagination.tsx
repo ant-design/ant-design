@@ -261,7 +261,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     <>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
       <RcPagination
-        contextTotalBoundaryShowSizeChanger={contextTotalBoundaryShowSizeChanger}
+        totalBoundaryShowSizeChanger={contextTotalBoundaryShowSizeChanger}
         {...iconsProps}
         {...restProps}
         styles={mergedStyles}
