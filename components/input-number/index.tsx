@@ -29,6 +29,9 @@ import SpaceAddon from '../space/Addon';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
+export type InputNumberSemanticName = keyof InputNumberSemanticClassNames &
+  keyof InputNumberSemanticStyles;
+
 export type InputNumberSemanticClassNames = {
   root?: string;
   prefix?: string;

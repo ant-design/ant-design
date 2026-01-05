@@ -9,11 +9,25 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type { QRCodeClassNamesType, QRCodeProps, QRCodeStylesType, QRProps } from './interface';
+import type {
+  QRCodeClassNamesType,
+  QRCodeProps,
+  QRCodeSemanticClassNames,
+  QRCodeSemanticName,
+  QRCodeSemanticStyles,
+  QRCodeStylesType,
+  QRProps,
+} from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
-export type { QRCodeProps, QRProps };
+export type {
+  QRCodeProps,
+  QRCodeSemanticClassNames,
+  QRCodeSemanticName,
+  QRCodeSemanticStyles,
+  QRProps,
+};
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();

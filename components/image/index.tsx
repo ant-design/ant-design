@@ -61,7 +61,9 @@ export type ImageSemanticStyles = {
   cover?: React.CSSProperties;
 };
 
-type PopupSemanticClassNames = {
+export type ImagePopupSemanticName = keyof PopupSemanticClassNames & keyof PopupSemanticStyles;
+
+export type PopupSemanticClassNames = {
   root?: string;
   mask?: string;
   body?: string;
@@ -69,7 +71,7 @@ type PopupSemanticClassNames = {
   actions?: string;
 };
 
-type PopupSemanticStyles = {
+export type PopupSemanticStyles = {
   root?: React.CSSProperties;
   mask?: React.CSSProperties;
   body?: React.CSSProperties;

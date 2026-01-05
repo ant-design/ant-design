@@ -15,6 +15,8 @@ import type { PresetColorKey } from '../theme/internal';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
+export type BadgeSemanticName = keyof BadgeSemanticClassNames & keyof BadgeSemanticStyles;
+
 export type BadgeSemanticClassNames = {
   root?: string;
   indicator?: string;

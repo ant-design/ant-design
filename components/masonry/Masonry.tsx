@@ -28,14 +28,14 @@ export type Gap = number | undefined;
 
 export type Key = string | number;
 
-export type SemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
+export type MasonrySemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
 
-type MasonrySemanticClassNames = {
+export type MasonrySemanticClassNames = {
   root?: string;
   item?: string;
 };
 
-type MasonrySemanticStyles = {
+export type MasonrySemanticStyles = {
   root?: React.CSSProperties;
   item?: React.CSSProperties;
 };

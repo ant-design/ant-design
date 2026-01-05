@@ -53,7 +53,7 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-export type SemanticName = keyof CascaderSemanticClassNames & keyof CascaderSemanticStyles;
+export type CascaderSemanticName = keyof CascaderSemanticClassNames & keyof CascaderSemanticStyles;
 
 export type CascaderSemanticClassNames = {
   root?: string;

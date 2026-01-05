@@ -18,6 +18,8 @@ export type TitlePlacement =
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
 
+export type DividerSemanticName = keyof DividerSemanticClassNames & keyof DividerSemanticStyles;
+
 export type DividerSemanticClassNames = {
   root?: string;
   rail?: string;

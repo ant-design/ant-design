@@ -17,7 +17,7 @@ import Steps from './Steps';
 import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-export type SemanticName = keyof ProgressSemanticClassNames & keyof ProgressSemanticStyles;
+export type ProgressSemanticName = keyof ProgressSemanticClassNames & keyof ProgressSemanticStyles;
 
 export type ProgressSemanticClassNames = {
   root?: string;

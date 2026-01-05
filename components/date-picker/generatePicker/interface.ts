@@ -16,6 +16,11 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
+export type DatePickerSemanticName = keyof DatePickerSemanticClassNames &
+  keyof DatePickerSemanticStyles;
+
+export type PanelSemanticName = keyof PanelSemanticClassNames & keyof PanelSemanticStyles;
+
 // import type {SemanticName} from "@rc-component/picker/interface"
 export type DatePickerSemanticClassNames = {
   root?: string;
@@ -33,7 +38,7 @@ export type DatePickerSemanticStyles = {
 };
 
 // import type {PanelSemanticName} from "@rc-component/picker/interface"
-type PanelSemanticClassNames = {
+export type PanelSemanticClassNames = {
   root?: string;
   header?: string;
   body?: string;
@@ -44,7 +49,7 @@ type PanelSemanticClassNames = {
 };
 
 // import type {PanelSemanticName} from "@rc-component/picker/interface"
-type PanelSemanticStyles = {
+export type PanelSemanticStyles = {
   root?: React.CSSProperties;
   header?: React.CSSProperties;
   body?: React.CSSProperties;

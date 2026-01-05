@@ -67,8 +67,8 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: SelectSemanticClassNames & { popup?: PopupSemanticClassNames };
-  styles?: SelectSemanticStyles & { popup?: PopupSemanticStyles };
+  classNames?: SelectSemanticClassNames & { popup?: SelectPopupSemanticClassNames };
+  styles?: SelectSemanticStyles & { popup?: SelectPopupSemanticStyles };
 }
 
 export type SelectSemanticName = keyof SelectSemanticClassNames & keyof SelectSemanticStyles;
@@ -99,13 +99,16 @@ export type SelectSemanticStyles = {
   clear?: React.CSSProperties;
 };
 
-export type PopupSemanticClassNames = {
+export type SelectPopupSemanticName = keyof SelectPopupSemanticClassNames &
+  keyof SelectPopupSemanticStyles;
+
+export type SelectPopupSemanticClassNames = {
   root?: string;
   listItem?: string;
   list?: string;
 };
 
-export type PopupSemanticStyles = {
+export type SelectPopupSemanticStyles = {
   root?: React.CSSProperties;
   listItem?: React.CSSProperties;
   list?: React.CSSProperties;
@@ -114,13 +117,13 @@ export type PopupSemanticStyles = {
 export type SelectClassNamesType = SemanticClassNamesType<
   SelectProps,
   SelectSemanticClassNames,
-  { popup?: PopupSemanticClassNames }
+  { popup?: SelectPopupSemanticClassNames }
 >;
 
 export type SelectStylesType = SemanticStylesType<
   SelectProps,
   SelectSemanticStyles,
-  { popup?: PopupSemanticStyles }
+  { popup?: SelectPopupSemanticStyles }
 >;
 
 export interface SelectProps<

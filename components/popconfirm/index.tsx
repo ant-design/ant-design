@@ -8,12 +8,19 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import { useMergeSemantic } from '../_util/hooks';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
-import type { PopoverProps, PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover';
+import type {
+  PopoverProps,
+  PopoverSemanticClassNames,
+  PopoverSemanticName,
+  PopoverSemanticStyles,
+} from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
+
+export type PopconfirmSemanticName = PopoverSemanticName;
 
 export type PopconfirmClassNamesType = SemanticClassNamesType<
   PopconfirmProps,

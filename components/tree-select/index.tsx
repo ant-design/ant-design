@@ -52,6 +52,9 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
+export type TreeSelectSemanticName = keyof TreeSelectSemanticClassNames &
+  keyof TreeSelectSemanticStyles;
+
 export type TreeSelectSemanticClassNames = {
   root?: string;
   prefix?: string;
