@@ -62,6 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 |
 | forceRender | Force render Modal | boolean | false |  |
+| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
