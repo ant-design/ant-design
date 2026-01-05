@@ -59,7 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | ~~destroyOnClose~~ | Whether to unmount child components on onClose | boolean | false |  |
 | destroyOnHidden | Whether to unmount child components on onClose | boolean | false | 5.25.0 |
-| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
+| ~~focusTriggerAfterClose~~ | Whether need to focus trigger element after dialog is closed. Please use `focusable.focusTriggerAfterClose` instead | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 |
 | forceRender | Force render Modal | boolean | false |  |
 | focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |

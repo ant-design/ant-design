@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export type OmitFocusType = 'focusTriggerAfterClose' | 'focusTrap';
+export type OmitFocusType = 'focusTriggerAfterClose' | 'focusTrap' | 'autoFocusButton';
 
 export interface FocusableConfig {
   focusTriggerAfterClose?: boolean;
@@ -10,15 +10,17 @@ export interface FocusableConfig {
 export default function useFocusable(
   focusable?: FocusableConfig,
   defaultTrap?: boolean,
-  legacyFocusTriggerAfterClose?: boolean,
+  legacyFocusTriggerAfterClose?: FocusableConfig['focusTriggerAfterClose'],
 ) {
   return useMemo(() => {
-    const ret = {
+    const ret: FocusableConfig = {
       trap: defaultTrap ?? true,
       focusTriggerAfterClose: legacyFocusTriggerAfterClose ?? true,
-      ...focusable,
     };
 
-    return ret;
+    return {
+      ...ret,
+      ...focusable,
+    };
   }, [focusable, defaultTrap, legacyFocusTriggerAfterClose]);
 }

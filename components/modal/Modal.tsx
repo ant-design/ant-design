@@ -114,7 +114,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
   // ========================== Focusable =========================
-  const mergedFocusable = useFocusable(focusable, true, focusTriggerAfterClose);
+  const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
 
   // ============================ Open ============================
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {

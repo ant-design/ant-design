@@ -60,7 +60,7 @@ demo:
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | ~~destroyOnClose~~ | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | destroyOnHidden | 关闭时销毁 Modal 里的子元素 | boolean | false | 5.25.0 |
-| focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
+| ~~focusTriggerAfterClose~~ | 对话框关闭后是否需要聚焦触发元素。请使用 `focusable.focusTriggerAfterClose` 替代 | boolean | true | 4.9.0 |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (确定取消按钮) | renderFunction: 5.9.0 |
 | forceRender | 强制渲染 Modal | boolean | false |  |
 | focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
