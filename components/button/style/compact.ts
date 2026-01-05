@@ -5,15 +5,19 @@ import { genCompactItemStyle } from '../../style/compact-item';
 import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
 import type { GenerateStyle } from '../../theme/internal';
 import { genSubStyleComponent } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
 
 const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls, colorPrimaryHover, lineWidth, calc } = token;
+  const { antCls, componentCls, lineWidth, calc } = token;
   const insetOffset = calc(lineWidth).mul(-1).equal();
+
+  const getCssVar = genCssVar(antCls, 'btn');
+
   const getCompactBorderStyle = (vertical?: boolean) => {
     const itemCls = `${componentCls}-compact${vertical ? '-vertical' : ''}-item`;
-    const selector = `${itemCls}${componentCls}-primary:not([disabled])`;
+    const selector = `${itemCls}${componentCls}-variant-solid:not([disabled])`;
 
     return {
       // TODO: Border color transition should be not cover when has color.
@@ -25,14 +29,14 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
         position: 'absolute',
         top: vertical ? insetOffset : 0,
         insetInlineStart: vertical ? 0 : insetOffset,
-        backgroundColor: colorPrimaryHover,
+        backgroundColor: `var(${getCssVar('bg-color-hover')})`,
         content: '""',
         width: vertical ? '100%' : lineWidth,
         height: vertical ? lineWidth : '100%',
       } as CSSObject,
     };
   };
-  // Special styles for Primary Button
+  // Special styles for solid Button
   return {
     ...getCompactBorderStyle(),
     ...getCompactBorderStyle(true),
