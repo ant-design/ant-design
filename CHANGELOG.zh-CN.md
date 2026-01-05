@@ -15,6 +15,13 @@ tag: vVERSION
 
 ---
 
+## 6.1.4
+
+`2026-01-05`
+
+- 🐞 修复 Select 配置 `aria-` 属性时，会同时给多个 dom 添加的问题。[#56451](https://github.com/ant-design/ant-design/pull/56451) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Table 配置 `scroll.y` 属性时，隐藏的测量表头挂载筛选下拉组件并参与事件判断，导致筛选下拉意外关闭的问题。 [#56425](https://github.com/ant-design/ant-design/pull/56425) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.1.3
 
 `2025-12-29`
