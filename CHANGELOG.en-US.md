@@ -19,8 +19,8 @@ tag: vVERSION
 
 `2026-01-05`
 
-- 🐞 Fix Select exist multiple `aria-` attr in dom. [#56451](https://github.com/ant-design/ant-design/pull/56451) [@zombieJ](https://github.com/zombieJ)
-- 🐞 Fix Table where hidden measure headers could mount interactive filter dropdowns and trigger unexpected close events when enable `scroll.y`. [#56425](https://github.com/ant-design/ant-design/pull/56425) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Select with multiple `aria-` attributes in DOM. [#56451](https://github.com/ant-design/ant-design/pull/56451) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Table where hidden measure headers could mount interactive filter dropdowns and trigger unexpected close events when `scroll.y` is enabled. [#56425](https://github.com/ant-design/ant-design/pull/56425) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.1.3
 
