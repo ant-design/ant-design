@@ -13929,12 +13929,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -13982,12 +13976,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14000,12 +13988,6 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14053,12 +14035,6 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14071,12 +14047,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14124,12 +14094,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14142,12 +14106,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14195,12 +14153,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14213,12 +14165,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14266,12 +14212,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14282,12 +14222,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
 >
   <div
     class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
   />
   <div
     class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
@@ -14337,12 +14271,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14353,12 +14281,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 >
   <div
     class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion prefix-Drawer-mask-blur"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
   />
   <div
     class="prefix-Drawer-content-wrapper prefix-Drawer-panel-motion-right-appear prefix-Drawer-panel-motion-right-appear-start prefix-Drawer-panel-motion-right"
@@ -14408,12 +14330,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
