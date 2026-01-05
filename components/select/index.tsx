@@ -216,6 +216,7 @@ const InternalSelect = <
 
   const {
     showSearch,
+    allowClear: contextAllowClear,
     style: contextStyle,
     styles: contextStyles,
     className: contextClassName,
@@ -292,7 +293,8 @@ const InternalSelect = <
     componentName: 'Select',
   });
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+  const finalAllowClear = allowClear ?? contextAllowClear;
+  const mergedAllowClear = finalAllowClear === true ? { clearIcon } : finalAllowClear;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
