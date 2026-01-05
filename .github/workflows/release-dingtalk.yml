@@ -18,7 +18,7 @@ jobs:
     permissions:
       contents: write  # for actions-cool/release-helper to create releases
     if: github.event.ref_type == 'tag'
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: Send to Ant Design DingGroup
         uses: actions-cool/release-helper@v2

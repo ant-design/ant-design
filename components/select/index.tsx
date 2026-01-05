@@ -71,6 +71,8 @@ export interface InternalSelectProps<
   styles?: SelectSemanticStyles & { popup?: PopupSemanticStyles };
 }
 
+export type SelectSemanticName = keyof SelectSemanticClassNames & keyof SelectSemanticStyles;
+
 export type SelectSemanticClassNames = {
   root?: string;
   prefix?: string;

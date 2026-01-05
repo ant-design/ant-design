@@ -11,7 +11,7 @@ export interface ScrollNumberProps {
   motionClassName?: string;
   count?: string | number | null;
   children?: React.ReactElement;
-  component?: React.ComponentType<any>;
+  component?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
   style?: React.CSSProperties;
   title?: string | number | null;
   show: boolean;

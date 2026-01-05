@@ -378,28 +378,27 @@ describe('Modal', () => {
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
     ];
 
-    it.each(testCases)(
-      'modalMask = %s configMask = %s ,mask blur = %s',
-      (modalMask, configMask, expectedBlurClass, openMask) => {
-        render(
-          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
-            <Modal open mask={modalMask} />
-          </ConfigProvider>,
-        );
+    it.each(
+      testCases,
+    )('modalMask = %s configMask = %s ,mask blur = %s', (modalMask, configMask, expectedBlurClass, openMask) => {
+      render(
+        <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+          <Modal open mask={modalMask} />
+        </ConfigProvider>,
+      );
 
-        const maskElement = document.querySelector('.ant-modal-mask');
-        if (!openMask) {
-          expect(maskElement).toBeNull();
-          return;
-        }
+      const maskElement = document.querySelector('.ant-modal-mask');
+      if (!openMask) {
+        expect(maskElement).toBeNull();
+        return;
+      }
 
-        expect(maskElement).toBeInTheDocument();
-        if (expectedBlurClass) {
-          expect(maskElement!.className).toContain('ant-modal-mask-blur');
-        } else {
-          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
-        }
-      },
-    );
+      expect(maskElement).toBeInTheDocument();
+      if (expectedBlurClass) {
+        expect(maskElement!.className).toContain('ant-modal-mask-blur');
+      } else {
+        expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+      }
+    });
   });
 });

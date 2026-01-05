@@ -5,7 +5,6 @@ subtitle: 颜色选择器
 description: 用于选择颜色。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
-tag: 5.5.0
 demo:
   cols: 2
 group:

@@ -13,16 +13,16 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
 
     steps:
       - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@v1
+      - uses: oven-sh/setup-bun@v2
       - name: size-limit
         uses: ant-design/size-limit-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          package_manager: ut
+          package_manager: bun
           build_script: dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096

@@ -15,6 +15,31 @@ tag: vVERSION
 
 ---
 
+## 6.1.3
+
+`2025-12-29`
+
+- 🐞 修复 Drawer.PurePanel 无法响应鼠标交互的问题。[#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Select options 属性透传至原生 DOM 导致 React 未知属性警告的问题。[#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+
+## 6.1.2
+
+`2025-12-24`
+
+- 🐞 修复 Wave 组件水波纹消失的问题，以及 Button 组件在配置 Dropdown 后，点击触发再次 `hover` 时无法立刻显示 Dropdown 的问题。[#56273](https://github.com/ant-design/ant-design/pull/56273) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Form.List 使用 `useWatch` 时，删除项会触发两次渲染，第一次为不正确的中间状态的问题。[#56319](https://github.com/ant-design/ant-design/pull/56319) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Breadcrumb 组件自定义 `itemRender` 时的链接颜色异常的问题。[#56253](https://github.com/ant-design/ant-design/pull/56253) [@guoyunhe](https://github.com/guoyunhe)
+- Transfer
+  - 💄 修复 Transfer 组件在禁用时不存在选择状态样式类的问题。[#56316](https://github.com/ant-design/ant-design/pull/56316) [@zenggpzqbx](https://github.com/zenggpzqbx)
+  - 🐞 优化 Transfer 组件逻辑，确保优先使用 `disabled` 属性。[#56280](https://github.com/ant-design/ant-design/pull/56280) [#56093](https://github.com/ant-design/ant-design/pull/56093) [@zenggpzqbx](https://github.com/zenggpzqbx)
+- Select
+  - 🐞 修复 Select 组件缺少语义化 DOM 名称的问题。[#56322](https://github.com/ant-design/ant-design/pull/56322) [@seanparmelee](https://github.com/seanparmelee)
+  - 🐞 修复 Select 组件在搜索状态下鼠标手型样式不对的问题。[#56130](https://github.com/ant-design/ant-design/pull/56130) [@fpsqdb](https://github.com/fpsqdb)
+  - 🐞 修复 Select 在同时设置 `showSearch` 和 `disabled` 时鼠标样式不为禁用的问题。[#56340](https://github.com/ant-design/ant-design/pull/56340) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Card 组件在使用 Card.Grid 且未设置头部内容时，边框圆角显示异常的问题。[#56214](https://github.com/ant-design/ant-design/pull/56214) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 Tag 加深默认背景，提升无边框状态的对比度。[#56326](https://github.com/ant-design/ant-design/pull/56326) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Segmented 组件中多余的 `role` 属性和 `aria` 属性。[#56278](https://github.com/ant-design/ant-design/pull/56278) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 6.1.1
 
 `2025-12-15`
