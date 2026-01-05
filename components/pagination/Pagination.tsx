@@ -57,6 +57,7 @@ export type PaginationPosition = 'top' | 'bottom' | 'both';
 
 export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'> {
   position?: PaginationPosition;
+  contextTotalBoundaryShowSizeChanger?: number;
 }
 
 export type { PaginationLocale };
@@ -90,6 +91,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    totalBoundaryShowSizeChanger: contextTotalBoundaryShowSizeChanger,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
@@ -259,6 +261,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     <>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
       <RcPagination
+        contextTotalBoundaryShowSizeChanger={contextTotalBoundaryShowSizeChanger}
         {...iconsProps}
         {...restProps}
         styles={mergedStyles}
