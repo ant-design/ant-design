@@ -365,7 +365,7 @@ export type InputNumberConfig = ComponentStyleConfig &
   Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
-  Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
+  Pick<CascaderProps, 'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;

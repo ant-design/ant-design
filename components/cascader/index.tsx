@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { LeftOutlined, LoadingOutlined, RightOutlined } from '@ant-design/icons';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -38,7 +39,6 @@ import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
-import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
 
@@ -243,6 +243,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     onOpenChange,
     styles,
     classNames,
+    loadingIcon,
     ...rest
   } = props;
 
@@ -255,6 +256,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    expandIcon: contextExpandIcon,
+    loadingIcon: contextLoadingIcon,
   } = useComponentConfig('cascader');
 
   const { popupOverflow } = React.useContext(ConfigContext);
@@ -351,7 +354,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon);
+  const mergedExpandIcon =
+    expandIcon ?? contextExpandIcon ?? (isRtl ? <LeftOutlined /> : <RightOutlined />);
+  const mergedLoadingIcon = loadingIcon ?? contextLoadingIcon ?? <LoadingOutlined spin />;
 
   // =================== Multiple ====================
   const checkable = useCheckable(cascaderPrefixCls, multiple);
@@ -460,7 +465,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       expandIcon={mergedExpandIcon}
       suffixIcon={suffixIcon}
       removeIcon={removeIcon}
-      loadingIcon={loadingIcon}
+      loadingIcon={
+        <span className={`${prefixCls}-menu-item-loading-icon`}>{mergedLoadingIcon}</span>
+      }
       checkable={checkable}
       popupClassName={mergedPopupClassName}
       popupPrefixCls={customizePrefixCls || cascaderPrefixCls}

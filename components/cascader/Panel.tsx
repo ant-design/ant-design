@@ -1,16 +1,17 @@
 import * as React from 'react';
+import { LeftOutlined, LoadingOutlined, RightOutlined } from '@ant-design/icons';
 import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
 import { Panel } from '@rc-component/cascader';
 import type { PickType } from '@rc-component/cascader/lib/Panel';
 import { clsx } from 'clsx';
 
 import type { CascaderProps, DefaultOptionType } from '.';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
-import useColumnIcons from './hooks/useColumnIcons';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
 
@@ -41,8 +42,12 @@ function CascaderPanel<
     notFoundContent,
     direction,
     expandIcon,
+    loadingIcon,
     disabled: customDisabled,
   } = props;
+
+  const { expandIcon: contextExpandIcon, loadingIcon: contextLoadingIcon } =
+    useComponentConfig('cascader');
 
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -59,7 +64,9 @@ function CascaderPanel<
   const isRtl = mergedDirection === 'rtl';
 
   // ===================== Icon ======================
-  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon);
+  const mergedExpandIcon =
+    expandIcon ?? contextExpandIcon ?? (isRtl ? <LeftOutlined /> : <RightOutlined />);
+  const mergedLoadingIcon = loadingIcon ?? contextLoadingIcon ?? <LoadingOutlined spin />;
 
   // ===================== Empty =====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
@@ -80,7 +87,9 @@ function CascaderPanel<
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
-      loadingIcon={loadingIcon}
+      loadingIcon={
+        <span className={`${prefixCls}-menu-item-loading-icon`}>{mergedLoadingIcon}</span>
+      }
       disabled={mergedDisabled}
     />
   );
