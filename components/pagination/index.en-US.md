@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  |
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
-| showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean \| [SelectProps](/components/select#api) | - | SelectProps: 5.21.0 |
+| showSizeChanger | Determine whether to show `pageSize` select | boolean \| [SelectProps](/components/select#api) | - | SelectProps: 5.21.0 |
 | totalBoundaryShowSizeChanger | when total larger than it, `showSizeChanger` will be true | number | 50 | |
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
