@@ -1,13 +1,7 @@
 ## zh-CN
 
-迷你版本。
+小尺寸和大尺寸的分页控件。
 
 ## en-US
 
-Mini size pagination.
-
-<style>
-#pagination-demo-mini .ant-pagination:not(:last-child) {
-  margin-bottom: 24px;
-}
-</style>
+Small and large size pagination.
