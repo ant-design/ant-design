@@ -29,7 +29,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
-import type { PopupSemanticClassNames, PopupSemanticStyles } from '../select';
+import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -137,13 +137,13 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
 export type CascaderClassNamesType = SemanticClassNamesType<
   CascaderProps,
   CascaderSemanticClassNames,
-  { popup?: PopupSemanticClassNames }
+  { popup?: SelectPopupSemanticClassNames }
 >;
 
 export type CascaderStylesType = SemanticStylesType<
   CascaderProps,
   CascaderSemanticStyles,
-  { popup?: PopupSemanticStyles }
+  { popup?: SelectPopupSemanticStyles }
 >;
 
 export interface CascaderProps<
