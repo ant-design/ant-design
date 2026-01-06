@@ -426,11 +426,20 @@ describe('Modal', () => {
   it('should warning when using deprecated autoFocusButton', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    render(
-      <Modal open autoFocusButton="ok" getContainer={false}>
-        Here is content of Modal
-      </Modal>,
-    );
+    const Test = () => {
+      const [modal, holder] = Modal.useModal();
+
+      React.useEffect(() => {
+        modal.confirm({
+          autoFocusButton: 'ok',
+          content: 'Here is content of Modal',
+        });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Test />);
 
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Modal] `autoFocusButton` is deprecated. Please use `focusable.autoFocusButton` instead.',
