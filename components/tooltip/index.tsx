@@ -86,11 +86,23 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type SemanticName = 'root' | 'container' | 'arrow';
+export type SemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
 
-export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, SemanticName>;
+export type TooltipSemanticClassNames = {
+  root?: string;
+  container?: string;
+  arrow?: string;
+};
 
-export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>;
+export type TooltipSemanticStyles = {
+  root?: React.CSSProperties;
+  container?: React.CSSProperties;
+  arrow?: React.CSSProperties;
+};
+
+export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, TooltipSemanticClassNames>;
+
+export type TooltipStylesType = SemanticStylesType<TooltipProps, TooltipSemanticStyles>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;

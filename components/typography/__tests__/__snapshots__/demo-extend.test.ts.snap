@@ -910,6 +910,7 @@ Array [
   Trigger edit with: ,
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"

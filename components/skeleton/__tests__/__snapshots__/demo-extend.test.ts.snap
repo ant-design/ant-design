@@ -422,6 +422,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                 >
                   <div
                     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                    role="radiogroup"
                   >
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -527,6 +528,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                 >
                   <div
                     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                    role="radiogroup"
                   >
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -654,6 +656,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                 >
                   <div
                     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                    role="radiogroup"
                   >
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"

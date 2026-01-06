@@ -3,7 +3,6 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -13,11 +12,12 @@ import type {
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
-  SemanticName,
   TransferDirection,
   TransferLocale,
   TransferSearchOption,
-} from './index';
+  TransferSemanticClassNames,
+  TransferSemanticStyles,
+} from './';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
@@ -50,8 +50,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: TransferSemanticClassNames;
+  styles: TransferSemanticStyles;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];

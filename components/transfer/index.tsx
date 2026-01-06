@@ -28,21 +28,42 @@ export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 export type { TransferListProps } from './Section';
 
-export type SemanticName =
-  | 'root'
-  | 'section'
-  | 'header'
-  | 'title'
-  | 'body'
-  | 'list'
-  | 'item'
-  | 'itemIcon'
-  | 'itemContent'
-  | 'footer'
-  | 'actions';
+export type SemanticName = keyof TransferSemanticClassNames & keyof TransferSemanticStyles;
 
-export type TransferClassNamesType = SemanticClassNamesType<TransferProps, SemanticName>;
-export type TransferStylesType = SemanticStylesType<TransferProps, SemanticName>;
+export type TransferSemanticClassNames = {
+  root?: string;
+  section?: string;
+  header?: string;
+  title?: string;
+  body?: string;
+  list?: string;
+  item?: string;
+  itemIcon?: string;
+  itemContent?: string;
+  footer?: string;
+  actions?: string;
+};
+
+export type TransferSemanticStyles = {
+  root?: React.CSSProperties;
+  section?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  body?: React.CSSProperties;
+  list?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  actions?: React.CSSProperties;
+};
+
+export type TransferClassNamesType = SemanticClassNamesType<
+  TransferProps,
+  TransferSemanticClassNames
+>;
+
+export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticStyles>;
 
 export type TransferDirection = 'left' | 'right';
 

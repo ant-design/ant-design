@@ -30,10 +30,26 @@ export type { InputFocusOptions };
 export type { InputRef };
 export { triggerFocus };
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'count';
+export type InputSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  suffix?: string;
+  input?: string;
+  count?: string;
+};
 
-export type InputClassNamesType = SemanticClassNamesType<InputProps, SemanticName>;
-export type InputStylesType = SemanticStylesType<InputProps, SemanticName>;
+export type InputSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  count?: React.CSSProperties;
+};
+
+export type InputClassNamesType = SemanticClassNamesType<InputProps, InputSemanticClassNames>;
+
+export type InputStylesType = SemanticStylesType<InputProps, InputSemanticStyles>;
+
 export interface InputProps
   extends Omit<
     RcInputProps,

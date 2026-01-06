@@ -12,9 +12,33 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-export type SemanticName = 'root' | 'content' | 'title' | 'header' | 'prefix' | 'suffix';
-export type StatisticClassNamesType = SemanticClassNamesType<StatisticProps, SemanticName>;
-export type StatisticStylesType = SemanticStylesType<StatisticProps, SemanticName>;
+export type SemanticName = keyof StatisticSemanticClassNames & keyof StatisticSemanticStyles;
+
+export type StatisticSemanticClassNames = {
+  root?: string;
+  content?: string;
+  title?: string;
+  header?: string;
+  prefix?: string;
+  suffix?: string;
+};
+
+export type StatisticSemanticStyles = {
+  root?: React.CSSProperties;
+  content?: React.CSSProperties;
+  title?: React.CSSProperties;
+  header?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+};
+
+export type StatisticClassNamesType = SemanticClassNamesType<
+  StatisticProps,
+  StatisticSemanticClassNames
+>;
+
+export type StatisticStylesType = SemanticStylesType<StatisticProps, StatisticSemanticStyles>;
+
 export interface StatisticRef {
   nativeElement: HTMLDivElement;
 }
