@@ -507,9 +507,7 @@ describe('DatePicker', () => {
     const wrapper = render(
       <DatePicker
         open
-        locale={
-          { lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as PickerLocale
-        }
+        locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
       />,
     );
 
