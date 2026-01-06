@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
 import { Bubble, Sender } from '@ant-design/x';
+import type { SenderRef } from '@ant-design/x/es/sender';
 import { Drawer, Flex, Typography } from 'antd';
 import type { GetProp } from 'antd';
 
@@ -28,7 +29,8 @@ export interface PromptDrawerProps {
 const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChange }) => {
   const [locale] = useLocale(locales);
   const [inputValue, setInputValue] = useState('');
-  const senderRef = useRef<any>(null);
+
+  const senderRef = useRef<SenderRef>(null);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
 

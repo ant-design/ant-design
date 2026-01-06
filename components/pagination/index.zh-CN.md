@@ -54,7 +54,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  |
 | showLessItems | 是否显示较少页面内容 | boolean | false |  |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| { goButton: ReactNode } | false |  |
-| showSizeChanger | 是否展示 `pageSize` 切换器，当 `total` 大于 50 时默认为 true | boolean \| [SelectProps](/components/select-cn#api) | - | SelectProps: 5.21.0 |
+| showSizeChanger | 是否展示 `pageSize` 切换器 | boolean \| [SelectProps](/components/select-cn#api) | - | SelectProps: 5.21.0 |
+| totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 |  |
 | showTitle | 是否显示原生 tooltip 页码提示 | boolean | true |  |
 | showTotal | 用于显示数据总量和当前数据顺序 | function(total, range) | - |  |
 | simple | 当添加该属性时，显示为简单分页 | boolean \| { readOnly?: boolean } | - |  |

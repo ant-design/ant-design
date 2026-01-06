@@ -61,7 +61,7 @@ export interface DrawerProps
   destroyOnHidden?: boolean;
   mask?: MaskType;
 
-  focusable?: Omit<FocusableConfig, 'autoFocusButton'>;
+  focusable?: FocusableConfig;
 }
 
 const defaultPushState: PushState = { distance: 180 };
