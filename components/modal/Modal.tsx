@@ -20,6 +20,7 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useFocusable from '../drawer/useFocusable';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
 import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
@@ -56,7 +57,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     wrapClassName,
     centered,
     getContainer,
-    focusTriggerAfterClose = true,
     style,
     width = 520,
     footer,
@@ -77,6 +77,11 @@ const Modal: React.FC<ModalProps> = (props) => {
     closable,
     mask: modalMask,
     modalRender,
+
+    // Focusable
+    focusTriggerAfterClose,
+    focusable,
+
     ...restProps
   } = props;
 
@@ -96,7 +101,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const { modal: modalContext } = React.useContext(ConfigContext);
 
-  const [closableAfterclose, onClose] = React.useMemo(() => {
+  const [closableAfterClose, onClose] = React.useMemo(() => {
     if (typeof closable === 'boolean') {
       return [undefined, undefined];
     }
@@ -105,8 +110,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  // ============================ Mask ============================
   const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
+  // ========================== Focusable =========================
+  const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
+
+  // ============================ Open ============================
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (confirmLoading) {
       return;
@@ -166,7 +176,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     ? {
         disabled: closeBtnIsDisabled,
         closeIcon: mergedCloseIcon,
-        afterClose: closableAfterclose,
+        afterClose: closableAfterClose,
         ...ariaProps,
       }
     : false;
@@ -188,7 +198,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     ...props,
     width,
     panelRef,
-    focusTriggerAfterClose,
+    focusTriggerAfterClose: mergedFocusable.focusTriggerAfterClose,
+    focusable: mergedFocusable,
     mask: mergedMask,
     zIndex,
   };
@@ -243,7 +254,6 @@ const Modal: React.FC<ModalProps> = (props) => {
           onClose={handleCancel as any}
           closable={mergedClosable}
           closeIcon={mergedCloseIcon}
-          focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
@@ -257,6 +267,9 @@ const Modal: React.FC<ModalProps> = (props) => {
           panelRef={mergedPanelRef}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
           modalRender={mergedModalRender}
+          // Focusable
+          focusTriggerAfterClose={mergedFocusable.focusTriggerAfterClose}
+          focusTrap={mergedFocusable.trap}
         >
           {loading ? (
             <Skeleton

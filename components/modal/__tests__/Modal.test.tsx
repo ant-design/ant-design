@@ -401,4 +401,25 @@ describe('Modal', () => {
       }
     });
   });
+
+  it('focusable default config should pass to classNames', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <Modal open getContainer={false} classNames={classNames}>
+        Here is content of Modal
+      </Modal>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: true,
+          },
+        }),
+      }),
+    );
+  });
 });
