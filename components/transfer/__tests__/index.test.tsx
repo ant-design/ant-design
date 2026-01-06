@@ -1094,14 +1094,14 @@ describe('immutable data', () => {
       const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
       const getMock = () => {
-        const tempTargetKeys = [];
-        const tempMockData = [];
+        const tempTargetKeys: React.Key[] = [];
+        const tempMockData: DefaultRecordType[] = [];
         for (let i = 0; i < 2; i++) {
           const data = {
             key: i.toString(),
             title: `content${i + 1}`,
             description: `description of content${i + 1}`,
-            chosen: i % 2 === 0,
+            chosen: (i & 1) === 0,
           };
           if (data.chosen) {
             tempTargetKeys.push(data.key);

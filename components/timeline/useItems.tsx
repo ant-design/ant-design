@@ -26,7 +26,7 @@ export default function useItems(
 
   // convert legacy type
   return React.useMemo(() => {
-    const mergedItems: TimelineItemType[] = parseItems.map((item, index) => {
+    const mergedItems = parseItems.map<TimelineItemType>((item, index) => {
       const {
         label,
         children,
@@ -60,9 +60,7 @@ export default function useItems(
 
       // Placement
       const mergedPlacement =
-        placement ??
-        position ??
-        (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
+        placement ?? position ?? (mode === 'alternate' ? (index & 1 ? 'end' : 'start') : mode);
 
       mergedClassName = clsx(mergedClassName, `${itemCls}-placement-${mergedPlacement}`);
 
