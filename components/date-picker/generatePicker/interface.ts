@@ -16,7 +16,7 @@ import type {
   SemanticStylesType,
 } from '../../_util/hooks';
 import type { InputStatus } from '../../_util/statusUtils';
-import type { AnyObject, DeepPartial } from '../../_util/type';
+import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
@@ -96,7 +96,7 @@ export type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
 > & {
-  locale?: DeepPartial<PickerLocale>;
+  locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
   /** @deprecated Use `variant` instead */

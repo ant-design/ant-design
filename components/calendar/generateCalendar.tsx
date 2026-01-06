@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import type { AnyObject, DeepPartial } from '../_util/type';
+import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -29,7 +29,6 @@ export interface SelectInfo {
 }
 
 type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item';
-type CalendarLocale = typeof enUS;
 
 export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
   CalendarProps<DateType>,
@@ -47,7 +46,7 @@ export interface CalendarProps<DateType> {
   style?: React.CSSProperties;
   classNames?: CalendarClassNamesType<DateType>;
   styles?: CalendarStylesType<DateType>;
-  locale?: DeepPartial<CalendarLocale>;
+  locale?: typeof enUS;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;
   /** @deprecated Please use fullCellRender instead. */
