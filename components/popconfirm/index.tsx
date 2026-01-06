@@ -6,6 +6,7 @@ import { clsx } from 'clsx';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import { devUseWarning } from '../_util/warning';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps, PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover';
@@ -35,10 +36,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelButtonProps?: ButtonProps;
   showCancel?: boolean;
   icon?: React.ReactNode;
-  onOpenChange?: (
-    open: boolean,
-    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
-  ) => void;
+  onOpenChange?: (open: boolean) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
   classNames?: PopconfirmClassNamesType;
   styles?: PopconfirmStylesType;
@@ -77,28 +75,39 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
   const mergedTrigger = trigger || contextTrigger || 'click';
 
-  const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
+  // ========================== Warning ===========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Popconfirm');
+
+    warning(
+      !onOpenChange || onOpenChange.length <= 1,
+      'usage',
+      '`onOpenChange` only accept `open` argument. The second event argument is internal usage and not support.',
+    );
+  }
+
+  const settingOpen: PopoverProps['onOpenChange'] = (value) => {
     setOpen(value);
-    onOpenChange?.(value, e);
+    onOpenChange?.(value);
   };
 
-  const close = (e: React.MouseEvent<HTMLButtonElement>) => {
-    settingOpen(false, e);
+  const close = () => {
+    settingOpen(false);
   };
 
   const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => props.onConfirm?.call(this, e);
 
   const onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    settingOpen(false, e);
+    settingOpen(false);
     props.onCancel?.call(this, e);
   };
 
-  const onInternalOpenChange: PopoverProps['onOpenChange'] = (value, e) => {
+  const onInternalOpenChange: PopoverProps['onOpenChange'] = (value) => {
     const { disabled = false } = props;
     if (disabled) {
       return;
     }
-    settingOpen(value, e);
+    settingOpen(value);
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
