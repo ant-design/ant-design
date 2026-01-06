@@ -88091,6 +88091,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
     class="ant-space-item"
   >
     <div
+      aria-label="Picker Type"
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
