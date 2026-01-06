@@ -220,4 +220,23 @@ describe('RangePicker', () => {
     rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
   });
+
+  it('should support deep merge locale with partial fields', () => {
+    setMockDate();
+
+    const wrapper = render(
+      <RangePicker
+        open
+        locale={
+          { lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as PickerLocale
+        }
+      />,
+    );
+
+    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+      '一二三四五六日',
+    );
+
+    resetMockDate();
+  });
 });

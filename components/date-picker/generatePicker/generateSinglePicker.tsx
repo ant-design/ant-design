@@ -183,7 +183,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       );
       const [contextLocale] = useLocale('DatePicker', enUS);
 
-      const locale = merge<PickerLocale>(contextLocale, (props.locale || {}) as PickerLocale);
+      const locale = merge(contextLocale, (props.locale || {}) as PickerLocale);
 
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);

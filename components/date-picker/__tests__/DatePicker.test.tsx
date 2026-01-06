@@ -500,4 +500,23 @@ describe('DatePicker', () => {
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
     expect(container.children).toMatchSnapshot();
   });
+
+  it('should support deep merge locale with partial fields', () => {
+    MockDate.set(dayjs('2018-10-19').valueOf());
+
+    const wrapper = render(
+      <DatePicker
+        open
+        locale={
+          { lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as PickerLocale
+        }
+      />,
+    );
+
+    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+      '一二三四五六日',
+    );
+
+    MockDate.reset();
+  });
 });

@@ -596,4 +596,19 @@ describe('Calendar', () => {
     expect(content).toHaveClass(customClassNames.content);
     expect(item).toHaveClass(customClassNames.item);
   });
+
+  it('should support deep merge locale with partial fields', () => {
+    MockDate.set(Dayjs('2018-10-19').valueOf());
+
+    const wrapper = render(
+      <Calendar
+        locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
+      />,
+    );
+
+    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+      '一二三四五六日',
+    );
+    MockDate.reset();
+  });
 });
