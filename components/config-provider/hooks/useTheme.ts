@@ -2,6 +2,7 @@ import { useId } from 'react';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 import isEqual from '@rc-component/util/lib/isEqual';
 import { devUseWarning } from '../../_util/warning';
+import extendsObject from '../../_util/extendsObject';
 import type { OverrideToken } from '../../theme/interface';
 import { defaultConfig } from '../../theme/internal';
 import type { ThemeConfig } from '../context';
@@ -59,13 +60,14 @@ export default function useTheme(
         } as any;
       });
 
-      const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
-      const mergedCssVar = {
-        prefix: config?.prefixCls, // Same as prefixCls by default
-        ...parentThemeConfig.cssVar,
-        ...themeConfig.cssVar,
-        key: themeConfig.cssVar?.key || cssVarKey,
-      };
+      const mergedCssVar = extendsObject(
+        {
+          prefix: config?.prefixCls, // Same as prefixCls by default
+          key: `css-var-${themeKey.replace(/:/g, '')}`,
+        },
+        parentThemeConfig.cssVar,
+        themeConfig.cssVar,
+      );
 
       // Base token
       return {

@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
+import useMemo from '@rc-component/util/lib/hooks/useMemo';
+import isEqual from '@rc-component/util/lib/isEqual';
 
 import version from '../version';
 import type { DesignTokenProviderProps } from './context';
@@ -117,14 +119,21 @@ export default function useToken(): [
     zeroRuntime,
   } = React.useContext(DesignTokenContext);
 
-  const cssVar = {
-    prefix: ctxCssVar?.prefix ?? 'ant',
-    key: ctxCssVar?.key ?? 'css-var-root',
-  };
-
   const salt = `${version}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
+
+  const cssVar = useMemo(
+    () => ({
+      prefix: ctxCssVar?.prefix ?? 'ant',
+      key: ctxCssVar?.key ?? 'css-var-root',
+      unitless,
+      ignore,
+      preserve,
+    }),
+    [ctxCssVar],
+    (prev, next) => !isEqual(prev, next, true),
+  );
 
   const [token, hashId, realToken] = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
@@ -133,12 +142,7 @@ export default function useToken(): [
       salt,
       override,
       getComputedToken,
-      cssVar: {
-        ...cssVar,
-        unitless,
-        ignore,
-        preserve,
-      },
+      cssVar,
     },
   );
 
