@@ -137,6 +137,8 @@ const Modal: React.FC<ModalProps> = (props) => {
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
       ['destroyOnClose', 'destroyOnHidden'],
+      ['autoFocusButton', 'focusable.autoFocusButton'],
+      ['focusTriggerAfterClose', 'focusable.focusTriggerAfterClose'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
