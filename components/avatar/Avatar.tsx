@@ -18,7 +18,7 @@ export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
   shape?: 'circle' | 'square';
   /*
-   * Size of avatar, options: `large`, `middle`, `small`
+   * Size of avatar, options: `large`, `medium`, `small`
    * or a custom number size
    * */
   size?: AvatarSize;
@@ -111,7 +111,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     }
   };
 
-  const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'middle');
+  const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
