@@ -117,6 +117,9 @@ const App: React.FC = () => {
             // total: data.totalCount,
           },
         });
+      })
+      .catch(() => {
+        console.log('fetch mock data failed');
       });
   };
 
