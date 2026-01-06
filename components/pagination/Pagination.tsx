@@ -101,6 +101,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    totalBoundaryShowSizeChanger: contextTotalBoundaryShowSizeChanger,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
@@ -283,6 +284,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         locale={locale}
         pageSizeOptions={mergedPageSizeOptions}
         showSizeChanger={mergedShowSizeChanger}
+        totalBoundaryShowSizeChanger={
+          restProps.totalBoundaryShowSizeChanger ?? contextTotalBoundaryShowSizeChanger
+        }
         sizeChangerRender={sizeChangerRender}
       />
     </>
