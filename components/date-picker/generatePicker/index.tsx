@@ -5,12 +5,12 @@ import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
 export type {
+  DatePickerPanelSemanticClassNames,
+  DatePickerPanelSemanticName,
+  DatePickerPanelSemanticStyles,
   DatePickerSemanticClassNames,
   DatePickerSemanticName,
   DatePickerSemanticStyles,
-  PanelSemanticClassNames,
-  PanelSemanticName,
-  PanelSemanticStyles,
   PickerLocale,
   PickerProps,
 } from './interface';

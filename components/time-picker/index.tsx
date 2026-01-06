@@ -35,7 +35,7 @@ export type TimePickerSemanticStyles = {
   suffix?: React.CSSProperties;
 };
 
-export type PanelSemanticName = keyof TimePickerPanelSemanticClassNames &
+export type TimePickerPanelSemanticName = keyof TimePickerPanelSemanticClassNames &
   keyof TimePickerPanelSemanticStyles;
 
 export type TimePickerPanelSemanticClassNames = {

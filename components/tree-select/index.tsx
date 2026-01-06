@@ -79,6 +79,9 @@ export type TreeSelectSemanticStyles = {
   itemRemove?: React.CSSProperties;
 };
 
+export type TreeSelectPopupSemanticName = keyof TreeSelectPopupSemanticClassNames &
+  keyof TreeSelectPopupSemanticStyles;
+
 export type TreeSelectPopupSemanticClassNames = {
   root?: string;
   item?: string;

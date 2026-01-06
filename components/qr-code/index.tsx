@@ -17,6 +17,8 @@ import type {
   QRCodeSemanticStyles,
   QRCodeStylesType,
   QRProps,
+  QRPropsCanvas,
+  QRPropsSvg,
 } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
@@ -27,6 +29,8 @@ export type {
   QRCodeSemanticName,
   QRCodeSemanticStyles,
   QRProps,
+  QRPropsCanvas,
+  QRPropsSvg,
 };
 
 const QRCode: React.FC<QRCodeProps> = (props) => {

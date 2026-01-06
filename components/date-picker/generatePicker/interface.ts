@@ -19,7 +19,8 @@ type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 export type DatePickerSemanticName = keyof DatePickerSemanticClassNames &
   keyof DatePickerSemanticStyles;
 
-export type PanelSemanticName = keyof PanelSemanticClassNames & keyof PanelSemanticStyles;
+export type DatePickerPanelSemanticName = keyof DatePickerPanelSemanticClassNames &
+  keyof DatePickerPanelSemanticStyles;
 
 // import type {SemanticName} from "@rc-component/picker/interface"
 export type DatePickerSemanticClassNames = {
@@ -38,7 +39,7 @@ export type DatePickerSemanticStyles = {
 };
 
 // import type {PanelSemanticName} from "@rc-component/picker/interface"
-export type PanelSemanticClassNames = {
+export type DatePickerPanelSemanticClassNames = {
   root?: string;
   header?: string;
   body?: string;
@@ -49,7 +50,7 @@ export type PanelSemanticClassNames = {
 };
 
 // import type {PanelSemanticName} from "@rc-component/picker/interface"
-export type PanelSemanticStyles = {
+export type DatePickerPanelSemanticStyles = {
   root?: React.CSSProperties;
   header?: React.CSSProperties;
   body?: React.CSSProperties;
@@ -62,13 +63,13 @@ export type PanelSemanticStyles = {
 export type DatePickerClassNamesType<P> = SemanticClassNamesType<
   InjectDefaultProps<P>,
   DatePickerSemanticClassNames,
-  { popup?: string | PanelSemanticClassNames }
+  { popup?: string | DatePickerPanelSemanticClassNames }
 >;
 
 export type DatePickerStylesType<P> = SemanticStylesType<
   InjectDefaultProps<P>,
   DatePickerSemanticStyles,
-  { popup?: PanelSemanticStyles }
+  { popup?: DatePickerPanelSemanticStyles }
 >;
 
 export type PickerLocale = {
@@ -121,8 +122,8 @@ export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
 
 export type RequiredSemanticPicker = Readonly<
   [
-    classNames: DatePickerSemanticClassNames & { popup: PanelSemanticClassNames },
-    styles: DatePickerSemanticStyles & { popup: PanelSemanticStyles },
+    classNames: DatePickerSemanticClassNames & { popup: DatePickerPanelSemanticClassNames },
+    styles: DatePickerSemanticStyles & { popup: DatePickerPanelSemanticStyles },
   ]
 >;
 

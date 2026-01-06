@@ -62,6 +62,7 @@ export interface SuccessProps {
 export type ProgressAriaProps = Pick<React.AriaAttributes, 'aria-label' | 'aria-labelledby'>;
 
 export type GapPlacement = 'top' | 'bottom' | 'start' | 'end';
+
 export type GapPosition = 'top' | 'bottom' | 'left' | 'right';
 
 export interface ProgressProps extends ProgressAriaProps {

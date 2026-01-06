@@ -62,9 +62,16 @@ export interface TimelineItemType {
 
 export type TimelineSemanticName = StepsSemanticName;
 
-export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, StepsSemanticClassNames>;
+export type TimelineSemanticClassNames = StepsSemanticClassNames;
 
-export type TimelineStylesType = SemanticStylesType<TimelineProps, StepsSemanticStyles>;
+export type TimelineSemanticStyles = StepsSemanticStyles;
+
+export type TimelineClassNamesType = SemanticClassNamesType<
+  TimelineProps,
+  TimelineSemanticClassNames
+>;
+
+export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticStyles>;
 
 export interface TimelineProps {
   // Style

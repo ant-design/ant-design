@@ -22,12 +22,16 @@ import useStyle from './style';
 
 export type PopconfirmSemanticName = PopoverSemanticName;
 
+export type PopconfirmSemanticClassNames = PopoverSemanticClassNames;
+
+export type PopconfirmSemanticStyles = PopoverSemanticStyles;
+
 export type PopconfirmClassNamesType = SemanticClassNamesType<
   PopconfirmProps,
-  PopoverSemanticClassNames
+  PopconfirmSemanticClassNames
 >;
 
-export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopoverSemanticStyles>;
+export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopconfirmSemanticStyles>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
