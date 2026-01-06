@@ -224,15 +224,20 @@ describe('RangePicker', () => {
   it('should support deep merge locale with partial fields', () => {
     setMockDate();
 
-    const wrapper = render(
+    const { container } = render(
       <RangePicker
         open
         locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
       />,
     );
 
-    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+    expect(container.querySelector('.ant-picker-content thead')?.textContent).toBe(
       '一二三四五六日',
+    );
+
+    expect(container.querySelector<HTMLInputElement>('input')).toHaveAttribute(
+      'placeholder',
+      'Start date',
     );
 
     resetMockDate();

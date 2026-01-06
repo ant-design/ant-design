@@ -600,15 +600,20 @@ describe('Calendar', () => {
   it('should support deep merge locale with partial fields', () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
 
-    const wrapper = render(
+    const { container } = render(
       <Calendar
         locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
       />,
     );
 
-    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+    expect(container.querySelector('.ant-picker-content thead')).toHaveTextContent(
       '一二三四五六日',
     );
+
+    expect(container.querySelector('.ant-radio-group .ant-radio-button-label')).toHaveTextContent(
+      'Month',
+    );
+
     MockDate.reset();
   });
 });
