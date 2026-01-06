@@ -422,4 +422,36 @@ describe('Modal', () => {
       }),
     );
   });
+
+  it('should warning when using deprecated autoFocusButton', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Modal open autoFocusButton="ok" getContainer={false}>
+        Here is content of Modal
+      </Modal>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `autoFocusButton` is deprecated. Please use `focusable.autoFocusButton` instead.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  it('should warning when using deprecated focusTriggerAfterClose', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Modal open focusTriggerAfterClose={false} getContainer={false}>
+        Here is content of Modal
+      </Modal>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `focusTriggerAfterClose` is deprecated. Please use `focusable.focusTriggerAfterClose` instead.',
+    );
+
+    errorSpy.mockRestore();
+  });
 });
