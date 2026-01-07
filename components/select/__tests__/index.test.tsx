@@ -325,4 +325,15 @@ describe('Select', () => {
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
   });
+
+  it('aligns clear icon inset with small size padding', () => {
+    const { container } = render(
+      <Select size="small" allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+    );
+
+    const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+    if (ele) {
+      expect(getComputedStyle(ele).insetInlineEnd).toBe('var(--select-padding-horizontal)');
+    }
+  });
 });
