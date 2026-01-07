@@ -26,6 +26,7 @@ import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  Panel: typeof ColorPickerPanel;
 };
 
 const ColorPicker: CompoundedComponent = (props) => {
@@ -335,5 +336,6 @@ const PurePanel = genPurePanel(
 );
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+ColorPicker.Panel = ColorPickerPanel;
 
 export default ColorPicker;
