@@ -214,7 +214,7 @@ describe('Popover', () => {
     );
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'The second `onOpenChange` parameter is internal and unsupported. Please lock to a previous version if needed.',
+      'Warning: [antd: Popover] The second `onOpenChange` parameter is internal and unsupported. Please lock to a previous version if needed.',
     );
 
     errorSpy.mockRestore();
