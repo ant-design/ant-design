@@ -430,7 +430,7 @@ describe('Popconfirm', () => {
     );
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Popconfirm] `onOpenChange` only accept `open` argument. The second event argument is internal usage and not support.',
+      'The second `onOpenChange` parameter is internal and unsupported. Please lock to a previous version if needed.',
     );
 
     errorSpy.mockRestore();
