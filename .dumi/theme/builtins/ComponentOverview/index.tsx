@@ -227,7 +227,7 @@ const Overview: React.FC = () => {
                             src={
                               isDark && component.coverDark ? component.coverDark : component.cover
                             }
-                            alt={component.title}
+                            alt=""
                           />
                         </div>
                       </Card>
