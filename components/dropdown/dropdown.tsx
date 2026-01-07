@@ -73,6 +73,8 @@ export interface DropdownProps {
   rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
+  /** @deprecated please use `menu.items` instead.*/
+  overlayNode?: React.ReactNode;
   /** @deprecated please use `classNames.root` instead.*/
   overlayClassName?: string;
   /** @deprecated please use `styles.root` instead.*/
@@ -103,6 +105,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayClassName,
     rootClassName,
     overlayStyle,
+    overlayNode: customizeOverlayNode,
     open,
     onOpenChange,
     mouseEnterDelay = 0.15,
@@ -154,6 +157,7 @@ const Dropdown: CompoundedComponent = (props) => {
     const deprecatedProps = {
       dropdownRender: 'popupRender',
       destroyPopupOnHide: 'destroyOnHidden',
+      overlayNode: 'menu.items',
       overlayClassName: 'classNames.root',
       overlayStyle: 'styles.root',
     };
@@ -260,7 +264,7 @@ const Dropdown: CompoundedComponent = (props) => {
     // So we need render the element to check and pass back to @rc-component/dropdown.
     const menuClassNames = omit(mergedClassNames, ['root']);
     const menuStyles = omit(mergedStyles, ['root']);
-    let overlayNode: React.ReactNode;
+    let overlayNode: React.ReactNode = customizeOverlayNode;
     if (menu?.items) {
       overlayNode = (
         <Menu
