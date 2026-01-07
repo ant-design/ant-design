@@ -213,6 +213,16 @@ const Header: React.FC = () => {
     };
   }, [onWindowResize]);
 
+  useEffect(() => {
+    // For A11y
+    const searchIcon = document.querySelector('.dumi-default-search-bar > svg');
+    if (searchIcon && !searchIcon.querySelector('title')) {
+      const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      title.textContent = 'Search';
+      searchIcon.appendChild(title);
+    }
+  }, []);
+
   const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
