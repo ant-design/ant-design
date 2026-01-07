@@ -60,7 +60,9 @@ export default function useItems(
 
       // Placement
       const mergedPlacement =
-        placement ?? position ?? (mode === 'alternate' ? (index & 1 ? 'end' : 'start') : mode);
+        placement ??
+        position ??
+        (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
 
       mergedClassName = clsx(mergedClassName, `${itemCls}-placement-${mergedPlacement}`);
 

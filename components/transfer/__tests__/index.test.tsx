@@ -1101,7 +1101,7 @@ describe('immutable data', () => {
             key: i.toString(),
             title: `content${i + 1}`,
             description: `description of content${i + 1}`,
-            chosen: (i & 1) === 0,
+            chosen: i % 2 === 0,
           };
           if (data.chosen) {
             tempTargetKeys.push(data.key);
