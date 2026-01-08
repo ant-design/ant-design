@@ -13,9 +13,9 @@ import type {
   BaseOptionType,
   DefaultOptionType,
   InternalSelectProps,
-  PopupSemanticClassNames,
-  PopupSemanticStyles,
   RefSelectProps,
+  SelectPopupSemanticClassNames,
+  SelectPopupSemanticStyles,
   SelectProps,
 } from '../select';
 import Select from '../select';
@@ -51,13 +51,13 @@ export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 export type AutoCompleteClassNamesType = SemanticClassNamesType<
   AutoCompleteProps,
   AutoCompleteSemanticClassNames,
-  { popup?: PopupSemanticClassNames }
+  { popup?: SelectPopupSemanticClassNames }
 >;
 
 export type AutoCompleteStylesType = SemanticStylesType<
   AutoCompleteProps,
   AutoCompleteSemanticStyles,
-  { popup?: PopupSemanticStyles }
+  { popup?: SelectPopupSemanticStyles }
 >;
 
 export interface AutoCompleteProps<

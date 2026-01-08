@@ -12,7 +12,7 @@ import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 import type { FocusableConfig, OmitFocusType } from '../drawer/useFocusable';
 
-export type SemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles;
+export type ModalSemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles;
 
 export type ModalSemanticClassNames = {
   root?: string;

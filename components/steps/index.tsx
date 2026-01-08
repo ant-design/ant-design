@@ -27,17 +27,7 @@ export type IconRenderType = (
   info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
 ) => React.ReactNode;
 
-export type StepsSemanticName =
-  | 'root'
-  | 'item'
-  | 'itemWrapper'
-  | 'itemIcon'
-  | 'itemSection'
-  | 'itemHeader'
-  | 'itemTitle'
-  | 'itemSubtitle'
-  | 'itemContent'
-  | 'itemRail';
+export type StepsSemanticName = keyof StepsSemanticClassNames & keyof StepsSemanticStyles;
 
 export type StepsSemanticClassNames = {
   root?: string;

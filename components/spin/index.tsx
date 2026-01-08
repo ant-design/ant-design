@@ -16,6 +16,8 @@ export type SpinSize = (typeof _SpinSizes)[number];
 
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
+export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles;
+
 export type SpinSemanticClassNames = {
   root?: string;
   wrapper?: string;

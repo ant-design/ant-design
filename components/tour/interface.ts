@@ -6,18 +6,7 @@ import type {
 
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
-export type TourSemanticName =
-  | 'root'
-  | 'cover'
-  | 'mask'
-  | 'section'
-  | 'footer'
-  | 'actions'
-  | 'indicator'
-  | 'indicators'
-  | 'header'
-  | 'title'
-  | 'description';
+export type TourSemanticName = keyof TourSemanticClassNames & keyof TourSemanticStyles;
 
 export type TourSemanticClassNames = {
   root?: string;

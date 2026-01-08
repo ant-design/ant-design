@@ -29,14 +29,7 @@ const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, r
 
   // ====================== Render ======================
   const renderNode = useMemo(() => {
-    return (
-      item.children ??
-      itemRender?.({
-        ...item,
-        index,
-        column,
-      })
-    );
+    return item.children ?? itemRender?.({ ...item, index, column });
   }, [item, itemRender, column, index]);
 
   let returnNode = (

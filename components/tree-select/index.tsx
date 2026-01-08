@@ -52,6 +52,9 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
+export type TreeSelectSemanticName = keyof TreeSelectSemanticClassNames &
+  keyof TreeSelectSemanticStyles;
+
 export type TreeSelectSemanticClassNames = {
   root?: string;
   prefix?: string;
@@ -75,6 +78,9 @@ export type TreeSelectSemanticStyles = {
   itemContent?: React.CSSProperties;
   itemRemove?: React.CSSProperties;
 };
+
+export type TreeSelectPopupSemanticName = keyof TreeSelectPopupSemanticClassNames &
+  keyof TreeSelectPopupSemanticStyles;
 
 export type TreeSelectPopupSemanticClassNames = {
   root?: string;
