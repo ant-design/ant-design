@@ -231,6 +231,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           '--select-height': token.controlHeightSM,
           '--select-padding-horizontal': calc(token.paddingXS).sub(token.lineWidth).equal(),
           '--select-border-radius': token.borderRadiusSM,
+
+          [`${componentCls}-clear`]: {
+            insetInlineEnd: 'var(--select-padding-horizontal)',
+          },
         },
 
         '&-lg': {
