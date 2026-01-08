@@ -211,6 +211,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     const statusTextColor = mergedStyle.color;
     return (
       <span
+        ref={ref}
         {...restProps}
         className={badgeClassName}
         style={{ ...mergedStyles.root, ...mergedStyle }}
