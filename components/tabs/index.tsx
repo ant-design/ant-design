@@ -52,9 +52,7 @@ export type TabsClassNamesType = SemanticClassNamesType<
   TabsProps,
   TabsSemanticClassNames,
   {
-    popup?: {
-      root?: string;
-    };
+    popup?: { root?: string };
   }
 >;
 
@@ -62,9 +60,7 @@ export type TabsStylesType = SemanticStylesType<
   TabsProps,
   TabsSemanticStyles,
   {
-    popup?: {
-      root?: React.CSSProperties;
-    };
+    popup?: { root?: React.CSSProperties };
   }
 >;
 

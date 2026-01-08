@@ -130,7 +130,6 @@ const Drawer: React.FC<DrawerProps> & {
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
-
     [
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],

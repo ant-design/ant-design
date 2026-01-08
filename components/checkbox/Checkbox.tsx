@@ -57,6 +57,8 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
+export type CheckboxSemanticName = keyof CheckboxSemanticClassNames & keyof CheckboxSemanticStyles;
+
 export type CheckboxSemanticClassNames = {
   root?: string;
   icon?: string;
