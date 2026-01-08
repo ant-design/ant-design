@@ -240,4 +240,10 @@ describe('Badge', () => {
     rerender(<Badge count={0} showZero color="#ff0" />);
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(1);
   });
+
+  it('should support ref when exist status & text', () => {
+    const badgeRef = React.createRef<HTMLSpanElement>();
+    const { container } = render(<Badge ref={badgeRef} status="success" text="Success" />);
+    expect(badgeRef.current).toBe(container.querySelector('.ant-badge'));
+  });
 });
