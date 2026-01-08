@@ -122,7 +122,7 @@
     "@rc-component/dialog": "~1.8.0",
     "@rc-component/drawer": "~1.4.0",
     "@rc-component/dropdown": "~1.0.2",
-    "@rc-component/form": "~1.6.1",
+    "@rc-component/form": "~1.6.2",
     "@rc-component/image": "~1.6.0",
     "@rc-component/input": "~1.1.2",
     "@rc-component/input-number": "~1.6.2",
