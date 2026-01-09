@@ -4,10 +4,10 @@ import { createStyles } from 'antd-style';
 
 const IconSearch = React.lazy(() => import('./IconSearch'));
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   searchWrapper: css`
     display: flex;
-    gap: ${token.padding}px;
+    gap: ${cssVar.padding};
     > *:first-child {
       flex: 0 0 328px;
     }
@@ -21,7 +21,7 @@ const useStyle = createStyles(({ token, css }) => ({
     justify-content: space-between;
     > * {
       flex: 0 0 15%;
-      margin: ${token.marginXXS}px 0;
+      margin: ${cssVar.marginXXS} 0;
     }
   `,
   skeletonWrapper: css`

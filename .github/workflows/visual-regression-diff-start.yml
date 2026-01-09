@@ -20,10 +20,10 @@ jobs:
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: start visual-regression diff
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

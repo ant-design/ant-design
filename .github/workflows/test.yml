@@ -18,45 +18,39 @@ permissions:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - run: bun run lint
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
+      - run: ut lint
 
   ################################ Test ################################
   test-react-legacy:
     name: test-react-legacy
     strategy:
       matrix:
-        react: ['16', '17']
+        react: ['18']
         shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - name: install react 16
-        if: ${{ matrix.react == '16' }}
-        run: bun run bun-install-react-16
-      - name: install react 17
-        if: ${{ matrix.react == '17' }}
-        run: bun run bun-install-react-17
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
       # dom test
       - name: dom test
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
   test-node:
     name: test-node
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - run: bun run test:node
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
+      - run: ut test:node
 
   test-react-latest:
     name: test-react-latest
@@ -64,15 +58,15 @@ jobs:
       matrix:
         module: [dom]
         shard: [1/2, 2/2]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       # dom test
       - name: dom test
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
         run: |
@@ -91,50 +85,50 @@ jobs:
       matrix:
         module: [dist, dist-min]
         shard: [1/2, 2/2]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: restore cache from dist
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: dist
           key: dist-${{ github.sha }}
 
       - name: dist-min test
         if: ${{ matrix.module == 'dist-min' }}
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: dist-min
 
       - name: dist test
         if: ${{ matrix.module == 'dist' }}
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: dist
 
   ############################ Test Coverage ###########################
   upload-test-coverage:
     name: test-coverage
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: test-react-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v7
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
-          bunx nyc merge persist-coverage/ coverage/coverage-final.json
-          bunx nyc report --reporter text -t coverage --report-dir coverage
+          utx nyc merge persist-coverage/ coverage/coverage-final.json
+          utx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v5
@@ -144,42 +138,42 @@ jobs:
 
   ########################### Compile & Test ###########################
   build:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: cache lib
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: lib
           key: lib-${{ github.sha }}
 
       - name: cache es
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: es
           key: es-${{ github.sha }}
 
       - name: compile
-        run: bun run compile
+        run: ut compile
 
       - name: cache dist
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: dist
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: bun run dist
+        run: ut dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           CI: 1
 
       - name: check build files
-        run: bun run test:dekko
+        run: ut test:dekko
 
       # Artifact build files
       - uses: actions/upload-artifact@v4
@@ -205,20 +199,20 @@ jobs:
 
   test-lib-es:
     name: test lib/es module
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     strategy:
       matrix:
         module: [lib, es]
         shard: [1/2, 2/2]
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
 
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
@@ -226,11 +220,11 @@ jobs:
       - name: compile
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: bun run compile
+        run: ut compile
 
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}

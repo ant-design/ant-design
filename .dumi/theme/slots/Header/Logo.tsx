@@ -5,8 +5,9 @@ import { useLocation } from 'dumi';
 import Link from '../../common/Link';
 import * as utils from '../../utils';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { headerHeight, colorTextHeading, mobileMaxWidth } = token;
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { headerHeight, mobileMaxWidth } = token;
+  const { colorTextHeading } = cssVar;
 
   return {
     logo: css`
@@ -22,7 +23,7 @@ const useStyle = createStyles(({ token, css }) => {
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      column-gap: ${token.marginSM}px;
+      column-gap: ${cssVar.marginSM};
 
       &:hover {
         color: ${colorTextHeading};

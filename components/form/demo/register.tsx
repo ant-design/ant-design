@@ -11,10 +11,9 @@ import {
   InputNumber,
   Row,
   Select,
+  Space,
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
-
-const { Option } = Select;
 
 interface FormCascaderOption {
   value: string;
@@ -90,19 +89,27 @@ const App: React.FC = () => {
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
+      <Select
+        style={{ width: 70 }}
+        defaultValue={'86'}
+        options={[
+          { label: '+86', value: '86' },
+          { label: '+87', value: '87' },
+        ]}
+      />
     </Form.Item>
   );
 
   const suffixSelector = (
     <Form.Item name="suffix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="USD">$</Option>
-        <Option value="CNY">¥</Option>
-      </Select>
+      <Select
+        style={{ width: 70 }}
+        defaultValue={'USD'}
+        options={[
+          { label: '$', value: 'USD' },
+          { label: '¥', value: 'CNY' },
+        ]}
+      />
     </Form.Item>
   );
 
@@ -207,7 +214,11 @@ const App: React.FC = () => {
         label="Phone Number"
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        {/* Demo only, real usage should wrap as custom component */}
+        <Space.Compact block>
+          {prefixSelector}
+          <Input style={{ width: '100%' }} />
+        </Space.Compact>
       </Form.Item>
 
       <Form.Item
@@ -215,7 +226,11 @@ const App: React.FC = () => {
         label="Donation"
         rules={[{ required: true, message: 'Please input donation amount!' }]}
       >
-        <InputNumber addonAfter={suffixSelector} style={{ width: '100%' }} />
+        {/* Demo only, real usage should wrap as custom component */}
+        <Space.Compact block>
+          <InputNumber style={{ width: '100%' }} />
+          {suffixSelector}
+        </Space.Compact>
       </Form.Item>
 
       <Form.Item
@@ -241,11 +256,15 @@ const App: React.FC = () => {
         label="Gender"
         rules={[{ required: true, message: 'Please select gender!' }]}
       >
-        <Select placeholder="select your gender">
-          <Option value="male">Male</Option>
-          <Option value="female">Female</Option>
-          <Option value="other">Other</Option>
-        </Select>
+        <Select
+          placeholder="select your gender"
+          defaultValue={'male'}
+          options={[
+            { label: 'Male', value: 'male' },
+            { label: 'Female', value: 'female' },
+            { label: 'Other', value: 'other' },
+          ]}
+        />
       </Form.Item>
 
       <Form.Item label="Captcha" extra="We must make sure that your are a human.">

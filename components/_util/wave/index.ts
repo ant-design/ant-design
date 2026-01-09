@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
-import classNames from 'classnames';
-import isVisible from 'rc-util/lib/Dom/isVisible';
-import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref';
+import isVisible from '@rc-component/util/lib/Dom/isVisible';
+import { composeRef, getNodeRef, supportRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
@@ -14,20 +14,21 @@ export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
   component?: WaveComponent;
+  colorSource?: 'color' | 'backgroundColor' | 'borderColor' | null;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
-  const { children, disabled, component } = props;
+  const { children, disabled, component, colorSource } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const containerRef = useRef<HTMLElement | null>(null);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
-  const [, hashId] = useStyle(prefixCls);
+  const hashId = useStyle(prefixCls);
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component);
+  const showWave = useWave(containerRef, clsx(prefixCls, hashId), component, colorSource);
 
   // ============================== Effect ==============================
   React.useEffect(() => {

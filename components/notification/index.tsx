@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { render } from '@rc-component/util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender } from '../config-provider/UnstableContext';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -126,13 +126,10 @@ const flushNotificationQueue = () => {
 
     // Delay render to avoid sync issue
     act(() => {
-      const reactRender = unstableSetRender();
-
-      reactRender(
+      render(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
-
             Promise.resolve().then(() => {
               if (!newNotification.instance && instance) {
                 newNotification.instance = instance;
@@ -250,7 +247,7 @@ methods.forEach((type: keyof NoticeMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-let _actWrapper: (wrapper: any) => void = noop;
+let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   _actWrapper = (wrapper) => {
     act = wrapper;

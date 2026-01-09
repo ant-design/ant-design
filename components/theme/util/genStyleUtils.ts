@@ -23,8 +23,8 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
     };
   },
   useToken: () => {
-    const [theme, realToken, hashId, token, cssVar] = useLocalToken();
-    return { theme, realToken, hashId, token, cssVar };
+    const [theme, realToken, hashId, token, cssVar, zeroRuntime] = useLocalToken();
+    return { theme, realToken, hashId, token, cssVar, zeroRuntime };
   },
   useCSP: () => {
     const { csp } = useContext(ConfigContext);
@@ -41,3 +41,17 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
   getCommonStyle: genCommonStyle,
   getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });
+
+type CssVarName = (inputs: string) => `--${string}`;
+type CssVarRef = (inputs: string, fallback?: string) => `var(--${string})`;
+
+export const genCssVar = (antCls: string, component: string): readonly [CssVarName, CssVarRef] => {
+  const cssPrefix = `--${antCls.replace(/\./g, '')}-${component}-` as `--${string}`;
+  const varName: CssVarName = (name) => {
+    return `${cssPrefix}${name}`;
+  };
+  const varRef: CssVarRef = (name, fallback) => {
+    return fallback ? `var(${cssPrefix}${name}, ${fallback})` : `var(${cssPrefix}${name})`;
+  };
+  return [varName, varRef] as const;
+};

@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import classNames from 'classnames';
-import { INTERNAL_COL_DEFINE } from 'rc-table';
-import type { FixedType } from 'rc-table/lib/interface';
-import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
-import { arrAdd, arrDel } from 'rc-tree/lib/util';
-import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
-import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { INTERNAL_COL_DEFINE } from '@rc-component/table';
+import type { FixedType } from '@rc-component/table/lib/interface';
+import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interface';
+import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
+import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
+import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
+import { useMultipleSelect } from '../../_util/hooks';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
@@ -117,11 +117,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   // ========================= Keys =========================
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
-    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
-    {
-      value: selectedRowKeys,
-    },
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
+    defaultSelectedRowKeys || EMPTY_LIST,
+    selectedRowKeys,
   );
 
   // ======================== Caches ========================
@@ -166,10 +164,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     let convertData = data;
     if (preserveSelectedRowKeys) {
       // use flattedData keys
-      const keysSet = new Set(flattedData.map((record, index) => getRowKey(record, index)));
+      const keysSet = new Set(flattedData.map(getRowKey));
       // remove preserveRecords that duplicate data
-      const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
-        (total: RecordType[], [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
+      const preserveRecords = Array.from(preserveRecordsRef.current).reduce<RecordType[]>(
+        (total, [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
         [],
       );
       convertData = [...convertData, ...preserveRecords];
@@ -367,7 +365,20 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           updatePrevSelectedIndex(null);
         },
       }));
-  }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
+  }, [
+    selections,
+    hideSelectAll,
+    tableLocale.selectionAll,
+    tableLocale.selectInvert,
+    tableLocale.selectNone,
+    checkboxPropsMap,
+    derivedSelectedKeySet,
+    data,
+    pageData,
+    getRowKey,
+    onSelectInvert,
+    setSelectedKeys,
+  ]);
 
   // ======================= Columns ========================
   const transformColumns = useCallback(
@@ -691,7 +702,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         prevCol.fixed = mergedFixed;
       }
 
-      const columnCls = classNames(`${prefixCls}-selection-col`, {
+      const columnCls = clsx(`${prefixCls}-selection-col`, {
         [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
       });
 

@@ -1,10 +1,5 @@
 import defaultLocale from '../locale/en_US';
-
-export interface ModalLocale {
-  okText: string;
-  cancelText: string;
-  justOkText: string;
-}
+import type { ModalLocale } from './interface';
 
 let runtimeLocale: ModalLocale = {
   ...(defaultLocale.Modal as ModalLocale),

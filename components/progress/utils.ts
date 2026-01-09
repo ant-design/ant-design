@@ -13,20 +13,16 @@ export function validProgress(progress?: number) {
   return progress;
 }
 
-export function getSuccessPercent({ success, successPercent }: ProgressProps) {
-  let percent = successPercent;
-  /** @deprecated Use `percent` instead */
-  if (success && 'progress' in success) {
-    percent = success.progress;
-  }
+export function getSuccessPercent({ success }: ProgressProps) {
+  let percent: number | undefined;
   if (success && 'percent' in success) {
     percent = success.percent;
   }
   return percent;
 }
 
-export const getPercentage = ({ percent, success, successPercent }: ProgressProps) => {
-  const realSuccessPercent = validProgress(getSuccessPercent({ success, successPercent }));
+export const getPercentage = ({ percent, success }: ProgressProps) => {
+  const realSuccessPercent = validProgress(getSuccessPercent({ success }));
   return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 };
 

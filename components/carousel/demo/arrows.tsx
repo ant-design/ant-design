@@ -27,7 +27,7 @@ const App: React.FC = () => (
       </div>
     </Carousel>
     <br />
-    <Carousel arrows dotPosition="left" infinite={false}>
+    <Carousel arrows dotPlacement="start" infinite={false}>
       <div>
         <h3 style={contentStyle}>1</h3>
       </div>

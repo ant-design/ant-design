@@ -41,7 +41,6 @@ type Locale = ConfigProviderProps['locale'];
 
 dayjs.locale('en');
 
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const columns: TableProps['columns'] = [
@@ -126,16 +125,20 @@ const Page: React.FC = () => {
 
   return (
     <Space
-      direction="vertical"
+      vertical
       size={[0, 16]}
       style={{ width: '100%', paddingTop: 16, borderTop: `1px solid ${token.colorBorder}` }}
     >
       <Pagination defaultCurrent={1} total={50} showSizeChanger />
       <Space wrap>
-        <Select showSearch style={{ width: 200 }}>
-          <Option value="jack">jack</Option>
-          <Option value="lucy">lucy</Option>
-        </Select>
+        <Select
+          showSearch
+          style={{ width: 200 }}
+          options={[
+            { label: 'jack', value: 'jack' },
+            { label: 'lucy', value: 'lucy' },
+          ]}
+        />
         <DatePicker />
         <TimePicker />
         <RangePicker />
@@ -188,7 +191,7 @@ const Page: React.FC = () => {
         />
       </Space>
       <Upload listType="picture-card" fileList={fileList} />
-      <Divider orientation="left">Tour</Divider>
+      <Divider titlePlacement="start">Tour</Divider>
       <Button type="primary" onClick={() => setTourOpen(true)}>
         Begin Tour
       </Button>

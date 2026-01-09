@@ -47,33 +47,23 @@ describe('Space.Compact', () => {
         <Button type="primary">Submit</Button>
       </Space.Compact>,
     );
-    expect(
-      container.querySelector('.ant-space-compact')?.classList.contains('ant-space-compact-block'),
-    ).toBe(true);
+    expect(container.querySelector('.ant-space-compact')).toHaveClass('ant-space-compact-block');
   });
 
   it('compact-item className', () => {
     const { container } = render(
       <Space.Compact>
-        <Input defaultValue="https://ant.design" />
-        <Input.Search />
-        <Button type="primary">Submit</Button>
+        <Input className="test-input" />
+        <Input.Search className="test-input-search" />
+        <Button className="test-button">Submit</Button>
       </Space.Compact>,
     );
-    expect(
-      container.querySelector('.ant-input')?.classList.contains('ant-input-compact-item'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-input-search')?.classList.contains('ant-input-compact-item'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-input')?.classList.contains('ant-input-compact-first-item'),
-    ).toBe(true);
-    expect(
-      container
-        .querySelector('.ant-btn-compact-item')
-        ?.classList.contains('ant-btn-compact-last-item'),
-    ).toBe(true);
+    expect(container.querySelector('.test-input')).toHaveClass('ant-input-compact-first-item');
+    expect(container.querySelector('.test-input-search')).toHaveClass('ant-space-compact');
+    expect(container.querySelector('.test-input-search input')).toHaveClass(
+      'ant-input-compact-item',
+    );
+    expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
   [
@@ -108,12 +98,6 @@ describe('Space.Compact', () => {
       expectClsPrefix: 'ant-input',
     },
     {
-      name: 'Input.Search',
-      component: Input.Search,
-      targetCls: 'ant-input-search',
-      expectClsPrefix: 'ant-input',
-    },
-    {
       name: 'Select',
       component: Select,
       targetCls: 'ant-select',
@@ -138,13 +122,21 @@ describe('Space.Compact', () => {
       );
       expect(container.querySelectorAll(`.${targetCls}`).length).toBe(1);
       ['compact-item', 'compact-first-item', 'compact-last-item'].forEach((suffix) => {
-        expect(
-          container
-            .querySelector(`.${targetCls}`)
-            ?.classList.contains([expectClsPrefix, suffix].join('-')),
-        ).toBe(true);
+        expect(container.querySelector(`.${targetCls}`)).toHaveClass(
+          [expectClsPrefix, suffix].join('-'),
+        );
       });
     });
+  });
+
+  it('compact-item for Input.Search', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Input.Search />
+      </Space.Compact>,
+    );
+    expect(container.querySelector('.ant-input-search')).toBeTruthy();
+    expect(container.querySelector(`.ant-input-search`)).toHaveClass('ant-space-compact');
   });
 
   it('size', () => {
@@ -154,9 +146,10 @@ describe('Space.Compact', () => {
         <Button type="primary">Submit</Button>
       </Space.Compact>,
     );
-    expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
-    expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
+    expect(container.querySelector('.ant-input')).toHaveClass('ant-input-sm');
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-sm');
   });
+
   it('component size has a higher priority than Compact', () => {
     const { container } = render(
       <Space.Compact size="middle">
@@ -171,30 +164,19 @@ describe('Space.Compact', () => {
         <Input.Search size="small" />
       </Space.Compact>,
     );
-    expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
-    expect(container.querySelector('.ant-select')?.classList.contains('ant-select-sm')).toBe(true);
-    expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
-    expect(
-      container.querySelector('.ant-input-number')?.classList.contains('ant-input-number-sm'),
-    ).toBe(true);
-    expect(container.querySelector('.ant-picker')?.classList.contains('ant-picker-small')).toBe(
-      true,
-    );
-    expect(
-      container.querySelector('.ant-picker-range')?.classList.contains('ant-picker-small'),
-    ).toBe(true);
-    expect(container.querySelector('.ant-cascader')?.classList.contains('ant-select-sm')).toBe(
-      true,
-    );
-    expect(container.querySelector('.ant-tree-select')?.classList.contains('ant-select-sm')).toBe(
-      true,
-    );
-    expect(
-      container.querySelector('.ant-input-search')?.classList.contains('ant-input-search-small'),
-    ).toBe(true);
+    expect(container.querySelector('.ant-input')).toHaveClass('ant-input-sm');
+    expect(container.querySelector('.ant-select')).toHaveClass('ant-select-sm');
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-sm');
+    expect(container.querySelector('.ant-input-number')).toHaveClass('ant-input-number-sm');
+    expect(container.querySelector('.ant-picker')).toHaveClass('ant-picker-small');
+    expect(container.querySelector('.ant-picker-range')).toHaveClass('ant-picker-small');
+    expect(container.querySelector('.ant-cascader')).toHaveClass('ant-select-sm');
+    expect(container.querySelector('.ant-tree-select')).toHaveClass('ant-select-sm');
+    expect(container.querySelector('.ant-input-search')).toHaveClass('ant-input-search-small');
   });
 
   it('direction=vertical', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space.Compact size="small" direction="vertical">
         <Button type="primary">Button 1</Button>
@@ -203,27 +185,22 @@ describe('Space.Compact', () => {
         <Button type="primary">Button 4</Button>
       </Space.Compact>,
     );
-    expect(
-      container
-        .querySelector('.ant-space-compact')
-        ?.classList.contains('ant-space-compact-vertical'),
-    ).toBe(true);
-    expect(
-      container.querySelector('.ant-btn')?.classList.contains('ant-btn-compact-vertical-item'),
-    ).toBe(true);
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space.Compact] `direction` is deprecated. Please use `orientation` instead.',
+    );
+    warnSpy.mockRestore();
+    expect(container.querySelector('.ant-space-compact')).toHaveClass('ant-space-compact-vertical');
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-compact-vertical-item');
 
-    expect(
-      container
-        .querySelectorAll('.ant-btn')[0]
-        ?.classList.contains('ant-btn-compact-vertical-first-item'),
-    ).toBe(true);
+    expect(container.querySelectorAll('.ant-btn')[0]).toHaveClass(
+      'ant-btn-compact-vertical-first-item',
+    );
 
-    expect(
-      container
-        .querySelectorAll('.ant-btn')[3]
-        ?.classList.contains('ant-btn-compact-vertical-last-item'),
-    ).toBe(true);
+    expect(container.querySelectorAll('.ant-btn')[3]).toHaveClass(
+      'ant-btn-compact-vertical-last-item',
+    );
   });
+
   it('context for Modal', () => {
     render(
       <Space.Compact size="small">
@@ -235,42 +212,29 @@ describe('Space.Compact', () => {
     );
     expect(
       document.body
-        .querySelectorAll('.ant-modal')[0]
-        .querySelector('.ant-btn')
-        ?.classList.contains('ant-btn-compact-item'),
-    ).toBe(false);
+        .querySelectorAll<HTMLElement>('.ant-modal')[0]
+        .querySelector<HTMLElement>('.ant-btn'),
+    ).not.toHaveClass('ant-btn-compact-item');
     expect(
       document.body
-        .querySelectorAll('.ant-modal')[0]
-        .querySelector('.ant-input')
-        ?.classList.contains('ant-input-compact-item'),
-    ).toBe(false);
+        .querySelectorAll<HTMLElement>('.ant-modal')[0]
+        .querySelector<HTMLElement>('.ant-input'),
+    ).not.toHaveClass('ant-input-compact-item');
   });
+
   it('context for Dropdown', () => {
     render(
       <Space.Compact size="small">
-        <Dropdown.Button
-          open
-          menu={{
-            items: [
-              {
-                key: '1',
-                label: <Button>menu button</Button>,
-              },
-            ],
-          }}
-        >
+        <Dropdown.Button open menu={{ items: [{ key: '1', label: <Button>menu button</Button> }] }}>
           debug Dropdown.Button context
         </Dropdown.Button>
       </Space.Compact>,
     );
-    expect(
-      document.body
-        .querySelector('.ant-dropdown')
-        ?.querySelector('.ant-btn')
-        ?.classList.contains('ant-btn-compact-item'),
-    ).toBe(false);
+    expect(document.body.querySelector('.ant-dropdown .ant-btn')).not.toHaveClass(
+      'ant-btn-compact-item',
+    );
   });
+
   it('context for Drawer', () => {
     render(
       <Space.Compact size="small">
@@ -279,13 +243,11 @@ describe('Space.Compact', () => {
         </Drawer>
       </Space.Compact>,
     );
-    expect(
-      document.body
-        .querySelector('.ant-drawer')
-        ?.querySelector('.ant-btn')
-        ?.classList.contains('ant-btn-compact-item'),
-    ).toBe(false);
+    expect(document.body.querySelector('.ant-drawer .ant-btn')).not.toHaveClass(
+      'ant-btn-compact-item',
+    );
   });
+
   it('context for Tooltip', () => {
     render(
       <Space.Compact>
@@ -305,18 +267,12 @@ describe('Space.Compact', () => {
         </Tooltip>
       </Space.Compact>,
     );
-    expect(
-      document.body
-        .querySelector('.ant-tooltip')
-        ?.querySelector('.ant-input')
-        ?.classList.contains('ant-input-compact-item'),
-    ).toBe(false);
-    expect(
-      document.body
-        .querySelector('.ant-tooltip')
-        ?.querySelector('.ant-picker')
-        ?.classList.contains('ant-picker-compact-item'),
-    ).toBe(false);
+    expect(document.body.querySelector('.ant-tooltip .ant-input')).not.toHaveClass(
+      'ant-input-compact-item',
+    );
+    expect(document.body.querySelector('.ant-tooltip .ant-picker')).not.toHaveClass(
+      'ant-picker-compact-item',
+    );
   });
 
   it('Tooltip content supports function', () => {
@@ -336,18 +292,12 @@ describe('Space.Compact', () => {
         </Tooltip>
       </Space.Compact>,
     );
-    expect(
-      document.body
-        .querySelector('.ant-tooltip')
-        ?.querySelector('.ant-input')
-        ?.classList.contains('ant-input-compact-item'),
-    ).toBe(false);
-    expect(
-      document.body
-        .querySelector('.ant-tooltip')
-        ?.querySelector('.ant-picker')
-        ?.classList.contains('ant-picker-compact-item'),
-    ).toBe(false);
+    expect(document.body.querySelector('.ant-tooltip .ant-input')).not.toHaveClass(
+      'ant-input-compact-item',
+    );
+    expect(document.body.querySelector('.ant-tooltip .ant-picker')).not.toHaveClass(
+      'ant-picker-compact-item',
+    );
   });
 
   // https://github.com/ant-design/ant-design/issues/41876

@@ -17,8 +17,8 @@ export interface ComponentToken {
    */
   splitBarDraggableSize: number;
   /**
-   * @desc 拖拽元素大小
-   * @descEN Drag the element size
+   * @desc 拖拽元素显示大小
+   * @descEN Drag the element display size
    */
   splitBarSize: number;
   /**
@@ -29,39 +29,6 @@ export interface ComponentToken {
 }
 
 interface SplitterToken extends FullToken<'Splitter'> {}
-
-const genRtlStyle = (token: SplitterToken): CSSObject => {
-  const { componentCls } = token;
-  return {
-    [`&-rtl${componentCls}-horizontal`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: 0,
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: 'unset',
-          insetInlineStart: 0,
-        },
-      },
-    },
-
-    [`&-rtl${componentCls}-vertical`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-      },
-    },
-  };
-};
 
 const centerStyle: CSSObject = {
   position: 'absolute',
@@ -84,6 +51,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     controlItemBgActive,
     controlItemBgActiveHover,
     prefixCls,
+    colorPrimary,
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
@@ -153,6 +121,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               background: controlItemBgActiveHover,
             },
           },
+          [`&-active${splitBarCls}-dragger-customize`]: {
+            [`${splitBarCls}-dragger-icon`]: {
+              color: colorPrimary,
+            },
+          },
 
           // Disabled, not use `pointer-events: none` since still need trigger collapse
           [`&-disabled${splitBarCls}-dragger`]: {
@@ -163,6 +136,24 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               '&::before': {
                 background: controlItemBgHover,
               },
+            },
+
+            '&::after': {
+              display: 'none',
+            },
+
+            [`${splitBarCls}-dragger-icon`]: {
+              display: 'none',
+            },
+          },
+
+          // customize dragger icon
+          '&-customize': {
+            [`${splitBarCls}-dragger-icon`]: {
+              ...centerStyle,
+              display: 'flex',
+              alignItems: 'center',
+              color: colorFill,
             },
 
             '&::after': {
@@ -186,14 +177,22 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           justifyContent: 'center',
 
           // Hover
-          '&:hover': {
+          [`&:hover:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActive,
           },
 
           // Active
-          '&:active': {
+          [`&:active:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActiveHover,
           },
+
+          [`${splitBarCls}-collapse-icon`]: {
+            display: 'flex',
+            alignItems: 'center',
+          },
+        },
+        [`${splitBarCls}-collapse-bar-customize`]: {
+          background: 'transparent',
         },
 
         '&:hover, &:active': {
@@ -374,8 +373,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           overflow: 'hidden',
         },
       },
-
-      ...genRtlStyle(token),
     },
   };
 };

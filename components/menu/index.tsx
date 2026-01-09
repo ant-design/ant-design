@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import type { MenuRef as RcMenuRef } from 'rc-menu';
-import { ItemGroup } from 'rc-menu';
+import type { MenuRef as RcMenuRef } from '@rc-component/menu';
+import { ItemGroup } from '@rc-component/menu';
 
 import { SiderContext } from '../layout/Sider';
 import type { ItemType, MenuItemType } from './interface';
@@ -15,7 +15,7 @@ import SubMenu from './SubMenu';
 import type { SubMenuProps } from './SubMenu';
 export type { MenuDividerProps } from './MenuDivider';
 
-export type { MenuItemGroupProps } from 'rc-menu';
+export type { MenuItemGroupProps } from '@rc-component/menu';
 export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps };
 
 export type MenuRef = {

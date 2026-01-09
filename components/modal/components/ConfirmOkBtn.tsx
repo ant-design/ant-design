@@ -12,6 +12,7 @@ export interface ConfirmOkBtnProps
   > {
   autoFocusButton?: false | 'ok' | 'cancel' | null;
   okTextLocale?: React.ReactNode;
+  onClose?: () => void;
 }
 
 const ConfirmOkBtn: FC = () => {
@@ -25,6 +26,7 @@ const ConfirmOkBtn: FC = () => {
     okType,
     onConfirm,
     onOk,
+    onClose,
   } = useContext(ModalContext);
   return (
     <ActionButton
@@ -34,6 +36,7 @@ const ConfirmOkBtn: FC = () => {
       close={(...args: any[]) => {
         close?.(...args);
         onConfirm?.(true);
+        onClose?.();
       }}
       autoFocus={autoFocusButton === 'ok'}
       buttonProps={okButtonProps}

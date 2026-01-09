@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import type { TabPaneProps as RcTabPaneProps } from 'rc-tabs/lib/TabPanelList/TabPane';
+import type { TabPaneProps as RcTabPaneProps } from '@rc-component/tabs/lib/TabPanelList/TabPane';
 
 import type { CompatibilityProps } from '.';
 

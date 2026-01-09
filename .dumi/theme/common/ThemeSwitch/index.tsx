@@ -1,7 +1,8 @@
-import React, { use, useRef } from 'react';
+import React, { use, useRef, useState } from 'react';
 import {
   BgColorsOutlined,
   LinkOutlined,
+  ShopOutlined,
   SmileOutlined,
   SunOutlined,
   SyncOutlined,
@@ -11,17 +12,18 @@ import type { MenuProps } from 'antd';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, useLocation } from 'dumi';
 
+import useLocalStorage from '../../../hooks/useLocalStorage';
 import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { getLocalizedPathname, isZhCN, isLocalStorageNameSupported } from '../../utils';
+import { getLocalizedPathname, isZhCN } from '../../utils';
 import Link from '../Link';
+import PromptDrawer from './PromptDrawer';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'auto' | 'compact' | 'motion-off' | 'happy-work';
 
-// 主题持久化存储键名
-const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
+export const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 export interface ThemeSwitchProps {
   value?: ThemeName[];
@@ -29,9 +31,14 @@ export interface ThemeSwitchProps {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { pathname, search } = useLocation();
-  const { theme, updateSiteConfig } = use<SiteContextProps>(SiteContext);
+  const { theme, updateSiteConfig, dynamicTheme } = use<SiteContextProps>(SiteContext);
   const toggleAnimationTheme = useThemeAnimation();
   const lastThemeKey = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
+  const [isMarketDrawerOpen, setIsMarketDrawerOpen] = useState(false);
+
+  const [, setTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
+    defaultValue: undefined,
+  });
 
   const badge = <Badge color="blue" style={{ marginTop: -1 }} />;
 
@@ -77,6 +84,12 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       type: 'divider',
     },
     {
+      id: 'app.theme.switch.market',
+      icon: <ShopOutlined />,
+      key: 'market',
+      showBadge: () => !!dynamicTheme,
+    },
+    {
       id: 'app.footer.theme',
       icon: <BgColorsOutlined />,
       key: 'theme-editor',
@@ -110,8 +123,25 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
 
   // 处理主题切换
   const handleThemeChange = (key: string, domEvent: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    // 主题编辑器特殊处理
-    if (key === 'theme-editor') {
+    // 查找对应的选项配置
+    const option = themeOptions.find((opt) => opt.key === key);
+
+    // 链接类型的菜单项特殊处理，不执行主题切换逻辑
+    if (option?.isLink) {
+      return;
+    }
+
+    // Market 选项特殊处理
+    if (key === 'market') {
+      // 如果已经有动态主题，点击时清除动态主题
+      if (dynamicTheme) {
+        updateSiteConfig({
+          dynamicTheme: undefined,
+        });
+      } else {
+        // 否则打开 Drawer 生成新主题
+        setIsMarketDrawerOpen(true);
+      }
       return;
     }
 
@@ -133,14 +163,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       const filteredTheme = theme.filter((t) => !['light', 'dark', 'auto'].includes(t));
       const newTheme = [...filteredTheme, themeKey];
 
-      updateSiteConfig({
-        theme: newTheme,
-      });
+      setTheme(themeKey);
 
-      // 持久化到 localStorage
-      if (isLocalStorageNameSupported()) {
-        localStorage.setItem(ANT_DESIGN_SITE_THEME, themeKey);
-      }
+      updateSiteConfig({ theme: newTheme });
     } else {
       // 其他主题选项是开关式的
       const hasTheme = theme.includes(themeKey);
@@ -155,9 +180,21 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   };
 
   return (
-    <Dropdown menu={{ items, onClick }} arrow={{ pointAtCenter: true }} placement="bottomRight">
-      <Button type="text" icon={<ThemeIcon />} style={{ fontSize: 16 }} />
-    </Dropdown>
+    <>
+      <Dropdown menu={{ items, onClick }} arrow={{ pointAtCenter: true }} placement="bottomRight">
+        <Button type="text" icon={<ThemeIcon />} style={{ fontSize: 16 }} />
+      </Dropdown>
+
+      <PromptDrawer
+        open={isMarketDrawerOpen}
+        onClose={() => setIsMarketDrawerOpen(false)}
+        onThemeChange={(nextTheme) => {
+          updateSiteConfig({
+            dynamicTheme: nextTheme,
+          });
+        }}
+      />
+    </>
   );
 };
 

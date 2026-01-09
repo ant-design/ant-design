@@ -54,7 +54,11 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
           },
 
           [`${itemCls}-progress`]: {
-            bottom: uploadProgressOffset,
+            bottom: calc(token.fontSize)
+              .mul(token.lineHeight)
+              .div(2)
+              .add(uploadProgressOffset)
+              .equal(),
             width: `calc(100% - ${unit(calc(token.paddingSM).mul(2).equal())})`,
             marginTop: 0,
             paddingInlineStart: calc(uploadThumbnailSize).add(token.paddingXS).equal(),
@@ -262,4 +266,4 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   };
 };
 
-export { genPictureStyle, genPictureCardStyle };
+export { genPictureCardStyle, genPictureStyle };

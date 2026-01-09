@@ -57,7 +57,7 @@ const App: React.FC = () => {
           </List.Item>
         )}
       />
-      <Drawer width={640} placement="right" closable={false} onClose={onClose} open={open}>
+      <Drawer size={640} placement="right" closable={false} onClose={onClose} open={open}>
         <p className="site-description-item-profile-p" style={{ marginBottom: 24 }}>
           User Profile
         </p>

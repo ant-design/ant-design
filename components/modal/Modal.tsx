@@ -1,22 +1,28 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import classNames from 'classnames';
-import Dialog from 'rc-dialog';
-import { composeRef } from 'rc-util/lib/ref';
+import Dialog from '@rc-component/dialog';
+import { composeRef } from '@rc-component/util/lib/ref';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import {
+  pickClosable,
+  useClosable,
+  useMergedMask,
+  useMergeSemantic,
+  useZIndex,
+} from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
-import type { ModalProps, MousePosition } from './interface';
+import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -52,12 +58,10 @@ const Modal: React.FC<ModalProps> = (props) => {
     getContainer,
     focusTriggerAfterClose = true,
     style,
-    // Deprecated
-    visible,
     width = 520,
     footer,
-    classNames: modalClassNames,
-    styles: modalStyles,
+    classNames,
+    styles,
     children,
     loading,
     confirmLoading,
@@ -65,9 +69,14 @@ const Modal: React.FC<ModalProps> = (props) => {
     mousePosition: customizeMousePosition,
     onOk,
     onCancel,
+    okButtonProps,
+    cancelButtonProps,
     destroyOnHidden,
     destroyOnClose,
     panelRef = null,
+    closable,
+    mask: modalMask,
+    modalRender,
     ...restProps
   } = props;
 
@@ -75,25 +84,46 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal: modalContext,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    centered: contextCentered,
+    cancelButtonProps: contextCancelButtonProps,
+    okButtonProps: contextOkButtonProps,
+    mask: contextMask,
+  } = useComponentConfig('modal');
+
+  const { modal: modalContext } = React.useContext(ConfigContext);
+
+  const [closableAfterclose, onClose] = React.useMemo(() => {
+    if (typeof closable === 'boolean') {
+      return [undefined, undefined];
+    }
+    return [closable?.afterClose, closable?.onClose];
+  }, [closable]);
+  const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (confirmLoading) {
       return;
     }
     onCancel?.(e);
+    onClose?.();
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     onOk?.(e);
+    onClose?.();
   };
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
     [
-      ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
       ['destroyOnClose', 'destroyOnHidden'],
@@ -102,23 +132,27 @@ const Modal: React.FC<ModalProps> = (props) => {
     });
   }
 
-  const prefixCls = getPrefixCls('modal', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const wrapClassNameExtended = classNames(wrapClassName, {
-    [`${prefixCls}-centered`]: centered ?? modalContext?.centered,
+  const wrapClassNameExtended = clsx(wrapClassName, {
+    [`${prefixCls}-centered`]: centered ?? contextCentered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
   const dialogFooter =
     footer !== null && !loading ? (
-      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+      <Footer
+        {...props}
+        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+        onOk={handleOk}
+        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+        onCancel={handleCancel}
+      />
     ) : null;
 
-  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
+  const [rawClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
     pickClosable(props),
     pickClosable(modalContext),
     {
@@ -128,13 +162,44 @@ const Modal: React.FC<ModalProps> = (props) => {
     },
   );
 
+  const mergedClosable = rawClosable
+    ? {
+        disabled: closeBtnIsDisabled,
+        closeIcon: mergedCloseIcon,
+        afterClose: closableAfterclose,
+        ...ariaProps,
+      }
+    : false;
+
+  // ============================ modalRender ============================
+  const mergedModalRender = modalRender
+    ? (node: React.ReactNode) => <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
+    : undefined;
   // ============================ Refs ============================
-  // Select `ant-modal-content` by `panelRef`
-  const innerPanelRef = usePanelRef(`.${prefixCls}-content`);
+  // Select `ant-modal-container` by `panelRef`
+  const panelClassName = `.${prefixCls}-${modalRender ? 'render' : 'container'}`;
+  const innerPanelRef = usePanelRef(panelClassName);
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
+
+  const mergedProps: ModalProps = {
+    ...props,
+    width,
+    panelRef,
+    focusTriggerAfterClose,
+    mask: mergedMask,
+    zIndex,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ModalClassNamesType,
+    ModalStylesType,
+    ModalProps
+  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<
@@ -161,7 +226,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   }, [prefixCls, responsiveWidth]);
 
   // =========================== Render ===========================
-  return wrapCSSVar(
+  return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <Dialog
@@ -170,31 +235,28 @@ const Modal: React.FC<ModalProps> = (props) => {
           zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
+          rootClassName={clsx(hashId, rootClassName, cssVarCls, rootCls, mergedClassNames.root)}
+          rootStyle={mergedStyles.root}
           footer={dialogFooter}
-          visible={open ?? visible}
+          visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
           onClose={handleCancel as any}
-          closable={
-            mergedClosable
-              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon, ...ariaProps }
-              : mergedClosable
-          }
+          closable={mergedClosable}
           closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, modalContext?.className)}
-          style={{ ...modalContext?.style, ...style, ...responsiveWidthVars }}
+          mask={mergedMask}
+          className={clsx(hashId, className, contextClassName)}
+          style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{
-            ...modalContext?.classNames,
-            ...modalClassNames,
-            wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
+            ...mergedClassNames,
+            wrapper: clsx(mergedClassNames.wrapper, wrapClassNameExtended),
           }}
-          styles={{ ...modalContext?.styles, ...modalStyles }}
+          styles={mergedStyles}
           panelRef={mergedPanelRef}
-          // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
-          destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          modalRender={mergedModalRender}
         >
           {loading ? (
             <Skeleton
@@ -208,7 +270,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           )}
         </Dialog>
       </zIndexContext.Provider>
-    </ContextIsolator>,
+    </ContextIsolator>
   );
 };
 

@@ -16,7 +16,7 @@ const resourcePadding = 40;
 const articleMaxWidth = 1208;
 const resourcePaddingXS = 24;
 
-const useStyle = createStyles(({ token, css }, isDark: boolean) => {
+const useStyle = createStyles(({ cssVar, token, css }, isDark: boolean) => {
   return {
     resourcePage: css`
       footer {
@@ -42,8 +42,8 @@ const useStyle = createStyles(({ token, css }, isDark: boolean) => {
             padding: 0 ${resourcePaddingXS}px;
           }
           ${token.antCls}-col {
-            padding-top: ${token.padding}px !important;
-            padding-bottom: ${token.padding}px !important;
+            padding-top: ${cssVar.padding} !important;
+            padding-bottom: ${cssVar.padding} !important;
           }
         }
       }
@@ -68,7 +68,7 @@ const useStyle = createStyles(({ token, css }, isDark: boolean) => {
         max-width: ${articleMaxWidth}px;
         margin: 0 auto 56px;
         font-weight: 200;
-        font-size: ${token.fontSizeLG}px;
+        font-size: ${cssVar.fontSizeLG};
         line-height: 24px;
       }
 

@@ -9,7 +9,7 @@ const Demo: React.FC = () => {
     ConfigProvider.config({
       holderRender: (children) => (
         <StyleProvider hashPriority="high">
-          <ConfigProvider prefixCls="static" iconPrefixCls="icon" locale={locale} theme={theme}>
+          <ConfigProvider componentSize="small" locale={locale} theme={theme}>
             <App message={{ maxCount: 1 }} notification={{ maxCount: 1 }}>
               {children}
             </App>
@@ -34,7 +34,7 @@ const Demo: React.FC = () => {
           type="primary"
           onClick={() => {
             notification.open({
-              message: 'Notification Title',
+              title: 'Notification Title',
               description:
                 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
             });

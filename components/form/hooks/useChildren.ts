@@ -1,4 +1,4 @@
-import toArray from 'rc-util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 
 import type { FormItemProps } from '../FormItem';
 

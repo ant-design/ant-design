@@ -7,7 +7,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
-tag: 5.1.0
 ---
 
 ## When To Use
@@ -44,6 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | font | Text style | [Font](#font) | [Font](#font) |  |
 | gap | The spacing between watermarks | \[number, number\] | \[100, 100\] |  |
 | offset | The offset of the watermark from the upper left corner of the container. The default is `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
+| onRemove | Callback when the watermark is removed by DOM mutation | `() => void` | - | 6.0.0 |
 
 ### Font
 
@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | color | font color | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) |  |
 | fontSize | font size | number | 16 |  |
-| fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
+| fontWeight | font weight | `normal` \| `lighter` \| `bold` \| `bolder` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 | textAlign | specify the text alignment direction  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | 5.10.0 |
@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Handle abnormal image watermarks
+### Handle abnormal image watermarks {#faq-invalid-image}
 
 When using an image watermark and the image loads abnormally, you can add `content` at the same time to prevent the watermark from becoming invalid (since 5.2.3).
 
@@ -78,7 +78,7 @@ When using an image watermark and the image loads abnormally, you can add `conte
 </Watermark>
 ```
 
-### Why `overflow: hidden` style is added since version 5.18.0?
+### Why `overflow: hidden` style is added since version 5.18.0? {#faq-overflow-hidden}
 
 User can hide the watermark by setting the container height to 0 through the developer tool in the previous version. To avoid this situation, we added the `overflow: hidden` style to the container. When the container height changes, the content is also hidden. You can override the style to modify this behavior:
 

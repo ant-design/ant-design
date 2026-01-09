@@ -6,6 +6,7 @@ Use this section to tell people about which versions of your project are current
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 6.x     | :white_check_mark: |
 | 5.x     | :white_check_mark: |
 | < 5.0   | :x:                |
 

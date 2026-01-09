@@ -7,7 +7,7 @@ const DemoBox: React.FC<React.PropsWithChildren<{ value: number }>> = (props) =>
 
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Align Top</Divider>
+    <Divider titlePlacement="start">Align Top</Divider>
     <Row justify="center" align="top">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>
@@ -23,7 +23,7 @@ const App: React.FC = () => (
       </Col>
     </Row>
 
-    <Divider orientation="left">Align Middle</Divider>
+    <Divider titlePlacement="start">Align Middle</Divider>
     <Row justify="space-around" align="middle">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>
@@ -39,7 +39,7 @@ const App: React.FC = () => (
       </Col>
     </Row>
 
-    <Divider orientation="left">Align Bottom</Divider>
+    <Divider titlePlacement="start">Align Bottom</Divider>
     <Row justify="space-between" align="bottom">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>

@@ -55,7 +55,11 @@ const App: React.FC = () => {
         showSearch
         style={{ width: '100%' }}
         value={value}
-        styles={{ popup: { root: { maxHeight: 400, overflow: 'auto' } } }}
+        styles={{
+          popup: {
+            root: { maxHeight: 400, overflow: 'auto' },
+          },
+        }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll

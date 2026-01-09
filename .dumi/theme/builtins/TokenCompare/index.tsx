@@ -4,18 +4,18 @@ import { FastColor } from '@ant-design/fast-color';
 import { Flex, theme } from 'antd';
 import { createStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 
-const useStyle = createStyles(({ token, css }) => {
-  const height = token.controlHeightLG;
+const useStyle = createStyles(({ cssVar, css }) => {
+  const height = cssVar.controlHeightLG;
   const dotSize = height / 5;
 
   return {
     container: css`
       background: #fff;
-      border-radius: ${token.borderRadiusLG}px;
+      border-radius: ${cssVar.borderRadiusLG};
       overflow: hidden;
     `,
 
@@ -48,7 +48,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
 
     dotColor: css`
-      width: ${token.fontSize * 6}px;
+      width: calc(${cssVar.fontSize} * 6);
       white-space: nowrap;
     `,
   };
@@ -106,7 +106,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
           <div className={styles.col}>
             <ColorCircle color={data.light} />
           </div>
-          <div className={classNames(styles.col, styles.colDark)}>
+          <div className={clsx(styles.col, styles.colDark)}>
             <ColorCircle color={data.dark} />
           </div>
         </div>

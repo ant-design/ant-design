@@ -1,19 +1,19 @@
 import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import {
-  Alert,
+  Card,
   Carousel,
   DatePicker,
   Flex,
   FloatButton,
-  Modal,
-  Progress,
+  Masonry,
+  Splitter,
   Tag,
   Tour,
   Typography,
 } from 'antd';
 import { createStyles, css } from 'antd-style';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 
 import useLocale from '../../../hooks/useLocale';
@@ -21,16 +21,15 @@ import SiteContext from '../../../theme/slots/SiteContext';
 import { DarkContext } from './../../../hooks/useDark';
 import { getCarouselStyle } from './util';
 
-const { _InternalPanelDoNotUseOrYouWillBeFired: ModalDoNotUseOrYouWillBeFired } = Modal;
 const { _InternalPanelDoNotUseOrYouWillBeFired: DatePickerDoNotUseOrYouWillBeFired } = DatePicker;
 const { _InternalPanelDoNotUseOrYouWillBeFired: TourDoNotUseOrYouWillBeFired } = Tour;
 const { _InternalPanelDoNotUseOrYouWillBeFired: FloatButtonDoNotUseOrYouWillBeFired } = FloatButton;
 
 const SAMPLE_CONTENT_EN =
-  'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
+  'Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
 
 const SAMPLE_CONTENT_CN =
-  'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
+  'Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
 
 const locales = {
   cn: {
@@ -61,14 +60,14 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }, isDark: boolean) => {
+const useStyle = createStyles(({ cssVar }, isDark: boolean) => {
   const { carousel } = getCarouselStyle();
   return {
     card: css`
-      border-radius: ${token.borderRadius}px;
-      border: 1px solid ${isDark ? token.colorBorder : 'transparent'};
-      background-color: ${isDark ? token.colorBgContainer : '#f5f8ff'};
-      padding: ${token.paddingXL}px;
+      border-radius: ${cssVar.borderRadius};
+      border: 1px solid ${isDark ? cssVar.colorBorder : 'transparent'};
+      background-color: ${isDark ? cssVar.colorBgContainer : '#f5f8ff'};
+      padding: ${cssVar.paddingXL};
       flex: none;
       overflow: hidden;
       position: relative;
@@ -93,7 +92,7 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
       height: 395px;
     `,
     nodeWrap: css`
-      margin-top: ${token.paddingLG}px;
+      margin-top: ${cssVar.paddingLG};
       flex: auto;
       display: flex;
       align-items: center;
@@ -105,7 +104,7 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
       overflow: hidden;
     `,
     mobileComponentsList: css`
-      margin: 0 ${token.margin}px;
+      margin: 0 ${cssVar.margin};
     `,
   };
 });
@@ -118,7 +117,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
   const { isMobile } = React.use(SiteContext);
   const { styles } = useStyle(isDark);
   return (
-    <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
+    <div className={clsx(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}
       <div
         className={styles.cardCircle}
@@ -148,24 +147,26 @@ const ComponentsList: React.FC = () => {
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = React.use(SiteContext);
+  const isDark = React.use(DarkContext);
   const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
-      {
-        title: 'Modal',
-        type: 'update',
-        node: (
-          <ModalDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
-            {locale.sampleContent}
-          </ModalDoNotUseOrYouWillBeFired>
-        ),
-      },
+      // {
+      //   title: 'Modal',
+      //   type: 'update',
+      //   node: (
+      //     <ModalDoNotUseOrYouWillBeFired title="Ant Design" width={300}>
+      //       {locale.sampleContent}
+      //     </ModalDoNotUseOrYouWillBeFired>
+      //   ),
+      // },
 
       {
         title: 'DatePicker',
         type: 'update',
         node: (
           <DatePickerDoNotUseOrYouWillBeFired
-            value={dayjs('2022-11-18 14:00:00')}
+            value={dayjs('2025-11-22 00:00:00')}
+            // defaultValue={dayjs('2025-11-22 00:00:00')}
             showToday={false}
             presets={
               isMobile
@@ -180,33 +181,33 @@ const ComponentsList: React.FC = () => {
           />
         ),
       },
+      // {
+      //   title: 'Progress',
+      //   type: 'update',
+      //   node: (
+      //     <Flex gap="small" vertical>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" railColor="#e6f4ff" percent={60} size={14} />
+      //         {locale.inProgress}
+      //       </Flex>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" percent={100} size={14} />
+      //         {locale.success}
+      //       </Flex>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" status="exception" percent={88} size={14} />
+      //         {locale.taskFailed}
+      //       </Flex>
+      //     </Flex>
+      //   ),
+      // },
 
       {
-        title: 'Progress',
+        title: 'Tour',
         type: 'update',
         node: (
-          <Flex gap="small" vertical>
-            <Flex gap="small" align="center">
-              <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
-              {locale.inProgress}
-            </Flex>
-            <Flex gap="small" align="center">
-              <Progress type="circle" percent={100} size={14} />
-              {locale.success}
-            </Flex>
-            <Flex gap="small" align="center">
-              <Progress type="circle" status="exception" percent={88} size={14} />
-              {locale.taskFailed}
-            </Flex>
-          </Flex>
-        ),
-      },
-      {
-        title: 'Tour',
-        type: 'new',
-        node: (
           <TourDoNotUseOrYouWillBeFired
-            title="Ant Design 5.0"
+            title="Ant Design"
             description={locale.tour}
             style={{ width: isMobile ? 'auto' : 350 }}
             current={3}
@@ -214,9 +215,10 @@ const ComponentsList: React.FC = () => {
           />
         ),
       },
+
       {
         title: 'FloatButton',
-        type: 'new',
+        type: 'update',
         node: (
           <Flex align="center" gap="large">
             <FloatButtonDoNotUseOrYouWillBeFired
@@ -246,19 +248,83 @@ const ComponentsList: React.FC = () => {
       // },
 
       {
-        title: 'Alert',
-        type: 'update',
+        title: 'Splitter',
+        type: 'new',
         node: (
-          <Alert
-            style={{ width: 400 }}
-            message="Ant Design 5.0"
-            description={locale.sampleContent}
-            closable={{ closeIcon: true, disabled: true }}
+          <Splitter
+            orientation="vertical"
+            style={{
+              height: 320,
+              width: 200,
+              background: isDark ? '#1f1f1f' : '#ffffff',
+              boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Splitter.Panel defaultSize="40%" min="20%" max="70%">
+              <Flex justify="center" align="center" style={{ height: '100%' }}>
+                <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+                  First
+                </Typography.Title>
+              </Flex>
+            </Splitter.Panel>
+
+            <Splitter.Panel>
+              <Flex justify="center" align="center" style={{ height: '100%' }}>
+                <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+                  Second
+                </Typography.Title>
+              </Flex>
+            </Splitter.Panel>
+          </Splitter>
+        ),
+      },
+
+      {
+        title: 'Masonry',
+        type: 'new',
+        node: (
+          <Masonry
+            columns={2}
+            gutter={8}
+            style={{
+              width: 300,
+              height: 320,
+            }}
+            items={[
+              { key: '1', data: 80 },
+              { key: '2', data: 60 },
+              { key: '3', data: 40 },
+              { key: '4', data: 120 },
+              { key: '5', data: 90 },
+              { key: '6', data: 40 },
+              { key: '7', data: 60 },
+              { key: '8', data: 70 },
+              { key: '9', data: 120 },
+            ]}
+            itemRender={({ data, index }) => (
+              <Card size="small" style={{ height: data }}>
+                {index + 1}
+              </Card>
+            )}
           />
         ),
       },
+
+      // {
+      //   title: 'Alert',
+      //   type: 'update',
+      //   node: (
+      //     <Alert
+      //       style={{ width: 400 }}
+      //       title="Ant Design"
+      //       description={locale.sampleContent}
+      //       closable={{ closeIcon: true, disabled: true }}
+      //     />
+      //   ),
+      // },
     ],
     [
+      isDark,
       isMobile,
       locale.inProgress,
       locale.lastMonth,

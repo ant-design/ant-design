@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
@@ -29,7 +30,7 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload List', () => {
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 
@@ -112,6 +113,34 @@ describe('Upload List', () => {
       expect(imgNode.getAttribute('src')).toBe(file.thumbUrl);
     });
     unmount();
+  });
+
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      list: 'custom-list',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { color: 'rgba(40, 167, 69, 0.9)' },
+      list: { color: 'rgba(255, 193, 7, 0.7)' },
+      item: { color: 'rgb(255, 0, 0)' },
+    };
+    const { container } = render(
+      <Upload defaultFileList={fileList} classNames={customClassNames} styles={customStyles}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    const root = container.querySelector('.ant-upload-wrapper');
+    const list = container.querySelector('.ant-upload-list');
+    const item = container.querySelector('.ant-upload-list-item');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(list).toHaveClass(customClassNames.list);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(list).toHaveStyle(customStyles.list);
+    expect(item).toHaveStyle(customStyles.item);
   });
 
   // https://github.com/ant-design/ant-design/issues/7269
@@ -1296,37 +1325,6 @@ describe('Upload List', () => {
     });
   });
 
-  it('[deprecated] should support transformFile', (done) => {
-    jest.useRealTimers();
-    let wrapper: ReturnType<typeof render>;
-    let lastFile: UploadFile;
-
-    const handleTransformFile = jest.fn();
-    const onChange: UploadProps['onChange'] = ({ file }) => {
-      if (file.status === 'done') {
-        expect(file).not.toBe(lastFile);
-        expect(handleTransformFile).toHaveBeenCalled();
-        wrapper.unmount();
-        done();
-      }
-
-      lastFile = file;
-    };
-    wrapper = render(
-      <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        transformFile={handleTransformFile}
-        onChange={onChange}
-        customRequest={successRequest}
-      >
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    fireEvent.change(wrapper.container.querySelector('input')!, {
-      target: { files: [{ name: 'foo.png' }] },
-    });
-  });
-
   it('should render button inside UploadList when listStyle is picture-card', () => {
     const {
       container: wrapper,
@@ -1723,6 +1721,35 @@ describe('Upload List', () => {
       const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
       expect(removeButton).toBeTruthy();
       expect(removeButton).not.toBeDisabled();
+    });
+  });
+
+  describe('Customize token', () => {
+    it('pictureCardSize', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            components: { Upload: { pictureCardSize: 142 } },
+          }}
+        >
+          <Upload
+            listType="picture-card"
+            fileList={[
+              {
+                uid: '-1',
+                name: 'image.png',
+                status: 'done',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+              },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-upload-list-item-container')).toHaveStyle({
+        width: 'var(--ant-upload-picture-card-size)',
+        height: 'var(--ant-upload-picture-card-size)',
+      });
     });
   });
 });

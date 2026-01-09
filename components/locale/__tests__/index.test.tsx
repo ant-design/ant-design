@@ -129,6 +129,7 @@ import lvLV from '../../locale/lv_LV';
 import mkMK from '../../locale/mk_MK';
 import mlIN from '../../locale/ml_IN';
 import mnMN from '../../locale/mn_MN';
+import mrIN from '../../locale/mr_IN';
 import msMY from '../../locale/ms_MY';
 import myMM from '../../locale/my_MM';
 import nbNO from '../../locale/nb_NO';
@@ -200,6 +201,7 @@ const locales = [
   ltLT,
   mkMK,
   mlIN,
+  mrIN,
   msMY,
   mnMN,
   nbNO,
@@ -232,7 +234,6 @@ const locales = [
   uzUZ,
 ];
 
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const columns: TableProps['columns'] = [
@@ -247,10 +248,14 @@ const columns: TableProps['columns'] = [
 const App: React.FC = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
-    <Select showSearch style={{ width: 200 }}>
-      <Option value="jack">jack</Option>
-      <Option value="lucy">lucy</Option>
-    </Select>
+    <Select
+      showSearch
+      style={{ width: 200 }}
+      options={[
+        { label: 'jack', value: 'jack' },
+        { label: 'lucy', value: 'lucy' },
+      ]}
+    />
     <DatePicker open />
     <TimePicker open defaultOpenValue={dayjs()} />
     <RangePicker open style={{ width: 200 }} />

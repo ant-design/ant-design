@@ -1,6 +1,7 @@
-import semver from 'semver';
 import flatten from 'lodash/flatten';
 import flattenDeep from 'lodash/flattenDeep';
+import semver from 'semver';
+
 import deprecatedVersions from '../../../BUG_VERSIONS.json';
 import themeConfig from '../themeConfig';
 
@@ -157,19 +158,6 @@ export function getLocalizedPathname(
   return { pathname: fullPath, search };
 }
 
-export function isLocalStorageNameSupported() {
-  const testKey = 'test';
-  const storage = window.localStorage;
-  try {
-    storage.setItem(testKey, '1');
-    storage.removeItem(testKey);
-    return true;
-  } catch (error) {
-    console.error('Your web browser does not support storing settings locally.', error);
-    return false;
-  }
-}
-
 export function loadScript(src: string) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
@@ -177,7 +165,7 @@ export function loadScript(src: string) {
     script.src = src;
     script.onload = resolve;
     script.onerror = reject;
-    document.head!.appendChild(script);
+    document.head.appendChild(script);
   });
 }
 
@@ -216,6 +204,16 @@ export function matchDeprecated(v: string): MatchDeprecatedResult {
     match,
     reason: Array.isArray(reason) ? reason : [reason],
   };
+}
+
+/**
+ * Determine if a hostname is an official domain.
+ * antd creates a temporary preview site for each PR for convenient preview and testing.
+ * Usually on platforms like surge.sh or Cloudflare Pages.
+ */
+export function isOfficialHost(hostname: string) {
+  const officialHostnames = ['ant.design', 'antgroup.com'];
+  return officialHostnames.some((official) => hostname.includes(official));
 }
 
 export const getThemeConfig = () => themeConfig;

@@ -5,6 +5,7 @@
     "includes": [
       "**",
       "!.dumi/tmp*",
+      "!report.html",
       "!.dumi/scripts/clarity.js",
       "!dist/*",
       "!es/**/*",
@@ -15,7 +16,8 @@
       "!scripts/previewEditor/**/*",
       "!**/*.tmp",
       "!package.json",
-      "!components/style/antd.css"
+      "!components/style/antd.css",
+      "!scripts/visual-regression/report-template.html"
     ]
   },
   "formatter": {
@@ -57,10 +59,10 @@
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
+        "noNonNullAssertedOptionalChain": "off",
         "noThenProperty": "off",
         "noTemplateCurlyInString": "off",
-        "useIterableCallbackReturn": "off",
-        "noUnknownAtRules": "off"
+        "useIterableCallbackReturn": "off"
       },
       "performance": {
         "noAccumulatingSpread": "off",

@@ -263,6 +263,7 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
       activeBorderColor: token.activeBorderColor,
+      inputColor: token.colorText,
     }),
 
     [`&${token.componentCls}-disabled, &[disabled]`]: {
@@ -369,7 +370,7 @@ export const genBaseUnderlinedStyle = (
   borderColor: `transparent transparent ${options.borderColor} transparent`,
   borderRadius: 0,
   '&:hover': {
-    borderColor: `transparent transparent ${options.borderColor} transparent`,
+    borderColor: `transparent transparent ${options.hoverBorderColor} transparent`,
     backgroundColor: token.hoverBg,
   },
 

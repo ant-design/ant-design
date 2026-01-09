@@ -626,8 +626,8 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
-    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortOrder }) => (
-      <div className="custom-title">{sortOrder}</div>
+    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortColumns }) => (
+      <div className="custom-title">{sortColumns?.[0]?.order}</div>
     );
     const columns: TableProps['columns'] = [{ title, key: 'group', sorter: true }];
     const testData = [
@@ -1313,5 +1313,25 @@ describe('Table.sorter', () => {
       ]),
       expect.anything(),
     );
+  });
+
+  it('only sortable columns should have aria-description attribute', () => {
+    const columns: TableProps['columns'] = [
+      { title: 'name', dataIndex: 'name', sorter: true },
+      { title: 'age', dataIndex: 'age' },
+    ];
+    const testData = [
+      { key: 0, name: 'Jack', age: 11 },
+      { key: 1, name: 'Lucy', age: 20 },
+      { key: 2, name: 'Tom', age: 21 },
+      { key: 3, name: 'Jerry', age: 22 },
+    ];
+    const { container } = render(<Table columns={columns} dataSource={testData} />);
+
+    const getNameColumn = () => container.querySelectorAll<HTMLElement>('th')[0];
+    const getAgeColumn = () => container.querySelectorAll<HTMLElement>('th')[1];
+
+    expect(getNameColumn()).toHaveAttribute('aria-description', 'sortable');
+    expect(getAgeColumn()).not.toHaveAttribute('aria-description');
   });
 });

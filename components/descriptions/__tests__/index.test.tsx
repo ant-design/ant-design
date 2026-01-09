@@ -393,10 +393,9 @@ describe('Descriptions', () => {
         </Descriptions.Item>
       </Descriptions>,
     );
-
     const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
     const view = nestDesc.querySelector('.ant-descriptions-view');
-    expect(getComputedStyle(view!).border).toBeFalsy();
+    expect(view).toHaveStyle({ border: '' });
   });
 
   it('Should Descriptions not throw react key prop error in jsx mode', () => {
@@ -431,84 +430,5 @@ describe('Descriptions', () => {
     );
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
-  });
-
-  it('should apply custom styles to Descriptions', () => {
-    const customClassNames = {
-      root: 'custom-root',
-      header: 'custom-header',
-      title: 'custom-title',
-      extra: 'custom-extra',
-      label: 'custom-label',
-      content: 'custom-content',
-    };
-
-    const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'black' },
-      title: { backgroundColor: 'yellow' },
-      extra: { backgroundColor: 'purple' },
-      label: { backgroundColor: 'blue' },
-      content: { backgroundColor: 'green' },
-    };
-
-    const { container } = render(
-      <Descriptions
-        classNames={customClassNames}
-        styles={customStyles}
-        extra={'extra'}
-        title="User Info"
-        items={[
-          {
-            key: '1',
-            label: 'UserName',
-            children: '1',
-          },
-          {
-            key: '2',
-            label: 'UserName',
-            children: '2',
-            styles: {
-              content: { color: 'yellow' },
-              label: { color: 'orange' },
-            },
-          },
-        ]}
-      />,
-    );
-
-    const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
-    const headerElement = container.querySelector('.ant-descriptions-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-descriptions-title') as HTMLElement;
-    const extraElement = container.querySelector('.ant-descriptions-extra') as HTMLElement;
-    const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
-    const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
-    const labelElements = container.querySelectorAll(
-      '.ant-descriptions-item-label',
-    ) as NodeListOf<HTMLElement>;
-    const contentElements = container.querySelectorAll(
-      '.ant-descriptions-item-content',
-    ) as NodeListOf<HTMLElement>;
-
-    // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(extraElement.classList).toContain('custom-extra');
-    expect(labelElement.classList).toContain('custom-label');
-    expect(contentElement.classList).toContain('custom-content');
-
-    // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(headerElement.style.backgroundColor).toBe('black');
-    expect(titleElement.style.backgroundColor).toBe('yellow');
-    expect(extraElement.style.backgroundColor).toBe('purple');
-    expect(labelElement.style.backgroundColor).toBe('blue');
-    expect(contentElement.style.backgroundColor).toBe('green');
-
-    expect(labelElements[1].style.color).toBe('orange');
-    expect(contentElements[1].style.color).toBe('yellow');
-    expect(labelElements[0].style.color).not.toBe('orange');
-    expect(contentElements[0].style.color).not.toBe('yellow');
   });
 });

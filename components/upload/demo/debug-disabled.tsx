@@ -44,7 +44,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Upload disabled>Click Text to Upload</Upload>
       <Upload disabled>
         <Button icon={<UploadOutlined />}>Click to Upload</Button>

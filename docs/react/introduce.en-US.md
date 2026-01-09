@@ -36,9 +36,7 @@ Following the Ant Design specification, we developed a React UI library `antd` (
 | --- | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-Polyfills are needed for IE browsers. We recommend [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](https://umijs.org/).
-
-> Dropped support of IE8 after `antd@2.0`. Dropped support of React 15 and IE9/10 after `antd@4.0`. Dropped support of IE after `antd@5.0`.
+> Dropped support of IE8 after `antd 2.0`. Dropped support of React 15 and IE9/10 after `antd 4.0`. Dropped support of IE after `antd 5.0`. Dropped support of React 16/17 after `antd 6.0`.
 
 ## Version
 
@@ -109,7 +107,7 @@ export default App;
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](/docs/react/faq)
-- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
+- [CodeSandbox Template](https://u.ant.design/reproduce) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)

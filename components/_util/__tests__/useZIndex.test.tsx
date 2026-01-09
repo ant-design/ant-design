@@ -191,13 +191,13 @@ const consumerComponent: Partial<
       <Image
         src="xxx"
         preview={{
-          visible: true,
+          open: true,
           rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
         }}
       />
       <Image.PreviewGroup
         preview={{
-          visible: true,
+          open: true,
           rootClassName: `${rootClassName} comp-item comp-ImagePreviewGroup`,
         }}
       >
@@ -300,7 +300,7 @@ describe('Test useZIndex hooks', () => {
           if (['SelectLike', 'DatePicker', 'ImagePreview'].includes(key)) {
             let comps = document.querySelectorAll<HTMLElement>(selector1);
             comps.forEach((comp) => {
-              expect(comp?.style.zIndex).toBeFalsy();
+              expect(comp).toHaveStyle({ zIndex: '' });
             });
             comps = document.querySelectorAll<HTMLElement>(selector2);
             comps.forEach((comp) => {
@@ -311,9 +311,9 @@ describe('Test useZIndex hooks', () => {
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
-              expect(comp?.style.zIndex).toBe(
-                String(1000 + containerZIndexValue + consumerOffset + operOffset),
-              );
+              expect(comp).toHaveStyle({
+                zIndex: 1000 + containerZIndexValue + consumerOffset + operOffset,
+              });
             });
 
             comps = document.querySelectorAll<HTMLElement>(selector3);
@@ -325,21 +325,21 @@ describe('Test useZIndex hooks', () => {
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
-              expect(comp?.style.zIndex).toBe(
-                String(1000 + containerZIndexValue * 2 + consumerOffset + operOffset),
-              );
+              expect(comp).toHaveStyle({
+                zIndex: 1000 + containerZIndexValue * 2 + consumerOffset + operOffset,
+              });
             });
           } else {
             const element1 = document.querySelector<HTMLElement>(selector1);
             const element2 = document.querySelector<HTMLElement>(selector2);
             const element3 = document.querySelector<HTMLElement>(selector3);
-            expect(element1?.style.zIndex).toBe(key === 'Tour' ? '1001' : '');
-            expect(element2?.style.zIndex).toBe(
-              String(1000 + containerZIndexValue + consumerZIndexValue),
-            );
-            expect(element3?.style.zIndex).toBe(
-              String(1000 + containerZIndexValue * 2 + consumerZIndexValue),
-            );
+            expect(element1).toHaveStyle({ zIndex: key === 'Tour' ? 1001 : '' });
+            expect(element2).toHaveStyle({
+              zIndex: 1000 + containerZIndexValue + consumerZIndexValue,
+            });
+            expect(element3).toHaveStyle({
+              zIndex: 1000 + containerZIndexValue * 2 + consumerZIndexValue,
+            });
           }
           unmount();
         }, 20000);
@@ -399,16 +399,14 @@ describe('Test useZIndex hooks', () => {
         <FloatButton />
       </WrapWithProvider>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(
-      // parentZIndex + containerBaseZIndexOffset["FloatButton"]
-      String(1100 + containerBaseZIndexOffset.FloatButton),
-    );
+    const ele = container.querySelector<HTMLElement>('.ant-float-btn');
+    expect(ele).toHaveStyle({ zIndex: 1100 + containerBaseZIndexOffset.FloatButton });
     rerender(
       <WrapWithProvider container="FloatButton">
         <FloatButton style={{ zIndex: 666 }} />
       </WrapWithProvider>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(String(666));
+    expect(ele).toHaveStyle({ zIndex: 666 });
   });
 
   it('not warning for static func', () => {

@@ -16,8 +16,7 @@ describe('Grid.Gap', () => {
         <Col />
       </Row>,
     );
-
-    expect(screen.getByRole('row').style.rowGap).toBe('');
+    expect(screen.getByRole('row')).toHaveStyle({ rowGap: '' });
   });
 
   it('should use gap', () => {
@@ -26,16 +25,16 @@ describe('Grid.Gap', () => {
         <Col />
       </Row>,
     );
-
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginLeft).toEqual('-8px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginRight).toEqual('-8px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.rowGap).toEqual('8px');
+    expect(container.querySelector<HTMLElement>('.ant-row')).toHaveStyle({
+      marginInline: '-8px',
+      rowGap: '8px',
+    });
   });
 
   it('not break ssr', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const Demo = () => (
+    const Demo: React.FC = () => (
       <Row gutter={[16, 8]}>
         <Col />
       </Row>

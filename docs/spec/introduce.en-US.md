@@ -30,7 +30,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 
 ## Front-end Implementation
 
-[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](/docs/spec/introduce) in other front-end frameworks of their choice.
+[React](https://react.dev/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](/docs/spec/introduce) in other front-end frameworks of their choice.
 
 - [Ant Design of React](/docs/react/introduce)（official implementation）
 - [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)
@@ -39,7 +39,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 - [Ant Design Blazor](https://antblazor.com/)
 - [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)
 - [antizer (ClojureScript)](https://github.com/priornix/antizer)
-- [AtomUI (.NET/C#)](https://github.com/chinware/atomui)
+- [AtomUI - Ant Design of Avalonia/.NET](https://github.com/atomui/atomui)
 
 ## Who's using Ant Design
 

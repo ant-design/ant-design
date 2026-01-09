@@ -10,7 +10,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
-| 可视化图表 | [Ant Design Charts](https://charts.ant.design) [AntV 数据可视化解决方案](https://antv.vision/zh) [reactflow](https://reactflow.dev/) |
+| 可视化图表 | [Ant Design Charts](https://ant-design-charts.antgroup.com) [AntV 数据可视化解决方案](https://antv.vision/zh) [reactflow](https://reactflow.dev/) |
 | React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
@@ -30,7 +30,7 @@ title: 社区精选组件
 | 应用国际化 | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
+| 无限滚动 | [@rc-component/virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | 地图 | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap 高德地图](https://github.com/uiwjs/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contexify](https://github.com/fkhadra/react-contexify) |

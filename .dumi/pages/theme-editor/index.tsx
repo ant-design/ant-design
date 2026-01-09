@@ -1,5 +1,6 @@
-import React, { Suspense, useEffect } from 'react';
-import { App, Button, ConfigProvider, Skeleton } from 'antd';
+import React, { Suspense } from 'react';
+import { App, Button, ConfigProvider, Skeleton, version } from 'antd';
+import { createStyles } from 'antd-style';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
@@ -7,6 +8,15 @@ import { Helmet } from 'dumi';
 import useLocale from '../../hooks/useLocale';
 
 const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEditor'));
+
+const useStyle = createStyles(({ css }) => ({
+  editor: css`
+    svg,
+    img {
+      display: inline;
+    }
+  `,
+}));
 
 const locales = {
   cn: {
@@ -33,21 +43,22 @@ const locales = {
   },
 };
 
-const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
+const [antdMajor] = version.split('.');
+const ANT_DESIGN_V5_THEME_EDITOR_THEME = `ant-design-v${antdMajor}-theme-editor-theme`;
 
 const CustomTheme: React.FC = () => {
   const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
+  const { styles } = useStyle();
 
-  const [theme, setTheme] = React.useState<ThemeConfig>({});
-
-  useEffect(() => {
-    const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
-    if (storedConfig) {
-      const themeConfig = JSON.parse(storedConfig);
-      setTheme(themeConfig);
+  const [theme, setTheme] = React.useState<ThemeConfig>(() => {
+    try {
+      const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
+      return storedConfig ? JSON.parse(storedConfig) : {};
+    } catch {
+      return {};
     }
-  }, []);
+  });
 
   const handleSave = () => {
     localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
@@ -67,6 +78,7 @@ const CustomTheme: React.FC = () => {
             hideAdvancedSwitcher
             theme={{ name: 'Custom Theme', key: 'test', config: theme }}
             style={{ height: 'calc(100vh - 64px)' }}
+            className={styles.editor}
             onThemeChange={(newTheme) => {
               setTheme(newTheme.config);
             }}
