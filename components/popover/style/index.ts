@@ -11,6 +11,7 @@ import type {
   PresetColorType,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken, PresetColors } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   /**
@@ -81,7 +82,10 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     titleBorderBottom,
     innerContentPadding,
     titlePadding,
+    antCls,
   } = token;
+
+  const [varName, varRef] = genCssVar(antCls, 'tooltip');
 
   return [
     {
@@ -105,7 +109,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
         transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
 
-        '--antd-arrow-background-color': colorBgElevated,
+        [varName('arrow-background-color')]: colorBgElevated,
         width: 'max-content',
         maxWidth: '100vw',
 
@@ -146,7 +150,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, 'var(--antd-arrow-background-color)'),
+    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {
@@ -161,14 +165,14 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
 };
 
 const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
-  const { componentCls } = token;
-
+  const { componentCls, antCls } = token;
+  const [varName] = genCssVar(antCls, 'tooltip');
   return {
     [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
       const lightColor = token[`${colorKey}6`];
       return {
         [`&${componentCls}-${colorKey}`]: {
-          '--antd-arrow-background-color': lightColor,
+          [varName('arrow-background-color')]: lightColor,
           [`${componentCls}-inner`]: {
             backgroundColor: lightColor,
           },
