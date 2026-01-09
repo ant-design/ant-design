@@ -17,6 +17,7 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
     flex-direction: column;
     align-items: stretch;
     text-decoration: none;
+    background: ${cssVar.colorBgContainer};
     background: color-mix(in srgb, ${cssVar.colorBgContainer} 30%, transparent);
     backdrop-filter: blur(8px);
     border: ${cssVar.lineWidth} solid ${cssVar.colorBorderSecondary};
@@ -25,6 +26,29 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
     padding-block: ${cssVar.paddingMD};
     padding-inline: ${cssVar.paddingLG};
     box-sizing: border-box;
+    position: relative;
+
+    &:before {
+      content: '';
+      // background: red;
+      inset: calc(${cssVar.lineWidth} * -1);
+      position: absolute;
+
+      // background: linear-gradient(45deg, #f06, #09f);
+      background: radial-gradient(
+        circle at var(--mouse-x) var(--mouse-y),
+        ${cssVar.colorBorder},
+        ${cssVar.colorBorderSecondary}
+      );
+      // mask:
+      //   linear-gradient(#fff 0 0) content-box,
+      //   linear-gradient(#fff 0 0);
+
+      // mask-composite: subtract;
+      // -webkit-mask-composite: xor;
+      padding: 1px;
+      border-radius: inherit;
+    }
   `;
 
   return {
@@ -32,12 +56,6 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
     ribbon: css`
       & > .${cx(itemBase)} {
         height: 100%;
-      }
-    `,
-    cardItem: css`
-      &:hover {
-        box-shadow: ${cssVar.boxShadowCard};
-        border-color: transparent;
       }
     `,
     sliderItem: css`
@@ -187,13 +205,7 @@ const BannerRecommends: React.FC = () => {
   return (
     <div className={styles.container}>
       {mergedExtras.map((extra, index) => (
-        <RecommendItem
-          key={`desktop-${index}`}
-          extra={extra}
-          index={index}
-          icons={data?.icons}
-          className={styles.cardItem}
-        />
+        <RecommendItem key={`desktop-${index}`} extra={extra} index={index} icons={data?.icons} />
       ))}
     </div>
   );
