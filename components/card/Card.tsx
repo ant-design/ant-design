@@ -26,6 +26,8 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
+export type CardSemanticName = keyof CardSemanticClassNames & keyof CardSemanticStyles;
+
 export type CardSemanticClassNames = {
   root?: string;
   header?: string;

@@ -5,7 +5,7 @@
 这是 ant-design/ant-design（antd）的源代码仓库，是一个 React 组件库，发布为 npm 包 antd。
 
 - 使用 TypeScript 和 React 开发
-- 兼容 React 16 ~ 19 版本
+- 兼容 React 18 ~ 19 版本
 - 组件库设计精美，功能完善，广泛应用于企业级中后台产品
 - 遵循 Ant Design 设计规范
 - 支持国际化
@@ -174,7 +174,7 @@ ComponentRef {
 ### 动画效果
 
 - 使用 CSS 过渡实现简单动画
-- 复杂动画使用 rc-motion 实现
+- 复杂动画使用 @rc-component/motion 实现
 - 尊重用户的减少动画设置（prefers-reduced-motion）
 - 动画时长和缓动函数应保持一致性
 - 动画不应干扰用户的操作和阅读体验
@@ -528,7 +528,7 @@ export function TestComp(props) {
 
 ### 兼容性要求
 
-- 支持 React 16 ~ 19 版本
+- 支持 React 18 ~ 19 版本
 - 兼容 Chrome 80+ 浏览器
 - 支持服务端渲染
 - 保持向下兼容，避免 breaking change

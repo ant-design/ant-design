@@ -4,6 +4,7 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate/index';
+import { merge } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
@@ -24,7 +25,7 @@ import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
-import type { RangePickerProps } from './interface';
+import type { PickerLocale, RangePickerProps } from './interface';
 import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
 
@@ -120,7 +121,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
 
     const [contextLocale] = useLocale('Calendar', enUS);
 
-    const locale = { ...contextLocale, ...props.locale! };
+    const locale = merge(contextLocale, props.locale || {}) as PickerLocale;
 
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);

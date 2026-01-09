@@ -86,7 +86,7 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type SemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
+export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
 
 export type TooltipSemanticClassNames = {
   root?: string;

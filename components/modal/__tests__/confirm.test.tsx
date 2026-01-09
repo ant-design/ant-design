@@ -5,8 +5,8 @@ import { warning } from '@rc-component/util';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import App from '../../app';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -976,6 +976,20 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn')[0].click();
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+  });
+
+  it('focusable.autoFocusButton should working', async () => {
+    Modal.confirm({
+      title: 'Test',
+      content: 'Test content',
+      focusable: { autoFocusButton: 'cancel' },
+    });
+
+    await waitFakeTimer();
+
+    expect(document.activeElement).toBe(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-default'),
+    );
   });
 
   it('should support cancelButtonProps global config', () => {
