@@ -189,4 +189,21 @@ describe('QRCode test', () => {
     );
     expect(svgContainer.querySelector('svg')).toHaveAttribute('aria-label', ariaLabel);
   });
+
+  it('should respect custom marginSize for SVG', () => {
+    const { container: base } = render(<QRCode value="ant-design" type="svg" />);
+    const vbBase = base.querySelector('svg')?.getAttribute('viewBox');
+
+    const margin = 10;
+    const { container: custom } = render(
+      <QRCode value="ant-design" type="svg" marginSize={margin} />,
+    );
+    const vbCustom = custom.querySelector('svg')?.getAttribute('viewBox');
+
+    const nBase = Number(vbBase?.split(' ').pop());
+    const nCustom = Number(vbCustom?.split(' ').pop());
+
+    // viewBox side length increases by 2 * marginSize
+    expect(nCustom - nBase).toBeGreaterThanOrEqual(2 * margin);
+  });
 });
