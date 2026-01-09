@@ -214,7 +214,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           [`${itemCls}-rail`]: {
             insetInlineStart: 'auto',
-            insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
+            insetInlineEnd: `calc(var(--steps-icon-size) / 2)`,
             marginInlineEnd: `calc(var(--steps-rail-size) / -2)`,
           },
         },
