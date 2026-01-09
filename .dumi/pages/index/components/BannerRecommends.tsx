@@ -30,24 +30,22 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
 
     &:before {
       content: '';
-      // background: red;
       inset: calc(${cssVar.lineWidth} * -1);
       position: absolute;
 
-      // background: linear-gradient(45deg, #f06, #09f);
       background: radial-gradient(
-        circle at var(--mouse-x, 0) var(--mouse-y, 0),
-        ${cssVar.colorBorder},
+        circle 150px at var(--mouse-x, 0) var(--mouse-y, 0),
+        ${cssVar.colorPrimary},
         ${cssVar.colorBorderSecondary}
       );
-      opacity: var(--opacity, 1);
+      opacity: var(--opacity, 0);
       transition: all 0.3s ease;
-      // mask:
-      //   linear-gradient(#fff 0 0) content-box,
-      //   linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
 
-      // mask-composite: subtract;
-      // -webkit-mask-composite: xor;
+      mask-composite: subtract;
+      -webkit-mask-composite: xor;
       padding: 1px;
       border-radius: inherit;
     }
@@ -94,8 +92,30 @@ interface RecommendItemProps {
 
 const RecommendItem: React.FC<RecommendItemProps> = (props) => {
   const { extra, index, icons, className } = props;
+  const cardRef = React.useRef<HTMLAnchorElement>(null);
 
   const { styles } = useStyle();
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    cardRef.current.style.setProperty('--mouse-x', `${x}px`);
+    cardRef.current.style.setProperty('--mouse-y', `${y}px`);
+  };
+
+  const handleMouseEnter = () => {
+    if (!cardRef.current) return;
+    cardRef.current.style.setProperty('--opacity', '1');
+  };
+
+  const handleMouseLeave = () => {
+    if (!cardRef.current) return;
+    cardRef.current.style.setProperty('--opacity', '0');
+  };
 
   if (!extra) {
     return <Skeleton key={index} />;
@@ -105,11 +125,15 @@ const RecommendItem: React.FC<RecommendItemProps> = (props) => {
 
   const card = (
     <a
+      ref={cardRef}
       key={extra?.title}
       href={extra.href}
       target="_blank"
       className={clsx(styles.itemBase, className)}
       rel="noreferrer"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
       <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
