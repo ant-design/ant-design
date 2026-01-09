@@ -48,6 +48,14 @@ const Homepage: React.FC = () => {
       <PreviewBanner>
         <BannerRecommends />
       </PreviewBanner>
+    </section>
+  );
+
+  return (
+    <section>
+      <PreviewBanner>
+        <BannerRecommends />
+      </PreviewBanner>
 
       <div>
         {/* 定制主题 */}
