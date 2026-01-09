@@ -4,7 +4,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { FloatButtonToken } from '.';
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
-import { genCssVar } from '../../theme/util/genStyleUtils';
+import { createScopedCssVar } from '../../theme/util/genStyleUtils';
 
 const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, antCls, floatButtonSize, padding } = token;
@@ -12,8 +12,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const groupCls = `${componentCls}-group`;
   const listCls = `${groupCls}-list`;
 
-  // Default: '--ant-float-btn-'
-  const getCssVar = genCssVar(antCls, 'float-btn');
+  const [varName, varRef] = createScopedCssVar(antCls, 'float-btn');
 
   return {
     [groupCls]: [
@@ -21,8 +20,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
       // ==                         Variable                         ==
       // ==============================================================
       {
-        [getCssVar('list-transform-start')]: `translate(0,${unit(floatButtonSize)})`,
-        [getCssVar('list-trigger-offset')]: `calc(${unit(floatButtonSize)} + ${unit(padding)})`,
+        [varName('list-transform-start')]: `translate(0,${unit(floatButtonSize)})`,
+        [varName('list-trigger-offset')]: `calc(${unit(floatButtonSize)} + ${unit(padding)})`,
       },
 
       // ==============================================================
@@ -81,7 +80,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
             '&-enter, &-appear': {
               opacity: 0,
-              transform: getCssVar('list-transform-start', true),
+              transform: varRef('list-transform-start'),
 
               '&-active': {
                 opacity: 1,
@@ -92,7 +91,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             '&-leave': {
               '&-active': {
                 opacity: 0,
-                transform: getCssVar('list-transform-start', true),
+                transform: varRef('list-transform-start'),
               },
             },
           },
@@ -101,30 +100,28 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         // ======================== Placements ========================
         '&-top': {
           [listCls]: {
-            bottom: getCssVar('list-trigger-offset', true),
+            bottom: varRef('list-trigger-offset'),
           },
         },
 
         '&-bottom': {
           [listCls]: {
-            [getCssVar('list-transform-start')]:
-              `translate(0, calc(${unit(floatButtonSize)} * -1))`,
-            top: getCssVar('list-trigger-offset', true),
+            [varName('list-transform-start')]: `translate(0, calc(${unit(floatButtonSize)} * -1))`,
+            top: varRef('list-trigger-offset'),
           },
         },
 
         '&-left': {
           [listCls]: {
-            [getCssVar('list-transform-start')]: `translate(${unit(floatButtonSize)}, 0)`,
-            right: getCssVar('list-trigger-offset', true),
+            [varName('list-transform-start')]: `translate(${unit(floatButtonSize)}, 0)`,
+            right: varRef('list-trigger-offset'),
           },
         },
 
         '&-right': {
           [listCls]: {
-            [getCssVar('list-transform-start')]:
-              `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
-            left: getCssVar('list-trigger-offset', true),
+            [varName('list-transform-start')]: `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
+            left: varRef('list-trigger-offset'),
           },
         },
       },

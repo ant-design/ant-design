@@ -42,11 +42,9 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
   getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });
 
-export const genCssVar = (antCls: string, componentAbbr: string) => {
-  const cssPrefix = `--${antCls.replace('.', '')}-${componentAbbr}-`;
-
-  return (name: string, withVar = false) => {
-    const raw = `${cssPrefix}${name}`;
-    return withVar ? `var(${raw})` : raw;
-  };
+export const createScopedCssVar = (antCls: string, componentAbbr: string) => {
+  const cssPrefix = `--${antCls.replace(/\./, '')}-${componentAbbr}-`;
+  const varName = (name: string) => `${cssPrefix}${name}`;
+  const varRef = (name: string) => `var(${cssPrefix}${name})`;
+  return [varName, varRef] as const;
 };

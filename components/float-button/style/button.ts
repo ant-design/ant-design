@@ -3,13 +3,12 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FloatButtonToken } from '.';
 import type { GenerateStyle } from '../../theme/interface';
-import { genCssVar } from '../../theme/util/genStyleUtils';
+import { createScopedCssVar } from '../../theme/util/genStyleUtils';
 
 const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
 
-  // Default: '--ant-float-btn-'
-  const getCssVar = genCssVar(antCls, 'float-btn');
+  const [varName] = createScopedCssVar(antCls, 'float-btn');
 
   const badgeCls = `${componentCls}-badge`;
 
@@ -25,7 +24,7 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
       // ==                         Variable                         ==
       // ==============================================================
       {
-        [getCssVar('size')]: unit(floatButtonSize),
+        [varName('size')]: unit(floatButtonSize),
       },
 
       // ==============================================================
@@ -36,8 +35,8 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         margin: 0,
         padding: `${unit(token.paddingXXS)} 0`,
 
-        width: `var(${getCssVar('size')})`,
-        minHeight: `var(${getCssVar('size')})`,
+        width: `var(${varName('size')})`,
+        minHeight: `var(${varName('size')})`,
         height: 'auto',
         wordBreak: 'break-word',
         whiteSpace: 'normal',

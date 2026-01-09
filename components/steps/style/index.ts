@@ -98,7 +98,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
-      // TODO: use `genCssVar` hook to generate css variables
+      // TODO: use `createScopedCssVar` hook to generate css variables
       '--steps-title-font-size': token.fontSizeLG,
       '--steps-title-line-height': token.lineHeightLG,
       '--steps-subtitle-font-size': token.fontSize,
