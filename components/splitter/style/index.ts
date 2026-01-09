@@ -251,7 +251,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             [`&${splitBarCls}-preview-active`]: {
               display: 'block',
-              transform: `translate3d(0, ${varRef('bar-preview-offset')}, 0)`,
+              transform: `translate3d(${varRef('bar-preview-offset')}, 0, 0)`,
             },
           },
 
