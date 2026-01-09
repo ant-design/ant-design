@@ -61,7 +61,7 @@ export interface DrawerProps
   destroyOnHidden?: boolean;
   mask?: MaskType;
 
-  focusable?: Omit<FocusableConfig, 'autoFocusButton'>;
+  focusable?: FocusableConfig;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -130,7 +130,6 @@ const Drawer: React.FC<DrawerProps> & {
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
-
     [
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],

@@ -8,10 +8,26 @@ import getPlacements from '../_util/placements';
 import zIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
-import type { TourClassNamesType, TourProps, TourStylesType } from './interface';
+import type {
+  TourClassNamesType,
+  TourProps,
+  TourSemanticClassNames,
+  TourSemanticName,
+  TourSemanticStyles,
+  TourStepProps,
+  TourStylesType,
+} from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
+
+export type {
+  TourProps,
+  TourSemanticClassNames,
+  TourSemanticName,
+  TourSemanticStyles,
+  TourStepProps,
+};
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
