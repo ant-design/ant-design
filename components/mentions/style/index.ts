@@ -147,34 +147,37 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const { componentCls, calc, colorText, antCls, colorTextDisabled } = token;
   const [varName, varRef] = genCssVar(antCls, 'mentions');
-  return {
-    [componentCls]: [
-      // =========================== Common ===========================
-      resetComponent(token),
-      genBasicInputStyle(token, {
-        largeStyle: {
-          padding: undefined,
-        },
-        smallStyle: {
-          padding: undefined,
-        },
-      }),
+  return [
+    // ==========================================================
+    // ==                         Base                         ==
+    // ==========================================================
+    {
+      [componentCls]: {
+        // =========================== Common ===========================
+        ...resetComponent(token),
+        ...genBasicInputStyle(token, {
+          largeStyle: {
+            padding: undefined,
+          },
+          smallStyle: {
+            padding: undefined,
+          },
+        }),
 
-      // ========================== Variants ==========================
-      genOutlinedStyle(token),
-      genFilledStyle(token),
-      genBorderlessStyle(token),
-      genUnderlinedStyle(token),
+        // ========================== Variants ==========================
+        ...genOutlinedStyle(token),
+        ...genFilledStyle(token),
+        ...genBorderlessStyle(token),
+        ...genUnderlinedStyle(token),
 
-      // ========================== Mentions ==========================
-      {
-        display: 'flex',
-        padding: 0,
-        whiteSpace: 'pre-wrap',
-
+        // ========================== Mentions ==========================
         [varName('padding-inline')]: token.paddingInline,
         [varName('padding-block')]: token.paddingBlock,
         [varName('control-height')]: token.controlHeight,
+
+        display: 'flex',
+        padding: 0,
+        whiteSpace: 'pre-wrap',
 
         // ========================= Textarea =========================
         '> textarea': [
@@ -280,10 +283,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             justifyContent: 'center',
           },
         },
-      },
 
-      // ========================= AllowClear =========================
-      {
+        // ========================= AllowClear =========================
         '&-has-suffix': {
           '> textarea': {
             paddingInlineEnd: calc(token.paddingXXS)
@@ -293,18 +294,21 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
               .equal(),
           },
         },
-      },
 
-      // ========================== Disabled ==========================
-      {
+        // ========================== Disabled ==========================
         '&-disabled': {
           '> textarea': {
             ...genDisabledStyle(token),
           },
         },
       },
-      // ============================ Size ============================
-      {
+    },
+
+    // ==========================================================
+    // ==                         Size                         ==
+    // ==========================================================
+    {
+      [componentCls]: {
         '&-lg': {
           [varName('padding-inline')]: token.paddingInlineLG,
           [varName('padding-block')]: token.paddingBlockLG,
@@ -316,8 +320,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           [varName('control-height')]: token.controlHeightSM,
         },
       },
-    ],
-  };
+    },
+  ];
 };
 
 // ============================== Tokens ==============================
