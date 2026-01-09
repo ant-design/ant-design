@@ -36,10 +36,12 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
 
       // background: linear-gradient(45deg, #f06, #09f);
       background: radial-gradient(
-        circle at var(--mouse-x) var(--mouse-y),
+        circle at var(--mouse-x, 0) var(--mouse-y, 0),
         ${cssVar.colorBorder},
         ${cssVar.colorBorderSecondary}
       );
+      opacity: var(--opacity, 1);
+      transition: all 0.3s ease;
       // mask:
       //   linear-gradient(#fff 0 0) content-box,
       //   linear-gradient(#fff 0 0);
