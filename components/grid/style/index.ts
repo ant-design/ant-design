@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
@@ -98,8 +99,8 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
 };
 
 const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
-  const { prefixCls, componentCls, gridColumns } = token;
-
+  const { prefixCls, componentCls, gridColumns, antCls } = token;
+  const [varName, varRef] = genCssVar(antCls, 'grid');
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
     if (i === 0) {
@@ -130,12 +131,12 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         // Form set `display: flex` on Col which will override `display: block`.
         // Let's get it from css variable to support override.
         {
-          ['--ant-display' as any]: 'block',
+          [varName('display')]: 'block',
           // Fallback to display if variable not support
           display: 'block',
         },
         {
-          display: 'var(--ant-display)',
+          display: varRef('display'),
           flex: `0 0 ${(i / gridColumns) * 100}%`,
           maxWidth: `${(i / gridColumns) * 100}%`,
         },
