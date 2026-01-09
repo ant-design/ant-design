@@ -1,12 +1,12 @@
 import { PresetColors } from '../../theme/interface';
 import type { GenerateStyle } from '../../theme/interface';
-import { createScopedCssVar } from '../../theme/util/genStyleUtils';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls, antCls } = token;
 
-  const [varName, varRef] = createScopedCssVar(antCls, 'btn');
+  const [varName, varRef] = genCssVar(antCls, 'btn');
 
   return {
     [componentCls]: [

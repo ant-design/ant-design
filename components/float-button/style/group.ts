@@ -4,7 +4,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { FloatButtonToken } from '.';
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
-import { createScopedCssVar } from '../../theme/util/genStyleUtils';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, antCls, floatButtonSize, padding } = token;
@@ -12,7 +12,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const groupCls = `${componentCls}-group`;
   const listCls = `${groupCls}-list`;
 
-  const [varName, varRef] = createScopedCssVar(antCls, 'float-btn');
+  const [varName, varRef] = genCssVar(antCls, 'float-btn');
 
   return {
     [groupCls]: [

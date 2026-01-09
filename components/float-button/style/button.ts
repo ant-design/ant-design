@@ -3,12 +3,12 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FloatButtonToken } from '.';
 import type { GenerateStyle } from '../../theme/interface';
-import { createScopedCssVar } from '../../theme/util/genStyleUtils';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
 
-  const [varName, varRef] = createScopedCssVar(antCls, 'float-btn');
+  const [varName, varRef] = genCssVar(antCls, 'float-btn');
 
   const badgeCls = `${componentCls}-badge`;
 
