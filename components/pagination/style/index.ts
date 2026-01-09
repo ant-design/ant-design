@@ -254,17 +254,16 @@ const genPaginationLargeStyle: GenerateStyle<PaginationToken, CSSObject> = (toke
 const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
-  // Default: '--ant-pagination-'
-  const getCssVar = genCssVar(antCls, 'pagination');
+  const [, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [`&${componentCls}-simple`]: {
       [`${componentCls}-prev, ${componentCls}-next`]: {
-        height: `var(${getCssVar('item-size-actual')})`,
-        lineHeight: `var(${getCssVar('item-size-actual')})`,
+        height: varRef`item-size-actual`,
+        lineHeight: varRef`item-size-actual`,
         verticalAlign: 'top',
         [`${componentCls}-item-link`]: {
-          height: `var(${getCssVar('item-size-actual')})`,
+          height: varRef`item-size-actual`,
           backgroundColor: 'transparent',
           border: 0,
           '&:hover': {
@@ -274,8 +273,8 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
             backgroundColor: token.colorBgTextActive,
           },
           '&::after': {
-            height: `var(${getCssVar('item-size-actual')})`,
-            lineHeight: `var(${getCssVar('item-size-actual')})`,
+            height: varRef`item-size-actual`,
+            lineHeight: varRef`item-size-actual`,
           },
         },
       },
@@ -283,8 +282,8 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
       [`${componentCls}-simple-pager`]: {
         display: 'inline-flex',
         alignItems: 'center',
-        height: `var(${getCssVar('item-size-actual')})`,
-        marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
+        height: varRef`item-size-actual`,
+        marginInlineEnd: varRef`item-spacing-actual`,
 
         input: {
           boxSizing: 'border-box',
@@ -343,8 +342,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
-  // Default: '--ant-pagination-'
-  const getCssVar = genCssVar(antCls, 'pagination');
+  const [, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
@@ -400,7 +398,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-prev,
     ${componentCls}-jump-next
     `]: {
-      marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
+      marginInlineEnd: varRef`item-spacing-actual`,
     },
 
     [`
@@ -410,11 +408,11 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-next
     `]: {
       display: 'inline-block',
-      minWidth: `var(${getCssVar('item-size-actual')})`,
-      height: `var(${getCssVar('item-size-actual')})`,
+      minWidth: varRef`item-size-actual`,
+      height: varRef`item-size-actual`,
       color: token.colorText,
       fontFamily: token.fontFamily,
-      lineHeight: `var(${getCssVar('item-size-actual')})`,
+      lineHeight: varRef`item-size-actual`,
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
@@ -477,9 +475,9 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       '&-quick-jumper': {
         display: 'inline-block',
-        height: `var(${getCssVar('item-size-actual')})`,
+        height: varRef`item-size-actual`,
         marginInlineStart: token.marginXS,
-        lineHeight: `var(${getCssVar('item-size-actual')})`,
+        lineHeight: varRef`item-size-actual`,
         verticalAlign: 'top',
 
         input: {
@@ -495,11 +493,11 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           },
 
           width: token.quickJumperInputWidth,
-          height: `var(${getCssVar('item-size-actual')})`,
+          height: varRef`item-size-actual`,
           boxSizing: 'border-box',
           margin: 0,
-          marginInlineStart: `var(${getCssVar('item-spacing-actual')})`,
-          marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
+          marginInlineStart: varRef`item-spacing-actual`,
+          marginInlineEnd: varRef`item-spacing-actual`,
         },
       },
     },
@@ -509,22 +507,16 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
-  // Default: '--ant-pagination-'
-  const getCssVar = genCssVar(antCls, 'pagination');
+  const [, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [`${componentCls}-item`]: {
       display: 'inline-block',
-      minWidth: `var(${getCssVar('item-size-actual')})`,
-      height: `var(${getCssVar('item-size-actual')})`,
-      marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
+      minWidth: varRef`item-size-actual`,
+      height: varRef`item-size-actual`,
+      marginInlineEnd: varRef`item-spacing-actual`,
       fontFamily: token.fontFamily,
-      lineHeight: unit(
-        token
-          .calc(`var(${getCssVar('item-size-actual')})`)
-          .sub(2)
-          .equal(),
-      ),
+      lineHeight: unit(token.calc(varRef`item-size-actual`).sub(2).equal()),
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
@@ -580,20 +572,19 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
-  // Default: '--ant-pagination-'
-  const getCssVar = genCssVar(antCls, 'pagination');
+  const [varName, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [componentCls]: {
-      [getCssVar('item-size-actual')]: unit(token.itemSize),
-      [getCssVar('item-spacing-actual')]: unit(token.marginXS),
+      [varName`item-size-actual`]: unit(token.itemSize),
+      [varName`item-spacing-actual`]: unit(token.marginXS),
       '&-small': {
-        [getCssVar('item-size-actual')]: unit(token.itemSizeSM),
-        [getCssVar('item-spacing-actual')]: unit(token.marginXXS),
+        [varName`item-size-actual`]: unit(token.itemSizeSM),
+        [varName`item-spacing-actual`]: unit(token.marginXXS),
       },
       '&-large': {
-        [getCssVar('item-size-actual')]: unit(token.itemSizeLG),
-        [getCssVar('item-spacing-actual')]: unit(token.marginSM),
+        [varName`item-size-actual`]: unit(token.itemSizeLG),
+        [varName`item-spacing-actual`]: unit(token.marginSM),
       },
 
       ...resetComponent(token),
@@ -628,14 +619,9 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
 
       [`${componentCls}-total-text`]: {
         display: 'inline-block',
-        height: `var(${getCssVar('item-size-actual')})`,
-        marginInlineEnd: `var(${getCssVar('item-spacing-actual')})`,
-        lineHeight: unit(
-          token
-            .calc(`var(${getCssVar('item-size-actual')})`)
-            .sub(2)
-            .equal(),
-        ),
+        height: varRef`item-size-actual`,
+        marginInlineEnd: varRef`item-spacing-actual`,
+        lineHeight: unit(token.calc(varRef`item-size-actual`).sub(2).equal()),
         verticalAlign: 'middle',
       },
 
