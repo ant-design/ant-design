@@ -237,7 +237,7 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
     : '#fff';
 
   return {
-    defaultBg: new FastColor(token.colorFillQuaternary)
+    defaultBg: new FastColor(token.colorFillTertiary)
       .onBackground(token.colorBgContainer)
       .toHexString(),
     defaultColor: token.colorText,

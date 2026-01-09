@@ -55,7 +55,6 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 抽屉展开后是否将焦点切换至其 DOM 节点 | boolean | true | 4.17.0 |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
 | classNames | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
@@ -65,6 +64,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
+| focusable | 抽屉内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | ~~height~~ | 高度，在 `placement` 为 `top` 或 `bottom` 时使用，请使用 `size` 替换 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
@@ -74,7 +74,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | resizable | 是否启用拖拽改变尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | boolean: 6.1.0 |
 | rootStyle | 可用于设置 Drawer 最外层容器的样式，和 `style` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
-| size | 预设抽屉宽度（或高度），default `378px` 和 large `736px`，或自定义数字 | 'default' \| 'large' \| number | 'default' | 4.17.0 |
+| size | 预设抽屉宽度（或高度），default `378px` 和 large `736px`，或自定义数字 | 'default' \| 'large' \| number \| string | 'default' | 4.17.0, string: 6.2.0 |
 | styles | 用于自定义 Drawer 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | title | 标题 | ReactNode | - |  |
 | loading | 显示骨架屏 | boolean | false | 5.17.0 |

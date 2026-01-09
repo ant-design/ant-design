@@ -291,19 +291,19 @@ describe('Carousel', () => {
         { placement: 'end', expectedVertical: true },
         { placement: 'top', expectedVertical: false },
         { placement: 'bottom', expectedVertical: false },
-      ])(
-        'should set vertical=$expectedVertical for $placement',
-        ({ placement, expectedVertical }) => {
-          const { container } = render(<Demo dotPlacement={placement} />);
-          const carousel = container.querySelector('.ant-carousel-vertical');
+      ])('should set vertical=$expectedVertical for $placement', ({
+        placement,
+        expectedVertical,
+      }) => {
+        const { container } = render(<Demo dotPlacement={placement} />);
+        const carousel = container.querySelector('.ant-carousel-vertical');
 
-          if (expectedVertical) {
-            expect(carousel).toBeTruthy();
-          } else {
-            expect(carousel).toBeFalsy();
-          }
-        },
-      );
+        if (expectedVertical) {
+          expect(carousel).toBeTruthy();
+        } else {
+          expect(carousel).toBeFalsy();
+        }
+      });
     });
   });
   describe('RTL Direction', () => {

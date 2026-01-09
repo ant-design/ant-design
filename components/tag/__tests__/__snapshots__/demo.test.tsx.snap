@@ -1256,8 +1256,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center"
-    style="gap:4px 0"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
@@ -1385,8 +1384,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center"
-    style="gap:4px 0"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-test-id"

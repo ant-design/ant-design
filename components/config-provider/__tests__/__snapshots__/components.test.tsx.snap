@@ -377,10 +377,8 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -405,10 +403,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -434,10 +430,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -462,10 +456,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -490,10 +482,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -518,10 +508,8 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="ant-select-input"
       id="test-id"
@@ -546,10 +534,8 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="prefix-AutoComplete-input"
       id="test-id"
@@ -1140,7 +1126,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1153,7 +1141,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1169,7 +1159,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1182,7 +1174,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1198,7 +1192,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1211,7 +1207,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1227,7 +1225,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1240,7 +1240,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1256,7 +1258,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1269,7 +1273,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1285,7 +1291,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1298,7 +1306,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1314,7 +1324,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
   class="prefix-Breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="prefix-Breadcrumb-item"
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1327,7 +1339,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="prefix-Breadcrumb-item"
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1595,10 +1609,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -1647,10 +1659,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -1686,6 +1696,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -2526,10 +2537,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -2565,6 +2574,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -2871,10 +2881,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -2924,10 +2932,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -2964,6 +2970,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -3806,10 +3813,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -3846,6 +3851,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -4154,10 +4160,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -4206,10 +4210,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -4245,6 +4247,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -5085,10 +5088,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5124,6 +5125,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -5430,10 +5432,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5482,10 +5482,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5521,6 +5519,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -6361,10 +6360,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6400,6 +6397,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -6706,10 +6704,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6758,10 +6754,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6797,6 +6791,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -7637,10 +7632,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -7676,6 +7669,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -7982,10 +7976,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8034,10 +8026,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8073,6 +8063,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -8913,10 +8904,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8952,6 +8941,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
@@ -9258,10 +9248,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -9310,10 +9298,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -9349,6 +9335,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -10189,10 +10176,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -10228,6 +10213,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
@@ -10724,24 +10710,6 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -10850,24 +10818,6 @@ exports[`ConfigProvider components Carousel configProvider componentDisabled 1`]
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -10984,24 +10934,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize large 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11110,24 +11042,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize middle 
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -11244,24 +11158,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize small 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11370,24 +11266,6 @@ exports[`ConfigProvider components Carousel normal 1`] = `
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -11504,24 +11382,6 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11560,10 +11420,8 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11611,10 +11469,8 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -11663,10 +11519,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11714,10 +11568,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11765,10 +11617,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11816,10 +11666,8 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="ant-select-input"
       id="test-id"
@@ -11867,10 +11715,8 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="prefix-Cascader-input"
       id="test-id"
@@ -11908,6 +11754,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
 exports[`ConfigProvider components Checkbox configProvider 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11935,6 +11782,7 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
 exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper config-checkbox-wrapper-disabled css-var-root config-checkbox-css-var"
@@ -11963,6 +11811,7 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
 exports[`ConfigProvider components Checkbox configProvider componentSize large 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11990,6 +11839,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
 exports[`ConfigProvider components Checkbox configProvider componentSize middle 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -12017,6 +11867,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
 exports[`ConfigProvider components Checkbox configProvider componentSize small 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -12044,6 +11895,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
 exports[`ConfigProvider components Checkbox normal 1`] = `
 <div
   class="ant-checkbox-group css-var-root ant-checkbox-css-var"
+  role="group"
 >
   <label
     class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
@@ -12071,6 +11923,7 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
 exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 <div
   class="prefix-Checkbox-group css-var-root prefix-Checkbox-css-var"
+  role="group"
 >
   <label
     class="prefix-Checkbox-wrapper css-var-root prefix-Checkbox-css-var"
@@ -12426,7 +12279,6 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
   <div
@@ -12437,7 +12289,6 @@ exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider componentDisabled 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var config-color-picker-trigger-disabled"
 >
   <div
@@ -12448,7 +12299,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentDisabled 
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize large 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-lg css-var-root config-color-picker-css-var"
 >
   <div
@@ -12459,7 +12309,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize larg
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
   <div
@@ -12470,7 +12319,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize midd
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize small 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-sm css-var-root config-color-picker-css-var"
 >
   <div
@@ -12481,7 +12329,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize smal
 
 exports[`ConfigProvider components ColorPicker normal 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
 >
   <div
@@ -12492,7 +12339,6 @@ exports[`ConfigProvider components ColorPicker normal 1`] = `
 
 exports[`ConfigProvider components ColorPicker prefixCls 1`] = `
 <div
-  aria-describedby="test-id"
   class="prefix-ColorPicker-trigger css-var-root prefix-ColorPicker-css-var"
 >
   <div
@@ -14083,12 +13929,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14136,12 +13976,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14154,12 +13988,6 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14207,12 +14035,6 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14225,12 +14047,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14278,12 +14094,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14296,12 +14106,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14349,12 +14153,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14367,12 +14165,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14420,12 +14212,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14436,12 +14222,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
 >
   <div
     class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
   />
   <div
     class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
@@ -14491,12 +14271,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14507,12 +14281,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 >
   <div
     class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion prefix-Drawer-mask-blur"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
   />
   <div
     class="prefix-Drawer-content-wrapper prefix-Drawer-panel-motion-right-appear prefix-Drawer-panel-motion-right-appear-start prefix-Drawer-panel-motion-right"
@@ -14562,12 +14330,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -17566,7 +17328,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17644,7 +17405,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17722,7 +17482,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17800,7 +17559,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17878,7 +17636,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17956,7 +17713,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -18035,7 +17791,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="prefix-Menu-item prefix-Menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               prefixcls="prefix-Menu"
@@ -18071,83 +17826,74 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18164,83 +17910,74 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18257,83 +17994,74 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-lg"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-lg"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18350,83 +18078,74 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18443,83 +18162,74 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18536,83 +18246,74 @@ exports[`ConfigProvider components Modal normal 1`] = `
     />
     <div
       class="ant-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="ant-modal-container"
         >
-          <div
-            class="ant-modal-container"
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="ant-modal-close"
-              type="button"
+              class="ant-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="ant-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close ant-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close ant-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="ant-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="ant-modal-body"
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="ant-modal-footer"
-            >
-              <button
-                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18629,83 +18330,74 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     />
     <div
       class="prefix-Modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="prefix-Modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="prefix-Modal-container"
         >
-          <div
-            class="prefix-Modal-container"
+          <button
+            aria-label="Close"
+            class="prefix-Modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="prefix-Modal-close"
-              type="button"
+              class="prefix-Modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="prefix-Modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close prefix-Modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close prefix-Modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="prefix-Modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="prefix-Modal-footer"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="prefix-Modal-body"
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="prefix-Modal-footer"
-            >
-              <button
-                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18796,7 +18488,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -18811,11 +18502,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -18851,7 +18540,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18932,7 +18621,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -18947,11 +18635,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19073,7 +18759,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
@@ -19088,11 +18773,9 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -19129,7 +18812,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19210,7 +18893,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
@@ -19225,11 +18907,9 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -19271,7 +18951,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
 exports[`ConfigProvider components Pagination configProvider componentSize large 1`] = `
 <div>
   <ul
-    class="config-pagination css-var-root"
+    class="config-pagination config-pagination-large css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19352,8 +19032,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content"
@@ -19367,11 +19046,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19407,7 +19084,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19488,7 +19165,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19503,11 +19179,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19548,7 +19222,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 exports[`ConfigProvider components Pagination configProvider componentSize middle 1`] = `
 <div>
   <ul
-    class="config-pagination css-var-root"
+    class="config-pagination config-pagination-middle css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19629,7 +19303,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19644,11 +19317,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19684,7 +19355,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19765,7 +19436,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19780,11 +19450,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19825,7 +19493,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
 exports[`ConfigProvider components Pagination configProvider componentSize small 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19906,7 +19574,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19921,11 +19588,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19961,7 +19626,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20042,7 +19707,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -20057,11 +19721,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -20183,7 +19845,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20198,11 +19859,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20238,7 +19897,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-pagination ant-pagination-mini css-var-root"
+    class="ant-pagination ant-pagination-small ant-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20319,7 +19978,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20334,11 +19992,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20460,7 +20116,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20475,11 +20130,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20515,7 +20168,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
   </ul>
   <ul
-    class="prefix-Pagination prefix-Pagination-mini css-var-root"
+    class="prefix-Pagination prefix-Pagination-small prefix-Pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20596,7 +20249,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20611,11 +20263,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -21695,6 +21345,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21721,6 +21372,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
   </div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21752,6 +21404,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked config-radio-wrapper-disabled css-var-root config-radio-css-var"
@@ -21779,6 +21432,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
   </div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -21811,6 +21465,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21837,6 +21492,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21868,6 +21524,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21894,6 +21551,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21925,6 +21583,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21951,6 +21610,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21982,6 +21642,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
@@ -22008,6 +21669,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -22039,6 +21701,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 <div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline css-var-root prefix-Radio-css-var"
+    role="radiogroup"
   >
     <label
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked css-var-root prefix-Radio-css-var"
@@ -22065,6 +21728,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
   </div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline css-var-root prefix-Radio-css-var"
+    role="radiogroup"
   >
     <label
       class="prefix-Radio-button-wrapper prefix-Radio-button-wrapper-checked css-var-root prefix-Radio-css-var"
@@ -24250,10 +23914,8 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
     </div>
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -25954,7 +25616,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26050,7 +25711,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26263,7 +25923,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26359,7 +26018,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26574,7 +26232,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26670,7 +26327,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26883,7 +26539,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26979,7 +26634,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27192,7 +26846,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27288,7 +26941,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27501,7 +27153,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -27597,7 +27248,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27810,7 +27460,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="prefix-Table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="prefix-Table-column-sorters"
                         >
                           <span
@@ -27906,7 +27555,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -41853,10 +41501,8 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""

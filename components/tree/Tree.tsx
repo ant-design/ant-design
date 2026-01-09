@@ -112,9 +112,25 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export type TreeSemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
-export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticName>;
-export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticName>;
+export type TreeSemanticName = keyof TreeSemanticClassNames & keyof TreeSemanticStyles;
+
+export type TreeSemanticClassNames = {
+  root?: string;
+  item?: string;
+  itemIcon?: string;
+  itemTitle?: string;
+};
+
+export type TreeSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+};
+
+export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticClassNames>;
+
+export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticStyles>;
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<

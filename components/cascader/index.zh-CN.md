@@ -54,7 +54,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象形式 |
 | ~~autoClearSearchValue~~ | 是否在选中项后清空搜索框，只在 `multiple` 为 `true` 时有效 | boolean | true | 5.9.0 |
-| autoFocus | 自动获取焦点 | boolean | false |  |
 | changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
@@ -92,7 +91,7 @@ demo:
 | ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 |
 | onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
-| showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
+| showCheckedStrategy | 定义选中项回填的方式（仅在 `multiple` 为 `true` 时生效）。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | ~searchValue~ | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | ~onSearch~ | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |

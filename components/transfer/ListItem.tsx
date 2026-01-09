@@ -2,16 +2,15 @@ import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { clsx } from 'clsx';
 
-import type { KeyWiseTransferItem, SemanticName } from '.';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import type { KeyWiseTransferItem, TransferSemanticClassNames, TransferSemanticStyles } from '.';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   prefixCls: string;
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: TransferSemanticClassNames;
+  styles: TransferSemanticStyles;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
@@ -36,10 +35,10 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     onRemove,
     showRemove,
   } = props;
-
+  const mergedDisabled = disabled || item?.disabled;
   const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
-    [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
-    [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
+    [`${prefixCls}-content-item-disabled`]: mergedDisabled,
+    [`${prefixCls}-content-item-checked`]: checked && !mergedDisabled,
   });
 
   let title: string | undefined;
@@ -70,7 +69,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
         {labelNode}
         <button
           type="button"
-          disabled={disabled || item.disabled}
+          disabled={mergedDisabled}
           className={`${prefixCls}-content-item-remove`}
           aria-label={contextLocale?.remove}
           onClick={() => onRemove?.(item)}
@@ -82,7 +81,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   }
 
   // Default click to select
-  liProps.onClick = disabled || item.disabled ? undefined : (event) => onClick(item, event);
+  liProps.onClick = mergedDisabled ? undefined : (event) => onClick(item, event);
 
   return (
     <li {...liProps}>
@@ -90,7 +89,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
         className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
         style={styles.itemIcon}
         checked={checked}
-        disabled={disabled || item.disabled}
+        disabled={mergedDisabled}
       />
       {labelNode}
     </li>

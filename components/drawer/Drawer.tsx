@@ -3,8 +3,8 @@ import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
 import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
-import { composeRef } from '@rc-component/util/lib/ref';
 import useId from '@rc-component/util/lib/hooks/useId';
+import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -19,6 +19,8 @@ import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
+import type { FocusableConfig, OmitFocusType } from './useFocusable';
+import useFocusable from './useFocusable';
 
 const _SizeTypes = ['default', 'large'] as const;
 
@@ -38,10 +40,16 @@ export interface DrawerResizableConfig {
 export interface DrawerProps
   extends Omit<
       RcDrawerProps,
-      'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable' | 'classNames' | 'styles'
+      | 'maskStyle'
+      | 'destroyOnClose'
+      | 'mask'
+      | 'resizable'
+      | 'classNames'
+      | 'styles'
+      | OmitFocusType
     >,
     Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
-  size?: sizeType | number;
+  size?: sizeType | number | string;
   resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
@@ -52,6 +60,8 @@ export interface DrawerProps
    */
   destroyOnHidden?: boolean;
   mask?: MaskType;
+
+  focusable?: FocusableConfig;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -79,6 +89,9 @@ const Drawer: React.FC<DrawerProps> & {
     className,
     resizable,
     'aria-labelledby': ariaLabelledby,
+
+    // Focus
+    focusable,
 
     // Deprecated
     maskStyle,
@@ -117,7 +130,6 @@ const Drawer: React.FC<DrawerProps> & {
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
-
     [
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
@@ -155,6 +167,12 @@ const Drawer: React.FC<DrawerProps> & {
       return DEFAULT_SIZE;
     }
 
+    if (typeof size === 'string') {
+      if (/^\d+(\.\d+)?$/.test(size)) {
+        return Number(size);
+      }
+      return size;
+    }
     if (!placement || placement === 'left' || placement === 'right') {
       return width;
     }
@@ -184,14 +202,17 @@ const Drawer: React.FC<DrawerProps> & {
   const innerPanelRef = usePanelRef();
   const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
-  // ============================ zIndex ============================
+  // =========================== zIndex ===========================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
+
+  // ============================ Mask ============================
+  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+
+  // ========================== Focusable =========================
+  const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
 
   // =========================== Render ===========================
   const { classNames, styles, rootStyle } = rest;
-
-  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
-
   const mergedProps: DrawerProps = {
     ...props,
     zIndex,
@@ -199,6 +220,7 @@ const Drawer: React.FC<DrawerProps> & {
     mask: mergedMask,
     defaultSize,
     push,
+    focusable: mergedFocusable,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -257,6 +279,9 @@ const Drawer: React.FC<DrawerProps> & {
           {...(resizable ? { resizable } : {})}
           aria-labelledby={ariaLabelledby ?? ariaId}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          // Focusable
+          focusTriggerAfterClose={mergedFocusable.focusTriggerAfterClose}
+          focusTrap={mergedFocusable.trap}
         >
           <DrawerPanel
             prefixCls={prefixCls}

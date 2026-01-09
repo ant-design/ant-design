@@ -9,6 +9,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
@@ -26,9 +27,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-start"
         >
           flex-start
@@ -43,9 +42,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -60,9 +57,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-end"
         >
           flex-end
@@ -77,9 +72,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="space-between"
         >
           space-between
@@ -94,9 +87,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="space-around"
         >
           space-around
@@ -111,9 +102,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="space-evenly"
         >
           space-evenly
@@ -126,6 +115,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
@@ -143,9 +133,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-start"
         >
           flex-start
@@ -160,9 +148,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -177,9 +163,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-end"
         >
           flex-end
@@ -235,6 +219,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -395,6 +380,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"

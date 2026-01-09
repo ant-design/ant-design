@@ -8,7 +8,12 @@ import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
-import type { StepsProps, StepsSemanticName } from '../steps';
+import type {
+  StepsProps,
+  StepsSemanticClassNames,
+  StepsSemanticName,
+  StepsSemanticStyles,
+} from '../steps';
 import { InternalContext } from '../steps/context';
 import useStyle from './style';
 import useItems from './useItems';
@@ -19,6 +24,7 @@ const stepInternalContext = {
 };
 
 export type ItemPosition = 'left' | 'right' | 'start' | 'end';
+
 export type ItemPlacement = 'start' | 'end';
 
 export type TimelineMode = ItemPosition | 'alternate';
@@ -54,8 +60,18 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
-export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, StepsSemanticName>;
-export type TimelineStylesType = SemanticStylesType<TimelineProps, StepsSemanticName>;
+export type TimelineSemanticName = StepsSemanticName;
+
+export type TimelineSemanticClassNames = StepsSemanticClassNames;
+
+export type TimelineSemanticStyles = StepsSemanticStyles;
+
+export type TimelineClassNamesType = SemanticClassNamesType<
+  TimelineProps,
+  TimelineSemanticClassNames
+>;
+
+export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticStyles>;
 
 export interface TimelineProps {
   // Style

@@ -12,9 +12,9 @@ jobs:
     permissions:
       issues: write  # for actions-cool/pr-welcome to create, update & react on issues
       pull-requests: write  # for actions-cool/pr-welcome to request reviewer
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions-cool/pr-welcome@1c2b1c3e3ab926424a4464fbf7b6321efb67c871
+      - uses: actions-cool/pr-welcome@4bd317d60ef3b40a3ccda39c22f66c3358010f92
         with:
           refuse-issue-label: 🎱 Collaborate PR only
           need-creator-authority: write
@@ -30,10 +30,10 @@ jobs:
   check-changelog:
     permissions:
       pull-requests: write  # for actions-cool/pr-check-fill to create or update PR comments
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: check fill
-        uses: actions-cool/pr-check-fill@f19d0f252c9071fca7f97ccfe69541b7cdf9ccda
+        uses: actions-cool/pr-check-fill@35194e32fd717c88c4fde15fbde9005933c2d452
         with:
           filter-start: '|'
           require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'

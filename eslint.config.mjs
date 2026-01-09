@@ -26,6 +26,7 @@ export default antfu(
     typescript: true,
     react: true,
     rules: {
+      'react/jsx-key-before-spread': 'off',
       'node/prefer-global/process': 'off', // TODO: remove this
       'node/prefer-global/buffer': 'off', // TODO: remove this
       'jsdoc/empty-tags': 'off',

@@ -26,7 +26,7 @@ export default function useItems(
 
   // convert legacy type
   return React.useMemo(() => {
-    const mergedItems: TimelineItemType[] = parseItems.map((item, index) => {
+    const mergedItems = parseItems.map<TimelineItemType>((item, index) => {
       const {
         label,
         children,

@@ -6,7 +6,7 @@ import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 interface PreviewContentProps {
   element: string;
-  setElement: (element: string) => void;
+  setElement: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const COMPONENT_MAP: Record<string, React.ElementType> = {
@@ -25,15 +25,12 @@ const OPTIONS = [
   { value: 'Node', label: 'Node' },
 ];
 
-const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ...rest }) => {
+const PreviewContent: React.FC<PreviewContentProps> = (props) => {
+  const { element, setElement, ...rest } = props;
   const Element = COMPONENT_MAP[element];
   return (
     <Flex vertical style={{ width: 'fit-content', marginRight: 'auto' }}>
-      <Segmented
-        options={OPTIONS}
-        value={element}
-        onChange={(value: string) => setElement(value)}
-      />
+      <Segmented options={OPTIONS} value={element} onChange={setElement} />
       <Divider titlePlacement="start" plain>
         Preview
       </Divider>

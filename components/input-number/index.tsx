@@ -29,15 +29,33 @@ import SpaceAddon from '../space/Addon';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
+export type InputNumberSemanticName = keyof InputNumberSemanticClassNames &
+  keyof InputNumberSemanticStyles;
+
+export type InputNumberSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  suffix?: string;
+  input?: string;
+  actions?: string;
+};
+
+export type InputNumberSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  actions?: React.CSSProperties;
+};
 
 export type InputNumberClassNamesType<T extends ValueType = ValueType> = SemanticClassNamesType<
   InputNumberProps<T>,
-  SemanticName
+  InputNumberSemanticClassNames
 >;
+
 export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticStylesType<
   InputNumberProps<T>,
-  SemanticName
+  InputNumberSemanticStyles
 >;
 
 export interface InputNumberProps<T extends ValueType = ValueType>

@@ -24,10 +24,23 @@ import StatusCmp from './style/statusCmp';
 export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
-export type TagSemanticName = 'root' | 'icon' | 'content';
+export type TagSemanticName = keyof TagSemanticClassNames & keyof TagSemanticStyles;
 
-export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticName>;
-export type TagStylesType = SemanticStylesType<TagProps, TagSemanticName>;
+export type TagSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  content?: string;
+};
+
+export type TagSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticClassNames>;
+
+export type TagStylesType = SemanticStylesType<TagProps, TagSemanticStyles>;
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;

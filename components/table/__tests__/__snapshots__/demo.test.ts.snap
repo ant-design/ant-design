@@ -1406,6 +1406,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1507,6 +1508,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1608,6 +1610,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1687,6 +1690,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1810,6 +1814,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1982,7 +1987,6 @@ Array [
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -2086,7 +2090,6 @@ Array [
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -3673,7 +3676,6 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -5329,6 +5331,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5430,6 +5433,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5531,6 +5535,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5610,6 +5615,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5733,6 +5739,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5905,7 +5912,6 @@ Array [
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -6009,7 +6015,6 @@ Array [
                       tabindex="0"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -7283,9 +7288,7 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a
-                        aria-describedby="test-id"
-                      >
+                      <a>
                         Delete
                       </a>
                     </td>
@@ -7317,9 +7320,7 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a
-                        aria-describedby="test-id"
-                      >
+                      <a>
                         Delete
                       </a>
                     </td>
@@ -7950,7 +7951,6 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -7965,11 +7965,9 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -8398,36 +8396,28 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
@@ -8451,36 +8441,28 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
@@ -8504,36 +8486,28 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span
-                      aria-describedby="test-id"
-                    >
+                    <span>
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
@@ -9346,7 +9320,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9698,7 +9671,6 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -10042,7 +10014,6 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -10252,7 +10223,6 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                       style="height:0;overflow:hidden;font-weight:bold"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -12675,7 +12645,6 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -12690,11 +12659,9 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -14684,7 +14651,6 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -14699,11 +14665,9 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -14868,7 +14832,6 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -15034,7 +14997,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                           Name
                         </span>
                         <span
-                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -15068,7 +15031,6 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                       style="height:0;overflow:hidden;font-weight:bold"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -15657,7 +15619,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15831,7 +15793,6 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -15846,11 +15807,9 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -15930,7 +15889,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -16012,7 +15970,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         Age
                       </span>
                       <span
-                        aria-describedby="test-id"
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
@@ -16294,6 +16251,7 @@ Array [
   </div>,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -17136,7 +17094,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -17201,7 +17158,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -17266,7 +17222,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -17775,7 +17730,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="false"
@@ -17998,7 +17953,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
             class="ant-pagination-options"
           >
             <div
-              aria-label="Page Size"
               class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
@@ -18013,11 +17967,9 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -19738,7 +19690,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20396,7 +20348,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20857,6 +20809,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
   <div>
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
       style="margin-bottom:10px"
     >
       <label
@@ -20952,6 +20905,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:10px"
   >
     <label
@@ -21543,7 +21497,6 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
-                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21636,7 +21589,6 @@ Array [
                       title="Age"
                     >
                       <div
-                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -21708,7 +21660,6 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
-                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21979,337 +21930,6 @@ Array [
 ]
 `;
 
-exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
-<div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper"
->
-  <div
-    class="ant-spin-nested-loading css-var-test-id"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout:auto"
-            >
-              <colgroup>
-                <col
-                  style="width:200px"
-                />
-                <col
-                  style="width:100px"
-                />
-                <col
-                  style="width:100px"
-                />
-                <col
-                  style="width:100px"
-                />
-              </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell react-resizable"
-                    scope="col"
-                  >
-                    Date
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    aria-description="sortable"
-                    aria-label="Amount"
-                    class="ant-table-cell ant-table-column-has-sorters react-resizable"
-                    scope="col"
-                    tabindex="0"
-                  >
-                    <div
-                      aria-describedby="test-id"
-                      class="ant-table-column-sorters"
-                    >
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Amount
-                      </span>
-                      <span
-                        class="ant-table-column-sorter ant-table-column-sorter-full"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="ant-table-column-sorter-inner"
-                        >
-                          <span
-                            aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            aria-label="caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </div>
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    class="ant-table-cell react-resizable"
-                    scope="col"
-                  >
-                    Type
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    class="ant-table-cell react-resizable"
-                    scope="col"
-                  >
-                    Note
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="0"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2018-02-11
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    120
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    income
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    transfer
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2018-03-11
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    243
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    income
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    transfer
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2018-04-11
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    98
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    income
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    transfer
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
-      >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
-        >
-          <button
-            class="ant-pagination-item-link"
-            disabled=""
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a
-            rel="nofollow"
-          >
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
-        >
-          <button
-            class="ant-pagination-item-link"
-            disabled=""
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
 <div
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
@@ -22452,6 +22072,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -27208,7 +26829,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27419,7 +27040,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -28705,7 +28326,6 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
@@ -28720,11 +28340,9 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
-                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-input"
                 id="test-id"
@@ -28914,7 +28532,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding:10px"
         >
           <li
@@ -29153,7 +28771,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding:10px"
         >
           <li

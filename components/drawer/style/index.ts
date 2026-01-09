@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { blurMaskStyle, genFocusStyle } from '../../style';
+import { genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -77,6 +77,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         background: colorBgElevated,
         display: 'flex',
         flexDirection: 'column',
+        pointerEvents: 'auto',
 
         [`&${componentCls}-left`]: {
           boxShadow: token.boxShadowDrawerLeft,
@@ -105,7 +106,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         pointerEvents: 'auto',
 
         [`&${componentCls}-mask-blur`]: {
-          ...blurMaskStyle,
+          backdropFilter: 'blur(4px)',
         },
       },
 

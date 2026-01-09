@@ -96,7 +96,6 @@ const columns = [
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
 <code src="./demo/drag-column-sorting.tsx">Drag Column sorting</code>
 <code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
-<code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
 <code src="./demo/custom-empty.tsx">Custom empty</code>
@@ -402,4 +401,28 @@ Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/compon
 
 ### Why does components.body.wrapper or components.body.row report an error when virtual is enabled? {#faq-virtual-wrapper-ref}
 
-Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom
+Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom. Like this:
+
+```tsx
+const EditableRow = React.forwardRef<HTMLTableRowElement, EditableRowProps>(
+  ({ index, ...props }, ref) => {
+    const [form] = Form.useForm();
+    return (
+      <Form form={form} component={false}>
+        <EditableContext.Provider value={form}>
+          <tr {...props} ref={ref} />
+        </EditableContext.Provider>
+      </Form>
+    );
+  },
+);
+```
+
+For scenarios with fixed row heights and vertical scrolling, you can use the following method:
+
+```tsx
+<Table
+  //@ts-ignore // This property is not exported, but it can be passed through to the internal virtual scrolling
+  listItemHeight={36} // This helps virtual scrolling calculate the height correctly, with each row fixed at 36px
+/>
+```

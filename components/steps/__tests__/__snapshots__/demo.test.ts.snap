@@ -978,7 +978,6 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
@@ -1011,7 +1010,6 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
@@ -1044,7 +1042,6 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
@@ -1077,7 +1074,6 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
       />
       <div
@@ -1498,7 +1494,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
             style="--steps-items-offset:0;margin-top:8px"
           >
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-process ant-steps-item-active"
             >
               <div
@@ -1531,7 +1526,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-wait"
             >
               <div
@@ -1564,7 +1558,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-wait"
             >
               <div
@@ -1636,7 +1629,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
             style="--steps-items-offset:0;margin-top:8px"
           >
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-finish"
             >
               <div
@@ -1669,7 +1661,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-error ant-steps-item-active"
             >
               <div
@@ -1702,7 +1693,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-wait"
             >
               <div
@@ -1774,7 +1764,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
             style="--steps-items-offset:0;margin-top:8px"
           >
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-finish"
             >
               <div
@@ -1807,7 +1796,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-finish"
             >
               <div
@@ -1840,7 +1828,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-process ant-steps-item-active"
             >
               <div
@@ -1912,7 +1899,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
             style="--steps-items-offset:0;margin-top:8px"
           >
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-finish"
             >
               <div
@@ -1945,7 +1931,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-process ant-steps-item-active"
             >
               <div
@@ -1978,7 +1963,6 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              aria-describedby="test-id"
               class="ant-steps-item ant-steps-item-wait"
             >
               <div
@@ -2024,7 +2008,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
     style="--steps-items-offset:0"
   >
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish"
     >
       <div
@@ -2063,7 +2046,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
     >
       <div
@@ -2102,7 +2084,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-wait"
     >
       <div
@@ -2141,7 +2122,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-wait"
     >
       <div
@@ -2180,7 +2160,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-wait"
     >
       <div
@@ -2221,7 +2200,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
     style="--steps-items-offset:0"
   >
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish"
     >
       <div
@@ -2263,7 +2241,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish"
     >
       <div
@@ -2305,7 +2282,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish"
     >
       <div
@@ -2347,7 +2323,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish"
     >
       <div
@@ -2389,7 +2364,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
     >
       <div
@@ -2432,7 +2406,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
     style="--steps-items-offset:2"
   >
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-finish"
     >
       <div
@@ -2471,7 +2444,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
     >
       <div
@@ -2510,7 +2482,6 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       class="ant-steps-item ant-steps-item-wait"
     >
       <div
@@ -5350,6 +5321,7 @@ exports[`renders components/steps/demo/steps-in-steps.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:16px"
   >
     <label
