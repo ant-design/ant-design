@@ -1,21 +1,17 @@
 import React, { Suspense, use } from 'react';
 import { Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
-import type { SiteContextProps } from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import GroupMaskLayer from '../GroupMaskLayer';
 
 import '../SiteContext';
 
 import LuminousBg from './LuminousBg';
-
-const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
 const locales = {
   cn: {
