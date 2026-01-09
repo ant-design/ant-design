@@ -17,7 +17,8 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
     flex-direction: column;
     align-items: stretch;
     text-decoration: none;
-    background: ${cssVar.colorBgContainer};
+    background: color-mix(in srgb, ${cssVar.colorBgContainer} 30%, transparent);
+    backdrop-filter: blur(8px);
     border: ${cssVar.lineWidth} solid ${cssVar.colorBorderSecondary};
     border-radius: ${cssVar.borderRadiusLG};
     transition: all ${cssVar.motionDurationSlow};
