@@ -5,10 +5,7 @@ import theme from '../../components/theme';
 
 const duration = 0.5;
 const viewTransitionStyle = `
-@keyframes keepAlive {
-  0%, 99% {  }
-  100% { z-index: -1 }
-}
+@keyframes keepAlive {100% { z-index: -1 }}
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
