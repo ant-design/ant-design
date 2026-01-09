@@ -9,12 +9,13 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import ConfigProvider from '../../config-provider';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import { parseColor } from '../util';
 import { isTooltipOpen } from './util';
 
@@ -589,18 +590,18 @@ describe('Tooltip', () => {
     const prefixCls = 'ant-tooltip';
     it('should set white text for dark backgrounds', () => {
       const darkColor = '#003366'; // 深色
-      const { overlayStyle } = parseColor(prefixCls, darkColor);
-
+      const { overlayStyle } = parseColor(defaultPrefixCls, prefixCls, darkColor);
+      const [varName] = genCssVar(defaultPrefixCls, 'tooltip');
       expect(overlayStyle.background).toBe(darkColor);
-      expect(overlayStyle['--ant-tooltip-color']).toBe('#FFF');
+      expect(overlayStyle[varName`overlay-color` as any]).toBe('#FFF');
     });
 
     it('should set black text for light backgrounds', () => {
       const lightColor = '#f8f8f8';
-      const { overlayStyle } = parseColor(prefixCls, lightColor);
-
+      const { overlayStyle } = parseColor(defaultPrefixCls, prefixCls, lightColor);
+      const [varName] = genCssVar(defaultPrefixCls, 'tooltip');
       expect(overlayStyle.background).toBe(lightColor);
-      expect(overlayStyle['--ant-tooltip-color']).toBe('#000');
+      expect(overlayStyle[varName`overlay-color` as any]).toBe('#000');
     });
     it('actual tooltip color rendering (default)', () => {
       const { container } = render(
@@ -608,10 +609,9 @@ describe('Tooltip', () => {
           <span>Hover me</span>
         </Tooltip>,
       );
-
+      const [varName] = genCssVar(defaultPrefixCls, 'tooltip');
       const tooltipContainer = container.querySelector('.ant-tooltip-container');
-
-      expect(tooltipContainer).toHaveStyle('--ant-tooltip-color: #FFF');
+      expect(tooltipContainer).toHaveStyle({ [varName`overlay-color`]: '#FFF' });
     });
     it('actual tooltip color rendering (styles)', () => {
       const { container } = render(

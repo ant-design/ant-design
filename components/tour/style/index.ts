@@ -11,6 +11,7 @@ import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -68,6 +69,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     primaryPrevBtnBg,
   } = token;
 
+  const [varName, varRef] = genCssVar(antCls, 'tooltip');
+
   return [
     {
       [componentCls]: {
@@ -78,7 +81,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         maxWidth: 'fit-content',
         visibility: 'visible',
         width: 520,
-        '--antd-arrow-background-color': colorBgElevated,
+        [varName`arrow-background-color`]: colorBgElevated,
 
         '&-pure': {
           maxWidth: '100%',
@@ -189,7 +192,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         // =============================  primary type  ===========================
         // `$` for panel, `&$` for pure panel
         [`${componentCls}-primary, &${componentCls}-primary`]: {
-          '--antd-arrow-background-color': colorPrimary,
+          [varName`arrow-background-color`]: colorPrimary,
 
           [`${componentCls}-section`]: {
             color: colorTextLightSolid,
@@ -259,7 +262,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     },
 
     // ============================= Arrow ===========================
-    getArrowStyle<TourToken>(token, 'var(--antd-arrow-background-color)'),
+    getArrowStyle<TourToken>(token, varRef`arrow-background-color`),
   ];
 };
 
@@ -282,12 +285,12 @@ export default genStyleHooks(
   'Tour',
   (token) => {
     const { borderRadiusLG } = token;
-    const TourToken = mergeToken<TourToken>(token, {
+    const tourToken = mergeToken<TourToken>(token, {
       indicatorWidth: 6,
       indicatorHeight: 6,
       tourBorderRadius: borderRadiusLG,
     });
-    return genBaseStyle(TourToken);
+    return genBaseStyle(tourToken);
   },
   prepareComponentToken,
 );

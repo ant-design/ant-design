@@ -1221,7 +1221,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #f50;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #f50;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1235,7 +1235,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(255, 85, 0); --ant-tooltip-color: #FFF;"
+          style="background: rgb(255, 85, 0); --ant-tooltip-overlay-color: #FFF;"
         >
           prompt text
         </div>
@@ -1255,7 +1255,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #2db7f5;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #2db7f5;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1269,7 +1269,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(45, 183, 245); --ant-tooltip-color: #000;"
+          style="background: rgb(45, 183, 245); --ant-tooltip-overlay-color: #000;"
         >
           prompt text
         </div>
@@ -1289,7 +1289,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #87d068;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #87d068;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1303,7 +1303,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(135, 208, 104); --ant-tooltip-color: #000;"
+          style="background: rgb(135, 208, 104); --ant-tooltip-overlay-color: #000;"
         >
           prompt text
         </div>
@@ -1323,7 +1323,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #108ee9;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #108ee9;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1337,7 +1337,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(16, 142, 233); --ant-tooltip-color: #FFF;"
+          style="background: rgb(16, 142, 233); --ant-tooltip-overlay-color: #FFF;"
         >
           prompt text
         </div>
@@ -2135,7 +2135,7 @@ Array [
   </div>,
   <div
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
-    style="--antd-arrow-background-color: #f50;"
+    style="--ant-tooltip-arrow-background-color: #f50;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -2143,7 +2143,7 @@ Array [
     <div
       class="ant-tooltip-container"
       role="tooltip"
-      style="background: rgb(255, 85, 0); --ant-tooltip-color: #FFF;"
+      style="background: rgb(255, 85, 0); --ant-tooltip-overlay-color: #FFF;"
     >
       Hello, Customize Color Pure Panel!
     </div>
