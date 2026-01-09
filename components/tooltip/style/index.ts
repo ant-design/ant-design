@@ -15,6 +15,12 @@ import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal'
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
+   * @since 6.2.0
+   * @desc 文字提示最大宽度
+   * @descEN Max width of tooltip
+   */
+  maxWidth: number;
+  /**
    * @desc 文字提示 z-index
    * @descEN z-index of tooltip
    */
@@ -187,6 +193,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
+  maxWidth: 250,
   ...getArrowOffsetToken({
     contentRadius: token.borderRadius,
     limitVerticalRadius: true,
@@ -202,11 +209,11 @@ export default (prefixCls: string, rootCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {
-      const { borderRadius, colorTextLightSolid, colorBgSpotlight } = token;
+      const { borderRadius, colorTextLightSolid, colorBgSpotlight, maxWidth } = token;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
         // default variables
-        tooltipMaxWidth: 250,
+        tooltipMaxWidth: maxWidth,
         tooltipColor: colorTextLightSolid,
         tooltipBorderRadius: borderRadius,
         tooltipBg: colorBgSpotlight,
