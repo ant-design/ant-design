@@ -161,7 +161,7 @@ const Header: React.FC = () => {
   const { pkg } = useSiteData();
 
   const chineseMirror =
-    typeof window.location !== 'undefined' && window.location.hostname.includes('.antgroup.com');
+    typeof window?.location !== 'undefined' && window.location.hostname.includes('.antgroup.com');
 
   // ============================ SWR Implementation ============================
   const versionUrl = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
