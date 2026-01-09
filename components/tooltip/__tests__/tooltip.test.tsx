@@ -593,7 +593,7 @@ describe('Tooltip', () => {
       const { overlayStyle } = parseColor(defaultPrefixCls, prefixCls, darkColor);
       const [varName] = genCssVar(defaultPrefixCls, 'tooltip');
       expect(overlayStyle.background).toBe(darkColor);
-      expect(overlayStyle[varName`overlay-color` as any]).toBe('#FFF');
+      expect(overlayStyle[varName('overlay-color') as any]).toBe('#FFF');
     });
 
     it('should set black text for light backgrounds', () => {
@@ -601,7 +601,7 @@ describe('Tooltip', () => {
       const { overlayStyle } = parseColor(defaultPrefixCls, prefixCls, lightColor);
       const [varName] = genCssVar(defaultPrefixCls, 'tooltip');
       expect(overlayStyle.background).toBe(lightColor);
-      expect(overlayStyle[varName`overlay-color` as any]).toBe('#000');
+      expect(overlayStyle[varName('overlay-color') as any]).toBe('#000');
     });
     it('actual tooltip color rendering (default)', () => {
       const { container } = render(
@@ -611,7 +611,7 @@ describe('Tooltip', () => {
       );
       const [varName] = genCssVar(defaultPrefixCls, 'tooltip');
       const tooltipContainer = container.querySelector('.ant-tooltip-container');
-      expect(tooltipContainer).toHaveStyle({ [varName`overlay-color`]: '#FFF' });
+      expect(tooltipContainer).toHaveStyle({ [varName('overlay-color')]: '#FFF' });
     });
     it('actual tooltip color rendering (styles)', () => {
       const { container } = render(

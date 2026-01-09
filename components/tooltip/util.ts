@@ -20,8 +20,8 @@ export const parseColor = (rootPrefixCls: string, prefixCls: string, color?: str
   const textColor = luminance < 0.5 ? '#FFF' : '#000';
   if (color && !isInternalColor) {
     overlayStyle.background = color;
-    overlayStyle[varName`overlay-color` as any] = textColor;
-    arrowStyle[varName`arrow-background-color` as any] = color;
+    overlayStyle[varName('overlay-color') as any] = textColor;
+    arrowStyle[varName('arrow-background-color') as any] = color;
   }
 
   return { className, overlayStyle, arrowStyle };

@@ -63,7 +63,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     minWidth: centerAlignMinWidth,
     minHeight: controlHeight,
     padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
-    color: varRef`overlay-color, ${tooltipColor}`,
+    color: varRef(`overlay-color`, tooltipColor),
     textAlign: 'start',
     textDecoration: 'none',
     wordWrap: 'break-word',
@@ -96,7 +96,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           display: 'none',
         },
 
-        [varName`arrow-background-color`]: tooltipBg,
+        [varName('arrow-background-color')]: tooltipBg,
 
         // Wrapper for the tooltip content
         [`${componentCls}-container`]: [sharedBodyStyle, initFadeMotion(token, true)],
@@ -144,7 +144,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
               backgroundColor: darkColor,
             },
             [`${componentCls}-arrow`]: {
-              [varName`arrow-background-color`]: darkColor,
+              [varName('arrow-background-color')]: darkColor,
             },
           },
         })),
@@ -157,7 +157,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<TooltipToken>(token, varRef`arrow-background-color`),
+    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {

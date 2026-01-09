@@ -109,7 +109,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
         transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
 
-        [varName`arrow-background-color`]: colorBgElevated,
+        [varName('arrow-background-color')]: colorBgElevated,
         width: 'max-content',
         maxWidth: '100vw',
 
@@ -150,7 +150,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<PopoverToken>(token, varRef`arrow-background-color`),
+    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {
@@ -172,7 +172,7 @@ const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
       const lightColor = token[`${colorKey}6`];
       return {
         [`&${componentCls}-${colorKey}`]: {
-          [varName`arrow-background-color`]: lightColor,
+          [varName('arrow-background-color')]: lightColor,
           [`${componentCls}-inner`]: {
             backgroundColor: lightColor,
           },
