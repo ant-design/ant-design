@@ -176,6 +176,17 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         padding: 0,
         whiteSpace: 'pre-wrap',
 
+        '&-lg': {
+          [varName('padding-inline')]: token.paddingInlineLG,
+          [varName('padding-block')]: token.paddingBlockLG,
+          [varName('control-height')]: token.controlHeightLG,
+        },
+        '&-sm': {
+          [varName('padding-inline')]: token.paddingInlineSM,
+          [varName('padding-block')]: token.paddingBlockSM,
+          [varName('control-height')]: token.controlHeightSM,
+        },
+
         // ========================= Textarea =========================
         '> textarea': [
           resetComponent(token),
@@ -301,19 +312,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           '> textarea': {
             ...genDisabledStyle(token),
           },
-        },
-      },
-      // ============================ Size ============================
-      {
-        '&-lg': {
-          [varName('padding-inline')]: token.paddingInlineLG,
-          [varName('padding-block')]: token.paddingBlockLG,
-          [varName('control-height')]: token.controlHeightLG,
-        },
-        '&-sm': {
-          [varName('padding-inline')]: token.paddingInlineSM,
-          [varName('padding-block')]: token.paddingBlockSM,
-          [varName('control-height')]: token.controlHeightSM,
         },
       },
     ],
