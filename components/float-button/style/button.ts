@@ -24,7 +24,7 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
       // ==                         Variable                         ==
       // ==============================================================
       {
-        [varName('size')]: unit(floatButtonSize),
+        [varName`size`]: unit(floatButtonSize),
       },
 
       // ==============================================================
@@ -35,8 +35,8 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         margin: 0,
         padding: `${unit(token.paddingXXS)} 0`,
 
-        width: varRef('size'),
-        minHeight: varRef('size'),
+        width: varRef`size`,
+        minHeight: varRef`size`,
         height: 'auto',
         wordBreak: 'break-word',
         whiteSpace: 'normal',

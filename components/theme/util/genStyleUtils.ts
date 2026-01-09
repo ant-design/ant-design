@@ -45,9 +45,12 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
 export const genCssVar = (
   antCls: string,
   componentAbbr: string,
-): readonly [varName: (name: string) => string, varRef: (name: string) => string] => {
+): readonly [
+  varName: (inputs: TemplateStringsArray) => string,
+  varRef: (inputs: TemplateStringsArray) => string,
+] => {
   const cssPrefix = `--${antCls.replace(/\./, '')}-${componentAbbr}-`;
-  const varName = (name: string) => `${cssPrefix}${name}`;
-  const varRef = (name: string) => `var(${cssPrefix}${name})`;
+  const varName = (inputs: TemplateStringsArray) => `${cssPrefix}${inputs[0]}`;
+  const varRef = (inputs: TemplateStringsArray) => `var(${cssPrefix}${inputs[0]})`;
   return [varName, varRef] as const;
 };
