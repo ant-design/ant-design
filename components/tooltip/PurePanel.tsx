@@ -27,12 +27,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
+  const rootPrefixCls = getPrefixCls();
+
   const rootCls = useCSSVarCls(prefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
 
   const arrowContentStyle: React.CSSProperties = colorInfo.arrowStyle;
 

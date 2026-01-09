@@ -12,6 +12,7 @@ import type {
   GetDefaultToken,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genFormValidateMotionStyle from './explain';
 
 export interface ComponentToken {
@@ -197,6 +198,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     itemMarginBottom,
   } = token;
 
+  const [varName] = genCssVar(antCls, 'grid');
+
   return {
     [formItemCls]: {
       ...resetComponent(token),
@@ -319,7 +322,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Input                           =
       // ==============================================================
       [`${formItemCls}-control`]: {
-        ['--ant-display' as any]: 'flex',
+        [varName('display')]: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
 
