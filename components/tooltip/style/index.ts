@@ -63,7 +63,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     minWidth: centerAlignMinWidth,
     minHeight: controlHeight,
     padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
-    color: varRef(`overlay-color`, tooltipColor),
+    color: varRef('overlay-color', tooltipColor),
     textAlign: 'start',
     textDecoration: 'none',
     wordWrap: 'break-word',
