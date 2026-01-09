@@ -168,13 +168,13 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
       // ========================== Mentions ==========================
       {
-        [varName('padding-inline')]: token.paddingInline,
-        [varName('padding-block')]: token.paddingBlock,
-        [varName('control-height')]: token.controlHeight,
-
         display: 'flex',
         padding: 0,
         whiteSpace: 'pre-wrap',
+
+        [varName('padding-inline')]: token.paddingInline,
+        [varName('padding-block')]: token.paddingBlock,
+        [varName('control-height')]: token.controlHeight,
 
         // ========================= Textarea =========================
         '> textarea': [
