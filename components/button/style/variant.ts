@@ -6,7 +6,7 @@ import type { ButtonToken } from './token';
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls, antCls } = token;
 
-  const [varName] = createScopedCssVar(antCls, 'btn');
+  const [varName, varRef] = createScopedCssVar(antCls, 'btn');
 
   return {
     [componentCls]: [
@@ -18,22 +18,22 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [varName('border-width')]: '1px',
 
         [varName('border-color')]: '#000',
-        [varName('border-color-hover')]: `var(${varName('border-color')})`,
-        [varName('border-color-active')]: `var(${varName('border-color')})`,
-        [varName('border-color-disabled')]: `var(${varName('border-color')})`,
+        [varName('border-color-hover')]: varRef('border-color'),
+        [varName('border-color-active')]: varRef('border-color'),
+        [varName('border-color-disabled')]: varRef('border-color'),
 
         [varName('border-style')]: 'solid',
 
         // Text
         [varName('text-color')]: '#000',
-        [varName('text-color-hover')]: `var(${varName('text-color')})`,
-        [varName('text-color-active')]: `var(${varName('text-color')})`,
-        [varName('text-color-disabled')]: `var(${varName('text-color')})`,
+        [varName('text-color-hover')]: varRef('text-color'),
+        [varName('text-color-active')]: varRef('text-color'),
+        [varName('text-color-disabled')]: varRef('text-color'),
 
         // Background
         [varName('bg-color')]: '#ddd',
-        [varName('bg-color-hover')]: `var(${varName('bg-color')})`,
-        [varName('bg-color-active')]: `var(${varName('bg-color')})`,
+        [varName('bg-color-hover')]: varRef('bg-color'),
+        [varName('bg-color-active')]: varRef('bg-color'),
         [varName('bg-color-disabled')]: token.colorBgContainerDisabled,
         [varName('bg-color-container')]: token.colorBgContainer,
 
@@ -45,24 +45,32 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       // ==============================================================
       {
         // Basic
-        border: `var(${varName('border-width')}) var(${varName('border-style')}) var(${varName('border-color')})`,
-        color: `var(${varName('text-color')})`,
-        backgroundColor: `var(${varName('bg-color')})`,
+        border: [varRef('border-width'), varRef('border-style'), varRef('border-color')].join(' '),
+        color: varRef('text-color'),
+        backgroundColor: varRef('bg-color'),
 
         // Status
         [`&:not(:disabled):not(${componentCls}-disabled)`]: {
           // Hover
           '&:hover': {
-            border: `var(${varName('border-width')}) var(${varName('border-style')}) var(${varName('border-color-hover')})`,
-            color: `var(${varName('text-color-hover')})`,
-            backgroundColor: `var(${varName('bg-color-hover')})`,
+            border: [
+              varRef('border-width'),
+              varRef('border-style'),
+              varRef('border-color-hover'),
+            ].join(' '),
+            color: varName('text-color-hover'),
+            backgroundColor: varName('bg-color-hover'),
           },
 
           // Active
           '&:active': {
-            border: `var(${varName('border-width')}) var(${varName('border-style')}) var(${varName('border-color-active')})`,
-            color: `var(${varName('text-color-active')})`,
-            backgroundColor: `var(${varName('bg-color-active')})`,
+            border: [
+              varRef('border-width'),
+              varRef('border-style'),
+              varRef('border-color-active'),
+            ].join(' '),
+            color: varName('text-color-active'),
+            backgroundColor: varName('bg-color-active'),
           },
         },
       },
@@ -74,37 +82,36 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         // >>>>> Solid
         [`&${componentCls}-variant-solid`]: {
           // Solid Variables
-          [varName('solid-bg-color')]: `var(${varName('color-base')})`,
-          [varName('solid-bg-color-hover')]: `var(${varName('color-hover')})`,
-          [varName('solid-bg-color-active')]: `var(${varName('color-active')})`,
+          [varName('solid-bg-color')]: varName('color-base'),
+          [varName('solid-bg-color-hover')]: varName('color-hover'),
+          [varName('solid-bg-color-active')]: varName('color-active'),
 
           // Variables
           [varName('border-color')]: 'transparent',
 
           [varName('text-color')]: token.colorTextLightSolid,
 
-          [varName('bg-color')]: `var(${varName('solid-bg-color')})`,
-          [varName('bg-color-hover')]: `var(${varName('solid-bg-color-hover')})`,
-          [varName('bg-color-active')]: `var(${varName('solid-bg-color-active')})`,
+          [varName('bg-color')]: varName('solid-bg-color'),
+          [varName('bg-color-hover')]: varName('solid-bg-color-hover'),
+          [varName('bg-color-active')]: varName('solid-bg-color-active'),
 
           // Box Shadow
-          boxShadow: `var(${varName('shadow')})`,
+          boxShadow: varName('shadow'),
         },
 
         // >>>>> Outlined & Dashed
         [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
-          [varName('border-color')]: `var(${varName('color-base')})`,
-          [varName('border-color-hover')]: `var(${varName('color-hover')})`,
-          [varName('border-color-active')]: `var(${varName('color-active')})`,
+          [varName('border-color')]: varName('color-base'),
+          [varName('border-color-hover')]: varName('color-hover'),
+          [varName('border-color-active')]: varName('color-active'),
 
-          [varName('bg-color')]: `var(${varName('bg-color-container')})`,
-
-          [varName('text-color')]: `var(${varName('color-base')})`,
-          [varName('text-color-hover')]: `var(${varName('color-hover')})`,
-          [varName('text-color-active')]: `var(${varName('color-active')})`,
+          [varName('bg-color')]: varName('bg-color-container'),
+          [varName('text-color')]: varName('color-base'),
+          [varName('text-color-hover')]: varName('color-hover'),
+          [varName('text-color-active')]: varName('color-active'),
 
           // Box Shadow
-          boxShadow: `var(${varName('shadow')})`,
+          boxShadow: varName('shadow'),
         },
 
         // >>>>> Dashed
@@ -117,20 +124,20 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [`&${componentCls}-variant-filled`]: {
           [varName('border-color')]: 'transparent',
 
-          [varName('text-color')]: `var(${varName('color-base')})`,
+          [varName('text-color')]: varName('color-base'),
 
-          [varName('bg-color')]: `var(${varName('color-light')})`,
-          [varName('bg-color-hover')]: `var(${varName('color-light-hover')})`,
-          [varName('bg-color-active')]: `var(${varName('color-light-active')})`,
+          [varName('bg-color')]: varName('color-light'),
+          [varName('bg-color-hover')]: varName('color-light-hover'),
+          [varName('bg-color-active')]: varName('color-light-active'),
         },
 
         // >>>>> Text & Link
         [`&${componentCls}-variant-text, &${componentCls}-variant-link`]: {
           [varName('border-color')]: 'transparent',
 
-          [varName('text-color')]: `var(${varName('color-base')})`,
-          [varName('text-color-hover')]: `var(${varName('color-hover')})`,
-          [varName('text-color-active')]: `var(${varName('color-active')})`,
+          [varName('text-color')]: varName('color-base'),
+          [varName('text-color-hover')]: varName('color-hover'),
+          [varName('text-color-active')]: varName('color-active'),
 
           [varName('bg-color')]: 'transparent',
           [varName('bg-color-hover')]: 'transparent',
@@ -144,8 +151,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
         // >>>>> Text
         [`&${componentCls}-variant-text`]: {
-          [varName('bg-color-hover')]: `var(${varName('color-light')})`,
-          [varName('bg-color-active')]: `var(${varName('color-light-active')})`,
+          [varName('bg-color-hover')]: varName('color-light'),
+          [varName('bg-color-active')]: varName('color-light-active'),
         },
       },
 
@@ -175,8 +182,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
           [`&${componentCls}-variant-solid`]: {
             [varName('text-color')]: token.primaryColor,
-            [varName('text-color-hover')]: `var(${varName('text-color')})`,
-            [varName('text-color-active')]: `var(${varName('text-color')})`,
+            [varName('text-color-hover')]: varName('text-color'),
+            [varName('text-color-active')]: varName('text-color'),
           },
         },
 
@@ -193,8 +200,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
           [`&${componentCls}-variant-solid`]: {
             [varName('text-color')]: token.dangerColor,
-            [varName('text-color-hover')]: `var(${varName('text-color')})`,
-            [varName('text-color-active')]: `var(${varName('text-color')})`,
+            [varName('text-color-hover')]: varName('text-color'),
+            [varName('text-color-active')]: varName('text-color'),
           },
         },
 
@@ -220,13 +227,13 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
           [`&${componentCls}-variant-solid`]: {
             [varName('text-color')]: token.solidTextColor,
-            [varName('text-color-hover')]: `var(${varName('text-color')})`,
-            [varName('text-color-active')]: `var(${varName('text-color')})`,
+            [varName('text-color-hover')]: varName('text-color'),
+            [varName('text-color-active')]: varName('text-color'),
           },
 
           [`&${componentCls}-variant-filled, &${componentCls}-variant-text`]: {
-            [varName('text-color-hover')]: `var(${varName('text-color')})`,
-            [varName('text-color-active')]: `var(${varName('text-color')})`,
+            [varName('text-color-hover')]: varName('text-color'),
+            [varName('text-color-active')]: varName('text-color'),
           },
 
           [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
@@ -275,7 +282,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [`&:disabled, &${token.componentCls}-disabled`]: {
           cursor: 'not-allowed',
           borderColor: token.colorBorderDisabled,
-          background: `var(${varName('bg-color-disabled')})`,
+          background: varName('bg-color-disabled'),
           color: token.colorTextDisabled,
           boxShadow: 'none',
         },

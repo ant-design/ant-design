@@ -8,7 +8,7 @@ import { createScopedCssVar } from '../../theme/util/genStyleUtils';
 const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
 
-  const [varName] = createScopedCssVar(antCls, 'float-btn');
+  const [varName, varRef] = createScopedCssVar(antCls, 'float-btn');
 
   const badgeCls = `${componentCls}-badge`;
 
@@ -35,8 +35,8 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         margin: 0,
         padding: `${unit(token.paddingXXS)} 0`,
 
-        width: `var(${varName('size')})`,
-        minHeight: `var(${varName('size')})`,
+        width: varRef('size'),
+        minHeight: varRef('size'),
         height: 'auto',
         wordBreak: 'break-word',
         whiteSpace: 'normal',
