@@ -4,8 +4,10 @@ import { clsx } from 'clsx';
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
+import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
 import { TARGET_CLS } from '../wave/interface';
+import useWave from '../wave/useWave';
 
 (global as any).isVisible = true;
 
@@ -377,5 +379,63 @@ describe('Wave component', () => {
     expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
 
     unmount();
+  });
+
+  describe('trigger types', () => {
+    it('should trigger on click by default', () => {
+      const { container } = render(
+        <Wave>
+          <button type="button">Button</button>
+        </Wave>,
+      );
+
+      fireEvent.click(container.querySelector('button')!);
+      waitRaf();
+      expect(document.querySelector('.ant-wave')).toBeTruthy();
+    });
+
+    it('should trigger on mousedown when configured', () => {
+      const { container } = render(
+        <ConfigProvider wave={{ triggerType: 'onMouseDown' }}>
+          <Wave>
+            <button type="button">Button</button>
+          </Wave>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+
+      fireEvent.click(button);
+      waitRaf();
+      expect(document.querySelector('.ant-wave')).toBeFalsy();
+
+      // Should trigger on mousedown
+      fireEvent.mouseDown(button);
+      waitRaf();
+      expect(document.querySelector('.ant-wave')).toBeTruthy();
+    });
+
+    it('should trigger on pointerdown when configured', () => {
+      const { container } = render(
+        <ConfigProvider wave={{ triggerType: 'onPointerDown' }}>
+          <Wave>
+            <button type="button">Button</button>
+          </Wave>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+      fireEvent.click(button);
+
+      waitRaf();
+
+      expect(document.querySelector('.ant-wave')).toBeFalsy();
+
+      fireEvent.pointerDown(button);
+
+      waitRaf();
+
+      expect(document.querySelector('.ant-wave')).toBeTruthy();
+    });
   });
 });
