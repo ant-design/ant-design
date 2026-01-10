@@ -44,7 +44,7 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
 
 type CalcCssVarName = (inputs: string) => `--${string}`;
 
-type CalcCssVarRef = (inputs: string, fallback?: string) => `var(--${string})`;
+type CalcCssVarRef = (inputs: string, fallback?: string | number) => `var(--${string})`;
 
 export const genCssVar = (
   antCls: string,
