@@ -33,7 +33,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   const itemCls = `${componentCls}-item`;
 
-  const [varName, varRef] = genCssVar(antCls, 'steps');
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   return {
     [componentCls]: [
@@ -289,7 +289,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             [varName('item-icon-bg-color')]: colorBgContainer,
             [varName('item-icon-border-color')]: colorTextDisabled,
             [varName('item-icon-text-color')]: colorTextDisabled,
-            [varName('item-icon-dot-bg-color')]: colorTextDisabled,
+            [varName('item-icon-dot-color')]: colorTextDisabled,
             // Hover
             [varName('item-icon-bg-hover-color')]: 'transparent',
             [varName('item-icon-border-hover-color')]: colorPrimaryHover,
@@ -303,7 +303,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             [varName('item-icon-bg-color')]: colorBgContainer,
             [varName('item-icon-border-color')]: colorPrimary,
             [varName('item-icon-text-color')]: colorPrimary,
-            [varName('item-icon-dot-bg-color')]: colorPrimary,
+            [varName('item-icon-dot-color')]: colorPrimary,
             // Hover
             [varName('item-icon-bg-hover-color')]: 'transparent',
             [varName('item-icon-border-hover-color')]: colorPrimaryHover,

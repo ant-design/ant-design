@@ -15,7 +15,7 @@ const ProgressIcon: React.FC<React.PropsWithChildren<ProgressIconProps>> = (prop
   const progressCls = `${prefixCls}-item-progress-icon`;
   const circleCls = `${progressCls}-circle`;
 
-  const [, varRef] = genCssVar(rootPrefixCls, 'steps');
+  const [, varRef] = genCssVar(rootPrefixCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   const dashArray = `calc(${varRef('progress-radius')} * 2 * ${(Math.PI * percent) / 100}) 9999`;
 

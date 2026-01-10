@@ -21,7 +21,7 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   const stepsNavActiveColor = colorPrimary;
 
-  const [varName, varRef] = genCssVar(antCls, 'steps');
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   return {
     [`${componentCls}${componentCls}-navigation`]: {

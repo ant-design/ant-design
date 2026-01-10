@@ -96,7 +96,7 @@ export interface StepsToken extends FullToken<'Steps'> {
 const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const itemCls = `${componentCls}-item`;
-  const [varName, varRef] = genCssVar(antCls, 'steps');
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
   return {
     [componentCls]: {
       [varName('title-font-size')]: token.fontSizeLG,

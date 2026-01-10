@@ -20,7 +20,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   const itemCls = `${componentCls}-item`;
 
-  const [varName, varRef] = genCssVar(antCls, 'steps');
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   const progressSize = calc(iconSize).add(calc(lineWidthBold).mul(4).equal()).equal();
 

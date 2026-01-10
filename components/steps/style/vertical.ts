@@ -7,7 +7,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, marginXXS, paddingSM, controlHeight, antCls, calc } = token;
   const itemCls = `${componentCls}-item`;
-  const [varName, varRef] = genCssVar(antCls, 'steps');
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
   return {
     [`${componentCls}-vertical`]: {
       [varName('vertical-rail-margin')]: calc(marginXXS).mul(1.5).equal(),

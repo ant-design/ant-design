@@ -7,7 +7,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const itemCls = `${componentCls}-item`;
-  const [varName, varRef] = genCssVar(antCls, 'steps');
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
   return {
     [`${componentCls}-horizontal`]: {
       [`> ${itemCls}`]: {
