@@ -99,7 +99,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       [`&${componentCls}-horizontal ${itemCls}-rail`]: {
         [varName('item-wrapper-padding-top')]: '0px',
 
-        flex: 1,
+        flex: '1 1 0%',
         marginInlineStart: varRef('title-horizontal-rail-margin'),
       },
     },
@@ -111,8 +111,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       [varName('heading-height')]: varRef('icon-size-max'),
 
       [`> ${itemCls}`]: {
-        flex: 1,
-
+        flex: '1 1 0%',
         [`${itemCls}-wrapper`]: {
           flexDirection: 'column',
           rowGap: varRef('title-vertical-row-gap'),
