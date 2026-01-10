@@ -146,7 +146,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const { componentCls, colorText, antCls, colorTextDisabled, calc } = token;
-  const [varName, varRef] = genCssVar(antCls, 'mentions');
+  const [varName, varRef] = genCssVar(antCls, '_mentions'); // 这里的参数不能传 `mentions`，否则就会和组件的 prefixCls 重复，导致组件本身的 css 变量被覆盖
   return {
     [componentCls]: [
       // =========================== Common ===========================
@@ -175,17 +175,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         display: 'flex',
         padding: 0,
         whiteSpace: 'pre-wrap',
-
-        '&-lg': {
-          [varName('padding-inline')]: token.paddingInlineLG,
-          [varName('padding-block')]: token.paddingBlockLG,
-          [varName('control-height')]: token.controlHeightLG,
-        },
-        '&-sm': {
-          [varName('padding-inline')]: token.paddingInlineSM,
-          [varName('padding-block')]: token.paddingBlockSM,
-          [varName('control-height')]: token.controlHeightSM,
-        },
 
         // ========================= Textarea =========================
         '> textarea': [
@@ -312,6 +301,18 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           '> textarea': {
             ...genDisabledStyle(token),
           },
+        },
+      },
+      {
+        '&-lg': {
+          [varName('padding-inline')]: token.paddingInlineLG,
+          [varName('padding-block')]: token.paddingBlockLG,
+          [varName('control-height')]: token.controlHeightLG,
+        },
+        '&-sm': {
+          [varName('padding-inline')]: token.paddingInlineSM,
+          [varName('padding-block')]: token.paddingBlockSM,
+          [varName('control-height')]: token.controlHeightSM,
         },
       },
     ],
