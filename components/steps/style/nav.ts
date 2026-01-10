@@ -3,21 +3,25 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
     fontSizeIcon,
-    calc,
     navContentMaxWidth,
     navArrowColor,
     colorPrimary,
     motionDurationSlow,
+    antCls,
+    calc,
   } = token;
 
   const itemCls = `${componentCls}-item`;
 
   const stepsNavActiveColor = colorPrimary;
+
+  const [varName, varRef] = genCssVar(antCls, 'steps');
 
   return {
     [`${componentCls}${componentCls}-navigation`]: {
@@ -68,10 +72,10 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Reset active item style to same as default
         [`&${itemCls}-active`]: {
-          '--steps-item-content-active-color': `var(--steps-item-content-color)`,
-          '--steps-item-icon-active-bg-color': 'var(--steps-item-icon-bg-color)',
-          '--steps-item-icon-active-border-color': 'var(--steps-item-icon-border-color)',
-          '--steps-item-icon-active-text-color': 'var(--steps-item-icon-text-color)',
+          [varName('item-content-active-color')]: varRef('item-content-color'),
+          [varName('item-icon-active-bg-color')]: varRef('item-icon-bg-color'),
+          [varName('item-icon-active-border-color')]: varRef('item-icon-border-color'),
+          [varName('item-icon-active-text-color')]: varRef('item-icon-text-color'),
         },
       },
 

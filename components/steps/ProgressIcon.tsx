@@ -1,19 +1,23 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { genCssVar } from '../theme/util/genStyleUtils';
+
 export interface ProgressIconProps {
   prefixCls: string;
-  children?: React.ReactNode;
+  rootPrefixCls: string;
   percent: number;
 }
 
-export default function ProgressIcon(props: ProgressIconProps) {
-  const { prefixCls, children, percent } = props;
+const ProgressIcon: React.FC<React.PropsWithChildren<ProgressIconProps>> = (props) => {
+  const { prefixCls, rootPrefixCls, children, percent } = props;
 
   const progressCls = `${prefixCls}-item-progress-icon`;
   const circleCls = `${progressCls}-circle`;
 
-  const dashArray = `calc(var(--progress-r) * 2 * ${(Math.PI * percent) / 100}) 9999`;
+  const [, varRef] = genCssVar(rootPrefixCls, 'steps');
+
+  const dashArray = `calc(${varRef('progress-radius')} * 2 * ${(Math.PI * percent) / 100}) 9999`;
 
   return (
     <>
@@ -38,4 +42,6 @@ export default function ProgressIcon(props: ProgressIconProps) {
       {children}
     </>
   );
-}
+};
+
+export default ProgressIcon;

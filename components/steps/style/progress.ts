@@ -3,23 +3,34 @@ import { unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { calc, antCls, componentCls, iconSize, iconSizeSM, lineWidthBold, paddingXXS } = token;
+  const {
+    calc,
+    antCls,
+    componentCls,
+    iconSize,
+    iconSizeSM,
+    lineWidth,
+    lineWidthBold,
+    paddingXXS,
+    motionDurationSlow,
+  } = token;
 
   const itemCls = `${componentCls}-item`;
 
-  const progressSize = token.calc(iconSize).add(token.calc(lineWidthBold).mul(4).equal()).equal();
-  const progressSizeSM = token
-    .calc(iconSizeSM)
-    .add(token.calc(token.lineWidth).mul(4).equal())
-    .equal();
+  const [varName, varRef] = genCssVar(antCls, 'steps');
+
+  const progressSize = calc(iconSize).add(calc(lineWidthBold).mul(4).equal()).equal();
+
+  const progressSizeSM = calc(iconSizeSM).add(calc(lineWidth).mul(4).equal()).equal();
 
   const enhanceSize = calc(lineWidthBold).add(lineWidthBold).equal();
 
   return {
     [`${componentCls}${componentCls}-with-progress`]: {
-      '--steps-item-wrapper-padding-top': enhanceSize,
+      [varName('item-wrapper-padding-top')]: enhanceSize,
 
       [`${itemCls}${itemCls}-process`]: {
         [`${itemCls}-icon`]: {
@@ -29,10 +40,10 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       [`${itemCls}-progress-icon`]: {
         '&-svg': {
-          '--steps-svg-size': calc(enhanceSize).mul(2).add(`var(--steps-icon-size)`).equal(),
-          '--icon-size-ptg-unitless': `calc(100 / tan(atan2(var(--steps-svg-size),1px)))`,
-          fontSize: `var(--steps-svg-size)`,
-          lineHeight: `var(--icon-size-ptg-unitless)`,
+          [varName('svg-size')]: calc(enhanceSize).mul(2).add(varRef('icon-size')).equal(),
+          [varName('icon-size-ptg-unitless')]: `calc(100 / tan(atan2(${varRef('svg-size')}, 1px)))`,
+          fontSize: varRef('svg-size'),
+          lineHeight: varRef('icon-size-ptg-unitless'),
 
           position: 'absolute',
           inset: calc(enhanceSize).mul(-1).equal(),
@@ -41,18 +52,18 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
 
         '&-circle': {
-          lineHeight: `var(--icon-size-ptg-unitless)`,
-          strokeWidth: calc(`var(--icon-size-ptg-unitless)`).mul(lineWidthBold).equal(),
-          '--progress-r': calc(`var(--steps-svg-size)`)
+          lineHeight: varRef('icon-size-ptg-unitless'),
+          strokeWidth: calc(varRef('icon-size-ptg-unitless')).mul(lineWidthBold).equal(),
+          [varName('progress-radius')]: calc(varRef('svg-size'))
             .sub(lineWidthBold)
-            .mul(`var(--icon-size-ptg-unitless)`)
+            .mul(varRef('icon-size-ptg-unitless'))
             .div(2)
             .equal(),
-          r: `var(--progress-r)`,
+          r: varRef('progress-radius'),
           fill: 'none',
           cx: 50,
           cy: 50,
-          transition: `all ${token.motionDurationSlow} ease-in-out`,
+          transition: `all ${motionDurationSlow} ease-in-out`,
 
           '&-rail': {
             stroke: token.colorSplit,

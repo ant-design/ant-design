@@ -2,22 +2,23 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, calc } = token;
+  const { componentCls, marginXXS, paddingSM, controlHeight, antCls, calc } = token;
   const itemCls = `${componentCls}-item`;
-
+  const [varName, varRef] = genCssVar(antCls, 'steps');
   return {
     [`${componentCls}-vertical`]: {
-      '--steps-vertical-rail-margin': calc(token.marginXXS).mul(1.5).equal(),
+      [varName('vertical-rail-margin')]: calc(marginXXS).mul(1.5).equal(),
 
       flexDirection: 'column',
       alignItems: 'stretch',
 
       // Item
       [`> ${itemCls}`]: {
-        minHeight: calc(token.controlHeight).mul(1.5).equal(),
-        paddingBottom: token.paddingSM,
+        minHeight: calc(controlHeight).mul(1.5).equal(),
+        paddingBottom: paddingSM,
 
         '&:last-child': {
           paddingBottom: 0,
@@ -25,26 +26,26 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Icon
         [`${itemCls}-icon`]: {
-          marginInlineStart: 'calc((var(--steps-icon-size-max) - var(--steps-icon-size)) / 2)',
+          marginInlineStart: `calc((${varRef('icon-size-max')} - ${varRef('icon-size')}) / 2)`,
         },
 
         // >>> Rail
         [`${itemCls}-rail`]: {
-          '--steps-rail-offset': calc('var(--steps-heading-height)')
-            .sub('var(--steps-icon-size)')
+          [varName('rail-offset')]: calc(varRef('heading-height'))
+            .sub(varRef('icon-size'))
             .div(2)
             .equal(),
 
-          borderInlineStartWidth: 'var(--steps-rail-size)',
+          borderInlineStartWidth: varRef('rail-size'),
           position: 'absolute',
-          top: calc(`var(--steps-icon-size)`)
-            .add('var(--steps-item-wrapper-padding-top)')
-            .add('var(--steps-rail-offset)')
-            .add('var(--steps-vertical-rail-margin)')
+          top: calc(varRef('icon-size'))
+            .add(varRef('item-wrapper-padding-top'))
+            .add(varRef('rail-offset'))
+            .add(varRef('vertical-rail-margin'))
             .equal(),
-          insetInlineStart: calc(`var(--steps-icon-size-max)`).div(2).equal(),
-          bottom: calc('var(--steps-vertical-rail-margin)').sub('var(--steps-rail-offset)').equal(),
-          marginInlineStart: `calc(var(--steps-rail-size) / -2)`,
+          insetInlineStart: calc(varRef('icon-size-max')).div(2).equal(),
+          bottom: calc(varRef('vertical-rail-margin')).sub(varRef('rail-offset')).equal(),
+          marginInlineStart: `calc(${varRef('rail-size')} / -2)`,
         },
       },
     },

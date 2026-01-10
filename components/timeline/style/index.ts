@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genHorizontalStyle from './horizontal';
 
 export interface ComponentToken {
@@ -130,20 +131,20 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 };
 
 const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { calc, componentCls, itemPaddingBottom } = token;
+  const { calc, componentCls, itemPaddingBottom, antCls } = token;
   const itemCls = `${componentCls}-item`;
-
+  const [varName, varRef] = genCssVar(antCls, 'timeline');
   return {
     [`${componentCls}:not(${componentCls}-horizontal)`]: {
-      '--timeline-head-span': '12',
-      '--timeline-head-span-ptg': 'calc(var(--timeline-head-span) / 24 * 100%)',
+      [varName('head-span')]: '12',
+      [varName('head-span-ptg')]: `calc(${varRef('head-span')} / 24 * 100%)`,
 
       // =============================================================
       // ==                        Alternate                        ==
       // =============================================================
       [`&${componentCls}-layout-alternate`]: {
         [itemCls]: {
-          '--timeline-alternate-gap': calc(token.margin)
+          [varName('alternate-gap')]: calc(token.margin)
             .mul(2)
             .add('var(--steps-dot-icon-size)')
             .equal(),
@@ -154,7 +155,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           // Icon & Rail
           [`${itemCls}-icon, ${itemCls}-rail`]: {
             position: 'absolute',
-            insetInlineStart: 'var(--timeline-head-span-ptg)',
+            insetInlineStart: varRef('head-span-ptg'),
           },
 
           // Icon
@@ -166,7 +167,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           [`${itemCls}-section`]: {
             display: 'flex',
             flexWrap: 'nowrap',
-            gap: 'var(--timeline-alternate-gap)',
+            gap: varRef('alternate-gap'),
           },
 
           // >>> Header
@@ -174,13 +175,13 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             textAlign: 'end',
             flexDirection: 'column',
             alignItems: 'stretch',
-            flex: '1 1 calc(var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
+            flex: `1 1 calc(${varRef('head-span-ptg')} - ${varRef('alternate-gap')} / 2)`,
           },
 
           // >>> Content
           [`${itemCls}-content`]: {
             textAlign: 'start',
-            flex: '1 1 calc(100% - var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
+            flex: `1 1 calc(100% - ${varRef('head-span-ptg')} - ${varRef('alternate-gap')} / 2)`,
           },
 
           // Placement
@@ -195,7 +196,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             },
 
             [`${itemCls}-icon, ${itemCls}-rail`]: {
-              insetInlineStart: 'calc(100% - var(--timeline-head-span-ptg))',
+              insetInlineStart: `calc(100% - ${varRef('head-span-ptg')})`,
             },
           },
         },
@@ -241,7 +242,6 @@ export default genStyleHooks(
       customHeadPaddingVertical: token.paddingXXS,
       paddingInlineEnd: 2,
     });
-
     return [
       genTimelineStyle(timeLineToken),
       genVerticalStyle(timeLineToken),
