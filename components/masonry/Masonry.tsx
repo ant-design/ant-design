@@ -198,7 +198,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     const nextItemsHeight: ItemHeightData[] = [];
 
     mergedItems.forEach((item, index) => {
-      const itemKey = (item.key ?? index) as Key;
+      const itemKey = item.key ?? index;
       const itemEle = getItemRef(itemKey);
       const rect = itemEle?.getBoundingClientRect();
 
@@ -231,7 +231,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const itemWithPositions = React.useMemo(
     () =>
       mergedItems.map((item, index) => {
-        const key = (item.key ?? index) as Key;
+        const key = item.key ?? index;
         return {
           item,
           itemIndex: index,
@@ -447,7 +447,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
               style: motionStyle,
               ...restMotionInfo
             } = motionInfo;
-            return renderItem(restMotionInfo as any, motionRef, motionClassName, motionStyle);
+            return renderItem(restMotionInfo as Parameters<typeof renderItem>[0], motionRef, motionClassName, motionStyle);
           }}
         </CSSMotionList>
       </div>
