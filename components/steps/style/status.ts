@@ -317,7 +317,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             [varName('item-icon-bg-color')]: colorBgContainer,
             [varName('item-icon-border-color')]: colorError,
             [varName('item-icon-text-color')]: colorError,
-            [varName('item-icon-dot-bg-color')]: colorError,
+            [varName('item-icon-dot-color')]: colorError,
             // Hover
             [varName('item-icon-bg-hover-color')]: 'transparent',
             [varName('item-icon-border-hover-color')]: colorErrorHover,
