@@ -17,6 +17,8 @@ const useItems = (
 ) => {
   const itemCls = `${prefixCls}-item`;
 
+  const [varName] = genCssVar(rootPrefixCls, '_steps_'); // TODO: change `_steps_` to `steps`
+
   // Merge items and children
   const parseItems = React.useMemo<TimelineItemType[]>(() => {
     return Array.isArray(items)
@@ -46,13 +48,14 @@ const useItems = (
       let mergedStyle = style;
       let mergedClassName = className;
 
-      const [varName] = genCssVar(rootPrefixCls, '_steps_'); // TODO: change `_steps_` to `steps`
-
       if (color) {
         if (['blue', 'red', 'green', 'gray'].includes(color)) {
           mergedClassName = clsx(className, `${itemCls}-color-${color}`);
         } else {
-          mergedStyle = { [varName('item-icon-dot-color')]: color, ...style };
+          mergedStyle = {
+            [varName('item-icon-dot-color')]: color,
+            ...style,
+          };
         }
       }
 
@@ -90,7 +93,7 @@ const useItems = (
     }
 
     return mergedItems;
-  }, [parseItems, pending, mode, itemCls, rootPrefixCls, pendingDot]);
+  }, [parseItems, pending, mode, itemCls, varName, pendingDot]);
 };
 
 export default useItems;
