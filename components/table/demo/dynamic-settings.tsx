@@ -120,7 +120,17 @@ const App: React.FC = () => {
     setSectionVisibility(prev => ({ ...prev, showFooter: enable }));
   };
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
-  const [hasData, setHasData] = useState(true);
+  type TableDataState = {
+    hasData: boolean;
+  };
+
+  const [dataState, setDataState] = useState<TableDataState>({
+    hasData: true,
+  });
+
+  const handleDataChange = (newHasData: boolean) => {
+    setDataState(prev => ({ ...prev, hasData: newHasData }));
+  };
   const [tableLayout, setTableLayout] = useState<string>('unset');
   const [top, setTop] = useState<TablePaginationPlacement>('none');
   const [bottom, setBottom] = useState<TablePaginationPlacement>('bottomEnd');
