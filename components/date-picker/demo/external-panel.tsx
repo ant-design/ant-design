@@ -89,8 +89,15 @@ const DatePickerDemo: React.FC = () => {
 };
 
 const RangePickerDemo: React.FC = () => {
-  const [visible, setVisible] = React.useState(false);
-  const [panelVisible, setPanelVisible] = React.useState(false);
+  type DropdownState = {
+    visible: boolean;
+    panelVisible: boolean;
+  };
+
+  const [dropdownState, setDropdownState] = React.useState<DropdownState>({
+    visible: false,
+    panelVisible: false,
+  });
 
   const [dates, setDates] = React.useState<[Dayjs, Dayjs] | null>(() => [
     dayjs(),
