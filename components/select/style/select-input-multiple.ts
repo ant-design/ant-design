@@ -93,8 +93,8 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'flex',
           marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
           marginInlineEnd: calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
-          background: `${varRef('multi-item-background')}`,
-          borderRadius: `${varRef('multi-item-border-radius')}`,
+          background: varRef('multi-item-background'),
+          borderRadius: varRef('multi-item-border-radius'),
           paddingInlineStart: paddingXS,
           paddingInlineEnd: paddingXXS,
           transition: ['height', 'line-height', 'padding']
