@@ -65,6 +65,8 @@ export type PopoverToken = FullToken<'Popover'> & {
   popoverColor: string;
 };
 
+const FALL_BACK_ORIGIN = '50%';
+
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
@@ -106,8 +108,11 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         userSelect: 'text',
 
         // When use `autoArrow`, origin will follow the arrow position
-        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
-        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+        [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
+        transformOrigin: [
+          varRef('valid-offset-x', FALL_BACK_ORIGIN),
+          `var(--arrow-y, ${FALL_BACK_ORIGIN})`,
+        ].join(' '),
 
         [varName('arrow-background-color')]: colorBgElevated,
         width: 'max-content',
