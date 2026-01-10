@@ -51,7 +51,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             _skip_check_: true,
             value: '50%',
           },
-          transform: 'translate3d(-50%, -50%, 0)',
+          transform: 'translate(-50%, -50%)',
         },
       },
 

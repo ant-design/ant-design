@@ -6,15 +6,15 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, paddingXS, antCls } = token;
+  const { componentCls, fontHeight, antCls } = token;
   const itemCls = `${componentCls}-item`;
-  const [stepsVarName, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
 
   return {
     [`${componentCls}-horizontal`]: {
-      [stepsVarName('title-vertical-row-gap')]: paddingXS,
+      // [stepsVarName('title-vertical-row-gap')]: paddingXS,
       [timelineVarName('content-height')]: unit(fontHeight),
 
       // =============================================================
@@ -42,7 +42,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           [`${itemCls}-icon, ${itemCls}-rail`]: {
             position: 'absolute',
             top: '50%',
-            transform: 'translate3d(0, -50%, 0)',
+            transform: 'translateY(-50%)',
             margin: 0,
           },
 
@@ -59,7 +59,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
               _skip_check_: true,
               value: '50%',
             },
-            transform: 'translate3d(-50%, 0, 0)',
+            transform: 'translateX(-50%)',
           },
 
           // Content
@@ -69,7 +69,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
               _skip_check_: true,
               value: '50%',
             },
-            transform: 'translate3d(-50%, 0, 0)',
+            transform: 'translateX(-50%)',
           },
 
           // Placement
@@ -108,7 +108,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           [`${itemCls}-rail`]: {
             top: 'auto',
             bottom: stepsVarRef('horizontal-rail-margin'),
-            transform: 'translate3d(0, 50%, 0)',
+            transform: 'translateY(50%)',
           },
         },
       },
