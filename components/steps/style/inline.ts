@@ -27,7 +27,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [itemCls]: {
         // ========================= Variable =========================
         // Item
-        [varName('title-vertical-row-gap')]: token.paddingXS,
+        [varName('title-vertical-row-gap')]: paddingXS,
 
         // Icon
         [varName('icon-size')]: inlineDotSize,

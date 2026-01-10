@@ -3,25 +3,25 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { genCssVar } from '../theme/util/genStyleUtils';
 import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline';
 
-export default function useItems(
+const useItems = (
+  rootPrefixCls: string,
   prefixCls: string,
   mode: TimelineMode,
   items?: TimelineItemType[],
   children?: React.ReactNode,
   pending?: TimelineProps['pending'],
   pendingDot?: TimelineProps['pendingDot'],
-): TimelineItemType[] {
+) => {
   const itemCls = `${prefixCls}-item`;
 
   // Merge items and children
   const parseItems = React.useMemo<TimelineItemType[]>(() => {
     return Array.isArray(items)
       ? items
-      : toArray(children).map((ele: React.ReactElement<any>) => ({
-          ...ele.props,
-        }));
+      : toArray(children).map((ele: React.ReactElement<any>) => ({ ...ele.props }));
   }, [items, children]);
 
   // convert legacy type
@@ -46,15 +46,13 @@ export default function useItems(
       let mergedStyle = style;
       let mergedClassName = className;
 
-      // Color
+      const [varName] = genCssVar(rootPrefixCls, '_steps_'); // TODO: change `_steps_` to `steps`
+
       if (color) {
         if (['blue', 'red', 'green', 'gray'].includes(color)) {
           mergedClassName = clsx(className, `${itemCls}-color-${color}`);
         } else {
-          mergedStyle = {
-            '--steps-item-icon-dot-color': color,
-            ...style,
-          };
+          mergedStyle = { [varName('item-icon-dot-color')]: color, ...style };
         }
       }
 
@@ -92,5 +90,7 @@ export default function useItems(
     }
 
     return mergedItems;
-  }, [parseItems, pending, pendingDot, itemCls, mode]);
-}
+  }, [parseItems, pending, mode, itemCls, rootPrefixCls, pendingDot]);
+};
+
+export default useItems;
