@@ -99,9 +99,29 @@ const App: React.FC = () => {
   const [expandable, setExpandable] = useState<ExpandableConfig<DataType> | undefined>(
     defaultExpandable,
   );
-  const [showTitle, setShowTitle] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [showFooter, setShowFooter] = useState(true);
+  type TableSectionVisibility = {
+    showTitle: boolean;
+    showHeader: boolean;
+    showFooter: boolean;
+  };
+
+  const [sectionVisibility, setSectionVisibility] = useState<TableSectionVisibility>({
+    showTitle: false,
+    showHeader: true,
+    showFooter: true,
+  });
+
+  const handleTitleChange = (enable: boolean) => {
+    setSectionVisibility(prev => ({ ...prev, showTitle: enable }));
+  };
+
+  const handleHeaderChange = (enable: boolean) => {
+    setSectionVisibility(prev => ({ ...prev, showHeader: enable }));
+  };
+
+  const handleFooterChange = (enable: boolean) => {
+    setSectionVisibility(prev => ({ ...prev, showFooter: enable }));
+  };
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
   const [tableLayout, setTableLayout] = useState<string>('unset');
