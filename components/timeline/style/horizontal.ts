@@ -6,13 +6,16 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, antCls } = token;
+  const { componentCls, fontHeight, paddingXS, antCls } = token;
   const itemCls = `${componentCls}-item`;
-  const [varName, varRef] = genCssVar(antCls, 'timeline');
+  const [stepsVarName, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+
+  const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
+
   return {
     [`${componentCls}-horizontal`]: {
-      '--steps-title-vertical-row-gap': token.paddingXS,
-      [varName('content-height')]: unit(fontHeight),
+      [stepsVarName('title-vertical-row-gap')]: paddingXS,
+      [timelineVarName('content-height')]: unit(fontHeight),
 
       // =============================================================
       // ==                          Share                          ==
@@ -25,9 +28,9 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       [`&${componentCls}-layout-alternate`]: {
         [itemCls]: {
           [`${itemCls}-wrapper`]: {
-            [varName('alternate-content-offset')]:
-              `calc(${varRef('content-height')} + var(--steps-title-vertical-row-gap) * 2 + var(--steps-icon-size-max))`,
-            height: `calc(${varRef('content-height')} * 2 + var(--steps-title-vertical-row-gap) * 2 + var(--steps-icon-size-max))`,
+            [timelineVarName('alternate-content-offset')]:
+              `calc(${timelineVarRef('content-height')} + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
+            height: `calc(${timelineVarRef('content-height')} * 2 + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
           },
 
           // Icon
@@ -72,18 +75,18 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           // Placement
           '&-placement-start': {
             [`${itemCls}-title`]: {
-              bottom: varRef('alternate-content-offset'),
+              bottom: timelineVarRef('alternate-content-offset'),
             },
             [`${itemCls}-content`]: {
-              top: varRef('alternate-content-offset'),
+              top: timelineVarRef('alternate-content-offset'),
             },
           },
           '&-placement-end': {
             [`${itemCls}-title`]: {
-              top: varRef('alternate-content-offset'),
+              top: timelineVarRef('alternate-content-offset'),
             },
             [`${itemCls}-content`]: {
-              bottom: varRef('alternate-content-offset'),
+              bottom: timelineVarRef('alternate-content-offset'),
             },
           },
         },
@@ -104,7 +107,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           [`${itemCls}-rail`]: {
             top: 'auto',
-            bottom: 'var(--steps-horizontal-rail-margin)',
+            bottom: stepsVarRef('horizontal-rail-margin'),
             transform: 'translate3d(0, 50%, 0)',
           },
         },
