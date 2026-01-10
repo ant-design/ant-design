@@ -6,15 +6,16 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, antCls } = token;
-  const itemCls = `${componentCls}-item`;
-  const [, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const { componentCls, fontHeight, antCls, paddingXS } = token;
 
+  const [stepsVarName, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
   const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
+
+  const itemCls = `${componentCls}-item`;
 
   return {
     [`${componentCls}-horizontal`]: {
-      // [stepsVarName('title-vertical-row-gap')]: paddingXS,
+      [stepsVarName('title-vertical-row-gap')]: paddingXS,
       [timelineVarName('content-height')]: unit(fontHeight),
 
       // =============================================================
