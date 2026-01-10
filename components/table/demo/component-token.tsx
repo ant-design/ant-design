@@ -138,8 +138,23 @@ const App: React.FC = () => {
   const [tableLayout, setTableLayout] = useState<string>('unset');
   const [top, setTop] = useState<TablePaginationPlacement>('none');
   const [bottom, setBottom] = useState<TablePaginationPlacement>('bottomEnd');
-  const [ellipsis, setEllipsis] = useState(false);
-  const [yScroll, setYScroll] = useState(false);
+  type TableDisplayOptions = {
+    yScroll: boolean;
+    ellipsis: boolean;
+  };
+
+  const [displayOptions, setDisplayOptions] = useState<TableDisplayOptions>({
+    yScroll: false,
+    ellipsis: false,
+  });
+
+  const handleYScrollChange = (enable: boolean) => {
+    setDisplayOptions(prev => ({ ...prev, yScroll: enable }));
+  };
+
+  const handleEllipsisChange = (enable: boolean) => {
+    setDisplayOptions(prev => ({ ...prev, ellipsis: enable }));
+  };
   const [xScroll, setXScroll] = useState<string>('unset');
 
   const handleBorderChange = (enable: boolean) => {
