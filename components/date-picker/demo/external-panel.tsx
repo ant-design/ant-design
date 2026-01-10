@@ -5,8 +5,15 @@ import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
 const DatePickerDemo: React.FC = () => {
-  const [visible, setVisible] = React.useState(false);
-  const [panelVisible, setPanelVisible] = React.useState(false);
+  type DropdownState = {
+    visible: boolean;
+    panelVisible: boolean;
+  };
+
+  const [dropdownState, setDropdownState] = React.useState<DropdownState>({
+    visible: false,
+    panelVisible: false,
+  });
 
   const [date, setDate] = React.useState<Dayjs | null>(() => dayjs());
 

@@ -77,13 +77,48 @@ const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
 const App: React.FC = () => {
-  const [bordered, setBordered] = useState(false);
-  const [loading, setLoading] = useState(false);
+  type TableStyleState = {
+    bordered: boolean;
+    loading: boolean;
+  };
+
+  const [styleState, setStyleState] = useState<TableStyleState>({
+    bordered: false,
+    loading: false,
+  });
+
+  const handleBorderChange = (enable: boolean) => {
+    setStyleState(prev => ({ ...prev, bordered: enable }));
+  };
+
+  const handleLoadingChange = (enable: boolean) => {
+    setStyleState(prev => ({ ...prev, loading: enable }));
+  };
   const [size, setSize] = useState<SizeType>('large');
   const [expandable, setExpandable] = useState<ExpandableConfig<DataType>>(defaultExpandable);
-  const [showTitle, setShowTitle] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [showFooter, setShowFooter] = useState(true);
+  type TableSectionVisibility = {
+    showTitle: boolean;
+    showHeader: boolean;
+    showFooter: boolean;
+  };
+
+  const [sectionVisibility, setSectionVisibility] = useState<TableSectionVisibility>({
+    showTitle: false,
+    showHeader: true,
+    showFooter: true,
+  });
+
+  const handleTitleChange = (enable: boolean) => {
+    setSectionVisibility(prev => ({ ...prev, showTitle: enable }));
+  };
+
+  const handleHeaderChange = (enable: boolean) => {
+    setSectionVisibility(prev => ({ ...prev, showHeader: enable }));
+  };
+
+  const handleFooterChange = (enable: boolean) => {
+    setSectionVisibility(prev => ({ ...prev, showFooter: enable }));
+  };
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
   const [tableLayout, setTableLayout] = useState<string>('unset');
