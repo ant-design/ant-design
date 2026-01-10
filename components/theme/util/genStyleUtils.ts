@@ -42,14 +42,6 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
   getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });
 
-const generateId = (() => {
-  let i = 0;
-  return (prefix = '') => {
-    i += 1;
-    return `${prefix}${i}`;
-  };
-})();
-
 type CalcCssVarName = (inputs: string) => `--${string}`;
 
 type CalcCssVarRef = (inputs: string, fallback?: string) => `var(--${string})`;
@@ -58,9 +50,7 @@ export const genCssVar = (
   antCls: string,
   component: string,
 ): readonly [CalcCssVarName, CalcCssVarRef] => {
-  const uniqueId = generateId(component);
-  const cssPrefix =
-    `--${antCls.replace(/\./g, '')}-${component}-${uniqueId}-` satisfies `--${string}`;
+  const cssPrefix = `--${antCls.replace(/\./g, '')}-${component}-` satisfies `--${string}`;
   const varName: CalcCssVarName = (name) => {
     return `${cssPrefix}${name}`;
   };

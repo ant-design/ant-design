@@ -146,7 +146,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const { componentCls, colorText, antCls, colorTextDisabled, calc } = token;
-  const [varName, varRef] = genCssVar(antCls, 'mentions');
+  const [varName, varRef] = genCssVar(antCls, '_mentions_'); // TODO: change to `mentions`
   return {
     [componentCls]: [
       // =========================== Common ===========================
