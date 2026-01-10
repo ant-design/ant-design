@@ -352,7 +352,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     const itemStyle: CSSProperties = {
       [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
       insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-      width: `calc(var(--item-width) - ${horizontalGutter}px)`,
+      width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
       top: topPosition,
       position: 'absolute',
     };
