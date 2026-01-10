@@ -61,6 +61,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
+// Comentando para dar um commit
 const dataSource = Array.from({ length: 10 }).map<DataType>((_, i) => ({
   key: i,
   name: 'John Brown',
@@ -77,8 +78,23 @@ const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
 const App: React.FC = () => {
-  const [bordered, setBordered] = useState(false);
-  const [loading, setLoading] = useState(false);
+  type TableStyleState = {
+    bordered: boolean;
+    loading: boolean;
+  };
+
+  const [styleState, setStyleState] = useState<TableStyleState>({
+    bordered: false,
+    loading: false,
+  });
+
+  const handleBorderChange = (enable: boolean) => {
+    setStyleState(prev => ({ ...prev, bordered: enable }));
+  };
+
+  const handleLoadingChange = (enable: boolean) => {
+    setStyleState(prev => ({ ...prev, loading: enable }));
+  };
   const [size, setSize] = useState<SizeType>('large');
   const [expandable, setExpandable] = useState<ExpandableConfig<DataType> | undefined>(
     defaultExpandable,

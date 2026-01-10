@@ -188,12 +188,21 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
   // ========================== Ellipsis ==========================
-  const [isLineClampSupport, setIsLineClampSupport] = React.useState(false);
-  const [isTextOverflowSupport, setIsTextOverflowSupport] = React.useState(false);
+  type EllipsisState = {
+    lineClampSupport: boolean;
+    textOverflowSupport: boolean;
+    jsEllipsis: boolean;
+    nativeEllipsis: boolean;
+    nativeVisible: boolean;
+  };
 
-  const [isJsEllipsis, setIsJsEllipsis] = React.useState(false);
-  const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
-  const [isNativeVisible, setIsNativeVisible] = React.useState(true);
+  const [ellipsisState, setEllipsisState] = React.useState<EllipsisState>({
+    lineClampSupport: false,
+    textOverflowSupport: false,
+    jsEllipsis: false,
+    nativeEllipsis: false,
+    nativeVisible: true,
+  });
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
     symbol: (isExpanded) => (isExpanded ? textLocale?.collapse : textLocale?.expand),
