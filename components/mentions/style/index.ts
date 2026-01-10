@@ -146,7 +146,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const { componentCls, colorText, antCls, colorTextDisabled, calc } = token;
-  const [varName, varRef] = genCssVar(antCls, '_mentions'); // 这里的参数不能传 `mentions`，否则就会和组件的 prefixCls 重复，导致组件本身的 css 变量被覆盖
+  const [varName, varRef] = genCssVar(antCls, 'mentions');
   return {
     [componentCls]: [
       // =========================== Common ===========================
