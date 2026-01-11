@@ -283,21 +283,29 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     </section>
   );
 
+  const styleRef = useRef<HTMLStyleElement | null>(null);
+
   useEffect(() => {
-    // In Safari, if style tag be inserted into non-head tag,
-    // it will affect the rendering ability of the browser,
-    // resulting in some response delays like following issue:
-    // https://github.com/ant-design/ant-design/issues/39995
-    // So we insert style tag into head tag.
     if (!style) {
       return;
     }
+    
+    // Cleanup previous style if exists
+    if (styleRef.current) {
+      document.head.removeChild(styleRef.current);
+    }
+    
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
-    (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
+    styleTag.setAttribute('data-demo-url', demoUrlWithTheme);
+    styleRef.current = styleTag;
     document.head.appendChild(styleTag);
+    
     return () => {
-      document.head.removeChild(styleTag);
+      if (styleRef.current && document.head.contains(styleRef.current)) {
+        document.head.removeChild(styleRef.current);
+        styleRef.current = null;
+      }
     };
   }, [style, demoUrlWithTheme]);
 
