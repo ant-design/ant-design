@@ -54,7 +54,11 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
 
   const handleClick = () => {
     const scriptId = 'hitu-code-block-js';
-    const existScript = document.getElementById(scriptId) as HTMLScriptElement;
+    const scriptRef = useRef<HTMLScriptElement | null>(null);
+    if (scriptRef.current?.dataset.loaded) {
+      openHituCodeBlockFn();
+      return;
+    }
     if (existScript?.dataset.loaded) {
       openHituCodeBlockFn();
       return;
