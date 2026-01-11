@@ -76,7 +76,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
     },
 
-    [`&${componentCls}-with-progress11`]: {
+    [`&${componentCls}-with-progress`]: {
       // ==========================================================
       // ==                        Shared                        ==
       // ==========================================================
