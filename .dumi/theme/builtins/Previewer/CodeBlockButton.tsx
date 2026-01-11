@@ -64,18 +64,33 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
       return;
     }
     setLoading(true);
-    const script = document.createElement('script');
-    script.src = `https://renderoffice.alipayobjects.com/p/yuyan/180020010001206410/parseFileData-v1.0.1.js?t=${Date.now()}`;
-    script.async = true;
-    script.id = scriptId;
-    script.onload = () => {
-      script.dataset.loaded = 'true';
-      openHituCodeBlockFn();
-    };
-    script.onerror = () => {
-      openHituCodeBlockFn();
-    };
-    document.body.appendChild(script);
+    useEffect(() => {
+    const loadScript = () => {
+        if (scriptRef.current?.dataset.loaded) return;
+        
+        const script = document.createElement('script');
+        script.src = `https://renderoffice.alipayobjects.com/p/yuyan/180020010001206410/parseFileData-v1.0.1.js?t=${Date.now()}`;
+        script.async = true;
+        script.id = scriptId;
+        script.onload = () => {
+          script.dataset.loaded = 'true';
+          scriptRef.current = script;
+          openHituCodeBlockFn();
+        };
+        script.onerror = openHituCodeBlockFn;
+        
+        document.body.appendChild(script);
+        scriptRef.current = script;
+        
+        return () => {
+          if (scriptRef.current) {
+            document.body.removeChild(scriptRef.current);
+          }
+        };
+      };
+      
+      return loadScript();
+    }, []);
   };
 
   return (
