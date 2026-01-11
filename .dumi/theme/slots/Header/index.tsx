@@ -134,7 +134,8 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       }
     `,
     versionSelect: css`
-      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致
+      width: 112px;
+      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致 https://github.com/ant-design/ant-design/pull/56567
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
@@ -173,7 +174,9 @@ const Header: React.FC = () => {
       ? window.location.hostname.includes('.antgroup.com')
       : false;
 
-  const { data: versions = [], isLoading } = useSWR<VersionItem[]>(
+  const isLoading = true;
+
+  const { data: versions = [] } = useSWR<VersionItem[]>(
     process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
       ? `${window.location.origin}/versions.json`
       : null,
