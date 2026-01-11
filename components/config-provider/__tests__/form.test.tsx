@@ -271,11 +271,24 @@ describe('ConfigProvider.Form', () => {
       fireEvent.submit(container.querySelector('form')!);
       await waitFakeTimer();
 
-      const inputNode = document.getElementById('test');
-      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-        block: 'center',
-        scrollMode: 'if-needed',
-      });
+    const { getByRole } = render(
+      <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
+        <Form onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input role="textbox" />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+    
+    const inputNode = getByRole('textbox');
+    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+      block: 'center',
+      scrollMode: 'if-needed',
+    });
       expect(onFinishFailed).toHaveBeenCalled();
     });
 

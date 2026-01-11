@@ -24,6 +24,8 @@ const App: React.FC = () => {
 
   // or you can download flipped and rotated image
   // https://codesandbox.io/s/zi-ding-yi-gong-ju-lan-antd-5-7-0-forked-c9jvmp
+  const linkRef = useRef<HTMLAnchorElement | null>(null);
+
   const onDownload = () => {
     const url = imageList[current];
     const suffix = url.slice(url.lastIndexOf('.'));
@@ -33,15 +35,29 @@ const App: React.FC = () => {
       .then((response) => response.blob())
       .then((blob) => {
         const blobUrl = URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
+        
+        if (!linkRef.current) {
+          linkRef.current = document.createElement('a');
+          document.body.appendChild(linkRef.current);
+        }
+        
+        linkRef.current.href = blobUrl;
+        linkRef.current.download = filename;
+        linkRef.current.click();
+        
         URL.revokeObjectURL(blobUrl);
-        link.remove();
       });
   };
+
+  // Cleanup no useEffect
+  useEffect(() => {
+    return () => {
+      if (linkRef.current) {
+        document.body.removeChild(linkRef.current);
+        linkRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <Image.PreviewGroup
