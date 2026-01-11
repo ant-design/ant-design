@@ -50,10 +50,16 @@ const DocLayout: React.FC = () => {
     }
   }, [lang]);
 
+  const nprogressStyleRef = useRef<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    nprogressStyleRef.current = document.getElementById('nprogress-style');
+  }, []);
+
   useEffect(() => {
-    const nprogressHiddenStyle = document.getElementById('nprogress-style');
     timerRef.current = setTimeout(() => {
-      nprogressHiddenStyle?.remove();
+      nprogressStyleRef.current?.remove();
+      nprogressStyleRef.current = null;
     }, 0);
     return () => clearTimeout(timerRef.current);
   }, []);
