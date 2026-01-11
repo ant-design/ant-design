@@ -45,6 +45,19 @@ const MenuItem: GenericComponent = (props) => {
     styles,
     classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
+  const { siderCollapsed } = React.useContext<SiderContextProps>(SiderContext);
+
+  const mergedCollapsed = siderCollapsed || isInlineCollapsed;
+
+  // Controlled tooltip state to prevent flash during collapse/expand transitions
+  // ref: https://github.com/ant-design/ant-design/issues/56528
+  const [tooltipOpen, setTooltipOpen] = React.useState(false);
+
+  // Reset tooltip state when collapsed state changes to prevent flash
+  React.useEffect(() => {
+    setTooltipOpen(false);
+  }, [mergedCollapsed]);
+
   const renderItemChildren = (inlineCollapsed: boolean) => {
     const label = (children as React.ReactNode[])?.[0];
     const wrapNode = (
@@ -71,10 +84,8 @@ const MenuItem: GenericComponent = (props) => {
     return wrapNode;
   };
 
-  const { siderCollapsed } = React.useContext<SiderContextProps>(SiderContext);
-
+  // Compute tooltip title
   let tooltipTitle = title;
-
   if (typeof title === 'undefined') {
     tooltipTitle = firstLevel ? children : '';
   } else if (title === false) {
@@ -83,11 +94,15 @@ const MenuItem: GenericComponent = (props) => {
 
   const tooltipProps: TooltipProps = { title: tooltipTitle };
 
-  if (!siderCollapsed && !isInlineCollapsed) {
+  if (!mergedCollapsed) {
     tooltipProps.title = null;
     // Reset `open` to fix control mode tooltip display not correct
     // ref: https://github.com/ant-design/ant-design/issues/16742
     tooltipProps.open = false;
+  } else {
+    // When collapsed, use controlled state to prevent flash during transitions
+    tooltipProps.open = tooltipOpen;
+    tooltipProps.onOpenChange = setTooltipOpen;
   }
 
   const childrenLength = toArray(children).length;
