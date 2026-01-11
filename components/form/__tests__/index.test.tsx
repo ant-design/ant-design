@@ -420,11 +420,12 @@ describe('Form', () => {
           block: 'start',
         });
 
-        const inputNode = document.getElementById('scroll_test');
+        const { getByRole } = render(<Demo />);
+
+        const inputNode = getByRole('textbox');
         expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
           block: 'start',
           scrollMode: 'if-needed',
-          });
         });
     };
 
