@@ -174,9 +174,7 @@ const Header: React.FC = () => {
       ? window.location.hostname.includes('.antgroup.com')
       : false;
 
-  const isLoading = true;
-
-  const { data: versions = [] } = useSWR<VersionItem[]>(
+  const { data: versions = [], isLoading } = useSWR<VersionItem[]>(
     process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
       ? `${window.location.origin}/versions.json`
       : null,
