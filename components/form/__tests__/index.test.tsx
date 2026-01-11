@@ -424,8 +424,8 @@ describe('Form', () => {
         expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
           block: 'start',
           scrollMode: 'if-needed',
+          });
         });
-      });
     };
 
     // hooks
